@@ -9,7 +9,7 @@ non-calibrated spectra extracted CCD exposure
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -19,7 +19,7 @@ spFrame contains the non-calibrated spectra from the red- or blue-half of a sing
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spFrame-[BR][ID]-[FRAME].fits.gz
 
 ### Releases
-IPL3, DR19
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,18 +36,21 @@ idlspec2d
 ### Is a VAC
 False
 
+### Data Level
+0.0.0
+
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
-  - [HDU2: ](#hdu2-)
-  - [HDU3: ](#hdu3-)
-  - [HDU4: ](#hdu4-)
-  - [HDU5: ](#hdu5-)
-  - [HDU6: ](#hdu6-)
-  - [HDU7: ](#hdu7-)
-  - [HDU8: ](#hdu8-)
-  - [HDU9: ](#hdu9-)
-  - [HDU10: ](#hdu10-)
+  - [HDU1](#hdu1)
+  - [HDU2](#hdu2)
+  - [HDU3](#hdu3)
+  - [HDU4](#hdu4)
+  - [HDU5](#hdu5)
+  - [HDU6](#hdu6)
+  - [HDU7](#hdu7)
+  - [HDU8](#hdu8)
+  - [HDU9](#hdu9)
+  - [HDU10](#hdu10)
 
 ---
 
@@ -55,6 +58,40 @@ False
 Describes changes to the datamodel product and/or file structure from one release to another
  - DR19
    - from: IPL3
+   - note: No changes
+ - IPL3
+   - from: DR18
+   - primary_delta_nkeys: 63
+   - added_primary_header_kwargs: ['VCALIBS', 'FIELDID', 'ARCHBACK', 'MCTRCB', 'ARCHBVER', 'MECHORIZ', 'SIGBS0', 'SPEC', 'CCDTYPE', 'OFFPA', 'SLITID', 'STDBS0', 'MCHUMCO', 'B2CAMT', 'OFFRA', 'CCDSUM', 'GSEEING', 'MCTRCT', 'MCTHT', 'MCTBCB', 'MCTEMDN', 'CONFID', 'CCDID', 'CENBS0', 'ARCHACF', 'VJAEGER', 'STDAS0', 'T_FLOOR', 'ARCHTEMP', 'SPECMT', 'VCOORDIO', 'AVGBS0', 'T_TRUSS', 'DESIGNID', 'OBSERVAT', 'MECHORIX', 'MCTBCT', 'CCD', 'MCHUMHT', 'R2CAMT', 'V_RAD', 'HA', 'VKAIJU', 'R2CAMH', 'T_CELL', 'V_ARCHON', 'DAQVER', 'T_OUT', 'BOSSVER', 'HEAR', 'COLLT', 'INTEND', 'T_IN', 'B2CAMH', 'COLLH', 'T_PRIM', 'INTSTART', 'OFFDEC', 'AVGAS0', 'BUFFER', 'MECHORIY', 'CONFSFIL', 'OBSMODE']
+   - removed_primary_header_kwargs: ['TWOPHASE', 'TILEID', 'STDBSH0', 'MC1HUMCO', 'AVGBSH0', 'AUTHOR', 'SLITID1', 'MC1TRCT', 'AVGASH0', 'MGDDEC', 'MC1TBCB', 'MC1THT', 'MC1TEMDN', 'PLUGFILE', 'CAMROW', 'CAMCOL', 'SIGBSH0', 'STDASH0', 'CENBSH0', 'MC1TBCT', 'MC1TRCB', 'MGDPOS', 'MGDRA', 'MC1HUMHT']
+ - DR18
+   - from: DR17
+   - primary_delta_nkeys: 45
+   - added_primary_header_kwargs: ['V_APO', 'IONPUMP', 'GUSTD', 'WINDS', 'WINDD25M', 'DUSTB', 'STDBSH0', 'PFERR', 'MC1HUMCO', 'WINDS25M', 'GUSTS', 'AVGBSH0', 'WDISPR', 'SLITID1', 'WINDD', 'MC1TRCT', 'REQTIME', 'PLATETYP', 'SRVYMODE', 'DEWPOINT', 'AVGASH0', 'MC1TBCB', 'MGDDEC', 'V_BOSS', 'TRUSTEMP', 'MC1THT', 'V_GUIDER', 'V_SOP', 'DARKTIME', 'MC1TEMDN', 'M1ZROT', 'STDASH0', 'SIGBSH0', 'LN2TEMP', 'M2ZROT', 'CENBSH0', 'MC1TBCT', 'MC1TRCB', 'SHOPETIM', 'MGDPOS', 'SUBFRAME', 'CCDTEMP', 'PRESSURE', 'SHCLOTIM', 'DIDFLUSH', 'HUMIDITY', 'AIRTEMP', 'DUSTA', 'MGDRA', 'MC1HUMHT']
+   - removed_primary_header_kwargs: ['OBJOFFX', 'OBJOFFY', 'PIXBIAS', 'DAQVER', 'BOSSVER']
+ - DR17
+   - from: DR16
+   - note: No changes
+ - DR16
+   - from: DR15
+   - note: No changes
+ - DR15
+   - from: DR14
+   - note: No changes
+ - DR14
+   - from: DR13
+   - note: No changes
+ - DR13
+   - from: DR11
+   - note: No changes
+ - DR11
+   - from: DR12
+   - note: No changes
+ - DR12
+   - from: DR10
+   - note: No changes
+ - DR10
+   - from: DR9
    - note: No changes
 
 ---
@@ -680,3 +717,7 @@ Key | Value | Comment | |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

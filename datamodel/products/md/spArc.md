@@ -9,7 +9,7 @@ Extacted Arc Frame and wavelength solution
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -19,7 +19,7 @@ This file contains information about flux density, wavelength solution, fibermas
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spArc-[BR][ID]-[FRAME].fits.gz
 
 ### Releases
-IPL3, DR19
+DR17, DR18, IPL3, DR19
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,13 +36,16 @@ idlspec2d - spCalib.pro
 ### Is a VAC
 False
 
+### Data Level
+0.0.0
+
 ### HDUS List for release DR19
   - [HDU0: flux](#hdu0-flux)
-  - [HDU1: ](#hdu1-)
-  - [HDU2: ](#hdu2-)
-  - [HDU3: ](#hdu3-)
-  - [HDU4: ](#hdu4-)
-  - [HDU5: ](#hdu5-)
+  - [HDU1](#hdu1)
+  - [HDU2](#hdu2)
+  - [HDU3](#hdu3)
+  - [HDU4](#hdu4)
+  - [HDU5](#hdu5)
   - [HDU6: rejline](#hdu6-rejline)
   - [HDU7: XDIF_TSET](#hdu7-xdif_tset)
 
@@ -53,6 +56,16 @@ Describes changes to the datamodel product and/or file structure from one releas
  - DR19
    - from: IPL3
    - added_hdus: ['rejline', 'XDIF_TSET']
+ - IPL3
+   - from: DR18
+   - primary_delta_nkeys: 79
+   - added_primary_header_kwargs: ['VJAEGER', 'MEDREX0', 'MCTBCT', 'OFFDEC', 'CCDSUM', 'SPEC', 'MCHUMCO', 'T_TRUSS', 'MEDREX3', 'MECHORIZ', 'NMATCH', 'MEDWIDT3', 'CCDTYPE', 'OFFRA', 'R2CAMT', 'FIELDID', 'OFFPA', 'MCTBCB', 'MEDWIDT1', 'BOSSVER', 'T_FLOOR', 'DAQVER', 'SPECMT', 'EQUINOX', 'GSEEING', 'SLITID', 'V_ARCHON', 'DESIGNID', 'ARCHTEMP', 'ARCNAME', 'B2CAMT', 'MCTEMDN', 'BUFFER', 'VCALIBS', 'FLATNAME', 'CCDID', 'ARCHBVER', 'TSEP', 'CCD', 'T_CELL', 'MCTHT', 'T_OUT', 'COLLH', 'ARCHBACK', 'MCHUMHT', 'B2CAMH', 'MECHORIY', 'COLLT', 'T_PRIM', 'ARCHACF', 'R2CAMH', 'HA', 'TAI', 'VCOORDIO', 'T_IN', 'MEDREX1', 'HEAR', 'AIRMASS', 'MCTRCB', 'CONFID', 'VERS2D', 'MEDWIDT2', 'MECHORIX', 'EXTNAME', 'INTSTART', 'VKAIJU', 'MEDREX2', 'INTEND', 'MCTRCT', 'MEDWIDT0', 'OBSERVAT']
+   - removed_primary_header_kwargs: ['AUTHOR', 'MC1TEMDN', 'TWOPHASE', 'CAMCOL', 'SLITID1', 'MGDPOS', 'MC1HUMCO', 'CAMROW', 'MGDDEC', 'MC1TBCT', 'MC1TRCB', 'MC1HUMHT', 'MC1THT', 'MC1TBCB', 'MC1TRCT', 'MGDRA']
+ - DR18
+   - from: DR17
+   - primary_delta_nkeys: 38
+   - added_primary_header_kwargs: ['SHOPETIM', 'DIDFLUSH', 'WINDS25M', 'REQTIME', 'LN2TEMP', 'MC1HUMCO', 'M2ZROT', 'MC1HUMHT', 'MC1THT', 'MGDDEC', 'GUSTD', 'V_SOP', 'MC1TEMDN', 'AIRTEMP', 'M1ZROT', 'PRESSURE', 'MGDPOS', 'MC1TBCT', 'V_GUIDER', 'V_BOSS', 'V_APO', 'SHCLOTIM', 'IONPUMP', 'TRUSTEMP', 'DEWPOINT', 'DUSTA', 'GUSTS', 'WINDD', 'SUBFRAME', 'MC1TRCT', 'DUSTB', 'PFERR', 'DARKTIME', 'WINDS', 'SLITID1', 'CCDTEMP', 'HUMIDITY', 'PLATETYP', 'MC1TRCB', 'SRVYMODE', 'MC1TBCB', 'WINDD25M', 'MGDRA']
+   - removed_primary_header_kwargs: ['OBJOFFY', 'OBJOFFX', 'BOSSVER', 'DAQVER', 'PIXBIAS']
 
 ---
 ## Example HDUS List
@@ -482,3 +495,7 @@ How to use these coefficients - Let x be the pixel number of a given trace. We d
   x = x + jump * XJUMPVAL
   mu = 2*(x-XMID)/(XMAX-XMIN)
   loglam = FUNC(mu)
+
+---
+## Regrets
+I have no regrets!

@@ -7,23 +7,201 @@ general:
   datatype: FITS
   filesize: 9 MB
   releases:
+  - DR9
+  - DR10
+  - DR12
+  - DR11
+  - DR13
+  - DR14
+  - DR15
+  - DR16
+  - DR17
+  - DR18
   - IPL3
   - DR19
   environments:
   - BOSS_SPECTRO_REDUX
   surveys:
   - BHM
+  - SDSS
+  - eBOSS
   naming_convention: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spFlat-[BR][ID]-[FRAME].fits.gz
   generated_by: idlspec2d - spcalib.pro
   design: false
   vac: false
   recommended_science_product: false
+  data_level: 0.0.0
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
   releases:
     DR19:
       from: IPL3
+      note: No changes
+    IPL3:
+      from: DR18
+      added_hdus:
+      - xsol
+      primary_delta_nkeys: 73
+      added_primary_header_kwargs:
+      - SPECMT
+      - MEDWIDT2
+      - B2CAMH
+      - VERS2D
+      - OFFDEC
+      - T_OUT
+      - MECHORIZ
+      - ARCHTEMP
+      - MEDWIDT3
+      - COLLH
+      - COLLT
+      - EXTNAME
+      - ARCHACF
+      - R2CAMT
+      - HA
+      - T_FLOOR
+      - MCHUMHT
+      - T_CELL
+      - FIELDID
+      - SPEC
+      - MECHORIX
+      - INTSTART
+      - CCDTYPE
+      - OFFPA
+      - R2CAMH
+      - MCTBCB
+      - T_PRIM
+      - MCTEMDN
+      - BOSSVER
+      - DESIGNID
+      - GSEEING
+      - CONFID
+      - ARCNAME
+      - B2CAMT
+      - BUFFER
+      - CCD
+      - AIRMASS
+      - HEAR
+      - CCDSUM
+      - DAQVER
+      - VKAIJU
+      - EQUINOX
+      - MEDWIDT0
+      - MCHUMCO
+      - PROFTYPE
+      - INTEND
+      - VJAEGER
+      - T_IN
+      - CCDID
+      - ARCHBACK
+      - MCTRCT
+      - MCTHT
+      - MEDWIDT1
+      - V_ARCHON
+      - VCOORDIO
+      - ARCHBVER
+      - VCALIBS
+      - MECHORIY
+      - SLITID
+      - T_TRUSS
+      - MCTBCT
+      - OBSERVAT
+      - MCTRCB
+      - FLATNAME
+      - OFFRA
+      removed_primary_header_kwargs:
+      - AUTHOR
+      - MGDPOS
+      - MC1HUMCO
+      - MGDRA
+      - TWOPHASE
+      - MC1TRCB
+      - MGDDEC
+      - MC1TEMDN
+      - MC1HUMHT
+      - MC1TRCT
+      - CAMROW
+      - MC1TBCB
+      - MC1THT
+      - CAMCOL
+      - MC1TBCT
+      - SLITID1
+    DR18:
+      from: DR17
+      primary_delta_nkeys: 38
+      added_primary_header_kwargs:
+      - M1ZROT
+      - V_APO
+      - MGDRA
+      - GUSTD
+      - PLATETYP
+      - DUSTA
+      - V_GUIDER
+      - MC1HUMHT
+      - PRESSURE
+      - SHCLOTIM
+      - IONPUMP
+      - MC1TBCT
+      - SUBFRAME
+      - V_SOP
+      - DUSTB
+      - WINDD25M
+      - MC1TRCB
+      - MGDDEC
+      - MC1THT
+      - V_BOSS
+      - DARKTIME
+      - MC1HUMCO
+      - GUSTS
+      - CCDTEMP
+      - HUMIDITY
+      - MC1TEMDN
+      - MC1TRCT
+      - PFERR
+      - SRVYMODE
+      - SLITID1
+      - WINDD
+      - MGDPOS
+      - LN2TEMP
+      - AIRTEMP
+      - WINDS25M
+      - M2ZROT
+      - DEWPOINT
+      - REQTIME
+      - DIDFLUSH
+      - MC1TBCB
+      - WINDS
+      - SHOPETIM
+      - TRUSTEMP
+      removed_primary_header_kwargs:
+      - PIXBIAS
+      - OBJOFFY
+      - OBJOFFX
+      - DAQVER
+      - BOSSVER
+    DR17:
+      from: DR16
+      note: No changes
+    DR16:
+      from: DR15
+      note: No changes
+    DR15:
+      from: DR14
+      note: No changes
+    DR14:
+      from: DR13
+      note: No changes
+    DR13:
+      from: DR11
+      note: No changes
+    DR11:
+      from: DR12
+      note: No changes
+    DR12:
+      from: DR10
+      note: No changes
+    DR10:
+      from: DR9
       note: No changes
 releases:
   DR19:
@@ -761,7 +939,7 @@ releases:
             description: fit coefficients
       hdu2:
         name: fibermask
-        description: The HDU 3 data stores the fibermask. These are fiber status bits
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
           and are set to non-zero to indicate bad status. The status bits used for
           masking are documented in $IDLUTILS/$IDLUTILS_VER/data/sdss/sdssMaskbits.par.
         is_image: true
@@ -2007,7 +2185,7 @@ releases:
             description: fit coefficients
       hdu2:
         name: fibermask
-        description: The HDU 3 data stores the fibermask. These are fiber status bits
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
           and are set to non-zero to indicate bad status. The status bits used for
           masking are documented in $IDLUTILS/$IDLUTILS_VER/data/sdss/sdssMaskbits.par.
         is_image: true
@@ -2518,5 +2696,6221 @@ releases:
         - key: COMMENT
           value: ''
           comment: ''
+  DR18:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELDID]p/spFlat-[BR][ID]-[FRAME8].fits.gz
+    example: v6_0_4/15143p/spFlat-b1-00321382.fits.gz
+    location: '{run2d}/{fieldid}p/spFlat-{br}{id}-{frame:0>8}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFlat
+      path_template: $BOSS_SPECTRO_REDUX/{run2d}/{fieldid}p/spFlat-{br}{id}-{frame:0>8}.fits.gz
+      path_kwargs:
+      - id
+      - br
+      - fieldid
+      - run2d
+      - frame
+      access_string: spFlat = $BOSS_SPECTRO_REDUX/{run2d}/{fieldid}p/spFlat-{br}{id}-{frame:0>8}.fits.gz
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: fflat
+        description: The primary HDU data is an array of flat-field vectors for each
+          fiber that removes relative flat-field variations as a function of wavelength
+          between fibers. These are referred as fiberflats.
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4112
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Sloan Digital Sky Survey
+        - key: FILENAME
+          value: sdR-b1-00321382.fit
+          comment: ''
+        - key: CAMERAS
+          value: b1
+          comment: ''
+        - key: EXPOSURE
+          value: 321382
+          comment: ''
+        - key: V_BOSS
+          value: 5.0.1
+          comment: Active version of the BOSS ICC
+        - key: CAMDAQ
+          value: 1.5.0:37
+          comment: ''
+        - key: SUBFRAME
+          value: ''
+          comment: the subframe readout command
+        - key: ERRCNT
+          value: NONE
+          comment: ''
+        - key: SYNCERR
+          value: NONE
+          comment: ''
+        - key: SLINES
+          value: NONE
+          comment: ''
+        - key: PIXERR
+          value: NONE
+          comment: ''
+        - key: PLINES
+          value: NONE
+          comment: ''
+        - key: PFERR
+          value: NONE
+          comment: ''
+        - key: DIDFLUSH
+          value: true
+          comment: CCD was flushed before integration
+        - key: FLAVOR
+          value: flat
+          comment: exposure type, SDSS spectro style
+        - key: MJD
+          value: 59204
+          comment: APO fMJD day at start of exposure
+        - key: TAI-BEG
+          value: 5115257978.0
+          comment: MJD(TAI) seconds at start of integration
+        - key: DATE-OBS
+          value: '2020-12-21T08:59:38'
+          comment: TAI date at start of integration
+        - key: V_GUIDER
+          value: 3.9.4
+          comment: version of the current guiderActor
+        - key: V_SOP
+          value: 4.0.6
+          comment: version of the current sopActor
+        - key: NAME
+          value: 15143-59203-02
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: 15143
+          comment: The currently loaded plate
+        - key: CARTID
+          value: 9
+          comment: The currently loaded cartridge
+        - key: MAPID
+          value: 2
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: A
+          comment: The currently specified pointing
+        - key: PLATETYP
+          value: BHM&MWM
+          comment: Type of plate (e.g. BOSS, MANGA, APOGEE, APOGEE
+        - key: SRVYMODE
+          value: BHM lead
+          comment: Survey leading this observation and its mode
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: RA
+          value: 130.0188
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: 1.655
+          comment: Dec of telescope boresight (deg)
+        - key: RADEG
+          value: 130.0188
+          comment: RA of telescope pointing(deg)
+        - key: DECDEG
+          value: 1.655
+          comment: Dec of telescope pointing (deg)
+        - key: SPA
+          value: 17.02164420892429
+          comment: TCC SpiderInstAng
+        - key: ROTPOS
+          value: 0.0
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: CALOFFX
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: 20.459483
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 57.146462
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: 197.099744
+          comment: Rotator axis pos. (approx, deg)
+        - key: FOCUS
+          value: -177.1714
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 3341.8
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -10.5
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -4.82
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: 17.43
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: -39.04
+          comment: TCC SecOrient
+        - key: M2ZROT
+          value: -18.27
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: -50.92
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: 69.89
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: 100.0
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: 375.3
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 622.11
+          comment: TCC PrimOrient
+        - key: M1ZROT
+          value: 0.04
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 1.000005
+          comment: User-specified scale factor
+        - key: V_APO
+          value: v1_11
+          comment: version of the current apoActor
+        - key: PRESSURE
+          value: 21.495
+          comment: ''
+        - key: WINDD
+          value: 357.6
+          comment: ''
+        - key: WINDS
+          value: 6.0
+          comment: ''
+        - key: GUSTD
+          value: 3.6
+          comment: ''
+        - key: GUSTS
+          value: 13.3
+          comment: ''
+        - key: AIRTEMP
+          value: 6.6
+          comment: ''
+        - key: DEWPOINT
+          value: -9.9
+          comment: ''
+        - key: TRUSTEMP
+          value: 4.8
+          comment: ''
+        - key: HUMIDITY
+          value: 27.5
+          comment: ''
+        - key: DUSTA
+          value: 1325.0
+          comment: ''
+        - key: DUSTB
+          value: 31.0
+          comment: ''
+        - key: WINDD25M
+          value: -999.0
+          comment: ''
+        - key: WINDS25M
+          value: -999.0
+          comment: ''
+        - key: FF
+          value: 1 1 1 1
+          comment: FF lamps 1:on 0:0ff
+        - key: NE
+          value: 0 0 0 0
+          comment: NE lamps 1:on 0:0ff
+        - key: HGCD
+          value: 0 0 0 0
+          comment: HGCD lamps 1:on 0:0ff
+        - key: FFS
+          value: 1 1 1 1 1 1 1 1
+          comment: Flatfield Screen 1:closed 0:open
+        - key: MGDPOS
+          value: C
+          comment: MaNGA dither position (C,N,S,E)
+        - key: MGDRA
+          value: 0.0
+          comment: MaNGA decenter in RA, redundant with MGDPOS
+        - key: MGDDEC
+          value: 0.0
+          comment: MaNGA decenter in Dec, redundant with MGDPOS
+        - key: GUIDER1
+          value: proc-gimg-0955.fits.gz
+          comment: The first guider image
+        - key: SLITID1
+          value: 9
+          comment: Normalized slithead ID. sp1&2 should match.
+        - key: GUIDERN
+          value: proc-gimg-0955.fits.gz
+          comment: The last guider image
+        - key: COLLA
+          value: 1522
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: 1513
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: 1533
+          comment: The position of the C collimator motor
+        - key: HARTMANN
+          value: Out
+          comment: 'Hartmanns: Left,Right,Out'
+        - key: MC1HUMHT
+          value: 0.5
+          comment: sp1 mech Hartmann humidity, %
+        - key: MC1HUMCO
+          value: -1.6
+          comment: sp1 mech Central optics humidity, %
+        - key: MC1TEMDN
+          value: 3.3
+          comment: sp1 mech Median temp, C
+        - key: MC1THT
+          value: 3.0
+          comment: sp1 mech Hartmann Top Temp, C
+        - key: MC1TRCB
+          value: 3.3
+          comment: sp1 mech Red Cam Bottom Temp, C
+        - key: MC1TRCT
+          value: 3.5
+          comment: sp1 mech Red Cam Top Temp, C
+        - key: MC1TBCB
+          value: 3.4
+          comment: sp1 mech Blue Cam Bottom Temp, C
+        - key: MC1TBCT
+          value: 3.3
+          comment: sp1 mech Blue Cam Top Temp, C
+        - key: REQTIME
+          value: 25.0
+          comment: requested exposure time
+        - key: EXPTIME
+          value: 25.08
+          comment: measured exposure time, s
+        - key: SHOPETIM
+          value: 0.76
+          comment: open shutter transit time, s
+        - key: SHCLOTIM
+          value: 0.56
+          comment: close shutter transit time, s
+        - key: DARKTIME
+          value: 37.11014318466187
+          comment: time between flush end and readout start
+        - key: LN2TEMP
+          value: 95.312
+          comment: ''
+        - key: CCDTEMP
+          value: -99.609
+          comment: ''
+        - key: IONPUMP
+          value: -6.37
+          comment: ''
+        - key: CAMROW
+          value: 0
+          comment: ''
+        - key: CAMCOL
+          value: 1
+          comment: ''
+        - key: AUTHOR
+          value: Scott Burles & David Schlegel
+          comment: ''
+        - key: VERSIDL
+          value: 8.7.2
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: v5_5_17
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v6_0_4
+          comment: Version of idlspec2d for pre-processing raw dat
+        - key: VERSLOG
+          value: trunk 27531
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: v1_32
+          comment: Version of SPECFLAT product
+        - key: TWOPHASE
+          value: false
+          comment: ''
+        - key: QUALITY
+          value: excellent
+          comment: ''
+        - key: RDNOISE0
+          value: 1.98979
+          comment: CCD read noise amp 0 [electrons]
+        - key: RDNOISE1
+          value: 1.97775
+          comment: CCD read noise amp 1 [electrons]
+        - key: RDNOISE2
+          value: 1.92276
+          comment: CCD read noise amp 2 [electrons]
+        - key: RDNOISE3
+          value: 1.86985
+          comment: CCD read noise amp 3 [electrons]
+        - key: PIXFLAT
+          value: pixflatave-58751-b1.fits.gz
+          comment: ''
+        - key: BADPIXEL
+          value: badpixels-58736-b1.fits.gz
+          comment: ''
+        - key: NBRIGHT
+          value: 0
+          comment: Number of bright pixels (>10^5) in extracted fla
+      hdu1:
+        name: tset
+        description: The HDU 1 data is a binary table whose fields are used to calculate
+          the X-centers, for all fibers in the flat-field calibration frames. The
+          Y-pixel positions on the CCD, which is the independent variable and the
+          corresponding X-centers, which is the dependent variable are fitted to a
+          functional form and the resulting coefficients are stored in the binary
+          table.
+        is_image: false
+        size: 27 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 28024
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 4
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM4
+          value: ( 7, 500)
+          comment: ''
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: ''
+            description: function used to fit the Y-pixel positions on the CCD and
+              corresponding X-centers are fitted to a functional form. Polynomial,
+              Chebyshev, Legendre or Chebyshev_split functions are used. Default value
+              is taken as Legendre function
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: ''
+            description: minimum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the X-center of fibers.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: ''
+            description: maximum value of the independent variable used by fitting
+              function.
+          COEFF:
+            name: COEFF
+            type: float64[3500]
+            unit: ''
+            description: fit coefficients
+      hdu2:
+        name: fibermask
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
+          and are set to non-zero to indicate bad status. The status bits used for
+          masking are documented in $IDLUTILS/$IDLUTILS_VER/data/sdss/sdssMaskbits.par.
+        is_image: true
+        size: 1 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.11
+        - key: BITPIX
+          value: 32
+          comment: ''
+        - key: NAXIS
+          value: 1
+          comment: ''
+        - key: NAXIS1
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+      hdu3:
+        name: widthset
+        description: The data attribute of HDU 3 gives the first-order corrected profile
+          width for each fiber bundle. This Gaussian sigma is in units of pixels.
+          The X-positions on the CCD and their corresponding profile width are fitted
+          to a functional form and the resulting coefficients are stored in a binary
+          table. The X-position is the independent variable and the width is the dependent
+          variable for the fitting function.
+        is_image: false
+        size: 11 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 12024
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 4
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM4
+          value: ( 3, 500)
+          comment: ''
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: ''
+            description: function used to fit the Y-pixel positions on the CCD and
+              corresponding X-centers are fitted to a functional form. Polynomial,
+              Chebyshev, Legendre or Chebyshev_split functions are used. Default value
+              is taken as Legendre function
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: ''
+            description: minimum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the X-center of fibers.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: ''
+            description: maximum value of the independent variable used by fitting
+              function.
+          COEFF:
+            name: COEFF
+            type: float64[3500]
+            unit: ''
+            description: fit coefficients
+      hdu4:
+        name: superflatset
+        description: The data attribute of HDU 4 contains superflat which is constructed
+          from extracted flat-field image and is stored in a bspline set structure
+          form. A superflat is a bspline average across all fibers of the flat spectrum
+          in raw counts as a function of wavelength.
+        is_image: false
+        size: 24 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 25368
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 5
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        columns:
+          FULLBKPT:
+            name: FULLBKPT
+            type: float32[1814]
+            unit: ''
+            description: Breakpoint vector
+          BKMASK:
+            name: BKMASK
+            type: int16[1814]
+            unit: ''
+            description: mask of the breakpoint vector
+          NORD:
+            name: NORD
+            type: int32
+            unit: ''
+            description: Number of orders for Bspline fit
+          COEFF:
+            name: COEFF
+            type: float32[1810]
+            unit: ''
+            description: The bspline coefficients
+          ICOEFF:
+            name: ICOEFF
+            type: float32[1810]
+            unit: ''
+            description: inversion bspline coefficients
+  DR17:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID4]/spFlat-[BR][ID]-[FRAME8].fits.gz
+    example: v5_13_2/3606/spFlat-b1-00103845.fits.gz
+    location: '{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFlat
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - br
+      - plateid
+      - id
+      - run2d
+      - frame
+      access_string: spFlat = $BOSS_SPECTRO_REDUX/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz
+    survey: eBOSS
+    hdus:
+      hdu0:
+        name: fflat
+        description: The primary HDU data is an array of flat-field vectors for each
+          fiber that removes relative flat-field variations as a function of wavelength
+          between fibers. These are referred as fiberflats.
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4112
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Sloan Digital Sky Survey
+        - key: FILENAME
+          value: sdR-b1-00103845.fit
+          comment: ''
+        - key: CAMERAS
+          value: b1
+          comment: ''
+        - key: EXPOSURE
+          value: 103845
+          comment: ''
+        - key: DAQVER
+          value: 1.2.7
+          comment: ''
+        - key: CAMDAQ
+          value: 1.2.0:28
+          comment: ''
+        - key: ERRCNT
+          value: NONE
+          comment: ''
+        - key: SYNCERR
+          value: NONE
+          comment: ''
+        - key: SLINES
+          value: NONE
+          comment: ''
+        - key: PIXERR
+          value: NONE
+          comment: ''
+        - key: PLINES
+          value: NONE
+          comment: ''
+        - key: FLAVOR
+          value: flat
+          comment: exposure type, SDSS spectro style
+        - key: BOSSVER
+          value: v2_0_13
+          comment: ICC version
+        - key: MJD
+          value: 55154
+          comment: APO MJD day at start of exposure
+        - key: TAI-BEG
+          value: 4765324761.0
+          comment: MJD(TAI) seconds at start of exposure
+        - key: DATE-OBS
+          value: '2009-11-19T05:19:21'
+          comment: TAI date at start of exposure
+        - key: FF
+          value: 1 1 1 1
+          comment: FF lamps 1:on 0:0ff
+        - key: NE
+          value: 0 0 0 0
+          comment: NE lamps 1:on 0:0ff
+        - key: HGCD
+          value: 0 0 0 0
+          comment: HGCD lamps 1:on 0:0ff
+        - key: FFS
+          value: 1 1 1 1 1 1 1 1
+          comment: Flatfield Screen 1:closed 0:open
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: RA
+          value: 28.00061
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: 0.00222
+          comment: Dec of telescope boresight (deg)
+        - key: RADEG
+          value: 28.0
+          comment: RA of telescope pointing(deg)
+        - key: DECDEG
+          value: 0.0
+          comment: Dec of telescope pointing (deg)
+        - key: ROTPOS
+          value: 0.0
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: 0.00061
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.00222
+          comment: TCC ObjArcOff, deg
+        - key: OBJOFFX
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: OBJOFFY
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: CALOFFX
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: 0.021339
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: -7.565
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 57.074
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: 173.658
+          comment: Rotator axis pos. (approx, deg)
+        - key: SPA
+          value: -6.561252217285157
+          comment: TCC SpiderInstAng
+        - key: FOCUS
+          value: 399.14
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 1232.2
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -4.04
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -8.94
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: 10.26
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: 78.99
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: -395.01
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: -3.04
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: 5.26
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: 277.59
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 178.07
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 1.00004
+          comment: User-specified scale factor
+        - key: NAME
+          value: 3606-55154-01
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: 3606
+          comment: The currently loaded plate
+        - key: CARTID
+          value: 11
+          comment: The currently loaded cartridge
+        - key: MAPID
+          value: 1
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: A
+          comment: The currently specified pointing
+        - key: GUIDER1
+          value: proc-gimg-0369.fits
+          comment: The first guider image
+        - key: GUIDERN
+          value: proc-gimg-0369.fits
+          comment: The last guider image
+        - key: COLLA
+          value: 9111
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: 10358
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: 9733
+          comment: The position of the C collimator motor
+        - key: HARTMANN
+          value: Out
+          comment: 'Hartmanns: Left,Right,Out'
+        - key: EXPTIME
+          value: 31.0
+          comment: exposure time
+        - key: CAMROW
+          value: 0
+          comment: ''
+        - key: CAMCOL
+          value: 1
+          comment: ''
+        - key: AUTHOR
+          value: Scott Burles & David Schlegel
+          comment: ''
+        - key: VERSIDL
+          value: 7.1.1
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: v5_5_17
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v5_13_2
+          comment: Version of idlspec2d for pre-processing raw dat
+        - key: VERSLOG
+          value: trunk 26892
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: v1_32
+          comment: Version of SPECFLAT product
+        - key: TWOPHASE
+          value: false
+          comment: ''
+        - key: QUALITY
+          value: excellent
+          comment: ''
+        - key: RDNOISE0
+          value: 2.12497
+          comment: CCD read noise amp 0 [electrons]
+        - key: RDNOISE1
+          value: 1.95418
+          comment: CCD read noise amp 1 [electrons]
+        - key: RDNOISE2
+          value: 1.93263
+          comment: CCD read noise amp 2 [electrons]
+        - key: RDNOISE3
+          value: 1.85439
+          comment: CCD read noise amp 3 [electrons]
+        - key: PIXBIAS
+          value: pixbiasave-55055-b1.fits.gz
+          comment: ''
+        - key: PIXFLAT
+          value: pixflatave-55056-b1.fits.gz
+          comment: ''
+        - key: BADPIXEL
+          value: badpixels-55056-b1.fits.gz
+          comment: ''
+        - key: NBRIGHT
+          value: 3011
+          comment: Number of bright pixels (>10^5) in extracted fla
+      hdu1:
+        name: tset
+        description: The HDU 1 data is a binary table whose fields are used to calculate
+          the X-centers, for all fibers in the flat-field calibration frames. The
+          Y-pixel positions on the CCD, which is the independent variable and the
+          corresponding X-centers, which is the dependent variable are fitted to a
+          functional form and the resulting coefficients are stored in the binary
+          table.
+        is_image: false
+        size: 27 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 28024
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 4
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM4
+          value: ( 7, 500)
+          comment: ''
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: ''
+            description: function used to fit the Y-pixel positions on the CCD and
+              corresponding X-centers are fitted to a functional form. Polynomial,
+              Chebyshev, Legendre or Chebyshev_split functions are used. Default value
+              is taken as Legendre function
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: ''
+            description: minimum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the X-center of fibers.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: ''
+            description: maximum value of the independent variable used by fitting
+              function.
+          COEFF:
+            name: COEFF
+            type: float64[3500]
+            unit: ''
+            description: fit coefficients
+      hdu2:
+        name: fibermask
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
+          and are set to non-zero to indicate bad status. The status bits used for
+          masking are documented in $IDLUTILS/$IDLUTILS_VER/data/sdss/sdssMaskbits.par.
+        is_image: true
+        size: 1 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.11
+        - key: BITPIX
+          value: 32
+          comment: ''
+        - key: NAXIS
+          value: 1
+          comment: ''
+        - key: NAXIS1
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+      hdu3:
+        name: widthset
+        description: The data attribute of HDU 3 gives the first-order corrected profile
+          width for each fiber bundle. This Gaussian sigma is in units of pixels.
+          The X-positions on the CCD and their corresponding profile width are fitted
+          to a functional form and the resulting coefficients are stored in a binary
+          table. The X-position is the independent variable and the width is the dependent
+          variable for the fitting function.
+        is_image: false
+        size: 11 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 12024
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 4
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM4
+          value: ( 3, 500)
+          comment: ''
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: ''
+            description: function used to fit the Y-pixel positions on the CCD and
+              corresponding X-centers are fitted to a functional form. Polynomial,
+              Chebyshev, Legendre or Chebyshev_split functions are used. Default value
+              is taken as Legendre function
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: ''
+            description: minimum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the X-center of fibers.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: ''
+            description: maximum value of the independent variable used by fitting
+              function.
+          COEFF:
+            name: COEFF
+            type: float64[1500]
+            unit: ''
+            description: fit coefficients
+      hdu4:
+        name: superflatset
+        description: The data attribute of HDU 4 contains superflat which is constructed
+          from extracted flat-field image and is stored in a bspline set structure
+          form. A superflat is a bspline average across all fibers of the flat spectrum
+          in raw counts as a function of wavelength.
+        is_image: false
+        size: 24 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 25424
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 5
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        columns:
+          FULLBKPT:
+            name: FULLBKPT
+            type: float32[1818]
+            unit: ''
+            description: Breakpoint vector
+          BKMASK:
+            name: BKMASK
+            type: int16[1818]
+            unit: ''
+            description: mask of the breakpoint vector
+          NORD:
+            name: NORD
+            type: int32
+            unit: ''
+            description: Number of orders for Bspline fit
+          COEFF:
+            name: COEFF
+            type: float32[1814]
+            unit: ''
+            description: The bspline coefficients
+          ICOEFF:
+            name: ICOEFF
+            type: float32[1814]
+            unit: ''
+            description: inversion bspline coefficients
+  DR16:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID4]/spFlat-[BR][ID]-[FRAME8].fits.gz
+    example: v5_13_0/3606/spFlat-b1-00103845.fits.gz
+    location: '{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFlat
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - id
+      - plateid
+      - frame
+      - run2d
+      - br
+      access_string: spFlat = $BOSS_SPECTRO_REDUX/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz
+    survey: eBOSS
+    hdus:
+      hdu0:
+        name: fflat
+        description: The primary HDU data is an array of flat-field vectors for each
+          fiber that removes relative flat-field variations as a function of wavelength
+          between fibers. These are referred as fiberflats.
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4112
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Sloan Digital Sky Survey
+        - key: FILENAME
+          value: sdR-b1-00103845.fit
+          comment: ''
+        - key: CAMERAS
+          value: b1
+          comment: ''
+        - key: EXPOSURE
+          value: 103845
+          comment: ''
+        - key: DAQVER
+          value: 1.2.7
+          comment: ''
+        - key: CAMDAQ
+          value: 1.2.0:28
+          comment: ''
+        - key: ERRCNT
+          value: NONE
+          comment: ''
+        - key: SYNCERR
+          value: NONE
+          comment: ''
+        - key: SLINES
+          value: NONE
+          comment: ''
+        - key: PIXERR
+          value: NONE
+          comment: ''
+        - key: PLINES
+          value: NONE
+          comment: ''
+        - key: FLAVOR
+          value: flat
+          comment: exposure type, SDSS spectro style
+        - key: BOSSVER
+          value: v2_0_13
+          comment: ICC version
+        - key: MJD
+          value: 55154
+          comment: APO MJD day at start of exposure
+        - key: TAI-BEG
+          value: 4765324761.0
+          comment: MJD(TAI) seconds at start of exposure
+        - key: DATE-OBS
+          value: '2009-11-19T05:19:21'
+          comment: TAI date at start of exposure
+        - key: FF
+          value: 1 1 1 1
+          comment: FF lamps 1:on 0:0ff
+        - key: NE
+          value: 0 0 0 0
+          comment: NE lamps 1:on 0:0ff
+        - key: HGCD
+          value: 0 0 0 0
+          comment: HGCD lamps 1:on 0:0ff
+        - key: FFS
+          value: 1 1 1 1 1 1 1 1
+          comment: Flatfield Screen 1:closed 0:open
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: RA
+          value: 28.00061
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: 0.00222
+          comment: Dec of telescope boresight (deg)
+        - key: RADEG
+          value: 28.0
+          comment: RA of telescope pointing(deg)
+        - key: DECDEG
+          value: 0.0
+          comment: Dec of telescope pointing (deg)
+        - key: ROTPOS
+          value: 0.0
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: 0.00061
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.00222
+          comment: TCC ObjArcOff, deg
+        - key: OBJOFFX
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: OBJOFFY
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: CALOFFX
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: 0.021339
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: -7.565
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 57.074
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: 173.658
+          comment: Rotator axis pos. (approx, deg)
+        - key: SPA
+          value: -6.561252217285157
+          comment: TCC SpiderInstAng
+        - key: FOCUS
+          value: 399.14
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 1232.2
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -4.04
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -8.94
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: 10.26
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: 78.99
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: -395.01
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: -3.04
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: 5.26
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: 277.59
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 178.07
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 1.00004
+          comment: User-specified scale factor
+        - key: NAME
+          value: 3606-55154-01
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: 3606
+          comment: The currently loaded plate
+        - key: CARTID
+          value: 11
+          comment: The currently loaded cartridge
+        - key: MAPID
+          value: 1
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: A
+          comment: The currently specified pointing
+        - key: GUIDER1
+          value: proc-gimg-0369.fits
+          comment: The first guider image
+        - key: GUIDERN
+          value: proc-gimg-0369.fits
+          comment: The last guider image
+        - key: COLLA
+          value: 9111
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: 10358
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: 9733
+          comment: The position of the C collimator motor
+        - key: HARTMANN
+          value: Out
+          comment: 'Hartmanns: Left,Right,Out'
+        - key: EXPTIME
+          value: 31.0
+          comment: exposure time
+        - key: CAMROW
+          value: 0
+          comment: ''
+        - key: CAMCOL
+          value: 1
+          comment: ''
+        - key: AUTHOR
+          value: Scott Burles & David Schlegel
+          comment: ''
+        - key: VERSIDL
+          value: 7.1.1
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: v5_5_17
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v5_13_0
+          comment: Version of idlspec2d for pre-processing raw dat
+        - key: VERSLOG
+          value: trunk 26112
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: v1_31
+          comment: Version of SPECFLAT product
+        - key: TWOPHASE
+          value: false
+          comment: ''
+        - key: QUALITY
+          value: excellent
+          comment: ''
+        - key: RDNOISE0
+          value: 2.12497
+          comment: CCD read noise amp 0 [electrons]
+        - key: RDNOISE1
+          value: 1.95418
+          comment: CCD read noise amp 1 [electrons]
+        - key: RDNOISE2
+          value: 1.93263
+          comment: CCD read noise amp 2 [electrons]
+        - key: RDNOISE3
+          value: 1.85439
+          comment: CCD read noise amp 3 [electrons]
+        - key: PIXBIAS
+          value: pixbiasave-55055-b1.fits.gz
+          comment: ''
+        - key: PIXFLAT
+          value: pixflatave-55056-b1.fits.gz
+          comment: ''
+        - key: BADPIXEL
+          value: badpixels-55056-b1.fits.gz
+          comment: ''
+        - key: NBRIGHT
+          value: 3011
+          comment: Number of bright pixels (>10^5) in extracted fla
+      hdu1:
+        name: tset
+        description: The HDU 1 data is a binary table whose fields are used to calculate
+          the X-centers, for all fibers in the flat-field calibration frames. The
+          Y-pixel positions on the CCD, which is the independent variable and the
+          corresponding X-centers, which is the dependent variable are fitted to a
+          functional form and the resulting coefficients are stored in the binary
+          table.
+        is_image: false
+        size: 27 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 28024
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 4
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM4
+          value: ( 7, 500)
+          comment: ''
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: ''
+            description: function used to fit the Y-pixel positions on the CCD and
+              corresponding X-centers are fitted to a functional form. Polynomial,
+              Chebyshev, Legendre or Chebyshev_split functions are used. Default value
+              is taken as Legendre function
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: ''
+            description: minimum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the X-center of fibers.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: ''
+            description: maximum value of the independent variable used by fitting
+              function.
+          COEFF:
+            name: COEFF
+            type: float64[3500]
+            unit: ''
+            description: fit coefficients
+      hdu2:
+        name: fibermask
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
+          and are set to non-zero to indicate bad status. The status bits used for
+          masking are documented in $IDLUTILS/$IDLUTILS_VER/data/sdss/sdssMaskbits.par.
+        is_image: true
+        size: 1 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.11
+        - key: BITPIX
+          value: 32
+          comment: ''
+        - key: NAXIS
+          value: 1
+          comment: ''
+        - key: NAXIS1
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+      hdu3:
+        name: widthset
+        description: The data attribute of HDU 3 gives the first-order corrected profile
+          width for each fiber bundle. This Gaussian sigma is in units of pixels.
+          The X-positions on the CCD and their corresponding profile width are fitted
+          to a functional form and the resulting coefficients are stored in a binary
+          table. The X-position is the independent variable and the width is the dependent
+          variable for the fitting function.
+        is_image: false
+        size: 11 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 12024
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 4
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM4
+          value: ( 3, 500)
+          comment: ''
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: ''
+            description: function used to fit the Y-pixel positions on the CCD and
+              corresponding X-centers are fitted to a functional form. Polynomial,
+              Chebyshev, Legendre or Chebyshev_split functions are used. Default value
+              is taken as Legendre function
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: ''
+            description: minimum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the X-center of fibers.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: ''
+            description: maximum value of the independent variable used by fitting
+              function.
+          COEFF:
+            name: COEFF
+            type: float64[1500]
+            unit: ''
+            description: fit coefficients
+      hdu4:
+        name: superflatset
+        description: The data attribute of HDU 4 contains superflat which is constructed
+          from extracted flat-field image and is stored in a bspline set structure
+          form. A superflat is a bspline average across all fibers of the flat spectrum
+          in raw counts as a function of wavelength.
+        is_image: false
+        size: 24 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 25424
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 5
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        columns:
+          FULLBKPT:
+            name: FULLBKPT
+            type: float32[1818]
+            unit: ''
+            description: Breakpoint vector
+          BKMASK:
+            name: BKMASK
+            type: int16[1818]
+            unit: ''
+            description: mask of the breakpoint vector
+          NORD:
+            name: NORD
+            type: int32
+            unit: ''
+            description: Number of orders for Bspline fit
+          COEFF:
+            name: COEFF
+            type: float32[1814]
+            unit: ''
+            description: The bspline coefficients
+          ICOEFF:
+            name: ICOEFF
+            type: float32[1814]
+            unit: ''
+            description: inversion bspline coefficients
+  DR15:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID4]/spFlat-[BR][ID]-[FRAME8].fits.gz
+    example: v5_10_0/3606/spFlat-b1-00103845.fits.gz
+    location: '{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFlat
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - id
+      - plateid
+      - br
+      - frame
+      - run2d
+      access_string: spFlat = $BOSS_SPECTRO_REDUX/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz
+    survey: eBOSS
+    hdus:
+      hdu0:
+        name: fflat
+        description: The primary HDU data is an array of flat-field vectors for each
+          fiber that removes relative flat-field variations as a function of wavelength
+          between fibers. These are referred as fiberflats.
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4112
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Sloan Digital Sky Survey
+        - key: FILENAME
+          value: sdR-b1-00103845.fit
+          comment: ''
+        - key: CAMERAS
+          value: b1
+          comment: ''
+        - key: EXPOSURE
+          value: 103845
+          comment: ''
+        - key: DAQVER
+          value: 1.2.7
+          comment: ''
+        - key: CAMDAQ
+          value: 1.2.0:28
+          comment: ''
+        - key: ERRCNT
+          value: NONE
+          comment: ''
+        - key: SYNCERR
+          value: NONE
+          comment: ''
+        - key: SLINES
+          value: NONE
+          comment: ''
+        - key: PIXERR
+          value: NONE
+          comment: ''
+        - key: PLINES
+          value: NONE
+          comment: ''
+        - key: FLAVOR
+          value: flat
+          comment: exposure type, SDSS spectro style
+        - key: BOSSVER
+          value: v2_0_13
+          comment: ICC version
+        - key: MJD
+          value: 55154
+          comment: APO MJD day at start of exposure
+        - key: TAI-BEG
+          value: 4765324761.0
+          comment: MJD(TAI) seconds at start of exposure
+        - key: DATE-OBS
+          value: '2009-11-19T05:19:21'
+          comment: TAI date at start of exposure
+        - key: FF
+          value: 1 1 1 1
+          comment: FF lamps 1:on 0:0ff
+        - key: NE
+          value: 0 0 0 0
+          comment: NE lamps 1:on 0:0ff
+        - key: HGCD
+          value: 0 0 0 0
+          comment: HGCD lamps 1:on 0:0ff
+        - key: FFS
+          value: 1 1 1 1 1 1 1 1
+          comment: Flatfield Screen 1:closed 0:open
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: RA
+          value: 28.00061
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: 0.00222
+          comment: Dec of telescope boresight (deg)
+        - key: RADEG
+          value: 28.0
+          comment: RA of telescope pointing(deg)
+        - key: DECDEG
+          value: 0.0
+          comment: Dec of telescope pointing (deg)
+        - key: ROTPOS
+          value: 0.0
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: 0.00061
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.00222
+          comment: TCC ObjArcOff, deg
+        - key: OBJOFFX
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: OBJOFFY
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: CALOFFX
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: 0.021339
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: -7.565
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 57.074
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: 173.658
+          comment: Rotator axis pos. (approx, deg)
+        - key: SPA
+          value: -6.561252217285157
+          comment: TCC SpiderInstAng
+        - key: FOCUS
+          value: 399.14
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 1232.2
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -4.04
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -8.94
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: 10.26
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: 78.99
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: -395.01
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: -3.04
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: 5.26
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: 277.59
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 178.07
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 1.00004
+          comment: User-specified scale factor
+        - key: NAME
+          value: 3606-55154-01
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: 3606
+          comment: The currently loaded plate
+        - key: CARTID
+          value: 11
+          comment: The currently loaded cartridge
+        - key: MAPID
+          value: 1
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: A
+          comment: The currently specified pointing
+        - key: GUIDER1
+          value: proc-gimg-0369.fits
+          comment: The first guider image
+        - key: GUIDERN
+          value: proc-gimg-0369.fits
+          comment: The last guider image
+        - key: COLLA
+          value: 9111
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: 10358
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: 9733
+          comment: The position of the C collimator motor
+        - key: HARTMANN
+          value: Out
+          comment: 'Hartmanns: Left,Right,Out'
+        - key: EXPTIME
+          value: 31.0
+          comment: exposure time
+        - key: CAMROW
+          value: 0
+          comment: ''
+        - key: CAMCOL
+          value: 1
+          comment: ''
+        - key: AUTHOR
+          value: Scott Burles & David Schlegel
+          comment: ''
+        - key: VERSIDL
+          value: 7.1.1
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: v5_5_17
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v5_10_0
+          comment: Version of idlspec2d for pre-processing raw dat
+        - key: VERSLOG
+          value: trunk 23369
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: v1_25
+          comment: Version of SPECFLAT product
+        - key: TWOPHASE
+          value: false
+          comment: ''
+        - key: QUALITY
+          value: excellent
+          comment: ''
+        - key: RDNOISE0
+          value: 2.12497
+          comment: CCD read noise amp 0 [electrons]
+        - key: RDNOISE1
+          value: 1.95418
+          comment: CCD read noise amp 1 [electrons]
+        - key: RDNOISE2
+          value: 1.93263
+          comment: CCD read noise amp 2 [electrons]
+        - key: RDNOISE3
+          value: 1.85439
+          comment: CCD read noise amp 3 [electrons]
+        - key: PIXBIAS
+          value: pixbiasave-55055-b1.fits.gz
+          comment: ''
+        - key: PIXFLAT
+          value: pixflatave-55056-b1.fits.gz
+          comment: ''
+        - key: BADPIXEL
+          value: badpixels-55056-b1.fits.gz
+          comment: ''
+        - key: NBRIGHT
+          value: 3011
+          comment: Number of bright pixels (>10^5) in extracted fla
+      hdu1:
+        name: tset
+        description: The HDU 1 data is a binary table whose fields are used to calculate
+          the X-centers, for all fibers in the flat-field calibration frames. The
+          Y-pixel positions on the CCD, which is the independent variable and the
+          corresponding X-centers, which is the dependent variable are fitted to a
+          functional form and the resulting coefficients are stored in the binary
+          table.
+        is_image: false
+        size: 27 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 28024
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 4
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM4
+          value: ( 7, 500)
+          comment: ''
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: ''
+            description: function used to fit the Y-pixel positions on the CCD and
+              corresponding X-centers are fitted to a functional form. Polynomial,
+              Chebyshev, Legendre or Chebyshev_split functions are used. Default value
+              is taken as Legendre function
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: ''
+            description: minimum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the X-center of fibers.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: ''
+            description: maximum value of the independent variable used by fitting
+              function.
+          COEFF:
+            name: COEFF
+            type: float64[3500]
+            unit: ''
+            description: fit coefficients
+      hdu2:
+        name: fibermask
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
+          and are set to non-zero to indicate bad status. The status bits used for
+          masking are documented in $IDLUTILS/$IDLUTILS_VER/data/sdss/sdssMaskbits.par.
+        is_image: true
+        size: 1 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.11
+        - key: BITPIX
+          value: 32
+          comment: ''
+        - key: NAXIS
+          value: 1
+          comment: ''
+        - key: NAXIS1
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+      hdu3:
+        name: widthset
+        description: The data attribute of HDU 3 gives the first-order corrected profile
+          width for each fiber bundle. This Gaussian sigma is in units of pixels.
+          The X-positions on the CCD and their corresponding profile width are fitted
+          to a functional form and the resulting coefficients are stored in a binary
+          table. The X-position is the independent variable and the width is the dependent
+          variable for the fitting function.
+        is_image: false
+        size: 11 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 12024
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 4
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM4
+          value: ( 3, 500)
+          comment: ''
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: ''
+            description: function used to fit the Y-pixel positions on the CCD and
+              corresponding X-centers are fitted to a functional form. Polynomial,
+              Chebyshev, Legendre or Chebyshev_split functions are used. Default value
+              is taken as Legendre function
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: ''
+            description: minimum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the X-center of fibers.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: ''
+            description: maximum value of the independent variable used by fitting
+              function.
+          COEFF:
+            name: COEFF
+            type: float64[1500]
+            unit: ''
+            description: fit coefficients
+      hdu4:
+        name: superflatset
+        description: The data attribute of HDU 4 contains superflat which is constructed
+          from extracted flat-field image and is stored in a bspline set structure
+          form. A superflat is a bspline average across all fibers of the flat spectrum
+          in raw counts as a function of wavelength.
+        is_image: false
+        size: 24 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 25368
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 5
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        columns:
+          FULLBKPT:
+            name: FULLBKPT
+            type: float32[1814]
+            unit: ''
+            description: Breakpoint vector
+          BKMASK:
+            name: BKMASK
+            type: int16[1814]
+            unit: ''
+            description: mask of the breakpoint vector
+          NORD:
+            name: NORD
+            type: int32
+            unit: ''
+            description: Number of orders for Bspline fit
+          COEFF:
+            name: COEFF
+            type: float32[1810]
+            unit: ''
+            description: The bspline coefficients
+          ICOEFF:
+            name: ICOEFF
+            type: float32[1810]
+            unit: ''
+            description: inversion bspline coefficients
+  DR14:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID4]/spFlat-[BR][ID]-[FRAME8].fits.gz
+    example: v5_10_0/3606/spFlat-b1-00103845.fits.gz
+    location: '{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFlat
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - plateid
+      - run2d
+      - br
+      - id
+      - frame
+      access_string: spFlat = $BOSS_SPECTRO_REDUX/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz
+    survey: eBOSS
+    hdus:
+      hdu0:
+        name: fflat
+        description: The primary HDU data is an array of flat-field vectors for each
+          fiber that removes relative flat-field variations as a function of wavelength
+          between fibers. These are referred as fiberflats.
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4112
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Sloan Digital Sky Survey
+        - key: FILENAME
+          value: sdR-b1-00103845.fit
+          comment: ''
+        - key: CAMERAS
+          value: b1
+          comment: ''
+        - key: EXPOSURE
+          value: 103845
+          comment: ''
+        - key: DAQVER
+          value: 1.2.7
+          comment: ''
+        - key: CAMDAQ
+          value: 1.2.0:28
+          comment: ''
+        - key: ERRCNT
+          value: NONE
+          comment: ''
+        - key: SYNCERR
+          value: NONE
+          comment: ''
+        - key: SLINES
+          value: NONE
+          comment: ''
+        - key: PIXERR
+          value: NONE
+          comment: ''
+        - key: PLINES
+          value: NONE
+          comment: ''
+        - key: FLAVOR
+          value: flat
+          comment: exposure type, SDSS spectro style
+        - key: BOSSVER
+          value: v2_0_13
+          comment: ICC version
+        - key: MJD
+          value: 55154
+          comment: APO MJD day at start of exposure
+        - key: TAI-BEG
+          value: 4765324761.0
+          comment: MJD(TAI) seconds at start of exposure
+        - key: DATE-OBS
+          value: '2009-11-19T05:19:21'
+          comment: TAI date at start of exposure
+        - key: FF
+          value: 1 1 1 1
+          comment: FF lamps 1:on 0:0ff
+        - key: NE
+          value: 0 0 0 0
+          comment: NE lamps 1:on 0:0ff
+        - key: HGCD
+          value: 0 0 0 0
+          comment: HGCD lamps 1:on 0:0ff
+        - key: FFS
+          value: 1 1 1 1 1 1 1 1
+          comment: Flatfield Screen 1:closed 0:open
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: RA
+          value: 28.00061
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: 0.00222
+          comment: Dec of telescope boresight (deg)
+        - key: RADEG
+          value: 28.0
+          comment: RA of telescope pointing(deg)
+        - key: DECDEG
+          value: 0.0
+          comment: Dec of telescope pointing (deg)
+        - key: ROTPOS
+          value: 0.0
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: 0.00061
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.00222
+          comment: TCC ObjArcOff, deg
+        - key: OBJOFFX
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: OBJOFFY
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: CALOFFX
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: 0.021339
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: -7.565
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 57.074
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: 173.658
+          comment: Rotator axis pos. (approx, deg)
+        - key: SPA
+          value: -6.561252217285157
+          comment: TCC SpiderInstAng
+        - key: FOCUS
+          value: 399.14
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 1232.2
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -4.04
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -8.94
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: 10.26
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: 78.99
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: -395.01
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: -3.04
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: 5.26
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: 277.59
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 178.07
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 1.00004
+          comment: User-specified scale factor
+        - key: NAME
+          value: 3606-55154-01
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: 3606
+          comment: The currently loaded plate
+        - key: CARTID
+          value: 11
+          comment: The currently loaded cartridge
+        - key: MAPID
+          value: 1
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: A
+          comment: The currently specified pointing
+        - key: GUIDER1
+          value: proc-gimg-0369.fits
+          comment: The first guider image
+        - key: GUIDERN
+          value: proc-gimg-0369.fits
+          comment: The last guider image
+        - key: COLLA
+          value: 9111
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: 10358
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: 9733
+          comment: The position of the C collimator motor
+        - key: HARTMANN
+          value: Out
+          comment: 'Hartmanns: Left,Right,Out'
+        - key: EXPTIME
+          value: 31.0
+          comment: exposure time
+        - key: CAMROW
+          value: 0
+          comment: ''
+        - key: CAMCOL
+          value: 1
+          comment: ''
+        - key: AUTHOR
+          value: Scott Burles & David Schlegel
+          comment: ''
+        - key: VERSIDL
+          value: 7.1.1
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: v5_5_17
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v5_10_0
+          comment: Version of idlspec2d for pre-processing raw dat
+        - key: VERSLOG
+          value: trunk 23369
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: v1_25
+          comment: Version of SPECFLAT product
+        - key: TWOPHASE
+          value: false
+          comment: ''
+        - key: QUALITY
+          value: excellent
+          comment: ''
+        - key: RDNOISE0
+          value: 2.12497
+          comment: CCD read noise amp 0 [electrons]
+        - key: RDNOISE1
+          value: 1.95418
+          comment: CCD read noise amp 1 [electrons]
+        - key: RDNOISE2
+          value: 1.93263
+          comment: CCD read noise amp 2 [electrons]
+        - key: RDNOISE3
+          value: 1.85439
+          comment: CCD read noise amp 3 [electrons]
+        - key: PIXBIAS
+          value: pixbiasave-55055-b1.fits.gz
+          comment: ''
+        - key: PIXFLAT
+          value: pixflatave-55056-b1.fits.gz
+          comment: ''
+        - key: BADPIXEL
+          value: badpixels-55056-b1.fits.gz
+          comment: ''
+        - key: NBRIGHT
+          value: 3011
+          comment: Number of bright pixels (>10^5) in extracted fla
+      hdu1:
+        name: tset
+        description: The HDU 1 data is a binary table whose fields are used to calculate
+          the X-centers, for all fibers in the flat-field calibration frames. The
+          Y-pixel positions on the CCD, which is the independent variable and the
+          corresponding X-centers, which is the dependent variable are fitted to a
+          functional form and the resulting coefficients are stored in the binary
+          table.
+        is_image: false
+        size: 27 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 28024
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 4
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM4
+          value: ( 7, 500)
+          comment: ''
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: ''
+            description: function used to fit the Y-pixel positions on the CCD and
+              corresponding X-centers are fitted to a functional form. Polynomial,
+              Chebyshev, Legendre or Chebyshev_split functions are used. Default value
+              is taken as Legendre function
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: ''
+            description: minimum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the X-center of fibers.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: ''
+            description: maximum value of the independent variable used by fitting
+              function.
+          COEFF:
+            name: COEFF
+            type: float64[3500]
+            unit: ''
+            description: fit coefficients
+      hdu2:
+        name: fibermask
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
+          and are set to non-zero to indicate bad status. The status bits used for
+          masking are documented in $IDLUTILS/$IDLUTILS_VER/data/sdss/sdssMaskbits.par.
+        is_image: true
+        size: 1 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.11
+        - key: BITPIX
+          value: 32
+          comment: ''
+        - key: NAXIS
+          value: 1
+          comment: ''
+        - key: NAXIS1
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+      hdu3:
+        name: widthset
+        description: The data attribute of HDU 3 gives the first-order corrected profile
+          width for each fiber bundle. This Gaussian sigma is in units of pixels.
+          The X-positions on the CCD and their corresponding profile width are fitted
+          to a functional form and the resulting coefficients are stored in a binary
+          table. The X-position is the independent variable and the width is the dependent
+          variable for the fitting function.
+        is_image: false
+        size: 11 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 12024
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 4
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM4
+          value: ( 3, 500)
+          comment: ''
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: ''
+            description: function used to fit the Y-pixel positions on the CCD and
+              corresponding X-centers are fitted to a functional form. Polynomial,
+              Chebyshev, Legendre or Chebyshev_split functions are used. Default value
+              is taken as Legendre function
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: ''
+            description: minimum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the X-center of fibers.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: ''
+            description: maximum value of the independent variable used by fitting
+              function.
+          COEFF:
+            name: COEFF
+            type: float64[1500]
+            unit: ''
+            description: fit coefficients
+      hdu4:
+        name: superflatset
+        description: The data attribute of HDU 4 contains superflat which is constructed
+          from extracted flat-field image and is stored in a bspline set structure
+          form. A superflat is a bspline average across all fibers of the flat spectrum
+          in raw counts as a function of wavelength.
+        is_image: false
+        size: 24 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 25368
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 5
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        columns:
+          FULLBKPT:
+            name: FULLBKPT
+            type: float32[1814]
+            unit: ''
+            description: Breakpoint vector
+          BKMASK:
+            name: BKMASK
+            type: int16[1814]
+            unit: ''
+            description: mask of the breakpoint vector
+          NORD:
+            name: NORD
+            type: int32
+            unit: ''
+            description: Number of orders for Bspline fit
+          COEFF:
+            name: COEFF
+            type: float32[1810]
+            unit: ''
+            description: The bspline coefficients
+          ICOEFF:
+            name: ICOEFF
+            type: float32[1810]
+            unit: ''
+            description: inversion bspline coefficients
+  DR13:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID4]/spFlat-[BR][ID]-[FRAME8].fits.gz
+    example: v5_9_0/3606/spFlat-b1-00103845.fits.gz
+    location: '{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFlat
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - run2d
+      - frame
+      - id
+      - plateid
+      - br
+      access_string: spFlat = $BOSS_SPECTRO_REDUX/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz
+    survey: eBOSS
+    hdus:
+      hdu0:
+        name: fflat
+        description: The primary HDU data is an array of flat-field vectors for each
+          fiber that removes relative flat-field variations as a function of wavelength
+          between fibers. These are referred as fiberflats.
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4112
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Sloan Digital Sky Survey
+        - key: FILENAME
+          value: sdR-b1-00103845.fit
+          comment: ''
+        - key: CAMERAS
+          value: b1
+          comment: ''
+        - key: EXPOSURE
+          value: 103845
+          comment: ''
+        - key: DAQVER
+          value: 1.2.7
+          comment: ''
+        - key: CAMDAQ
+          value: 1.2.0:28
+          comment: ''
+        - key: ERRCNT
+          value: NONE
+          comment: ''
+        - key: SYNCERR
+          value: NONE
+          comment: ''
+        - key: SLINES
+          value: NONE
+          comment: ''
+        - key: PIXERR
+          value: NONE
+          comment: ''
+        - key: PLINES
+          value: NONE
+          comment: ''
+        - key: FLAVOR
+          value: flat
+          comment: exposure type, SDSS spectro style
+        - key: BOSSVER
+          value: v2_0_13
+          comment: ICC version
+        - key: MJD
+          value: 55154
+          comment: APO MJD day at start of exposure
+        - key: TAI-BEG
+          value: 4765324761.0
+          comment: MJD(TAI) seconds at start of exposure
+        - key: DATE-OBS
+          value: '2009-11-19T05:19:21'
+          comment: TAI date at start of exposure
+        - key: FF
+          value: 1 1 1 1
+          comment: FF lamps 1:on 0:0ff
+        - key: NE
+          value: 0 0 0 0
+          comment: NE lamps 1:on 0:0ff
+        - key: HGCD
+          value: 0 0 0 0
+          comment: HGCD lamps 1:on 0:0ff
+        - key: FFS
+          value: 1 1 1 1 1 1 1 1
+          comment: Flatfield Screen 1:closed 0:open
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: RA
+          value: 28.00061
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: 0.00222
+          comment: Dec of telescope boresight (deg)
+        - key: RADEG
+          value: 28.0
+          comment: RA of telescope pointing(deg)
+        - key: DECDEG
+          value: 0.0
+          comment: Dec of telescope pointing (deg)
+        - key: ROTPOS
+          value: 0.0
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: 0.00061
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.00222
+          comment: TCC ObjArcOff, deg
+        - key: OBJOFFX
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: OBJOFFY
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: CALOFFX
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: 0.021339
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: -7.565
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 57.074
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: 173.658
+          comment: Rotator axis pos. (approx, deg)
+        - key: SPA
+          value: -6.561252217285157
+          comment: TCC SpiderInstAng
+        - key: FOCUS
+          value: 399.14
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 1232.2
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -4.04
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -8.94
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: 10.26
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: 78.99
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: -395.01
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: -3.04
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: 5.26
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: 277.59
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 178.07
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 1.00004
+          comment: User-specified scale factor
+        - key: NAME
+          value: 3606-55154-01
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: 3606
+          comment: The currently loaded plate
+        - key: CARTID
+          value: 11
+          comment: The currently loaded cartridge
+        - key: MAPID
+          value: 1
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: A
+          comment: The currently specified pointing
+        - key: GUIDER1
+          value: proc-gimg-0369.fits
+          comment: The first guider image
+        - key: GUIDERN
+          value: proc-gimg-0369.fits
+          comment: The last guider image
+        - key: COLLA
+          value: 9111
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: 10358
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: 9733
+          comment: The position of the C collimator motor
+        - key: HARTMANN
+          value: Out
+          comment: 'Hartmanns: Left,Right,Out'
+        - key: EXPTIME
+          value: 31.0
+          comment: exposure time
+        - key: CAMROW
+          value: 0
+          comment: ''
+        - key: CAMCOL
+          value: 1
+          comment: ''
+        - key: AUTHOR
+          value: Scott Burles & David Schlegel
+          comment: ''
+        - key: VERSIDL
+          value: 7.1.1
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: v5_5_17
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v5_9_0
+          comment: Version of idlspec2d for pre-processing raw dat
+        - key: VERSLOG
+          value: v5_9_0
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: v1_25
+          comment: Version of SPECFLAT product
+        - key: TWOPHASE
+          value: false
+          comment: ''
+        - key: QUALITY
+          value: excellent
+          comment: ''
+        - key: RDNOISE0
+          value: 2.12497
+          comment: CCD read noise amp 0 [electrons]
+        - key: RDNOISE1
+          value: 1.95418
+          comment: CCD read noise amp 1 [electrons]
+        - key: RDNOISE2
+          value: 1.93263
+          comment: CCD read noise amp 2 [electrons]
+        - key: RDNOISE3
+          value: 1.85439
+          comment: CCD read noise amp 3 [electrons]
+        - key: PIXBIAS
+          value: pixbiasave-55055-b1.fits.gz
+          comment: ''
+        - key: PIXFLAT
+          value: pixflatave-55056-b1.fits.gz
+          comment: ''
+        - key: BADPIXEL
+          value: badpixels-55056-b1.fits.gz
+          comment: ''
+        - key: NBRIGHT
+          value: 3011
+          comment: Number of bright pixels (>10^5) in extracted fla
+      hdu1:
+        name: tset
+        description: The HDU 1 data is a binary table whose fields are used to calculate
+          the X-centers, for all fibers in the flat-field calibration frames. The
+          Y-pixel positions on the CCD, which is the independent variable and the
+          corresponding X-centers, which is the dependent variable are fitted to a
+          functional form and the resulting coefficients are stored in the binary
+          table.
+        is_image: false
+        size: 27 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 28024
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 4
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM4
+          value: ( 7, 500)
+          comment: ''
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: ''
+            description: function used to fit the Y-pixel positions on the CCD and
+              corresponding X-centers are fitted to a functional form. Polynomial,
+              Chebyshev, Legendre or Chebyshev_split functions are used. Default value
+              is taken as Legendre function
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: ''
+            description: minimum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the X-center of fibers.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: ''
+            description: maximum value of the independent variable used by fitting
+              function.
+          COEFF:
+            name: COEFF
+            type: float64[3500]
+            unit: ''
+            description: fit coefficients
+      hdu2:
+        name: fibermask
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
+          and are set to non-zero to indicate bad status. The status bits used for
+          masking are documented in $IDLUTILS/$IDLUTILS_VER/data/sdss/sdssMaskbits.par.
+        is_image: true
+        size: 1 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.11
+        - key: BITPIX
+          value: 32
+          comment: ''
+        - key: NAXIS
+          value: 1
+          comment: ''
+        - key: NAXIS1
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+      hdu3:
+        name: widthset
+        description: The data attribute of HDU 3 gives the first-order corrected profile
+          width for each fiber bundle. This Gaussian sigma is in units of pixels.
+          The X-positions on the CCD and their corresponding profile width are fitted
+          to a functional form and the resulting coefficients are stored in a binary
+          table. The X-position is the independent variable and the width is the dependent
+          variable for the fitting function.
+        is_image: false
+        size: 11 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 12024
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 4
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM4
+          value: ( 3, 500)
+          comment: ''
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: ''
+            description: function used to fit the Y-pixel positions on the CCD and
+              corresponding X-centers are fitted to a functional form. Polynomial,
+              Chebyshev, Legendre or Chebyshev_split functions are used. Default value
+              is taken as Legendre function
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: ''
+            description: minimum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the X-center of fibers.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: ''
+            description: maximum value of the independent variable used by fitting
+              function.
+          COEFF:
+            name: COEFF
+            type: float64[1500]
+            unit: ''
+            description: fit coefficients
+      hdu4:
+        name: superflatset
+        description: The data attribute of HDU 4 contains superflat which is constructed
+          from extracted flat-field image and is stored in a bspline set structure
+          form. A superflat is a bspline average across all fibers of the flat spectrum
+          in raw counts as a function of wavelength.
+        is_image: false
+        size: 24 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 25368
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 5
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        columns:
+          FULLBKPT:
+            name: FULLBKPT
+            type: float32[1814]
+            unit: ''
+            description: Breakpoint vector
+          BKMASK:
+            name: BKMASK
+            type: int16[1814]
+            unit: ''
+            description: mask of the breakpoint vector
+          NORD:
+            name: NORD
+            type: int32
+            unit: ''
+            description: Number of orders for Bspline fit
+          COEFF:
+            name: COEFF
+            type: float32[1810]
+            unit: ''
+            description: The bspline coefficients
+          ICOEFF:
+            name: ICOEFF
+            type: float32[1810]
+            unit: ''
+            description: inversion bspline coefficients
+  DR12:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID4]/spFlat-[BR][ID]-[FRAME8].fits.gz
+    example: v5_7_0/3606/spFlat-b1-00103845.fits.gz
+    location: '{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFlat
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - br
+      - frame
+      - id
+      - plateid
+      - run2d
+      access_string: spFlat = $BOSS_SPECTRO_REDUX/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz
+    survey: eBOSS
+    hdus:
+      hdu0:
+        name: fflat
+        description: The primary HDU data is an array of flat-field vectors for each
+          fiber that removes relative flat-field variations as a function of wavelength
+          between fibers. These are referred as fiberflats.
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4112
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Sloan Digital Sky Survey
+        - key: FILENAME
+          value: sdR-b1-00103845.fit
+          comment: ''
+        - key: CAMERAS
+          value: b1
+          comment: ''
+        - key: EXPOSURE
+          value: 103845
+          comment: ''
+        - key: DAQVER
+          value: 1.2.7
+          comment: ''
+        - key: CAMDAQ
+          value: 1.2.0:28
+          comment: ''
+        - key: ERRCNT
+          value: NONE
+          comment: ''
+        - key: SYNCERR
+          value: NONE
+          comment: ''
+        - key: SLINES
+          value: NONE
+          comment: ''
+        - key: PIXERR
+          value: NONE
+          comment: ''
+        - key: PLINES
+          value: NONE
+          comment: ''
+        - key: FLAVOR
+          value: flat
+          comment: exposure type, SDSS spectro style
+        - key: BOSSVER
+          value: v2_0_13
+          comment: ICC version
+        - key: MJD
+          value: 55154
+          comment: APO MJD day at start of exposure
+        - key: TAI-BEG
+          value: 4765324761.0
+          comment: MJD(TAI) seconds at start of exposure
+        - key: DATE-OBS
+          value: '2009-11-19T05:19:21'
+          comment: TAI date at start of exposure
+        - key: FF
+          value: 1 1 1 1
+          comment: FF lamps 1:on 0:0ff
+        - key: NE
+          value: 0 0 0 0
+          comment: NE lamps 1:on 0:0ff
+        - key: HGCD
+          value: 0 0 0 0
+          comment: HGCD lamps 1:on 0:0ff
+        - key: FFS
+          value: 1 1 1 1 1 1 1 1
+          comment: Flatfield Screen 1:closed 0:open
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: RA
+          value: 28.00061
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: 0.00222
+          comment: Dec of telescope boresight (deg)
+        - key: RADEG
+          value: 28.0
+          comment: RA of telescope pointing(deg)
+        - key: DECDEG
+          value: 0.0
+          comment: Dec of telescope pointing (deg)
+        - key: ROTPOS
+          value: 0.0
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: 0.00061
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.00222
+          comment: TCC ObjArcOff, deg
+        - key: OBJOFFX
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: OBJOFFY
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: CALOFFX
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: 0.021339
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: -7.565
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 57.074
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: 173.658
+          comment: Rotator axis pos. (approx, deg)
+        - key: SPA
+          value: -6.561252217285157
+          comment: TCC SpiderInstAng
+        - key: FOCUS
+          value: 399.14
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 1232.2
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -4.04
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -8.94
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: 10.26
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: 78.99
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: -395.01
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: -3.04
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: 5.26
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: 277.59
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 178.07
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 1.00004
+          comment: User-specified scale factor
+        - key: NAME
+          value: 3606-55154-01
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: 3606
+          comment: The currently loaded plate
+        - key: CARTID
+          value: 11
+          comment: The currently loaded cartridge
+        - key: MAPID
+          value: 1
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: A
+          comment: The currently specified pointing
+        - key: GUIDER1
+          value: proc-gimg-0369.fits
+          comment: The first guider image
+        - key: GUIDERN
+          value: proc-gimg-0369.fits
+          comment: The last guider image
+        - key: COLLA
+          value: 9111
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: 10358
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: 9733
+          comment: The position of the C collimator motor
+        - key: HARTMANN
+          value: Out
+          comment: 'Hartmanns: Left,Right,Out'
+        - key: EXPTIME
+          value: 31.0
+          comment: exposure time
+        - key: CAMROW
+          value: 0
+          comment: ''
+        - key: CAMCOL
+          value: 1
+          comment: ''
+        - key: AUTHOR
+          value: Scott Burles & David Schlegel
+          comment: ''
+        - key: VERSIDL
+          value: '7.0'
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: v5_5_14
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v5_7_0
+          comment: Version of idlspec2d for pre-processing raw dat
+        - key: VERSLOG
+          value: trunk exported
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: v1_21
+          comment: Version of SPECFLAT product
+        - key: TWOPHASE
+          value: false
+          comment: ''
+        - key: QUALITY
+          value: excellent
+          comment: ''
+        - key: RDNOISE0
+          value: 2.12498
+          comment: CCD read noise amp 0 [electrons]
+        - key: RDNOISE1
+          value: 1.95424
+          comment: CCD read noise amp 1 [electrons]
+        - key: RDNOISE2
+          value: 1.93262
+          comment: CCD read noise amp 2 [electrons]
+        - key: RDNOISE3
+          value: 1.8544
+          comment: CCD read noise amp 3 [electrons]
+        - key: PIXBIAS
+          value: pixbiasave-55055-b1.fits.gz
+          comment: ''
+        - key: PIXFLAT
+          value: pixflatave-55056-b1.fits.gz
+          comment: ''
+        - key: BADPIXEL
+          value: badpixels-55056-b1.fits.gz
+          comment: ''
+        - key: NBRIGHT
+          value: 3011
+          comment: Number of bright pixels (>10^5) in extracted fla
+      hdu1:
+        name: tset
+        description: The HDU 1 data is a binary table whose fields are used to calculate
+          the X-centers, for all fibers in the flat-field calibration frames. The
+          Y-pixel positions on the CCD, which is the independent variable and the
+          corresponding X-centers, which is the dependent variable are fitted to a
+          functional form and the resulting coefficients are stored in the binary
+          table.
+        is_image: false
+        size: 27 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 28024
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 4
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM4
+          value: ( 7, 500)
+          comment: ''
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: ''
+            description: function used to fit the Y-pixel positions on the CCD and
+              corresponding X-centers are fitted to a functional form. Polynomial,
+              Chebyshev, Legendre or Chebyshev_split functions are used. Default value
+              is taken as Legendre function
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: ''
+            description: minimum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the X-center of fibers.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: ''
+            description: maximum value of the independent variable used by fitting
+              function.
+          COEFF:
+            name: COEFF
+            type: float64[3500]
+            unit: ''
+            description: fit coefficients
+      hdu2:
+        name: fibermask
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
+          and are set to non-zero to indicate bad status. The status bits used for
+          masking are documented in $IDLUTILS/$IDLUTILS_VER/data/sdss/sdssMaskbits.par.
+        is_image: true
+        size: 1 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.11
+        - key: BITPIX
+          value: 32
+          comment: ''
+        - key: NAXIS
+          value: 1
+          comment: ''
+        - key: NAXIS1
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+      hdu3:
+        name: widthset
+        description: The data attribute of HDU 3 gives the first-order corrected profile
+          width for each fiber bundle. This Gaussian sigma is in units of pixels.
+          The X-positions on the CCD and their corresponding profile width are fitted
+          to a functional form and the resulting coefficients are stored in a binary
+          table. The X-position is the independent variable and the width is the dependent
+          variable for the fitting function.
+        is_image: false
+        size: 11 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 12024
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 4
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM4
+          value: ( 3, 500)
+          comment: ''
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: ''
+            description: function used to fit the Y-pixel positions on the CCD and
+              corresponding X-centers are fitted to a functional form. Polynomial,
+              Chebyshev, Legendre or Chebyshev_split functions are used. Default value
+              is taken as Legendre function
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: ''
+            description: minimum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the X-center of fibers.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: ''
+            description: maximum value of the independent variable used by fitting
+              function.
+          COEFF:
+            name: COEFF
+            type: float64[1500]
+            unit: ''
+            description: fit coefficients
+      hdu4:
+        name: superflatset
+        description: The data attribute of HDU 4 contains superflat which is constructed
+          from extracted flat-field image and is stored in a bspline set structure
+          form. A superflat is a bspline average across all fibers of the flat spectrum
+          in raw counts as a function of wavelength.
+        is_image: false
+        size: 24 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 25382
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 5
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        columns:
+          FULLBKPT:
+            name: FULLBKPT
+            type: float32[1815]
+            unit: ''
+            description: Breakpoint vector
+          BKMASK:
+            name: BKMASK
+            type: int16[1815]
+            unit: ''
+            description: mask of the breakpoint vector
+          NORD:
+            name: NORD
+            type: int32
+            unit: ''
+            description: Number of orders for Bspline fit
+          COEFF:
+            name: COEFF
+            type: float32[1811]
+            unit: ''
+            description: The bspline coefficients
+          ICOEFF:
+            name: ICOEFF
+            type: float32[1811]
+            unit: ''
+            description: inversion bspline coefficients
+  DR11:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID4]/spFlat-[BR][ID]-[FRAME8].fits.gz
+    example: v5_6_5/3606/spFlat-b1-00103845.fits.gz
+    location: '{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFlat
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - run2d
+      - frame
+      - br
+      - id
+      - plateid
+      access_string: spFlat = $BOSS_SPECTRO_REDUX/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz
+    survey: eBOSS
+    hdus:
+      hdu0:
+        name: fflat
+        description: The primary HDU data is an array of flat-field vectors for each
+          fiber that removes relative flat-field variations as a function of wavelength
+          between fibers. These are referred as fiberflats.
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4112
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Sloan Digital Sky Survey
+        - key: FILENAME
+          value: sdR-b1-00103845.fit
+          comment: ''
+        - key: CAMERAS
+          value: b1
+          comment: ''
+        - key: EXPOSURE
+          value: 103845
+          comment: ''
+        - key: DAQVER
+          value: 1.2.7
+          comment: ''
+        - key: CAMDAQ
+          value: 1.2.0:28
+          comment: ''
+        - key: ERRCNT
+          value: NONE
+          comment: ''
+        - key: SYNCERR
+          value: NONE
+          comment: ''
+        - key: SLINES
+          value: NONE
+          comment: ''
+        - key: PIXERR
+          value: NONE
+          comment: ''
+        - key: PLINES
+          value: NONE
+          comment: ''
+        - key: FLAVOR
+          value: flat
+          comment: exposure type, SDSS spectro style
+        - key: BOSSVER
+          value: v2_0_13
+          comment: ICC version
+        - key: MJD
+          value: 55154
+          comment: APO MJD day at start of exposure
+        - key: TAI-BEG
+          value: 4765324761.0
+          comment: MJD(TAI) seconds at start of exposure
+        - key: DATE-OBS
+          value: '2009-11-19T05:19:21'
+          comment: TAI date at start of exposure
+        - key: FF
+          value: 1 1 1 1
+          comment: FF lamps 1:on 0:0ff
+        - key: NE
+          value: 0 0 0 0
+          comment: NE lamps 1:on 0:0ff
+        - key: HGCD
+          value: 0 0 0 0
+          comment: HGCD lamps 1:on 0:0ff
+        - key: FFS
+          value: 1 1 1 1 1 1 1 1
+          comment: Flatfield Screen 1:closed 0:open
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: RA
+          value: 28.00061
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: 0.00222
+          comment: Dec of telescope boresight (deg)
+        - key: RADEG
+          value: 28.0
+          comment: RA of telescope pointing(deg)
+        - key: DECDEG
+          value: 0.0
+          comment: Dec of telescope pointing (deg)
+        - key: ROTPOS
+          value: 0.0
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: 0.00061
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.00222
+          comment: TCC ObjArcOff, deg
+        - key: OBJOFFX
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: OBJOFFY
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: CALOFFX
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: 0.021339
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: -7.565
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 57.074
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: 173.658
+          comment: Rotator axis pos. (approx, deg)
+        - key: SPA
+          value: -6.561252217285157
+          comment: TCC SpiderInstAng
+        - key: FOCUS
+          value: 399.14
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 1232.2
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -4.04
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -8.94
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: 10.26
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: 78.99
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: -395.01
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: -3.04
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: 5.26
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: 277.59
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 178.07
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 1.00004
+          comment: User-specified scale factor
+        - key: NAME
+          value: 3606-55154-01
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: 3606
+          comment: The currently loaded plate
+        - key: CARTID
+          value: 11
+          comment: The currently loaded cartridge
+        - key: MAPID
+          value: 1
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: A
+          comment: The currently specified pointing
+        - key: GUIDER1
+          value: proc-gimg-0369.fits
+          comment: The first guider image
+        - key: GUIDERN
+          value: proc-gimg-0369.fits
+          comment: The last guider image
+        - key: COLLA
+          value: 9111
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: 10358
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: 9733
+          comment: The position of the C collimator motor
+        - key: HARTMANN
+          value: Out
+          comment: 'Hartmanns: Left,Right,Out'
+        - key: EXPTIME
+          value: 31.0
+          comment: exposure time
+        - key: CAMROW
+          value: 0
+          comment: ''
+        - key: CAMCOL
+          value: 1
+          comment: ''
+        - key: AUTHOR
+          value: Scott Burles & David Schlegel
+          comment: ''
+        - key: VERSIDL
+          value: '7.0'
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: v5_5_10
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v5_6_5
+          comment: Version of idlspec2d for pre-processing raw dat
+        - key: VERSLOG
+          value: trunk 146456
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: v1_20
+          comment: Version of SPECFLAT product
+        - key: TWOPHASE
+          value: false
+          comment: ''
+        - key: QUALITY
+          value: excellent
+          comment: ''
+        - key: RDNOISE0
+          value: 2.12498
+          comment: CCD read noise amp 0 [electrons]
+        - key: RDNOISE1
+          value: 1.95424
+          comment: CCD read noise amp 1 [electrons]
+        - key: RDNOISE2
+          value: 1.93262
+          comment: CCD read noise amp 2 [electrons]
+        - key: RDNOISE3
+          value: 1.8544
+          comment: CCD read noise amp 3 [electrons]
+        - key: PIXBIAS
+          value: pixbiasave-55055-b1.fits.gz
+          comment: ''
+        - key: PIXFLAT
+          value: pixflatave-55056-b1.fits.gz
+          comment: ''
+        - key: BADPIXEL
+          value: badpixels-55056-b1.fits.gz
+          comment: ''
+        - key: NBRIGHT
+          value: 3011
+          comment: Number of bright pixels (>10^5) in extracted fla
+      hdu1:
+        name: tset
+        description: The HDU 1 data is a binary table whose fields are used to calculate
+          the X-centers, for all fibers in the flat-field calibration frames. The
+          Y-pixel positions on the CCD, which is the independent variable and the
+          corresponding X-centers, which is the dependent variable are fitted to a
+          functional form and the resulting coefficients are stored in the binary
+          table.
+        is_image: false
+        size: 27 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 28024
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 4
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM4
+          value: ( 7, 500)
+          comment: ''
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: ''
+            description: function used to fit the Y-pixel positions on the CCD and
+              corresponding X-centers are fitted to a functional form. Polynomial,
+              Chebyshev, Legendre or Chebyshev_split functions are used. Default value
+              is taken as Legendre function
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: ''
+            description: minimum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the X-center of fibers.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: ''
+            description: maximum value of the independent variable used by fitting
+              function.
+          COEFF:
+            name: COEFF
+            type: float64[3500]
+            unit: ''
+            description: fit coefficients
+      hdu2:
+        name: fibermask
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
+          and are set to non-zero to indicate bad status. The status bits used for
+          masking are documented in $IDLUTILS/$IDLUTILS_VER/data/sdss/sdssMaskbits.par.
+        is_image: true
+        size: 1 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.11
+        - key: BITPIX
+          value: 32
+          comment: ''
+        - key: NAXIS
+          value: 1
+          comment: ''
+        - key: NAXIS1
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+      hdu3:
+        name: widthset
+        description: The data attribute of HDU 3 gives the first-order corrected profile
+          width for each fiber bundle. This Gaussian sigma is in units of pixels.
+          The X-positions on the CCD and their corresponding profile width are fitted
+          to a functional form and the resulting coefficients are stored in a binary
+          table. The X-position is the independent variable and the width is the dependent
+          variable for the fitting function.
+        is_image: false
+        size: 11 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 12024
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 4
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM4
+          value: ( 3, 500)
+          comment: ''
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: ''
+            description: function used to fit the Y-pixel positions on the CCD and
+              corresponding X-centers are fitted to a functional form. Polynomial,
+              Chebyshev, Legendre or Chebyshev_split functions are used. Default value
+              is taken as Legendre function
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: ''
+            description: minimum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the X-center of fibers.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: ''
+            description: maximum value of the independent variable used by fitting
+              function.
+          COEFF:
+            name: COEFF
+            type: float64[1500]
+            unit: ''
+            description: fit coefficients
+      hdu4:
+        name: superflatset
+        description: The data attribute of HDU 4 contains superflat which is constructed
+          from extracted flat-field image and is stored in a bspline set structure
+          form. A superflat is a bspline average across all fibers of the flat spectrum
+          in raw counts as a function of wavelength.
+        is_image: false
+        size: 24 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 25382
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 5
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        columns:
+          FULLBKPT:
+            name: FULLBKPT
+            type: float32[1815]
+            unit: ''
+            description: Breakpoint vector
+          BKMASK:
+            name: BKMASK
+            type: int16[1815]
+            unit: ''
+            description: mask of the breakpoint vector
+          NORD:
+            name: NORD
+            type: int32
+            unit: ''
+            description: Number of orders for Bspline fit
+          COEFF:
+            name: COEFF
+            type: float32[1811]
+            unit: ''
+            description: The bspline coefficients
+          ICOEFF:
+            name: ICOEFF
+            type: float32[1811]
+            unit: ''
+            description: inversion bspline coefficients
+  DR10:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID4]/spFlat-[BR][ID]-[FRAME8].fits.gz
+    example: v5_5_12/3606/spFlat-b1-00103845.fits.gz
+    location: '{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFlat
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - run2d
+      - id
+      - frame
+      - br
+      - plateid
+      access_string: spFlat = $BOSS_SPECTRO_REDUX/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz
+    survey: eBOSS
+    hdus:
+      hdu0:
+        name: fflat
+        description: The primary HDU data is an array of flat-field vectors for each
+          fiber that removes relative flat-field variations as a function of wavelength
+          between fibers. These are referred as fiberflats.
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4112
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Sloan Digital Sky Survey
+        - key: FILENAME
+          value: sdR-b1-00103845.fit
+          comment: ''
+        - key: CAMERAS
+          value: b1
+          comment: ''
+        - key: EXPOSURE
+          value: 103845
+          comment: ''
+        - key: DAQVER
+          value: 1.2.7
+          comment: ''
+        - key: CAMDAQ
+          value: 1.2.0:28
+          comment: ''
+        - key: ERRCNT
+          value: NONE
+          comment: ''
+        - key: SYNCERR
+          value: NONE
+          comment: ''
+        - key: SLINES
+          value: NONE
+          comment: ''
+        - key: PIXERR
+          value: NONE
+          comment: ''
+        - key: PLINES
+          value: NONE
+          comment: ''
+        - key: FLAVOR
+          value: flat
+          comment: exposure type, SDSS spectro style
+        - key: BOSSVER
+          value: v2_0_13
+          comment: ICC version
+        - key: MJD
+          value: 55154
+          comment: APO MJD day at start of exposure
+        - key: TAI-BEG
+          value: 4765324761.0
+          comment: MJD(TAI) seconds at start of exposure
+        - key: DATE-OBS
+          value: '2009-11-19T05:19:21'
+          comment: TAI date at start of exposure
+        - key: FF
+          value: 1 1 1 1
+          comment: FF lamps 1:on 0:0ff
+        - key: NE
+          value: 0 0 0 0
+          comment: NE lamps 1:on 0:0ff
+        - key: HGCD
+          value: 0 0 0 0
+          comment: HGCD lamps 1:on 0:0ff
+        - key: FFS
+          value: 1 1 1 1 1 1 1 1
+          comment: Flatfield Screen 1:closed 0:open
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: RA
+          value: 28.00061
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: 0.00222
+          comment: Dec of telescope boresight (deg)
+        - key: RADEG
+          value: 28.0
+          comment: RA of telescope pointing(deg)
+        - key: DECDEG
+          value: 0.0
+          comment: Dec of telescope pointing (deg)
+        - key: ROTPOS
+          value: 0.0
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: 0.00061
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.00222
+          comment: TCC ObjArcOff, deg
+        - key: OBJOFFX
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: OBJOFFY
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: CALOFFX
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: 0.021339
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: -7.565
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 57.074
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: 173.658
+          comment: Rotator axis pos. (approx, deg)
+        - key: SPA
+          value: -6.561252217285157
+          comment: TCC SpiderInstAng
+        - key: FOCUS
+          value: 399.14
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 1232.2
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -4.04
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -8.94
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: 10.26
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: 78.99
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: -395.01
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: -3.04
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: 5.26
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: 277.59
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 178.07
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 1.00004
+          comment: User-specified scale factor
+        - key: NAME
+          value: 3606-55154-01
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: 3606
+          comment: The currently loaded plate
+        - key: CARTID
+          value: 11
+          comment: The currently loaded cartridge
+        - key: MAPID
+          value: 1
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: A
+          comment: The currently specified pointing
+        - key: GUIDER1
+          value: proc-gimg-0369.fits
+          comment: The first guider image
+        - key: GUIDERN
+          value: proc-gimg-0369.fits
+          comment: The last guider image
+        - key: COLLA
+          value: 9111
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: 10358
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: 9733
+          comment: The position of the C collimator motor
+        - key: HARTMANN
+          value: Out
+          comment: 'Hartmanns: Left,Right,Out'
+        - key: EXPTIME
+          value: 31.0
+          comment: exposure time
+        - key: CAMROW
+          value: 0
+          comment: ''
+        - key: CAMCOL
+          value: 1
+          comment: ''
+        - key: AUTHOR
+          value: Scott Burles & David Schlegel
+          comment: ''
+        - key: VERSIDL
+          value: '7.0'
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: v5_5_8
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v5_5_12
+          comment: Version of idlspec2d for pre-processing raw dat
+        - key: VERSLOG
+          value: trunk 139529
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: v1_19
+          comment: Version of SPECFLAT product
+        - key: TWOPHASE
+          value: false
+          comment: ''
+        - key: QUALITY
+          value: excellent
+          comment: ''
+        - key: RDNOISE0
+          value: 2.12498
+          comment: CCD read noise amp 0 [electrons]
+        - key: RDNOISE1
+          value: 1.95424
+          comment: CCD read noise amp 1 [electrons]
+        - key: RDNOISE2
+          value: 1.93262
+          comment: CCD read noise amp 2 [electrons]
+        - key: RDNOISE3
+          value: 1.8544
+          comment: CCD read noise amp 3 [electrons]
+        - key: PIXBIAS
+          value: pixbiasave-55055-b1.fits.gz
+          comment: ''
+        - key: PIXFLAT
+          value: pixflatave-55056-b1.fits.gz
+          comment: ''
+        - key: BADPIXEL
+          value: badpixels-55056-b1.fits.gz
+          comment: ''
+        - key: NBRIGHT
+          value: 3011
+          comment: Number of bright pixels (>10^5) in extracted fla
+      hdu1:
+        name: tset
+        description: The HDU 1 data is a binary table whose fields are used to calculate
+          the X-centers, for all fibers in the flat-field calibration frames. The
+          Y-pixel positions on the CCD, which is the independent variable and the
+          corresponding X-centers, which is the dependent variable are fitted to a
+          functional form and the resulting coefficients are stored in the binary
+          table.
+        is_image: false
+        size: 27 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 28024
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 4
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM4
+          value: ( 7, 500)
+          comment: ''
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: ''
+            description: function used to fit the Y-pixel positions on the CCD and
+              corresponding X-centers are fitted to a functional form. Polynomial,
+              Chebyshev, Legendre or Chebyshev_split functions are used. Default value
+              is taken as Legendre function
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: ''
+            description: minimum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the X-center of fibers.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: ''
+            description: maximum value of the independent variable used by fitting
+              function.
+          COEFF:
+            name: COEFF
+            type: float64[3500]
+            unit: ''
+            description: fit coefficients
+      hdu2:
+        name: fibermask
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
+          and are set to non-zero to indicate bad status. The status bits used for
+          masking are documented in $IDLUTILS/$IDLUTILS_VER/data/sdss/sdssMaskbits.par.
+        is_image: true
+        size: 1 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.11
+        - key: BITPIX
+          value: 32
+          comment: ''
+        - key: NAXIS
+          value: 1
+          comment: ''
+        - key: NAXIS1
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+      hdu3:
+        name: widthset
+        description: The data attribute of HDU 3 gives the first-order corrected profile
+          width for each fiber bundle. This Gaussian sigma is in units of pixels.
+          The X-positions on the CCD and their corresponding profile width are fitted
+          to a functional form and the resulting coefficients are stored in a binary
+          table. The X-position is the independent variable and the width is the dependent
+          variable for the fitting function.
+        is_image: false
+        size: 11 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 12024
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 4
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM4
+          value: ( 3, 500)
+          comment: ''
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: ''
+            description: function used to fit the Y-pixel positions on the CCD and
+              corresponding X-centers are fitted to a functional form. Polynomial,
+              Chebyshev, Legendre or Chebyshev_split functions are used. Default value
+              is taken as Legendre function
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: ''
+            description: minimum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the X-center of fibers.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: ''
+            description: maximum value of the independent variable used by fitting
+              function.
+          COEFF:
+            name: COEFF
+            type: float64[1500]
+            unit: ''
+            description: fit coefficients
+      hdu4:
+        name: superflatset
+        description: The data attribute of HDU 4 contains superflat which is constructed
+          from extracted flat-field image and is stored in a bspline set structure
+          form. A superflat is a bspline average across all fibers of the flat spectrum
+          in raw counts as a function of wavelength.
+        is_image: false
+        size: 24 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 25382
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 5
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        columns:
+          FULLBKPT:
+            name: FULLBKPT
+            type: float32[1815]
+            unit: ''
+            description: Breakpoint vector
+          BKMASK:
+            name: BKMASK
+            type: int16[1815]
+            unit: ''
+            description: mask of the breakpoint vector
+          NORD:
+            name: NORD
+            type: int32
+            unit: ''
+            description: Number of orders for Bspline fit
+          COEFF:
+            name: COEFF
+            type: float32[1811]
+            unit: ''
+            description: The bspline coefficients
+          ICOEFF:
+            name: ICOEFF
+            type: float32[1811]
+            unit: ''
+            description: inversion bspline coefficients
+  DR9:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID4]/spFlat-[BR][ID]-[FRAME8].fits.gz
+    example: v5_4_45/3606/spFlat-b1-00103845.fits.gz
+    location: '{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFlat
+      path_template: '@spectrodir|/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz'
+      path_kwargs:
+      - run2d
+      - id
+      - frame
+      - plateid
+      - br
+      access_string: spFlat = $BOSS_SPECTRO_REDUX/{run2d}/{plateid:0>4}/spFlat-{br}{id}-{frame:0>8}.fits.gz
+    survey: eBOSS
+    hdus:
+      hdu0:
+        name: fflat
+        description: The primary HDU data is an array of flat-field vectors for each
+          fiber that removes relative flat-field variations as a function of wavelength
+          between fibers. These are referred as fiberflats.
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4112
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Sloan Digital Sky Survey
+        - key: FILENAME
+          value: sdR-b1-00103845.fit
+          comment: ''
+        - key: CAMERAS
+          value: b1
+          comment: ''
+        - key: EXPOSURE
+          value: 103845
+          comment: ''
+        - key: DAQVER
+          value: 1.2.7
+          comment: ''
+        - key: CAMDAQ
+          value: 1.2.0:28
+          comment: ''
+        - key: ERRCNT
+          value: NONE
+          comment: ''
+        - key: SYNCERR
+          value: NONE
+          comment: ''
+        - key: SLINES
+          value: NONE
+          comment: ''
+        - key: PIXERR
+          value: NONE
+          comment: ''
+        - key: PLINES
+          value: NONE
+          comment: ''
+        - key: FLAVOR
+          value: flat
+          comment: exposure type, SDSS spectro style
+        - key: BOSSVER
+          value: v2_0_13
+          comment: ICC version
+        - key: MJD
+          value: 55154
+          comment: APO MJD day at start of exposure
+        - key: TAI-BEG
+          value: 4765324761.0
+          comment: MJD(TAI) seconds at start of exposure
+        - key: DATE-OBS
+          value: '2009-11-19T05:19:21'
+          comment: TAI date at start of exposure
+        - key: FF
+          value: 1 1 1 1
+          comment: FF lamps 1:on 0:0ff
+        - key: NE
+          value: 0 0 0 0
+          comment: NE lamps 1:on 0:0ff
+        - key: HGCD
+          value: 0 0 0 0
+          comment: HGCD lamps 1:on 0:0ff
+        - key: FFS
+          value: 1 1 1 1 1 1 1 1
+          comment: Flatfield Screen 1:closed 0:open
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: RA
+          value: 28.00061
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: 0.00222
+          comment: Dec of telescope boresight (deg)
+        - key: RADEG
+          value: 28.0
+          comment: RA of telescope pointing(deg)
+        - key: DECDEG
+          value: 0.0
+          comment: Dec of telescope pointing (deg)
+        - key: ROTPOS
+          value: 0.0
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: 0.00061
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.00222
+          comment: TCC ObjArcOff, deg
+        - key: OBJOFFX
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: OBJOFFY
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: CALOFFX
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: 0.021339
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: -7.565
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 57.074
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: 173.658
+          comment: Rotator axis pos. (approx, deg)
+        - key: SPA
+          value: -6.561252217285157
+          comment: TCC SpiderInstAng
+        - key: FOCUS
+          value: 399.14
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 1232.2
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -4.04
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -8.94
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: 10.26
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: 78.99
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: -395.01
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: -3.04
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: 5.26
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: 277.59
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 178.07
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 1.00004
+          comment: User-specified scale factor
+        - key: NAME
+          value: 3606-55154-01
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: 3606
+          comment: The currently loaded plate
+        - key: CARTID
+          value: 11
+          comment: The currently loaded cartridge
+        - key: MAPID
+          value: 1
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: A
+          comment: The currently specified pointing
+        - key: GUIDER1
+          value: proc-gimg-0369.fits
+          comment: The first guider image
+        - key: GUIDERN
+          value: proc-gimg-0369.fits
+          comment: The last guider image
+        - key: COLLA
+          value: 9111
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: 10358
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: 9733
+          comment: The position of the C collimator motor
+        - key: HARTMANN
+          value: Out
+          comment: 'Hartmanns: Left,Right,Out'
+        - key: EXPTIME
+          value: 31.0
+          comment: exposure time
+        - key: CAMROW
+          value: 0
+          comment: ''
+        - key: CAMCOL
+          value: 1
+          comment: ''
+        - key: AUTHOR
+          value: Scott Burles & David Schlegel
+          comment: ''
+        - key: VERSIDL
+          value: '7.0'
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: v5_4_24
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v5_4_45
+          comment: Version of idlspec2d for pre-processing raw dat
+        - key: VERSLOG
+          value: trunk 126283
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: v1_16
+          comment: Version of SPECFLAT product
+        - key: TWOPHASE
+          value: false
+          comment: ''
+        - key: QUALITY
+          value: excellent
+          comment: ''
+        - key: RDNOISE0
+          value: 2.12498
+          comment: CCD read noise amp 0 [electrons]
+        - key: RDNOISE1
+          value: 1.95424
+          comment: CCD read noise amp 1 [electrons]
+        - key: RDNOISE2
+          value: 1.93262
+          comment: CCD read noise amp 2 [electrons]
+        - key: RDNOISE3
+          value: 1.8544
+          comment: CCD read noise amp 3 [electrons]
+        - key: PIXBIAS
+          value: pixbiasave-55055-b1.fits.gz
+          comment: ''
+        - key: PIXFLAT
+          value: pixflatave-55056-b1.fits.gz
+          comment: ''
+        - key: BADPIXEL
+          value: badpixels-55056-b1.fits.gz
+          comment: ''
+        - key: NBRIGHT
+          value: 3011
+          comment: Number of bright pixels (>10^5) in extracted fla
+      hdu1:
+        name: tset
+        description: The HDU 1 data is a binary table whose fields are used to calculate
+          the X-centers, for all fibers in the flat-field calibration frames. The
+          Y-pixel positions on the CCD, which is the independent variable and the
+          corresponding X-centers, which is the dependent variable are fitted to a
+          functional form and the resulting coefficients are stored in the binary
+          table.
+        is_image: false
+        size: 27 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.8
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 28024
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 4
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM4
+          value: ( 7, 500)
+          comment: ''
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: ''
+            description: function used to fit the Y-pixel positions on the CCD and
+              corresponding X-centers are fitted to a functional form. Polynomial,
+              Chebyshev, Legendre or Chebyshev_split functions are used. Default value
+              is taken as Legendre function
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: ''
+            description: minimum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the X-center of fibers.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: ''
+            description: maximum value of the independent variable used by fitting
+              function.
+          COEFF:
+            name: COEFF
+            type: float64[3500]
+            unit: ''
+            description: fit coefficients
+      hdu2:
+        name: fibermask
+        description: The HDU 2 data stores the fibermask. These are fiber status bits
+          and are set to non-zero to indicate bad status. The status bits used for
+          masking are documented in $IDLUTILS/$IDLUTILS_VER/data/sdss/sdssMaskbits.par.
+        is_image: true
+        size: 1 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.8
+        - key: BITPIX
+          value: 32
+          comment: ''
+        - key: NAXIS
+          value: 1
+          comment: ''
+        - key: NAXIS1
+          value: 500
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+      hdu3:
+        name: widthset
+        description: The data attribute of HDU 3 gives the first-order corrected profile
+          width for each fiber bundle. This Gaussian sigma is in units of pixels.
+          The X-positions on the CCD and their corresponding profile width are fitted
+          to a functional form and the resulting coefficients are stored in a binary
+          table. The X-position is the independent variable and the width is the dependent
+          variable for the fitting function.
+        is_image: false
+        size: 11 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.8
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 12024
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 4
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM4
+          value: ( 3, 500)
+          comment: ''
+        columns:
+          FUNC:
+            name: FUNC
+            type: char[8]
+            unit: ''
+            description: function used to fit the Y-pixel positions on the CCD and
+              corresponding X-centers are fitted to a functional form. Polynomial,
+              Chebyshev, Legendre or Chebyshev_split functions are used. Default value
+              is taken as Legendre function
+          XMIN:
+            name: XMIN
+            type: float64
+            unit: ''
+            description: minimum value of the independent variable which is used along
+              with the fitting coefficients, in the fitting function to get the value
+              of dependent variable, which is the X-center of fibers.
+          XMAX:
+            name: XMAX
+            type: float64
+            unit: ''
+            description: maximum value of the independent variable used by fitting
+              function.
+          COEFF:
+            name: COEFF
+            type: float64[1500]
+            unit: ''
+            description: fit coefficients
+      hdu4:
+        name: superflatset
+        description: The data attribute of HDU 4 contains superflat which is constructed
+          from extracted flat-field image and is stored in a bspline set structure
+          form. A superflat is a bspline average across all fibers of the flat spectrum
+          in raw counts as a function of wavelength.
+        is_image: false
+        size: 24 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.8
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 25382
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 5
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        columns:
+          FULLBKPT:
+            name: FULLBKPT
+            type: float32[1815]
+            unit: ''
+            description: Breakpoint vector
+          BKMASK:
+            name: BKMASK
+            type: int16[1815]
+            unit: ''
+            description: mask of the breakpoint vector
+          NORD:
+            name: NORD
+            type: int32
+            unit: ''
+            description: Number of orders for Bspline fit
+          COEFF:
+            name: COEFF
+            type: float32[1811]
+            unit: ''
+            description: The bspline coefficients
+          ICOEFF:
+            name: ICOEFF
+            type: float32[1811]
+            unit: ''
+            description: inversion bspline coefficients
 notes: |-
   None
+regrets: |-
+  I have no regrets!

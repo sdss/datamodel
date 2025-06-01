@@ -9,7 +9,7 @@ Extracted fiber flats, and associated data
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -19,7 +19,7 @@ This file contains information about fiberflats, X-centers of fibers, fibermask,
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spFlat-[BR][ID]-[FRAME].fits.gz
 
 ### Releases
-IPL3, DR19
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,6 +36,9 @@ idlspec2d - spcalib.pro
 ### Is a VAC
 False
 
+### Data Level
+0.0.0
+
 ### HDUS List for release DR19
   - [HDU0: fflat](#hdu0-fflat)
   - [HDU1: tset](#hdu1-tset)
@@ -44,13 +47,47 @@ False
   - [HDU4: superflatset](#hdu4-superflatset)
   - [HDU5: xsol](#hdu5-xsol)
 
-
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
  - DR19
    - from: IPL3
+   - note: No changes
+ - IPL3
+   - from: DR18
+   - added_hdus: ['xsol']
+   - primary_delta_nkeys: 73
+   - added_primary_header_kwargs: ['SPECMT', 'MEDWIDT2', 'B2CAMH', 'VERS2D', 'OFFDEC', 'T_OUT', 'MECHORIZ', 'ARCHTEMP', 'MEDWIDT3', 'COLLH', 'COLLT', 'EXTNAME', 'ARCHACF', 'R2CAMT', 'HA', 'T_FLOOR', 'MCHUMHT', 'T_CELL', 'FIELDID', 'SPEC', 'MECHORIX', 'INTSTART', 'CCDTYPE', 'OFFPA', 'R2CAMH', 'MCTBCB', 'T_PRIM', 'MCTEMDN', 'BOSSVER', 'DESIGNID', 'GSEEING', 'CONFID', 'ARCNAME', 'B2CAMT', 'BUFFER', 'CCD', 'AIRMASS', 'HEAR', 'CCDSUM', 'DAQVER', 'VKAIJU', 'EQUINOX', 'MEDWIDT0', 'MCHUMCO', 'PROFTYPE', 'INTEND', 'VJAEGER', 'T_IN', 'CCDID', 'ARCHBACK', 'MCTRCT', 'MCTHT', 'MEDWIDT1', 'V_ARCHON', 'VCOORDIO', 'ARCHBVER', 'VCALIBS', 'MECHORIY', 'SLITID', 'T_TRUSS', 'MCTBCT', 'OBSERVAT', 'MCTRCB', 'FLATNAME', 'OFFRA']
+   - removed_primary_header_kwargs: ['AUTHOR', 'MGDPOS', 'MC1HUMCO', 'MGDRA', 'TWOPHASE', 'MC1TRCB', 'MGDDEC', 'MC1TEMDN', 'MC1HUMHT', 'MC1TRCT', 'CAMROW', 'MC1TBCB', 'MC1THT', 'CAMCOL', 'MC1TBCT', 'SLITID1']
+ - DR18
+   - from: DR17
+   - primary_delta_nkeys: 38
+   - added_primary_header_kwargs: ['M1ZROT', 'V_APO', 'MGDRA', 'GUSTD', 'PLATETYP', 'DUSTA', 'V_GUIDER', 'MC1HUMHT', 'PRESSURE', 'SHCLOTIM', 'IONPUMP', 'MC1TBCT', 'SUBFRAME', 'V_SOP', 'DUSTB', 'WINDD25M', 'MC1TRCB', 'MGDDEC', 'MC1THT', 'V_BOSS', 'DARKTIME', 'MC1HUMCO', 'GUSTS', 'CCDTEMP', 'HUMIDITY', 'MC1TEMDN', 'MC1TRCT', 'PFERR', 'SRVYMODE', 'SLITID1', 'WINDD', 'MGDPOS', 'LN2TEMP', 'AIRTEMP', 'WINDS25M', 'M2ZROT', 'DEWPOINT', 'REQTIME', 'DIDFLUSH', 'MC1TBCB', 'WINDS', 'SHOPETIM', 'TRUSTEMP']
+   - removed_primary_header_kwargs: ['PIXBIAS', 'OBJOFFY', 'OBJOFFX', 'DAQVER', 'BOSSVER']
+ - DR17
+   - from: DR16
+   - note: No changes
+ - DR16
+   - from: DR15
+   - note: No changes
+ - DR15
+   - from: DR14
+   - note: No changes
+ - DR14
+   - from: DR13
+   - note: No changes
+ - DR13
+   - from: DR11
+   - note: No changes
+ - DR11
+   - from: DR12
+   - note: No changes
+ - DR12
+   - from: DR10
+   - note: No changes
+ - DR10
+   - from: DR9
    - note: No changes
 
 ---
@@ -272,7 +309,6 @@ Key | Value | Comment | |
 ### HDU1: tset
 The HDU 1 data is a binary table whose fields are used to calculate the X-centers, for all fibers in the flat-field calibration frames. The Y-pixel positions on the CCD, which is the independent variable and the corresponding X-centers, which is the dependent variable are fitted to a functional form and the resulting coefficients are stored in the binary table.
 
-
 #### HDU Type: BINARY TABLE
 #### HDU Size:  27 KB
 
@@ -313,8 +349,7 @@ Name | Type | Unit | Description |
 
 
 ### HDU2: fibermask
-The HDU 3 data stores the fibermask. These are fiber status bits and are set to non-zero to indicate bad status. The status bits used for masking are documented in $IDLUTILS/$IDLUTILS_VER/data/sdss/sdssMaskbits.par.
-
+The HDU 2 data stores the fibermask. These are fiber status bits and are set to non-zero to indicate bad status. The status bits used for masking are documented in $IDLUTILS/$IDLUTILS_VER/data/sdss/sdssMaskbits.par.
 
 #### HDU Type: IMAGE
 #### HDU Size:  3 KB
@@ -348,7 +383,6 @@ Key | Value | Comment | |
 
 
 ### HDU3: widthset
-
 The data attribute of HDU 3 gives the first-order corrected profile width for each fiber bundle. This Gaussian sigma is in units of pixels. The X-positions on the CCD and their corresponding profile width are fitted to a functional form and the resulting coefficients are stored in a binary table. The X-position is the independent variable and the width is the dependent variable for the fitting function.
 
 #### HDU Type: BINARY TABLE
@@ -404,7 +438,6 @@ Name | Type | Unit | Description |
 
 ### HDU4: superflatset
 The data attribute of HDU 4 contains superflat which is constructed from extracted flat-field image and is stored in a bspline set structure form. A superflat is a bspline average across all fibers of the flat spectrum in raw counts as a function of wavelength.
-
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  24 KB
@@ -526,3 +559,6 @@ Key | Value | Comment | |
 ## Notes
 None
 
+---
+## Regrets
+I have no regrets!
