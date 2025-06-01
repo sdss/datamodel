@@ -13,7 +13,7 @@ BOSS Field Summary File
 ---
 
 ## Basic Information
-This file contains the list of reduced BOSS plates and FPS Fields, with associated meta-data gathered from the design/configuration files and the reductions. This file is superceded in SDSS-V by the platelist file.
+This file contains the list of reduced BOSS plates and FPS Fields, with associated meta-data gathered from the design/configuration files and the reductions. This file is superceded in SDSS-V by the fieldlist file.
 
 ### Naming Convention
 $BOSS_SPECTRO_REDUX/[RUN2D]/platelist.fits
