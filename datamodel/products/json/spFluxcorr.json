@@ -34,11 +34,33 @@
         },
         "id": "sdss",
         "aliases": []
+      },
+      {
+        "name": "eBOSS",
+        "long": "Extended Baryon Oscillation Spectroscopic Survey",
+        "description": "A cosmological survey of quasars and galaxies to understand baryon acoustic oscillations",
+        "phase": {
+          "name": "Phase-IV",
+          "id": 4,
+          "start": 2014,
+          "end": 2020,
+          "active": false
+        },
+        "id": "eboss",
+        "aliases": [
+          "boss"
+        ]
       }
     ],
     "datatype": "FITS",
     "filesize": "16 KB",
     "releases": [
+      {
+        "name": "DR17",
+        "description": "SDSS public data release 17",
+        "public": true,
+        "release_date": "2021-12-06"
+      },
       {
         "name": "DR18",
         "description": "SDSS public data release 18",
@@ -102,6 +124,33 @@
         "primary_delta_nkeys": null,
         "added_primary_header_kwargs": null,
         "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      },
+      "DR18": {
+        "from": "DR17",
+        "note": null,
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": 2,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": [
+          "COMMENT"
+        ],
         "delta_nkeys": null,
         "addead_header_keys": null,
         "removed_header_keys": null,
@@ -434,6 +483,123 @@
               "key": "GCOUNT",
               "value": "1",
               "comment": ""
+            }
+          ],
+          "columns": null
+        }
+      },
+      "par": null,
+      "hdfs": null
+    },
+    "DR17": {
+      "template": "$BOSS_SPECTRO_REDUX/[RUN2D]/[PLATEID4]/spFluxcorr-[BR][ID]-[FRAME8].fits.gz",
+      "example": "v5_13_2/3606/spFluxcorr-b1-00103847.fits.gz",
+      "location": "{run2d}/{plateid:0>4}/spFluxcorr-{br}{id}-{frame:0>8}.fits.gz",
+      "environment": "BOSS_SPECTRO_REDUX",
+      "survey": "eBOSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "spFluxcorr",
+        "path_template": "@spectrodir|/{run2d}/{plateid:0>4}/spFrame-{br}{id}-{frame:0>8}.fits.gz",
+        "path_kwargs": [
+          "br",
+          "plateid",
+          "id",
+          "frame",
+          "run2d"
+        ],
+        "access_string": "spFluxcorr = $BOSS_SPECTRO_REDUX/{run2d}/{plateid:0>4}/spFluxcorr-{br}{id}-{frame:0>8}.fits.gz"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "multiplicative flux-correction factor",
+          "size": "15 MB",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "file does conform to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-64",
+              "comment": "number of bits per data pixel"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of data axes"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "4112",
+              "comment": "length of data axis 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "500",
+              "comment": "length of data axis 2"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "FITS dataset may contain extensions"
+            },
+            {
+              "key": "COMMENT",
+              "value": "  FITS (Flexible Image Transport System) format is defined in 'Astronomy",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "  and Astrophysics', volume 376, page 359; bibcode: 2001A&A...376..359H",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": true,
+          "description": "additive flux-correction factor",
+          "size": "15 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "IMAGE",
+              "comment": "IMAGE extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-64",
+              "comment": "number of bits per data pixel"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of data axes"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "4112",
+              "comment": "length of data axis 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "500",
+              "comment": "length of data axis 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "required keyword; must = 0"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "required keyword; must = 1"
             }
           ],
           "columns": null
