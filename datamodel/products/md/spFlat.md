@@ -19,7 +19,7 @@ This file contains information about fiberflats, X-centers of fibers, fibermask,
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spFlat-[BR][ID]-[FRAME].fits.gz
 
 ### Releases
-DR17, DR18, IPL3, DR19
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -58,13 +58,37 @@ Describes changes to the datamodel product and/or file structure from one releas
    - from: DR18
    - added_hdus: ['xsol']
    - primary_delta_nkeys: 73
-   - added_primary_header_kwargs: ['VJAEGER', 'ARCHACF', 'CCDTYPE', 'T_CELL', 'ARCHBVER', 'MCTBCT', 'B2CAMT', 'SPEC', 'T_FLOOR', 'MECHORIY', 'MCHUMHT', 'EXTNAME', 'MEDWIDT1', 'INTEND', 'CONFID', 'ARCHBACK', 'MCTBCB', 'MECHORIZ', 'SLITID', 'CCD', 'T_TRUSS', 'PROFTYPE', 'CCDID', 'MEDWIDT0', 'VERS2D', 'T_PRIM', 'FIELDID', 'MCHUMCO', 'MCTHT', 'OFFRA', 'COLLH', 'OFFPA', 'AIRMASS', 'B2CAMH', 'V_ARCHON', 'MCTRCT', 'COLLT', 'BUFFER', 'VCALIBS', 'OFFDEC', 'R2CAMH', 'MEDWIDT2', 'MCTEMDN', 'CCDSUM', 'T_OUT', 'HEAR', 'OBSERVAT', 'VCOORDIO', 'DESIGNID', 'SPECMT', 'GSEEING', 'MEDWIDT3', 'ARCHTEMP', 'R2CAMT', 'HA', 'ARCNAME', 'T_IN', 'VKAIJU', 'BOSSVER', 'FLATNAME', 'INTSTART', 'EQUINOX', 'MECHORIX', 'MCTRCB', 'DAQVER']
-   - removed_primary_header_kwargs: ['MC1HUMHT', 'MGDRA', 'MC1HUMCO', 'CAMROW', 'SLITID1', 'MC1THT', 'AUTHOR', 'MGDPOS', 'MC1TEMDN', 'TWOPHASE', 'MC1TRCT', 'MGDDEC', 'CAMCOL', 'MC1TBCB', 'MC1TRCB', 'MC1TBCT']
+   - added_primary_header_kwargs: ['SPECMT', 'MEDWIDT2', 'B2CAMH', 'VERS2D', 'OFFDEC', 'T_OUT', 'MECHORIZ', 'ARCHTEMP', 'MEDWIDT3', 'COLLH', 'COLLT', 'EXTNAME', 'ARCHACF', 'R2CAMT', 'HA', 'T_FLOOR', 'MCHUMHT', 'T_CELL', 'FIELDID', 'SPEC', 'MECHORIX', 'INTSTART', 'CCDTYPE', 'OFFPA', 'R2CAMH', 'MCTBCB', 'T_PRIM', 'MCTEMDN', 'BOSSVER', 'DESIGNID', 'GSEEING', 'CONFID', 'ARCNAME', 'B2CAMT', 'BUFFER', 'CCD', 'AIRMASS', 'HEAR', 'CCDSUM', 'DAQVER', 'VKAIJU', 'EQUINOX', 'MEDWIDT0', 'MCHUMCO', 'PROFTYPE', 'INTEND', 'VJAEGER', 'T_IN', 'CCDID', 'ARCHBACK', 'MCTRCT', 'MCTHT', 'MEDWIDT1', 'V_ARCHON', 'VCOORDIO', 'ARCHBVER', 'VCALIBS', 'MECHORIY', 'SLITID', 'T_TRUSS', 'MCTBCT', 'OBSERVAT', 'MCTRCB', 'FLATNAME', 'OFFRA']
+   - removed_primary_header_kwargs: ['AUTHOR', 'MGDPOS', 'MC1HUMCO', 'MGDRA', 'TWOPHASE', 'MC1TRCB', 'MGDDEC', 'MC1TEMDN', 'MC1HUMHT', 'MC1TRCT', 'CAMROW', 'MC1TBCB', 'MC1THT', 'CAMCOL', 'MC1TBCT', 'SLITID1']
  - DR18
    - from: DR17
    - primary_delta_nkeys: 38
-   - added_primary_header_kwargs: ['IONPUMP', 'PRESSURE', 'PLATETYP', 'MGDPOS', 'MC1TEMDN', 'REQTIME', 'V_BOSS', 'V_SOP', 'LN2TEMP', 'SUBFRAME', 'DEWPOINT', 'WINDD25M', 'GUSTD', 'AIRTEMP', 'MGDRA', 'M1ZROT', 'SLITID1', 'MC1THT', 'DUSTA', 'TRUSTEMP', 'GUSTS', 'MC1HUMHT', 'SHOPETIM', 'DARKTIME', 'CCDTEMP', 'HUMIDITY', 'M2ZROT', 'DIDFLUSH', 'MC1TRCT', 'WINDS25M', 'SRVYMODE', 'WINDD', 'MC1TBCT', 'SHCLOTIM', 'V_APO', 'PFERR', 'MC1HUMCO', 'V_GUIDER', 'MGDDEC', 'DUSTB', 'MC1TBCB', 'MC1TRCB', 'WINDS']
-   - removed_primary_header_kwargs: ['BOSSVER', 'PIXBIAS', 'OBJOFFX', 'OBJOFFY', 'DAQVER']
+   - added_primary_header_kwargs: ['M1ZROT', 'V_APO', 'MGDRA', 'GUSTD', 'PLATETYP', 'DUSTA', 'V_GUIDER', 'MC1HUMHT', 'PRESSURE', 'SHCLOTIM', 'IONPUMP', 'MC1TBCT', 'SUBFRAME', 'V_SOP', 'DUSTB', 'WINDD25M', 'MC1TRCB', 'MGDDEC', 'MC1THT', 'V_BOSS', 'DARKTIME', 'MC1HUMCO', 'GUSTS', 'CCDTEMP', 'HUMIDITY', 'MC1TEMDN', 'MC1TRCT', 'PFERR', 'SRVYMODE', 'SLITID1', 'WINDD', 'MGDPOS', 'LN2TEMP', 'AIRTEMP', 'WINDS25M', 'M2ZROT', 'DEWPOINT', 'REQTIME', 'DIDFLUSH', 'MC1TBCB', 'WINDS', 'SHOPETIM', 'TRUSTEMP']
+   - removed_primary_header_kwargs: ['PIXBIAS', 'OBJOFFY', 'OBJOFFX', 'DAQVER', 'BOSSVER']
+ - DR17
+   - from: DR16
+   - note: No changes
+ - DR16
+   - from: DR15
+   - note: No changes
+ - DR15
+   - from: DR14
+   - note: No changes
+ - DR14
+   - from: DR13
+   - note: No changes
+ - DR13
+   - from: DR11
+   - note: No changes
+ - DR11
+   - from: DR12
+   - note: No changes
+ - DR12
+   - from: DR10
+   - note: No changes
+ - DR10
+   - from: DR9
+   - note: No changes
 
 ---
 ## Example HDUS List
