@@ -7,22 +7,31 @@ general:
   datatype: FITS
   filesize: 2 MB
   releases:
+  - DR17
   - DR19
   environments:
   - BOSS_SPECTRO_REDUX
   surveys:
   - BHM
+  - eBOSS
   naming_convention: $BOSS_SPECTRO_REDUX/[RUN2D]/platelist.fits
   generated_by: idlspec2d
   design: false
   vac: false
-  recommended_science_product: true
+  recommended_science_product: false
   data_level: 0.0.0
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
   releases:
-  - DR19
+    DR19:
+      from: DR17
+      added_hdus:
+      - FIELDLIST
+      primary_delta_nkeys: 2
+      added_primary_header_kwargs:
+      - DATE
+      - RUN2D
 releases:
   DR19:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/platelist.fits
@@ -702,4 +711,637 @@ releases:
             type: float32
             unit: ''
             description: Mean Moon phase of the Coadded Spectra
-notes: None
+  DR17:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/platelist.fits
+    example: v5_13_2/platelist.fits
+    location: '{run2d}/platelist.fits'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: platelist
+      path_template: '@spectrodir|/{run2d}/platelist.fits'
+      path_kwargs:
+      - run2d
+      access_string: platelist = $BOSS_SPECTRO_REDUX/{run2d}/platelist.fits
+    survey: eBOSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Dummy Created by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Dummy primary header created by MWRFITS
+        - key: NAXIS
+          value: 0
+          comment: No data is associated with this header
+        - key: EXTEND
+          value: true
+          comment: Extensions may (will!) be present
+      hdu1:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 2 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 612
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 4135
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 108
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        columns:
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          TILEID:
+            name: TILEID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          MJD:
+            name: MJD
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          RUN2D:
+            name: RUN2D
+            type: char[7]
+            unit: replace me - with content
+            description: replace me - with content
+          RUN1D:
+            name: RUN1D
+            type: char[7]
+            unit: replace me - with content
+            description: replace me - with content
+          RACEN:
+            name: RACEN
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          DECCEN:
+            name: DECCEN
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          EPOCH:
+            name: EPOCH
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          CARTID:
+            name: CARTID
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          TAI:
+            name: TAI
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          TAI_BEG:
+            name: TAI_BEG
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          TAI_END:
+            name: TAI_END
+            type: float64
+            unit: replace me - with content
+            description: replace me - with content
+          AIRMASS:
+            name: AIRMASS
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          EXPTIME:
+            name: EXPTIME
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          MAPNAME:
+            name: MAPNAME
+            type: char[14]
+            unit: replace me - with content
+            description: replace me - with content
+          SURVEY:
+            name: SURVEY
+            type: char[5]
+            unit: replace me - with content
+            description: replace me - with content
+          PROGRAMNAME:
+            name: PROGRAMNAME
+            type: char[27]
+            unit: replace me - with content
+            description: replace me - with content
+          CHUNK:
+            name: CHUNK
+            type: char[14]
+            unit: replace me - with content
+            description: replace me - with content
+          PLATEQUALITY:
+            name: PLATEQUALITY
+            type: char[4]
+            unit: replace me - with content
+            description: replace me - with content
+          PLATESN2:
+            name: PLATESN2
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          DEREDSN2:
+            name: DEREDSN2
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          QSURVEY:
+            name: QSURVEY
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          MJDLIST:
+            name: MJDLIST
+            type: char[35]
+            unit: replace me - with content
+            description: replace me - with content
+          NEXP:
+            name: NEXP
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          NEXP_B1:
+            name: NEXP_B1
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          NEXP_B2:
+            name: NEXP_B2
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          NEXP_R1:
+            name: NEXP_R1
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          NEXP_R2:
+            name: NEXP_R2
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          EXPT_B1:
+            name: EXPT_B1
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          EXPT_B2:
+            name: EXPT_B2
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          EXPT_R1:
+            name: EXPT_R1
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          EXPT_R2:
+            name: EXPT_R2
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          SN2_G1:
+            name: SN2_G1
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          SN2_R1:
+            name: SN2_R1
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          SN2_I1:
+            name: SN2_I1
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          SN2_G2:
+            name: SN2_G2
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          SN2_R2:
+            name: SN2_R2
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          SN2_I2:
+            name: SN2_I2
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          DERED_SN2_G1:
+            name: DERED_SN2_G1
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          DERED_SN2_R1:
+            name: DERED_SN2_R1
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          DERED_SN2_I1:
+            name: DERED_SN2_I1
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          DERED_SN2_G2:
+            name: DERED_SN2_G2
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          DERED_SN2_R2:
+            name: DERED_SN2_R2
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          DERED_SN2_I2:
+            name: DERED_SN2_I2
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GOFFSTD:
+            name: GOFFSTD
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GRMSSTD:
+            name: GRMSSTD
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          ROFFSTD:
+            name: ROFFSTD
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          RRMSSTD:
+            name: RRMSSTD
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          IOFFSTD:
+            name: IOFFSTD
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          IRMSSTD:
+            name: IRMSSTD
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GROFFSTD:
+            name: GROFFSTD
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GRRMSSTD:
+            name: GRRMSSTD
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          RIOFFSTD:
+            name: RIOFFSTD
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          RIRMSSTD:
+            name: RIRMSSTD
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GOFFGAL:
+            name: GOFFGAL
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GRMSGAL:
+            name: GRMSGAL
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          ROFFGAL:
+            name: ROFFGAL
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          RRMSGAL:
+            name: RRMSGAL
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          IOFFGAL:
+            name: IOFFGAL
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          IRMSGAL:
+            name: IRMSGAL
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GROFFGAL:
+            name: GROFFGAL
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          GRRMSGAL:
+            name: GRRMSGAL
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          RIOFFGAL:
+            name: RIOFFGAL
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          RIRMSGAL:
+            name: RIRMSGAL
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          NGUIDE:
+            name: NGUIDE
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          SEEING20:
+            name: SEEING20
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          SEEING50:
+            name: SEEING50
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          SEEING80:
+            name: SEEING80
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          RMSOFF20:
+            name: RMSOFF20
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          RMSOFF50:
+            name: RMSOFF50
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          RMSOFF80:
+            name: RMSOFF80
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          AIRTEMP:
+            name: AIRTEMP
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          XSIGMA:
+            name: XSIGMA
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          XSIGMIN:
+            name: XSIGMIN
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          XSIGMAX:
+            name: XSIGMAX
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          WSIGMA:
+            name: WSIGMA
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          WSIGMIN:
+            name: WSIGMIN
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          WSIGMAX:
+            name: WSIGMAX
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          XCHI2:
+            name: XCHI2
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          XCHI2MIN:
+            name: XCHI2MIN
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          XCHI2MAX:
+            name: XCHI2MAX
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          SKYCHI2:
+            name: SKYCHI2
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          SCHI2MIN:
+            name: SCHI2MIN
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          SCHI2MAX:
+            name: SCHI2MAX
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          FBADPIX:
+            name: FBADPIX
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          FBADPIX1:
+            name: FBADPIX1
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          FBADPIX2:
+            name: FBADPIX2
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          N_TOTAL:
+            name: N_TOTAL
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          N_GALAXY:
+            name: N_GALAXY
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          N_QSO:
+            name: N_QSO
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          N_STAR:
+            name: N_STAR
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          N_UNKNOWN:
+            name: N_UNKNOWN
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          N_SKY:
+            name: N_SKY
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          N_TARGET_MAIN:
+            name: N_TARGET_MAIN
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          N_TARGET_LRG1:
+            name: N_TARGET_LRG1
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          N_TARGET_LRG2:
+            name: N_TARGET_LRG2
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          N_TARGET_ELG:
+            name: N_TARGET_ELG
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          N_TARGET_QSO:
+            name: N_TARGET_QSO
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          SUCCESS_MAIN:
+            name: SUCCESS_MAIN
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          SUCCESS_LRG1:
+            name: SUCCESS_LRG1
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          SUCCESS_LRG2:
+            name: SUCCESS_LRG2
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          SUCCESS_ELG:
+            name: SUCCESS_ELG
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          SUCCESS_QSO:
+            name: SUCCESS_QSO
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          STATUS2D:
+            name: STATUS2D
+            type: char[7]
+            unit: replace me - with content
+            description: replace me - with content
+          STATUSCOMBINE:
+            name: STATUSCOMBINE
+            type: char[6]
+            unit: replace me - with content
+            description: replace me - with content
+          STATUS1D:
+            name: STATUS1D
+            type: char[7]
+            unit: replace me - with content
+            description: replace me - with content
+          PUBLIC:
+            name: PUBLIC
+            type: char[4]
+            unit: replace me - with content
+            description: replace me - with content
+          QUALCOMMENTS:
+            name: QUALCOMMENTS
+            type: char[83]
+            unit: replace me - with content
+            description: replace me - with content
+notes: |-
+  None
+regrets: |-
+  I have no regrets!
