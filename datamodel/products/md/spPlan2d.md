@@ -9,7 +9,7 @@ Spectro-2D Processing Plan
 - [Changelog](#changelog)
 - [Example PAR List](#example-par-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -19,7 +19,7 @@ Processing plan to control the Spectro-2D pipeline reduction of a Field/plate's 
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spPlan2d-[FIELD]-[MJD].par
 
 ### Releases
-IPL3, DR19
+DR18, IPL3, DR19
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,6 +36,9 @@ idlspec2d - spplan.py
 ### Is a VAC
 False
 
+### Data Level
+0.0.0
+
 ### PAR List for release DR19
   - [SPEXP](#SPEXP)
 
@@ -46,6 +49,12 @@ Describes changes to the datamodel product and/or file structure from one releas
  - DR19
    - from: IPL3
    - note: No changes
+ - IPL3
+   - from: DR18
+   - delta_nkeys: 8
+   - added_header_keys: ['pydlVersion', 'fieldname', 'SDSS_access_Ver', 'manual', 'SDSSCOREVersion', 'OBS', 'DITHER', 'SDSS_access_Release', 'sdss_tree_Ver']
+   - removed_header_keys: ['plateid']
+   - tables: {'SPEXP': {'added_cols': ['confid', 'fieldid'], 'removed_cols': ['plateid'], 'delta_nrows': 3}}
 
 ---
 ## Example PAR List
@@ -98,3 +107,7 @@ Name | Type | Unit | Description | Is Array | Example |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!
