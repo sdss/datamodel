@@ -50,6 +50,11 @@ def orjson_dumps(v, *, default):
 
 def check_gen_release(value: str) -> str:
     """ Validator to check release against list of releases """
+    if isinstance(value, Release):
+        value = value.name
+    elif isinstance(value, dict):
+        value = value.get('name', None)
+
     if value not in releases:
         raise ValueError(f'{value} is not a valid release')
     return releases[value]
@@ -57,6 +62,11 @@ def check_gen_release(value: str) -> str:
 
 def check_survey(value: str) -> str:
     """ Validator to check survey against list of surveys """
+    if isinstance(value, Survey):
+        value = value.name
+    elif isinstance(value, dict):
+        value = value.get('name', None)
+
     if value not in surveys:
         raise ValueError(f'{value} is not a valid survey')
     return surveys[value]
