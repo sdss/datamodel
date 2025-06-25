@@ -526,7 +526,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: FLUX
-sky-subtracted flux in units of 10(-17) erg/s/cm2/Ang/fiber
+sky-subtracted flux in units of erg/s/cm2/Ang/fiber
 
 #### HDU Type: IMAGE
 #### HDU Size:  91 MB
@@ -555,7 +555,7 @@ Key | Value | Comment | |
 | CUNIT2 |  |  |
 | CTYPE2 | FIBERID |  |
 | CRPIX2 | 1 |  |
-| COMMENT | sky-subtracted flux in units of 10(-17) erg/s/cm2/Ang/fiber |  |
+| COMMENT | sky-subtracted flux in units of erg/s/cm2/Ang/fiber |  |
 
 
 
@@ -683,7 +683,7 @@ Key | Value | Comment | |
 
 
 ### HDU6: SKY
-sky in flux-calibrated units (10(-17) erg/s/cm2/Ang/fiber)
+sky in flux-calibrated units (erg/s/cm2/Ang/fiber)
 
 #### HDU Type: IMAGE
 #### HDU Size:  91 MB
@@ -709,12 +709,12 @@ Key | Value | Comment | |
 | CUNIT2 |  |  |
 | CTYPE2 | FIBERID |  |
 | CRPIX2 | 1 |  |
-| COMMENT | sky in flux-calibrated units (10(-17) erg/s/cm2/Ang/fiber) |  |
+| COMMENT | sky in flux-calibrated units (erg/s/cm2/Ang/fiber) |  |
 
 
 
 ### HDU7: SKY_IVAR
-sky inverse variance (1/sigma^2) in flux-calibrated units (10(-17) erg/s/cm2/Ang/fiber)
+sky inverse variance (1/sigma^2) in flux-calibrated units (erg/s/cm2/Ang/fiber)
 
 #### HDU Type: IMAGE
 #### HDU Size:  91 MB
@@ -740,7 +740,7 @@ Key | Value | Comment | |
 | CUNIT2 |  |  |
 | CTYPE2 | FIBERID |  |
 | CRPIX2 | 1 |  |
-| COMMENT | sky inverse variance (1/sigma^2) in flux-calibrated units (10(-17) erg/s |  |
+| COMMENT | sky inverse variance (1/sigma^2) in flux-calibrated units (erg/s |  |
 | COMMENT | /cm2/Ang/fiber) |  |
 
 

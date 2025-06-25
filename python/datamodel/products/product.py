@@ -70,7 +70,7 @@ class Product:
 
     def __repr__(self) -> str:
         short = hasattr(self, 'short')
-        level = getattr(self, 'data_level')
+        level = getattr(self, 'data_level', None)
         return (f'<Product ("{self.name}", summary="{self.short if short else ""}", '
                f'level="{level if level else ""}")>')
 
