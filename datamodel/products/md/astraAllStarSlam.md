@@ -9,17 +9,17 @@ Results from the SLAM astra pipeline for each star
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
-Results from the SLAM astra pipeline for each star.
+Results from the SLAM astra pipeline for each star. 
 
 ### Naming Convention
-$MWM_ASTRA/0.5.0/summary/astraAllStarSlam-0.5.0.fits.gz
+$MWM_ASTRA/[V_ASTRA]/summary/astraAllStarSlam-[V_ASTRA].fits.gz
 
 ### Releases
-IPL3
+IPL3, DR19
 
 ### Enviroments
 MWM_ASTRA
@@ -36,15 +36,21 @@ astra
 ### Is a VAC
 False
 
-### HDUS List for release IPL3
+### Data Level
+2.3.0
+
+### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1)
-  - [HDU2: ](#hdu2)
+  - [HDU1](#hdu1)
+  - [HDU2](#hdu2)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR19
+   - from: IPL3
+   - primary_delta_nkeys: 4
 
 ---
 ## Example HDUS List
@@ -62,22 +68,26 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 0 | number of array dimensions |
 | EXTEND | True |  |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | PIPELINE | Slam | Pipeline name |
-| V_ASTRA | 0.5.0 | Astra version |
-| CREATED | 23-11-16 06:37:33 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| V_ASTRA | 0.6.0 | Astra version |
+| CREATED | 24-09-13 15:07:10 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | HDU Descriptions |  |
+|  |  |  |
 | COMMENT | HDU 0: Summary information only |  |
-| COMMENT | HDU 1: BOSS spectra taken at Apache Point Observatory |  |
-| COMMENT | HDU 2: BOSS spectra taken at Las Campanas Observatory |  |
-| COMMENT | HDU 3: APOGEE spectra taken at Apache Point Observatory |  |
-| COMMENT | HDU 4: APOGEE spectra taken at Las Campanas Observatory |  |
+| COMMENT | HDU 1: BOSS spectra |  |
+| COMMENT | HDU 2: APOGEE spectra |  |
 
 
 
-### HDU1:
+### HDU1: 
 SLAM results for each star from BOSS
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  7 MB
+#### HDU Size:  150 MB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -85,21 +95,96 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 878 | length of dimension 1 |
-| NAXIS2 | 8482 | length of dimension 2 |
+| NAXIS1 | 982 | length of dimension 1 |
+| NAXIS2 | 160438 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 185 | number of table fields |
+| TFIELDS | 190 | number of table fields |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | INSTRMNT | BOSS | Instrument |
 | PIPELINE | Slam | Pipeline name |
-| V_ASTRA | 0.5.0 | Astra version |
-| CREATED | 23-11-16 06:37:33 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| TDIM16 | (56) |  |
+| V_ASTRA | 0.6.0 | Astra version |
+| CREATED | 24-09-13 15:07:10 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Targeting Provenance |  |
+|  |  |  |
+|  |  |  |
+|  | Astrometry |  |
+|  |  |  |
+|  |  |  |
+|  | Gaia Photometry |  |
+|  |  |  |
+|  |  |  |
+|  | 2MASS Photometry |  |
+|  |  |  |
 | COMMENT | See https://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html |  |
+|  |  |  |
+|  | unWISE Photometry |  |
+|  |  |  |
 | COMMENT | See https://catalog.unwise.me/catalogs.html |  |
+|  |  |  |
+|  | GLIMPSE Photometry |  |
+|  |  |  |
 | COMMENT | See https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/gator_docs/ |  |
-| CHECKSUM | YfhlZZhlYfhlYZhl | HDU checksum updated 2023-11-15T23:37:35 |
-| DATASUM | 2799616441 | data unit checksum updated 2023-11-15T23:37:35 |
+|  |  |  |
+|  | Gaia XP Stellar Parameters (Zhang, Green & Rix 2023) |  |
+|  |  |  |
+|  |  |  |
+|  | Bailer-Jones Distance Estimates (EDR3; 2021) |  |
+|  |  |  |
+|  |  |  |
+|  | Reddening |  |
+|  |  |  |
+|  |  |  |
+|  | Synthetic Photometry from Gaia XP Spectra |  |
+|  |  |  |
+|  |  |  |
+|  | Observations Summary |  |
+|  |  |  |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Related Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Observing Span |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (XCSAO) |  |
+|  |  |  |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
+|  |  |  |
+|  | Astra Metadata |  |
+|  |  |  |
+|  |  |  |
+|  | Stellar Labels |  |
+|  |  |  |
+|  |  |  |
+|  | Initial Labels |  |
+|  |  |  |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
+|  |  |  |
+|  | Summary Statistics |  |
+|  |  |  |
+|  |  |  |
+|  | DATA INTEGRITY |  |
+|  |  |  |
+| CHECKSUM | LIR8LIO8LIO8LIO8 | HDU checksum updated 2024-09-13T09:07:48 |
+| DATASUM | 536846919 | data unit checksum updated 2024-09-13T09:07:48 |
+| TDIM15 | (57) |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
@@ -110,7 +195,6 @@ Name | Type | Unit | Description |
  | gaia_dr3_source_id | int64 |  | Gaia DR3 source identifier |
  | tic_v8_id | int64 |  | TESS Input Catalog (v8) identifier |
  | healpix | int32 |  | HEALPix (128 side) |
- | carton_0 | char[1] |  | Highest priority carton name |
  | lead | char[17] |  | Lead catalog used for cross-match |
  | version_id | int32 |  | SDSS catalog version for targeting |
  | catalogid | int64 |  | Catalog identifier used to target the source |
@@ -119,14 +203,14 @@ Name | Type | Unit | Description |
  | catalogid31 | int64 |  | Catalog identifier (v31; v1.0) |
  | n_associated | int32 |  | SDSS_IDs associated with this CATALOGID |
  | n_neighborhood | int32 |  | Sources within 3" and G_MAG < G_MAG_source + 5 |
- | sdss5_target_flags | bool[56] |  | SDSS-5 targeting flags |
- | sdss4_apogee_target1_flags | int32 |  | SDSS4 APOGEE1 targeting flags (1/2) |
- | sdss4_apogee_target2_flags | int32 |  | SDSS4 APOGEE1 targeting flags (2/2) |
- | sdss4_apogee2_target1_flags | int32 |  | SDSS4 APOGEE2 targeting flags (1/3) |
- | sdss4_apogee2_target2_flags | int32 |  | SDSS4 APOGEE2 targeting flags (2/3) |
- | sdss4_apogee2_target3_flags | int32 |  | SDSS4 APOGEE2 targeting flags (3/3) |
- | sdss4_apogee_member_flags | int32 |  | SDSS4 likely cluster/galaxy member flags |
- | sdss4_apogee_extra_target_flags | int32 |  | SDSS4 target info (aka EXTRATARG) |
+ | sdss5_target_flags | bool[57] |  | SDSS-5 targeting flags |
+ | sdss4_apogee_target1_flags | int64 |  | SDSS4 APOGEE1 targeting flags (1/2) |
+ | sdss4_apogee_target2_flags | int64 |  | SDSS4 APOGEE1 targeting flags (2/2) |
+ | sdss4_apogee2_target1_flags | int64 |  | SDSS4 APOGEE2 targeting flags (1/3) |
+ | sdss4_apogee2_target2_flags | int64 |  | SDSS4 APOGEE2 targeting flags (2/3) |
+ | sdss4_apogee2_target3_flags | int64 |  | SDSS4 APOGEE2 targeting flags (3/3) |
+ | sdss4_apogee_member_flags | int64 |  | SDSS4 likely cluster/galaxy member flags |
+ | sdss4_apogee_extra_target_flags | int64 |  | SDSS4 target info (aka EXTRATARG) |
  | ra | float32 |  | Right ascension  |
  | dec | float32 |  | Declination  |
  | l | float32 |  | Galactic longitude  |
@@ -161,16 +245,16 @@ Name | Type | Unit | Description |
  | w2_flux | float32 |  | W2 flux  |
  | w2_dflux | float32 |  | Error on W2 flux  |
  | w2_frac | float32 |  | Fraction of W2 flux from this object |
- | w1uflags | int32 |  | unWISE flags for W1 |
- | w2uflags | int32 |  | unWISE flags for W2 |
- | w1aflags | int32 |  | Additional flags for W1 |
- | w2aflags | int32 |  | Additional flags for W2 |
+ | w1uflags | int64 |  | unWISE flags for W1 |
+ | w2uflags | int64 |  | unWISE flags for W2 |
+ | w1aflags | int64 |  | Additional flags for W1 |
+ | w2aflags | int64 |  | Additional flags for W2 |
  | mag4_5 | float32 |  | IRAC band 4.5 micron magnitude  |
  | d4_5m | float32 |  | Error on IRAC band 4.5 micron magnitude  |
  | rms_f4_5 | float32 |  | RMS deviations from final flux  |
- | sqf_4_5 | int32 |  | Source quality flag for IRAC band 4.5 micron |
- | mf4_5 | int32 |  | Flux calculation method flag |
- | csf | int32 |  | Close source flag |
+ | sqf_4_5 | int64 |  | Source quality flag for IRAC band 4.5 micron |
+ | mf4_5 | int64 |  | Flux calculation method flag |
+ | csf | int64 |  | Close source flag |
  | zgr_teff | float32 |  | Stellar effective temperature  |
  | zgr_e_teff | float32 |  | Error on stellar effective temperature  |
  | zgr_logg | float32 |  | Surface gravity  |
@@ -186,7 +270,7 @@ Name | Type | Unit | Description |
  | zgr_fe_h_confidence | float32 |  | Confidence estimate in FE_H |
  | zgr_ln_prior | float32 |  | Log prior probability |
  | zgr_chi2 | float32 |  | Chi-square value |
- | zgr_quality_flags | int32 |  | Quality flags |
+ | zgr_quality_flags | int64 |  | Quality flags |
  | r_med_geo | float32 |  | Median geometric distance  |
  | r_lo_geo | float32 |  | 16th percentile of geometric distance  |
  | r_hi_geo | float32 |  | 84th percentile of geometric distance  |
@@ -196,7 +280,7 @@ Name | Type | Unit | Description |
  | bailer_jones_flags | char[5] |  | Bailer-Jones quality flags |
  | ebv | float32 |  | E(B-V)  |
  | e_ebv | float32 |  | Error on E(B-V)  |
- | ebv_flags | int32 |  | Flags indicating the source of E(B-V) |
+ | ebv_flags | int64 |  | Flags indicating the source of E(B-V) |
  | ebv_zhang_2023 | float32 |  | E(B-V) from Zhang et al. (2023)  |
  | e_ebv_zhang_2023 | float32 |  | Error on E(B-V) from Zhang et al. (2023)  |
  | ebv_sfd | float32 |  | E(B-V) from SFD  |
@@ -262,10 +346,10 @@ Name | Type | Unit | Description |
  | xcsao_e_fe_h | float32 |  | Error on [Fe/H]  |
  | xcsao_meanrxc | float32 |  | Cross-correlation R-value (1979AJ.....84.1511T) |
  | snr | float32 |  | Signal-to-noise ratio |
- | gri_gaia_transform_flags | int32 |  | Flags for provenance of ugriz photometry |
- | zwarning_flags | int32 |  | BOSS DRP warning flags |
+ | gri_gaia_transform_flags | int64 |  | Flags for provenance of ugriz photometry |
+ | zwarning_flags | int64 |  | BOSS DRP warning flags |
  | nmf_rchi2 | float32 |  | Reduced chi-square value of NMF continuum fit |
- | nmf_flags | int32 |  | NMF Continuum method flags |
+ | nmf_flags | int64 |  | NMF Continuum method flags |
  | task_pk | int64 |  | Task model primary key |
  | source_pk | int64 |  |  |
  | created | char[26] |  | Datetime when task record was created |
@@ -278,13 +362,19 @@ Name | Type | Unit | Description |
  | e_logg | float32 |  | Error on surface gravity  |
  | fe_h | float32 |  | [Fe/H]  |
  | e_fe_h | float32 |  | Error on [Fe/H]  |
+ | fe_h_niu | float32 |  | [Fe/H] calibrated from Niu et al. (2023) |
+ | e_fe_h_niu | float32 |  | Error on [Fe/H] calibrated from Niu et al. (2023) |
+ | alpha_fe | float32 |  | [alpha/Fe] |
+ | e_alpha_fe | float32 |  | Error on [alpha/Fe] |
  | initial_teff | float32 |  | Initial stellar effective temperature  |
  | initial_logg | float32 |  | Initial surface gravity  |
  | initial_fe_h | float32 |  | Initial [Fe/H]  |
+ | initial_alpha_fe | float32 |  | Initial [alpha/Fe] |
+ | initial_fe_h_niu | float32 |  | Initial [Fe/H] calibrated from Niu et al. (2023) |
  | success | bool |  | Optimizer returned successful value |
  | status | int32 |  | Optimization status |
  | optimality | bool |  | Optimality condition |
- | result_flags | int32 |  | Flags describing the results |
+ | result_flags | int64 |  | Flags describing the results |
  | flag_warn | bool |  | Warning flag for results |
  | flag_bad | bool |  | Bad flag for results |
  | chi2 | float32 |  | Chi-square value |
@@ -292,7 +382,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU2:
+### HDU2: 
 SLAM results for each star from APOGEE
 
 #### HDU Type: BINARY TABLE
@@ -304,21 +394,99 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 796 | length of dimension 1 |
+| NAXIS1 | 895 | length of dimension 1 |
 | NAXIS2 | 0 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 197 | number of table fields |
+| TFIELDS | 202 | number of table fields |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | INSTRMNT | APOGEE | Instrument |
 | PIPELINE | Slam | Pipeline name |
-| V_ASTRA | 0.5.0 | Astra version |
-| CREATED | 23-11-16 06:37:35 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| TDIM16 | (1) |  |
+| V_ASTRA | 0.6.0 | Astra version |
+| CREATED | 24-09-13 15:07:49 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Targeting Provenance |  |
+|  |  |  |
+|  |  |  |
+|  | Astrometry |  |
+|  |  |  |
+|  |  |  |
+|  | Gaia Photometry |  |
+|  |  |  |
+|  |  |  |
+|  | 2MASS Photometry |  |
+|  |  |  |
 | COMMENT | See https://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html |  |
+|  |  |  |
+|  | unWISE Photometry |  |
+|  |  |  |
 | COMMENT | See https://catalog.unwise.me/catalogs.html |  |
+|  |  |  |
+|  | GLIMPSE Photometry |  |
+|  |  |  |
 | COMMENT | See https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/gator_docs/ |  |
-| CHECKSUM | ZeQmddOmZdOmbdOm | HDU checksum updated 2023-11-15T23:37:36 |
-| DATASUM | 0 | data unit checksum updated 2023-11-15T23:37:36 |
+|  |  |  |
+|  | Gaia XP Stellar Parameters (Zhang, Green & Rix 2023) |  |
+|  |  |  |
+|  |  |  |
+|  | Bailer-Jones Distance Estimates (EDR3; 2021) |  |
+|  |  |  |
+|  |  |  |
+|  | Reddening |  |
+|  |  |  |
+|  |  |  |
+|  | Synthetic Photometry from Gaia XP Spectra |  |
+|  |  |  |
+|  |  |  |
+|  | Observations Summary |  |
+|  |  |  |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Observing Span |  |
+|  |  |  |
+|  |  |  |
+|  | Number and Quality of Visits |  |
+|  |  |  |
+|  |  |  |
+|  | Summary Statistics |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (Doppler) |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (X-Correlation) |  |
+|  |  |  |
+|  |  |  |
+|  | Astra Metadata |  |
+|  |  |  |
+|  |  |  |
+|  | Stellar Labels |  |
+|  |  |  |
+|  |  |  |
+|  | Initial Labels |  |
+|  |  |  |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
+|  |  |  |
+|  | Summary Statistics |  |
+|  |  |  |
+|  |  |  |
+|  | DATA INTEGRITY |  |
+|  |  |  |
+| CHECKSUM | PIXUQIXSPIXSPIXS | HDU checksum updated 2024-09-13T09:07:50 |
+| DATASUM | 0 | data unit checksum updated 2024-09-13T09:07:50 |
+| TDIM15 | (1) |  |
 
 ##### Binary Table Caption for HDU2
 Name | Type | Unit | Description |
@@ -329,7 +497,6 @@ Name | Type | Unit | Description |
  | gaia_dr3_source_id | int64 |  | Gaia DR3 source identifier |
  | tic_v8_id | int64 |  | TESS Input Catalog (v8) identifier |
  | healpix | int32 |  | HEALPix (128 side) |
- | carton_0 | char[1] |  | Highest priority carton name |
  | lead | char[1] |  | Lead catalog used for cross-match |
  | version_id | int32 |  | SDSS catalog version for targeting |
  | catalogid | int64 |  | Catalog identifier used to target the source |
@@ -339,13 +506,13 @@ Name | Type | Unit | Description |
  | n_associated | int32 |  | SDSS_IDs associated with this CATALOGID |
  | n_neighborhood | int32 |  | Sources within 3" and G_MAG < G_MAG_source + 5 |
  | sdss5_target_flags | bool[1] |  | SDSS-5 targeting flags |
- | sdss4_apogee_target1_flags | int32 |  | SDSS4 APOGEE1 targeting flags (1/2) |
- | sdss4_apogee_target2_flags | int32 |  | SDSS4 APOGEE1 targeting flags (2/2) |
- | sdss4_apogee2_target1_flags | int32 |  | SDSS4 APOGEE2 targeting flags (1/3) |
- | sdss4_apogee2_target2_flags | int32 |  | SDSS4 APOGEE2 targeting flags (2/3) |
- | sdss4_apogee2_target3_flags | int32 |  | SDSS4 APOGEE2 targeting flags (3/3) |
- | sdss4_apogee_member_flags | int32 |  | SDSS4 likely cluster/galaxy member flags |
- | sdss4_apogee_extra_target_flags | int32 |  | SDSS4 target info (aka EXTRATARG) |
+ | sdss4_apogee_target1_flags | int64 |  | SDSS4 APOGEE1 targeting flags (1/2) |
+ | sdss4_apogee_target2_flags | int64 |  | SDSS4 APOGEE1 targeting flags (2/2) |
+ | sdss4_apogee2_target1_flags | int64 |  | SDSS4 APOGEE2 targeting flags (1/3) |
+ | sdss4_apogee2_target2_flags | int64 |  | SDSS4 APOGEE2 targeting flags (2/3) |
+ | sdss4_apogee2_target3_flags | int64 |  | SDSS4 APOGEE2 targeting flags (3/3) |
+ | sdss4_apogee_member_flags | int64 |  | SDSS4 likely cluster/galaxy member flags |
+ | sdss4_apogee_extra_target_flags | int64 |  | SDSS4 target info (aka EXTRATARG) |
  | ra | float32 |  | Right ascension  |
  | dec | float32 |  | Declination  |
  | l | float32 |  | Galactic longitude  |
@@ -380,16 +547,16 @@ Name | Type | Unit | Description |
  | w2_flux | float32 |  | W2 flux  |
  | w2_dflux | float32 |  | Error on W2 flux  |
  | w2_frac | float32 |  | Fraction of W2 flux from this object |
- | w1uflags | int32 |  | unWISE flags for W1 |
- | w2uflags | int32 |  | unWISE flags for W2 |
- | w1aflags | int32 |  | Additional flags for W1 |
- | w2aflags | int32 |  | Additional flags for W2 |
+ | w1uflags | int64 |  | unWISE flags for W1 |
+ | w2uflags | int64 |  | unWISE flags for W2 |
+ | w1aflags | int64 |  | Additional flags for W1 |
+ | w2aflags | int64 |  | Additional flags for W2 |
  | mag4_5 | float32 |  | IRAC band 4.5 micron magnitude  |
  | d4_5m | float32 |  | Error on IRAC band 4.5 micron magnitude  |
  | rms_f4_5 | float32 |  | RMS deviations from final flux  |
- | sqf_4_5 | int32 |  | Source quality flag for IRAC band 4.5 micron |
- | mf4_5 | int32 |  | Flux calculation method flag |
- | csf | int32 |  | Close source flag |
+ | sqf_4_5 | int64 |  | Source quality flag for IRAC band 4.5 micron |
+ | mf4_5 | int64 |  | Flux calculation method flag |
+ | csf | int64 |  | Close source flag |
  | zgr_teff | float32 |  | Stellar effective temperature  |
  | zgr_e_teff | float32 |  | Error on stellar effective temperature  |
  | zgr_logg | float32 |  | Surface gravity  |
@@ -405,7 +572,7 @@ Name | Type | Unit | Description |
  | zgr_fe_h_confidence | float32 |  | Confidence estimate in FE_H |
  | zgr_ln_prior | float32 |  | Log prior probability |
  | zgr_chi2 | float32 |  | Chi-square value |
- | zgr_quality_flags | int32 |  | Quality flags |
+ | zgr_quality_flags | int64 |  | Quality flags |
  | r_med_geo | float32 |  | Median geometric distance  |
  | r_lo_geo | float32 |  | 16th percentile of geometric distance  |
  | r_hi_geo | float32 |  | 84th percentile of geometric distance  |
@@ -415,7 +582,7 @@ Name | Type | Unit | Description |
  | bailer_jones_flags | char[1] |  | Bailer-Jones quality flags |
  | ebv | float32 |  | E(B-V)  |
  | e_ebv | float32 |  | Error on E(B-V)  |
- | ebv_flags | int32 |  | Flags indicating the source of E(B-V) |
+ | ebv_flags | int64 |  | Flags indicating the source of E(B-V) |
  | ebv_zhang_2023 | float32 |  | E(B-V) from Zhang et al. (2023)  |
  | e_ebv_zhang_2023 | float32 |  | Error on E(B-V) from Zhang et al. (2023)  |
  | ebv_sfd | float32 |  | E(B-V) from SFD  |
@@ -477,7 +644,7 @@ Name | Type | Unit | Description |
  | snr | float32 |  | Signal-to-noise ratio |
  | mean_fiber | float32 |  | S/N-weighted mean visit fiber number |
  | std_fiber | float32 |  | Standard deviation of visit fiber numbers |
- | spectrum_flags | int32 |  | Data reduction pipeline flags for this spectrum |
+ | spectrum_flags | int64 |  | Data reduction pipeline flags for this spectrum |
  | v_rad | float32 |  | Barycentric rest frame radial velocity  |
  | e_v_rad | float32 |  | Error on radial velocity  |
  | std_v_rad | float32 |  | Standard deviation of visit V_RAD  |
@@ -489,7 +656,7 @@ Name | Type | Unit | Description |
  | doppler_fe_h | float32 |  | [Fe/H]  |
  | doppler_e_fe_h | float32 |  | Error on [Fe/H]  |
  | doppler_rchi2 | float32 |  | Reduced chi-square value of DOPPLER fit |
- | doppler_flags | int32 |  | DOPPLER flags |
+ | doppler_flags | int64 |  | DOPPLER flags |
  | xcorr_v_rad | float32 |  | Barycentric rest frame radial velocity  |
  | xcorr_v_rel | float32 |  | Relative velocity  |
  | xcorr_e_v_rel | float32 |  | Error on relative velocity  |
@@ -509,13 +676,19 @@ Name | Type | Unit | Description |
  | e_logg | float32 |  | Error on surface gravity  |
  | fe_h | float32 |  | [Fe/H]  |
  | e_fe_h | float32 |  | Error on [Fe/H]  |
+ | fe_h_niu | float32 |  | [Fe/H] calibrated from Niu et al. (2023) |
+ | e_fe_h_niu | float32 |  | Error on [Fe/H] calibrated from Niu et al. (2023) |
+ | alpha_fe | float32 |  | [alpha/Fe] |
+ | e_alpha_fe | float32 |  | Error on [alpha/Fe] |
  | initial_teff | float32 |  | Initial stellar effective temperature  |
  | initial_logg | float32 |  | Initial surface gravity  |
  | initial_fe_h | float32 |  | Initial [Fe/H]  |
+ | initial_alpha_fe | float32 |  | Initial [alpha/Fe] |
+ | initial_fe_h_niu | float32 |  | Initial [Fe/H] calibrated from Niu et al. (2023) |
  | success | bool |  | Optimizer returned successful value |
  | status | int32 |  | Optimization status |
  | optimality | bool |  | Optimality condition |
- | result_flags | int32 |  | Flags describing the results |
+ | result_flags | int64 |  | Flags describing the results |
  | flag_warn | bool |  | Warning flag for results |
  | flag_bad | bool |  | Bad flag for results |
  | chi2 | float32 |  | Chi-square value |
@@ -526,3 +699,7 @@ Name | Type | Unit | Description |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!
