@@ -1,4 +1,4 @@
-# Data Model: astraAllStarSLAM
+# Data Model: astraAllStarSlam
 
 
 Results from the SLAM astra pipeline for each star
@@ -16,7 +16,7 @@ Results from the SLAM astra pipeline for each star
 Results from the SLAM astra pipeline for each star.
 
 ### Naming Convention
-$MWM_ASTRA/0.5.0/summary/astraAllStarSLAM-0.5.0.fits.gz
+$MWM_ASTRA/0.5.0/summary/astraAllStarSlam-0.5.0.fits.gz
 
 ### Releases
 IPL3
