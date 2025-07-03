@@ -1,4 +1,4 @@
-# Data Model: DL1_spec_SDSSV_IPL3_eROSITA_eRASS1
+# Data Model: DL1_spec_SDSSV_eROSITA_eRASS1
 
 
 SDSS and eROSITA data of the sources within the SPIDERS program
@@ -16,7 +16,7 @@ SDSS and eROSITA data of the sources within the SPIDERS program
 Data Level 1 contains the data shared among the collaborations of SDSS and eROSITA, with optical and X-ray information of sources that were detected with eROSITA and followed-up with SDSS
 
 ### Naming Convention
-$DL1_SDSS_EROSITA/[VERS]/DL1_spec_SDSSV_IPL3_eROSITA_eRASS1.fits or $DL1_SDSS_EROSITA/[VERS]/DL1_spec_SDSSV_IPL3_eROSITA_eRASS1_allepoch.fits
+$DL1_SDSS_EROSITA/[VERS]/DL1_spec_SDSSV_eROSITA_eRASS1-[VERS].fits or $DL1_SDSS_EROSITA/[VERS]/DL1_spec_SDSSV_eROSITA_eRASS1_allepoch-[VERS].fits
 
 ### Releases
 DR19
