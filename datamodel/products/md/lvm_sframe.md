@@ -541,7 +541,7 @@ Key | Value | Comment | |
 | NAXIS2 | 1944 |  |
 | PCOUNT | 0 | number of parameters |
 | GCOUNT | 1 | number of groups |
-| BUNIT | ergs/s/cm^2/A | flux units |
+| BUNIT | ergs/s/cm^2/A/fiber | flux units |
 | EXTNAME | FLUX | extension name |
 | BSCALE | 1.0 |  |
 | BZERO | 0 |  |
