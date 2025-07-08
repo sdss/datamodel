@@ -617,7 +617,7 @@ Key | Value | Comment | |
 | CUNIT2 |  |  |
 | CTYPE2 | FIBERID |  |
 | CRPIX2 | 1 |  |
-| COMMENT | the quality bitmask for each fiber pixel |  |
+| COMMENT | the quality mask for each fiber pixel |  |
 
 
 
