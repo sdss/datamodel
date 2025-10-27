@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# this script streamlines the process to update existing JSON's datalevel
+# by automating the sequence (using manga for e.g.):
+# datamodel update -f mangaRSS -r DR17
+# replace the data_level field in the YAML
+# datamodel validate redo -f mangaRSS -r DR17
+
+# current path
+full_path=$(realpath $0)
+dir_path=$(dirname $full_path)
+
+# datamodel_dir
+dmdir=$(dirname $dir_path )
+
+{ # try
+    python ${dmdir}/python/datamodel/cli.py update "$@" 2>&1
+} ||
+{ # except
+    echo 'Error finding cli file.  If the datamodel product was pip installed, try running "datamodel update" instead.'
+}
