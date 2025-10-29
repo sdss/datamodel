@@ -9,17 +9,17 @@ BOSS Target spectra with individual exposures without 1d analysis
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 BOSS Target spectra with individual exposures without 1d analysis. These are similar in structure to the final spec-Full files, but without the final analysis
 
 ### Naming Convention
-$BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/coadd/[MJD]/spSpec-[FIELD]-[MJD]-[CATALOGID].fits
+$BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/coadd/[MJD]/spSpec-[FIELD]-[MJD]-[CATALOGID].fits
 
 ### Releases
-IPL3, DR19
+IPL3, DR19, IPL4
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -35,6 +35,9 @@ idlspec2d
 
 ### Is a VAC
 False
+
+### Data Level
+1.2.4
 
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
@@ -53,6 +56,11 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - IPL4
+   - from: DR19
+   - primary_delta_nkeys: 3
+   - added_primary_header_kwargs: ['EXTNAME', 'SFLATMIN', 'PIXFLAT', 'TAI']
+   - removed_primary_header_kwargs: ['NAXIS1']
  - DR19
    - from: IPL3
    - note: No changes
@@ -2861,3 +2869,7 @@ Name | Type | Unit | Description |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

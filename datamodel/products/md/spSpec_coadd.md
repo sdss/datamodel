@@ -9,17 +9,17 @@ BOSS Target spectra for custom coadds with individual exposures without 1d analy
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 BOSS Target spectra for custom coadds with individual exposures without 1d analysis. These are similar in structure to the final spec-Full files, but without the final analysis
 
 ### Naming Convention
-$BOSS_SPECTRO_REDUX/[RUN2D]/[COADD]/coadd/[MJD]/spSpec-[COADD]-[MJD]-[CATALOGID].fits
+$BOSS_SPECTRO_REDUX/[RUN2D]/fields/[COADD]/[COADD]_[OBS]/coadd/[MJD]/spSpec-[COADD]_[OBS]-[MJD]-[CATALOGID].fits
 
 ### Releases
-IPL3, DR19
+IPL3, DR19, IPL4
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -35,6 +35,9 @@ idlspec2d
 
 ### Is a VAC
 False
+
+### Data Level
+1.2.4
 
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
@@ -54,6 +57,11 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - IPL4
+   - from: DR19
+   - primary_delta_nkeys: 111
+   - added_primary_header_kwargs: ['FBADPIX2', 'SKYLIST', 'GRMSGAL', 'GRRMSGAL', 'CARTID', 'RRMSGAL', 'RUN2D', 'SEEING80', 'RMSOFF80', 'EQUINOX', 'DECDEG', 'PSFSKY', 'SKYCHI2', 'HELIO_RV', 'GOFFGAL', 'GROFFSTD', 'XSIGMA', 'WSIGMAX', 'COMMENT', 'LAMPLIST', 'SRVYMODE', 'WAT1_001', 'SCHI2MAX', 'CRPIX1', 'ROFFGAL', 'XSIGMAX', 'CD1_1', 'ROFFSTD', 'DATE-OBS', 'V_RAD', 'TAI-BEG', 'DEC', 'COEFF1', 'SCHI2MIN', 'GRRMSSTD', 'TAI', 'RA', 'CTYPE1', 'WSIGMIN', 'REDDEN03', 'RADEG', 'GROFFGAL', 'RIRMSSTD', 'REDDEN01', 'SEEING50', 'GOFFSTD', 'RMSOFF50', 'IRMSSTD', 'REDDEN04', 'FBADPIX1', 'NAME', 'HIGHREJ', 'COEFF0', 'MJD', 'PLUG_DEC', 'RMSOFF20', 'RADECSYS', 'STDBS0', 'VERS2D', 'WDISPR', 'PLATEID', 'STDAS0', 'AVGAS0', 'SLITID', 'VACUUM', 'RIOFFSTD', 'SEEING20', 'DATE', 'POINTING', 'RIRMSGAL', 'SFLATTEN', 'AIRMASS', 'PLUG_RA', 'AIRTEMP', 'FIELDID', 'AVGBS0', 'SCATPOLY', 'OBSMODE', 'REDDEN05', 'GRMSSTD', 'TAI-END', 'FBADPIX', 'DC-FLAG', 'PROFTYPE', 'IRMSGAL', 'PLATETYP', 'RIOFFGAL', 'LOWREJ', 'IOFFSTD', 'FIELDCAD', 'NWORDER', 'RRMSSTD', 'WAT0_001', 'REDDEN02', 'VERSCOMB', 'IOFFGAL', 'NSTD', 'NGAL', 'WSIGMA', 'NFITPOLY', 'PREJECT', 'XSIGMIN', 'CRVAL1', 'AZ', 'MAPID', 'ALT']
+   - removed_primary_header_kwargs: ['CCDID', 'CCD', 'CCDTYPE', 'EXPID02', 'EXPID04', 'EXPID06', 'EXPID07', 'EXPID03', 'NAXIS1', 'EXPID08', 'EXPID05', 'EXPID01']
  - DR19
    - from: IPL3
    - note: No changes
@@ -235,7 +243,7 @@ Name | Type | Unit | Description |
  | PMRA | float64 | mas | Proper motion in RA (pmra is a true angle) |
  | PMDEC | float64 | mas | Proper motion in Dec |
  | PARALLAX | float64 | mas | Parallax |
- | RA | float64 | deg | Calculated on sky fiber RA including delta_RA |
+ | RA | float64 | mas | Parallax |
  | DEC | float64 | deg | Calculated on sky fiber Dec including delta_DEC |
  | DELTA_RA | float64 | arcsec | The amount in RA this fiber has been offset |
  | DELTA_DEC | float64 | arcsec | The amount in Dec this fiber has been offset |
@@ -2907,3 +2915,7 @@ Name | Type | Unit | Description |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

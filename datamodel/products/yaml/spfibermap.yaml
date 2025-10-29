@@ -10,20 +10,25 @@ general:
   releases:
   - IPL3
   - DR19
+  - IPL4
   environments:
   - BOSS_SPECTRO_REDUX
   surveys:
   - BHM
-  naming_convention: $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spfibermap-[FIELD]-[MJD].fits
-    or spfibermap-112360-60000.fits but with regex pattern matches
+  naming_convention: $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/spfibermap-[FIELD]-[MJD].fits
   generated_by: idlspec2d
   design: false
   vac: false
   recommended_science_product: false
+  data_level: '1.1'
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
   releases:
+    IPL4:
+      from: DR19
+      added_hdus:
+      - CONFSUMMARYF-8867.PAR
     DR19:
       from: IPL3
       note: No changes
@@ -6615,5 +6620,4467 @@ releases:
             type: char[10]
             unit: ''
             description: SDSS-V FPS target Cadence
+  IPL4:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/spfibermap-[FIELD]-[MJD].fits
+    example: v6_2_1/fields/112XXX/112360/spfibermap-112360-60000.fits
+    location: '{run2d}/fields/{fieldgrp}/{field}/spfibermap-{field}-{mjd}.fits'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spfibermap
+      path_template: $BOSS_SPECTRO_REDUX/{run2d}/@sptypefolder|/@fieldgrp|/@pad_fieldid|@isplate|/spfibermap-@pad_fieldid|-{mjd}.fits
+      path_kwargs:
+      - mjd
+      - fieldid
+      - run2d
+      access_string: spfibermap = $BOSS_SPECTRO_REDUX/{run2d}/fields/{fieldgrp}/{field}/spfibermap-{field}-{mjd}.fits
+    survey: BHM
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: ''
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: FIELD
+          value: '112360'
+          comment: SDSS Field/Plate ID
+        - key: MJD
+          value: 60000
+          comment: MJD of Observations
+        - key: OBS
+          value: APO
+          comment: Observatory
+        - key: SPPLAN2D
+          value: spPlan2d-112360-60000.par
+          comment: IDLspec2d spPlan2d File
+        - key: FPS
+          value: true
+          comment: Is this an FPS Field
+        - key: PLATE
+          value: false
+          comment: Is this a SDSS-V Plate
+        - key: LEGACY
+          value: false
+          comment: Is this a Pre-SDSS-V Plate
+        - key: CHECKSUM
+          value: cRHAdQEAcQEAcQEA
+          comment: HDU checksum updated 2025-04-01T06:28:31
+        - key: DATASUM
+          value: '0'
+          comment: data unit checksum updated 2025-04-01T06:28:31
+      hdu1:
+        name: SUMMARY
+        description: General Configuration/plugging Data
+        is_image: false
+        size: 5 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 1182
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 5
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 108
+          comment: number of table fields
+        - key: EXTNAME
+          value: SUMMARY
+          comment: extension name
+        - key: CHECKSUM
+          value: 4eoH5ZlE4blE4ZlE
+          comment: HDU checksum updated 2025-04-01T06:28:31
+        - key: DATASUM
+          value: '190495894'
+          comment: data unit checksum updated 2025-04-01T06:28:31
+        columns:
+          EXTNAME:
+            name: EXTNAME
+            type: char[21]
+            unit: ''
+            description: Name of extension for plugmap/confSummary
+          PLUGDIR:
+            name: PLUGDIR
+            type: char[102]
+            unit: ''
+            description: path to confSummary or plugmap file
+          CONFIGURATION_ID:
+            name: CONFIGURATION_ID
+            type: char[4]
+            unit: ''
+            description: FPS configuration ID
+          ROBOSTRATEGY_RUN:
+            name: ROBOSTRATEGY_RUN
+            type: char[6]
+            unit: ''
+            description: Run of Robostrategy for this FPS design
+          FPS_CALIBRATIONS_VERSION:
+            name: FPS_CALIBRATIONS_VERSION
+            type: char[10]
+            unit: ''
+            description: Version of FPS calibrations used.
+          JAEGER_VERSION:
+            name: JAEGER_VERSION
+            type: char[7]
+            unit: ''
+            description: Version of Jaeger used for this configuration
+          COORDIO_VERSION:
+            name: COORDIO_VERSION
+            type: char[7]
+            unit: ''
+            description: Version of coordIO used for this configuration
+          KAIJU_VERSION:
+            name: KAIJU_VERSION
+            type: char[13]
+            unit: ''
+            description: Version of Kaiju used for this configuration
+          DESIGN_ID:
+            name: DESIGN_ID
+            type: char[6]
+            unit: ''
+            description: FPS design ID associated with configuration
+          DESIGN_MODE:
+            name: DESIGN_MODE
+            type: char[11]
+            unit: ''
+            description: SDSS-V DesignMode Mode
+          FIELD_ID:
+            name: FIELD_ID
+            type: char[6]
+            unit: ''
+            description: The field ID that defines the pointing
+          FOCAL_SCALE:
+            name: FOCAL_SCALE
+            type: char[18]
+            unit: ''
+            description: scale factor between xy focal and xy wok
+          INSTRUMENTS:
+            name: INSTRUMENTS
+            type: char[11]
+            unit: ''
+            description: Instruments used (always APOGEE and BOSS)
+          EPOCH:
+            name: EPOCH
+            type: char[18]
+            unit: ''
+            description: JD at which the configuration was generated
+          OBSMODE:
+            name: OBSMODE
+            type: char[11]
+            unit: ''
+            description: SDSS-V Observation Mode
+          OBSTIME:
+            name: OBSTIME
+            type: char[24]
+            unit: s
+            description: TAI date of the observation (matches epoch)
+          MJD:
+            name: MJD
+            type: char[5]
+            unit: ''
+            description: MJD of the observation in the SDSS style
+          OBSERVATORY:
+            name: OBSERVATORY
+            type: char[3]
+            unit: ''
+            description: Observatory for this configuration
+          TEMPERATURE:
+            name: TEMPERATURE
+            type: char[17]
+            unit: deg
+            description: Temperature at the time of the FPS observation
+          RACEN:
+            name: RACEN
+            type: char[15]
+            unit: deg
+            description: FPS Field centre Right Ascension
+          DECCEN:
+            name: DECCEN
+            type: char[16]
+            unit: deg
+            description: FPS Field centre Declination
+          PA:
+            name: PA
+            type: char[9]
+            unit: deg
+            description: FPS Field centre Position Angle
+          IS_DITHERED:
+            name: IS_DITHERED
+            type: char[1]
+            unit: ''
+            description: Is this a dithered FPS configuration
+          PARENT_CONFIGURATION:
+            name: PARENT_CONFIGURATION
+            type: char[4]
+            unit: ''
+            description: parent configuration of the dither.
+          DITHER_RADIUS:
+            name: DITHER_RADIUS
+            type: char[6]
+            unit: mm
+            description: radius for uniform distribution around parent
+          CLONED_FROM:
+            name: CLONED_FROM
+            type: char[4]
+            unit: ''
+            description: previous configuration id for cloned configuration
+          ROTATOR_ANGLE:
+            name: ROTATOR_ANGLE
+            type: char[6]
+            unit: deg
+            description: Angle of telescope rotator
+          FVC_CENTROID_METHOD:
+            name: FVC_CENTROID_METHOD
+            type: char[7]
+            unit: ''
+            description: Method used to centroid FVC images for robot positioning
+          FVC_RMS:
+            name: FVC_RMS
+            type: char[7]
+            unit: ''
+            description: RMS of FVC centroiding
+          FVC_90_PERC:
+            name: FVC_90_PERC
+            type: char[6]
+            unit: ''
+            description: 90% of FVC centroiding
+          FVC_PERCENT_REACHED:
+            name: FVC_PERCENT_REACHED
+            type: char[4]
+            unit: ''
+            description: FVC Centroiding percentage achieved
+          FVC_IMAGE_PATH:
+            name: FVC_IMAGE_PATH
+            type: char[42]
+            unit: ''
+            description: Path to FVC image for this FPS configuration
+          CARTRIDGEID:
+            name: CARTRIDGEID
+            type: char[5]
+            unit: ''
+            description: Plate cartridge number
+          COMPLETETILEVERSION:
+            name: COMPLETETILEVERSION
+            type: char[10]
+            unit: ''
+            description: ''
+          MJDDESIGN:
+            name: MJDDESIGN
+            type: char[10]
+            unit: ''
+            description: MJD of Plate Design
+          POINTING:
+            name: POINTING
+            type: char[10]
+            unit: ''
+            description: which pointing (1-indexed) this target is associated with
+          MAG_QUALITY:
+            name: MAG_QUALITY
+            type: char[10]
+            unit: ''
+            description: Plate Input Magnitude Quality Flag
+          PLATEID:
+            name: PLATEID
+            type: char[10]
+            unit: ''
+            description: SDSS plate ID number
+          HA:
+            name: HA
+            type: char[10]
+            unit: deg
+            description: hour angle for design (- = rising, + = setting)
+          HA_OBSERVABLE_MIN:
+            name: HA_OBSERVABLE_MIN
+            type: char[10]
+            unit: deg
+            description: min HA for no hole offsets from refraction
+          HA_OBSERVABLE_MAX:
+            name: HA_OBSERVABLE_MAX
+            type: char[10]
+            unit: deg
+            description: max HA for no hole offsets from refraction
+          PROGRAMNAME:
+            name: PROGRAMNAME
+            type: char[10]
+            unit: ''
+            description: Program Name associated with the Plate
+          TEMP:
+            name: TEMP
+            type: char[10]
+            unit: deg
+            description: Temperature of plate design (deg C)
+          DESIGN_PLATESCALE_ALT:
+            name: DESIGN_PLATESCALE_ALT
+            type: char[10]
+            unit: mm/deg
+            description: effective plate scale of design in altitude
+          DESIGN_PLATESCALE_AZ:
+            name: DESIGN_PLATESCALE_AZ
+            type: char[10]
+            unit: mm/deg
+            description: effective plate scale of design in azimuth
+          DESIGN_PARALLACTIC_ANGLE:
+            name: DESIGN_PARALLACTIC_ANGLE
+            type: char[10]
+            unit: deg
+            description: plate parallactic angle (deg E of N)
+          LOCATIONID:
+            name: LOCATIONID
+            type: char[10]
+            unit: ''
+            description: ''
+          NPOINTINGS:
+            name: NPOINTINGS
+            type: char[10]
+            unit: ''
+            description: num of designed pointings of plate; 1+ exp
+          NOFFSETS:
+            name: NOFFSETS
+            type: char[10]
+            unit: ''
+            description: number of offsets within each exposure
+          MAXSKYINBLOCKBOSS_SHARED:
+            name: MAXSKYINBLOCKBOSS_SHARED
+            type: char[10]
+            unit: ''
+            description: Does the plate have a maximum number of skies we want to
+              assign per fiber block
+          GFIBERTYPE:
+            name: GFIBERTYPE
+            type: char[10]
+            unit: ''
+            description: type of Plate guide fibers to assume (old "gfiber" or new
+              "gfiber2")
+          GUIDETYPE:
+            name: GUIDETYPE
+            type: char[10]
+            unit: ''
+            description: for each Plate pointing, the source to search for guide fibers
+              from (can be "SDSS" or "2MASS")
+          GUIDENUMS1:
+            name: GUIDENUMS1
+            type: char[10]
+            unit: ''
+            description: for each Plate pointing, the source to search for guide fibers
+              from (can be "SDSS" or "2MASS")
+          GUIDEMAG_MINMAX:
+            name: GUIDEMAG_MINMAX
+            type: char[10]
+            unit: ''
+            description: 'minimum and maximum g-band magnitudes for Plate guide stars
+              (default: [13, 15.5])'
+          GUIDE_LAMBDA_EFF:
+            name: GUIDE_LAMBDA_EFF
+            type: char[10]
+            unit: AA
+            description: Guiding wavelength
+          NGUIDEMAX:
+            name: NGUIDEMAX
+            type: char[10]
+            unit: ''
+            description: 'maximum number of possible plate guide stars to track, otherwise
+              tracks 10s of thousands at low b (default: infinite)'
+          FERRULESIZEBOSS_SHARED:
+            name: FERRULESIZEBOSS_SHARED
+            type: char[10]
+            unit: ''
+            description: diameter of plate ferrule in mm for BOSS
+          BUFFERSIZEBOSS_SHARED:
+            name: BUFFERSIZEBOSS_SHARED
+            type: char[10]
+            unit: mm
+            description: buffer to include outside boss ferrule for checking for conflicts
+          FERRULESIZEAPOGEE_SHARED:
+            name: FERRULESIZEAPOGEE_SHARED
+            type: char[10]
+            unit: mm
+            description: diameter of plate ferrule in mm for apoggee
+          BUFFERSIZEAPOGEE_SHARED:
+            name: BUFFERSIZEAPOGEE_SHARED
+            type: char[10]
+            unit: mm
+            description: buffer to include outside apogeeferrule for checking for
+              conflict
+          FERRULESIZEGUIDE:
+            name: FERRULESIZEGUIDE
+            type: char[10]
+            unit: mm
+            description: diameter of plate ferrule in mm for guide fiber
+          BUFFERSIZEGUIDE:
+            name: BUFFERSIZEGUIDE
+            type: char[10]
+            unit: mm
+            description: buffer to include outside guide fiber ferrule for checking
+              for conflict
+          PLATEDESIGNSTANDARDS:
+            name: PLATEDESIGNSTANDARDS
+            type: char[10]
+            unit: ''
+            description: specify what instruments we want plate design to find standards
+              for
+          STANDARDTYPE:
+            name: STANDARDTYPE
+            type: char[10]
+            unit: ''
+            description: for each plate pointing, type of standard to find (can be
+              "SDSS" or "2MASS", or "None" --- in fact, any value other than SDSS
+              or 2MASS is equivalent to "None")
+          PLATEDESIGNSKIES:
+            name: PLATEDESIGNSKIES
+            type: char[10]
+            unit: ''
+            description: specify what instruments we want plate design to find skies
+              for, if any
+          SKYTYPE:
+            name: SKYTYPE
+            type: char[10]
+            unit: ''
+            description: for each pointing, type of skies to find (can be "SDSS" or
+              "2MASS")
+          PLUGMAPSTYLE:
+            name: PLUGMAPSTYLE
+            type: char[10]
+            unit: ''
+            description: type of plugmap file to create (default "plplugmap")
+          BOSSMAGTYPE:
+            name: BOSSMAGTYPE
+            type: char[10]
+            unit: ''
+            description: type of magnitude used for fiber magnitudes for BOSS targets
+          POINTING_NAME:
+            name: POINTING_NAME
+            type: char[10]
+            unit: ''
+            description: name of the plate pointings ('A B C D E F')
+          MAX_OFF_FIBER_FOR_HA:
+            name: MAX_OFF_FIBER_FOR_HA
+            type: char[10]
+            unit: ''
+            description: set HA limits (ha_observable_min, haobservable_max) to guarantee
+              no offsets greater than this limit, in arcsec (platedesign v1_27 and
+              above)
+          COLLECTFACTOR:
+            name: COLLECTFACTOR
+            type: char[10]
+            unit: ''
+            description: 'oversampling factor for collecting skies and standards;
+              to ensure pluggability, should be at least 5 (default: 5)'
+          DESIGNID:
+            name: DESIGNID
+            type: char[10]
+            unit: ''
+            description: plate design identification number
+          PLATETYPE:
+            name: PLATETYPE
+            type: char[10]
+            unit: ''
+            description: type of plateDefault file to use
+          RELAXED_FIBER_CLASSES:
+            name: RELAXED_FIBER_CLASSES
+            type: char[10]
+            unit: ''
+            description: for APOGEE, do not break target classes up into bright/medium/faint.
+          TARGETTYPES:
+            name: TARGETTYPES
+            type: char[10]
+            unit: ''
+            description: 'types of targets which the file will specify a certain number
+              of (allowed: "science", "sky", "standard")'
+          NAPOGEE_SHARED_STANDARD:
+            name: NAPOGEE_SHARED_STANDARD
+            type: char[10]
+            unit: ''
+            description: Number of apogee standards
+          NAPOGEE_SHARED_SCIENCE:
+            name: NAPOGEE_SHARED_SCIENCE
+            type: char[10]
+            unit: ''
+            description: Number of apogee science fibers
+          NAPOGEE_SHARED_SKY:
+            name: NAPOGEE_SHARED_SKY
+            type: char[10]
+            unit: ''
+            description: Number of apogee sky fibers
+          NBOSS_SHARED_STANDARD:
+            name: NBOSS_SHARED_STANDARD
+            type: char[10]
+            unit: ''
+            description: number of boss standards
+          NBOSS_SHARED_SCIENCE:
+            name: NBOSS_SHARED_SCIENCE
+            type: char[10]
+            unit: ''
+            description: number of boss science fibers
+          NBOSS_SHARED_SKY:
+            name: NBOSS_SHARED_SKY
+            type: char[10]
+            unit: ''
+            description: number of boss sky fibers
+          MINSKYINBLOCKBOSS_SHARED:
+            name: MINSKYINBLOCKBOSS_SHARED
+            type: char[10]
+            unit: ''
+            description: specify if we have a minimum number of skies we want to assign
+              per Plate fiber block (default 0)
+          MINSTANDARDINBLOCKBOSS_SHARED:
+            name: MINSTANDARDINBLOCKBOSS_SHARED
+            type: char[10]
+            unit: ''
+            description: specify if we have a minimum number of standards we want
+              to assign per Plate fiber block (default 0)
+          REDDENINGMED:
+            name: REDDENINGMED
+            type: char[10]
+            unit: ''
+            description: reddening values
+          TILEID:
+            name: TILEID
+            type: char[10]
+            unit: ''
+            description: SDSS Plate Tiling ID
+          THETA:
+            name: THETA
+            type: char[10]
+            unit: ''
+            description: position angle of plate design (0 in practice)
+          PLATERUN:
+            name: PLATERUN
+            type: char[10]
+            unit: ''
+            description: name of platerun this file was part of
+          PLATEDESIGN_VERSION:
+            name: PLATEDESIGN_VERSION
+            type: char[10]
+            unit: ''
+            description: version of platedesign used to produce design
+          HAMIN:
+            name: HAMIN
+            type: char[10]
+            unit: deg
+            description: min design hour angle
+          HAMAX:
+            name: HAMAX
+            type: char[10]
+            unit: deg
+            description: max design hour angle
+          FSCANVERSION:
+            name: FSCANVERSION
+            type: char[10]
+            unit: ''
+            description: version of plate scan software
+          PLUGGERS:
+            name: PLUGGERS
+            type: char[10]
+            unit: ''
+            description: who plugged the plate
+          PLATEID_1:
+            name: PLATEID_1
+            type: char[10]
+            unit: ''
+            description: plate ID number
+          FSCANMJD:
+            name: FSCANMJD
+            type: char[10]
+            unit: ''
+            description: MJD when plugged plate was scanned
+          FSCANID:
+            name: FSCANID
+            type: char[10]
+            unit: ''
+            description: unique mapped-plugged-plate id
+          FSCANDATE:
+            name: FSCANDATE
+            type: char[10]
+            unit: ''
+            description: Date when plugged plate was scanned
+          FSCANFILE:
+            name: FSCANFILE
+            type: char[10]
+            unit: ''
+            description: ''
+          FSCANMODE:
+            name: FSCANMODE
+            type: char[10]
+            unit: ''
+            description: Fscan mode (slow, fast or extrema)
+          FSCANSPEED:
+            name: FSCANSPEED
+            type: char[10]
+            unit: ''
+            description: Fscan motor scanning speed
+          FSCANROWS:
+            name: FSCANROWS
+            type: char[10]
+            unit: ''
+            description: ''
+          FSCANCOLS:
+            name: FSCANCOLS
+            type: char[10]
+            unit: ''
+            description: ''
+          FSCANBIAS:
+            name: FSCANBIAS
+            type: char[10]
+            unit: ''
+            description: ''
+          MOTORID1:
+            name: MOTORID1
+            type: char[10]
+            unit: ''
+            description: ''
+          MOTORID2:
+            name: MOTORID2
+            type: char[10]
+            unit: ''
+            description: ''
+          MOTORID3:
+            name: MOTORID3
+            type: char[10]
+            unit: ''
+            description: ''
+          FMAPVERSION:
+            name: FMAPVERSION
+            type: char[10]
+            unit: ''
+            description: version of plate mapping software
+          IDLUTILSVERSION:
+            name: IDLUTILSVERSION
+            type: char[10]
+            unit: ''
+            description: IDLUTILS Version for platedesign
+          IDLVERSION:
+            name: IDLVERSION
+            type: char[10]
+            unit: ''
+            description: IDLUTILS Version for platedesign
+      hdu2:
+        name: CONFSUMMARYF-8867.PAR
+        description: Fiber-to-target mapping for plate plugging or FPS configuration
+        is_image: false
+        size: 2 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 1407
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 1500
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 117
+          comment: number of table fields
+        - key: TNULL1
+          value: -999
+          comment: ''
+        - key: TNULL3
+          value: -999
+          comment: ''
+        - key: TNULL4
+          value: -999
+          comment: ''
+        - key: TNULL7
+          value: -999
+          comment: ''
+        - key: TNULL8
+          value: -999
+          comment: ''
+        - key: TNULL9
+          value: -999
+          comment: ''
+        - key: TNULL10
+          value: -999
+          comment: ''
+        - key: TNULL11
+          value: -999
+          comment: ''
+        - key: TNULL12
+          value: -999
+          comment: ''
+        - key: TNULL13
+          value: -999
+          comment: ''
+        - key: TNULL14
+          value: -999
+          comment: ''
+        - key: TNULL16
+          value: -999
+          comment: ''
+        - key: TNULL42
+          value: -999
+          comment: ''
+        - key: TNULL46
+          value: -1
+          comment: ''
+        - key: TNULL52
+          value: -999
+          comment: ''
+        - key: TNULL56
+          value: -999
+          comment: ''
+        - key: TNULL67
+          value: -999
+          comment: ''
+        - key: TNULL70
+          value: -999
+          comment: ''
+        - key: TNULL74
+          value: -999
+          comment: ''
+        - key: TNULL75
+          value: 0
+          comment: ''
+        - key: TNULL77
+          value: -999
+          comment: ''
+        - key: TNULL78
+          value: -999
+          comment: ''
+        - key: TNULL79
+          value: -999
+          comment: ''
+        - key: TNULL80
+          value: -999
+          comment: ''
+        - key: TNULL81
+          value: -999
+          comment: ''
+        - key: TNULL83
+          value: -999
+          comment: ''
+        - key: TNULL89
+          value: -999
+          comment: ''
+        - key: TDIM91
+          value: (68)
+          comment: ''
+        - key: TNULL93
+          value: -999
+          comment: ''
+        - key: TNULL94
+          value: -999
+          comment: ''
+        - key: TNULL95
+          value: -999
+          comment: ''
+        - key: TNULL96
+          value: -999
+          comment: ''
+        - key: TNULL97
+          value: -999
+          comment: ''
+        - key: TNULL98
+          value: -999
+          comment: ''
+        - key: TNULL99
+          value: -999
+          comment: ''
+        - key: TNULL100
+          value: -999
+          comment: ''
+        - key: TNULL101
+          value: -999
+          comment: ''
+        - key: TNULL102
+          value: -999
+          comment: ''
+        - key: TNULL103
+          value: -999
+          comment: ''
+        - key: TNULL104
+          value: -999
+          comment: ''
+        - key: TNULL105
+          value: -999
+          comment: ''
+        - key: TNULL109
+          value: -999
+          comment: ''
+        - key: TNULL111
+          value: -999
+          comment: ''
+        - key: TNULL112
+          value: -999
+          comment: ''
+        - key: TNULL113
+          value: -999
+          comment: ''
+        - key: EXTNAME
+          value: CONFSUMMARYF-8867.PAR
+          comment: extension name
+        - key: CHECKSUM
+          value: 7AmZ92lX79lX79lX
+          comment: HDU checksum updated 2025-04-01T06:28:31
+        - key: DATASUM
+          value: '4002658692'
+          comment: data unit checksum updated 2025-04-01T06:28:31
+        columns:
+          POSITIONERID:
+            name: POSITIONERID
+            type: int64
+            unit: ''
+            description: FPS Positioner identifier
+          HOLEID:
+            name: HOLEID
+            type: char[7]
+            unit: ''
+            description: Hole ID in which the positioner is sitting
+          FIBERID:
+            name: FIBERID
+            type: int64
+            unit: ''
+            description: Fiber ID for the spectrograph
+          CONFFIBERID:
+            name: CONFFIBERID
+            type: int64
+            unit: ''
+            description: Raw Slithead FiberIDs
+          FIBERTYPE:
+            name: FIBERTYPE
+            type: char[9]
+            unit: ''
+            description: Type of fibre (APOGEE, BOSS, or Metrology)
+          HOLETYPE:
+            name: HOLETYPE
+            type: char[10]
+            unit: ''
+            description: Plate Hole type
+          ASSIGNED:
+            name: ASSIGNED
+            type: int64
+            unit: ''
+            description: Whether this fibre was assigned to a target
+          ON_TARGET:
+            name: ON_TARGET
+            type: int64
+            unit: ''
+            description: Whether this fibre is on target
+          VALID:
+            name: VALID
+            type: int64
+            unit: ''
+            description: alpha and beta angles are valid
+          DECOLLIDED:
+            name: DECOLLIDED
+            type: int64
+            unit: ''
+            description: this positioner had to be moved to decollide it
+          TOO:
+            name: TOO
+            type: int64
+            unit: ''
+            description: the fiber is allocated to a TOO
+          FIBERMASK:
+            name: FIBERMASK
+            type: int64
+            unit: ''
+            description: Fiber level bitmasks (maps to SPPIXMASK)
+          BADSTDMASK:
+            name: BADSTDMASK
+            type: int64
+            unit: ''
+            description: Standard rejected by magnitude range of design
+          THROUGHPUT:
+            name: THROUGHPUT
+            type: int64
+            unit: ''
+            description: Plate Fiber throughput (0-65535, 0=no light)
+          SCI_EXPTIME:
+            name: SCI_EXPTIME
+            type: float64
+            unit: s
+            description: Rescaled Science Exposure Time for offset plate
+          BLUEFIBER:
+            name: BLUEFIBER
+            type: int64
+            unit: ''
+            description: BOSS to assign this target a 'blue' fiber
+          ALPHA:
+            name: ALPHA
+            type: float64
+            unit: deg
+            description: The alpha angles of the positioner arms.
+          BETA:
+            name: BETA
+            type: float64
+            unit: deg
+            description: The beta angles of the positioner arms.
+          XWOK:
+            name: XWOK
+            type: float64
+            unit: mm
+            description: The X value in the FPS WOK coordinates
+          YWOK:
+            name: YWOK
+            type: float64
+            unit: mm
+            description: The Y value in the FPS WOK coordinates
+          ZWOK:
+            name: ZWOK
+            type: float64
+            unit: mm
+            description: The Z value in the FPS WOK coordinates
+          XWOK_PRE:
+            name: XWOK_PRE
+            type: float64
+            unit: mm
+            description: The XWOK pre FVC Loop
+          YWOK_PRE:
+            name: YWOK_PRE
+            type: float64
+            unit: mm
+            description: The YWOK pre FVC Loop
+          ZWOK_PRE:
+            name: ZWOK_PRE
+            type: float64
+            unit: mm
+            description: The ZWOK pre FVC Loop
+          XFOCAL:
+            name: XFOCAL
+            type: float64
+            unit: mm
+            description: The X value in focal plane coordinates.
+          YFOCAL:
+            name: YFOCAL
+            type: float64
+            unit: mm
+            description: The Y value in focal plane coordinates.
+          ZOFFSET:
+            name: ZOFFSET
+            type: float64
+            unit: micron
+            description: backstopping offset distance (from washers)
+          RACAT:
+            name: RACAT
+            type: float64
+            unit: deg
+            description: Catalog RA in ICRS coordinates at coord_epoch
+          DECCAT:
+            name: DECCAT
+            type: float64
+            unit: deg
+            description: Catalog Dec in ICRS coordinates at coord_epoch
+          COORD_EPOCH:
+            name: COORD_EPOCH
+            type: float64
+            unit: ''
+            description: Epoch of the catalogue coordinates.
+          PMRA:
+            name: PMRA
+            type: float64
+            unit: mas
+            description: Proper motion in RA (pmra is a true angle)
+          PMDEC:
+            name: PMDEC
+            type: float64
+            unit: mas
+            description: Proper motion in Dec
+          PARALLAX:
+            name: PARALLAX
+            type: float64
+            unit: mas
+            description: Parallax
+          RA:
+            name: RA
+            type: float64
+            unit: deg
+            description: Calculated on sky fiber RA including delta_RA
+          DEC:
+            name: DEC
+            type: float64
+            unit: deg
+            description: Calculated on sky fiber Dec including delta_DEC
+          DELTA_RA:
+            name: DELTA_RA
+            type: float64
+            unit: arcsec
+            description: The amount in RA this fiber has been offset
+          DELTA_DEC:
+            name: DELTA_DEC
+            type: float64
+            unit: arcsec
+            description: The amount in Dec this fiber has been offset
+          RA_OBSERVED:
+            name: RA_OBSERVED
+            type: float64
+            unit: deg
+            description: RA with correction for atmospheric refraction
+          DEC_OBSERVED:
+            name: DEC_OBSERVED
+            type: float64
+            unit: deg
+            description: dec with correction for atmospheric refraction
+          ALT_OBSERVED:
+            name: ALT_OBSERVED
+            type: float64
+            unit: deg
+            description: alt with correction for atmospheric refraction
+          AZ_OBSERVED:
+            name: AZ_OBSERVED
+            type: float64
+            unit: deg
+            description: Az with correction for atmospheric refraction
+          FIBER_OFFSET:
+            name: FIBER_OFFSET
+            type: int64
+            unit: ''
+            description: Flag identifying the fiber was offset by design
+          MEASUREDOFFSET:
+            name: MEASUREDOFFSET
+            type: float64
+            unit: arcsec
+            description: Measured offset between Fiber & Catalog Coord
+          WOKOFFSET:
+            name: WOKOFFSET
+            type: float64
+            unit: mm
+            description: Measured offset in the Wok Coordinates
+          LAMBDA_EFF:
+            name: LAMBDA_EFF
+            type: float64
+            unit: AA
+            description: Wavelength used for coordinate transformations
+          SPECTROGRAPHID:
+            name: SPECTROGRAPHID
+            type: int64
+            unit: ''
+            description: Spectrograph to which the fibre is assigned.
+          OPTICAL_PROV:
+            name: OPTICAL_PROV
+            type: char[23]
+            unit: ''
+            description: The source of the CATDB_MAG optical magnitudes
+          MAG:
+            name: MAG
+            type: float64[5]
+            unit: ''
+            description: '[u, g, r, i, z] optical magnitudes'
+          PSFMAG:
+            name: PSFMAG
+            type: float64[5]
+            unit: ''
+            description: '[u, g, r, i, z] optical PSF magnitudes'
+          FIBER2MAG:
+            name: FIBER2MAG
+            type: float64[5]
+            unit: ''
+            description: '[u, g, r, i, z] optical Fiber2 magnitudes'
+          CATDB_MAG:
+            name: CATDB_MAG
+            type: float64[5]
+            unit: ''
+            description: '[u, g, r, i, z] Raw TargetDB magnitudes'
+          V05_REV_MAG:
+            name: V05_REV_MAG
+            type: int64
+            unit: ''
+            description: '1: revised with RevisedMagnitude Table, 0: raw'
+          GAIA_G_MAG:
+            name: GAIA_G_MAG
+            type: float64
+            unit: ''
+            description: Gaia G magnitude
+          BP_MAG:
+            name: BP_MAG
+            type: float64
+            unit: ''
+            description: Gaia BP magnitude
+          RP_MAG:
+            name: RP_MAG
+            type: float64
+            unit: ''
+            description: Gaia RP magnitude
+          GAIA_ID:
+            name: GAIA_ID
+            type: int64
+            unit: ''
+            description: Gaia-DR3 ID
+          H_MAG:
+            name: H_MAG
+            type: float64
+            unit: ''
+            description: 2MASS H magnitude
+          WISE_MAG:
+            name: WISE_MAG
+            type: float64[4]
+            unit: ''
+            description: WISE [W1, W2, W3, W4] band magnitudes
+          TWOMASS_MAG:
+            name: TWOMASS_MAG
+            type: float64[3]
+            unit: ''
+            description: 2MASS [J, H, Ks] band magnitudes
+          GUVCAT_MAG:
+            name: GUVCAT_MAG
+            type: float64[2]
+            unit: ''
+            description: GALEX [FUV, NUV] band magnitudes
+          SFD_EBV:
+            name: SFD_EBV
+            type: float64
+            unit: ''
+            description: SFD dust extinction
+          EBV_BAYESTAR15:
+            name: EBV_BAYESTAR15
+            type: float64
+            unit: ''
+            description: Bayestar15 3D dust extinction
+          EBV_SIMPLEDUST2023:
+            name: EBV_SIMPLEDUST2023
+            type: float64
+            unit: ''
+            description: SimpleDust2023 3D dust extinction
+          EBV_RJCE:
+            name: EBV_RJCE
+            type: float64
+            unit: ''
+            description: RJCE dust extinction
+          EBV_3D:
+            name: EBV_3D
+            type: float64
+            unit: ''
+            description: Merged 3D dust extinction
+          EBV_3DSRC:
+            name: EBV_3DSRC
+            type: char[14]
+            unit: ''
+            description: Source of Merged 3D dust extinction
+          GRI_GAIA_TRANSFORM:
+            name: GRI_GAIA_TRANSFORM
+            type: int64
+            unit: ''
+            description: provenance of photometry in SDSS-V plate design
+          CALIBFLUX:
+            name: CALIBFLUX
+            type: float64[5]
+            unit: nanomaggy
+            description: SDSS band [u,g,r,i,z] target calibration flux
+          CALIBFLUX_IVAR:
+            name: CALIBFLUX_IVAR
+            type: float64[5]
+            unit: nanomaggy
+            description: target calibration flux inverse variance
+          CALIB_STATUS:
+            name: CALIB_STATUS
+            type: int64[5]
+            unit: ''
+            description: target calibration status flag
+          CATEGORY:
+            name: CATEGORY
+            type: char[15]
+            unit: ''
+            description: Category for 'firstcarton'
+          OBJTYPE:
+            name: OBJTYPE
+            type: char[16]
+            unit: ''
+            description: Why object was targetted (QSO = Science Target)
+          SOURCETYPE:
+            name: SOURCETYPE
+            type: char[10]
+            unit: ''
+            description: indicate the nature of the source
+          OFFSETID:
+            name: OFFSETID
+            type: int64
+            unit: ''
+            description: plate offset associated; 0 = primary pointing
+          OBJID:
+            name: OBJID
+            type: int64[5]
+            unit: ''
+            description: Unique object id from SDSS imaging
+          CATALOGID:
+            name: CATALOGID
+            type: char[20]
+            unit: ''
+            description: CatalogID or uHHMMSS.S+DDMMSS.S for unassigned
+          ICATALOGID:
+            name: ICATALOGID
+            type: int64
+            unit: ''
+            description: Raw SDSS-V CatalogID
+          SDSS_ID:
+            name: SDSS_ID
+            type: int64
+            unit: ''
+            description: SDSS_ID of Target
+          CATALOGID_V0:
+            name: CATALOGID_V0
+            type: int64
+            unit: ''
+            description: V0 (Plate) Crossmatch CatalogID from SDSS_ID
+          CATALOGID_V0P5:
+            name: CATALOGID_V0P5
+            type: int64
+            unit: ''
+            description: V0.5 (FPS) Crossmatch CatalogID from SDSS_ID
+          CATALOGID_V1:
+            name: CATALOGID_V1
+            type: int64
+            unit: ''
+            description: V1 (FPS) Crossmatch CatalogID from SDSS_ID
+          CATVERSION:
+            name: CATVERSION
+            type: char[6]
+            unit: ''
+            description: Catalog Version of SDSS-V CatalogID
+          CARTON_TO_TARGET_PK:
+            name: CARTON_TO_TARGET_PK
+            type: int64
+            unit: ''
+            description: SDSS-V Carton_to_Target primary key for SDSSDB
+          FIRSTCARTON:
+            name: FIRSTCARTON
+            type: char[30]
+            unit: ''
+            description: Main carton from which this carton was drawn
+          CARTONNAME:
+            name: CARTONNAME
+            type: char[30]
+            unit: ''
+            description: Main carton from which this carton was drawn
+          PROGRAM:
+            name: PROGRAM
+            type: char[12]
+            unit: ''
+            description: Program for 'firstcarton'
+          MAPPER:
+            name: MAPPER
+            type: char[3]
+            unit: ''
+            description: SDSS-V Mapper for target
+          SURVEY:
+            name: SURVEY
+            type: char[10]
+            unit: ''
+            description: SDSS Survey for target
+          TOO_ID:
+            name: TOO_ID
+            type: int64
+            unit: ''
+            description: SDSS-V Target of Opportunity ID (if TOO=1)
+          TOO_PROGRAM:
+            name: TOO_PROGRAM
+            type: char[10]
+            unit: ''
+            description: SDSS-V Target of Opportunity Program (if TOO=1)
+          SDSS5_TARGET_FLAGS:
+            name: SDSS5_TARGET_FLAGS
+            type: bool[68]
+            unit: ''
+            description: Targeting Flags for SSDSV Targeting
+          SDSSC2BV:
+            name: SDSSC2BV
+            type: char[1]
+            unit: ''
+            description: SDSS5_TARGET_FLAG Carton to Bit Version
+          SDSSV_BOSS_TARGET0:
+            name: SDSSV_BOSS_TARGET0
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSSV-BOSS
+          SDSSV_APOGEE_TARGET0:
+            name: SDSSV_APOGEE_TARGET0
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSSV-APOGEE
+          BOSS_TARGET1:
+            name: BOSS_TARGET1
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS
+          BOSS_TARGET2:
+            name: BOSS_TARGET2
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS
+          ANCILLARY_TARGET1:
+            name: ANCILLARY_TARGET1
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS Ancillary
+          ANCILLARY_TARGET2:
+            name: ANCILLARY_TARGET2
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS Ancillary
+          EBOSS_TARGET0:
+            name: EBOSS_TARGET0
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-IV eBOSS
+          EBOSS_TARGET1:
+            name: EBOSS_TARGET1
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-IV eBOSS
+          EBOSS_TARGET2:
+            name: EBOSS_TARGET2
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-IV eBOSS
+          EBOSS_TARGET_ID:
+            name: EBOSS_TARGET_ID
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-IV eBOSS
+          THING_ID_TARGETING:
+            name: THING_ID_TARGETING
+            type: int64
+            unit: ''
+            description: thing_id from targeting version
+          PRIMTARGET:
+            name: PRIMTARGET
+            type: int64
+            unit: ''
+            description: Plate Primary target flags
+          SECTARGET:
+            name: SECTARGET
+            type: int64
+            unit: ''
+            description: Plate Secondary target flags
+          STARL:
+            name: STARL
+            type: float64
+            unit: ''
+            description: likelihood object is star
+          EXPL:
+            name: EXPL
+            type: float64
+            unit: ''
+            description: likelihood object is exponential disk
+          DEVAUCL:
+            name: DEVAUCL
+            type: float64
+            unit: ''
+            description: likelihood object is deVaucouleurs profile
+          RUN:
+            name: RUN
+            type: int64
+            unit: ''
+            description: SDSS imaging run, for SDSS imaging targets
+          RERUN:
+            name: RERUN
+            type: char[10]
+            unit: ''
+            description: SDSS imaging rerun, for SDSS imaging targets
+          CAMCOL:
+            name: CAMCOL
+            type: int64
+            unit: ''
+            description: SDSS imaging camcol, for SDSS imaging targets
+          FIELD:
+            name: FIELD
+            type: int64
+            unit: ''
+            description: SDSS imaging field, for SDSS imaging targets
+          ID:
+            name: ID
+            type: int64
+            unit: ''
+            description: SDSS imaging id, for SDSS imaging targets
+          FIELDCADENCE:
+            name: FIELDCADENCE
+            type: char[20]
+            unit: ''
+            description: SDSS-V FPS Field Cadence
+          CADENCE:
+            name: CADENCE
+            type: char[10]
+            unit: ''
+            description: SDSS-V FPS target Cadence
+          DESIGN_VERS:
+            name: DESIGN_VERS
+            type: char[6]
+            unit: ''
+            description: robostrategy Run or platedesign version
+          DESIGN_MODE:
+            name: DESIGN_MODE
+            type: char[11]
+            unit: ''
+            description: SDSS-V DesignMode Mode
+      hdu3:
+        name: CONFSUMMARYF-8872.PAR
+        description: Fiber-to-target mapping for plate plugging or FPS configuration
+        is_image: false
+        size: 1 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 1354
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 1500
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 117
+          comment: number of table fields
+        - key: TNULL1
+          value: -999
+          comment: ''
+        - key: TNULL3
+          value: -999
+          comment: ''
+        - key: TNULL4
+          value: -999
+          comment: ''
+        - key: TNULL7
+          value: -999
+          comment: ''
+        - key: TNULL8
+          value: -999
+          comment: ''
+        - key: TNULL9
+          value: -999
+          comment: ''
+        - key: TNULL10
+          value: -999
+          comment: ''
+        - key: TNULL11
+          value: -999
+          comment: ''
+        - key: TNULL12
+          value: -999
+          comment: ''
+        - key: TNULL13
+          value: -999
+          comment: ''
+        - key: TNULL14
+          value: -999
+          comment: ''
+        - key: TNULL16
+          value: -999
+          comment: ''
+        - key: TNULL42
+          value: -999
+          comment: ''
+        - key: TNULL46
+          value: -1
+          comment: ''
+        - key: TNULL52
+          value: -999
+          comment: ''
+        - key: TNULL56
+          value: -999
+          comment: ''
+        - key: TNULL67
+          value: -999
+          comment: ''
+        - key: TNULL70
+          value: -999
+          comment: ''
+        - key: TNULL74
+          value: -999
+          comment: ''
+        - key: TNULL75
+          value: 0
+          comment: ''
+        - key: TNULL77
+          value: -999
+          comment: ''
+        - key: TNULL78
+          value: -999
+          comment: ''
+        - key: TNULL79
+          value: -999
+          comment: ''
+        - key: TNULL80
+          value: -999
+          comment: ''
+        - key: TNULL81
+          value: -999
+          comment: ''
+        - key: TNULL83
+          value: -999
+          comment: ''
+        - key: TNULL89
+          value: -999
+          comment: ''
+        - key: TDIM91
+          value: (69)
+          comment: ''
+        - key: TNULL93
+          value: -999
+          comment: ''
+        - key: TNULL94
+          value: -999
+          comment: ''
+        - key: TNULL95
+          value: -999
+          comment: ''
+        - key: TNULL96
+          value: -999
+          comment: ''
+        - key: TNULL97
+          value: -999
+          comment: ''
+        - key: TNULL98
+          value: -999
+          comment: ''
+        - key: TNULL99
+          value: -999
+          comment: ''
+        - key: TNULL100
+          value: -999
+          comment: ''
+        - key: TNULL101
+          value: -999
+          comment: ''
+        - key: TNULL102
+          value: -999
+          comment: ''
+        - key: TNULL103
+          value: -999
+          comment: ''
+        - key: TNULL104
+          value: -999
+          comment: ''
+        - key: TNULL105
+          value: -999
+          comment: ''
+        - key: TNULL109
+          value: -999
+          comment: ''
+        - key: TNULL111
+          value: -999
+          comment: ''
+        - key: TNULL112
+          value: -999
+          comment: ''
+        - key: TNULL113
+          value: -999
+          comment: ''
+        - key: EXTNAME
+          value: CONFSUMMARYF-8872.PAR
+          comment: extension name
+        - key: CHECKSUM
+          value: 9laMFiXK9iaKEiUK
+          comment: HDU checksum updated 2025-04-01T06:28:31
+        - key: DATASUM
+          value: '3812159341'
+          comment: data unit checksum updated 2025-04-01T06:28:31
+        columns:
+          POSITIONERID:
+            name: POSITIONERID
+            type: int64
+            unit: ''
+            description: FPS Positioner identifier
+          HOLEID:
+            name: HOLEID
+            type: char[7]
+            unit: ''
+            description: Hole ID in which the positioner is sitting
+          FIBERID:
+            name: FIBERID
+            type: int64
+            unit: ''
+            description: Fiber ID for the spectrograph
+          CONFFIBERID:
+            name: CONFFIBERID
+            type: int64
+            unit: ''
+            description: Raw Slithead FiberIDs
+          FIBERTYPE:
+            name: FIBERTYPE
+            type: char[9]
+            unit: ''
+            description: Type of fibre (APOGEE, BOSS, or Metrology)
+          HOLETYPE:
+            name: HOLETYPE
+            type: char[10]
+            unit: ''
+            description: Plate Hole type
+          ASSIGNED:
+            name: ASSIGNED
+            type: int64
+            unit: ''
+            description: Whether this fibre was assigned to a target
+          ON_TARGET:
+            name: ON_TARGET
+            type: int64
+            unit: ''
+            description: Whether this fibre is on target
+          VALID:
+            name: VALID
+            type: int64
+            unit: ''
+            description: alpha and beta angles are valid
+          DECOLLIDED:
+            name: DECOLLIDED
+            type: int64
+            unit: ''
+            description: this positioner had to be moved to decollide it
+          TOO:
+            name: TOO
+            type: int64
+            unit: ''
+            description: the fiber is allocated to a TOO
+          FIBERMASK:
+            name: FIBERMASK
+            type: int64
+            unit: ''
+            description: Fiber level bitmasks (maps to SPPIXMASK)
+          BADSTDMASK:
+            name: BADSTDMASK
+            type: int64
+            unit: ''
+            description: Standard rejected by magnitude range of design
+          THROUGHPUT:
+            name: THROUGHPUT
+            type: int64
+            unit: ''
+            description: Plate Fiber throughput (0-65535, 0=no light)
+          SCI_EXPTIME:
+            name: SCI_EXPTIME
+            type: float64
+            unit: s
+            description: Rescaled Science Exposure Time for offset plate
+          BLUEFIBER:
+            name: BLUEFIBER
+            type: int64
+            unit: ''
+            description: BOSS to assign this target a 'blue' fiber
+          ALPHA:
+            name: ALPHA
+            type: float64
+            unit: deg
+            description: The alpha angles of the positioner arms.
+          BETA:
+            name: BETA
+            type: float64
+            unit: deg
+            description: The beta angles of the positioner arms.
+          XWOK:
+            name: XWOK
+            type: float64
+            unit: mm
+            description: The X value in the FPS WOK coordinates
+          YWOK:
+            name: YWOK
+            type: float64
+            unit: mm
+            description: The Y value in the FPS WOK coordinates
+          ZWOK:
+            name: ZWOK
+            type: float64
+            unit: mm
+            description: The X value in the FPS WOK coordinates
+          XWOK_PRE:
+            name: XWOK_PRE
+            type: float64
+            unit: mm
+            description: The XWOK pre FVC Loop
+          YWOK_PRE:
+            name: YWOK_PRE
+            type: float64
+            unit: mm
+            description: The YWOK pre FVC Loop
+          ZWOK_PRE:
+            name: ZWOK_PRE
+            type: float64
+            unit: mm
+            description: The ZWOK pre FVC Loop
+          XFOCAL:
+            name: XFOCAL
+            type: float64
+            unit: mm
+            description: The X value in focal plane coordinates.
+          YFOCAL:
+            name: YFOCAL
+            type: float64
+            unit: mm
+            description: The Y value in focal plane coordinates.
+          ZOFFSET:
+            name: ZOFFSET
+            type: float64
+            unit: micron
+            description: backstopping offset distance (from washers)
+          RACAT:
+            name: RACAT
+            type: float64
+            unit: deg
+            description: Catalog RA in ICRS coordinates at coord_epoch
+          DECCAT:
+            name: DECCAT
+            type: float64
+            unit: deg
+            description: Catalog Dec in ICRS coordinates at coord_epoch
+          COORD_EPOCH:
+            name: COORD_EPOCH
+            type: float64
+            unit: ''
+            description: Epoch of the catalogue coordinates.
+          PMRA:
+            name: PMRA
+            type: float64
+            unit: mas
+            description: Proper motion in RA (pmra is a true angle)
+          PMDEC:
+            name: PMDEC
+            type: float64
+            unit: mas
+            description: Proper motion in Dec
+          PARALLAX:
+            name: PARALLAX
+            type: float64
+            unit: mas
+            description: Parallax
+          RA:
+            name: RA
+            type: float64
+            unit: deg
+            description: Calculated on sky fiber RA including delta_RA
+          DEC:
+            name: DEC
+            type: float64
+            unit: deg
+            description: Calculated on sky fiber Dec including delta_DEC
+          DELTA_RA:
+            name: DELTA_RA
+            type: float64
+            unit: arcsec
+            description: The amount in RA this fiber has been offset
+          DELTA_DEC:
+            name: DELTA_DEC
+            type: float64
+            unit: arcsec
+            description: The amount in Dec this fiber has been offset
+          RA_OBSERVED:
+            name: RA_OBSERVED
+            type: float64
+            unit: deg
+            description: RA with correction for atmospheric refraction
+          DEC_OBSERVED:
+            name: DEC_OBSERVED
+            type: float64
+            unit: deg
+            description: dec with correction for atmospheric refraction
+          ALT_OBSERVED:
+            name: ALT_OBSERVED
+            type: float64
+            unit: deg
+            description: alt with correction for atmospheric refraction
+          AZ_OBSERVED:
+            name: AZ_OBSERVED
+            type: float64
+            unit: deg
+            description: Az with correction for atmospheric refraction
+          FIBER_OFFSET:
+            name: FIBER_OFFSET
+            type: int64
+            unit: ''
+            description: Flag identifying the fiber was offset by design
+          MEASUREDOFFSET:
+            name: MEASUREDOFFSET
+            type: float64
+            unit: arcsec
+            description: Measured offset between Fiber & Catalog Coord
+          WOKOFFSET:
+            name: WOKOFFSET
+            type: float64
+            unit: mm
+            description: Measured offset in the Wok Coordinates
+          LAMBDA_EFF:
+            name: LAMBDA_EFF
+            type: float64
+            unit: AA
+            description: Wavelength used for coordinate transformations
+          SPECTROGRAPHID:
+            name: SPECTROGRAPHID
+            type: int64
+            unit: ''
+            description: Spectrograph to which the fibre is assigned.
+          OPTICAL_PROV:
+            name: OPTICAL_PROV
+            type: char[21]
+            unit: ''
+            description: The source of the CATDB_MAG optical magnitudes
+          MAG:
+            name: MAG
+            type: float64[5]
+            unit: ''
+            description: '[u, g, r, i, z] optical magnitudes'
+          PSFMAG:
+            name: PSFMAG
+            type: float64[5]
+            unit: ''
+            description: '[u, g, r, i, z] optical PSF magnitudes'
+          FIBER2MAG:
+            name: FIBER2MAG
+            type: float64[5]
+            unit: ''
+            description: '[u, g, r, i, z] optical Fiber2 magnitudes'
+          CATDB_MAG:
+            name: CATDB_MAG
+            type: float64[5]
+            unit: ''
+            description: '[u, g, r, i, z] Raw TargetDB magnitudes'
+          V05_REV_MAG:
+            name: V05_REV_MAG
+            type: int64
+            unit: ''
+            description: '1: revised with RevisedMagnitude Table, 0: raw'
+          GAIA_G_MAG:
+            name: GAIA_G_MAG
+            type: float64
+            unit: ''
+            description: Gaia G magnitude
+          BP_MAG:
+            name: BP_MAG
+            type: float64
+            unit: ''
+            description: Gaia BP magnitude
+          RP_MAG:
+            name: RP_MAG
+            type: float64
+            unit: ''
+            description: Gaia RP magnitude
+          GAIA_ID:
+            name: GAIA_ID
+            type: int64
+            unit: ''
+            description: Gaia-DR3 ID
+          H_MAG:
+            name: H_MAG
+            type: float64
+            unit: ''
+            description: 2MASS H magnitude
+          WISE_MAG:
+            name: WISE_MAG
+            type: float64[4]
+            unit: ''
+            description: WISE [W1, W2, W3, W4] band magnitudes
+          TWOMASS_MAG:
+            name: TWOMASS_MAG
+            type: float64[3]
+            unit: ''
+            description: 2MASS [J, H, Ks] band magnitudes
+          GUVCAT_MAG:
+            name: GUVCAT_MAG
+            type: float64[2]
+            unit: ''
+            description: GALEX [FUV, NUV] band magnitudes
+          SFD_EBV:
+            name: SFD_EBV
+            type: float64
+            unit: ''
+            description: SFD dust extinction
+          EBV_BAYESTAR15:
+            name: EBV_BAYESTAR15
+            type: float64
+            unit: ''
+            description: Bayestar15 3D dust extinction
+          EBV_SIMPLEDUST2023:
+            name: EBV_SIMPLEDUST2023
+            type: float64
+            unit: ''
+            description: SimpleDust2023 3D dust extinction
+          EBV_RJCE:
+            name: EBV_RJCE
+            type: float64
+            unit: ''
+            description: RJCE dust extinction
+          EBV_3D:
+            name: EBV_3D
+            type: float64
+            unit: ''
+            description: Merged 3D dust extinction
+          EBV_3DSRC:
+            name: EBV_3DSRC
+            type: char[14]
+            unit: ''
+            description: Source of Merged 3D dust extinction
+          GRI_GAIA_TRANSFORM:
+            name: GRI_GAIA_TRANSFORM
+            type: int64
+            unit: ''
+            description: provenance of photometry in SDSS-V plate design
+          CALIBFLUX:
+            name: CALIBFLUX
+            type: float64[5]
+            unit: nanomaggy
+            description: SDSS band [u,g,r,i,z] target calibration flux
+          CALIBFLUX_IVAR:
+            name: CALIBFLUX_IVAR
+            type: float64[5]
+            unit: nanomaggy
+            description: target calibration flux inverse variance
+          CALIB_STATUS:
+            name: CALIB_STATUS
+            type: int64[5]
+            unit: ''
+            description: target calibration status flag
+          CATEGORY:
+            name: CATEGORY
+            type: char[13]
+            unit: ''
+            description: Category for 'firstcarton'
+          OBJTYPE:
+            name: OBJTYPE
+            type: char[16]
+            unit: ''
+            description: Why object was targetted (QSO = Science Target)
+          SOURCETYPE:
+            name: SOURCETYPE
+            type: char[10]
+            unit: ''
+            description: indicate the nature of the source
+          OFFSETID:
+            name: OFFSETID
+            type: int64
+            unit: ''
+            description: plate offset associated; 0 = primary pointing
+          OBJID:
+            name: OBJID
+            type: int64[5]
+            unit: ''
+            description: Unique object id from SDSS imaging
+          CATALOGID:
+            name: CATALOGID
+            type: char[20]
+            unit: ''
+            description: CatalogID or uHHMMSS.S+DDMMSS.S for unassigned
+          ICATALOGID:
+            name: ICATALOGID
+            type: int64
+            unit: ''
+            description: Raw SDSS-V CatalogID
+          SDSS_ID:
+            name: SDSS_ID
+            type: int64
+            unit: ''
+            description: SDSS_ID of Target
+          CATALOGID_V0:
+            name: CATALOGID_V0
+            type: int64
+            unit: ''
+            description: V0 (Plate) Crossmatch CatalogID from SDSS_ID
+          CATALOGID_V0P5:
+            name: CATALOGID_V0P5
+            type: int64
+            unit: ''
+            description: V0.5 (FPS) Crossmatch CatalogID from SDSS_ID
+          CATALOGID_V1:
+            name: CATALOGID_V1
+            type: int64
+            unit: ''
+            description: V1 (FPS) Crossmatch CatalogID from SDSS_ID
+          CATVERSION:
+            name: CATVERSION
+            type: char[5]
+            unit: ''
+            description: Catalog Version of SDSS-V CatalogID
+          CARTON_TO_TARGET_PK:
+            name: CARTON_TO_TARGET_PK
+            type: int64
+            unit: ''
+            description: SDSS-V Carton_to_Target primary key for SDSSDB
+          FIRSTCARTON:
+            name: FIRSTCARTON
+            type: char[17]
+            unit: ''
+            description: Main carton from which this carton was drawn
+          CARTONNAME:
+            name: CARTONNAME
+            type: char[17]
+            unit: ''
+            description: Main carton from which this carton was drawn
+          PROGRAM:
+            name: PROGRAM
+            type: char[7]
+            unit: ''
+            description: Program for 'firstcarton'
+          MAPPER:
+            name: MAPPER
+            type: char[3]
+            unit: ''
+            description: SDSS-V Mapper for target
+          SURVEY:
+            name: SURVEY
+            type: char[3]
+            unit: ''
+            description: SDSS Survey for target
+          TOO_ID:
+            name: TOO_ID
+            type: int64
+            unit: ''
+            description: SDSS-V Target of Opportunity ID (if TOO=1)
+          TOO_PROGRAM:
+            name: TOO_PROGRAM
+            type: char[10]
+            unit: ''
+            description: SDSS-V Target of Opportunity Program (if TOO=1)
+          SDSS5_TARGET_FLAGS:
+            name: SDSS5_TARGET_FLAGS
+            type: bool[69]
+            unit: ''
+            description: Targeting Flags for SSDSV Targeting
+          SDSSC2BV:
+            name: SDSSC2BV
+            type: char[1]
+            unit: ''
+            description: SDSS5_TARGET_FLAG Carton to Bit Version
+          SDSSV_BOSS_TARGET0:
+            name: SDSSV_BOSS_TARGET0
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSSV-BOSS
+          SDSSV_APOGEE_TARGET0:
+            name: SDSSV_APOGEE_TARGET0
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSSV-APOGEE
+          BOSS_TARGET1:
+            name: BOSS_TARGET1
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS
+          BOSS_TARGET2:
+            name: BOSS_TARGET2
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS
+          ANCILLARY_TARGET1:
+            name: ANCILLARY_TARGET1
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS Ancillary
+          ANCILLARY_TARGET2:
+            name: ANCILLARY_TARGET2
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS Ancillary
+          EBOSS_TARGET0:
+            name: EBOSS_TARGET0
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-IV eBOSS
+          EBOSS_TARGET1:
+            name: EBOSS_TARGET1
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-IV eBOSS
+          EBOSS_TARGET2:
+            name: EBOSS_TARGET2
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-IV eBOSS
+          EBOSS_TARGET_ID:
+            name: EBOSS_TARGET_ID
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-IV eBOSS
+          THING_ID_TARGETING:
+            name: THING_ID_TARGETING
+            type: int64
+            unit: ''
+            description: thing_id from targeting version
+          PRIMTARGET:
+            name: PRIMTARGET
+            type: int64
+            unit: ''
+            description: Plate Primary target flags
+          SECTARGET:
+            name: SECTARGET
+            type: int64
+            unit: ''
+            description: Plate Secondary target flags
+          STARL:
+            name: STARL
+            type: float64
+            unit: ''
+            description: likelihood object is star
+          EXPL:
+            name: EXPL
+            type: float64
+            unit: ''
+            description: likelihood object is exponential disk
+          DEVAUCL:
+            name: DEVAUCL
+            type: float64
+            unit: ''
+            description: likelihood object is deVaucouleurs profile
+          RUN:
+            name: RUN
+            type: int64
+            unit: ''
+            description: SDSS imaging run, for SDSS imaging targets
+          RERUN:
+            name: RERUN
+            type: char[10]
+            unit: ''
+            description: SDSS imaging rerun, for SDSS imaging targets
+          CAMCOL:
+            name: CAMCOL
+            type: int64
+            unit: ''
+            description: SDSS imaging camcol, for SDSS imaging targets
+          FIELD:
+            name: FIELD
+            type: int64
+            unit: ''
+            description: SDSS imaging field, for SDSS imaging targets
+          ID:
+            name: ID
+            type: int64
+            unit: ''
+            description: SDSS imaging id, for SDSS imaging targets
+          FIELDCADENCE:
+            name: FIELDCADENCE
+            type: char[13]
+            unit: ''
+            description: SDSS-V FPS Field Cadence
+          CADENCE:
+            name: CADENCE
+            type: char[10]
+            unit: ''
+            description: SDSS-V FPS target Cadence
+          DESIGN_VERS:
+            name: DESIGN_VERS
+            type: char[6]
+            unit: ''
+            description: robostrategy Run or platedesign version
+          DESIGN_MODE:
+            name: DESIGN_MODE
+            type: char[7]
+            unit: ''
+            description: SDSS-V DesignMode Mode
+      hdu4:
+        name: CONFSUMMARYF-8873.PAR
+        description: Fiber-to-target mapping for plate plugging or FPS configuration
+        is_image: false
+        size: 1 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 1354
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 1500
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 117
+          comment: number of table fields
+        - key: TNULL1
+          value: -999
+          comment: ''
+        - key: TNULL3
+          value: -999
+          comment: ''
+        - key: TNULL4
+          value: -999
+          comment: ''
+        - key: TNULL7
+          value: -999
+          comment: ''
+        - key: TNULL8
+          value: -999
+          comment: ''
+        - key: TNULL9
+          value: -999
+          comment: ''
+        - key: TNULL10
+          value: -999
+          comment: ''
+        - key: TNULL11
+          value: -999
+          comment: ''
+        - key: TNULL12
+          value: -999
+          comment: ''
+        - key: TNULL13
+          value: -999
+          comment: ''
+        - key: TNULL14
+          value: -999
+          comment: ''
+        - key: TNULL16
+          value: -999
+          comment: ''
+        - key: TNULL42
+          value: -999
+          comment: ''
+        - key: TNULL46
+          value: -1
+          comment: ''
+        - key: TNULL52
+          value: -999
+          comment: ''
+        - key: TNULL56
+          value: -999
+          comment: ''
+        - key: TNULL67
+          value: -999
+          comment: ''
+        - key: TNULL70
+          value: -999
+          comment: ''
+        - key: TNULL74
+          value: -999
+          comment: ''
+        - key: TNULL75
+          value: 0
+          comment: ''
+        - key: TNULL77
+          value: -999
+          comment: ''
+        - key: TNULL78
+          value: -999
+          comment: ''
+        - key: TNULL79
+          value: -999
+          comment: ''
+        - key: TNULL80
+          value: -999
+          comment: ''
+        - key: TNULL81
+          value: -999
+          comment: ''
+        - key: TNULL83
+          value: -999
+          comment: ''
+        - key: TNULL89
+          value: -999
+          comment: ''
+        - key: TDIM91
+          value: (69)
+          comment: ''
+        - key: TNULL93
+          value: -999
+          comment: ''
+        - key: TNULL94
+          value: -999
+          comment: ''
+        - key: TNULL95
+          value: -999
+          comment: ''
+        - key: TNULL96
+          value: -999
+          comment: ''
+        - key: TNULL97
+          value: -999
+          comment: ''
+        - key: TNULL98
+          value: -999
+          comment: ''
+        - key: TNULL99
+          value: -999
+          comment: ''
+        - key: TNULL100
+          value: -999
+          comment: ''
+        - key: TNULL101
+          value: -999
+          comment: ''
+        - key: TNULL102
+          value: -999
+          comment: ''
+        - key: TNULL103
+          value: -999
+          comment: ''
+        - key: TNULL104
+          value: -999
+          comment: ''
+        - key: TNULL105
+          value: -999
+          comment: ''
+        - key: TNULL109
+          value: -999
+          comment: ''
+        - key: TNULL111
+          value: -999
+          comment: ''
+        - key: TNULL112
+          value: -999
+          comment: ''
+        - key: TNULL113
+          value: -999
+          comment: ''
+        - key: EXTNAME
+          value: CONFSUMMARYF-8873.PAR
+          comment: extension name
+        - key: CHECKSUM
+          value: 43fB41fB41fB41fB
+          comment: HDU checksum updated 2025-04-01T06:28:32
+        - key: DATASUM
+          value: '3339717526'
+          comment: data unit checksum updated 2025-04-01T06:28:32
+        columns:
+          POSITIONERID:
+            name: POSITIONERID
+            type: int64
+            unit: ''
+            description: FPS Positioner identifier
+          HOLEID:
+            name: HOLEID
+            type: char[7]
+            unit: ''
+            description: Hole ID in which the positioner is sitting
+          FIBERID:
+            name: FIBERID
+            type: int64
+            unit: ''
+            description: Fiber ID for the spectrograph
+          CONFFIBERID:
+            name: CONFFIBERID
+            type: int64
+            unit: ''
+            description: Raw Slithead FiberIDs
+          FIBERTYPE:
+            name: FIBERTYPE
+            type: char[9]
+            unit: ''
+            description: Type of fibre (APOGEE, BOSS, or Metrology)
+          HOLETYPE:
+            name: HOLETYPE
+            type: char[10]
+            unit: ''
+            description: Plate Hole type
+          ASSIGNED:
+            name: ASSIGNED
+            type: int64
+            unit: ''
+            description: Whether this fibre was assigned to a target
+          ON_TARGET:
+            name: ON_TARGET
+            type: int64
+            unit: ''
+            description: Whether this fibre is on target
+          VALID:
+            name: VALID
+            type: int64
+            unit: ''
+            description: alpha and beta angles are valid
+          DECOLLIDED:
+            name: DECOLLIDED
+            type: int64
+            unit: ''
+            description: this positioner had to be moved to decollide it
+          TOO:
+            name: TOO
+            type: int64
+            unit: ''
+            description: the fiber is allocated to a TOO
+          FIBERMASK:
+            name: FIBERMASK
+            type: int64
+            unit: ''
+            description: Fiber level bitmasks (maps to SPPIXMASK)
+          BADSTDMASK:
+            name: BADSTDMASK
+            type: int64
+            unit: ''
+            description: Standard rejected by magnitude range of design
+          THROUGHPUT:
+            name: THROUGHPUT
+            type: int64
+            unit: ''
+            description: Plate Fiber throughput (0-65535, 0=no light)
+          SCI_EXPTIME:
+            name: SCI_EXPTIME
+            type: float64
+            unit: s
+            description: Rescaled Science Exposure Time for offset plate
+          BLUEFIBER:
+            name: BLUEFIBER
+            type: int64
+            unit: ''
+            description: BOSS to assign this target a 'blue' fiber
+          ALPHA:
+            name: ALPHA
+            type: float64
+            unit: deg
+            description: The alpha angles of the positioner arms.
+          BETA:
+            name: BETA
+            type: float64
+            unit: deg
+            description: The beta angles of the positioner arms.
+          XWOK:
+            name: XWOK
+            type: float64
+            unit: mm
+            description: The X value in the FPS WOK coordinates
+          YWOK:
+            name: YWOK
+            type: float64
+            unit: mm
+            description: The Y value in the FPS WOK coordinates
+          ZWOK:
+            name: ZWOK
+            type: float64
+            unit: mm
+            description: The X value in the FPS WOK coordinates
+          XWOK_PRE:
+            name: XWOK_PRE
+            type: float64
+            unit: mm
+            description: The XWOK pre FVC Loop
+          YWOK_PRE:
+            name: YWOK_PRE
+            type: float64
+            unit: mm
+            description: The YWOK pre FVC Loop
+          ZWOK_PRE:
+            name: ZWOK_PRE
+            type: float64
+            unit: mm
+            description: The ZWOK pre FVC Loop
+          XFOCAL:
+            name: XFOCAL
+            type: float64
+            unit: mm
+            description: The X value in focal plane coordinates.
+          YFOCAL:
+            name: YFOCAL
+            type: float64
+            unit: mm
+            description: The Y value in focal plane coordinates.
+          ZOFFSET:
+            name: ZOFFSET
+            type: float64
+            unit: micron
+            description: backstopping offset distance (from washers)
+          RACAT:
+            name: RACAT
+            type: float64
+            unit: deg
+            description: Catalog RA in ICRS coordinates at coord_epoch
+          DECCAT:
+            name: DECCAT
+            type: float64
+            unit: deg
+            description: Catalog Dec in ICRS coordinates at coord_epoch
+          COORD_EPOCH:
+            name: COORD_EPOCH
+            type: float64
+            unit: ''
+            description: Epoch of the catalogue coordinates.
+          PMRA:
+            name: PMRA
+            type: float64
+            unit: mas
+            description: Proper motion in RA (pmra is a true angle)
+          PMDEC:
+            name: PMDEC
+            type: float64
+            unit: mas
+            description: Proper motion in Dec
+          PARALLAX:
+            name: PARALLAX
+            type: float64
+            unit: mas
+            description: Parallax
+          RA:
+            name: RA
+            type: float64
+            unit: deg
+            description: Calculated on sky fiber RA including delta_RA
+          DEC:
+            name: DEC
+            type: float64
+            unit: deg
+            description: Calculated on sky fiber Dec including delta_DEC
+          DELTA_RA:
+            name: DELTA_RA
+            type: float64
+            unit: arcsec
+            description: The amount in RA this fiber has been offset
+          DELTA_DEC:
+            name: DELTA_DEC
+            type: float64
+            unit: arcsec
+            description: The amount in Dec this fiber has been offset
+          RA_OBSERVED:
+            name: RA_OBSERVED
+            type: float64
+            unit: deg
+            description: RA with correction for atmospheric refraction
+          DEC_OBSERVED:
+            name: DEC_OBSERVED
+            type: float64
+            unit: deg
+            description: Dec with correction for atmospheric refraction
+          ALT_OBSERVED:
+            name: ALT_OBSERVED
+            type: float64
+            unit: deg
+            description: alt with correction for atmospheric refraction
+          AZ_OBSERVED:
+            name: AZ_OBSERVED
+            type: float64
+            unit: deg
+            description: Az with correction for atmospheric refraction
+          FIBER_OFFSET:
+            name: FIBER_OFFSET
+            type: int64
+            unit: ''
+            description: Flag identifying the fiber was offset by design
+          MEASUREDOFFSET:
+            name: MEASUREDOFFSET
+            type: float64
+            unit: arcsec
+            description: Measured offset between Fiber & Catalog Coord
+          WOKOFFSET:
+            name: WOKOFFSET
+            type: float64
+            unit: mm
+            description: Measured offset in the Wok Coordinates
+          LAMBDA_EFF:
+            name: LAMBDA_EFF
+            type: float64
+            unit: AA
+            description: Wavelength used for coordinate transformations
+          SPECTROGRAPHID:
+            name: SPECTROGRAPHID
+            type: int64
+            unit: ''
+            description: Spectrograph to which the fibre is assigned.
+          OPTICAL_PROV:
+            name: OPTICAL_PROV
+            type: char[21]
+            unit: ''
+            description: The source of the CATDB_MAG optical magnitudes
+          MAG:
+            name: MAG
+            type: float64[5]
+            unit: ''
+            description: '[u, g, r, i, z] optical magnitudes'
+          PSFMAG:
+            name: PSFMAG
+            type: float64[5]
+            unit: ''
+            description: '[u, g, r, i, z] optical PSF magnitudes'
+          FIBER2MAG:
+            name: FIBER2MAG
+            type: float64[5]
+            unit: ''
+            description: '[u, g, r, i, z] optical Fiber2 magnitudes'
+          CATDB_MAG:
+            name: CATDB_MAG
+            type: float64[5]
+            unit: ''
+            description: '[u, g, r, i, z] Raw TargetDB magnitudes'
+          V05_REV_MAG:
+            name: V05_REV_MAG
+            type: int64
+            unit: ''
+            description: '1: revised with RevisedMagnitude Table, 0: raw'
+          GAIA_G_MAG:
+            name: GAIA_G_MAG
+            type: float64
+            unit: ''
+            description: Gaia G magnitude
+          BP_MAG:
+            name: BP_MAG
+            type: float64
+            unit: ''
+            description: Gaia BP magnitude
+          RP_MAG:
+            name: RP_MAG
+            type: float64
+            unit: ''
+            description: Gaia RP magnitude
+          GAIA_ID:
+            name: GAIA_ID
+            type: int64
+            unit: ''
+            description: Gaia-DR3 ID
+          H_MAG:
+            name: H_MAG
+            type: float64
+            unit: ''
+            description: 2MASS H magnitude
+          WISE_MAG:
+            name: WISE_MAG
+            type: float64[4]
+            unit: ''
+            description: WISE [W1, W2, W3, W4] band magnitudes
+          TWOMASS_MAG:
+            name: TWOMASS_MAG
+            type: float64[3]
+            unit: ''
+            description: 2MASS [J, H, Ks] band magnitudes
+          GUVCAT_MAG:
+            name: GUVCAT_MAG
+            type: float64[2]
+            unit: ''
+            description: GALEX [FUV, NUV] band magnitudes
+          SFD_EBV:
+            name: SFD_EBV
+            type: float64
+            unit: ''
+            description: SFD dust extinction
+          EBV_BAYESTAR15:
+            name: EBV_BAYESTAR15
+            type: float64
+            unit: ''
+            description: Bayestar15 3D dust extinction
+          EBV_SIMPLEDUST2023:
+            name: EBV_SIMPLEDUST2023
+            type: float64
+            unit: ''
+            description: SimpleDust2023 3D dust extinction
+          EBV_RJCE:
+            name: EBV_RJCE
+            type: float64
+            unit: ''
+            description: RJCE dust extinction
+          EBV_3D:
+            name: EBV_3D
+            type: float64
+            unit: ''
+            description: Merged 3D dust extinction
+          EBV_3DSRC:
+            name: EBV_3DSRC
+            type: char[14]
+            unit: ''
+            description: Source of Merged 3D dust extinction
+          GRI_GAIA_TRANSFORM:
+            name: GRI_GAIA_TRANSFORM
+            type: int64
+            unit: ''
+            description: provenance of photometry in SDSS-V plate design
+          CALIBFLUX:
+            name: CALIBFLUX
+            type: float64[5]
+            unit: nanomaggy
+            description: SDSS band [u,g,r,i,z] target calibration flux
+          CALIBFLUX_IVAR:
+            name: CALIBFLUX_IVAR
+            type: float64[5]
+            unit: nanomaggy
+            description: target calibration flux inverse variance
+          CALIB_STATUS:
+            name: CALIB_STATUS
+            type: int64[5]
+            unit: ''
+            description: target calibration status flag
+          CATEGORY:
+            name: CATEGORY
+            type: char[13]
+            unit: ''
+            description: Category for 'firstcarton'
+          OBJTYPE:
+            name: OBJTYPE
+            type: char[16]
+            unit: ''
+            description: Why object was targetted (QSO = Science Target)
+          SOURCETYPE:
+            name: SOURCETYPE
+            type: char[10]
+            unit: ''
+            description: indicate the nature of the source
+          OFFSETID:
+            name: OFFSETID
+            type: int64
+            unit: ''
+            description: plate offset associated; 0 = primary pointing
+          OBJID:
+            name: OBJID
+            type: int64[5]
+            unit: ''
+            description: Unique object id from SDSS imaging
+          CATALOGID:
+            name: CATALOGID
+            type: char[20]
+            unit: ''
+            description: CatalogID or uHHMMSS.S+DDMMSS.S for unassigned
+          ICATALOGID:
+            name: ICATALOGID
+            type: int64
+            unit: ''
+            description: Raw SDSS-V CatalogID
+          SDSS_ID:
+            name: SDSS_ID
+            type: int64
+            unit: ''
+            description: SDSS_ID of Target
+          CATALOGID_V0:
+            name: CATALOGID_V0
+            type: int64
+            unit: ''
+            description: V0 (Plate) Crossmatch CatalogID from SDSS_ID
+          CATALOGID_V0P5:
+            name: CATALOGID_V0P5
+            type: int64
+            unit: ''
+            description: V0.5 (FPS) Crossmatch CatalogID from SDSS_ID
+          CATALOGID_V1:
+            name: CATALOGID_V1
+            type: int64
+            unit: ''
+            description: V1 (FPS) Crossmatch CatalogID from SDSS_ID
+          CATVERSION:
+            name: CATVERSION
+            type: char[5]
+            unit: ''
+            description: Catalog Version of SDSS-V CatalogID
+          CARTON_TO_TARGET_PK:
+            name: CARTON_TO_TARGET_PK
+            type: int64
+            unit: ''
+            description: SDSS-V Carton_to_Target primary key for SDSSDB
+          FIRSTCARTON:
+            name: FIRSTCARTON
+            type: char[17]
+            unit: ''
+            description: Main carton from which this carton was drawn
+          CARTONNAME:
+            name: CARTONNAME
+            type: char[17]
+            unit: ''
+            description: Main carton from which this carton was drawn
+          PROGRAM:
+            name: PROGRAM
+            type: char[7]
+            unit: ''
+            description: Program for 'firstcarton'
+          MAPPER:
+            name: MAPPER
+            type: char[3]
+            unit: ''
+            description: SDSS-V Mapper for target
+          SURVEY:
+            name: SURVEY
+            type: char[3]
+            unit: ''
+            description: SDSS Survey for target
+          TOO_ID:
+            name: TOO_ID
+            type: int64
+            unit: ''
+            description: SDSS-V Target of Opportunity ID (if TOO=1)
+          TOO_PROGRAM:
+            name: TOO_PROGRAM
+            type: char[10]
+            unit: ''
+            description: SDSS-V Target of Opportunity Program (if TOO=1)
+          SDSS5_TARGET_FLAGS:
+            name: SDSS5_TARGET_FLAGS
+            type: bool[69]
+            unit: ''
+            description: Targeting Flags for SSDSV Targeting
+          SDSSC2BV:
+            name: SDSSC2BV
+            type: char[1]
+            unit: ''
+            description: SDSS5_TARGET_FLAG Carton to Bit Version
+          SDSSV_BOSS_TARGET0:
+            name: SDSSV_BOSS_TARGET0
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSSV-BOSS
+          SDSSV_APOGEE_TARGET0:
+            name: SDSSV_APOGEE_TARGET0
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSSV-APOGEE
+          BOSS_TARGET1:
+            name: BOSS_TARGET1
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS
+          BOSS_TARGET2:
+            name: BOSS_TARGET2
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS
+          ANCILLARY_TARGET1:
+            name: ANCILLARY_TARGET1
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS Ancillary
+          ANCILLARY_TARGET2:
+            name: ANCILLARY_TARGET2
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS Ancillary
+          EBOSS_TARGET0:
+            name: EBOSS_TARGET0
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-IV eBOSS
+          EBOSS_TARGET1:
+            name: EBOSS_TARGET1
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-IV eBOSS
+          EBOSS_TARGET2:
+            name: EBOSS_TARGET2
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-IV eBOSS
+          EBOSS_TARGET_ID:
+            name: EBOSS_TARGET_ID
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-IV eBOSS
+          THING_ID_TARGETING:
+            name: THING_ID_TARGETING
+            type: int64
+            unit: ''
+            description: thing_id from targeting version
+          PRIMTARGET:
+            name: PRIMTARGET
+            type: int64
+            unit: ''
+            description: Plate Primary target flags
+          SECTARGET:
+            name: SECTARGET
+            type: int64
+            unit: ''
+            description: Plate Secondary target flags
+          STARL:
+            name: STARL
+            type: float64
+            unit: ''
+            description: likelihood object is star
+          EXPL:
+            name: EXPL
+            type: float64
+            unit: ''
+            description: likelihood object is exponential disk
+          DEVAUCL:
+            name: DEVAUCL
+            type: float64
+            unit: ''
+            description: likelihood object is deVaucouleurs profile
+          RUN:
+            name: RUN
+            type: int64
+            unit: ''
+            description: SDSS imaging run, for SDSS imaging targets
+          RERUN:
+            name: RERUN
+            type: char[10]
+            unit: ''
+            description: SDSS imaging rerun, for SDSS imaging targets
+          CAMCOL:
+            name: CAMCOL
+            type: int64
+            unit: ''
+            description: SDSS imaging camcol, for SDSS imaging targets
+          FIELD:
+            name: FIELD
+            type: int64
+            unit: ''
+            description: SDSS imaging field, for SDSS imaging targets
+          ID:
+            name: ID
+            type: int64
+            unit: ''
+            description: SDSS imaging id, for SDSS imaging targets
+          FIELDCADENCE:
+            name: FIELDCADENCE
+            type: char[13]
+            unit: ''
+            description: SDSS-V FPS Field Cadence
+          CADENCE:
+            name: CADENCE
+            type: char[10]
+            unit: ''
+            description: SDSS-V FPS target Cadence
+          DESIGN_VERS:
+            name: DESIGN_VERS
+            type: char[6]
+            unit: ''
+            description: robostrategy Run or platedesign version
+          DESIGN_MODE:
+            name: DESIGN_MODE
+            type: char[7]
+            unit: ''
+            description: SDSS-V DesignMode Mode
+      hdu5:
+        name: CONFSUMMARYF-8874.PAR
+        description: Fiber-to-target mapping for plate plugging or FPS configuration
+        is_image: false
+        size: 1 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 1354
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 1500
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 117
+          comment: number of table fields
+        - key: TNULL1
+          value: -999
+          comment: ''
+        - key: TNULL3
+          value: -999
+          comment: ''
+        - key: TNULL4
+          value: -999
+          comment: ''
+        - key: TNULL7
+          value: -999
+          comment: ''
+        - key: TNULL8
+          value: -999
+          comment: ''
+        - key: TNULL9
+          value: -999
+          comment: ''
+        - key: TNULL10
+          value: -999
+          comment: ''
+        - key: TNULL11
+          value: -999
+          comment: ''
+        - key: TNULL12
+          value: -999
+          comment: ''
+        - key: TNULL13
+          value: -999
+          comment: ''
+        - key: TNULL14
+          value: -999
+          comment: ''
+        - key: TNULL16
+          value: -999
+          comment: ''
+        - key: TNULL42
+          value: -999
+          comment: ''
+        - key: TNULL46
+          value: -1
+          comment: ''
+        - key: TNULL52
+          value: -999
+          comment: ''
+        - key: TNULL56
+          value: -999
+          comment: ''
+        - key: TNULL67
+          value: -999
+          comment: ''
+        - key: TNULL70
+          value: -999
+          comment: ''
+        - key: TNULL74
+          value: -999
+          comment: ''
+        - key: TNULL75
+          value: 0
+          comment: ''
+        - key: TNULL77
+          value: -999
+          comment: ''
+        - key: TNULL78
+          value: -999
+          comment: ''
+        - key: TNULL79
+          value: -999
+          comment: ''
+        - key: TNULL80
+          value: -999
+          comment: ''
+        - key: TNULL81
+          value: -999
+          comment: ''
+        - key: TNULL83
+          value: -999
+          comment: ''
+        - key: TNULL89
+          value: -999
+          comment: ''
+        - key: TDIM91
+          value: (69)
+          comment: ''
+        - key: TNULL93
+          value: -999
+          comment: ''
+        - key: TNULL94
+          value: -999
+          comment: ''
+        - key: TNULL95
+          value: -999
+          comment: ''
+        - key: TNULL96
+          value: -999
+          comment: ''
+        - key: TNULL97
+          value: -999
+          comment: ''
+        - key: TNULL98
+          value: -999
+          comment: ''
+        - key: TNULL99
+          value: -999
+          comment: ''
+        - key: TNULL100
+          value: -999
+          comment: ''
+        - key: TNULL101
+          value: -999
+          comment: ''
+        - key: TNULL102
+          value: -999
+          comment: ''
+        - key: TNULL103
+          value: -999
+          comment: ''
+        - key: TNULL104
+          value: -999
+          comment: ''
+        - key: TNULL105
+          value: -999
+          comment: ''
+        - key: TNULL109
+          value: -999
+          comment: ''
+        - key: TNULL111
+          value: -999
+          comment: ''
+        - key: TNULL112
+          value: -999
+          comment: ''
+        - key: TNULL113
+          value: -999
+          comment: ''
+        - key: EXTNAME
+          value: CONFSUMMARYF-8874.PAR
+          comment: extension name
+        - key: CHECKSUM
+          value: F9ooF6mlF6mlF6ml
+          comment: HDU checksum updated 2025-04-01T06:28:32
+        - key: DATASUM
+          value: '3069008975'
+          comment: data unit checksum updated 2025-04-01T06:28:32
+        columns:
+          POSITIONERID:
+            name: POSITIONERID
+            type: int64
+            unit: ''
+            description: FPS Positioner identifier
+          HOLEID:
+            name: HOLEID
+            type: char[7]
+            unit: ''
+            description: Hole ID in which the positioner is sitting
+          FIBERID:
+            name: FIBERID
+            type: int64
+            unit: ''
+            description: Fiber ID for the spectrograph
+          CONFFIBERID:
+            name: CONFFIBERID
+            type: int64
+            unit: ''
+            description: Raw Slithead FiberIDs
+          FIBERTYPE:
+            name: FIBERTYPE
+            type: char[9]
+            unit: ''
+            description: Type of fibre (APOGEE, BOSS, or Metrology)
+          HOLETYPE:
+            name: HOLETYPE
+            type: char[10]
+            unit: ''
+            description: Plate Hole type
+          ASSIGNED:
+            name: ASSIGNED
+            type: int64
+            unit: ''
+            description: Whether this fibre was assigned to a target
+          ON_TARGET:
+            name: ON_TARGET
+            type: int64
+            unit: ''
+            description: Whether this fibre is on target
+          VALID:
+            name: VALID
+            type: int64
+            unit: ''
+            description: alpha and beta angles are valid
+          DECOLLIDED:
+            name: DECOLLIDED
+            type: int64
+            unit: ''
+            description: this positioner had to be moved to decollide it
+          TOO:
+            name: TOO
+            type: int64
+            unit: ''
+            description: the fiber is allocated to a TOO
+          FIBERMASK:
+            name: FIBERMASK
+            type: int64
+            unit: ''
+            description: Fiber level bitmasks (maps to SPPIXMASK)
+          BADSTDMASK:
+            name: BADSTDMASK
+            type: int64
+            unit: ''
+            description: Standard rejected by magnitude range of design
+          THROUGHPUT:
+            name: THROUGHPUT
+            type: int64
+            unit: ''
+            description: Plate Fiber throughput (0-65535, 0=no light)
+          SCI_EXPTIME:
+            name: SCI_EXPTIME
+            type: float64
+            unit: s
+            description: Rescaled Science Exposure Time for offset plate
+          BLUEFIBER:
+            name: BLUEFIBER
+            type: int64
+            unit: ''
+            description: BOSS to assign this target a 'blue' fiber
+          ALPHA:
+            name: ALPHA
+            type: float64
+            unit: deg
+            description: The alpha angles of the positioner arms.
+          BETA:
+            name: BETA
+            type: float64
+            unit: deg
+            description: The beta angles of the positioner arms.
+          XWOK:
+            name: XWOK
+            type: float64
+            unit: mm
+            description: The X value in the FPS WOK coordinates
+          YWOK:
+            name: YWOK
+            type: float64
+            unit: mm
+            description: The Y value in the FPS WOK coordinates
+          ZWOK:
+            name: ZWOK
+            type: float64
+            unit: mm
+            description: The X value in the FPS WOK coordinates
+          XWOK_PRE:
+            name: XWOK_PRE
+            type: float64
+            unit: mm
+            description: The XWOK pre FVC Loop
+          YWOK_PRE:
+            name: YWOK_PRE
+            type: float64
+            unit: mm
+            description: The YWOK pre FVC Loop
+          ZWOK_PRE:
+            name: ZWOK_PRE
+            type: float64
+            unit: mm
+            description: The ZWOK pre FVC Loop
+          XFOCAL:
+            name: XFOCAL
+            type: float64
+            unit: mm
+            description: The X value in focal plane coordinates.
+          YFOCAL:
+            name: YFOCAL
+            type: float64
+            unit: mm
+            description: The Y value in focal plane coordinates.
+          ZOFFSET:
+            name: ZOFFSET
+            type: float64
+            unit: micron
+            description: backstopping offset distance (from washers)
+          RACAT:
+            name: RACAT
+            type: float64
+            unit: deg
+            description: Catalog RA in ICRS coordinates at coord_epoch
+          DECCAT:
+            name: DECCAT
+            type: float64
+            unit: deg
+            description: Catalog Dec in ICRS coordinates at coord_epoch
+          COORD_EPOCH:
+            name: COORD_EPOCH
+            type: float64
+            unit: ''
+            description: Epoch of the catalogue coordinates.
+          PMRA:
+            name: PMRA
+            type: float64
+            unit: mas
+            description: Proper motion in RA (pmra is a true angle)
+          PMDEC:
+            name: PMDEC
+            type: float64
+            unit: mas
+            description: Proper motion in Dec
+          PARALLAX:
+            name: PARALLAX
+            type: float64
+            unit: mas
+            description: Parallax
+          RA:
+            name: RA
+            type: float64
+            unit: deg
+            description: Calculated on sky fiber RA including delta_RA
+          DEC:
+            name: DEC
+            type: float64
+            unit: deg
+            description: Calculated on sky fiber Dec including delta_DEC
+          DELTA_RA:
+            name: DELTA_RA
+            type: float64
+            unit: arcsec
+            description: The amount in RA this fiber has been offset
+          DELTA_DEC:
+            name: DELTA_DEC
+            type: float64
+            unit: arcsec
+            description: The amount in Dec this fiber has been offset
+          RA_OBSERVED:
+            name: RA_OBSERVED
+            type: float64
+            unit: deg
+            description: RA with correction for atmospheric refraction
+          DEC_OBSERVED:
+            name: DEC_OBSERVED
+            type: float64
+            unit: deg
+            description: dec with correction for atmospheric refraction
+          ALT_OBSERVED:
+            name: ALT_OBSERVED
+            type: float64
+            unit: deg
+            description: alt with correction for atmospheric refraction
+          AZ_OBSERVED:
+            name: AZ_OBSERVED
+            type: float64
+            unit: deg
+            description: Az with correction for atmospheric refraction
+          FIBER_OFFSET:
+            name: FIBER_OFFSET
+            type: int64
+            unit: ''
+            description: Flag identifying the fiber was offset by design
+          MEASUREDOFFSET:
+            name: MEASUREDOFFSET
+            type: float64
+            unit: arcsec
+            description: Measured offset between Fiber & Catalog Coord
+          WOKOFFSET:
+            name: WOKOFFSET
+            type: float64
+            unit: mm
+            description: Measured offset in the Wok Coordinates
+          LAMBDA_EFF:
+            name: LAMBDA_EFF
+            type: float64
+            unit: Ang
+            description: Wavelength used for coordinate transformations
+          SPECTROGRAPHID:
+            name: SPECTROGRAPHID
+            type: int64
+            unit: ''
+            description: Spectrograph to which the fibre is assigned.
+          OPTICAL_PROV:
+            name: OPTICAL_PROV
+            type: char[21]
+            unit: ''
+            description: The source of the CATDB_MAG optical magnitudes
+          MAG:
+            name: MAG
+            type: float64[5]
+            unit: ''
+            description: '[u, g, r, i, z] optical magnitudes'
+          PSFMAG:
+            name: PSFMAG
+            type: float64[5]
+            unit: ''
+            description: '[u, g, r, i, z] optical PSF magnitudes'
+          FIBER2MAG:
+            name: FIBER2MAG
+            type: float64[5]
+            unit: ''
+            description: '[u, g, r, i, z] optical Fiber2 magnitudes'
+          CATDB_MAG:
+            name: CATDB_MAG
+            type: float64[5]
+            unit: ''
+            description: '[u, g, r, i, z] Raw TargetDB magnitudes'
+          V05_REV_MAG:
+            name: V05_REV_MAG
+            type: int64
+            unit: ''
+            description: '1: revised with RevisedMagnitude Table, 0: raw'
+          GAIA_G_MAG:
+            name: GAIA_G_MAG
+            type: float64
+            unit: ''
+            description: Gaia G magnitude
+          BP_MAG:
+            name: BP_MAG
+            type: float64
+            unit: ''
+            description: Gaia BP magnitude
+          RP_MAG:
+            name: RP_MAG
+            type: float64
+            unit: ''
+            description: Gaia RP magnitude
+          GAIA_ID:
+            name: GAIA_ID
+            type: int64
+            unit: ''
+            description: Gaia-DR3 ID
+          H_MAG:
+            name: H_MAG
+            type: float64
+            unit: ''
+            description: 2MASS H magnitude
+          WISE_MAG:
+            name: WISE_MAG
+            type: float64[4]
+            unit: ''
+            description: WISE [W1, W2, W3, W4] band magnitudes
+          TWOMASS_MAG:
+            name: TWOMASS_MAG
+            type: float64[3]
+            unit: ''
+            description: 2MASS [J, H, Ks] band magnitudes
+          GUVCAT_MAG:
+            name: GUVCAT_MAG
+            type: float64[2]
+            unit: ''
+            description: GALEX [FUV, NUV] band magnitudes
+          SFD_EBV:
+            name: SFD_EBV
+            type: float64
+            unit: ''
+            description: SFD dust extinction
+          EBV_BAYESTAR15:
+            name: EBV_BAYESTAR15
+            type: float64
+            unit: ''
+            description: Bayestar15 3D dust extinction
+          EBV_SIMPLEDUST2023:
+            name: EBV_SIMPLEDUST2023
+            type: float64
+            unit: ''
+            description: SimpleDust2023 3D dust extinction
+          EBV_RJCE:
+            name: EBV_RJCE
+            type: float64
+            unit: ''
+            description: RJCE dust extinction
+          EBV_3D:
+            name: EBV_3D
+            type: float64
+            unit: ''
+            description: Merged 3D dust extinction
+          EBV_3DSRC:
+            name: EBV_3DSRC
+            type: char[14]
+            unit: ''
+            description: Source of Merged 3D dust extinction
+          GRI_GAIA_TRANSFORM:
+            name: GRI_GAIA_TRANSFORM
+            type: int64
+            unit: ''
+            description: provenance of photometry in SDSS-V plate design
+          CALIBFLUX:
+            name: CALIBFLUX
+            type: float64[5]
+            unit: nanomaggy
+            description: SDSS band [u,g,r,i,z] target calibration flux
+          CALIBFLUX_IVAR:
+            name: CALIBFLUX_IVAR
+            type: float64[5]
+            unit: nanomaggy
+            description: target calibration flux inverse variance
+          CALIB_STATUS:
+            name: CALIB_STATUS
+            type: int64[5]
+            unit: ''
+            description: target calibration status flag
+          CATEGORY:
+            name: CATEGORY
+            type: char[13]
+            unit: ''
+            description: Category for 'firstcarton'
+          OBJTYPE:
+            name: OBJTYPE
+            type: char[16]
+            unit: ''
+            description: Why object was targetted (QSO = Science Target)
+          SOURCETYPE:
+            name: SOURCETYPE
+            type: char[10]
+            unit: ''
+            description: indicate the nature of the source
+          OFFSETID:
+            name: OFFSETID
+            type: int64
+            unit: ''
+            description: plate offset associated; 0 = primary pointing
+          OBJID:
+            name: OBJID
+            type: int64[5]
+            unit: ''
+            description: Unique object id from SDSS imaging
+          CATALOGID:
+            name: CATALOGID
+            type: char[20]
+            unit: ''
+            description: CatalogID or uHHMMSS.S+DDMMSS.S for unassigned
+          ICATALOGID:
+            name: ICATALOGID
+            type: int64
+            unit: ''
+            description: Raw SDSS-V CatalogID
+          SDSS_ID:
+            name: SDSS_ID
+            type: int64
+            unit: ''
+            description: SDSS_ID of Target
+          CATALOGID_V0:
+            name: CATALOGID_V0
+            type: int64
+            unit: ''
+            description: V0 (Plate) Crossmatch CatalogID from SDSS_ID
+          CATALOGID_V0P5:
+            name: CATALOGID_V0P5
+            type: int64
+            unit: ''
+            description: V0.5 (FPS) Crossmatch CatalogID from SDSS_ID
+          CATALOGID_V1:
+            name: CATALOGID_V1
+            type: int64
+            unit: ''
+            description: V1 (FPS) Crossmatch CatalogID from SDSS_ID
+          CATVERSION:
+            name: CATVERSION
+            type: char[5]
+            unit: ''
+            description: Catalog Version of SDSS-V CatalogID
+          CARTON_TO_TARGET_PK:
+            name: CARTON_TO_TARGET_PK
+            type: int64
+            unit: ''
+            description: SDSS-V Carton_to_Target primary key for SDSSDB
+          FIRSTCARTON:
+            name: FIRSTCARTON
+            type: char[17]
+            unit: ''
+            description: Main carton from which this carton was drawn
+          CARTONNAME:
+            name: CARTONNAME
+            type: char[17]
+            unit: ''
+            description: Main carton from which this carton was drawn
+          PROGRAM:
+            name: PROGRAM
+            type: char[7]
+            unit: ''
+            description: Program for 'firstcarton'
+          MAPPER:
+            name: MAPPER
+            type: char[3]
+            unit: ''
+            description: SDSS-V Mapper for target
+          SURVEY:
+            name: SURVEY
+            type: char[3]
+            unit: ''
+            description: SDSS Survey for target
+          TOO_ID:
+            name: TOO_ID
+            type: int64
+            unit: ''
+            description: SDSS-V Target of Opportunity ID (if TOO=1)
+          TOO_PROGRAM:
+            name: TOO_PROGRAM
+            type: char[10]
+            unit: ''
+            description: SDSS-V Target of Opportunity Program (if TOO=1)
+          SDSS5_TARGET_FLAGS:
+            name: SDSS5_TARGET_FLAGS
+            type: bool[69]
+            unit: ''
+            description: Targeting Flags for SSDSV Targeting
+          SDSSC2BV:
+            name: SDSSC2BV
+            type: char[1]
+            unit: ''
+            description: SDSS5_TARGET_FLAG Carton to Bit Version
+          SDSSV_BOSS_TARGET0:
+            name: SDSSV_BOSS_TARGET0
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSSV-BOSS
+          SDSSV_APOGEE_TARGET0:
+            name: SDSSV_APOGEE_TARGET0
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSSV-APOGEE
+          BOSS_TARGET1:
+            name: BOSS_TARGET1
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS
+          BOSS_TARGET2:
+            name: BOSS_TARGET2
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS
+          ANCILLARY_TARGET1:
+            name: ANCILLARY_TARGET1
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS Ancillary
+          ANCILLARY_TARGET2:
+            name: ANCILLARY_TARGET2
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS Ancillary
+          EBOSS_TARGET0:
+            name: EBOSS_TARGET0
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-IV eBOSS
+          EBOSS_TARGET1:
+            name: EBOSS_TARGET1
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-IV eBOSS
+          EBOSS_TARGET2:
+            name: EBOSS_TARGET2
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-IV eBOSS
+          EBOSS_TARGET_ID:
+            name: EBOSS_TARGET_ID
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-IV eBOSS
+          THING_ID_TARGETING:
+            name: THING_ID_TARGETING
+            type: int64
+            unit: ''
+            description: thing_id from targeting version
+          PRIMTARGET:
+            name: PRIMTARGET
+            type: int64
+            unit: ''
+            description: Plate Primary target flags
+          SECTARGET:
+            name: SECTARGET
+            type: int64
+            unit: ''
+            description: Plate Secondary target flags
+          STARL:
+            name: STARL
+            type: float64
+            unit: ''
+            description: likelihood object is star
+          EXPL:
+            name: EXPL
+            type: float64
+            unit: ''
+            description: likelihood object is exponential disk
+          DEVAUCL:
+            name: DEVAUCL
+            type: float64
+            unit: ''
+            description: likelihood object is deVaucouleurs profile
+          RUN:
+            name: RUN
+            type: int64
+            unit: ''
+            description: SDSS imaging run, for SDSS imaging targets
+          RERUN:
+            name: RERUN
+            type: char[10]
+            unit: ''
+            description: SDSS imaging rerun, for SDSS imaging targets
+          CAMCOL:
+            name: CAMCOL
+            type: int64
+            unit: ''
+            description: SDSS imaging camcol, for SDSS imaging targets
+          FIELD:
+            name: FIELD
+            type: int64
+            unit: ''
+            description: SDSS imaging field, for SDSS imaging targets
+          ID:
+            name: ID
+            type: int64
+            unit: ''
+            description: SDSS imaging id, for SDSS imaging targets
+          FIELDCADENCE:
+            name: FIELDCADENCE
+            type: char[13]
+            unit: ''
+            description: SDSS-V FPS Field Cadence
+          CADENCE:
+            name: CADENCE
+            type: char[10]
+            unit: ''
+            description: SDSS-V FPS target Cadence
+          DESIGN_VERS:
+            name: DESIGN_VERS
+            type: char[6]
+            unit: ''
+            description: robostrategy Run or platedesign version
+          DESIGN_MODE:
+            name: DESIGN_MODE
+            type: char[7]
+            unit: ''
+            description: SDSS-V DesignMode Mode
+      hdu6:
+        name: CONFSUMMARYF-8875.PAR
+        description: Fiber-to-target mapping for plate plugging or FPS configuration
+        is_image: false
+        size: 1 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 1354
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 1500
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 117
+          comment: number of table fields
+        - key: TNULL1
+          value: -999
+          comment: ''
+        - key: TNULL3
+          value: -999
+          comment: ''
+        - key: TNULL4
+          value: -999
+          comment: ''
+        - key: TNULL7
+          value: -999
+          comment: ''
+        - key: TNULL8
+          value: -999
+          comment: ''
+        - key: TNULL9
+          value: -999
+          comment: ''
+        - key: TNULL10
+          value: -999
+          comment: ''
+        - key: TNULL11
+          value: -999
+          comment: ''
+        - key: TNULL12
+          value: -999
+          comment: ''
+        - key: TNULL13
+          value: -999
+          comment: ''
+        - key: TNULL14
+          value: -999
+          comment: ''
+        - key: TNULL16
+          value: -999
+          comment: ''
+        - key: TNULL42
+          value: -999
+          comment: ''
+        - key: TNULL46
+          value: -1
+          comment: ''
+        - key: TNULL52
+          value: -999
+          comment: ''
+        - key: TNULL56
+          value: -999
+          comment: ''
+        - key: TNULL67
+          value: -999
+          comment: ''
+        - key: TNULL70
+          value: -999
+          comment: ''
+        - key: TNULL74
+          value: -999
+          comment: ''
+        - key: TNULL75
+          value: 0
+          comment: ''
+        - key: TNULL77
+          value: -999
+          comment: ''
+        - key: TNULL78
+          value: -999
+          comment: ''
+        - key: TNULL79
+          value: -999
+          comment: ''
+        - key: TNULL80
+          value: -999
+          comment: ''
+        - key: TNULL81
+          value: -999
+          comment: ''
+        - key: TNULL83
+          value: -999
+          comment: ''
+        - key: TNULL89
+          value: -999
+          comment: ''
+        - key: TDIM91
+          value: (69)
+          comment: ''
+        - key: TNULL93
+          value: -999
+          comment: ''
+        - key: TNULL94
+          value: -999
+          comment: ''
+        - key: TNULL95
+          value: -999
+          comment: ''
+        - key: TNULL96
+          value: -999
+          comment: ''
+        - key: TNULL97
+          value: -999
+          comment: ''
+        - key: TNULL98
+          value: -999
+          comment: ''
+        - key: TNULL99
+          value: -999
+          comment: ''
+        - key: TNULL100
+          value: -999
+          comment: ''
+        - key: TNULL101
+          value: -999
+          comment: ''
+        - key: TNULL102
+          value: -999
+          comment: ''
+        - key: TNULL103
+          value: -999
+          comment: ''
+        - key: TNULL104
+          value: -999
+          comment: ''
+        - key: TNULL105
+          value: -999
+          comment: ''
+        - key: TNULL109
+          value: -999
+          comment: ''
+        - key: TNULL111
+          value: -999
+          comment: ''
+        - key: TNULL112
+          value: -999
+          comment: ''
+        - key: TNULL113
+          value: -999
+          comment: ''
+        - key: EXTNAME
+          value: CONFSUMMARYF-8875.PAR
+          comment: extension name
+        - key: CHECKSUM
+          value: h3K2j2K1h2K1h2K1
+          comment: HDU checksum updated 2025-04-01T06:28:32
+        - key: DATASUM
+          value: '3296087750'
+          comment: data unit checksum updated 2025-04-01T06:28:32
+        columns:
+          POSITIONERID:
+            name: POSITIONERID
+            type: int64
+            unit: ''
+            description: FPS Positioner identifier
+          HOLEID:
+            name: HOLEID
+            type: char[7]
+            unit: ''
+            description: Hole ID in which the positioner is sitting
+          FIBERID:
+            name: FIBERID
+            type: int64
+            unit: ''
+            description: Fiber ID for the spectrograph
+          CONFFIBERID:
+            name: CONFFIBERID
+            type: int64
+            unit: ''
+            description: Raw Slithead FiberIDs
+          FIBERTYPE:
+            name: FIBERTYPE
+            type: char[9]
+            unit: ''
+            description: Type of fibre (APOGEE, BOSS, or Metrology)
+          HOLETYPE:
+            name: HOLETYPE
+            type: char[10]
+            unit: ''
+            description: Plate Hole type
+          ASSIGNED:
+            name: ASSIGNED
+            type: int64
+            unit: ''
+            description: Whether this fibre was assigned to a target
+          ON_TARGET:
+            name: ON_TARGET
+            type: int64
+            unit: ''
+            description: Whether this fibre is on target
+          VALID:
+            name: VALID
+            type: int64
+            unit: ''
+            description: alpha and beta angles are valid
+          DECOLLIDED:
+            name: DECOLLIDED
+            type: int64
+            unit: ''
+            description: this positioner had to be moved to decollide it
+          TOO:
+            name: TOO
+            type: int64
+            unit: ''
+            description: the fiber is allocated to a TOO
+          FIBERMASK:
+            name: FIBERMASK
+            type: int64
+            unit: ''
+            description: Fiber level bitmasks (maps to SPPIXMASK)
+          BADSTDMASK:
+            name: BADSTDMASK
+            type: int64
+            unit: ''
+            description: Standard rejected by magnitude range of design
+          THROUGHPUT:
+            name: THROUGHPUT
+            type: int64
+            unit: ''
+            description: Plate Fiber throughput (0-65535, 0=no light)
+          SCI_EXPTIME:
+            name: SCI_EXPTIME
+            type: float64
+            unit: s
+            description: Rescaled Science Exposure Time for offset plate
+          BLUEFIBER:
+            name: BLUEFIBER
+            type: int64
+            unit: ''
+            description: BOSS to assign this target a 'blue' fiber
+          ALPHA:
+            name: ALPHA
+            type: float64
+            unit: deg
+            description: The alpha angles of the positioner arms.
+          BETA:
+            name: BETA
+            type: float64
+            unit: deg
+            description: The beta angles of the positioner arms.
+          XWOK:
+            name: XWOK
+            type: float64
+            unit: mm
+            description: The X value in the FPS WOK coordinates
+          YWOK:
+            name: YWOK
+            type: float64
+            unit: mm
+            description: The Y value in the FPS WOK coordinates
+          ZWOK:
+            name: ZWOK
+            type: float64
+            unit: mm
+            description: The X value in the FPS WOK coordinates
+          XWOK_PRE:
+            name: XWOK_PRE
+            type: float64
+            unit: mm
+            description: The XWOK pre FVC Loop
+          YWOK_PRE:
+            name: YWOK_PRE
+            type: float64
+            unit: mm
+            description: The YWOK pre FVC Loop
+          ZWOK_PRE:
+            name: ZWOK_PRE
+            type: float64
+            unit: mm
+            description: The ZWOK pre FVC Loop
+          XFOCAL:
+            name: XFOCAL
+            type: float64
+            unit: mm
+            description: The X value in focal plane coordinates.
+          YFOCAL:
+            name: YFOCAL
+            type: float64
+            unit: mm
+            description: The Y value in focal plane coordinates.
+          ZOFFSET:
+            name: ZOFFSET
+            type: float64
+            unit: micron
+            description: backstopping offset distance (from washers)
+          RACAT:
+            name: RACAT
+            type: float64
+            unit: deg
+            description: Catalog RA in ICRS coordinates at coord_epoch
+          DECCAT:
+            name: DECCAT
+            type: float64
+            unit: deg
+            description: Catalog Dec in ICRS coordinates at coord_epoch
+          COORD_EPOCH:
+            name: COORD_EPOCH
+            type: float64
+            unit: ''
+            description: Epoch of the catalogue coordinates.
+          PMRA:
+            name: PMRA
+            type: float64
+            unit: mas
+            description: Proper motion in RA (pmra is a true angle)
+          PMDEC:
+            name: PMDEC
+            type: float64
+            unit: mas
+            description: Proper motion in Dec
+          PARALLAX:
+            name: PARALLAX
+            type: float64
+            unit: mas
+            description: Parallax
+          RA:
+            name: RA
+            type: float64
+            unit: deg
+            description: Calculated on sky fiber RA including delta_RA
+          DEC:
+            name: DEC
+            type: float64
+            unit: deg
+            description: Calculated on sky fiber Dec including delta_DEC
+          DELTA_RA:
+            name: DELTA_RA
+            type: float64
+            unit: arcsec
+            description: The amount in RA this fiber has been offset
+          DELTA_DEC:
+            name: DELTA_DEC
+            type: float64
+            unit: arcsec
+            description: The amount in Dec this fiber has been offset
+          RA_OBSERVED:
+            name: RA_OBSERVED
+            type: float64
+            unit: deg
+            description: RA with correction for atmospheric refraction
+          DEC_OBSERVED:
+            name: DEC_OBSERVED
+            type: float64
+            unit: deg
+            description: Dec with correction for atmospheric refraction
+          ALT_OBSERVED:
+            name: ALT_OBSERVED
+            type: float64
+            unit: deg
+            description: alt with correction for atmospheric refraction
+          AZ_OBSERVED:
+            name: AZ_OBSERVED
+            type: float64
+            unit: deg
+            description: az with correction for atmospheric refraction
+          FIBER_OFFSET:
+            name: FIBER_OFFSET
+            type: int64
+            unit: ''
+            description: Flag identifying the fiber was offset by design
+          MEASUREDOFFSET:
+            name: MEASUREDOFFSET
+            type: float64
+            unit: arcsec
+            description: Measured offset between Fiber & Catalog Coord
+          WOKOFFSET:
+            name: WOKOFFSET
+            type: float64
+            unit: mm
+            description: Measured offset in the Wok Coordinates
+          LAMBDA_EFF:
+            name: LAMBDA_EFF
+            type: float64
+            unit: Ang
+            description: Wavelength used for coordinate transformations
+          SPECTROGRAPHID:
+            name: SPECTROGRAPHID
+            type: int64
+            unit: ''
+            description: Spectrograph to which the fibre is assigned.
+          OPTICAL_PROV:
+            name: OPTICAL_PROV
+            type: char[21]
+            unit: ''
+            description: The source of the CATDB_MAG optical magnitudes
+          MAG:
+            name: MAG
+            type: float64[5]
+            unit: ''
+            description: '[u, g, r, i, z] optical magnitudes'
+          PSFMAG:
+            name: PSFMAG
+            type: float64[5]
+            unit: ''
+            description: '[u, g, r, i, z] optical PSF magnitudes'
+          FIBER2MAG:
+            name: FIBER2MAG
+            type: float64[5]
+            unit: ''
+            description: '[u, g, r, i, z] optical Fiber2 magnitudes'
+          CATDB_MAG:
+            name: CATDB_MAG
+            type: float64[5]
+            unit: ''
+            description: '[u, g, r, i, z] Raw TargetDB magnitudes'
+          V05_REV_MAG:
+            name: V05_REV_MAG
+            type: int64
+            unit: ''
+            description: '1: revised with RevisedMagnitude Table, 0: raw'
+          GAIA_G_MAG:
+            name: GAIA_G_MAG
+            type: float64
+            unit: ''
+            description: Gaia G magnitude
+          BP_MAG:
+            name: BP_MAG
+            type: float64
+            unit: ''
+            description: Gaia BP magnitude
+          RP_MAG:
+            name: RP_MAG
+            type: float64
+            unit: ''
+            description: Gaia RP magnitude
+          GAIA_ID:
+            name: GAIA_ID
+            type: int64
+            unit: ''
+            description: Gaia-DR3 ID
+          H_MAG:
+            name: H_MAG
+            type: float64
+            unit: ''
+            description: 2MASS H magnitude
+          WISE_MAG:
+            name: WISE_MAG
+            type: float64[4]
+            unit: ''
+            description: WISE [W1, W2, W3, W4] band magnitudes
+          TWOMASS_MAG:
+            name: TWOMASS_MAG
+            type: float64[3]
+            unit: ''
+            description: 2MASS [J, H, Ks] band magnitudes
+          GUVCAT_MAG:
+            name: GUVCAT_MAG
+            type: float64[2]
+            unit: ''
+            description: GALEX [FUV, NUV] band magnitudes
+          SFD_EBV:
+            name: SFD_EBV
+            type: float64
+            unit: ''
+            description: SFD dust extinction
+          EBV_BAYESTAR15:
+            name: EBV_BAYESTAR15
+            type: float64
+            unit: ''
+            description: Bayestar15 3D dust extinction
+          EBV_SIMPLEDUST2023:
+            name: EBV_SIMPLEDUST2023
+            type: float64
+            unit: ''
+            description: SimpleDust2023 3D dust extinction
+          EBV_RJCE:
+            name: EBV_RJCE
+            type: float64
+            unit: ''
+            description: RJCE dust extinction
+          EBV_3D:
+            name: EBV_3D
+            type: float64
+            unit: ''
+            description: Merged 3D dust extinction
+          EBV_3DSRC:
+            name: EBV_3DSRC
+            type: char[14]
+            unit: ''
+            description: Source of Merged 3D dust extinction
+          GRI_GAIA_TRANSFORM:
+            name: GRI_GAIA_TRANSFORM
+            type: int64
+            unit: ''
+            description: provenance of photometry in SDSS-V plate design
+          CALIBFLUX:
+            name: CALIBFLUX
+            type: float64[5]
+            unit: nanomaggy
+            description: SDSS band [u,g,r,i,z] target calibration flux
+          CALIBFLUX_IVAR:
+            name: CALIBFLUX_IVAR
+            type: float64[5]
+            unit: nanomaggy
+            description: target calibration flux inverse variance
+          CALIB_STATUS:
+            name: CALIB_STATUS
+            type: int64[5]
+            unit: ''
+            description: target calibration status flag
+          CATEGORY:
+            name: CATEGORY
+            type: char[13]
+            unit: ''
+            description: Category for 'firstcarton'
+          OBJTYPE:
+            name: OBJTYPE
+            type: char[16]
+            unit: ''
+            description: Why object was targetted (QSO = Science Target)
+          SOURCETYPE:
+            name: SOURCETYPE
+            type: char[10]
+            unit: ''
+            description: indicate the nature of the source
+          OFFSETID:
+            name: OFFSETID
+            type: int64
+            unit: ''
+            description: plate offset associated; 0 = primary pointing
+          OBJID:
+            name: OBJID
+            type: int64[5]
+            unit: ''
+            description: Unique object id from SDSS imaging
+          CATALOGID:
+            name: CATALOGID
+            type: char[20]
+            unit: ''
+            description: CatalogID or uHHMMSS.S+DDMMSS.S for unassigned
+          ICATALOGID:
+            name: ICATALOGID
+            type: int64
+            unit: ''
+            description: Raw SDSS-V CatalogID
+          SDSS_ID:
+            name: SDSS_ID
+            type: int64
+            unit: ''
+            description: SDSS_ID of Target
+          CATALOGID_V0:
+            name: CATALOGID_V0
+            type: int64
+            unit: ''
+            description: V0 (Plate) Crossmatch CatalogID from SDSS_ID
+          CATALOGID_V0P5:
+            name: CATALOGID_V0P5
+            type: int64
+            unit: ''
+            description: V0.5 (FPS) Crossmatch CatalogID from SDSS_ID
+          CATALOGID_V1:
+            name: CATALOGID_V1
+            type: int64
+            unit: ''
+            description: V1 (FPS) Crossmatch CatalogID from SDSS_ID
+          CATVERSION:
+            name: CATVERSION
+            type: char[5]
+            unit: ''
+            description: Catalog Version of SDSS-V CatalogID
+          CARTON_TO_TARGET_PK:
+            name: CARTON_TO_TARGET_PK
+            type: int64
+            unit: ''
+            description: SDSS-V Carton_to_Target primary key for SDSSDB
+          FIRSTCARTON:
+            name: FIRSTCARTON
+            type: char[17]
+            unit: ''
+            description: Main carton from which this carton was drawn
+          CARTONNAME:
+            name: CARTONNAME
+            type: char[17]
+            unit: ''
+            description: Main carton from which this carton was drawn
+          PROGRAM:
+            name: PROGRAM
+            type: char[7]
+            unit: ''
+            description: Program for 'firstcarton'
+          MAPPER:
+            name: MAPPER
+            type: char[3]
+            unit: ''
+            description: SDSS-V Mapper for target
+          SURVEY:
+            name: SURVEY
+            type: char[3]
+            unit: ''
+            description: SDSS Survey for target
+          TOO_ID:
+            name: TOO_ID
+            type: int64
+            unit: ''
+            description: SDSS-V Target of Opportunity ID (if TOO=1)
+          TOO_PROGRAM:
+            name: TOO_PROGRAM
+            type: char[10]
+            unit: ''
+            description: SDSS-V Target of Opportunity Program (if TOO=1)
+          SDSS5_TARGET_FLAGS:
+            name: SDSS5_TARGET_FLAGS
+            type: bool[69]
+            unit: ''
+            description: Targeting Flags for SSDSV Targeting
+          SDSSC2BV:
+            name: SDSSC2BV
+            type: char[1]
+            unit: ''
+            description: SDSS5_TARGET_FLAG Carton to Bit Version
+          SDSSV_BOSS_TARGET0:
+            name: SDSSV_BOSS_TARGET0
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSSV-BOSS
+          SDSSV_APOGEE_TARGET0:
+            name: SDSSV_APOGEE_TARGET0
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSSV-APOGEE
+          BOSS_TARGET1:
+            name: BOSS_TARGET1
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS
+          BOSS_TARGET2:
+            name: BOSS_TARGET2
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS
+          ANCILLARY_TARGET1:
+            name: ANCILLARY_TARGET1
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS Ancillary
+          ANCILLARY_TARGET2:
+            name: ANCILLARY_TARGET2
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS Ancillary
+          EBOSS_TARGET0:
+            name: EBOSS_TARGET0
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-IV eBOSS
+          EBOSS_TARGET1:
+            name: EBOSS_TARGET1
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-IV eBOSS
+          EBOSS_TARGET2:
+            name: EBOSS_TARGET2
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-IV eBOSS
+          EBOSS_TARGET_ID:
+            name: EBOSS_TARGET_ID
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-IV eBOSS
+          THING_ID_TARGETING:
+            name: THING_ID_TARGETING
+            type: int64
+            unit: ''
+            description: thing_id from targeting version
+          PRIMTARGET:
+            name: PRIMTARGET
+            type: int64
+            unit: ''
+            description: Plate Primary target flags
+          SECTARGET:
+            name: SECTARGET
+            type: int64
+            unit: ''
+            description: Plate Secondary target flags
+          STARL:
+            name: STARL
+            type: float64
+            unit: ''
+            description: likelihood object is star
+          EXPL:
+            name: EXPL
+            type: float64
+            unit: ''
+            description: likelihood object is exponential disk
+          DEVAUCL:
+            name: DEVAUCL
+            type: float64
+            unit: ''
+            description: likelihood object is deVaucouleurs profile
+          RUN:
+            name: RUN
+            type: int64
+            unit: ''
+            description: SDSS imaging run, for SDSS imaging targets
+          RERUN:
+            name: RERUN
+            type: char[10]
+            unit: ''
+            description: SDSS imaging rerun, for SDSS imaging targets
+          CAMCOL:
+            name: CAMCOL
+            type: int64
+            unit: ''
+            description: SDSS imaging camcol, for SDSS imaging targets
+          FIELD:
+            name: FIELD
+            type: int64
+            unit: ''
+            description: SDSS imaging field, for SDSS imaging targets
+          ID:
+            name: ID
+            type: int64
+            unit: ''
+            description: SDSS imaging id, for SDSS imaging targets
+          FIELDCADENCE:
+            name: FIELDCADENCE
+            type: char[13]
+            unit: ''
+            description: SDSS-V FPS Field Cadence
+          CADENCE:
+            name: CADENCE
+            type: char[10]
+            unit: ''
+            description: SDSS-V FPS target Cadence
+          DESIGN_VERS:
+            name: DESIGN_VERS
+            type: char[6]
+            unit: ''
+            description: robostrategy Run or platedesign version
+          DESIGN_MODE:
+            name: DESIGN_MODE
+            type: char[7]
+            unit: ''
+            description: SDSS-V DesignMode Mode
 notes: |-
   None
+regrets: |-
+  I have no regrets!

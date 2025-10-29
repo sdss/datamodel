@@ -9,17 +9,17 @@ BOSS best spectroscopic classifications and redshifts for field epoch spectra
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 The spZbest files contain the spectroscopic classifications and redshifts from the spectro-1d step of the BOSS idlspec1d pipeline for the field epoch spectra
 
 ### Naming Convention
-$BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/epoch/[RUN1D]/spZbest-[FIELD]-[MJD].fits
+$BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/epoch/[RUN1D]/spZbest-[FIELD]-[MJD].fits
 
 ### Releases
-IPL3, DR19
+IPL3, DR19, IPL4
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,16 +36,25 @@ idlspec2d
 ### Is a VAC
 False
 
+### Data Level
+1.3
+
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
-  - [HDU2: ](#hdu2-)
-  - [HDU3: ](#hdu3-)
+  - [HDU1](#hdu1)
+  - [HDU2](#hdu2)
+  - [HDU3](#hdu3)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - IPL4
+   - from: DR19
+   - added_hdus: ['SYNFLUX', 'DISPFLUX', 'ZANS']
+   - primary_delta_nkeys: 2
+   - added_primary_header_kwargs: ['DATE-OBS', 'SFLATMIN', 'PIXFLAT', 'EXTNAME']
+   - removed_primary_header_kwargs: ['SIGAS0', 'CENAS0']
  - DR19
    - from: IPL3
    - note: No changes
@@ -690,3 +699,7 @@ Key | Value | Comment | |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

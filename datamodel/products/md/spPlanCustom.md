@@ -9,17 +9,17 @@ Plan to combine all epochs on a target baseline for custom coadds
 - [Changelog](#changelog)
 - [Example PAR List](#example-par-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 Plan to combine all epochs on a target baseline for custom coadds.
 
 ### Naming Convention
-$BOSS_SPECTRO_REDUX/[RUN2D]/[COADD]/spPlanCustom-[COADD]-[MJD].par
+$BOSS_SPECTRO_REDUX/[RUN2D]/fields/[COADD]/[COADD]_[OBS]/spPlanCustom-[COADD]_[OBS]-[MJD].par
 
 ### Releases
-IPL3, DR19
+IPL3, DR19, IPL4
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,6 +36,9 @@ idlspec2d
 ### Is a VAC
 False
 
+### Data Level
+1.1
+
 ### PAR List for release DR19
   - [COADDPLAN](#COADDPLAN)
 
@@ -43,6 +46,12 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - IPL4
+   - from: DR19
+   - delta_nkeys: 1
+   - added_header_keys: ['N_MJDs', 'OBS']
+   - removed_header_keys: ['idlutilsVersion']
+   - tables: {'COADDPLAN': {'delta_nrows': 138325}}
  - DR19
    - from: IPL3
    - note: No changes
@@ -93,3 +102,7 @@ Name | Type | Unit | Description | Is Array | Example |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

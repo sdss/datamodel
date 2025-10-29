@@ -9,17 +9,17 @@ Custom Coadd Schema Plans
 - [Changelog](#changelog)
 - [Example PAR List](#example-par-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 Contains the Schema used to defined the Custom target level Coadding schema
 
 ### Naming Convention
-$BOSS_SPECTRO_REDUX/[RUN2D]/[PHASE]_[SURVEY]_COADDS.par
+$BOSS_SPECTRO_REDUX/[RUN2D]/fields/[PHASE]_[SURVEY]_COADDS.par
 
 ### Releases
-IPL3, DR19
+IPL3, DR19, IPL4
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,6 +36,9 @@ idlspec2d - manage_coadd_Schema.py
 ### Is a VAC
 False
 
+### Data Level
+1.1
+
 ### PAR List for release DR19
   - [SCHEMA](#SCHEMA)
 
@@ -43,6 +46,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - IPL4
+   - from: DR19
+   - note: No changes
  - DR19
    - from: IPL3
    - note: No changes
@@ -99,3 +105,7 @@ Name | Type | Unit | Description | Is Array | Example |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

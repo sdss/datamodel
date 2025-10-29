@@ -9,7 +9,7 @@ BOSS Target spectra for field epoch coadds with individual exposures without 1d 
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -19,7 +19,7 @@ BOSS Target spectra for field epoch coadds with individual exposures without 1d 
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/epoch/coadd/[MJD]/spSpec-[FIELD]-[MJD]-[CATALOGID].fits
 
 ### Releases
-IPL3, DR19
+IPL3, DR19, IPL4
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -35,6 +35,9 @@ idlspec2d
 
 ### Is a VAC
 False
+
+### Data Level
+1.2.4
 
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
@@ -58,6 +61,11 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - IPL4
+   - from: DR19
+   - primary_delta_nkeys: 1
+   - added_primary_header_kwargs: ['EXTNAME', 'SFLATMIN', 'PIXFLAT', 'TAI']
+   - removed_primary_header_kwargs: ['SIGAS0', 'CENAS0', 'NAXIS1']
  - DR19
    - from: IPL3
    - note: No changes
@@ -4343,3 +4351,7 @@ Name | Type | Unit | Description |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

@@ -9,17 +9,17 @@ Processing plan for Coadding Exposures
 - [Changelog](#changelog)
 - [Example PAR List](#example-par-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 Processing plan to combine all spectroscopic reductions for a single field/plate with the same MJD. Historically, this was produced for a single plugging that could span several MJDs, but spPlancombepoch has replaced this functionality, and this is now a single MJD only.
 
 ### Naming Convention
-$BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spPlancomb-[FIELD]-[MJD].par
+$BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/spPlancomb-[FIELD]-[MJD].par
 
 ### Releases
-IPL3, DR19
+IPL3, DR19, IPL4
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,6 +36,9 @@ idlspec2d - spplan.py
 ### Is a VAC
 False
 
+### Data Level
+1.1
+
 ### PAR List for release DR19
   - [SPEXP](#SPEXP)
 
@@ -43,6 +46,10 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - IPL4
+   - from: DR19
+   - delta_nkeys: 2
+   - removed_header_keys: ['speclogVersion', 'idlutilsVersion']
  - DR19
    - from: IPL3
    - note: No changes
@@ -98,3 +105,7 @@ Name | Type | Unit | Description | Is Array | Example |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

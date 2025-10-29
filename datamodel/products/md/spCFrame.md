@@ -16,10 +16,10 @@ flux-calibrated spectra extracted CCD exposure
 The spCFrame files contain the flux-calibrated extracted spectra for a single CCD (i.e., the red or blue half) of a single exposure. These spectra are still in the native wavelength mapping, which is neither linear in wavelength nor log-wavelength. However, the spectra are flux-calibrated, and deviant pixels are rejected in the pixel mask (from the comparison with the other exposures).
 
 ### Naming Convention
-$BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spCFrame-[BR][ID]-[FRAME].fits
+$BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/spCFrame-[BR][ID]-[FRAME].fits
 
 ### Releases
-DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19, IPL4
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -37,7 +37,7 @@ idlspec2d
 False
 
 ### Data Level
-0.0.0
+1.2.4
 
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
@@ -55,20 +55,26 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - IPL4
+   - from: DR19
+   - added_hdus: ['FLUX']
+   - removed_hdus: ['PRIMARY']
+   - primary_delta_nkeys: 4
+   - added_primary_header_kwargs: ['FFSPOS', 'SFLATMIN', 'M2FF', 'EXTNAME']
  - DR19
    - from: IPL3
    - note: No changes
  - IPL3
    - from: DR18
    - primary_delta_nkeys: 63
-   - added_primary_header_kwargs: ['GSEEING', 'CCDID', 'MCTHT', 'VCALIBS', 'MCTBCT', 'SLITID', 'V_ARCHON', 'MECHORIZ', 'ARCHBACK', 'DESIGNID', 'VJAEGER', 'OBSMODE', 'OBSERVAT', 'CCDSUM', 'MCHUMHT', 'VCOORDIO', 'SIGBS0', 'VKAIJU', 'T_FLOOR', 'STDBS0', 'AVGBS0', 'COLLH', 'BOSSVER', 'HEAR', 'ARCHACF', 'MECHORIY', 'INTEND', 'R2CAMT', 'T_OUT', 'HA', 'OFFDEC', 'T_IN', 'V_RAD', 'OFFPA', 'MECHORIX', 'ARCHTEMP', 'CENBS0', 'STDAS0', 'INTSTART', 'R2CAMH', 'MCTRCB', 'DAQVER', 'SPEC', 'AVGAS0', 'BUFFER', 'SPECMT', 'ARCHBVER', 'T_CELL', 'CCDTYPE', 'CCD', 'B2CAMH', 'B2CAMT', 'FIELDID', 'MCTBCB', 'OFFRA', 'MCTEMDN', 'T_TRUSS', 'MCTRCT', 'CONFSFIL', 'MCHUMCO', 'COLLT', 'T_PRIM', 'CONFID']
-   - removed_primary_header_kwargs: ['STDBSH0', 'MC1HUMHT', 'CENBSH0', 'MC1TBCT', 'STDASH0', 'MC1THT', 'AVGASH0', 'MGDDEC', 'TILEID', 'MC1TRCT', 'MGDRA', 'AVGBSH0', 'CAMCOL', 'AUTHOR', 'MC1TRCB', 'SLITID1', 'MC1TEMDN', 'TWOPHASE', 'MGDPOS', 'MC1HUMCO', 'PLUGFILE', 'CAMROW', 'MC1TBCB', 'SIGBSH0']
+   - added_primary_header_kwargs: ['MCTBCB', 'B2CAMT', 'V_RAD', 'OBSMODE', 'T_FLOOR', 'ARCHBACK', 'SPEC', 'CENBS0', 'MECHORIZ', 'BOSSVER', 'HEAR', 'T_PRIM', 'VCALIBS', 'MECHORIY', 'MCTBCT', 'MCTHT', 'BUFFER', 'DAQVER', 'CONFID', 'DESIGNID', 'OFFPA', 'V_ARCHON', 'ARCHACF', 'VJAEGER', 'MCTRCB', 'MCTRCT', 'MECHORIX', 'SPECMT', 'T_OUT', 'STDBS0', 'VCOORDIO', 'OFFDEC', 'STDAS0', 'CCDID', 'CCD', 'AVGAS0', 'CCDTYPE', 'COLLH', 'R2CAMT', 'ARCHBVER', 'SLITID', 'T_CELL', 'ARCHTEMP', 'COLLT', 'HA', 'VKAIJU', 'GSEEING', 'MCHUMCO', 'T_TRUSS', 'CCDSUM', 'INTSTART', 'CONFSFIL', 'MCHUMHT', 'OBSERVAT', 'T_IN', 'INTEND', 'AVGBS0', 'FIELDID', 'R2CAMH', 'MCTEMDN', 'B2CAMH', 'OFFRA', 'SIGBS0']
+   - removed_primary_header_kwargs: ['MC1TRCB', 'MC1TBCB', 'MC1HUMCO', 'MC1TRCT', 'AVGBSH0', 'MC1TEMDN', 'SIGBSH0', 'AVGASH0', 'SLITID1', 'TWOPHASE', 'CENBSH0', 'STDBSH0', 'MGDPOS', 'MGDRA', 'TILEID', 'MC1TBCT', 'MC1HUMHT', 'STDASH0', 'PLUGFILE', 'MC1THT', 'MGDDEC', 'CAMCOL', 'CAMROW', 'AUTHOR']
  - DR18
    - from: DR17
    - added_hdus: ['SPRESL']
    - primary_delta_nkeys: 45
-   - added_primary_header_kwargs: ['DEWPOINT', 'DUSTB', 'STDBSH0', 'V_BOSS', 'MC1HUMHT', 'PFERR', 'CENBSH0', 'CCDTEMP', 'WINDS25M', 'V_APO', 'MC1TBCT', 'M2ZROT', 'WINDD', 'STDASH0', 'MC1THT', 'AIRTEMP', 'GUSTD', 'AVGASH0', 'DIDFLUSH', 'SRVYMODE', 'MGDDEC', 'WDISPR', 'MC1TRCT', 'MGDRA', 'SUBFRAME', 'AVGBSH0', 'V_GUIDER', 'REQTIME', 'HUMIDITY', 'DUSTA', 'SHOPETIM', 'DARKTIME', 'MC1TRCB', 'SLITID1', 'SHCLOTIM', 'LN2TEMP', 'M1ZROT', 'V_SOP', 'TRUSTEMP', 'WINDS', 'MC1TEMDN', 'GUSTS', 'PRESSURE', 'MGDPOS', 'IONPUMP', 'WINDD25M', 'MC1HUMCO', 'PLATETYP', 'MC1TBCB', 'SIGBSH0']
-   - removed_primary_header_kwargs: ['BOSSVER', 'DAQVER', 'PIXBIAS', 'OBJOFFY', 'OBJOFFX']
+   - added_primary_header_kwargs: ['V_SOP', 'MC1TRCB', 'DARKTIME', 'MC1TBCB', 'MC1HUMCO', 'MC1TRCT', 'AVGBSH0', 'MC1TEMDN', 'M2ZROT', 'SIGBSH0', 'DIDFLUSH', 'AVGASH0', 'SLITID1', 'V_APO', 'PLATETYP', 'CENBSH0', 'STDBSH0', 'REQTIME', 'PRESSURE', 'MGDPOS', 'MGDRA', 'MC1TBCT', 'WDISPR', 'LN2TEMP', 'GUSTS', 'PFERR', 'MC1HUMHT', 'STDASH0', 'WINDS25M', 'DUSTB', 'WINDS', 'GUSTD', 'IONPUMP', 'WINDD25M', 'MC1THT', 'TRUSTEMP', 'DUSTA', 'MGDDEC', 'HUMIDITY', 'SHOPETIM', 'SRVYMODE', 'CCDTEMP', 'V_GUIDER', 'M1ZROT', 'V_BOSS', 'AIRTEMP', 'SHCLOTIM', 'WINDD', 'SUBFRAME', 'DEWPOINT']
+   - removed_primary_header_kwargs: ['PIXBIAS', 'OBJOFFY', 'BOSSVER', 'OBJOFFX', 'DAQVER']
  - DR17
    - from: DR16
    - note: No changes
@@ -76,7 +82,7 @@ Describes changes to the datamodel product and/or file structure from one releas
    - from: DR15
    - primary_delta_nkeys: 17
    - added_primary_header_kwargs: ['PIXBIAS']
-   - removed_primary_header_kwargs: ['MC2TRCT', 'MC2HUMHT', 'MC2TRCB', 'MC2TBCB', 'MC2HUMCO', 'MC1HUMHT', 'MC1THT', 'SHOPETIM', 'MC1TRCB', 'MC1HUMCO', 'MC1TRCT', 'SHCLOTIM', 'MC2THT', 'MC1TBCT', 'MC2TBCT', 'MC2TEMDN', 'MC1TBCB', 'MC1TEMDN']
+   - removed_primary_header_kwargs: ['MC2HUMHT', 'MC1TRCB', 'MC1HUMHT', 'MC1TBCB', 'MC1HUMCO', 'MC1TRCT', 'MC1TEMDN', 'MC2TBCT', 'MC1THT', 'MC2THT', 'MC2TRCT', 'MC2TRCB', 'MC2HUMCO', 'MC1TBCT', 'SHCLOTIM', 'MC2TEMDN', 'MC2TBCB', 'SHOPETIM']
  - DR15
    - from: DR14
    - note: No changes
@@ -94,7 +100,7 @@ Describes changes to the datamodel product and/or file structure from one releas
    - note: No changes
  - DR10
    - from: DR9
-   - added_hdus: ['X', 'PLUGMAP', 'MASK', 'IVAR', 'WAVELENGTH', 'SKY', 'WAVEDISP', 'SUPERFLAT']
+   - added_hdus: ['WAVEDISP', 'IVAR', 'PLUGMAP', 'WAVELENGTH', 'SKY', 'SUPERFLAT', 'MASK', 'X']
 
 ---
 ## Example HDUS List

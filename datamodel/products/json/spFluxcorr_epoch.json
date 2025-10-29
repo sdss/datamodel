@@ -1,0 +1,167 @@
+{
+  "general": {
+    "name": "spFluxcorr_epoch",
+    "short": "flux-correction factor between spectro-photometric exposure and science exposure for epoch coadds",
+    "description": "flux-correction factor between spectro-photometric exposure and science exposure",
+    "environments": [
+      "BOSS_SPECTRO_REDUX"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "16 KB",
+    "releases": [
+      {
+        "name": "IPL4",
+        "description": "SDSS internal product launch 4",
+        "public": false,
+        "release_date": "2025-07-15"
+      }
+    ],
+    "naming_convention": "$BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/epoch/spFluxcorr-[BR][ID]-[FRAME].fits.gz",
+    "generated_by": "idlspec2d",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "1.2.4"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "IPL4": {
+      "template": "$BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/epoch/spFluxcorr-[BR][ID]-[FRAME].fits.gz",
+      "example": "v6_2_1/fields/112XXX/112360/epoch/spFluxcorr-b1-00353048.fits.gz",
+      "location": "{run2d}/fields/{fieldgrp}/{field}/epoch/spFluxcorr-{br}{id}-{frame}.fits.gz",
+      "environment": "BOSS_SPECTRO_REDUX",
+      "survey": "BHM",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "spFluxcorr_epoch",
+        "path_template": "$BOSS_SPECTRO_REDUX/{run2d}/@sptypefolder|/@fieldgrp|/@pad_fieldid|@isplate|/epoch/spFluxcorr-{br}{id}-{frame:0>8}.fits.gz",
+        "path_kwargs": [
+          "run2d",
+          "fieldid",
+          "br",
+          "frame",
+          "id"
+        ],
+        "access_string": "spFluxcorr_epoch = $BOSS_SPECTRO_REDUX/{run2d}/fields/{fieldgrp}/{field}/epoch/spFluxcorr-{br}{id}-{frame}.fits.gz"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "MULTCORR",
+          "is_image": true,
+          "description": "multiplicative flux-correction factor",
+          "size": "7 MB",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "Primary Header created by MWRFITS v1.13"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-32",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS1",
+              "value": "4128",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS2",
+              "value": "500",
+              "comment": ""
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "Extensions may be present"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "MULTCORR",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "ADDCORR",
+          "is_image": true,
+          "description": "additive flux-correction factor",
+          "size": "7 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "IMAGE",
+              "comment": "Image Extension created by MWRFITS v1.13"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-32",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS1",
+              "value": "4128",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS2",
+              "value": "500",
+              "comment": ""
+            },
+            {
+              "key": "EXTNAME",
+              "value": "ADDCORR",
+              "comment": ""
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

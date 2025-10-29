@@ -9,17 +9,17 @@ Contains a summary of the Spectro-1D spZline output for all custom coadd spectra
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 Contains a summary of the Spectro-1D spZline output for custom coadd all spectra with line measurements
 
 ### Naming Convention
-$BOSS_SPECTRO_REDUX/[RUN2D]/spAllLine-[RUN2D]-[COADD].fits.gz
+$BOSS_SPECTRO_REDUX/[RUN2D]/summary/[COADD]/spAllLine-[RUN2D]-[COADD].fits.gz
 
 ### Releases
-IPL3, DR19
+IPL3, DR19, IPL4
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,6 +36,9 @@ idlspec2d
 ### Is a VAC
 False
 
+### Data Level
+2.3.1
+
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: SPLINE](#hdu1-spline)
@@ -44,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - IPL4
+   - from: DR19
+   - note: No changes
  - DR19
    - from: IPL3
    - note: No changes
@@ -131,3 +137,7 @@ Name | Type | Unit | Description |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

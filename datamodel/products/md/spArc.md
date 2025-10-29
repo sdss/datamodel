@@ -16,10 +16,10 @@ Extacted Arc Frame and wavelength solution
 This file contains information about flux density, wavelength solution, fibermask and line width obtained from extracted arc calibration frames.
 
 ### Naming Convention
-$BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spArc-[BR][ID]-[FRAME].fits.gz
+$BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/spArc-[BR][ID]-[FRAME].fits.gz
 
 ### Releases
-DR17, DR18, IPL3, DR19
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19, IPL4
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -37,7 +37,7 @@ idlspec2d - spCalib.pro
 False
 
 ### Data Level
-0.0.0
+1.2.2
 
 ### HDUS List for release DR19
   - [HDU0: flux](#hdu0-flux)
@@ -53,19 +53,51 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - IPL4
+   - from: DR19
+   - added_hdus: ['WSET', 'DISPSET', 'LAMBDA', 'FIBERMASK', 'FLUX', 'RESLSET']
+   - removed_hdus: ['rejline', 'flux']
+   - primary_delta_nkeys: 1
+   - added_primary_header_kwargs: ['FFSPOS', 'M2FF']
+   - removed_primary_header_kwargs: ['NAXIS1']
  - DR19
    - from: IPL3
-   - added_hdus: ['rejline', 'XDIF_TSET']
+   - added_hdus: ['XDIF_TSET', 'rejline']
  - IPL3
    - from: DR18
    - primary_delta_nkeys: 79
-   - added_primary_header_kwargs: ['VJAEGER', 'MEDREX0', 'MCTBCT', 'OFFDEC', 'CCDSUM', 'SPEC', 'MCHUMCO', 'T_TRUSS', 'MEDREX3', 'MECHORIZ', 'NMATCH', 'MEDWIDT3', 'CCDTYPE', 'OFFRA', 'R2CAMT', 'FIELDID', 'OFFPA', 'MCTBCB', 'MEDWIDT1', 'BOSSVER', 'T_FLOOR', 'DAQVER', 'SPECMT', 'EQUINOX', 'GSEEING', 'SLITID', 'V_ARCHON', 'DESIGNID', 'ARCHTEMP', 'ARCNAME', 'B2CAMT', 'MCTEMDN', 'BUFFER', 'VCALIBS', 'FLATNAME', 'CCDID', 'ARCHBVER', 'TSEP', 'CCD', 'T_CELL', 'MCTHT', 'T_OUT', 'COLLH', 'ARCHBACK', 'MCHUMHT', 'B2CAMH', 'MECHORIY', 'COLLT', 'T_PRIM', 'ARCHACF', 'R2CAMH', 'HA', 'TAI', 'VCOORDIO', 'T_IN', 'MEDREX1', 'HEAR', 'AIRMASS', 'MCTRCB', 'CONFID', 'VERS2D', 'MEDWIDT2', 'MECHORIX', 'EXTNAME', 'INTSTART', 'VKAIJU', 'MEDREX2', 'INTEND', 'MCTRCT', 'MEDWIDT0', 'OBSERVAT']
-   - removed_primary_header_kwargs: ['AUTHOR', 'MC1TEMDN', 'TWOPHASE', 'CAMCOL', 'SLITID1', 'MGDPOS', 'MC1HUMCO', 'CAMROW', 'MGDDEC', 'MC1TBCT', 'MC1TRCB', 'MC1HUMHT', 'MC1THT', 'MC1TBCB', 'MC1TRCT', 'MGDRA']
+   - added_primary_header_kwargs: ['MCTBCB', 'B2CAMT', 'T_FLOOR', 'ARCHBACK', 'SPEC', 'MECHORIZ', 'BOSSVER', 'HEAR', 'T_PRIM', 'VCALIBS', 'MECHORIY', 'MCTBCT', 'MEDREX0', 'TSEP', 'MCTHT', 'ARCNAME', 'BUFFER', 'DAQVER', 'CONFID', 'DESIGNID', 'OFFPA', 'V_ARCHON', 'MEDWIDT2', 'MEDREX1', 'ARCHACF', 'VJAEGER', 'MCTRCB', 'MCTRCT', 'EQUINOX', 'MECHORIX', 'SPECMT', 'T_OUT', 'VERS2D', 'TAI', 'VCOORDIO', 'OFFDEC', 'MEDREX3', 'CCDID', 'CCD', 'CCDTYPE', 'COLLH', 'T_CELL', 'R2CAMT', 'ARCHBVER', 'SLITID', 'MEDWIDT0', 'ARCHTEMP', 'COLLT', 'HA', 'VKAIJU', 'GSEEING', 'NMATCH', 'MCHUMCO', 'MEDWIDT3', 'T_TRUSS', 'CCDSUM', 'AIRMASS', 'INTSTART', 'EXTNAME', 'MEDWIDT1', 'MCHUMHT', 'OBSERVAT', 'T_IN', 'MEDREX2', 'INTEND', 'FIELDID', 'R2CAMH', 'FLATNAME', 'MCTEMDN', 'B2CAMH', 'OFFRA']
+   - removed_primary_header_kwargs: ['MC1TRCB', 'MC1HUMHT', 'MC1TBCB', 'CAMROW', 'MC1HUMCO', 'MC1TRCT', 'MC1TEMDN', 'TWOPHASE', 'MC1THT', 'MGDPOS', 'MGDRA', 'SLITID1', 'MC1TBCT', 'MGDDEC', 'AUTHOR', 'CAMCOL']
  - DR18
    - from: DR17
    - primary_delta_nkeys: 38
-   - added_primary_header_kwargs: ['SHOPETIM', 'DIDFLUSH', 'WINDS25M', 'REQTIME', 'LN2TEMP', 'MC1HUMCO', 'M2ZROT', 'MC1HUMHT', 'MC1THT', 'MGDDEC', 'GUSTD', 'V_SOP', 'MC1TEMDN', 'AIRTEMP', 'M1ZROT', 'PRESSURE', 'MGDPOS', 'MC1TBCT', 'V_GUIDER', 'V_BOSS', 'V_APO', 'SHCLOTIM', 'IONPUMP', 'TRUSTEMP', 'DEWPOINT', 'DUSTA', 'GUSTS', 'WINDD', 'SUBFRAME', 'MC1TRCT', 'DUSTB', 'PFERR', 'DARKTIME', 'WINDS', 'SLITID1', 'CCDTEMP', 'HUMIDITY', 'PLATETYP', 'MC1TRCB', 'SRVYMODE', 'MC1TBCB', 'WINDD25M', 'MGDRA']
-   - removed_primary_header_kwargs: ['OBJOFFY', 'OBJOFFX', 'BOSSVER', 'DAQVER', 'PIXBIAS']
+   - added_primary_header_kwargs: ['V_SOP', 'MC1TRCB', 'DARKTIME', 'MC1TBCB', 'MC1HUMCO', 'MC1TRCT', 'MC1TEMDN', 'M2ZROT', 'DIDFLUSH', 'SLITID1', 'V_APO', 'PLATETYP', 'REQTIME', 'PRESSURE', 'MGDPOS', 'MGDRA', 'MC1TBCT', 'LN2TEMP', 'GUSTS', 'PFERR', 'MC1HUMHT', 'WINDS25M', 'DUSTB', 'WINDS', 'GUSTD', 'IONPUMP', 'WINDD25M', 'MC1THT', 'TRUSTEMP', 'DUSTA', 'MGDDEC', 'HUMIDITY', 'SHOPETIM', 'SRVYMODE', 'CCDTEMP', 'V_GUIDER', 'M1ZROT', 'V_BOSS', 'AIRTEMP', 'SHCLOTIM', 'WINDD', 'SUBFRAME', 'DEWPOINT']
+   - removed_primary_header_kwargs: ['PIXBIAS', 'OBJOFFY', 'BOSSVER', 'OBJOFFX', 'DAQVER']
+ - DR17
+   - from: DR16
+   - added_hdus: ['flux']
+   - removed_hdus: ['PRIMARY']
+ - DR16
+   - from: DR15
+   - note: No changes
+ - DR15
+   - from: DR14
+   - note: No changes
+ - DR14
+   - from: DR13
+   - note: No changes
+ - DR13
+   - from: DR11
+   - note: No changes
+ - DR11
+   - from: DR12
+   - note: No changes
+ - DR12
+   - from: DR10
+   - note: No changes
+ - DR10
+   - from: DR9
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -369,7 +401,7 @@ Key | Value | Comment | |
 
 
 ### HDU4: 
-rThe data attribute of HDU 4 gives the line width (in the dispersion axis) for each fiber. This Gaussian sigma is in units of pixels. The Y-positions on the CCD, which is the independent variable and the corresponding line width, which is the dependent variable are fitted to a functional form and the resulting coefficients are stored in a binary table. For instructions on how to use these tracesets, see HDU2 description of this file.
+The data attribute of HDU 4 gives the line width (in the dispersion axis) for each fiber. This Gaussian sigma is in units of pixels. The Y-positions on the CCD, which is the independent variable and the corresponding line width, which is the dependent variable are fitted to a functional form and the resulting coefficients are stored in a binary table. For instructions on how to use these tracesets, see HDU2 description of this file.
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  15 KB

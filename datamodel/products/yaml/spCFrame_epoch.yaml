@@ -1,0 +1,1674 @@
+general:
+  name: spCFrame_epoch
+  short: flux-calibrated spectra extracted CCD exposure for epoch coadd
+  description: The spCFrame files contain the flux-calibrated extracted spectra for
+    a single CCD (i.e., the red or blue half) of a single exposure. These spectra
+    are still in the native wavelength mapping, which is neither linear in wavelength
+    nor log-wavelength. However, the spectra are flux-calibrated, and deviant pixels
+    are rejected in the pixel mask (from the comparison with the other exposures).
+  datatype: FITS
+  filesize: 87 MB
+  releases:
+  - IPL4
+  environments:
+  - BOSS_SPECTRO_REDUX
+  surveys:
+  - BHM
+  naming_convention: $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/epoch/spCFrame-[BR][ID]-[FRAME].fits
+  generated_by: idlspec2d
+  data_level: 1.2.4
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  IPL4:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/epoch/spCFrame-[BR][ID]-[FRAME].fits
+    example: v6_2_1/fields/112XXX/112360/epoch/spCFrame-b1-00353048.fits
+    location: '{run2d}/fields/{fieldgrp}/{field}/epoch/spCFrame-{br}{id}-{frame}.fits'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spCFrame_epoch
+      path_template: $BOSS_SPECTRO_REDUX/{run2d}/@sptypefolder|/@fieldgrp|/@pad_fieldid|@isplate|/epoch/spCFrame-{br}{id}-{frame:0>8}.fits.gz
+      path_kwargs:
+      - run2d
+      - fieldid
+      - br
+      - frame
+      - id
+      access_string: spCFrame_epoch = $BOSS_SPECTRO_REDUX/{run2d}/fields/{fieldgrp}/{field}/epoch/spCFrame-{br}{id}-{frame}.fits
+    survey: BHM
+    hdus:
+      hdu0:
+        name: FLUX
+        description: Flux density in units of 10^{-17} erg/s/cm^2/A. Many header keywords
+          are propagated from the input raw data file.
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Primary Header created by MWRFITS v1.13
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: Extensions may be present
+        - key: ''
+          value: ''
+          comment: ''
+        - key: ''
+          value: INSTRUMENT INFO
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Telescope
+        - key: OBSERVAT
+          value: APO
+          comment: Observatory
+        - key: SPEC
+          value: ''
+          comment: Spectrograph name
+        - key: CAMERAS
+          value: b1
+          comment: BOSS CAMERA
+        - key: NGUIDE
+          value: 15
+          comment: Number of guider frames during exposure
+        - key: SEEING20
+          value: 1.141
+          comment: 20% seeing during exposure (arcsec)
+        - key: SEEING50
+          value: 1.261
+          comment: 50% seeing during exposure (arcsec)
+        - key: SEEING80
+          value: 1.508
+          comment: 80% seeing during exposure (arcsec)
+        - key: RMSOFF20
+          value: 0.128035
+          comment: 20% RMS offset of guide fibers (arcsec)
+        - key: RMSOFF50
+          value: 0.167586
+          comment: 50% RMS offset of guide fibers (arcsec)
+        - key: RMSOFF80
+          value: 0.255783
+          comment: 80% RMS offset of guide fibers (arcsec)
+        - key: CCD
+          value: ''
+          comment: CCD name
+        - key: CCDID
+          value: ''
+          comment: Unique identifier of the CCD
+        - key: CCDTYPE
+          value: ''
+          comment: CCD type
+        - key: ''
+          value: ''
+          comment: ''
+        - key: ''
+          value: EXPOSURE INFO
+          comment: ''
+        - key: FILENAME
+          value: sdR-b1-00353048.fit
+          comment: File basename
+        - key: EXPOSURE
+          value: 353048
+          comment: Exposure number
+        - key: FLAVOR
+          value: science
+          comment: exposure type, SDSS spectro style
+        - key: QUALITY
+          value: excellent
+          comment: Exposure Quality
+        - key: MJD
+          value: 60000
+          comment: Modified Julian Date at start of exposure
+        - key: TAI-BEG
+          value: 5184019757.0
+          comment: MJD(TAI) seconds at start of integration
+        - key: DATE-OBS
+          value: '2023-02-25T05:29:17'
+          comment: TAI date at start of integration
+        - key: INTSTART
+          value: ''
+          comment: Start of the integration
+        - key: INTEND
+          value: ''
+          comment: End of the integration
+        - key: REQTIME
+          value: 900.0
+          comment: requested exposure time
+        - key: EXPTIME
+          value: 900.09
+          comment: requested exposure time
+        - key: DARKTIME
+          value: 916.907684326
+          comment: time between flush end and readout start
+        - key: SHOPETIM
+          value: 0.75
+          comment: open shutter transit time (s)
+        - key: SHCLOTIM
+          value: 0.54
+          comment: close shutter transit time (s)
+        - key: GUIDER1
+          value: ''
+          comment: The first guider image for plates
+        - key: GUIDERN
+          value: ''
+          comment: The last guider image for plates
+        - key: ''
+          value: ''
+          comment: ''
+        - key: ''
+          value: EXPOSURE SETTINGS
+          comment: ''
+        - key: DIDFLUSH
+          value: true
+          comment: CCD was flushed before integration
+        - key: SUBFRAME
+          value: ''
+          comment: the subframe readout command
+        - key: CCDSUM
+          value: ''
+          comment: Horizontal and vertical binning
+        - key: ARCHACF
+          value: ''
+          comment: Archon ACF file loaded
+        - key: BUFFER
+          value: ''
+          comment: The buffer number read
+        - key: ERRCNT
+          value: NONE
+          comment: BOSSDAQ Error Count
+        - key: SYNCERR
+          value: NONE
+          comment: BOSSDAQ Sync Error Count
+        - key: SLINES
+          value: NONE
+          comment: BOSSDAQ Sync Error Lines
+        - key: PIXERR
+          value: NONE
+          comment: BOSSDAQ Pixel Error Count
+        - key: PLINES
+          value: NONE
+          comment: Pixel Error Lines
+        - key: PFERR
+          value: NONE
+          comment: Pixel Frame Error
+        - key: ''
+          value: ''
+          comment: ''
+        - key: ''
+          value: FIELD/PLATE INFO
+          comment: ''
+        - key: NAME
+          value: ''
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: ''
+          comment: The currently loaded plate
+        - key: CARTID
+          value: FPS-N
+          comment: Cartridge used in this plugging
+        - key: MAPID
+          value: ''
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: ''
+          comment: The currently specified pointing
+        - key: PLATETYP
+          value: BHM&MWM
+          comment: Type of plate (e.g. BOSS, MANGA, APOGEE, APOGEE)
+        - key: SRVYMODE
+          value: ''
+          comment: Survey leading this observation and its mode
+        - key: CONFID
+          value: 8872
+          comment: FPS configuration
+        - key: DESIGNID
+          value: 108452
+          comment: FPS design
+        - key: FIELDID
+          value: 112360
+          comment: FPS field
+        - key: SLITID
+          value: 0
+          comment: spectrograph Normalized slithead ID.
+        - key: ''
+          value: ''
+          comment: ''
+        - key: ''
+          value: TELESCOPE INFO
+          comment: ''
+        - key: RA
+          value: 150.013468
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: 2.183181
+          comment: Dec of telescope boresight (deg)
+        - key: RADEG
+          value: 150.01675
+          comment: RA of telescope pointing(deg)
+        - key: DECDEG
+          value: 2.18325
+          comment: Dec of telescope pointing (deg)
+        - key: EQUINOX
+          value: 2000.0
+          comment: Equinox of celestial coordinate system
+        - key: RADECSYS
+          value: FK5
+          comment: ''
+        - key: OFFRA
+          value: 0.0
+          comment: Absolute guider offset in RA
+        - key: OFFDEC
+          value: -0.1
+          comment: Absolute guider offset in DEC
+        - key: OFFPA
+          value: -432.0
+          comment: Absolute guider offset in PA
+        - key: GSEEING
+          value: 1.19
+          comment: Seeing from the guider (arcsec)
+        - key: AIRMASS
+          value: 1.21229
+          comment: AIRMASS
+        - key: HA
+          value: ''
+          comment: HA axis pos. (approx, deg)
+        - key: SPA
+          value: 41.822992
+          comment: TCC SpiderInstAng
+        - key: ROTPOS
+          value: 13.5
+          comment: Rotator request position (deg)
+        - key: AZ
+          value: 34.274411
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 54.475041
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: 221.633737
+          comment: Rotator axis pos. (approx, deg)
+        - key: FOCUS
+          value: 205.0
+          comment: User-specified focus offset (um)
+        - key: SCALE
+          value: 1.0
+          comment: User-specified scale factor
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset (deg)
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset (deg)
+        - key: ARCOFFX
+          value: -0.003279
+          comment: TCC ObjArcOff (deg)
+        - key: ARCOFFY
+          value: -6.9e-05
+          comment: TCC ObjArcOff (deg)
+        - key: CALOFFX
+          value: 0.0
+          comment: TCC CalibOff (deg)
+        - key: CALOFFY
+          value: 0.0
+          comment: TCC CalibOff (deg)
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff (deg)
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff (deg)
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff (deg)
+        - key: GUIDOFFR
+          value: 0.164006
+          comment: TCC GuideOff (deg)
+        - key: M2PISTON
+          value: 3972.29
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -0.01
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -0.01
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: -0.01
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: -66.18
+          comment: TCC SecOrient
+        - key: M2ZROT
+          value: -11.12
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: 1.07
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: -59.51
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: -9.21
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: -512.13
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 1906.31
+          comment: TCC PrimOrient
+        - key: M1ZROT
+          value: 0.03
+          comment: TCC PrimOrient
+        - key: ''
+          value: ''
+          comment: ''
+        - key: ''
+          value: SPECTROGRAPH STATUS
+          comment: ''
+        - key: MECHORIX
+          value: ''
+          comment: Orientation in X axis (cm/s2)
+        - key: MECHORIY
+          value: ''
+          comment: Orientation in Y axis (cm/s2)
+        - key: MECHORIZ
+          value: ''
+          comment: Orientation in Z axis (cm/s2)
+        - key: MCHUMHT
+          value: 3.9
+          comment: spec mech Hartmann humidity (%)
+        - key: MCHUMCO
+          value: 2.4
+          comment: spec mech Central optics humidity (%)
+        - key: MCTEMDN
+          value: 3.1
+          comment: spec mech Median temp (deg C)
+        - key: MCTHT
+          value: 3.1
+          comment: spec mech Hartmann Top Temp (deg C)
+        - key: MCTRCB
+          value: 3.1
+          comment: spec mech Red Cam Bottom Temp (deg C)
+        - key: MCTRCT
+          value: 3.4
+          comment: spec mech Red Cam Top Temp (deg C)
+        - key: MCTBCB
+          value: 3.1
+          comment: spec mech Blue Cam Bottom Temp (deg C)
+        - key: MCTBCT
+          value: 3.1
+          comment: spec mech Blue Cam Top Temp (deg C)
+        - key: B2CAMT
+          value: ''
+          comment: B2 camera temperature (deg C)
+        - key: B2CAMH
+          value: ''
+          comment: B2 camera RH (%)
+        - key: R2CAMT
+          value: ''
+          comment: R2 camera temperature (deg C)
+        - key: R2CAMH
+          value: ''
+          comment: R2 camera RH (%)
+        - key: COLLT
+          value: ''
+          comment: Collimator temperature (deg C)
+        - key: COLLH
+          value: ''
+          comment: Collimator RH (%)
+        - key: SPECMT
+          value: ''
+          comment: specMech temperature (deg C)
+        - key: ARCHTEMP
+          value: ''
+          comment: Archon backplane temperature (deg C)
+        - key: LN2TEMP
+          value: 94.922
+          comment: LN2 can temperature
+        - key: CCDTEMP
+          value: -99.609
+          comment: Temperature of the sensor
+        - key: IONPUMP
+          value: -7.76
+          comment: log10(Ion_Pump_pressure/torr)
+        - key: COLLA
+          value: 1742
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: 1740
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: 1759
+          comment: The position of the C collimator motor
+        - key: ''
+          value: ''
+          comment: ''
+        - key: ''
+          value: VERSIONS
+          comment: ''
+        - key: VJAEGER
+          value: 1.3.4a0
+          comment: Version of Jaeger
+        - key: VKAIJU
+          value: 1.2.4-alpha.0
+          comment: Version of Kaiju
+        - key: VCOORDIO
+          value: 1.6.2a0
+          comment: Version of coordIO
+        - key: VCALIBS
+          value: 2023.01.05
+          comment: Version of FPS calibrations
+        - key: V_APO
+          value: 3.0.1
+          comment: Version of the current apoActor
+        - key: V_BOSS
+          value: 6.0.2-alpha.0
+          comment: Active version of the BOSS ICC
+        - key: V_ARCHON
+          value: ''
+          comment: Active version of the BOSS ARCHON Controller
+        - key: ARCHBACK
+          value: ''
+          comment: Archon backplane ID
+        - key: ARCHBVER
+          value: ''
+          comment: Archon backplane version
+        - key: V_GUIDER
+          value: ''
+          comment: version of the current guiderActor
+        - key: V_SOP
+          value: ''
+          comment: version of the current sopActor
+        - key: DAQVER
+          value: ''
+          comment: BOSS Data Acquisition Version
+        - key: CAMDAQ
+          value: 1.5.0:37
+          comment: Camera Data Acquisition Version
+        - key: BOSSVER
+          value: ''
+          comment: ICC version
+        - key: VERSIDL
+          value: 8.8.0
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: 6.3.0
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v6_2_1
+          comment: Version of idlspec2d for pre-processing raw data
+        - key: VERSLOG
+          value: trunk 27531
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: v1_36
+          comment: SPECFLAT version
+        - key: VERS2D
+          value: v6_2_1
+          comment: Version of idlspec2d for 2D reduction
+        - key: ''
+          value: ''
+          comment: ''
+        - key: ''
+          value: APO WEATHER
+          comment: ''
+        - key: PRESSURE
+          value: 21.549
+          comment: APO SDSS 2.5m Air Pressure (inch Hg)
+        - key: WINDD
+          value: 198.1
+          comment: APO SDSS 2.5m Wind Direction (deg)
+        - key: WINDS
+          value: 19.3
+          comment: APO SDSS 2.5m Wind Speed (mph)
+        - key: GUSTD
+          value: 204.1
+          comment: APO SDSS 2.5m Wind Gust Direction (deg)
+        - key: GUSTS
+          value: 22.0
+          comment: APO SDSS 2.5m Wind Gust Speed (mph)
+        - key: AIRTEMP
+          value: 0.0
+          comment: APO SDSS 2.5m Outside temperature (deg C)
+        - key: DEWPOINT
+          value: 0.0
+          comment: APO SDSS 2.5m Dewpoint (deg C)
+        - key: TRUSTEMP
+          value: 3.0
+          comment: APO SDSS 2.5m Truss Temperature (deg C)
+        - key: HUMIDITY
+          value: NaN
+          comment: APO SDSS 2.5m Humidity (percent)
+        - key: DUSTA
+          value: 13818.0
+          comment: APO SDSS 2.5m dust (count of 0.3mu/particles/vol
+        - key: DUSTB
+          value: 1480.0
+          comment: APO SDSS 2.5m dust (count of 1mu/particles/vol/t
+        - key: WINDD25M
+          value: -999.0
+          comment: Wind Direction at APO SDSS 2.5m (deg)
+        - key: WINDS25M
+          value: -999.0
+          comment: Wind Speed at APO SDSS 2.5m (deg)
+        - key: ''
+          value: ''
+          comment: ''
+        - key: ''
+          value: LCO WEATHER
+          comment: ''
+        - key: T_OUT
+          value: ''
+          comment: LCO du Pont Outside temperature (deg C)
+        - key: T_IN
+          value: ''
+          comment: LCO du Pont Inside temperature (deg C)
+        - key: T_PRIM
+          value: ''
+          comment: LCO du Pont Primary mirror temperature (deg C)
+        - key: T_CELL
+          value: ''
+          comment: LCO du Pont Cell temperature (deg C)
+        - key: T_FLOOR
+          value: ''
+          comment: LCO du Pont Floor temperature (deg C)
+        - key: T_TRUSS
+          value: ''
+          comment: LCO du Pont Truss temperature (deg C)
+        - key: ''
+          value: ''
+          comment: ''
+        - key: ''
+          value: CALIBRATION SETTINGS
+          comment: ''
+        - key: NE
+          value: 0 0 0 0
+          comment: Ne Arc lamps 1:on 0:off
+        - key: HGCD
+          value: 0 0 0 0
+          comment: HgCd Arc lamps 1:on 0:off
+        - key: HEAR
+          value: 0 0 0 0
+          comment: HeAr Arc lamps 1:On 0:off
+        - key: FF
+          value: 0 0 0 0
+          comment: Flat Field lamps 1:on 0:off
+        - key: FFS
+          value: 0 0 0 0 0 0 0 0
+          comment: Flatfield Screen 1:closed 0:open
+        - key: M2FF
+          value: 0 0 0 0
+          comment: LCO M2 Flat Field Lamps 1:on 0:off
+        - key: FFSPOS
+          value: ''
+          comment: FF screen position [deg]
+        - key: HARTMANN
+          value: Out
+          comment: 'Hartmanns: Left,Right,Out,Closed'
+        - key: ''
+          value: ''
+          comment: ''
+        - key: ''
+          value: REDUCTION
+          comment: ''
+        - key: RDNOISE0
+          value: 2.05857
+          comment: CCD read noise amp 0 [electrons]
+        - key: RDNOISE1
+          value: 1.91756
+          comment: CCD read noise amp 1 [electrons]
+        - key: RDNOISE2
+          value: 1.88385
+          comment: CCD read noise amp 2 [electrons]
+        - key: RDNOISE3
+          value: 2.00696
+          comment: CCD read noise amp 3 [electrons]
+        - key: PIXFLAT
+          value: pixflatave-59768-b1.fits.gz
+          comment: Name of Pixel Flat used
+        - key: BADPIXEL
+          value: badpixels-59747-b1.fits.gz
+          comment: Name of Badpixel mask used
+        - key: ''
+          value: ''
+          comment: ''
+        - key: ''
+          value: PIPELINE OUTPUTS
+          comment: ''
+        - key: RUN2D
+          value: v6_2_1
+          comment: Spectro-2D reduction name
+        - key: TAI-END
+          value: 5184020657.09
+          comment: ''
+        - key: FRAMESN2
+          value: 0.671881083121
+          comment: (S/N)^2 at fidicial magnitude
+        - key: DEREDSN2
+          value: 0.671881083121
+          comment: Extinction corrected (S/N)^2 (like quick redux)
+        - key: REDDEN01
+          value: 0.0
+          comment: Median extinction in u-band
+        - key: REDDEN02
+          value: 0.0
+          comment: Median extinction in g-band
+        - key: REDDEN03
+          value: 0.0
+          comment: Median extinction in r-band
+        - key: REDDEN04
+          value: 0.0
+          comment: Median extinction in i-band
+        - key: REDDEN05
+          value: 0.0
+          comment: Median extinction in z-band
+        - key: XSIGMA
+          value: 1.06889
+          comment: ''
+        - key: WSIGMA
+          value: 1.08981
+          comment: ''
+        - key: WDISPR
+          value: 3.10333
+          comment: ''
+        - key: CONFSFIL
+          value: confSummaryF-8872.par
+          comment: ''
+        - key: FLATFILE
+          value: sdR-b1-00353044.fit
+          comment: ''
+        - key: ARCFILE
+          value: sdR-b1-00353047.fit
+          comment: ''
+        - key: OBJFILE
+          value: sdR-b1-00353048.fit
+          comment: ''
+        - key: LAMPLIST
+          value: lamphgcdne.dat
+          comment: ''
+        - key: SKYLIST
+          value: skylines.dat
+          comment: ''
+        - key: OBSMODE
+          value: dark_rm
+          comment: ''
+        - key: SIGBS0
+          value: '0.034'
+          comment: 5577.3 line gaussian fit sigma position before
+        - key: CENBS0
+          value: '-0.271'
+          comment: 5577.3 line gaussian fit center position before
+        - key: AVGBS0
+          value: '-0.289'
+          comment: 5577.3 line average position before shift (pixe
+        - key: STDBS0
+          value: '0.042'
+          comment: 5577.3 line std position before shift (pixels)
+        - key: AVGAS0
+          value: '-0.001'
+          comment: 5577.3 line average position after shift (pixel
+        - key: STDAS0
+          value: '0.018'
+          comment: 5577.3 line std position after shift (pixels)
+        - key: HELIO_RV
+          value: 1.95078733724
+          comment: V_RAD for backwards compatibility
+        - key: V_RAD
+          value: 1.95078733724
+          comment: radial velocity relative to the barycenter (add
+        - key: VACUUM
+          value: true
+          comment: Wavelengths are in vacuum
+        - key: SFLATTEN
+          value: true
+          comment: Superflat has been applied
+        - key: SFLATMIN
+          value: 0.005
+          comment: Superflat Minimum
+        - key: PSFSKY
+          value: 3
+          comment: Order of PSF skysubtraction
+        - key: SKYCHI2
+          value: 0.884752939422
+          comment: Mean chi^2 of sky-subtraction
+        - key: PREJECT
+          value: 0.2
+          comment: Profile area rejection threshold
+        - key: LOWREJ
+          value: 4
+          comment: 'Extraction: low rejection'
+        - key: HIGHREJ
+          value: 50
+          comment: 'Extraction: high rejection'
+        - key: SCATPOLY
+          value: 0
+          comment: 'Extraction: Order of scattered light polynomial'
+        - key: PROFTYPE
+          value: 1
+          comment: 'Extraction profile: 1=Gaussian'
+        - key: NFITPOLY
+          value: 1
+          comment: 'Extraction: Number of parameters in each profil'
+        - key: XCHI2
+          value: 0.0
+          comment: 'Extraction: Mean chi^2'
+        - key: EXTNAME
+          value: FLUX
+          comment: Flux
+        - key: BUNIT
+          value: 1E-17 erg/cm^2/s/Ang
+          comment: ''
+      hdu1:
+        name: IVAR
+        description: Contains the estimated inverse variance (i.e., the inverse of
+          the square of the estimated error) of the flux density of each spectrum,
+          in units of (10^-17 erg/s/cm^2/Ang)^-2.  It is set to zero (i.e., infinite
+          error) for pixels with flags indicating that the data are unreliable.
+        is_image: true
+        size: 7 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.13
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTNAME
+          value: IVAR
+          comment: Inverse variance
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+      hdu2:
+        name: MASK
+        description: Pixel mask
+        is_image: true
+        size: 7 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.13
+        - key: BITPIX
+          value: 32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTNAME
+          value: MASK
+          comment: Pixel mask
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+      hdu3:
+        name: WAVELENGTH
+        description: Wavelength solution in log-10 Angstroms (vacuum)
+        is_image: true
+        size: 15 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.13
+        - key: BITPIX
+          value: -64
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTNAME
+          value: WAVELENGTH
+          comment: Wavelength solution
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+      hdu4:
+        name: WAVEDISP
+        description: Wavelength dispersion (sigma of fitted Gaussian) in units of
+          number of pixels
+        is_image: true
+        size: 7 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.13
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTNAME
+          value: WAVEDISP
+          comment: Wavelength dispersion
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+      hdu5:
+        name: PLUGMAP
+        description: plugmap (Fiber to Target mapped metadata)
+        is_image: false
+        size: 631 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.13
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 1294
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 500
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 116
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: EXTNAME
+          value: PLUGMAP
+          comment: Plugmap structure
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        columns:
+          POSITIONERID:
+            name: POSITIONERID
+            type: int64
+            unit: ''
+            description: FPS Positioner identifier
+          HOLEID:
+            name: HOLEID
+            type: char[7]
+            unit: ''
+            description: Hole ID in which the positioner is sitting
+          FIBERID:
+            name: FIBERID
+            type: int64
+            unit: ''
+            description: Fiber ID of target
+          CONFFIBERID:
+            name: CONFFIBERID
+            type: int64
+            unit: ''
+            description: Raw Slithead FiberIDs
+          FIBERTYPE:
+            name: FIBERTYPE
+            type: char[4]
+            unit: ''
+            description: Type of fibre (APOGEE, BOSS, or Metrology)
+          HOLETYPE:
+            name: HOLETYPE
+            type: char
+            unit: ''
+            description: Hole ID in which the positioner is sitting
+          ASSIGNED:
+            name: ASSIGNED
+            type: int64
+            unit: ''
+            description: Whether this fiber was assigned to a target
+          ON_TARGET:
+            name: ON_TARGET
+            type: int64
+            unit: ''
+            description: Whether this fiber is on target
+          VALID:
+            name: VALID
+            type: int64
+            unit: ''
+            description: alpha and beta angles are valid
+          DECOLLIDED:
+            name: DECOLLIDED
+            type: int64
+            unit: ''
+            description: this positioner had to be moved to decollide it
+          TOO:
+            name: TOO
+            type: int64
+            unit: ''
+            description: the fiber is allocated to a TOO
+          FIBERMASK:
+            name: FIBERMASK
+            type: int64
+            unit: ''
+            description: Fiber level bitmasks (maps to SPPIXMASK)
+          BADSTDMASK:
+            name: BADSTDMASK
+            type: int64
+            unit: ''
+            description: Standard rejected by magnitude range of design
+          THROUGHPUT:
+            name: THROUGHPUT
+            type: int64
+            unit: ''
+            description: Plate Fiber throughput (0-65535, 0=no light)
+          SCI_EXPTIME:
+            name: SCI_EXPTIME
+            type: float64
+            unit: s
+            description: Rescaled Science Exposure Time for offset plate
+          BLUEFIBER:
+            name: BLUEFIBER
+            type: int64
+            unit: ''
+            description: BOSS to assign this target a 'blue' fiber
+          ALPHA:
+            name: ALPHA
+            type: float64
+            unit: deg
+            description: The alpha angles of the positioner arms.
+          BETA:
+            name: BETA
+            type: float64
+            unit: deg
+            description: The beta angles of the positioner arms.
+          XWOK:
+            name: XWOK
+            type: float64
+            unit: mm
+            description: The X value in the FPS WOK coordinates
+          YWOK:
+            name: YWOK
+            type: float64
+            unit: mm
+            description: The Y value in the FPS WOK coordinates
+          ZWOK:
+            name: ZWOK
+            type: float64
+            unit: mm
+            description: The X value in the FPS WOK coordinates
+          XWOK_PRE:
+            name: XWOK_PRE
+            type: float64
+            unit: mm
+            description: The XWOK pre FVC Loop
+          YWOK_PRE:
+            name: YWOK_PRE
+            type: float64
+            unit: mm
+            description: The YWOK pre FVC Loop
+          ZWOK_PRE:
+            name: ZWOK_PRE
+            type: float64
+            unit: mm
+            description: The ZWOK pre FVC Loop
+          XFOCAL:
+            name: XFOCAL
+            type: float64
+            unit: mm
+            description: Hole x-axis position in focal plane per exposure
+          YFOCAL:
+            name: YFOCAL
+            type: float64
+            unit: mm
+            description: Hole y-axis position in focal plane per exposure
+          ZOFFSET:
+            name: ZOFFSET
+            type: float64
+            unit: micron
+            description: backstopping offset distance (from washers)
+          RACAT:
+            name: RACAT
+            type: float64
+            unit: deg
+            description: Catalog RA in ICRS coordinates at coord_epoch
+          DECCAT:
+            name: DECCAT
+            type: float64
+            unit: deg
+            description: Catalog RA in ICRS coordinates at coord_epoch
+          COORD_EPOCH:
+            name: COORD_EPOCH
+            type: float64
+            unit: ''
+            description: Epoch of the catalogue coordinates.
+          PMRA:
+            name: PMRA
+            type: float64
+            unit: mas
+            description: Proper motion in RA (pmra is a true angle)
+          PMDEC:
+            name: PMDEC
+            type: float64
+            unit: mas
+            description: Proper motion in Dec
+          PARALLAX:
+            name: PARALLAX
+            type: float64
+            unit: mas
+            description: Parallax
+          RA:
+            name: RA
+            type: float64
+            unit: deg
+            description: Calculated on sky fiber RA including delta_RA
+          DEC:
+            name: DEC
+            type: float64
+            unit: deg
+            description: Calculated on sky fiber Dec including delta_DEC
+          DELTA_RA:
+            name: DELTA_RA
+            type: float64
+            unit: arcsec
+            description: The amount in RA this fiber has been offset
+          DELTA_DEC:
+            name: DELTA_DEC
+            type: float64
+            unit: arcsec
+            description: The amount in Dec this fiber has been offset
+          RA_OBSERVED:
+            name: RA_OBSERVED
+            type: float64
+            unit: deg
+            description: RA with correction for atmospheric refraction
+          DEC_OBSERVED:
+            name: DEC_OBSERVED
+            type: float64
+            unit: deg
+            description: Dec with correction for atmospheric refraction
+          ALT_OBSERVED:
+            name: ALT_OBSERVED
+            type: float64
+            unit: deg
+            description: alt with correction for atmospheric refraction
+          AZ_OBSERVED:
+            name: AZ_OBSERVED
+            type: float64
+            unit: deg
+            description: Az with correction for atmospheric refraction
+          FIBER_OFFSET:
+            name: FIBER_OFFSET
+            type: int64
+            unit: ''
+            description: Flag identifying the fiber was offset by design
+          MEASUREDOFFSET:
+            name: MEASUREDOFFSET
+            type: float64
+            unit: arcsec
+            description: Measured offset between Fiber & Catalog Coord
+          WOKOFFSET:
+            name: WOKOFFSET
+            type: float64
+            unit: mm
+            description: Measured offset in the Wok Coordinates
+          LAMBDA_EFF:
+            name: LAMBDA_EFF
+            type: float64
+            unit: AA
+            description: Wavelength used for coordinate transformations
+          SPECTROGRAPHID:
+            name: SPECTROGRAPHID
+            type: int64
+            unit: ''
+            description: 'Spectrograph to which the fibre is assigned. (SDSS-V: 1
+              = BOSS, 2 = APOGEE) or (SDSS-IV: 1=BOSS SP1, 2=BOSS SP2)'
+          OPTICAL_PROV:
+            name: OPTICAL_PROV
+            type: char[21]
+            unit: ''
+            description: The source of the CATDB_MAG optical magnitudes
+          MAG:
+            name: MAG
+            type: float64[5]
+            unit: ''
+            description: '[u, g, r, i, z] optical magnitudes'
+          PSFMAG:
+            name: PSFMAG
+            type: float64[5]
+            unit: ''
+            description: '[u, g, r, i, z] optical PSF magnitudes'
+          FIBER2MAG:
+            name: FIBER2MAG
+            type: float64[5]
+            unit: ''
+            description: '[u, g, r, i, z] optical Fiber2 magnitudes'
+          CATDB_MAG:
+            name: CATDB_MAG
+            type: float64[5]
+            unit: ''
+            description: '[u, g, r, i, z] Raw TargetDB magnitudes'
+          V05_REV_MAG:
+            name: V05_REV_MAG
+            type: int64
+            unit: ''
+            description: '1: revised with RevisedMagnitude Table, 0: raw'
+          GAIA_G_MAG:
+            name: GAIA_G_MAG
+            type: float64
+            unit: ''
+            description: Gaia G magnitude
+          BP_MAG:
+            name: BP_MAG
+            type: float64
+            unit: ''
+            description: Gaia BP magnitude
+          RP_MAG:
+            name: RP_MAG
+            type: float64
+            unit: ''
+            description: Gaia RP magnitude
+          GAIA_ID:
+            name: GAIA_ID
+            type: int64
+            unit: ''
+            description: Gaia-DR3 ID
+          H_MAG:
+            name: H_MAG
+            type: float64
+            unit: ''
+            description: 2MASS H magnitude
+          WISE_MAG:
+            name: WISE_MAG
+            type: float64[4]
+            unit: ''
+            description: WISE [W1, W2, W3, W4] band magnitudes
+          TWOMASS_MAG:
+            name: TWOMASS_MAG
+            type: float64[3]
+            unit: ''
+            description: 2MASS [J, H, Ks] band magnitudes
+          GUVCAT_MAG:
+            name: GUVCAT_MAG
+            type: float64[2]
+            unit: ''
+            description: GALEX [FUV, NUV] band magnitudes
+          EBV_SIMPLEDUST2023:
+            name: EBV_SIMPLEDUST2023
+            type: float64
+            unit: ''
+            description: SimpleDust2023 3D dust extinction
+          EBV_3D:
+            name: EBV_3D
+            type: float64
+            unit: ''
+            description: Merged 3D dust extinction
+          EBV_3DSRC:
+            name: EBV_3DSRC
+            type: char[14]
+            unit: ''
+            description: Source of Merged 3D dust extinction
+          GRI_GAIA_TRANSFORM:
+            name: GRI_GAIA_TRANSFORM
+            type: int64
+            unit: ''
+            description: provenance of photometry in SDSS-V plate design
+          CALIBFLUX:
+            name: CALIBFLUX
+            type: float64[5]
+            unit: nanomaggy
+            description: SDSS band [u,g,r,i,z] target calibration flux
+          CALIBFLUX_IVAR:
+            name: CALIBFLUX_IVAR
+            type: float64[5]
+            unit: nanomaggy
+            description: target calibration flux inverse variance
+          CALIB_STATUS:
+            name: CALIB_STATUS
+            type: int64[5]
+            unit: ''
+            description: target calibration status flag
+          CATEGORY:
+            name: CATEGORY
+            type: char[13]
+            unit: ''
+            description: Category for 'firstcarton'
+          OBJTYPE:
+            name: OBJTYPE
+            type: char[16]
+            unit: ''
+            description: Why object was targetted (QSO = Science Target)
+          SOURCETYPE:
+            name: SOURCETYPE
+            type: char
+            unit: ''
+            description: indicate the nature of the source, one of STAR, QSO, GALAXY,
+              or NA
+          OFFSETID:
+            name: OFFSETID
+            type: int64
+            unit: ''
+            description: plate offset associated; 0 = primary pointing
+          OBJID:
+            name: OBJID
+            type: int64[5]
+            unit: ''
+            description: Unique object id from SDSS imaging (run,rerun,camCol,field,id)
+          CATALOGID:
+            name: CATALOGID
+            type: char[18]
+            unit: ''
+            description: CatalogID or uHHMMSS.S+DDMMSS.S for unassigned
+          ICATALOGID:
+            name: ICATALOGID
+            type: int64
+            unit: ''
+            description: Raw SDSS-V CatalogID
+          SDSS_ID:
+            name: SDSS_ID
+            type: int64
+            unit: ''
+            description: SDSS_ID of Target
+          CATALOGID_V0:
+            name: CATALOGID_V0
+            type: int64
+            unit: ''
+            description: V0 (Plate) Crossmatch CatalogID from SDSS_ID
+          CATALOGID_V0P5:
+            name: CATALOGID_V0P5
+            type: int64
+            unit: ''
+            description: V0.5 (FPS) Crossmatch CatalogID from SDSS_ID
+          CATALOGID_V1:
+            name: CATALOGID_V1
+            type: int64
+            unit: ''
+            description: V1 (FPS) Crossmatch CatalogID from SDSS_ID
+          CATVERSION:
+            name: CATVERSION
+            type: char[5]
+            unit: ''
+            description: Catalog Version of SDSS-V CatalogID
+          CARTON_TO_TARGET_PK:
+            name: CARTON_TO_TARGET_PK
+            type: int64
+            unit: ''
+            description: SDSS-V Carton_to_Target primary key for SDSSDB
+          FIRSTCARTON:
+            name: FIRSTCARTON
+            type: char[17]
+            unit: ''
+            description: Main carton from which this carton was drawn
+          CARTONNAME:
+            name: CARTONNAME
+            type: char[17]
+            unit: ''
+            description: Main carton from which this carton was drawn
+          PROGRAM:
+            name: PROGRAM
+            type: char[7]
+            unit: ''
+            description: Program for 'firstcarton'
+          MAPPER:
+            name: MAPPER
+            type: char[3]
+            unit: ''
+            description: SDSS-V Mapper for target
+          SURVEY:
+            name: SURVEY
+            type: char[3]
+            unit: ''
+            description: SDSS Survey for target
+          TOO_ID:
+            name: TOO_ID
+            type: int64
+            unit: ''
+            description: SDSS-V Target of Opportunity ID (if TOO=1)
+          TOO_PROGRAM:
+            name: TOO_PROGRAM
+            type: char
+            unit: ''
+            description: SDSS-V Target of Opportunity Program (if TOO=1)
+          SDSSC2BV:
+            name: SDSSC2BV
+            type: char
+            unit: ''
+            description: SDSS5_TARGET_FLAG Carton to Bit Version
+          SDSSV_BOSS_TARGET0:
+            name: SDSSV_BOSS_TARGET0
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSSV-BOSS
+          SDSSV_APOGEE_TARGET0:
+            name: SDSSV_APOGEE_TARGET0
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSSV-APOGEE
+          BOSS_TARGET1:
+            name: BOSS_TARGET1
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS
+          BOSS_TARGET2:
+            name: BOSS_TARGET2
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS
+          ANCILLARY_TARGET1:
+            name: ANCILLARY_TARGET1
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS Ancillary
+          ANCILLARY_TARGET2:
+            name: ANCILLARY_TARGET2
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-III BOSS Ancillary
+          EBOSS_TARGET0:
+            name: EBOSS_TARGET0
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-IV eBOSS
+          EBOSS_TARGET1:
+            name: EBOSS_TARGET1
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-IV eBOSS
+          EBOSS_TARGET2:
+            name: EBOSS_TARGET2
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-IV eBOSS
+          EBOSS_TARGET_ID:
+            name: EBOSS_TARGET_ID
+            type: int64
+            unit: ''
+            description: Targeting bitmask for SDSS-IV eBOSS
+          THING_ID_TARGETING:
+            name: THING_ID_TARGETING
+            type: int64
+            unit: ''
+            description: thing_id from targeting version
+          PRIMTARGET:
+            name: PRIMTARGET
+            type: int64
+            unit: ''
+            description: Plate Primary target flags
+          SECTARGET:
+            name: SECTARGET
+            type: int64
+            unit: ''
+            description: Plate Secondary target flags
+          STARL:
+            name: STARL
+            type: float64
+            unit: ''
+            description: likelihood object is star (0-1, Plate OBJECT holes only)
+          EXPL:
+            name: EXPL
+            type: float64
+            unit: ''
+            description: likelihood object is exponential disk (0-1, Plate OBJECT
+              holes only)
+          DEVAUCL:
+            name: DEVAUCL
+            type: float64
+            unit: ''
+            description: likelihood object is deVaucouleurs profile (0-1, Plate OBJECT
+              holes only)
+          RUN:
+            name: RUN
+            type: int64
+            unit: ''
+            description: SDSS imaging run, for SDSS imaging targets
+          RERUN:
+            name: RERUN
+            type: char
+            unit: ''
+            description: SDSS imaging rerun, for SDSS imaging targets
+          CAMCOL:
+            name: CAMCOL
+            type: int64
+            unit: ''
+            description: SDSS imaging camcol, for SDSS imaging targets
+          FIELD:
+            name: FIELD
+            type: int64
+            unit: ''
+            description: SDSS imaging field, for SDSS imaging targets
+          ID:
+            name: ID
+            type: int64
+            unit: ''
+            description: SDSS imaging id, for SDSS imaging targets
+          FIELDCADENCE:
+            name: FIELDCADENCE
+            type: char[13]
+            unit: ''
+            description: SDSS-V FPS Field Cadence
+          CADENCE:
+            name: CADENCE
+            type: char[10]
+            unit: ''
+            description: SDSS-V FPS target Cadence
+          DESIGN_VERS:
+            name: DESIGN_VERS
+            type: char[6]
+            unit: ''
+            description: robostrategy Run or platedesign version
+          DESIGN_MODE:
+            name: DESIGN_MODE
+            type: char[7]
+            unit: ''
+            description: SDSS-V DesignMode Mode
+          EBV:
+            name: EBV
+            type: float32
+            unit: ''
+            description: dust extinction
+          EBV_TYPE:
+            name: EBV_TYPE
+            type: char[3]
+            unit: ''
+            description: dust extinction source
+          SDSS5_TARGET_FLAGS:
+            name: SDSS5_TARGET_FLAGS
+            type: bool[69]
+            unit: ''
+            description: Targeting Flags for SSDSV Targeting
+      hdu6:
+        name: SKY
+        description: sky flux in units of 10^(-17) erg/s/cm^2/Ang
+        is_image: true
+        size: 7 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.13
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTNAME
+          value: SKY
+          comment: Subtracted sky flux
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+      hdu7:
+        name: X
+        description: X position on the CCD
+        is_image: true
+        size: 7 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.13
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTNAME
+          value: X
+          comment: Trace X locations on CCD
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+      hdu8:
+        name: SUPERFLAT
+        description: superflat applied to the flux
+        is_image: true
+        size: 7 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.13
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTNAME
+          value: SUPERFLAT
+          comment: Superflat
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+      hdu9:
+        name: SPRESL
+        description: Spectral resolution
+        is_image: true
+        size: 15 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.13
+        - key: BITPIX
+          value: -64
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTNAME
+          value: SPRESL
+          comment: Spectral resolution
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

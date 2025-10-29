@@ -126,18 +126,56 @@
         "description": "SDSS public data release 19",
         "public": true,
         "release_date": "2025-07-11"
+      },
+      {
+        "name": "IPL4",
+        "description": "SDSS internal product launch 4",
+        "public": false,
+        "release_date": "2025-07-15"
       }
     ],
-    "naming_convention": "$BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spFluxcorr-[BR][ID]-[FRAME].fits.gz",
+    "naming_convention": "$BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/spFluxcorr-[BR][ID]-[FRAME].fits.gz",
     "generated_by": "idlspec2d - rm_spfluxcorr_v5.pro",
     "design": false,
     "vac": false,
     "recommended_science_product": false,
-    "data_level": "0.0.0"
+    "data_level": "1.2.4"
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
     "releases": {
+      "IPL4": {
+        "from": "DR19",
+        "note": null,
+        "delta_nhdus": null,
+        "added_hdus": [
+          "ADDCORR",
+          "MULTCORR"
+        ],
+        "removed_hdus": [
+          "PRIMARY"
+        ],
+        "primary_delta_nkeys": 1,
+        "added_primary_header_kwargs": [
+          "EXTNAME"
+        ],
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      },
       "DR19": {
         "from": "IPL3",
         "note": "No changes",
@@ -1725,6 +1763,123 @@
             {
               "key": "NAXIS2",
               "value": "500",
+              "comment": ""
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": ""
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        }
+      },
+      "par": null,
+      "hdfs": null
+    },
+    "IPL4": {
+      "template": "$BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/spFluxcorr-[BR][ID]-[FRAME].fits.gz",
+      "example": "v6_2_1/fields/112XXX/112360/spFluxcorr-b1-00353048.fits.gz",
+      "location": "{run2d}/fields/{fieldgrp}/{field}/spFluxcorr-{br}{id}-{frame}.fits.gz",
+      "environment": "BOSS_SPECTRO_REDUX",
+      "survey": "BHM",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "spFluxcorr",
+        "path_template": "$BOSS_SPECTRO_REDUX/{run2d}/@sptypefolder|/@fieldgrp|/@pad_fieldid|@isplate|/spFluxcorr-{br}{id}-{frame:0>8}.fits.gz",
+        "path_kwargs": [
+          "run2d",
+          "fieldid",
+          "br",
+          "frame",
+          "id"
+        ],
+        "access_string": "spFluxcorr = $BOSS_SPECTRO_REDUX/{run2d}/fields/{fieldgrp}/{field}/spFluxcorr-{br}{id}-{frame}.fits.gz"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "MULTCORR",
+          "is_image": true,
+          "description": "multiplicative flux-correction factor",
+          "size": "7 MB",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "Primary Header created by MWRFITS v1.13"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-32",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS1",
+              "value": "4128",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS2",
+              "value": "500",
+              "comment": ""
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "Extensions may be present"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "MULTCORR",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "ADDCORR",
+          "is_image": true,
+          "description": "additive flux-correction factor",
+          "size": "7 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "IMAGE",
+              "comment": "Image Extension created by MWRFITS v1.13"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-32",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS1",
+              "value": "4128",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS2",
+              "value": "500",
+              "comment": ""
+            },
+            {
+              "key": "EXTNAME",
+              "value": "ADDCORR",
               "comment": ""
             },
             {

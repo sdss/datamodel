@@ -9,7 +9,7 @@ The combined spectra for all exposures of a given field epoch coadd
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
@@ -19,7 +19,7 @@ The spField epoch files contain the epoch combined spectra for all exposures of 
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/epoch/spField-[FIELD]-[MJD].fits
 
 ### Releases
-IPL3, DR19
+IPL3, DR19, IPL4
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,6 +36,9 @@ idlspec2d
 ### Is a VAC
 False
 
+### Data Level
+2.2.3
+
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: IVAR](#hdu1-ivar)
@@ -50,6 +53,11 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - IPL4
+   - from: DR19
+   - primary_delta_nkeys: 2
+   - added_primary_header_kwargs: ['DATE-OBS', 'SFLATMIN', 'PIXFLAT', 'EXTNAME']
+   - removed_primary_header_kwargs: ['SIGAS0', 'CENAS0']
  - DR19
    - from: IPL3
    - note: No changes
@@ -862,3 +870,7 @@ Key | Value | Comment | |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

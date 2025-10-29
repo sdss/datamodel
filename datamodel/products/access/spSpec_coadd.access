@@ -18,3 +18,14 @@ IPL3:
   - run2d
   - coadd
   access_string: spSpec_coadd = $BOSS_SPECTRO_REDUX/{run2d}/{coadd}/coadd/{mjd}/spSpec-{coadd}-{mjd}-{catalogid}.fits
+IPL4:
+  in_sdss_access: true
+  path_name: spSpec_coadd
+  path_template: $BOSS_SPECTRO_REDUX/{run2d}/@spcoaddfolder|/@spcoaddgrp|/{coadd}@spcoaddobs|/coadd/{mjd}/spSpec-{coadd}@spcoaddobs|-{mjd}-{catalogid}.fits
+  path_kwargs:
+  - mjd
+  - run2d
+  - coadd
+  - obs
+  - catalogid
+  access_string: spSpec_coadd = $BOSS_SPECTRO_REDUX/{run2d}/fields/{coadd}/{coadd}_{obs}/coadd/{mjd}/spSpec-{coadd}_{obs}-{mjd}-{catalogid}.fits

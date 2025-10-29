@@ -9,17 +9,17 @@ fiber to target mapping file
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 This file contains a consolidated form of the fiber-to-target mapping from either Plate plugmap files or FPS confSummary files. The raw mapping files are supplemented with additional information and converted to a unified data model for use by the pipeline.
 
 ### Naming Convention
-$BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spfibermap-[FIELD]-[MJD].fits or spfibermap-112360-60000.fits but with regex pattern matches
+$BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/spfibermap-[FIELD]-[MJD].fits
 
 ### Releases
-IPL3, DR19
+IPL3, DR19, IPL4
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,6 +36,9 @@ idlspec2d
 ### Is a VAC
 False
 
+### Data Level
+1.1
+
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: SUMMARY](#hdu1-summary)
@@ -48,6 +51,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - IPL4
+   - from: DR19
+   - added_hdus: ['CONFSUMMARYF-8867.PAR']
  - DR19
    - from: IPL3
    - note: No changes
@@ -885,3 +891,7 @@ Name | Type | Unit | Description |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

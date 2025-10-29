@@ -33,20 +33,54 @@
       },
       {
         "name": "DR19",
-        "description": "SDSS unreleased data.  Represents any work-in-progress data.",
+        "description": "SDSS public data release 19",
+        "public": true,
+        "release_date": "2025-07-11"
+      },
+      {
+        "name": "IPL4",
+        "description": "SDSS internal product launch 4",
         "public": false,
-        "release_date": "unreleased"
+        "release_date": "2025-07-15"
       }
     ],
     "naming_convention": "$BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/epoch/spPlancombepoch-[FIELD]-[MJD].par",
     "generated_by": "idlspec2d - spplan_epoch.py",
     "design": false,
     "vac": false,
-    "recommended_science_product": false
+    "recommended_science_product": false,
+    "data_level": "1.1.0"
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
     "releases": {
+      "IPL4": {
+        "from": "DR19",
+        "note": null,
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": 1,
+        "addead_header_keys": null,
+        "removed_header_keys": [
+          "idlutilsVersion"
+        ],
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      },
       "DR19": {
         "from": "IPL3",
         "note": "No changes",
@@ -444,7 +478,190 @@
         }
       },
       "hdfs": null
+    },
+    "IPL4": {
+      "template": "$BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/epoch/spPlancombepoch-[FIELD]-[MJD].par",
+      "example": "v6_2_1/fields/112XXX/112360/epoch/spPlancombepoch-112360-60000.par",
+      "location": "{run2d}/fields/{fieldgrp}/{field}/epoch/spPlancombepoch-{field}-{mjd}.par",
+      "environment": "BOSS_SPECTRO_REDUX",
+      "survey": "BHM",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "spPlancombepoch",
+        "path_template": "$BOSS_SPECTRO_REDUX/{run2d}/@sptypefolder|/@fieldgrp|/@pad_fieldid|@isplate|/epoch/spPlancombepoch-@pad_fieldid|-{mjd}.par",
+        "path_kwargs": [
+          "mjd",
+          "fieldid",
+          "run2d"
+        ],
+        "access_string": "spPlancombepoch = $BOSS_SPECTRO_REDUX/{run2d}/fields/{fieldgrp}/{field}/epoch/spPlancombepoch-{field}-{mjd}.par"
+      },
+      "hdus": null,
+      "par": {
+        "comments": "#%yanny\n# Table",
+        "header": [
+          {
+            "key": "fieldid",
+            "value": "112360",
+            "comment": "FieldID (or PlateID)"
+          },
+          {
+            "key": "MJD",
+            "value": "60000",
+            "comment": "Modified Julian Date of plan"
+          },
+          {
+            "key": "OBS",
+            "value": "APO",
+            "comment": "Associated Observatory"
+          },
+          {
+            "key": "DITHER",
+            "value": "F",
+            "comment": "Is the Field Dithered (T: True, F: False)"
+          },
+          {
+            "key": "FieldCadence",
+            "value": "dark_174x8_v1",
+            "comment": "Field Cadence Name"
+          },
+          {
+            "key": "FieldPk",
+            "value": "33243",
+            "comment": "Field Primary Key (for sdssdb; -999 for plates)"
+          },
+          {
+            "key": "EpochID",
+            "value": "11",
+            "comment": "Completed Plan Epoch ID (or MJD of incomplete epoch or daily coadd)"
+          },
+          {
+            "key": "N_MJD",
+            "value": "2",
+            "comment": "Number of MJDs included in the Epoch"
+          },
+          {
+            "key": "planfile2d",
+            "value": "'spPlan2d-112360-59999.par' 'spPlan2d-112360-60000.par'",
+            "comment": "Plan file(s) for Daily 2D spectral reductions"
+          },
+          {
+            "key": "planfilecomb",
+            "value": "spPlancombepoch-112360-60000.par",
+            "comment": "Plan file for Combine (this file)"
+          },
+          {
+            "key": "idlspec2dVersion",
+            "value": "v6_2_1",
+            "comment": "Version of idlspec2d when building plan file"
+          },
+          {
+            "key": "sdssdb_Version",
+            "value": "0.9.0",
+            "comment": "Version of sdssdb when building this plan file"
+          },
+          {
+            "key": "RS_Version",
+            "value": "zeta-3",
+            "comment": "Robostrategy Version for this field (or 'plates')"
+          }
+        ],
+        "tables": {
+          "SPEXP": {
+            "name": "SPEXP",
+            "description": "Exposures included",
+            "n_rows": 24,
+            "structure": [
+              {
+                "name": "confid",
+                "type": "char[5]",
+                "description": "FPS Configuration ID of exposure",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": "8860"
+              },
+              {
+                "name": "fieldid",
+                "type": "char[6]",
+                "description": "FieldID (or PlateID) of exposure",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": "112360"
+              },
+              {
+                "name": "mjd",
+                "type": "int",
+                "description": "MJD of exposure",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": 59999
+              },
+              {
+                "name": "mapname",
+                "type": "char[5]",
+                "description": "Plate Map Name or FPS configuration ID",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": "8860"
+              },
+              {
+                "name": "flavor",
+                "type": "char[9]",
+                "description": "Flavor of Exposure (flat, arc, science)",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": "science"
+              },
+              {
+                "name": "exptime",
+                "type": "float",
+                "description": "Exposure Length of exposure",
+                "unit": "s",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": 900.0900268554688
+              },
+              {
+                "name": "name",
+                "type": "char[2][30]",
+                "description": "Name of spFrame Exposure Files",
+                "unit": "",
+                "is_array": true,
+                "is_enum": false,
+                "enum_values": null,
+                "example": [
+                  "spFrame-b1-00352994.fits",
+                  "spFrame-r1-00352994.fits"
+                ]
+              },
+              {
+                "name": "epoch_combine",
+                "type": "long",
+                "description": "Epoch MJD for coadd (last MJD in coadd)",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": 60000
+              }
+            ]
+          }
+        }
+      },
+      "hdfs": null
     }
   },
-  "notes": "None"
+  "notes": "None",
+  "regrets": "I have no regrets!"
 }

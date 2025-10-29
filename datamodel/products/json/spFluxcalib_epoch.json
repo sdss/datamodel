@@ -1,0 +1,819 @@
+{
+  "general": {
+    "name": "spFluxcalib_epoch",
+    "short": "The Flux Calibration image for epoch coadds",
+    "description": "Contains the calibration vectors for a given frame",
+    "environments": [
+      "BOSS_SPECTRO_REDUX"
+    ],
+    "surveys": [
+      {
+        "name": "BHM",
+        "long": "Black Hole Mapper",
+        "description": "An optical time-domain spectroscopic survey of quasars and X-ray sources",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "bhm",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "16 MB",
+    "releases": [
+      {
+        "name": "IPL4",
+        "description": "SDSS internal product launch 4",
+        "public": false,
+        "release_date": "2025-07-15"
+      }
+    ],
+    "naming_convention": "$BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/epoch/spFluxcalib-[BR][ID]-[FRAME].fits.gz",
+    "generated_by": "idlspec2d this product.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "1.2.4"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "IPL4": {
+      "template": "$BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/epoch/spFluxcalib-[BR][ID]-[FRAME].fits.gz",
+      "example": "v6_2_1/fields/112XXX/112360/epoch/spFluxcalib-b1-00353048.fits.gz",
+      "location": "{run2d}/fields/{fieldgrp}/{field}/epoch/spFluxcalib-{br}{id}-{frame}.fits.gz",
+      "environment": "BOSS_SPECTRO_REDUX",
+      "survey": "BHM",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "spFluxcalib_epoch",
+        "path_template": "$BOSS_SPECTRO_REDUX/{run2d}/@sptypefolder|/@fieldgrp|/@pad_fieldid|@isplate|/epoch/spFluxcalib-{br}{id}-{frame:0>8}.fits.gz",
+        "path_kwargs": [
+          "run2d",
+          "fieldid",
+          "br",
+          "frame",
+          "id"
+        ],
+        "access_string": "spFluxcalib_epoch = $BOSS_SPECTRO_REDUX/{run2d}/fields/{fieldgrp}/{field}/epoch/spFluxcalib-{br}{id}-{frame}.fits.gz"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "CALIBIMG",
+          "is_image": true,
+          "description": "Image with the flux calibration vector for each fiber.",
+          "size": "7 MB",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "Primary Header created by MWRFITS v1.13"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-32",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS1",
+              "value": "4112",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS2",
+              "value": "500",
+              "comment": ""
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "Extensions may be present"
+            },
+            {
+              "key": "WAVEMIN",
+              "value": "3473.0",
+              "comment": ""
+            },
+            {
+              "key": "WAVEMAX",
+              "value": "6442.45",
+              "comment": ""
+            },
+            {
+              "key": "EXTNAME",
+              "value": "CALIBIMG",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "BSPLINE",
+          "is_image": false,
+          "description": "Binary table with traceset structure of b-spline fits for calibration vectors. This is a compact version of the information in the primary HDU.",
+          "size": "3 KB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "Binary table written by MWRFITS v1.13"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "Required value"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "Required value"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "3508",
+              "comment": "Number of bytes per row"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "1",
+              "comment": "Number of rows"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "Normally 0 (no varying arrays)"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "Required value"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "5",
+              "comment": "Number of columns in table"
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** End of mandatory fields ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "EXTNAME",
+              "value": "BSPLINE",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column formats ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column names ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "FULLBKPT": {
+              "name": "FULLBKPT",
+              "description": "Breakpoint vector",
+              "type": "float32[252]",
+              "unit": ""
+            },
+            "BKMASK": {
+              "name": "BKMASK",
+              "description": "mask of the breakpoint vector",
+              "type": "int16[252]",
+              "unit": ""
+            },
+            "NORD": {
+              "name": "NORD",
+              "description": "Number of orders for Bspline fit",
+              "type": "int32",
+              "unit": ""
+            },
+            "COEFF": {
+              "name": "COEFF",
+              "description": "The bspline coeffients",
+              "type": "float32[249]",
+              "unit": ""
+            },
+            "ICOEFF": {
+              "name": "ICOEFF",
+              "description": "inversion bspline coeffients",
+              "type": "float32[249]",
+              "unit": ""
+            }
+          }
+        },
+        "hdu2": {
+          "name": "STDSTARS",
+          "is_image": false,
+          "description": "Binary table with information about the standard stars used to construct the calibration vector.",
+          "size": "5 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "Binary table written by MWRFITS v1.13"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "Required value"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "Required value"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "82645",
+              "comment": "Number of bytes per row"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "70",
+              "comment": "Number of rows"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "Normally 0 (no varying arrays)"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "Required value"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "23",
+              "comment": "Number of columns in table"
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** End of mandatory fields ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "EXTNAME",
+              "value": "STDSTARS",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column formats ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column names ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "FIELDID": {
+              "name": "FIELDID",
+              "description": "SDSS FieldID (plateID for plate era data)",
+              "type": "int32",
+              "unit": ""
+            },
+            "CATALOGID": {
+              "name": "CATALOGID",
+              "description": "CatalogID or uHHMMSS.S+DDMMSS.S for unassigned",
+              "type": "int64",
+              "unit": ""
+            },
+            "SDSS_ID": {
+              "name": "SDSS_ID",
+              "description": "SDSS_ID of Target",
+              "type": "int64",
+              "unit": ""
+            },
+            "MJD": {
+              "name": "MJD",
+              "description": "MJD of observation",
+              "type": "int32",
+              "unit": ""
+            },
+            "FIBERID": {
+              "name": "FIBERID",
+              "description": "Fiber of observation",
+              "type": "int32",
+              "unit": ""
+            },
+            "QGOOD": {
+              "name": "QGOOD",
+              "description": "quality flag",
+              "type": "int16",
+              "unit": ""
+            },
+            "MODEL": {
+              "name": "MODEL",
+              "description": "Model Name",
+              "type": "char[3]",
+              "unit": ""
+            },
+            "G": {
+              "name": "G",
+              "description": "surface gravity",
+              "type": "float32",
+              "unit": "cm/s^2"
+            },
+            "TEFF": {
+              "name": "TEFF",
+              "description": "Effective Temperature",
+              "type": "float32",
+              "unit": "K"
+            },
+            "FEH": {
+              "name": "FEH",
+              "description": "metallicity",
+              "type": "float32",
+              "unit": "solar"
+            },
+            "IMODEL": {
+              "name": "IMODEL",
+              "description": "index of model",
+              "type": "int32",
+              "unit": ""
+            },
+            "Z": {
+              "name": "Z",
+              "description": "Redshift of fit",
+              "type": "float64",
+              "unit": ""
+            },
+            "SN_MEDIAN": {
+              "name": "SN_MEDIAN",
+              "description": "S/N of spectra",
+              "type": "float32",
+              "unit": ""
+            },
+            "CHI2": {
+              "name": "CHI2",
+              "description": "Chi-square of model fit",
+              "type": "float32",
+              "unit": ""
+            },
+            "DOF": {
+              "name": "DOF",
+              "description": "degrees of freedom",
+              "type": "float32",
+              "unit": ""
+            },
+            "LINESN_MEDIAN": {
+              "name": "LINESN_MEDIAN",
+              "description": "S/N near absorption lines",
+              "type": "float32",
+              "unit": ""
+            },
+            "LINECHI2": {
+              "name": "LINECHI2",
+              "description": "CHi-square of fit near absorption lines",
+              "type": "float64",
+              "unit": ""
+            },
+            "LINEDOF": {
+              "name": "LINEDOF",
+              "description": "degrees of freedom of fit near absorption lines",
+              "type": "float32",
+              "unit": ""
+            },
+            "LOGLAM": {
+              "name": "LOGLAM",
+              "description": "Log Lambda",
+              "type": "float32[4128]",
+              "unit": "log10(AA)"
+            },
+            "OBJFLUX": {
+              "name": "OBJFLUX",
+              "description": "Flux of object",
+              "type": "float32[4128]",
+              "unit": "nanomaggy"
+            },
+            "MODELFLUX": {
+              "name": "MODELFLUX",
+              "description": "Flux of model fit",
+              "type": "float32[4128]",
+              "unit": "nanomaggy"
+            },
+            "MRATIO": {
+              "name": "MRATIO",
+              "description": "MRATIO vectors are the \"raw\" flux-calib vectors for each expos+CCD",
+              "type": "float32[4128]",
+              "unit": ""
+            },
+            "MRATIVAR": {
+              "name": "MRATIVAR",
+              "description": "Ivar of MRATIO",
+              "type": "float32[4128]",
+              "unit": ""
+            }
+          }
+        },
+        "hdu3": {
+          "name": "BSPLINE_STD",
+          "is_image": false,
+          "description": "Binary table with traceset structure of b-spline fits for calibration vectors of all standards.",
+          "size": "3 KB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "Binary table written by MWRFITS v1.13"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "Required value"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "Required value"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "3508",
+              "comment": "Number of bytes per row"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "1",
+              "comment": "Number of rows"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "Normally 0 (no varying arrays)"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "Required value"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "5",
+              "comment": "Number of columns in table"
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** End of mandatory fields ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "EXTNAME",
+              "value": "BSPLINE_STD",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column formats ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column names ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "FULLBKPT": {
+              "name": "FULLBKPT",
+              "description": "Breakpoint vector",
+              "type": "float32[252]",
+              "unit": ""
+            },
+            "BKMASK": {
+              "name": "BKMASK",
+              "description": "mask of the breakpoint vector",
+              "type": "int16[252]",
+              "unit": ""
+            },
+            "NORD": {
+              "name": "NORD",
+              "description": "Number of orders for Bspline fit",
+              "type": "int32",
+              "unit": ""
+            },
+            "COEFF": {
+              "name": "COEFF",
+              "description": "The bspline coefficients",
+              "type": "float32[249]",
+              "unit": ""
+            },
+            "ICOEFF": {
+              "name": "ICOEFF",
+              "description": "inversion bspline coefficients",
+              "type": "float32[249]",
+              "unit": ""
+            }
+          }
+        },
+        "hdu4": {
+          "name": "OUTPUT",
+          "is_image": false,
+          "description": "Output structure",
+          "size": "10 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "Binary table written by MWRFITS v1.13"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "Required value"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "Required value"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "10531732",
+              "comment": "Number of bytes per row"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "1",
+              "comment": "Number of rows"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "Normally 0 (no varying arrays)"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "Required value"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "8",
+              "comment": "Number of columns in table"
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** End of mandatory fields ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "EXTNAME",
+              "value": "OUTPUT",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column formats ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column dimensions (2 D or greater) ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "TDIM1",
+              "value": "( 4128, 1, 67)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM2",
+              "value": "( 4128, 1, 67)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM3",
+              "value": "( 4128, 1, 67)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM4",
+              "value": "( 4128, 1, 67)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM7",
+              "value": "( 2683, 500)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM8",
+              "value": "( 2683, 67)",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column names ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "THISLOGLAM": {
+              "name": "THISLOGLAM",
+              "description": "log lambda",
+              "type": "float32[276576]",
+              "unit": "log10(AA)"
+            },
+            "THISMRATIO": {
+              "name": "THISMRATIO",
+              "description": "MRATIO vectors are the \"raw\" flux-calib vectors for this expos+CCD",
+              "type": "float32[276576]",
+              "unit": ""
+            },
+            "THISMRATIVAR": {
+              "name": "THISMRATIVAR",
+              "description": "MRATIO vectors are the \"raw\" flux-calib vectors for this expos+CCD",
+              "type": "float32[276576]",
+              "unit": ""
+            },
+            "THISFLATARR": {
+              "name": "THISFLATARR",
+              "description": "polynomial fit of the object with respect to the model",
+              "type": "float32[276576]",
+              "unit": ""
+            },
+            "FRAC_SCAT": {
+              "name": "FRAC_SCAT",
+              "description": "percental dispersion of the fluxing vectors used wrt the truth",
+              "type": "float64",
+              "unit": ""
+            },
+            "TMPLOGLAM": {
+              "name": "TMPLOGLAM",
+              "description": "output grid",
+              "type": "float64[2683]",
+              "unit": ""
+            },
+            "THISFLATARR_ALL": {
+              "name": "THISFLATARR_ALL",
+              "description": "rpolynomial fit of the object with respect to the model for all star",
+              "type": "float32[1341500]",
+              "unit": ""
+            },
+            "THISFLATARR_NEW": {
+              "name": "THISFLATARR_NEW",
+              "description": "polynomial fit of the object with respect to the model for all the std and all obj",
+              "type": "float32[179761]",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

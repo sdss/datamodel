@@ -7,19 +7,32 @@ general:
   releases:
   - IPL3
   - DR19
+  - IPL4
   environments:
   - BOSS_SPECTRO_REDUX
   surveys:
   - BHM
-  naming_convention: $BOSS_SPECTRO_REDUX/[RUN2D]/[COADD]/spPlanCustom-[COADD]-[MJD].par
+  naming_convention: $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[COADD]/[COADD]_[OBS]/spPlanCustom-[COADD]_[OBS]-[MJD].par
   generated_by: idlspec2d
   design: false
   vac: false
   recommended_science_product: false
+  data_level: '1.1'
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
   releases:
+    IPL4:
+      from: DR19
+      delta_nkeys: 1
+      added_header_keys:
+      - N_MJDs
+      - OBS
+      removed_header_keys:
+      - idlutilsVersion
+      tables:
+        COADDPLAN:
+          delta_nrows: 138325
     DR19:
       from: IPL3
       note: No changes
@@ -617,5 +630,635 @@ releases:
             is_array: false
             is_enum: false
             example: 59392
+  IPL4:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[COADD]/[COADD]_[OBS]/spPlanCustom-[COADD]_[OBS]-[MJD].par
+    example: v6_2_1/fields/allepoch/allepoch_apo/spPlanCustom-allepoch_apo-60844.par
+    location: '{run2d}/fields/{coadd}/{coadd}_{obs}/spPlanCustom-{coadd}_{obs}-{mjd}.par'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spPlanCustom
+      path_template: $BOSS_SPECTRO_REDUX/{run2d}/@spcoaddfolder|/@spcoaddgrp|/{coadd}@spcoaddobs|/spPlanCustom-{coadd}@spcoaddobs|-{mjd}.par
+      path_kwargs:
+      - mjd
+      - obs
+      - run2d
+      - coadd
+      access_string: spPlanCustom = $BOSS_SPECTRO_REDUX/{run2d}/fields/{coadd}/{coadd}_{obs}/spPlanCustom-{coadd}_{obs}-{mjd}.par
+    survey: BHM
+    par:
+      comments: |-
+        #%yanny
+        # Table
+      header:
+      - key: NAME
+        value: allepoch_apo
+        comment: Name of the custom coadd schema
+      - key: RUN2D
+        value: v6_2_1
+        comment: run2d version
+      - key: RUN1D
+        value: v6_2_1
+        comment: run1d version
+      - key: idlspec2dVersion
+        value: v6_2_1
+        comment: Version of idlspec2d when building plan file
+      - key: Rerun_RUN1D
+        value: '1'
+        comment: 1D analysis of Custom Coadd (1:True, 2:False)
+      - key: Date
+        value: 06/19/2025-23:05
+        comment: Date of creation
+      - key: CreateMJD
+        value: '60844'
+        comment: MJD of creation
+      - key: MJD_range
+        value: 59146-60708
+        comment: Range of MJDs available to coadd
+      - key: TARGID
+        value: SDSS_ID
+        comment: TARGID column maps to CATALOGID or SDSSID
+      - key: MJD
+        value: '60844'
+        comment: MJD of Coadd
+      - key: N_MJDs
+        value: '718'
+        comment: Number of distinct Coadd MJDs
+      - key: OBS
+        value: APO
+        comment: Observatory
+      tables:
+        COADDPLAN:
+          name: COADDPLAN
+          description: Target to Field-mjd mapping for custom coadds
+          n_rows: 221445
+          structure:
+          - name: TARGID
+            type: long
+            description: Target ID (SDSSID or CatalogID as noted by header key)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 12743
+          - name: FMJD_LIST
+            type: char[172][12]
+            description: List of Field-MJDs that where the target was observed
+            unit: ''
+            is_array: true
+            is_enum: false
+            example:
+            - 104648-59933
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+          - name: FIELDS_LIST
+            type: long[172]
+            description: List of Field IDs where the target was observed (matches
+              to Field-MJD) with -1 for null
+            unit: ''
+            is_array: true
+            is_enum: false
+            example:
+            - 104648
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+          - name: MJD_LIST
+            type: long[172]
+            description: List of MJDs where the target was observed (matches to Field-MJD)
+              with -1 for null
+            unit: ''
+            is_array: true
+            is_enum: false
+            example:
+            - 59933
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+          - name: CATALOGID_LIST
+            type: long[3]
+            description: Unique CatalogIDs that match to the targetID
+            unit: ''
+            is_array: true
+            is_enum: false
+            example:
+            - 6535904849
+            - 27021597960248626
+            - -1
+          - name: EPOCH_COMBINE
+            type: long
+            description: The MJD of the epoch that the Target is grouped into (typically
+              the last MJD the target was observed, but can be slightly later if only
+              a few targets have the same MJD)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 59933
 notes: |-
   None
+regrets: |-
+  I have no regrets!

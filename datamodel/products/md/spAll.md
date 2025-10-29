@@ -16,10 +16,10 @@ Summary spectroscopic information for the BOSS spectrograph data.
 This file contains a summary of the BOSS idlspec2d and spectro-1d pipeline outputs every field-mjd-target with detailed per exposure metadata
 
 ### Naming Convention
-$BOSS_SPECTRO_REDUX/[RUN2D]/spAll-[RUN2D].fits.gz
+$BOSS_SPECTRO_REDUX/[RUN2D]/summary/daily/spAll-[RUN2D].fits.gz
 
 ### Releases
-DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19, IPL4
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -37,7 +37,7 @@ idlspec2d
 False
 
 ### Data Level
-0.0.0
+2.3.2
 
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - IPL4
+   - from: DR19
+   - note: No changes
  - DR19
    - from: IPL3
    - note: No changes
@@ -54,7 +57,7 @@ Describes changes to the datamodel product and/or file structure from one releas
    - from: DR18
    - added_hdus: ['SPALL']
    - primary_delta_nkeys: 5
-   - added_primary_header_kwargs: ['RUN2D', 'DATE', 'CHECKSUM', 'DATASUM', 'SDSSC2BV']
+   - added_primary_header_kwargs: ['SDSSC2BV', 'RUN2D', 'DATASUM', 'CHECKSUM', 'DATE']
  - DR18
    - from: DR17
    - note: No changes

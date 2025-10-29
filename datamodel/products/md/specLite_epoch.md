@@ -9,17 +9,17 @@ spectral data for a given field, epoch, and catalogid
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 The spectral data for a given field, epoch, and catalogid including the coadded spectra, spAll metadata, Model fit metadata from spZall, and Line fitting metadadta from spZline
 
 ### Naming Convention
-$BOSS_SPECTRO_REDUX/[RUN2D]/epoch/spectra/lite/[FIELD]/[MJD]/spec-[FIELD]-[MJD]-[CATALOGID].fits
+$BOSS_SPECTRO_REDUX/[RUN2D]/spectra/epoch/lite/[FIELDGRP]/[FIELD]/[MJD]/spec-[FIELD]-[MJD]-[CATALOGID].fits
 
 ### Releases
-IPL3, DR19
+IPL3, DR19, IPL4
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,6 +36,9 @@ idlspec2d
 ### Is a VAC
 False
 
+### Data Level
+2.2.3
+
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: COADD](#hdu1-coadd)
@@ -47,6 +50,13 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - IPL4
+   - from: DR19
+   - added_hdus: ['FLUX']
+   - removed_hdus: ['PRIMARY']
+   - primary_delta_nkeys: 2
+   - added_primary_header_kwargs: ['EXTNAME', 'SFLATMIN', 'PIXFLAT', 'TAI']
+   - removed_primary_header_kwargs: ['SIGAS0', 'CENAS0']
  - DR19
    - from: IPL3
    - note: No changes
@@ -923,3 +933,7 @@ Name | Type | Unit | Description |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

@@ -16,10 +16,10 @@ flux-correction factor between spectro-photometric exposure and science exposure
 flux-correction factor between spectro-photometric exposure and science exposure
 
 ### Naming Convention
-$BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spFluxcorr-[BR][ID]-[FRAME].fits.gz
+$BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/spFluxcorr-[BR][ID]-[FRAME].fits.gz
 
 ### Releases
-DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19, IPL4
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -37,7 +37,7 @@ idlspec2d - rm_spfluxcorr_v5.pro
 False
 
 ### Data Level
-0.0.0
+1.2.4
 
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
@@ -47,6 +47,12 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - IPL4
+   - from: DR19
+   - added_hdus: ['ADDCORR', 'MULTCORR']
+   - removed_hdus: ['PRIMARY']
+   - primary_delta_nkeys: 1
+   - added_primary_header_kwargs: ['EXTNAME']
  - DR19
    - from: IPL3
    - note: No changes

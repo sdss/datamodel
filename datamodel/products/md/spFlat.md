@@ -16,10 +16,10 @@ Extracted fiber flats, and associated data
 This file contains information about fiberflats, X-centers of fibers, fibermask, profile width and superflat obtained from extracted flat calibration frames.
 
 ### Naming Convention
-$BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spFlat-[BR][ID]-[FRAME].fits.gz
+$BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/spFlat-[BR][ID]-[FRAME].fits.gz
 
 ### Releases
-DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19, IPL4
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -37,7 +37,7 @@ idlspec2d - spcalib.pro
 False
 
 ### Data Level
-0.0.0
+1.2.1
 
 ### HDUS List for release DR19
   - [HDU0: fflat](#hdu0-fflat)
@@ -51,6 +51,12 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - IPL4
+   - from: DR19
+   - added_hdus: ['WIDTHSET', 'XSOL', 'TSET', 'FIBERMASK', 'SUPERFLATSET', 'FFLAT']
+   - removed_hdus: ['fibermask', 'xsol', 'widthset', 'superflatset', 'fflat', 'tset']
+   - primary_delta_nkeys: 6
+   - added_primary_header_kwargs: ['FFREDMAS', 'SFLATMIN', 'FFBLUEMA', 'M2FF', 'FFSPOS', 'MASTERFL']
  - DR19
    - from: IPL3
    - note: No changes
@@ -58,13 +64,13 @@ Describes changes to the datamodel product and/or file structure from one releas
    - from: DR18
    - added_hdus: ['xsol']
    - primary_delta_nkeys: 73
-   - added_primary_header_kwargs: ['SPECMT', 'MEDWIDT2', 'B2CAMH', 'VERS2D', 'OFFDEC', 'T_OUT', 'MECHORIZ', 'ARCHTEMP', 'MEDWIDT3', 'COLLH', 'COLLT', 'EXTNAME', 'ARCHACF', 'R2CAMT', 'HA', 'T_FLOOR', 'MCHUMHT', 'T_CELL', 'FIELDID', 'SPEC', 'MECHORIX', 'INTSTART', 'CCDTYPE', 'OFFPA', 'R2CAMH', 'MCTBCB', 'T_PRIM', 'MCTEMDN', 'BOSSVER', 'DESIGNID', 'GSEEING', 'CONFID', 'ARCNAME', 'B2CAMT', 'BUFFER', 'CCD', 'AIRMASS', 'HEAR', 'CCDSUM', 'DAQVER', 'VKAIJU', 'EQUINOX', 'MEDWIDT0', 'MCHUMCO', 'PROFTYPE', 'INTEND', 'VJAEGER', 'T_IN', 'CCDID', 'ARCHBACK', 'MCTRCT', 'MCTHT', 'MEDWIDT1', 'V_ARCHON', 'VCOORDIO', 'ARCHBVER', 'VCALIBS', 'MECHORIY', 'SLITID', 'T_TRUSS', 'MCTBCT', 'OBSERVAT', 'MCTRCB', 'FLATNAME', 'OFFRA']
-   - removed_primary_header_kwargs: ['AUTHOR', 'MGDPOS', 'MC1HUMCO', 'MGDRA', 'TWOPHASE', 'MC1TRCB', 'MGDDEC', 'MC1TEMDN', 'MC1HUMHT', 'MC1TRCT', 'CAMROW', 'MC1TBCB', 'MC1THT', 'CAMCOL', 'MC1TBCT', 'SLITID1']
+   - added_primary_header_kwargs: ['MCTBCB', 'B2CAMT', 'T_FLOOR', 'ARCHBACK', 'SPEC', 'MECHORIZ', 'BOSSVER', 'HEAR', 'T_PRIM', 'VCALIBS', 'MECHORIY', 'MCTBCT', 'PROFTYPE', 'MCTHT', 'ARCNAME', 'BUFFER', 'DAQVER', 'CONFID', 'DESIGNID', 'OFFPA', 'V_ARCHON', 'MEDWIDT2', 'ARCHACF', 'VJAEGER', 'MCTRCB', 'MCTRCT', 'EQUINOX', 'MECHORIX', 'SPECMT', 'T_OUT', 'VERS2D', 'VCOORDIO', 'OFFDEC', 'CCDID', 'CCD', 'CCDTYPE', 'COLLH', 'T_CELL', 'R2CAMT', 'ARCHBVER', 'SLITID', 'MEDWIDT0', 'ARCHTEMP', 'COLLT', 'HA', 'VKAIJU', 'GSEEING', 'MCHUMCO', 'MEDWIDT3', 'T_TRUSS', 'CCDSUM', 'AIRMASS', 'INTSTART', 'EXTNAME', 'MEDWIDT1', 'MCHUMHT', 'OBSERVAT', 'T_IN', 'INTEND', 'FIELDID', 'R2CAMH', 'FLATNAME', 'MCTEMDN', 'B2CAMH', 'OFFRA']
+   - removed_primary_header_kwargs: ['MC1TRCB', 'MC1HUMHT', 'MC1TBCB', 'CAMROW', 'MC1HUMCO', 'MC1TRCT', 'MC1TEMDN', 'TWOPHASE', 'MC1THT', 'MGDPOS', 'MGDRA', 'SLITID1', 'MC1TBCT', 'MGDDEC', 'AUTHOR', 'CAMCOL']
  - DR18
    - from: DR17
    - primary_delta_nkeys: 38
-   - added_primary_header_kwargs: ['M1ZROT', 'V_APO', 'MGDRA', 'GUSTD', 'PLATETYP', 'DUSTA', 'V_GUIDER', 'MC1HUMHT', 'PRESSURE', 'SHCLOTIM', 'IONPUMP', 'MC1TBCT', 'SUBFRAME', 'V_SOP', 'DUSTB', 'WINDD25M', 'MC1TRCB', 'MGDDEC', 'MC1THT', 'V_BOSS', 'DARKTIME', 'MC1HUMCO', 'GUSTS', 'CCDTEMP', 'HUMIDITY', 'MC1TEMDN', 'MC1TRCT', 'PFERR', 'SRVYMODE', 'SLITID1', 'WINDD', 'MGDPOS', 'LN2TEMP', 'AIRTEMP', 'WINDS25M', 'M2ZROT', 'DEWPOINT', 'REQTIME', 'DIDFLUSH', 'MC1TBCB', 'WINDS', 'SHOPETIM', 'TRUSTEMP']
-   - removed_primary_header_kwargs: ['PIXBIAS', 'OBJOFFY', 'OBJOFFX', 'DAQVER', 'BOSSVER']
+   - added_primary_header_kwargs: ['V_SOP', 'MC1TRCB', 'DARKTIME', 'MC1TBCB', 'MC1HUMCO', 'MC1TRCT', 'MC1TEMDN', 'M2ZROT', 'DIDFLUSH', 'SLITID1', 'V_APO', 'PLATETYP', 'REQTIME', 'PRESSURE', 'MGDPOS', 'MGDRA', 'MC1TBCT', 'LN2TEMP', 'GUSTS', 'PFERR', 'MC1HUMHT', 'WINDS25M', 'DUSTB', 'WINDS', 'GUSTD', 'IONPUMP', 'WINDD25M', 'MC1THT', 'TRUSTEMP', 'DUSTA', 'MGDDEC', 'HUMIDITY', 'SHOPETIM', 'SRVYMODE', 'CCDTEMP', 'V_GUIDER', 'M1ZROT', 'V_BOSS', 'AIRTEMP', 'SHCLOTIM', 'WINDD', 'SUBFRAME', 'DEWPOINT']
+   - removed_primary_header_kwargs: ['PIXBIAS', 'OBJOFFY', 'BOSSVER', 'OBJOFFX', 'DAQVER']
  - DR17
    - from: DR16
    - note: No changes

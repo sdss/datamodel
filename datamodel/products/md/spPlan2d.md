@@ -16,10 +16,10 @@ Spectro-2D Processing Plan
 Processing plan to control the Spectro-2D pipeline reduction of a Field/plate's data taken in a single night. There is one such plan file for each plate/Field observed on each night.
 
 ### Naming Convention
-$BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spPlan2d-[FIELD]-[MJD].par
+$BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/spPlan2d-[FIELD]-[MJD].par
 
 ### Releases
-DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19, IPL4
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -37,7 +37,7 @@ idlspec2d - spplan.py
 False
 
 ### Data Level
-0.0.0
+1.1
 
 ### PAR List for release DR19
   - [SPEXP](#SPEXP)
@@ -46,15 +46,20 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - IPL4
+   - from: DR19
+   - delta_nkeys: 2
+   - removed_header_keys: ['speclogVersion', 'idlutilsVersion']
+   - tables: {'SPEXP': {'delta_nrows': 2}}
  - DR19
    - from: IPL3
    - note: No changes
  - IPL3
    - from: DR18
    - delta_nkeys: 8
-   - added_header_keys: ['SDSS_access_Release', 'fieldname', 'sdss_tree_Ver', 'SDSS_access_Ver', 'manual', 'OBS', 'DITHER', 'SDSSCOREVersion', 'pydlVersion']
+   - added_header_keys: ['SDSS_access_Release', 'OBS', 'pydlVersion', 'fieldname', 'SDSS_access_Ver', 'sdss_tree_Ver', 'manual', 'DITHER', 'SDSSCOREVersion']
    - removed_header_keys: ['plateid']
-   - tables: {'SPEXP': {'added_cols': ['confid', 'fieldid'], 'removed_cols': ['plateid'], 'delta_nrows': 3}}
+   - tables: {'SPEXP': {'added_cols': ['fieldid', 'confid'], 'removed_cols': ['plateid'], 'delta_nrows': 3}}
  - DR18
    - from: DR17
    - tables: {'SPEXP': {'delta_nrows': 4}}
@@ -73,13 +78,13 @@ Describes changes to the datamodel product and/or file structure from one releas
  - DR13
    - from: DR11
    - delta_nkeys: 7
-   - added_header_keys: ['idlutilsVersion', 'RUN2D', 'idlspec2dVersion', 'planfile2d', 'speclogVersion', 'plateid', 'MJD']
+   - added_header_keys: ['idlspec2dVersion', 'RUN2D', 'plateid', 'speclogVersion', 'MJD', 'planfile2d', 'idlutilsVersion']
    - delta_ntables: 1
    - added_tables: ['SPEXP']
  - DR11
    - from: DR12
    - delta_nkeys: 7
-   - removed_header_keys: ['idlutilsVersion', 'RUN2D', 'idlspec2dVersion', 'planfile2d', 'speclogVersion', 'plateid', 'MJD']
+   - removed_header_keys: ['idlspec2dVersion', 'RUN2D', 'plateid', 'speclogVersion', 'MJD', 'planfile2d', 'idlutilsVersion']
    - delta_ntables: 1
    - removed_tables: ['SPEXP']
  - DR12
