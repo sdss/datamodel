@@ -55,7 +55,7 @@ Describes changes to the datamodel product and/or file structure from one releas
    - added_hdus: ['FLUX']
    - removed_hdus: ['PRIMARY']
    - primary_delta_nkeys: 2
-   - added_primary_header_kwargs: ['EXTNAME', 'SFLATMIN', 'PIXFLAT', 'TAI']
+   - added_primary_header_kwargs: ['EXTNAME', 'TAI', 'SFLATMIN', 'PIXFLAT']
    - removed_primary_header_kwargs: ['SIGAS0', 'CENAS0']
  - DR19
    - from: IPL3

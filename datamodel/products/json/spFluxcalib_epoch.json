@@ -20,6 +20,20 @@
         },
         "id": "bhm",
         "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
       }
     ],
     "datatype": "FITS",
@@ -49,17 +63,17 @@
       "example": "v6_2_1/fields/112XXX/112360/epoch/spFluxcalib-b1-00353048.fits.gz",
       "location": "{run2d}/fields/{fieldgrp}/{field}/epoch/spFluxcalib-{br}{id}-{frame}.fits.gz",
       "environment": "BOSS_SPECTRO_REDUX",
-      "survey": "BHM",
+      "survey": "SDSS",
       "access": {
         "in_sdss_access": true,
         "path_name": "spFluxcalib_epoch",
         "path_template": "$BOSS_SPECTRO_REDUX/{run2d}/@sptypefolder|/@fieldgrp|/@pad_fieldid|@isplate|/epoch/spFluxcalib-{br}{id}-{frame:0>8}.fits.gz",
         "path_kwargs": [
-          "run2d",
-          "fieldid",
-          "br",
           "frame",
-          "id"
+          "id",
+          "run2d",
+          "br",
+          "fieldid"
         ],
         "access_string": "spFluxcalib_epoch = $BOSS_SPECTRO_REDUX/{run2d}/fields/{fieldgrp}/{field}/epoch/spFluxcalib-{br}{id}-{frame}.fits.gz"
       },

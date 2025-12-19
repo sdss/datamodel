@@ -11,6 +11,7 @@ general:
   - BOSS_SPECTRO_REDUX
   surveys:
   - BHM
+  - SDSS
   naming_convention: $BOSS_SPECTRO_REDUX/[RUN2D]/summary/daily/spCalib_QA-[RUN2D].fits
   generated_by: idlspec2d
   data_level: 2.3.2
@@ -28,12 +29,13 @@ releases:
     location: '{run2d}/summary/daily/spCalib_QA-{run2d}.fits'
     environment: BOSS_SPECTRO_REDUX
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: spcalib_qa
+      path_template: $BOSS_SPECTRO_REDUX/{run2d}/@sptypefolder|/spCalib_QA-{run2d}.fits
+      path_kwargs:
+      - run2d
       access_string: spCalib_QA = $BOSS_SPECTRO_REDUX/{run2d}/summary/daily/spCalib_QA-{run2d}.fits
-    survey: BHM
+    survey: SDSS
     hdus:
       hdu0:
         name: PRIMARY

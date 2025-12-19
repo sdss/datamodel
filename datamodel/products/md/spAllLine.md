@@ -57,7 +57,7 @@ Describes changes to the datamodel product and/or file structure from one releas
    - from: DR18
    - added_hdus: ['SPLINE']
    - primary_delta_nkeys: 6
-   - added_primary_header_kwargs: ['RUN2D', 'DATASUM', 'DIMS0', 'CHECKSUM', 'DATE', 'DIMS1']
+   - added_primary_header_kwargs: ['DIMS1', 'DATASUM', 'RUN2D', 'CHECKSUM', 'DIMS0', 'DATE']
  - DR18
    - from: DR17
    - note: No changes

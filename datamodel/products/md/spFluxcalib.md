@@ -52,7 +52,7 @@ False
 Describes changes to the datamodel product and/or file structure from one release to another
  - IPL4
    - from: DR19
-   - added_hdus: ['BSPLINE', 'OUTPUT', 'STDSTARS', 'CALIBIMG', 'BSPLINE_STD']
+   - added_hdus: ['CALIBIMG', 'STDSTARS', 'BSPLINE_STD', 'OUTPUT', 'BSPLINE']
    - removed_hdus: ['PRIMARY']
    - primary_delta_nkeys: 1
    - added_primary_header_kwargs: ['EXTNAME']

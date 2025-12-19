@@ -20,6 +20,20 @@
         },
         "id": "bhm",
         "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
       }
     ],
     "datatype": "FITS",
@@ -67,9 +81,9 @@
         "primary_delta_nkeys": 2,
         "added_primary_header_kwargs": [
           "EXTNAME",
+          "TAI",
           "SFLATMIN",
-          "PIXFLAT",
-          "TAI"
+          "PIXFLAT"
         ],
         "removed_primary_header_kwargs": [
           "SIGAS0",
@@ -8628,16 +8642,16 @@
       "example": "v6_2_1/spectra/epoch/lite/112XXX/112360/60000/spec-112360-60000-27021598150202075.fits",
       "location": "{run2d}/spectra/epoch/lite/{fieldgrp}/{field}/{mjd}/spec-{field}-{mjd}-{catalogid}.fits",
       "environment": "BOSS_SPECTRO_REDUX",
-      "survey": "BHM",
+      "survey": "SDSS",
       "access": {
         "in_sdss_access": true,
         "path_name": "specLite_epoch",
         "path_template": "$BOSS_SPECTRO_REDUX/{run2d}/@sptypefolder|/lite/@fieldgrp|/@pad_fieldid|@isplate|/{mjd}/spec-@pad_fieldid|-{mjd}-{catalogid}.fits",
         "path_kwargs": [
-          "mjd",
-          "fieldid",
+          "catalogid",
           "run2d",
-          "catalogid"
+          "mjd",
+          "fieldid"
         ],
         "access_string": "specLite_epoch = $BOSS_SPECTRO_REDUX/{run2d}/spectra/epoch/lite/{fieldgrp}/{field}/{mjd}/spec-{field}-{mjd}-{catalogid}.fits"
       },

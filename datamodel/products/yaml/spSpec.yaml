@@ -14,6 +14,7 @@ general:
   - BOSS_SPECTRO_REDUX
   surveys:
   - BHM
+  - SDSS
   naming_convention: $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/coadd/[MJD]/spSpec-[FIELD]-[MJD]-[CATALOGID].fits
   generated_by: idlspec2d
   design: false
@@ -29,9 +30,9 @@ changelog:
       primary_delta_nkeys: 3
       added_primary_header_kwargs:
       - EXTNAME
+      - TAI
       - SFLATMIN
       - PIXFLAT
-      - TAI
       removed_primary_header_kwargs:
       - NAXIS1
     DR19:
@@ -16824,12 +16825,12 @@ releases:
       path_name: spSpec
       path_template: $BOSS_SPECTRO_REDUX/{run2d}/@sptypefolder|/@fieldgrp|/@pad_fieldid|@isplate|/coadd/{mjd}/spSpec-@pad_fieldid|-{mjd}-{catalogid}.fits
       path_kwargs:
+      - catalogid
+      - run2d
       - mjd
       - fieldid
-      - run2d
-      - catalogid
       access_string: spSpec = $BOSS_SPECTRO_REDUX/{run2d}/fields/{fieldgrp}/{field}/coadd/{mjd}/spSpec-{field}-{mjd}-{catalogid}.fits
-    survey: BHM
+    survey: SDSS
     hdus:
       hdu0:
         name: PRIMARY

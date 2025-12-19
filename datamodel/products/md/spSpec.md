@@ -59,7 +59,7 @@ Describes changes to the datamodel product and/or file structure from one releas
  - IPL4
    - from: DR19
    - primary_delta_nkeys: 3
-   - added_primary_header_kwargs: ['EXTNAME', 'SFLATMIN', 'PIXFLAT', 'TAI']
+   - added_primary_header_kwargs: ['EXTNAME', 'TAI', 'SFLATMIN', 'PIXFLAT']
    - removed_primary_header_kwargs: ['NAXIS1']
  - DR19
    - from: IPL3

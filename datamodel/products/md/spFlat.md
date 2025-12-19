@@ -53,10 +53,10 @@ False
 Describes changes to the datamodel product and/or file structure from one release to another
  - IPL4
    - from: DR19
-   - added_hdus: ['WIDTHSET', 'XSOL', 'TSET', 'FIBERMASK', 'SUPERFLATSET', 'FFLAT']
-   - removed_hdus: ['fibermask', 'xsol', 'widthset', 'superflatset', 'fflat', 'tset']
+   - added_hdus: ['XSOL', 'WIDTHSET', 'FIBERMASK', 'TSET', 'SUPERFLATSET', 'FFLAT']
+   - removed_hdus: ['widthset', 'fibermask', 'superflatset', 'tset', 'xsol', 'fflat']
    - primary_delta_nkeys: 6
-   - added_primary_header_kwargs: ['FFREDMAS', 'SFLATMIN', 'FFBLUEMA', 'M2FF', 'FFSPOS', 'MASTERFL']
+   - added_primary_header_kwargs: ['FFSPOS', 'FFREDMAS', 'M2FF', 'MASTERFL', 'SFLATMIN', 'FFBLUEMA']
  - DR19
    - from: IPL3
    - note: No changes
@@ -64,13 +64,13 @@ Describes changes to the datamodel product and/or file structure from one releas
    - from: DR18
    - added_hdus: ['xsol']
    - primary_delta_nkeys: 73
-   - added_primary_header_kwargs: ['MCTBCB', 'B2CAMT', 'T_FLOOR', 'ARCHBACK', 'SPEC', 'MECHORIZ', 'BOSSVER', 'HEAR', 'T_PRIM', 'VCALIBS', 'MECHORIY', 'MCTBCT', 'PROFTYPE', 'MCTHT', 'ARCNAME', 'BUFFER', 'DAQVER', 'CONFID', 'DESIGNID', 'OFFPA', 'V_ARCHON', 'MEDWIDT2', 'ARCHACF', 'VJAEGER', 'MCTRCB', 'MCTRCT', 'EQUINOX', 'MECHORIX', 'SPECMT', 'T_OUT', 'VERS2D', 'VCOORDIO', 'OFFDEC', 'CCDID', 'CCD', 'CCDTYPE', 'COLLH', 'T_CELL', 'R2CAMT', 'ARCHBVER', 'SLITID', 'MEDWIDT0', 'ARCHTEMP', 'COLLT', 'HA', 'VKAIJU', 'GSEEING', 'MCHUMCO', 'MEDWIDT3', 'T_TRUSS', 'CCDSUM', 'AIRMASS', 'INTSTART', 'EXTNAME', 'MEDWIDT1', 'MCHUMHT', 'OBSERVAT', 'T_IN', 'INTEND', 'FIELDID', 'R2CAMH', 'FLATNAME', 'MCTEMDN', 'B2CAMH', 'OFFRA']
-   - removed_primary_header_kwargs: ['MC1TRCB', 'MC1HUMHT', 'MC1TBCB', 'CAMROW', 'MC1HUMCO', 'MC1TRCT', 'MC1TEMDN', 'TWOPHASE', 'MC1THT', 'MGDPOS', 'MGDRA', 'SLITID1', 'MC1TBCT', 'MGDDEC', 'AUTHOR', 'CAMCOL']
+   - added_primary_header_kwargs: ['VERS2D', 'OBSERVAT', 'OFFDEC', 'MECHORIX', 'SLITID', 'T_FLOOR', 'ARCHBVER', 'MCHUMHT', 'VJAEGER', 'INTSTART', 'CONFID', 'EQUINOX', 'BOSSVER', 'VCALIBS', 'MECHORIY', 'CCDID', 'MCTBCT', 'INTEND', 'B2CAMH', 'T_PRIM', 'MCTRCB', 'MCTBCB', 'MEDWIDT2', 'HA', 'SPEC', 'MCHUMCO', 'MEDWIDT3', 'MECHORIZ', 'T_CELL', 'HEAR', 'CCDTYPE', 'DAQVER', 'VCOORDIO', 'MCTRCT', 'COLLT', 'VKAIJU', 'T_TRUSS', 'ARCHACF', 'OFFRA', 'R2CAMH', 'T_OUT', 'FLATNAME', 'EXTNAME', 'MEDWIDT1', 'V_ARCHON', 'DESIGNID', 'PROFTYPE', 'FIELDID', 'MEDWIDT0', 'ARCHBACK', 'BUFFER', 'B2CAMT', 'T_IN', 'CCD', 'OFFPA', 'COLLH', 'R2CAMT', 'AIRMASS', 'ARCNAME', 'MCTEMDN', 'GSEEING', 'SPECMT', 'CCDSUM', 'ARCHTEMP', 'MCTHT']
+   - removed_primary_header_kwargs: ['CAMCOL', 'MC1TRCT', 'MGDDEC', 'MC1TBCB', 'CAMROW', 'MC1TBCT', 'MC1TEMDN', 'TWOPHASE', 'SLITID1', 'MGDPOS', 'MC1HUMHT', 'MGDRA', 'MC1THT', 'MC1TRCB', 'MC1HUMCO', 'AUTHOR']
  - DR18
    - from: DR17
    - primary_delta_nkeys: 38
-   - added_primary_header_kwargs: ['V_SOP', 'MC1TRCB', 'DARKTIME', 'MC1TBCB', 'MC1HUMCO', 'MC1TRCT', 'MC1TEMDN', 'M2ZROT', 'DIDFLUSH', 'SLITID1', 'V_APO', 'PLATETYP', 'REQTIME', 'PRESSURE', 'MGDPOS', 'MGDRA', 'MC1TBCT', 'LN2TEMP', 'GUSTS', 'PFERR', 'MC1HUMHT', 'WINDS25M', 'DUSTB', 'WINDS', 'GUSTD', 'IONPUMP', 'WINDD25M', 'MC1THT', 'TRUSTEMP', 'DUSTA', 'MGDDEC', 'HUMIDITY', 'SHOPETIM', 'SRVYMODE', 'CCDTEMP', 'V_GUIDER', 'M1ZROT', 'V_BOSS', 'AIRTEMP', 'SHCLOTIM', 'WINDD', 'SUBFRAME', 'DEWPOINT']
-   - removed_primary_header_kwargs: ['PIXBIAS', 'OBJOFFY', 'BOSSVER', 'OBJOFFX', 'DAQVER']
+   - added_primary_header_kwargs: ['HUMIDITY', 'LN2TEMP', 'DUSTB', 'WINDS', 'DUSTA', 'PRESSURE', 'M1ZROT', 'WINDS25M', 'IONPUMP', 'REQTIME', 'MC1HUMCO', 'V_APO', 'TRUSTEMP', 'MC1TRCT', 'MC1TBCT', 'GUSTS', 'MC1TEMDN', 'MC1HUMHT', 'V_SOP', 'WINDD25M', 'M2ZROT', 'V_BOSS', 'MC1TRCB', 'PLATETYP', 'SRVYMODE', 'PFERR', 'SUBFRAME', 'MGDDEC', 'WINDD', 'MGDRA', 'SHCLOTIM', 'AIRTEMP', 'MC1THT', 'DIDFLUSH', 'SHOPETIM', 'SLITID1', 'MC1TBCB', 'DEWPOINT', 'MGDPOS', 'CCDTEMP', 'DARKTIME', 'V_GUIDER', 'GUSTD']
+   - removed_primary_header_kwargs: ['DAQVER', 'PIXBIAS', 'OBJOFFY', 'BOSSVER', 'OBJOFFX']
  - DR17
    - from: DR16
    - note: No changes

@@ -49,7 +49,7 @@ False
 Describes changes to the datamodel product and/or file structure from one release to another
  - IPL4
    - from: DR19
-   - added_hdus: ['ADDCORR', 'MULTCORR']
+   - added_hdus: ['MULTCORR', 'ADDCORR']
    - removed_hdus: ['PRIMARY']
    - primary_delta_nkeys: 1
    - added_primary_header_kwargs: ['EXTNAME']

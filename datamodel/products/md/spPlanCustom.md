@@ -49,7 +49,7 @@ Describes changes to the datamodel product and/or file structure from one releas
  - IPL4
    - from: DR19
    - delta_nkeys: 1
-   - added_header_keys: ['N_MJDs', 'OBS']
+   - added_header_keys: ['OBS', 'N_MJDs']
    - removed_header_keys: ['idlutilsVersion']
    - tables: {'COADDPLAN': {'delta_nrows': 138325}}
  - DR19

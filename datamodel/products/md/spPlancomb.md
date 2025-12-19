@@ -49,7 +49,7 @@ Describes changes to the datamodel product and/or file structure from one releas
  - IPL4
    - from: DR19
    - delta_nkeys: 2
-   - removed_header_keys: ['speclogVersion', 'idlutilsVersion']
+   - removed_header_keys: ['idlutilsVersion', 'speclogVersion']
  - DR19
    - from: IPL3
    - note: No changes

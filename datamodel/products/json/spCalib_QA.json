@@ -20,6 +20,20 @@
         },
         "id": "bhm",
         "aliases": []
+      },
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
       }
     ],
     "datatype": "FITS",
@@ -49,12 +63,14 @@
       "example": "v6_2_1/summary/daily/spCalib_QA-v6_2_1.fits",
       "location": "{run2d}/summary/daily/spCalib_QA-{run2d}.fits",
       "environment": "BOSS_SPECTRO_REDUX",
-      "survey": "BHM",
+      "survey": "SDSS",
       "access": {
-        "in_sdss_access": false,
-        "path_name": null,
-        "path_template": null,
-        "path_kwargs": null,
+        "in_sdss_access": true,
+        "path_name": "spcalib_qa",
+        "path_template": "$BOSS_SPECTRO_REDUX/{run2d}/@sptypefolder|/spCalib_QA-{run2d}.fits",
+        "path_kwargs": [
+          "run2d"
+        ],
         "access_string": "spCalib_QA = $BOSS_SPECTRO_REDUX/{run2d}/summary/daily/spCalib_QA-{run2d}.fits"
       },
       "hdus": {

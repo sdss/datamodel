@@ -60,21 +60,21 @@ Describes changes to the datamodel product and/or file structure from one releas
    - added_hdus: ['FLUX']
    - removed_hdus: ['PRIMARY']
    - primary_delta_nkeys: 4
-   - added_primary_header_kwargs: ['FFSPOS', 'SFLATMIN', 'M2FF', 'EXTNAME']
+   - added_primary_header_kwargs: ['EXTNAME', 'M2FF', 'FFSPOS', 'SFLATMIN']
  - DR19
    - from: IPL3
    - note: No changes
  - IPL3
    - from: DR18
    - primary_delta_nkeys: 63
-   - added_primary_header_kwargs: ['MCTBCB', 'B2CAMT', 'V_RAD', 'OBSMODE', 'T_FLOOR', 'ARCHBACK', 'SPEC', 'CENBS0', 'MECHORIZ', 'BOSSVER', 'HEAR', 'T_PRIM', 'VCALIBS', 'MECHORIY', 'MCTBCT', 'MCTHT', 'BUFFER', 'DAQVER', 'CONFID', 'DESIGNID', 'OFFPA', 'V_ARCHON', 'ARCHACF', 'VJAEGER', 'MCTRCB', 'MCTRCT', 'MECHORIX', 'SPECMT', 'T_OUT', 'STDBS0', 'VCOORDIO', 'OFFDEC', 'STDAS0', 'CCDID', 'CCD', 'AVGAS0', 'CCDTYPE', 'COLLH', 'R2CAMT', 'ARCHBVER', 'SLITID', 'T_CELL', 'ARCHTEMP', 'COLLT', 'HA', 'VKAIJU', 'GSEEING', 'MCHUMCO', 'T_TRUSS', 'CCDSUM', 'INTSTART', 'CONFSFIL', 'MCHUMHT', 'OBSERVAT', 'T_IN', 'INTEND', 'AVGBS0', 'FIELDID', 'R2CAMH', 'MCTEMDN', 'B2CAMH', 'OFFRA', 'SIGBS0']
-   - removed_primary_header_kwargs: ['MC1TRCB', 'MC1TBCB', 'MC1HUMCO', 'MC1TRCT', 'AVGBSH0', 'MC1TEMDN', 'SIGBSH0', 'AVGASH0', 'SLITID1', 'TWOPHASE', 'CENBSH0', 'STDBSH0', 'MGDPOS', 'MGDRA', 'TILEID', 'MC1TBCT', 'MC1HUMHT', 'STDASH0', 'PLUGFILE', 'MC1THT', 'MGDDEC', 'CAMCOL', 'CAMROW', 'AUTHOR']
+   - added_primary_header_kwargs: ['OBSERVAT', 'OFFDEC', 'SIGBS0', 'MECHORIX', 'SLITID', 'T_FLOOR', 'ARCHBVER', 'MCHUMHT', 'VJAEGER', 'INTSTART', 'CONFID', 'DAQVER', 'BOSSVER', 'VCALIBS', 'MECHORIY', 'CCDID', 'MCTBCT', 'INTEND', 'B2CAMH', 'T_PRIM', 'MCTRCB', 'MCTBCB', 'HA', 'SPEC', 'MCHUMCO', 'AVGAS0', 'MECHORIZ', 'T_CELL', 'HEAR', 'CCDTYPE', 'CONFSFIL', 'CENBS0', 'VCOORDIO', 'MCTRCT', 'COLLT', 'VKAIJU', 'ARCHACF', 'T_TRUSS', 'R2CAMH', 'OFFRA', 'T_OUT', 'AVGBS0', 'V_ARCHON', 'DESIGNID', 'FIELDID', 'OBSMODE', 'ARCHBACK', 'BUFFER', 'B2CAMT', 'T_IN', 'CCD', 'OFFPA', 'STDAS0', 'COLLH', 'R2CAMT', 'V_RAD', 'MCTEMDN', 'STDBS0', 'GSEEING', 'SPECMT', 'CCDSUM', 'ARCHTEMP', 'MCTHT']
+   - removed_primary_header_kwargs: ['AUTHOR', 'MC1HUMCO', 'MC1TRCT', 'MC1TBCT', 'MC1TEMDN', 'SIGBSH0', 'MC1HUMHT', 'AVGBSH0', 'PLUGFILE', 'MC1TRCB', 'CENBSH0', 'MGDDEC', 'CAMCOL', 'CAMROW', 'TWOPHASE', 'MGDRA', 'TILEID', 'MC1THT', 'AVGASH0', 'MC1TBCB', 'SLITID1', 'MGDPOS', 'STDBSH0', 'STDASH0']
  - DR18
    - from: DR17
    - added_hdus: ['SPRESL']
    - primary_delta_nkeys: 45
-   - added_primary_header_kwargs: ['V_SOP', 'MC1TRCB', 'DARKTIME', 'MC1TBCB', 'MC1HUMCO', 'MC1TRCT', 'AVGBSH0', 'MC1TEMDN', 'M2ZROT', 'SIGBSH0', 'DIDFLUSH', 'AVGASH0', 'SLITID1', 'V_APO', 'PLATETYP', 'CENBSH0', 'STDBSH0', 'REQTIME', 'PRESSURE', 'MGDPOS', 'MGDRA', 'MC1TBCT', 'WDISPR', 'LN2TEMP', 'GUSTS', 'PFERR', 'MC1HUMHT', 'STDASH0', 'WINDS25M', 'DUSTB', 'WINDS', 'GUSTD', 'IONPUMP', 'WINDD25M', 'MC1THT', 'TRUSTEMP', 'DUSTA', 'MGDDEC', 'HUMIDITY', 'SHOPETIM', 'SRVYMODE', 'CCDTEMP', 'V_GUIDER', 'M1ZROT', 'V_BOSS', 'AIRTEMP', 'SHCLOTIM', 'WINDD', 'SUBFRAME', 'DEWPOINT']
-   - removed_primary_header_kwargs: ['PIXBIAS', 'OBJOFFY', 'BOSSVER', 'OBJOFFX', 'DAQVER']
+   - added_primary_header_kwargs: ['HUMIDITY', 'LN2TEMP', 'DUSTB', 'WINDS', 'DUSTA', 'PRESSURE', 'M1ZROT', 'WINDS25M', 'IONPUMP', 'REQTIME', 'WDISPR', 'V_APO', 'MC1HUMCO', 'TRUSTEMP', 'MC1TRCT', 'MC1TBCT', 'GUSTS', 'MC1TEMDN', 'SIGBSH0', 'MC1HUMHT', 'V_SOP', 'AVGBSH0', 'WINDD25M', 'M2ZROT', 'V_BOSS', 'MC1TRCB', 'PLATETYP', 'SRVYMODE', 'PFERR', 'CENBSH0', 'SUBFRAME', 'MGDDEC', 'WINDD', 'MGDRA', 'SHCLOTIM', 'AIRTEMP', 'MC1THT', 'DIDFLUSH', 'SHOPETIM', 'AVGASH0', 'MC1TBCB', 'SLITID1', 'DEWPOINT', 'MGDPOS', 'CCDTEMP', 'DARKTIME', 'STDBSH0', 'V_GUIDER', 'GUSTD', 'STDASH0']
+   - removed_primary_header_kwargs: ['DAQVER', 'PIXBIAS', 'OBJOFFY', 'BOSSVER', 'OBJOFFX']
  - DR17
    - from: DR16
    - note: No changes
@@ -82,7 +82,7 @@ Describes changes to the datamodel product and/or file structure from one releas
    - from: DR15
    - primary_delta_nkeys: 17
    - added_primary_header_kwargs: ['PIXBIAS']
-   - removed_primary_header_kwargs: ['MC2HUMHT', 'MC1TRCB', 'MC1HUMHT', 'MC1TBCB', 'MC1HUMCO', 'MC1TRCT', 'MC1TEMDN', 'MC2TBCT', 'MC1THT', 'MC2THT', 'MC2TRCT', 'MC2TRCB', 'MC2HUMCO', 'MC1TBCT', 'SHCLOTIM', 'MC2TEMDN', 'MC2TBCB', 'SHOPETIM']
+   - removed_primary_header_kwargs: ['MC1TRCT', 'MC2TEMDN', 'MC2TBCT', 'MC1TBCB', 'MC1TBCT', 'MC1TEMDN', 'MC2HUMHT', 'MC2THT', 'MC1HUMHT', 'MC2HUMCO', 'MC2TBCB', 'SHCLOTIM', 'MC1THT', 'MC1TRCB', 'SHOPETIM', 'MC2TRCB', 'MC1HUMCO', 'MC2TRCT']
  - DR15
    - from: DR14
    - note: No changes
@@ -100,7 +100,7 @@ Describes changes to the datamodel product and/or file structure from one releas
    - note: No changes
  - DR10
    - from: DR9
-   - added_hdus: ['WAVEDISP', 'IVAR', 'PLUGMAP', 'WAVELENGTH', 'SKY', 'SUPERFLAT', 'MASK', 'X']
+   - added_hdus: ['SUPERFLAT', 'IVAR', 'PLUGMAP', 'MASK', 'X', 'SKY', 'WAVELENGTH', 'WAVEDISP']
 
 ---
 ## Example HDUS List

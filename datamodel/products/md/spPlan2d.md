@@ -49,7 +49,7 @@ Describes changes to the datamodel product and/or file structure from one releas
  - IPL4
    - from: DR19
    - delta_nkeys: 2
-   - removed_header_keys: ['speclogVersion', 'idlutilsVersion']
+   - removed_header_keys: ['idlutilsVersion', 'speclogVersion']
    - tables: {'SPEXP': {'delta_nrows': 2}}
  - DR19
    - from: IPL3
@@ -57,9 +57,9 @@ Describes changes to the datamodel product and/or file structure from one releas
  - IPL3
    - from: DR18
    - delta_nkeys: 8
-   - added_header_keys: ['SDSS_access_Release', 'OBS', 'pydlVersion', 'fieldname', 'SDSS_access_Ver', 'sdss_tree_Ver', 'manual', 'DITHER', 'SDSSCOREVersion']
+   - added_header_keys: ['SDSSCOREVersion', 'manual', 'SDSS_access_Ver', 'DITHER', 'OBS', 'SDSS_access_Release', 'fieldname', 'pydlVersion', 'sdss_tree_Ver']
    - removed_header_keys: ['plateid']
-   - tables: {'SPEXP': {'added_cols': ['fieldid', 'confid'], 'removed_cols': ['plateid'], 'delta_nrows': 3}}
+   - tables: {'SPEXP': {'added_cols': ['confid', 'fieldid'], 'removed_cols': ['plateid'], 'delta_nrows': 3}}
  - DR18
    - from: DR17
    - tables: {'SPEXP': {'delta_nrows': 4}}
@@ -78,13 +78,13 @@ Describes changes to the datamodel product and/or file structure from one releas
  - DR13
    - from: DR11
    - delta_nkeys: 7
-   - added_header_keys: ['idlspec2dVersion', 'RUN2D', 'plateid', 'speclogVersion', 'MJD', 'planfile2d', 'idlutilsVersion']
+   - added_header_keys: ['planfile2d', 'idlspec2dVersion', 'speclogVersion', 'MJD', 'plateid', 'idlutilsVersion', 'RUN2D']
    - delta_ntables: 1
    - added_tables: ['SPEXP']
  - DR11
    - from: DR12
    - delta_nkeys: 7
-   - removed_header_keys: ['idlspec2dVersion', 'RUN2D', 'plateid', 'speclogVersion', 'MJD', 'planfile2d', 'idlutilsVersion']
+   - removed_header_keys: ['planfile2d', 'idlspec2dVersion', 'speclogVersion', 'MJD', 'plateid', 'idlutilsVersion', 'RUN2D']
    - delta_ntables: 1
    - removed_tables: ['SPEXP']
  - DR12

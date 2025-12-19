@@ -51,7 +51,7 @@ Describes changes to the datamodel product and/or file structure from one releas
    - from: DR19
    - added_hdus: ['ZALL']
    - primary_delta_nkeys: 18
-   - added_primary_header_kwargs: ['GRMSSTD', 'SN2EXT2I', 'SPEC2_I', 'GRRMSSTD', 'GOFFSTD', 'SPEC2_G', 'EXTNAME', 'SN2EXT2G', 'IOFFSTD', 'GROFFSTD', 'NSTD', 'RRMSSTD', 'RIRMSSTD', 'RIOFFSTD', 'ROFFSTD', 'IRMSSTD', 'SPEC2_R', 'SN2EXT2R']
+   - added_primary_header_kwargs: ['IRMSSTD', 'SN2EXT2G', 'SPEC2_I', 'RRMSSTD', 'EXTNAME', 'GRRMSSTD', 'SPEC2_G', 'IOFFSTD', 'GOFFSTD', 'RIRMSSTD', 'RIOFFSTD', 'SN2EXT2I', 'GRMSSTD', 'GROFFSTD', 'NSTD', 'SN2EXT2R', 'ROFFSTD', 'SPEC2_R']
  - DR19
    - from: IPL3
    - note: No changes

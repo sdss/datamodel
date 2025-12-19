@@ -57,7 +57,7 @@ Describes changes to the datamodel product and/or file structure from one releas
    - from: DR18
    - added_hdus: ['SPALL']
    - primary_delta_nkeys: 5
-   - added_primary_header_kwargs: ['SDSSC2BV', 'RUN2D', 'DATASUM', 'CHECKSUM', 'DATE']
+   - added_primary_header_kwargs: ['DATASUM', 'DATE', 'SDSSC2BV', 'CHECKSUM', 'RUN2D']
  - DR18
    - from: DR17
    - note: No changes

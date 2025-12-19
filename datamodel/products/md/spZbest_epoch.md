@@ -51,7 +51,7 @@ False
 Describes changes to the datamodel product and/or file structure from one release to another
  - IPL4
    - from: DR19
-   - added_hdus: ['SYNFLUX', 'DISPFLUX', 'ZANS']
+   - added_hdus: ['DISPFLUX', 'SYNFLUX', 'ZANS']
    - primary_delta_nkeys: 2
    - added_primary_header_kwargs: ['DATE-OBS', 'SFLATMIN', 'PIXFLAT', 'EXTNAME']
    - removed_primary_header_kwargs: ['SIGAS0', 'CENAS0']
