@@ -288,7 +288,9 @@ def file_selector(suffix: str = None) -> BaseFile:
     """ Selects the correct File class given a file suffix """
 
     for ftype in BaseFile.__subclasses__():
-        if suffix and suffix.upper() == ftype.suffix:
+        suffixes = [ftype.suffix]
+        suffixes.extend(ftype.aliases)
+        if suffix and suffix.upper() in suffixes:
             return ftype
 
 

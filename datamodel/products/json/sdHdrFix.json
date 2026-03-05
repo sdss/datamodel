@@ -1,0 +1,123 @@
+{
+  "general": {
+    "name": "sdHdrFix",
+    "short": "SDSS BOSS sdHdrFix header fix Parameter File",
+    "description": "Parameter file containing header fixes for SDSS BOSS observations",
+    "environments": [
+      "SDSSCORE_DIR"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PAR",
+    "filesize": "355 bytes",
+    "releases": [
+      {
+        "name": "IPL4",
+        "description": "SDSS internal product launch 4",
+        "public": false,
+        "release_date": "2025-07-15"
+      }
+    ],
+    "naming_convention": "$SDSSCORE_DIR/[OBS]/sdHdrfix/sdHdrFix-[MJD].par",
+    "generated_by": "idlspec2d",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "0.3.0"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "IPL4": {
+      "template": "$SDSSCORE_DIR/[OBS]/sdHdrfix/sdHdrFix-[MJD].par",
+      "example": "lco/sdHdrfix/sdHdrFix-60006.par",
+      "location": "{obs}/sdHdrfix/sdHdrFix-{mjd}.par",
+      "environment": "SDSSCORE_DIR",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "sdHdrFix",
+        "path_template": "$SDSSCORE_DIR/{obs}/sdHdrfix/sdHdrFix-{mjd}.par",
+        "path_kwargs": [
+          "mjd",
+          "obs"
+        ],
+        "access_string": "sdHdrFix = $SDSSCORE_DIR/{obs}/sdHdrfix/sdHdrFix-{mjd}.par"
+      },
+      "hdus": null,
+      "par": {
+        "comments": "#%yanny\n#\n# sdHdrFix-60006.par\n#\n# Created by pydl.pydlutils.yanny.yanny\n#\n# 2023-03-06 22:28:13 UTC\n#",
+        "header": [
+          {
+            "key": "MJD",
+            "value": "60006",
+            "comment": "MJD of observation"
+          },
+          {
+            "key": "OBS",
+            "value": "LCO",
+            "comment": "Observatory of observation"
+          }
+        ],
+        "tables": {
+          "OPHDRFIX": {
+            "name": "OPHDRFIX",
+            "description": "Table of header fixes for SDSS BOSS observations",
+            "n_rows": 2,
+            "structure": [
+              {
+                "name": "fileroot",
+                "type": "char[20]",
+                "description": "BOSS sdR raw fits file root name (with potential wildcards for camera and spectrograph)",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": "sdR-??-00009453"
+              },
+              {
+                "name": "keyword",
+                "type": "char[9]",
+                "description": "Fits header keyword to be fixed",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": "HEAR"
+              },
+              {
+                "name": "value",
+                "type": "char[80]",
+                "description": "New value for the keyword",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": "1 1 1 1"
+              }
+            ]
+          }
+        }
+      },
+      "hdfs": null
+    }
+  },
+  "notes": "pre-SDSSV FPS files were stored in the speclog product, but moved the SDSSCORE product with the replacement of the plugmap files with the fps confSummary files in SDSSV.",
+  "regrets": "I  have no regrets!"
+}

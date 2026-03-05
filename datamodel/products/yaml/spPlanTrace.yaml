@@ -1,0 +1,138 @@
+general:
+  name: spPlanTrace
+  short: Spectro Arc and Flat Plan Trace Data File for a given MJD and Observatory
+  description: The spPlanTrace file contains the plan trace data for a given MJD and
+    Observatory, including information about nightly calibration exposures. It us
+    used to build the traces for the spectrograph data reduction process using an
+    inital set of arc and flat exposures, and correlating theses traces with arc frames
+    taken for each science field during the night
+  datatype: PAR
+  filesize: 2 KB
+  releases:
+  - IPL4
+  environments:
+  - BOSS_SPECTRO_REDUX
+  surveys:
+  - SDSS
+  naming_convention: $BOSS_SPECTRO_REDUX/[RUN2D]/trace/[MJD]/spPlanTrace-[MJD]_[OBS].par
+  generated_by: idlspec2d
+  data_level: '1.1'
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  IPL4:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/trace/[MJD]/spPlanTrace-[MJD]_[OBS].par
+    example: v6_2_1/trace/60708/spPlanTrace-60708_LCO.par
+    location: '{run2d}/trace/{mjd}/spPlanTrace-{mjd}_{OBS}.par'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spPlanTrace
+      path_template: $BOSS_SPECTRO_REDUX/{run2d}/trace/{mjd}/spPlanTrace-{mjd}_{OBS}.par
+      path_kwargs:
+      - OBS
+      - mjd
+      - run2d
+      access_string: spPlanTrace = $BOSS_SPECTRO_REDUX/{run2d}/trace/{mjd}/spPlanTrace-{mjd}_{OBS}.par
+    survey: SDSS
+    par:
+      comments: |-
+        #%yanny
+        # Table
+      header:
+      - key: MJD
+        value: '60708'
+        comment: Modified Julian Date of plan
+      - key: OBS
+        value: LCO
+        comment: Associated Observatory
+      - key: RUN2D
+        value: v6_2_1
+        comment: 2D reduction name
+      - key: idlspec2dVersion
+        value: '''v6_2_1'''
+        comment: Version of idlspec2d used to generate this file
+      - key: pydlVersion
+        value: '''1.0.0'''
+        comment: Version of pydl used to generate this file
+      - key: SDSSCOREVersion
+        value: '''main'''
+        comment: Version of SDSSCORE used to generate this file
+      - key: SDSS_access_Ver
+        value: '''3.0.5'''
+        comment: Version of SDSS_access used to generate this file
+      - key: sdss_tree_Ver
+        value: '''4.0.7dev'''
+        comment: Version of sdss_tree used to generate this file
+      - key: SDSS_access_Release
+        value: '''sdsswork'''
+        comment: SDSS-access Release Version when building plan
+      - key: manual
+        value: F
+        comment: 'Manually edited plan file (T: True, F: False)'
+      tables:
+        SPEXP:
+          name: SPEXP
+          description: Table of Nightly Calibration Exposures
+          n_rows: 16
+          structure:
+          - name: confid
+            type: char[8]
+            description: FPS Configuration ID of exposure
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: '-999'
+          - name: fieldid
+            type: char[6]
+            description: FieldID (or PlateID) of exposure
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: -00999
+          - name: mjd
+            type: int
+            description: MJD of exposure
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 60708
+          - name: mapname
+            type: char[8]
+            description: Plate Map Name or FPS configuration ID
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: '-999'
+          - name: flavor
+            type: char[9]
+            description: Flavor of Exposure (flat, arc, science)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: flat
+          - name: exptime
+            type: float
+            description: Exposure Length of exposure
+            unit: seconds
+            is_array: false
+            is_enum: false
+            example: 100.0
+          - name: name
+            type: char[2][19]
+            description: Name of Raw Exposure Files
+            unit: ''
+            is_array: true
+            is_enum: false
+            example:
+            - sdR-b2-00046740.fit
+            - sdR-r2-00046740.fit
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

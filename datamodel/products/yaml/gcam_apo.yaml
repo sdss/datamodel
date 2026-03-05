@@ -1,0 +1,196 @@
+general:
+  name: gcam_apo
+  short: GCAM Guiding and Centering Data for APO for a given MJD
+  description: GCAM Guiding and Centering Data for APO for a given MJD
+  datatype: FITS
+  filesize: 182 KB
+  releases:
+  - IPL4
+  environments:
+  - GCAM_DATA_N
+  surveys:
+  - SDSS
+  naming_convention: $GCAM_DATA_N/[MJD]/gcam-[MJD].fits
+  generated_by: sdsscore
+  data_level: 1.3.1
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  IPL4:
+    template: $GCAM_DATA_N/[MJD]/gcam-[MJD].fits
+    example: 60708/gcam-60708.fits
+    location: '{mjd}/gcam-{mjd}.fits'
+    environment: GCAM_DATA_N
+    access:
+      in_sdss_access: true
+      path_name: gcam_apo
+      path_template: $GCAM_DATA_N/{mjd}/gcam-{mjd}.fits
+      path_kwargs:
+      - mjd
+      access_string: gcam_apo = $GCAM_DATA_N/{mjd}/gcam-{mjd}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary HDU
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: GCAM Guiding and Centering Data
+        is_image: false
+        size: 173 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 165
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 1078
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 20
+          comment: number of table fields
+        - key: TDIM19
+          value: (6)
+          comment: ''
+        - key: TDIM20
+          value: (6)
+          comment: ''
+        columns:
+          indx:
+            name: indx
+            type: int32
+            unit: ''
+            description: Index of guider image
+          date-obs:
+            name: date-obs
+            type: char[21]
+            unit: ''
+            description: Time of the start of the exposure [TAI]
+          mjd:
+            name: mjd
+            type: float64
+            unit: ''
+            description: Modified Julian Date of the start of the exposure
+          ra:
+            name: ra
+            type: float64
+            unit: degree
+            description: RA of telescope boresight
+          dec:
+            name: dec
+            type: float64
+            unit: degree
+            description: Dec of telescope boresight
+          az:
+            name: az
+            type: float64
+            unit: degree
+            description: Azimuth axis pos. (approx)
+          alt:
+            name: alt
+            type: float64
+            unit: degree
+            description: Altitude axis pos. (approx)
+          ipa:
+            name: ipa
+            type: float64
+            unit: degree
+            description: Rotator axis pos. (approx)
+          focus:
+            name: focus
+            type: float64
+            unit: micron
+            description: User-specified focus offset
+          gdrms:
+            name: gdrms
+            type: float32
+            unit: arcsec
+            description: Guide RMS
+          dRA:
+            name: dRA
+            type: float32
+            unit: arcsec
+            description: RA measured delta
+          dDec:
+            name: dDec
+            type: float32
+            unit: arcsec
+            description: Dec measured delta
+          dRot:
+            name: dRot
+            type: float32
+            unit: degree
+            description: Rot measured delta
+          dScale:
+            name: dScale
+            type: float32
+            unit: ''
+            description: Scale measured factor
+          corrRA:
+            name: corrRA
+            type: float32
+            unit: arcsec
+            description: RA applied correction
+          corrDec:
+            name: corrDec
+            type: float32
+            unit: arcsec
+            description: Dec applied correction
+          corrRot:
+            name: corrRot
+            type: float32
+            unit: arcsec
+            description: Rot applied correction
+          corrScale:
+            name: corrScale
+            type: float32
+            unit: ''
+            description: Scale applied correction
+          nstars:
+            name: nstars
+            type: int32[6]
+            unit: ''
+            description: Number of fit guide stars per camera
+          fwhm:
+            name: fwhm
+            type: float32[6]
+            unit: arcsec
+            description: measured full width half max of sources per camera
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!
