@@ -1,0 +1,52 @@
+general:
+  name: test
+  short: this is a test Parquet file
+  description: this is a test file used for testing
+  datatype: PARQUET
+  filesize: 1 kb
+  releases:
+    - WORK
+  environments:
+    - TEST_REDUX
+  naming_convention: $TEST_REDUX/[VER]/testfile_[ID].parquet or testfile_a.parquet
+  generated_by: create_test_file in conftest.py
+  design: false
+  data_level: 1.2.3
+changelog:
+  description:
+    Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  WORK:
+    template: $TEST_REDUX/[VER]/testfile_[ID].parquet
+    example: v1/testfile_a.parquet
+    location: '{ver}/testfile_{id}.parquet'
+    environment: TEST_REDUX
+    access:
+      in_sdss_access: true
+      path_name: test
+      path_template: $TEST_REDUX/{ver}/testfile_{id}.parquet
+      path_kwargs:
+        - ver
+        - id
+      access_string: test = $TEST_REDUX/{ver}/testfile_{id}.parquet
+    dataframe:
+      columns:
+        col1:
+          name: col1
+          description: This is column 1
+          unit: null
+          dtype: Int32
+        col2:
+          name: col2
+          description: This is column 2
+          unit: pixels
+          dtype: Utf8
+        col3:
+          name: col3
+          description: This is column 3
+          unit: deg
+          dtype: Float64
+notes: null
+regrets: null

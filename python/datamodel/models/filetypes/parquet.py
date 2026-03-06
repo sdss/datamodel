@@ -101,7 +101,7 @@ class DataFrameColumn(CoreModel):
         ...,
         description="A description of the column.",
     )
-    unit: str = Field(
+    unit: str | None = Field(
         ...,
         description="The units of the column.",
     )

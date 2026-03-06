@@ -166,7 +166,7 @@ class ParquetFileType(BaseFile):
     def write_design(self, file: str, overwrite: bool = False) -> None:
         """Write the design of a Parquet file product to disk."""
 
-        if not self._designed_object:
+        if self._designed_object is None:
             raise AttributeError("Cannot write. Designed object does not exist.")
 
         if os.path.exists(file) and not overwrite:
@@ -180,4 +180,4 @@ class ParquetFileType(BaseFile):
         if not polars:
             raise ImportError("Polars is required to work with Parquet file products.")
 
-        return DataFrameModel.model_validate({"columns": data}).generate_dataframe()
+        return DataFrameModel.model_validate(data).generate_dataframe()
