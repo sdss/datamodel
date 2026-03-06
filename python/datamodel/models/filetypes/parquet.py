@@ -8,11 +8,24 @@
 
 from __future__ import annotations
 
-from typing import Dict
+from typing import TYPE_CHECKING, Any, Dict, List
 
 from pydantic import Field
 
+from datamodel import log
 from datamodel.models.base import CoreModel
+
+__all__ = ["DataFrame", "DataFrameColumn", "ChangeParquet"]
+
+
+try:
+    import polars
+except ImportError:
+    polars: None = None
+
+
+if TYPE_CHECKING and polars:
+    DataFrameType = polars.DataFrame
 
 
 class DataFrame(CoreModel):
@@ -31,6 +44,35 @@ class DataFrame(CoreModel):
         description="A dictionary of columns in the dataframe, keyed by column name.",
     )
 
+    def generate_dataframe(self) -> DataFrameType:
+        """Generate a DataFrame model from this column."""
+
+        if not polars:
+            raise ImportError("Polars is required to work with Parquet file products.")
+
+        schema = {}
+        data = {}
+        for col in self.columns:
+            column_info = self.columns[col]
+
+            data[col] = column_info.value
+
+            try:
+                dtype_str = column_info.dtype
+                dtype = eval(f"polars.{dtype_str}")
+            except Exception:
+                log.warning(f"Could not parse dtype '{dtype_str}' for column '{col}'.")
+                continue
+
+            schema[col] = dtype
+
+        df = polars.DataFrame(data=data, schema=schema)
+
+        # Drop rows where all values are null.
+        df = df.filter(polars.all_horizontal(polars.all().is_null().not_()))
+
+        return df
+
 
 class DataFrameColumn(CoreModel):
     """Pydantic model representing a column in a dataframe in a Parquet file.
@@ -46,6 +88,8 @@ class DataFrameColumn(CoreModel):
         The units of the column.
     dtype: str
         The data type of the column.
+    value: Any
+        An example value for the column.
 
     """
 
@@ -64,4 +108,36 @@ class DataFrameColumn(CoreModel):
     dtype: str = Field(
         ...,
         description="The data type of the column.",
+    )
+    value: Any = Field(
+        None,
+        description="An example value for the column.",
+    )
+
+
+class ChangeParquet(CoreModel):
+    """Pydantic model representing the changes to a Parquet file between two releases.
+
+    Parameters
+    ----------
+    delta_ncolumns: int
+        The difference in number of columns between the two Parquet files.
+    added_columns: List[str]
+        A list of columns that were added between the two Parquet files.
+    removed_columns: List[str]
+        A list of columns that were removed between the two Parquet files.
+
+    """
+
+    delta_ncolumns: int = Field(
+        default=0,
+        description="The difference in number of columns between the two Parquet files.",
+    )
+    added_columns: List[str] = Field(
+        default_factory=list,
+        description="A list of columns that were added between the two Parquet files.",
+    )
+    removed_columns: List[str] = Field(
+        default_factory=list,
+        description="A list of columns that were removed between the two Parquet files.",
     )

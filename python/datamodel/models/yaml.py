@@ -22,11 +22,18 @@ from pydantic import Field, ValidationInfo, field_validator
 from pydantic.functional_validators import AfterValidator
 from typing_extensions import Annotated
 
-from datamodel.models.filetypes.parquet import DataFrame
-
 # from pydantic_core import SchemaSerializer
 from .base import CoreModel
-from .filetypes import HDU, ChangeFits, ChangeHdf, ChangePar, HdfModel, ParModel
+from .filetypes import (
+    HDU,
+    ChangeFits,
+    ChangeHdf,
+    ChangePar,
+    ChangeParquet,
+    DataFrame,
+    HdfModel,
+    ParModel,
+)
 from .levels import DataLevel
 from .releases import Release, releases
 from .surveys import Survey, surveys
@@ -185,7 +192,7 @@ class ChangeBase(CoreModel):
     # })
 
 
-class ChangeRelease(ChangeHdf, ChangePar, ChangeFits, ChangeBase):
+class ChangeRelease(ChangeParquet, ChangeHdf, ChangePar, ChangeFits, ChangeBase):
     """Pydantic model representing a YAML changelog release section
 
     Represents a computed section of the changelog, for the specified
@@ -238,6 +245,12 @@ class ChangeRelease(ChangeHdf, ChangePar, ChangeFits, ChangeBase):
         A list of any removed HDF5 groups or datasets
     members : Dict[str, ChangeMember]
         A dictionary of HDF5 group/dataset member changes
+    ndelta_ncolumns : int
+        The difference in number of columns in a Parquet file
+    added_columns : List[str]
+        A list of any added columns in a Parquet file
+    removed_columns : List[str]
+        A list of any removed columns in a Parquet file
     """
 
 
@@ -271,7 +284,7 @@ class ChangeLog(CoreModel):
 
         """
         kwargs.pop("exclude_none", None)
-        return super().model_dump(exclude_none=True, **kwargs)
+        return super().model_dump(exclude_none=False, **kwargs)
 
 
 class Access(CoreModel):
