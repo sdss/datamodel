@@ -8,7 +8,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Dict, List
+from typing import TYPE_CHECKING, Any, Dict, List, Union
 
 from pydantic import Field
 
@@ -101,7 +101,7 @@ class DataFrameColumn(CoreModel):
         ...,
         description="A description of the column.",
     )
-    unit: str | None = Field(
+    unit: Union[str, None] = Field(
         ...,
         description="The units of the column.",
     )

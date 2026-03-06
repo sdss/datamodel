@@ -9,7 +9,7 @@
 from __future__ import annotations
 
 import os
-from typing import TYPE_CHECKING, Any, Dict, Tuple, Type
+from typing import TYPE_CHECKING, Any, Dict, Tuple, Type, Union
 
 from datamodel.generate.filetypes.base import BaseFile
 from datamodel.models.filetypes.parquet import DataFrame as DataFrameModel
@@ -23,7 +23,12 @@ except ImportError:
 if TYPE_CHECKING and polars:
     DataFrameType = polars.DataFrame
     DType = polars.datatypes.DataType
-    ColumnDType = DType | Type[DType] | str | Tuple[DType | Type[DType] | str, Any]
+    ColumnDType = Union[
+        DType,
+        Type[DType],
+        str,
+        Tuple[Union[DType, Type[DType], str], Any],
+    ]
 
 
 __all__ = ["ParquetFileType"]
@@ -38,13 +43,13 @@ class ParquetFileType(BaseFile):
     def __init__(self, *args, **kwargs):
         super(ParquetFileType, self).__init__(*args, **kwargs)
 
-        self._designed_object: DataFrameType | None = None
+        self._designed_object: Union[DataFrameType, None] = None
 
         if not polars:
             raise ImportError("Polars is required to work with Parquet file products.")
 
         # Read in the Parquet file if not designing one.
-        self.dataframe: DataFrameType | None = None
+        self.dataframe: Union[DataFrameType, None] = None
 
         if self._datamodel and not self._datamodel.design:
             self.dataframe = polars.read_parquet(self.filename)
@@ -72,7 +77,7 @@ class ParquetFileType(BaseFile):
 
     def _parse_columns(
         self,
-        df: DataFrameType | None = None,
+        df: Union[DataFrameType, None] = None,
         get_value: bool = False,
     ) -> Dict[str, Dict]:
         """Parse the columns of the Parquet file."""
@@ -100,8 +105,8 @@ class ParquetFileType(BaseFile):
 
     def design_content(
         self,
-        dataframe: DataFrameType | None = None,
-        columns: Dict[str, ColumnDType] | None = {},
+        dataframe: Union[DataFrameType, None] = None,
+        columns: Union[Dict[str, ColumnDType], None] = {},
         **kwargs,
     ) -> None:
         """Design a new Parquet file product.
