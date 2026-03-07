@@ -11,6 +11,8 @@
 
 import os
 
+from pkg_resources import parse_version
+
 try:
     from datamodel import __version__
 except ModuleNotFoundError:
@@ -64,7 +66,7 @@ author = 'Joel Brownstein'
 # built documents.
 
 # The short X.Y version.
-version = __version__
+version = parse_version(__version__).base_version
 # The full version, including alpha/beta/rc tags.
 release = __version__
 
