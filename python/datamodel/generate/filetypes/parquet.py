@@ -9,7 +9,7 @@
 from __future__ import annotations
 
 import os
-from typing import TYPE_CHECKING, Any, Dict, Tuple, Type, Union
+from typing import TYPE_CHECKING, Dict, Union
 
 from datamodel.generate.filetypes.base import BaseFile
 from datamodel.models.filetypes.parquet import DataFrame as DataFrameModel
@@ -22,13 +22,6 @@ except ImportError:
 
 if TYPE_CHECKING and polars:
     DataFrameType = polars.DataFrame
-    DType = polars.datatypes.DataType
-    ColumnDType = Union[
-        DType,
-        Type[DType],
-        str,
-        Tuple[Union[DType, Type[DType], str], Any],
-    ]
 
 
 __all__ = ["ParquetFileType"]
@@ -127,7 +120,7 @@ class ParquetFileType(BaseFile):
     def design_content(
         self,
         dataframe: Union[DataFrameType, None] = None,
-        columns: Union[Dict[str, ColumnDType], None] = {},
+        columns: Union[Dict[str, Dict], None] = {},
         metadata: Union[Dict[str, str], None] = {},
         **kwargs,
     ) -> None:
@@ -140,12 +133,10 @@ class ParquetFileType(BaseFile):
             not provided, the design will be based on the provided columns dictionary.
         columns: Dict[str, Any], optional
             A dictionary of column information to use for the design of the Parquet file
-            product. The keys should be column names. Values can be either a tuple
-            of data type and example value, or just the date type, in which case
-            the row value will be set to null.
+            product.
         metadata: Dict[str, str], optional
             A dictionary of metadata to include in the design of the Parquet file
-            product. Must be a mapping of key-value.
+            product.
 
         """
 
@@ -168,24 +159,15 @@ class ParquetFileType(BaseFile):
             dm_columns = {}
 
             for colname, colinfo in columns.items():
-                if isinstance(colinfo, tuple):
-                    dtype, value = colinfo
-                else:
-                    dtype, value = colinfo, None
-
-                if isinstance(dtype, (polars.datatypes.DataType, str)):
-                    pass
-                elif issubclass(dtype, polars.datatypes.DataType):
-                    pass
-                else:
-                    raise ValueError("Data type must be a string or a Polars DataType.")
-
                 dm_columns[colname] = {
                     "name": colname,
-                    "dtype": str(dtype),
-                    "unit": self._nonempty_string(),
-                    "description": self._nonempty_string(),
-                    "value": value,
+                    "dtype": str(colinfo["dtype"]),
+                    "unit": self._nonempty_string()
+                    if colinfo["unit"] is None
+                    else colinfo["unit"],
+                    "description": self._nonempty_string()
+                    if colinfo["description"] is None
+                    else colinfo["description"],
                 }
 
         cached_df["columns"] = dm_columns
