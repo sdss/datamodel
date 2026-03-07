@@ -35,6 +35,8 @@ class DataFrame(CoreModel):
     ----------
     columns: Dict[str, DataFrameColumn]
         A dictionary of columns in the dataframe, keyed by column name.
+    metadata: List[Dict[str, Any]]
+        A list of dictionaries containing metadata for the dataframe.
 
     """
 
@@ -42,6 +44,12 @@ class DataFrame(CoreModel):
         default_factory=dict,
         repr=False,
         description="A dictionary of columns in the dataframe, keyed by column name.",
+    )
+
+    metadata: List[Dict[str, Any]] = Field(
+        default_factory=list,
+        repr=False,
+        description="A list of dictionaries containing metadata for the dataframe.",
     )
 
     def generate_dataframe(self) -> DataFrameType:
@@ -112,6 +120,34 @@ class DataFrameColumn(CoreModel):
     value: Any = Field(
         None,
         description="An example value for the column.",
+    )
+
+
+class DataFrameMetadata(CoreModel):
+    """Pydantic model representing the metadata of a dataframe in a Parquet file.
+
+    Parameters
+    ----------
+    key: str
+        The key of the metadata.
+    description: str
+        A description of the metadata key.
+    value: Any
+        An example value for the metadata.
+
+    """
+
+    key: str = Field(
+        ...,
+        description="The key of the metadata.",
+    )
+    description: str = Field(
+        ...,
+        description="Description of the metadata key.",
+    )
+    value: Any = Field(
+        None,
+        description="An example value for the metadata",
     )
 
 

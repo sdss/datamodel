@@ -57,9 +57,18 @@ class ParquetFileType(BaseFile):
     def _generate_new_cache(self) -> dict:
         """Generate a new cache for Parquet files."""
 
+        assert polars, "Polars is required to work with Parquet file products."
+
         columns: Dict[str, Dict] = self._parse_columns()
 
-        return {"columns": columns}
+        metadata: Dict[str, str] = polars.read_parquet_metadata(self.filename)
+        if "ARROW:schema" in metadata:
+            metadata.pop("ARROW:schema")
+
+        return {
+            "columns": columns,
+            "metadata": {key: self._nonempty_string() for key in metadata},
+        }
 
     def _update_partial_cache(self, cached_data: dict, old_cache: dict) -> dict:
         """Update the cache with new data for Parquet files."""
@@ -72,6 +81,11 @@ class ParquetFileType(BaseFile):
 
             if old_unit := old_col_data.get("unit", ""):
                 cached_data["columns"][colname]["unit"] = old_unit
+
+        for key in cached_data.get("metadata", {}):
+            old_key_data = old_cache["metadata"].get(key, {})
+            if old_description := old_key_data.get("description", ""):
+                cached_data["metadata"][key]["description"] = old_description
 
         return cached_data
 
@@ -107,6 +121,7 @@ class ParquetFileType(BaseFile):
         self,
         dataframe: Union[DataFrameType, None] = None,
         columns: Union[Dict[str, ColumnDType], None] = {},
+        metadata: Union[Dict[str, str], None] = {},
         **kwargs,
     ) -> None:
         """Design a new Parquet file product.
@@ -121,6 +136,9 @@ class ParquetFileType(BaseFile):
             product. The keys should be column names. Values can be either a tuple
             of data type and example value, or just the date type, in which case
             the row value will be set to null.
+        metadata: Dict[str, str], optional
+            A dictionary of metadata to include in the design of the Parquet file
+            product. Must be a mapping of key-value.
 
         """
 
@@ -164,6 +182,17 @@ class ParquetFileType(BaseFile):
                 }
 
         cached_df["columns"] = dm_columns
+
+        metadata = metadata or {}
+        cached_df["metadata"] = [
+            {
+                "key": key,
+                "description": self._nonempty_string(),
+                "value": str(value),
+            }
+            for key, value in metadata.items()
+        ]
+
         self._cache["releases"]["WORK"][self.cache_key] = cached_df
 
         return
@@ -177,7 +206,13 @@ class ParquetFileType(BaseFile):
         if os.path.exists(file) and not overwrite:
             raise FileExistsError(f"File {file!r} already exists.")
 
-        self._designed_object.write_parquet(file)
+        cache = self._cache["releases"]["WORK"][self.cache_key]
+        metadata = cache.get("metadata", [])
+
+        self._designed_object.write_parquet(
+            file,
+            metadata={item["key"]: item.get("value", "") for item in metadata},
+        )
 
     def _get_designed_object(self, data: dict) -> DataFrameType:
         """Get the designed object for a Parquet file product."""
