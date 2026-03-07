@@ -110,7 +110,7 @@ def create_parquet(path):
         schema={'col1': polars.Int32, 'col2': polars.Utf8, 'col3': polars.Float64}
     )
 
-    df.write_parquet(path)
+    df.write_parquet(path, metadata={'key1': '1', 'key2': '2.0'})
 
     return path
 

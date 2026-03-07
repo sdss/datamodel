@@ -46,8 +46,8 @@ class DataFrame(CoreModel):
         description="A dictionary of columns in the dataframe, keyed by column name.",
     )
 
-    metadata: List[Dict[str, Any]] = Field(
-        default_factory=list,
+    metadata: Dict[str, DataFrameMetadata] = Field(
+        default_factory=dict,
         repr=False,
         description="A list of dictionaries containing metadata for the dataframe.",
     )

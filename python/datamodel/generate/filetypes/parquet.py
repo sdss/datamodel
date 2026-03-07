@@ -62,12 +62,19 @@ class ParquetFileType(BaseFile):
         columns: Dict[str, Dict] = self._parse_columns()
 
         metadata: Dict[str, str] = polars.read_parquet_metadata(self.filename)
-        if "ARROW:schema" in metadata:
-            metadata.pop("ARROW:schema")
+
+        # Delete some keys that are added by Pandas or are
+        # part of the Parquet file specification.
+        for key in ["pandas", "ARROW:schema"]:
+            if key in metadata:
+                metadata.pop(key)
 
         return {
             "columns": columns,
-            "metadata": {key: self._nonempty_string() for key in metadata},
+            "metadata": {
+                key: {"key": key, "description": self._nonempty_string()}
+                for key in metadata
+            },
         }
 
     def _update_partial_cache(self, cached_data: dict, old_cache: dict) -> dict:
@@ -184,14 +191,14 @@ class ParquetFileType(BaseFile):
         cached_df["columns"] = dm_columns
 
         metadata = metadata or {}
-        cached_df["metadata"] = [
-            {
+        cached_df["metadata"] = {
+            key: {
                 "key": key,
                 "description": self._nonempty_string(),
                 "value": str(value),
             }
             for key, value in metadata.items()
-        ]
+        }
 
         self._cache["releases"]["WORK"][self.cache_key] = cached_df
 
@@ -207,11 +214,11 @@ class ParquetFileType(BaseFile):
             raise FileExistsError(f"File {file!r} already exists.")
 
         cache = self._cache["releases"]["WORK"][self.cache_key]
-        metadata = cache.get("metadata", [])
+        metadata = cache.get("metadata", {})
 
         self._designed_object.write_parquet(
             file,
-            metadata={item["key"]: item.get("value", "") for item in metadata},
+            metadata={item["key"]: item.get("value", "") for item in metadata.values()},
         )
 
     def _get_designed_object(self, data: dict) -> DataFrameType:
