@@ -8,6 +8,7 @@ general:
   filesize: 61 MB
   releases:
   - DR19
+  - DR20
   environments:
   - MOS_TARGET
   surveys:
@@ -24,7 +25,10 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR20:
+      from: DR19
+      note: No changes
 releases:
   DR19:
     template: $MOS_TARGET/[V_TARG]/mos_skymapper_gaia-[NUM].fits
@@ -126,6 +130,105 @@ releases:
             type: float32
             unit: dex
             description: Metallicity uncertainty
+  DR20:
+    template: $MOS_TARGET/mos_skymapper_gaia_[NUM].fits
+    example: mos_skymapper_gaia_1.fits
+    location: mos_skymapper_gaia_{num}.fits
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_skymapper_gaia
+      path_template: $MOS_TARGET/mos_skymapper_gaia_{num}.fits
+      path_kwargs:
+      - num
+      access_string: mos_target_skymapper_gaia = $MOS_TARGET/mos_skymapper_gaia_{num}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: replace me description
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 61 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 32
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 2000000
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 6
+          comment: number of table fields
+        - key: TNULL1
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL2
+          value: -9223372036854775808
+          comment: ''
+        columns:
+          skymapper_object_id:
+            name: skymapper_object_id
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          gaia_source_id:
+            name: gaia_source_id
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          teff:
+            name: teff
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          e_teff:
+            name: e_teff
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          feh:
+            name: feh
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          e_feh:
+            name: e_feh
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
 notes: |-
   None
 regrets: |-

@@ -7,6 +7,7 @@ general:
   filesize: 5 MB
   releases:
   - DR19
+  - DR20
   environments:
   - MOS_TARGET
   surveys:
@@ -23,7 +24,10 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR20:
+      from: DR19
+      note: No changes
 releases:
   DR19:
     template: $MOS_TARGET/[V_TARG]/mos_design_to_field.fits
@@ -130,6 +134,108 @@ releases:
             unit: ''
             description: The 0-indexed overall exposure number in the sequence for
               the field.
+  DR20:
+    template: $MOS_TARGET/mos_design_to_field.fits
+    example: mos_design_to_field.fits
+    location: mos_design_to_field.fits
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_design_to_field
+      path_template: $MOS_TARGET/mos_design_to_field.fits
+      path_kwargs: []
+      access_string: mos_target_design_to_field = $MOS_TARGET/mos_design_to_field.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: replace me description
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 20 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 28
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 781197
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 5
+          comment: number of table fields
+        - key: TNULL1
+          value: -2147483648
+          comment: ''
+        - key: TNULL2
+          value: -2147483648
+          comment: ''
+        - key: TNULL3
+          value: -2147483648
+          comment: ''
+        - key: TNULL4
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL5
+          value: -9223372036854775808
+          comment: ''
+        columns:
+          pk:
+            name: pk
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          design_id:
+            name: design_id
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          field_pk:
+            name: field_pk
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          exposure:
+            name: exposure
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          field_exposure:
+            name: field_exposure
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
 notes: |-
   None
 regrets: |-

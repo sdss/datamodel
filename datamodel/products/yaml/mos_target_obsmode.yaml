@@ -8,6 +8,7 @@ general:
   filesize: 8 KB
   releases:
   - DR19
+  - DR20
   environments:
   - MOS_TARGET
   surveys:
@@ -24,7 +25,10 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR20:
+      from: DR19
+      note: No changes
 releases:
   DR19:
     template: $MOS_TARGET/[V_TARG]/mos_obsmode.fits
@@ -121,6 +125,98 @@ releases:
             type: float32
             unit: ''
             description: Max airmass at which a target can be observed at LCO
+  DR20:
+    template: $MOS_TARGET/mos_obsmode.fits
+    example: mos_obsmode.fits
+    location: mos_obsmode.fits
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_obsmode
+      path_template: $MOS_TARGET/mos_obsmode.fits
+      path_kwargs: []
+      access_string: mos_target_obsmode = $MOS_TARGET/mos_obsmode.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: replace me description
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 700 bytes
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 50
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 14
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 6
+          comment: number of table fields
+        columns:
+          label:
+            name: label
+            type: char[30]
+            unit: replace me - with content
+            description: replace me - with content
+          min_moon_sep:
+            name: min_moon_sep
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          min_deltav_ks91:
+            name: min_deltav_ks91
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          min_twilight_ang:
+            name: min_twilight_ang
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          max_airmass_apo:
+            name: max_airmass_apo
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          max_airmass_lco:
+            name: max_airmass_lco
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
 notes: |-
   None
 regrets: |-

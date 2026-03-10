@@ -6,6 +6,7 @@ general:
   filesize: 8 KB
   releases:
   - DR19
+  - DR20
   environments:
   - MOS_TARGET
   surveys:
@@ -22,7 +23,10 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR20:
+      from: DR19
+      note: No changes
 releases:
   DR19:
     template: $MOS_TARGET/[V_TARG]/mos_opsdb_apo_completion_status.fits
@@ -100,6 +104,81 @@ releases:
             type: char[11]
             unit: ''
             description: Description of status ('not started', 'started', 'done')
+  DR20:
+    template: $MOS_TARGET/mos_opsdb_apo_completion_status.fits
+    example: mos_opsdb_apo_completion_status.fits
+    location: mos_opsdb_apo_completion_status.fits
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_opsdb_apo_completion_status
+      path_template: $MOS_TARGET/mos_opsdb_apo_completion_status.fits
+      path_kwargs: []
+      access_string: mos_target_opsdb_apo_completion_status = $MOS_TARGET/mos_opsdb_apo_completion_status.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: replace me description
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: replace me description
+        is_image: false
+        size: 45 bytes
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 15
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 3
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 2
+          comment: number of table fields
+        - key: TNULL1
+          value: -2147483648
+          comment: ''
+        columns:
+          pk:
+            name: pk
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          label:
+            name: label
+            type: char[11]
+            unit: replace me - with content
+            description: replace me - with content
 notes: |-
   None
 regrets: |-
