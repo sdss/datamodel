@@ -39,7 +39,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -57,7 +57,7 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target Table: legacy_survey_dr10'
         is_image: false
         size: 982 MB
         header:
@@ -173,669 +173,707 @@ releases:
           release:
             name: release
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Integer denoting the camera and filter set used
           brickid:
             name: brickid
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Brick ID
           brickname:
             name: brickname
             type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Name of brick encoding the sky position
           objid:
             name: objid
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Catalog object number within this brick
           type:
             name: type
             type: char[3]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Morphological model (PSF, REX, DEV, EXP, SER, DUP)
           ra:
             name: ra
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Right ascension at equinox J2000
           dec:
             name: dec
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: Declination at equinox J2000
           ra_ivar:
             name: ra_ivar
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 1/deg^2
+            description: Inverse variance of RA (no cosine term), excluding astrometric
+              calibration errors
           dec_ivar:
             name: dec_ivar
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 1/deg^2
+            description: Inverse variance of DEC, excluding astrometric calibration
+              errors
           ebv:
             name: ebv
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Galactic extinction E(B-V) reddening from SFD98
           flux_g:
             name: flux_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Model flux in g
           flux_r:
             name: flux_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Model flux in r
           flux_i:
             name: flux_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Model flux in i
           flux_z:
             name: flux_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Model flux in z
           flux_w1:
             name: flux_w1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: WISE model flux in W1 (AB system)
           flux_w2:
             name: flux_w2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: WISE model flux in W2 (AB system)
           flux_w3:
             name: flux_w3
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: WISE model flux in W3 (AB system)
           flux_w4:
             name: flux_w4
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: WISE model flux in W4 (AB system)
           flux_ivar_g:
             name: flux_ivar_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 1/nanomaggy^2
+            description: Inverse variance of flux_g
           flux_ivar_r:
             name: flux_ivar_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 1/nanomaggy^2
+            description: Inverse variance of flux_r
           flux_ivar_i:
             name: flux_ivar_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 1/nanomaggy^2
+            description: Inverse variance of flux_i
           flux_ivar_z:
             name: flux_ivar_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 1/nanomaggy^2
+            description: Inverse variance of flux_z
           flux_ivar_w1:
             name: flux_ivar_w1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 1/nanomaggy^2
+            description: Inverse variance of flux_w1
           flux_ivar_w2:
             name: flux_ivar_w2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 1/nanomaggy^2
+            description: Inverse variance of flux_w2
           flux_ivar_w3:
             name: flux_ivar_w3
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 1/nanomaggy^2
+            description: Inverse variance of flux_w3
           flux_ivar_w4:
             name: flux_ivar_w4
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 1/nanomaggy^2
+            description: Inverse variance of flux_w4
           mw_transmission_g:
             name: mw_transmission_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Galactic transmission in g filter in linear units
           mw_transmission_r:
             name: mw_transmission_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Galactic transmission in r filter in linear units
           mw_transmission_i:
             name: mw_transmission_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Galactic transmission in i filter in linear units
           mw_transmission_z:
             name: mw_transmission_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Galactic transmission in z filter in linear units
           mw_transmission_w1:
             name: mw_transmission_w1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Galactic transmission in W1 filter in linear units
           mw_transmission_w2:
             name: mw_transmission_w2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Galactic transmission in W2 filter in linear units
           mw_transmission_w3:
             name: mw_transmission_w3
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Galactic transmission in W3 filter in linear units
           mw_transmission_w4:
             name: mw_transmission_w4
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Galactic transmission in W4 filter in linear units
           nobs_g:
             name: nobs_g
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of images contributing to the central pixel in g
           nobs_r:
             name: nobs_r
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of images contributing to the central pixel in r
           nobs_i:
             name: nobs_i
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of images contributing to the central pixel in i
           nobs_z:
             name: nobs_z
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of images contributing to the central pixel in z
           nobs_w1:
             name: nobs_w1
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of images contributing to the central pixel in W1
           nobs_w2:
             name: nobs_w2
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of images contributing to the central pixel in W2
           nobs_w3:
             name: nobs_w3
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of images contributing to the central pixel in W3
           nobs_w4:
             name: nobs_w4
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of images contributing to the central pixel in W4
           rchisq_g:
             name: rchisq_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Profile-weighted chi-square of model fit normalized by pixel
+              count in g
           rchisq_r:
             name: rchisq_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Profile-weighted chi-square of model fit normalized by pixel
+              count in r
           rchisq_i:
             name: rchisq_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Profile-weighted chi-square of model fit normalized by pixel
+              count in i
           rchisq_z:
             name: rchisq_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Profile-weighted chi-square of model fit normalized by pixel
+              count in z
           rchisq_w1:
             name: rchisq_w1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Profile-weighted chi-square of model fit normalized by pixel
+              count in W1
           rchisq_w2:
             name: rchisq_w2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Profile-weighted chi-square of model fit normalized by pixel
+              count in W2
           rchisq_w3:
             name: rchisq_w3
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Profile-weighted chi-square of model fit normalized by pixel
+              count in W3
           rchisq_w4:
             name: rchisq_w4
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Profile-weighted chi-square of model fit normalized by pixel
+              count in W4
           fracflux_g:
             name: fracflux_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Profile-weighted fraction of flux from other sources divided
+              by total flux in g
           fracflux_r:
             name: fracflux_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Profile-weighted fraction of flux from other sources divided
+              by total flux in r
           fracflux_i:
             name: fracflux_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Profile-weighted fraction of flux from other sources divided
+              by total flux in i
           fracflux_z:
             name: fracflux_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Profile-weighted fraction of flux from other sources divided
+              by total flux in z
           fracflux_w1:
             name: fracflux_w1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Profile-weighted fraction of flux from other sources divided
+              by total flux in W1
           fracflux_w2:
             name: fracflux_w2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Profile-weighted fraction of flux from other sources divided
+              by total flux in W2
           fracflux_w3:
             name: fracflux_w3
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Profile-weighted fraction of flux from other sources divided
+              by total flux in W3
           fracflux_w4:
             name: fracflux_w4
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Profile-weighted fraction of flux from other sources divided
+              by total flux in W4
           fracmasked_g:
             name: fracmasked_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Profile-weighted fraction of pixels masked from all observations
+              in g
           fracmasked_r:
             name: fracmasked_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Profile-weighted fraction of pixels masked from all observations
+              in r
           fracmasked_i:
             name: fracmasked_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Profile-weighted fraction of pixels masked from all observations
+              in i
           fracmasked_z:
             name: fracmasked_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Profile-weighted fraction of pixels masked from all observations
+              in z
           fracin_g:
             name: fracin_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of source flux within the blob in g
           fracin_r:
             name: fracin_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of source flux within the blob in r
           fracin_i:
             name: fracin_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of source flux within the blob in i
           fracin_z:
             name: fracin_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fraction of source flux within the blob in z
           anymask_g:
             name: anymask_g
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Bitwise mask set if central pixel from any image satisfies
+              each condition in g
           anymask_r:
             name: anymask_r
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Bitwise mask set if central pixel from any image satisfies
+              each condition in r
           anymask_i:
             name: anymask_i
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Bitwise mask set if central pixel from any image satisfies
+              each condition in i
           anymask_z:
             name: anymask_z
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Bitwise mask set if central pixel from any image satisfies
+              each condition in z
           allmask_g:
             name: allmask_g
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Bitwise mask set if central pixel from all images satisfies
+              each condition in g
           allmask_r:
             name: allmask_r
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Bitwise mask set if central pixel from all images satisfies
+              each condition in r
           allmask_i:
             name: allmask_i
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Bitwise mask set if central pixel from all images satisfies
+              each condition in i
           allmask_z:
             name: allmask_z
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Bitwise mask set if central pixel from all images satisfies
+              each condition in z
           wisemask_w1:
             name: wisemask_w1
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: W1 bitmask
           wisemask_w2:
             name: wisemask_w2
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: W2 bitmask
           psfsize_g:
             name: psfsize_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Weighted average PSF FWHM in g
           psfsize_r:
             name: psfsize_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Weighted average PSF FWHM in r
           psfsize_i:
             name: psfsize_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Weighted average PSF FWHM in i
           psfsize_z:
             name: psfsize_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Weighted average PSF FWHM in z
           psfdepth_g:
             name: psfdepth_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 1/nanomaggy^2
+            description: Point-source detection depth in g
           psfdepth_r:
             name: psfdepth_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 1/nanomaggy^2
+            description: Point-source detection depth in r
           psfdepth_i:
             name: psfdepth_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 1/nanomaggy^2
+            description: Point-source detection depth in i
           psfdepth_z:
             name: psfdepth_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 1/nanomaggy^2
+            description: Point-source detection depth in z
           galdepth_g:
             name: galdepth_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 1/nanomaggy^2
+            description: Galaxy detection depth in g
           galdepth_r:
             name: galdepth_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 1/nanomaggy^2
+            description: Galaxy detection depth in r
           galdepth_i:
             name: galdepth_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 1/nanomaggy^2
+            description: Galaxy detection depth in i
           galdepth_z:
             name: galdepth_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 1/nanomaggy^2
+            description: Galaxy detection depth in z
           psfdepth_w1:
             name: psfdepth_w1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 1/nanomaggy^2
+            description: Point-source detection depth in W1 (AB system)
           psfdepth_w2:
             name: psfdepth_w2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 1/nanomaggy^2
+            description: Point-source detection depth in W2 (AB system)
           wise_coadd_id:
             name: wise_coadd_id
             type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: unWISE coadd brick name for the object center
           shape_r:
             name: shape_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Half-light radius of galaxy model
           shape_r_ivar:
             name: shape_r_ivar
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 1/arcsec^2
+            description: Inverse variance of shape_r
           shape_e1:
             name: shape_e1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Ellipticity component 1 of galaxy model
           shape_e1_ivar:
             name: shape_e1_ivar
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Inverse variance of shape_e1
           shape_e2:
             name: shape_e2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Ellipticity component 2 of galaxy model
           shape_e2_ivar:
             name: shape_e2_ivar
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Inverse variance of shape_e2
           fiberflux_g:
             name: fiberflux_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Predicted g-band flux within a 1.5-arcsec diameter fiber
+              in 1-arcsec Gaussian seeing
           fiberflux_r:
             name: fiberflux_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Predicted r-band flux within a 1.5-arcsec diameter fiber
+              in 1-arcsec Gaussian seeing
           fiberflux_i:
             name: fiberflux_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Predicted i-band flux within a 1.5-arcsec diameter fiber
+              in 1-arcsec Gaussian seeing
           fiberflux_z:
             name: fiberflux_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Predicted z-band flux within a 1.5-arcsec diameter fiber
+              in 1-arcsec Gaussian seeing
           fibertotflux_g:
             name: fibertotflux_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Predicted g-band flux within a 1.5-arcsec diameter fiber
+              from all sources at this location
           fibertotflux_r:
             name: fibertotflux_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Predicted r-band flux within a 1.5-arcsec diameter fiber
+              from all sources at this location
           fibertotflux_i:
             name: fibertotflux_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Predicted i-band flux within a 1.5-arcsec diameter fiber
+              from all sources at this location
           fibertotflux_z:
             name: fibertotflux_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: nanomaggy
+            description: Predicted z-band flux within a 1.5-arcsec diameter fiber
+              from all sources at this location
           ref_cat:
             name: ref_cat
             type: char[4]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Reference catalog source for this object
           ref_id:
             name: ref_id
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Reference catalog identifier
           ref_epoch:
             name: ref_epoch
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: yr
+            description: Reference catalog epoch
           gaia_phot_g_mean_mag:
             name: gaia_phot_g_mean_mag
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Gaia EDR3 G-band magnitude
           gaia_phot_g_mean_flux_over_error:
             name: gaia_phot_g_mean_flux_over_error
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Gaia EDR3 G-band signal-to-noise
           gaia_phot_bp_mean_mag:
             name: gaia_phot_bp_mean_mag
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Gaia EDR3 BP magnitude
           gaia_phot_bp_mean_flux_over_error:
             name: gaia_phot_bp_mean_flux_over_error
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Gaia EDR3 BP signal-to-noise
           gaia_phot_rp_mean_mag:
             name: gaia_phot_rp_mean_mag
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: Gaia EDR3 RP magnitude
           gaia_phot_rp_mean_flux_over_error:
             name: gaia_phot_rp_mean_flux_over_error
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Gaia EDR3 RP signal-to-noise
           gaia_astrometric_excess_noise:
             name: gaia_astrometric_excess_noise
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Gaia EDR3 astrometric excess noise
           gaia_duplicated_source:
             name: gaia_duplicated_source
             type: bool
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Gaia EDR3 duplicated source flag
           gaia_phot_bp_rp_excess_factor:
             name: gaia_phot_bp_rp_excess_factor
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Gaia EDR3 BP/RP excess factor
           gaia_astrometric_sigma5d_max:
             name: gaia_astrometric_sigma5d_max
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas
+            description: Gaia EDR3 longest semi-major axis of the 5D error ellipsoid
           gaia_astrometric_params_solved:
             name: gaia_astrometric_params_solved
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Gaia EDR3 astrometric-parameter solution flag
           parallax:
             name: parallax
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas
+            description: Reference catalog parallax
           parallax_ivar:
             name: parallax_ivar
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 1/mas^2
+            description: Inverse variance on parallax
           pmra:
             name: pmra
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/yr
+            description: Reference catalog proper motion in RA
           pmra_ivar:
             name: pmra_ivar
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 1/(mas/yr)^2
+            description: Inverse variance on pmra
           pmdec:
             name: pmdec
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/yr
+            description: Reference catalog proper motion in Dec
           pmdec_ivar:
             name: pmdec_ivar
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 1/(mas/yr)^2
+            description: Inverse variance on pmdec
           maskbits:
             name: maskbits
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Bitwise mask indicating object touches masked pixels in coadd
+              maskbits maps
           fitbits:
             name: fitbits
             type: int16
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Bitwise mask describing peculiarities of model fitting
           sersic:
             name: sersic
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Sersic profile index for type SER
           sersic_ivar:
             name: sersic_ivar
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Inverse variance of sersic
           survey_primary:
             name: survey_primary
             type: bool
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: True if object is in the primary survey footprint for unique-object
+              selection
           ls_id:
             name: ls_id
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS-V Legacy Survey unique object identifier
           gaia_dr2_source_id:
             name: gaia_dr2_source_id
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Gaia DR2 source identifier
           gaia_dr3_source_id:
             name: gaia_dr3_source_id
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
-notes: |-
-  None
-regrets: |-
-  I  have no regrets!
+            unit: ''
+            description: Gaia DR3 source identifier
+notes: None
+regrets: I  have no regrets!

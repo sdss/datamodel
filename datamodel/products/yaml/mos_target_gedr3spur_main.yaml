@@ -39,7 +39,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -57,7 +57,7 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target Table: gedr3spur_main'
         is_image: false
         size: 91 MB
         header:
@@ -92,59 +92,76 @@ releases:
           source_id:
             name: source_id
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Gaia DR3 unique source identifier. Matches the source_id
+              column in the dr20_gaia_dr3_source table.
           fidelity_v2:
             name: fidelity_v2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: A probability that eDR3 has a good astrometric solution for
+              this source, with values between 0 (meaning likely spurious solution)
+              and 1 (meaning likely good solution). This is the published probability
+              estimate.
           theta_arcsec_worst_source:
             name: theta_arcsec_worst_source
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Distance to the eDR3 source within 30 arcsec of the object
+              for which delta_g-theta is maximal. See norm_dg for details.
           norm_dg:
             name: norm_dg
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: This is a heuristic measure for contamination by bright stars
+              in the neighbourhood. It is computed as delta_g-theta, where theta is
+              the distance to another Gaia eDR3 object in arcsec (reported in theta_arcsec_worst_source),
+              and delta_g is the magnitude difference in mag. This column gives the
+              maximum of the values for all eDR3 sources within 30 arcsecs of the
+              object.
           dist_nearest_neighbor_at_least_m2_brighter:
             name: dist_nearest_neighbor_at_least_m2_brighter
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Distance to the nearest neighbour in gaia_source at least
+              2 m fainter than this source.
           dist_nearest_neighbor_at_least_0_brighter:
             name: dist_nearest_neighbor_at_least_0_brighter
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Distance to the nearest neighbour in gaia_source at least
+              as bright as this source.
           dist_nearest_neighbor_at_least_2_brighter:
             name: dist_nearest_neighbor_at_least_2_brighter
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Distance to the nearest neighbour in gaia_source at least
+              2 m brighter than this source.
           dist_nearest_neighbor_at_least_4_brighter:
             name: dist_nearest_neighbor_at_least_4_brighter
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Distance to the nearest neighbour in gaia_source at least
+              4 m brighter than this source.
           dist_nearest_neighbor_at_least_6_brighter:
             name: dist_nearest_neighbor_at_least_6_brighter
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Distance to the nearest neighbour in gaia_source at least
+              6 m brighter than this source.
           dist_nearest_neighbor_at_least_10_brighter:
             name: dist_nearest_neighbor_at_least_10_brighter
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: arcsec
+            description: Distance to the nearest neighbour in gaia_source at least
+              10 m brighter than this source.
           fidelity_v1:
             name: fidelity_v1
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
-notes: |-
-  None
-regrets: |-
-  I  have no regrets!
+            unit: ''
+            description: A probablity that eDR3 has a good astrometric solution for
+              this source, with values between 0 (meaning likely spurious solution)
+              and 1 (meaning likely good solution). This comes from a first version
+              of the estimator that was reviewed based on an astro-ph paper.
+notes: None
+regrets: I  have no regrets!

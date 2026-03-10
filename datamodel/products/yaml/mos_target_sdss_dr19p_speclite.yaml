@@ -39,7 +39,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary header
         is_image: true
         size: 0 bytes
         header:
@@ -57,7 +57,7 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'MOS Target Table: sdss_dr19p_speclite'
         is_image: false
         size: 438 MB
         header:
@@ -125,174 +125,187 @@ releases:
           plate:
             name: plate
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Plate number (each plate corresponds to an actual plug plate)
           mjd:
             name: mjd
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: day
+            description: Modified Julian Day of observation
           fiberid:
             name: fiberid
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fiber number
           field:
             name: field
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Field identifier
           catalogid:
             name: catalogid
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: The associated ID in the dr20_catalog table
           bestobjid:
             name: bestobjid
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Unique database ID of (recommended) position-based photometric
+              match based on RUN, RERUN, CAMCOl, FIELD, ID (same as SkyServer version)
           targetobjid:
             name: targetobjid
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Unique database ID of targeting object based on RUN, RERUN,
+              CAMCOl, FIELD, ID (same as SkyServer version)
           run2d:
             name: run2d
             type: char[7]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Spectroscopic 2D reduction (extraction of spectra) name
           run1d:
             name: run1d
             type: char[7]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Spectroscopic 1D reduction (redshift and classification)
+              name
           firstrelease:
             name: firstrelease
             type: char[4]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Name of first release this PLATE, MJD, FIBERID, RUN2D was
+              associated with
           plug_ra:
             name: plug_ra
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degrees
+            description: Right ascension of hole (J2000)
           plug_dec:
             name: plug_dec
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degrees
+            description: Declination of hole (J2000)
           sourcetype:
             name: sourcetype
             type: char[21]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: String expressing type of source (similar to OBJTYPE in DR8
+              and earlier)
           objtype:
             name: objtype
             type: char[4]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Why this object was targeted. Note that if this field says
+              QSO, it could be the case that this object would have been targetted
+              as a GALAXY or any number of other categories as well. The PRIMTARGET
+              and SECTARGET flags in the plug-map structure (in the spField file)
+              gives this full information.
           targettype:
             name: targettype
             type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: General type of target ("SCIENCE", "STANDARD" or "SKY")
           lambda_eff:
             name: lambda_eff
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Angstroms
+            description: Effective wavelength drilling position was optimized for
           sn_median_all:
             name: sn_median_all
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Median signal-to-noise per pixel across full spectrum (aka
+              SN_MEDIAN_ALL)
           sn_median_u:
             name: sn_median_u
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Median signal-to-noise per pixel within the u bandpass
           sn_median_g:
             name: sn_median_g
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Median signal-to-noise per pixel within the g bandpass
           sn_median_r:
             name: sn_median_r
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Median signal-to-noise per pixel within the r bandpass
           sn_median_i:
             name: sn_median_i
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Median signal-to-noise per pixel within the i bandpass
           sn_median_z:
             name: sn_median_z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Median signal-to-noise per pixel within the z bandpass
           platesn2:
             name: platesn2
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Overall signal-to-noise-squared measure for plate (only for
+              SDSS spectrograph plates)
           platequality:
             name: platequality
             type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Characterization of plate quality.
           z:
             name: z
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Best redshift
           z_err:
             name: z_err
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Error in best redshift
           zwarning:
             name: zwarning
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Bitmask of spectroscopic warning values; 0 means everything
+              is OK
           zwarning_noqso:
             name: zwarning_noqso
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Best redshift when ignoring QSO fits, recommended for BOSS
+              CMASS and LOWZ targets; calculated only for survey='boss' spectra, not
+              for any SDSS spectrograph data
           class:
             name: class
             type: char[6]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Best spectroscopic classification ("STAR", "GALAXY" or "QSO")
           subclass:
             name: subclass
             type: char[21]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Best spectroscopic subclassification
           tfile:
             name: tfile
             type: char[24]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: File that best fit template comes from in idlspec1d product
           specprimary:
             name: specprimary
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Objects observed multiple times will have this set to 1 for
+              one observation only. This is usually the 'best' observation.
           nspecobs:
             name: nspecobs
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of spectral observations.
           pk:
             name: pk
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
-notes: |-
-  None
-regrets: |-
-  I  have no regrets!
+            unit: ''
+            description: A unique identifier for this table row.
+notes: None
+regrets: I  have no regrets!
