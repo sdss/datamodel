@@ -17,15 +17,14 @@ import os
 import pathlib
 import shutil
 
+import h5py
 import numpy as np
 import pytest
 from astropy.io import fits
+from datamodel.generate import DataModel
 from pydl.pydlutils.yanny import yanny
-import h5py
 from sdss_access.path import Path
 from tree import Tree
-
-from datamodel.generate import DataModel
 
 ####
 # Fixtures for setting up the test enviroment and paths
@@ -101,6 +100,20 @@ def create_hdf5(path):
         f.create_dataset('default', shape=(2,10), dtype='<f8')
         return f
 
+def create_parquet(path):
+    """Create a test Parquet file """
+
+    import polars
+
+    df = polars.DataFrame(
+        {'col1': [1, 2, 3], 'col2': ['a', 'b', 'c'], 'col3': [1.0, 2.0, 3.0]},
+        schema={'col1': polars.Int32, 'col2': polars.Utf8, 'col3': polars.Float64}
+    )
+
+    df.write_parquet(path, metadata={'key1': '1', 'key2': '2.0'})
+
+    return path
+
 def create_test_file(name: str = None, version: str = None,
                      env: str = None, extra_cols: bool = None,
                      id: str = 'a', suffix: str = 'fits') -> pathlib.Path:
@@ -150,6 +163,8 @@ def create_test_file(name: str = None, version: str = None,
         par.write(path, comments=f'# version\n# {version}\n')
     elif suffix == 'h5':
         create_hdf5(path)
+    elif suffix == 'parquet':
+        create_parquet(path)
 
     return path
 
@@ -241,7 +256,7 @@ def designedfits(validdesign):
 # Fixtures for iterating over each file type of the given suffix
 
 # a list of filetypes suffixes to test against
-suffixes = ['fits', 'par', 'h5']
+suffixes = ['fits', 'par', 'h5', 'parquet']
 
 @pytest.fixture(params=suffixes)
 def suffix(request):

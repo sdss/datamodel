@@ -7,8 +7,8 @@ from __future__ import absolute_import, division, print_function
 
 import abc
 import re
-import yaml
 
+import yaml
 
 
 class YamlDiff(abc.ABC):
@@ -99,7 +99,7 @@ class YamlDiff(abc.ABC):
         return self._get_changes(version1, version2, simple=simple)
 
     @abc.abstractmethod
-    def _get_changes(self, version1: str, version2: str, simple: bool = None) -> dict:
+    def _get_changes(self, version1: str, version2: str, simple: bool = False) -> dict:
         """ Abstract method to be implemented by subclass, for generating changelog content
 
         This method is used to construct a dictionary of changes between two releases for the
