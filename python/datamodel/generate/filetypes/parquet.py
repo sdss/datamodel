@@ -22,6 +22,7 @@ except ImportError:
 
 if TYPE_CHECKING and polars:
     DataFrameType = polars.DataFrame
+    LazyFrameType = polars.LazyFrame
 
 
 __all__ = ["ParquetFileType"]
@@ -42,10 +43,10 @@ class ParquetFileType(BaseFile):
             raise ImportError("Polars is required to work with Parquet file products.")
 
         # Read in the Parquet file if not designing one.
-        self.dataframe: Union[DataFrameType, None] = None
+        self.dataframe: Union[LazyFrameType, None] = None
 
         if self._datamodel and not self._datamodel.design:
-            self.dataframe = polars.read_parquet(self.filename)
+            self.dataframe = polars.scan_parquet(self.filename)
 
     def _generate_new_cache(self) -> dict:
         """Generate a new cache for Parquet files."""
@@ -91,15 +92,22 @@ class ParquetFileType(BaseFile):
 
     def _parse_columns(
         self,
-        df: Union[DataFrameType, None] = None,
+        df: Union[DataFrameType, LazyFrameType, None] = None,
         get_value: bool = False,
     ) -> Dict[str, Dict]:
         """Parse the columns of the Parquet file."""
+
+        assert polars, "Polars is required to work with Parquet file products."
 
         df = df or self.dataframe
         assert df is not None, "Dataframe is not loaded."
 
         columns: Dict[str, Dict] = {}
+
+        if isinstance(df, polars.LazyFrame):
+            df = df.head(1).collect() # type: ignore
+
+        assert isinstance(df, polars.DataFrame), "Dataframe is not a Polars DataFrame."
 
         row0 = df.row(0) if len(df) > 0 else None
 
@@ -119,7 +127,7 @@ class ParquetFileType(BaseFile):
 
     def design_content(
         self,
-        dataframe: Union[DataFrameType, None] = None,
+        dataframe: Union[DataFrameType, LazyFrameType, None] = None,
         columns: Union[Dict[str, Dict], None] = {},
         metadata: Union[Dict[str, str], None] = {},
         **kwargs,
