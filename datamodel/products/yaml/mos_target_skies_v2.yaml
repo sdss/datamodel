@@ -20,8 +20,8 @@ general:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_skies_v2-[NUM].fits, where V_TARG=1.0.1
-    for DR18; and NUM = 1..1 to partition the file into parts
+  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_skies_v2-[NUM].fits with V_TARG=2.0.0
+    and NUM=1..13 for DR20.
   generated_by: sdss5db> targetdb, operations database server
   design: false
   vac: false
@@ -33,7 +33,8 @@ changelog:
   releases:
     DR20:
       from: DR19
-      note: No changes
+      note: The [NUM] chunk is now separated from the main file species name by a
+        dash instead of an underscore.
     DR19:
       from: DR18
       note: No changes
@@ -461,17 +462,18 @@ releases:
             unit: arcsec
             description: Separation to the nearest 2MASS extended source neighbour
   DR20:
-    template: $MOS_TARGET/mos_skies_v2_[NUM2].fits
-    example: mos_skies_v2_01.fits
-    location: mos_skies_v2_{num:0>2}.fits
+    template: $MOS_TARGET/[V_TARG]/fits/mos_skies_v2-[NUM2].fits
+    example: 2.0.0/fits/mos_skies_v2-01.fits
+    location: '{v_targ}/fits/mos_skies_v2-{num:0>2}.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_skies_v2
-      path_template: $MOS_TARGET/mos_skies_v2_{num:0>2}.fits
+      path_template: $MOS_TARGET/{v_targ}/fits/mos_skies_v2-{num:0>2}.fits
       path_kwargs:
       - num
-      access_string: mos_target_skies_v2 = $MOS_TARGET/mos_skies_v2_{num:0>2}.fits
+      - v_targ
+      access_string: mos_target_skies_v2 = $MOS_TARGET/{v_targ}/fits/mos_skies_v2-{num:0>2}.fits
     survey: SDSS
     hdus:
       hdu0:

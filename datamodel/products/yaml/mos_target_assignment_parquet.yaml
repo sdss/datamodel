@@ -1,0 +1,70 @@
+general:
+  name: mos_target_assignment_parquet
+  short: 'MOS Target Table: assignment'
+  description: This table stores the assignment of a given target in a carton to a
+    fiber of a given instrument. A collection of assignments are included within a
+    design, which is one configuration of the robots for an exposure.
+  datatype: PARQUET
+  filesize: 1 GB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/parquet/mos_assignment.parquet with V_TARG=2.0.0
+    for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/parquet/mos_assignment.parquet
+    example: 2.0.0/parquet/mos_assignment.parquet
+    location: '{v_targ}/parquet/mos_assignment.parquet'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_assignment_parquet
+      path_template: $MOS_TARGET/{v_targ}/parquet/mos_assignment.parquet
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_assignment_parquet = $MOS_TARGET/{v_targ}/parquet/mos_assignment.parquet
+    survey: SDSS
+    dataframe:
+      columns:
+        pk:
+          name: pk
+          dtype: Int32
+          unit: ''
+          description: The primary key. A sequential identifier.
+        carton_to_target_pk:
+          name: carton_to_target_pk
+          dtype: Int64
+          unit: ''
+          description: The primary key of the carton_to_target in the dr20_carton_to_target
+            table.
+        hole_pk:
+          name: hole_pk
+          dtype: Int32
+          unit: ''
+          description: The primary key of the hole in the dr20_hole table.
+        instrument_pk:
+          name: instrument_pk
+          dtype: Int32
+          unit: ''
+          description: The primary key of the instrument in the dr20_instrument table.
+        design_id:
+          name: design_id
+          dtype: Int32
+          unit: ''
+          description: The primary key of the design in the dr20_design table.
+      metadata: {}
+notes: None
+regrets: I  have no regrets!

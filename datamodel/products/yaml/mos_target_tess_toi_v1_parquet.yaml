@@ -1,0 +1,100 @@
+general:
+  name: mos_target_tess_toi_v1_parquet
+  short: 'MOS Target Table: tess_toi_v1'
+  description: 'This catalog contains targets that received the 2 minute cadence during
+    the TESS Mission, are TESS Objects of Interest (TOI) or Community TESS Objects
+    of Interest (CTOI).
+
+
+    The contents of this catalog were derived from the MIT TESS website (<a href="https://tess.mit.edu/public/target_lists/target_lists.html)">https://tess.mit.edu/public/target_lists/target_lists.html)</a>
+    and the ExoFOP website <a href="https://exofop.ipac.caltech.edu/tess/index.php">https://exofop.ipac.caltech.edu/tess/index.php</a>.
+    These targets were updated on 2022-08-05.'
+  datatype: PARQUET
+  filesize: 1 MB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/parquet/mos_tess_toi_v1.parquet with V_TARG=2.0.0
+    for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/parquet/mos_tess_toi_v1.parquet
+    example: 2.0.0/parquet/mos_tess_toi_v1.parquet
+    location: '{v_targ}/parquet/mos_tess_toi_v1.parquet'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_tess_toi_v1_parquet
+      path_template: $MOS_TARGET/{v_targ}/parquet/mos_tess_toi_v1.parquet
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_tess_toi_v1_parquet = $MOS_TARGET/{v_targ}/parquet/mos_tess_toi_v1.parquet
+    survey: SDSS
+    dataframe:
+      columns:
+        ticid:
+          name: ticid
+          dtype: Int64
+          unit: ''
+          description: TESS Input Catalog (TIC) ID
+        target_type:
+          name: target_type
+          dtype: String
+          unit: ''
+          description: 'Type of target. Options: 2min = 2 minute cadence, exo_TOI
+            = TOI, and exo_CTOI = CTOI'
+        toi:
+          name: toi
+          dtype: String
+          unit: ''
+          description: TESS Object of Interest ID
+        tess_disposition:
+          name: tess_disposition
+          dtype: String
+          unit: ''
+          description: 'TESS Team Dispositon Options: EB = Eclipsing Binary, KP =
+            Known Planet, PC = Planet Candidate, O = Other, or blank'
+        tfopwg_disposition:
+          name: tfopwg_disposition
+          dtype: String
+          unit: ''
+          description: 'TESS Follow-up Observing Program (TFOP) Working Group Disposition
+            Options: APC = Ambiguous Planet Candidate, CP = Confirmed Planet, FA =
+            False Alarm, FP = False Positive, KP = Known Planet, PC = Planet Candidate
+            or blank'
+        ctoi:
+          name: ctoi
+          dtype: String
+          unit: ''
+          description: Community Tareget of Interest ID
+        user_disposition:
+          name: user_disposition
+          dtype: String
+          unit: ''
+          description: Initial Community User Disposition
+        num_sectors:
+          name: num_sectors
+          dtype: Float64
+          unit: ''
+          description: The total number of sectors that this object was observed on
+            as of the catalog date
+        pkey:
+          name: pkey
+          dtype: Int64
+          unit: ''
+          description: Primary Key
+      metadata: {}
+notes: None
+regrets: I  have no regrets!

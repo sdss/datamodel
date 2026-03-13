@@ -14,8 +14,8 @@ general:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_sdss_dr13_photoobj_primary-[NUM].fits,
-    where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_sdss_dr13_photoobj_primary-[NUM].fits
+    with V_TARG=2.0.0 and NUM=1..11 for DR20.
   generated_by: sdss5db> targetdb, operations database server
   design: false
   vac: false
@@ -27,7 +27,8 @@ changelog:
   releases:
     DR20:
       from: DR19
-      note: No changes
+      note: The [NUM] chunk is now separated from the main file species name by a
+        dash instead of an underscore.
     DR19:
       from: DR18
       note: No changes
@@ -169,17 +170,18 @@ releases:
             unit: degrees
             description: Declination
   DR20:
-    template: $MOS_TARGET/mos_sdss_dr13_photoobj_primary_[NUM2].fits
-    example: mos_sdss_dr13_photoobj_primary_01.fits
-    location: mos_sdss_dr13_photoobj_primary_{num:0>2}.fits
+    template: $MOS_TARGET/[V_TARG]/fits/mos_sdss_dr13_photoobj_primary-[NUM2].fits
+    example: 2.0.0/fits/mos_sdss_dr13_photoobj_primary-01.fits
+    location: '{v_targ}/fits/mos_sdss_dr13_photoobj_primary-{num:0>2}.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_sdss_dr13_photoobj_primary
-      path_template: $MOS_TARGET/mos_sdss_dr13_photoobj_primary_{num:0>2}.fits
+      path_template: $MOS_TARGET/{v_targ}/fits/mos_sdss_dr13_photoobj_primary-{num:0>2}.fits
       path_kwargs:
       - num
-      access_string: mos_target_sdss_dr13_photoobj_primary = $MOS_TARGET/mos_sdss_dr13_photoobj_primary_{num:0>2}.fits
+      - v_targ
+      access_string: mos_target_sdss_dr13_photoobj_primary = $MOS_TARGET/{v_targ}/fits/mos_sdss_dr13_photoobj_primary-{num:0>2}.fits
     survey: SDSS
     hdus:
       hdu0:

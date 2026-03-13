@@ -1,0 +1,100 @@
+general:
+  name: mos_target_cadence_epoch_parquet
+  short: 'MOS Target Table: cadence_epoch'
+  description: Constraints for a single epoch within a cadence.
+  datatype: PARQUET
+  filesize: 222 KB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/parquet/mos_cadence_epoch.parquet with V_TARG=2.0.0
+    for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/parquet/mos_cadence_epoch.parquet
+    example: 2.0.0/parquet/mos_cadence_epoch.parquet
+    location: '{v_targ}/parquet/mos_cadence_epoch.parquet'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_cadence_epoch_parquet
+      path_template: $MOS_TARGET/{v_targ}/parquet/mos_cadence_epoch.parquet
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_cadence_epoch_parquet = $MOS_TARGET/{v_targ}/parquet/mos_cadence_epoch.parquet
+    survey: SDSS
+    dataframe:
+      columns:
+        label:
+          name: label
+          dtype: String
+          unit: ''
+          description: Descriptive name for the cadence with a version
+        nepochs:
+          name: nepochs
+          dtype: Int32
+          unit: ''
+          description: Number of epochs in the cadence
+        cadence_pk:
+          name: cadence_pk
+          dtype: Int64
+          unit: ''
+          description: Primary key of the cadence this epoch belongs to
+        epoch:
+          name: epoch
+          dtype: Int32
+          unit: ''
+          description: Which epoch is this in the cadence (0-indexed)
+        delta:
+          name: delta
+          dtype: Float64
+          unit: days
+          description: Nominal (goal) time since previous epoch
+        skybrightness:
+          name: skybrightness
+          dtype: Float32
+          unit: ''
+          description: Maximum allowed skybrightness, i.e. moon illumination (0.0
+            to 1.0)
+        delta_max:
+          name: delta_max
+          dtype: Float32
+          unit: days
+          description: Maximum allowed time since previous epoch
+        delta_min:
+          name: delta_min
+          dtype: Float32
+          unit: days
+          description: Minimum allowed time since previous epoch
+        nexp:
+          name: nexp
+          dtype: Int32
+          unit: ''
+          description: Number of exposures in this epoch
+        max_length:
+          name: max_length
+          dtype: Float32
+          unit: ''
+          description: Maximum allowed length of epoch, i.e. time between first and
+            last exposure
+        obsmode_pk:
+          name: obsmode_pk
+          dtype: String
+          unit: ''
+          description: Reference to the observing parameters (airmass, moon seperation,
+            etc.)
+      metadata: {}
+notes: None
+regrets: I  have no regrets!

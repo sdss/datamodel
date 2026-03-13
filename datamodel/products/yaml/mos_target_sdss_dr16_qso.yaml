@@ -15,8 +15,8 @@ general:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_sdss_dr16_qso-[NUM].fits, where V_TARG=1.0.1
-    for DR18; and NUM = 1..1 to partition the file into parts
+  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_sdss_dr16_qso.fits with V_TARG=2.0.0
+    for DR20.
   generated_by: sdss5db> targetdb, operations database server
   design: false
   vac: false
@@ -2355,16 +2355,17 @@ releases:
             unit: ''
             description: Added for convenience - serial integer primary key
   DR20:
-    template: $MOS_TARGET/mos_sdss_dr16_qso.fits
-    example: mos_sdss_dr16_qso.fits
-    location: mos_sdss_dr16_qso.fits
+    template: $MOS_TARGET/[V_TARG]/fits/mos_sdss_dr16_qso.fits
+    example: 2.0.0/fits/mos_sdss_dr16_qso.fits
+    location: '{v_targ}/fits/mos_sdss_dr16_qso.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_sdss_dr16_qso
-      path_template: $MOS_TARGET/mos_sdss_dr16_qso.fits
-      path_kwargs: []
-      access_string: mos_target_sdss_dr16_qso = $MOS_TARGET/mos_sdss_dr16_qso.fits
+      path_template: $MOS_TARGET/{v_targ}/fits/mos_sdss_dr16_qso.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_sdss_dr16_qso = $MOS_TARGET/{v_targ}/fits/mos_sdss_dr16_qso.fits
     survey: SDSS
     hdus:
       hdu0:
@@ -2835,13 +2836,13 @@ releases:
             name: z_lyawg
             type: float32
             unit: ''
-            description: PCA systemic redshift from redvsblue with a masked Ly-alpha
+            description: PCA systemic redshift from redvsblue with a masked Lyalpha
               emission line and forest
           z_dla:
             name: z_dla
             type: char[91]
             unit: ''
-            description: Redshift for damped Ly-alpha features
+            description: Redshift for damped Lyalpha features
           nhi_dla:
             name: nhi_dla
             type: char[94]

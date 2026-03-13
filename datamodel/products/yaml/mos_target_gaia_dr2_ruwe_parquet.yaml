@@ -1,0 +1,57 @@
+general:
+  name: mos_target_gaia_dr2_ruwe_parquet
+  short: 'MOS Target Table: gaia_dr2_ruwe'
+  description: 'Table from Gaia DR2 containing the Renormalised Unit Weight Error
+    (RUWE) associated to each source in gaia_source.
+
+
+    See <a href="https://gea.esac.esa.int/archive/documentation/GDR2/Gaia_archive/chap_datamodel/sec_dm_main_tables/ssec_dm_ruwe.html">https://gea.esac.esa.int/archive/documentation/GDR2/Gaia_archive/chap_datamodel/sec_dm_main_tables/ssec_dm_ruwe.html</a>
+    for more detailed descriptions of the columns'
+  datatype: PARQUET
+  filesize: 498 MB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/parquet/mos_gaia_dr2_ruwe.parquet with V_TARG=2.0.0
+    for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/parquet/mos_gaia_dr2_ruwe.parquet
+    example: 2.0.0/parquet/mos_gaia_dr2_ruwe.parquet
+    location: '{v_targ}/parquet/mos_gaia_dr2_ruwe.parquet'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_gaia_dr2_ruwe_parquet
+      path_template: $MOS_TARGET/{v_targ}/parquet/mos_gaia_dr2_ruwe.parquet
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_gaia_dr2_ruwe_parquet = $MOS_TARGET/{v_targ}/parquet/mos_gaia_dr2_ruwe.parquet
+    survey: SDSS
+    dataframe:
+      columns:
+        source_id:
+          name: source_id
+          dtype: Int64
+          unit: ''
+          description: Gaia DR2 unique source identifier
+        ruwe:
+          name: ruwe
+          dtype: Float32
+          unit: ''
+          description: renormalised unit weight error
+      metadata: {}
+notes: None
+regrets: I  have no regrets!

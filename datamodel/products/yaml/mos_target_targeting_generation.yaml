@@ -13,8 +13,8 @@ general:
   - MOS_TARGET
   surveys:
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_targeting_generation.fits, where V_TARG=1.0.1
-    for DR18
+  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_targeting_generation.fits with
+    V_TARG=2.0.0 for DR20.
   generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
@@ -189,16 +189,17 @@ releases:
             unit: ''
             description: The first SDSS data release containing this targeting_generation
   DR20:
-    template: $MOS_TARGET/mos_targeting_generation.fits
-    example: mos_targeting_generation.fits
-    location: mos_targeting_generation.fits
+    template: $MOS_TARGET/[V_TARG]/fits/mos_targeting_generation.fits
+    example: 2.0.0/fits/mos_targeting_generation.fits
+    location: '{v_targ}/fits/mos_targeting_generation.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_targeting_generation
-      path_template: $MOS_TARGET/mos_targeting_generation.fits
-      path_kwargs: []
-      access_string: mos_target_targeting_generation = $MOS_TARGET/mos_targeting_generation.fits
+      path_template: $MOS_TARGET/{v_targ}/fits/mos_targeting_generation.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_targeting_generation = $MOS_TARGET/{v_targ}/fits/mos_targeting_generation.fits
     survey: SDSS
     hdus:
       hdu0:

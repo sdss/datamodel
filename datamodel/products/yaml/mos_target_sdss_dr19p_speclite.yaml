@@ -10,8 +10,8 @@ general:
   - MOS_TARGET
   surveys:
   - SDSS
-  naming_convention: $MOS_TARGET/mos_sdss_dr19p_speclite_[NUM].fits where NUM>0 is
-    the number of the FITS file if the table is split in multiple files.
+  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_sdss_dr19p_speclite-[NUM].fits
+    with V_TARG=2.0.0 and NUM=1..4 for DR20.
   generated_by: sdss5db targeting database.
   data_level: 2.3.3
   design: false
@@ -23,17 +23,18 @@ changelog:
   releases: {}
 releases:
   DR20:
-    template: $MOS_TARGET/mos_sdss_dr19p_speclite_[NUM].fits
-    example: mos_sdss_dr19p_speclite_1.fits
-    location: mos_sdss_dr19p_speclite_{num}.fits
+    template: $MOS_TARGET/[V_TARG]/fits/mos_sdss_dr19p_speclite-[NUM].fits
+    example: 2.0.0/fits/mos_sdss_dr19p_speclite-1.fits
+    location: '{v_targ}/fits/mos_sdss_dr19p_speclite-{num}.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_sdss_dr19p_speclite
-      path_template: $MOS_TARGET/mos_sdss_dr19p_speclite_{num}.fits
+      path_template: $MOS_TARGET/{v_targ}/fits/mos_sdss_dr19p_speclite-{num}.fits
       path_kwargs:
       - num
-      access_string: mos_target_sdss_dr19p_speclite = $MOS_TARGET/mos_sdss_dr19p_speclite_{num}.fits
+      - v_targ
+      access_string: mos_target_sdss_dr19p_speclite = $MOS_TARGET/{v_targ}/fits/mos_sdss_dr19p_speclite-{num}.fits
     survey: SDSS
     hdus:
       hdu0:

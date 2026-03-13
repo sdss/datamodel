@@ -15,8 +15,8 @@ general:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_assignment.fits, where V_TARG=1.0.2
-    for DR19
+  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_assignment-[NUM].fits with V_TARG=2.0.0
+    and NUM=1..155 for DR20.
   generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
@@ -28,7 +28,8 @@ changelog:
   releases:
     DR20:
       from: DR19
-      note: No changes
+      note: The [NUM] chunk is now separated from the main file species name by a
+        dash instead of an underscore.
 releases:
   DR19:
     template: $MOS_TARGET/[V_TARG]/mos_assignment-[NUM].fits
@@ -137,17 +138,18 @@ releases:
             unit: ''
             description: The primary key of the design in the dr19_design table.
   DR20:
-    template: $MOS_TARGET/mos_assignment_[NUM3].fits
-    example: mos_assignment_001.fits
-    location: mos_assignment_{num:0>3}.fits
+    template: $MOS_TARGET/[V_TARG]/fits/mos_assignment-[NUM3].fits
+    example: 2.0.0/fits/mos_assignment-001.fits
+    location: '{v_targ}/fits/mos_assignment-{num:0>3}.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_assignment
-      path_template: $MOS_TARGET/mos_assignment_{num:0>3}.fits
+      path_template: $MOS_TARGET/{v_targ}/fits/mos_assignment-{num:0>3}.fits
       path_kwargs:
       - num
-      access_string: mos_target_assignment = $MOS_TARGET/mos_assignment_{num:0>3}.fits
+      - v_targ
+      access_string: mos_target_assignment = $MOS_TARGET/{v_targ}/fits/mos_assignment-{num:0>3}.fits
     survey: SDSS
     hdus:
       hdu0:

@@ -1,7 +1,8 @@
 general:
   name: mos_target_revised_magnitude
   short: 'MOS Target table: mos_target_revised_magnitude'
-  description: 'This table stores magnitude information for a target. Optical magnitudes
+  description:
+    'This table stores magnitude information for a target. Optical magnitudes
     that are not selected from SDSS photometry have been converted to the SDSS system.  Entries
     in this revised_magnitude table only exist if there was an issue with the values
     in the original magnitude table. Therefore: if a carton_to_target_pk exists in
@@ -9,28 +10,32 @@ general:
   datatype: FITS
   filesize: 177 MB
   releases:
-  - DR19
-  - DR20
+    - DR19
+    - DR20
   environments:
-  - MOS_TARGET
+    - MOS_TARGET
   surveys:
-  - BHM
-  - MWM
-  - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_revised_magnitude.fits, where V_TARG=1.0.2
-    for DR19
+    - BHM
+    - MWM
+    - SDSS
+  naming_convention:
+    $MOS_TARGET/[V_TARG]/fits/mos_revised_magnitude-[NUM].fits with
+    V_TARG=2.0.0 and NUM=1..26 for DR20.
   generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
   vac: false
   recommended_science_product: false
 changelog:
-  description: Describes changes to the datamodel product and/or file structure from
+  description:
+    Describes changes to the datamodel product and/or file structure from
     one release to another
   releases:
     DR20:
       from: DR19
-      note: No changes
+      note:
+        The [NUM] chunk is now separated from the main file species name by a
+        dash instead of an underscore.
 releases:
   DR19:
     template: $MOS_TARGET/[V_TARG]/mos_revised_magnitude-[NUM].fits
@@ -42,8 +47,8 @@ releases:
       path_name: mos_target_revised_magnitude
       path_template: $MOS_TARGET/{v_targ}/mos_revised_magnitude-{num}.fits
       path_kwargs:
-      - v_targ
-      - num
+        - v_targ
+        - num
       access_string: mos_target_revised_magnitude = $MOS_TARGET/{v_targ}/mos_revised_magnitude-{num}.fits
     survey: SDSS
     hdus:
@@ -53,60 +58,61 @@ releases:
         is_image: true
         size: 0 bytes
         header:
-        - key: SIMPLE
-          value: true
-          comment: conforms to FITS standard
-        - key: BITPIX
-          value: 8
-          comment: array data type
-        - key: NAXIS
-          value: 0
-          comment: number of array dimensions
-        - key: EXTEND
-          value: true
-          comment: ''
+          - key: SIMPLE
+            value: true
+            comment: conforms to FITS standard
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 0
+            comment: number of array dimensions
+          - key: EXTEND
+            value: true
+            comment: ''
       hdu1:
         name: ''
         description: 'MOS Target table: mos_target_revised_magnitude'
         is_image: false
         size: 177 MB
         header:
-        - key: XTENSION
-          value: BINTABLE
-          comment: binary table extension
-        - key: BITPIX
-          value: 8
-          comment: array data type
-        - key: NAXIS
-          value: 2
-          comment: number of array dimensions
-        - key: NAXIS1
-          value: 93
-          comment: length of dimension 1
-        - key: NAXIS2
-          value: 2000000
-          comment: length of dimension 2
-        - key: PCOUNT
-          value: 0
-          comment: number of group parameters
-        - key: GCOUNT
-          value: 1
-          comment: number of groups
-        - key: TFIELDS
-          value: 13
-          comment: number of table fields
-        - key: TNULL1
-          value: -9223372036854775808
-          comment: ''
-        - key: TNULL2
-          value: -9223372036854775808
-          comment: ''
+          - key: XTENSION
+            value: BINTABLE
+            comment: binary table extension
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 2
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 93
+            comment: length of dimension 1
+          - key: NAXIS2
+            value: 2000000
+            comment: length of dimension 2
+          - key: PCOUNT
+            value: 0
+            comment: number of group parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: TFIELDS
+            value: 13
+            comment: number of table fields
+          - key: TNULL1
+            value: -9223372036854775808
+            comment: ''
+          - key: TNULL2
+            value: -9223372036854775808
+            comment: ''
         columns:
           carton_to_target_pk:
             name: carton_to_target_pk
             type: int64
             unit: ''
-            description: The primary key of the target in the dr19_carton_to_target
+            description:
+              The primary key of the target in the dr19_carton_to_target
               table.
           revised_magnitude_pk:
             name: revised_magnitude_pk
@@ -169,17 +175,18 @@ releases:
             unit: ''
             description: The providence/origin of the optical magnitudes.
   DR20:
-    template: $MOS_TARGET/mos_revised_magnitude_[NUM2].fits
-    example: mos_revised_magnitude_01.fits
-    location: mos_revised_magnitude_{num:0>2}.fits
+    template: $MOS_TARGET/[V_TARG]/fits/mos_revised_magnitude-[NUM2].fits
+    example: 2.0.0/fits/mos_revised_magnitude-01.fits
+    location: '{v_targ}/fits/mos_revised_magnitude-{num:0>2}.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_revised_magnitude
-      path_template: $MOS_TARGET/mos_revised_magnitude_{num:0>2}.fits
+      path_template: $MOS_TARGET/{v_targ}/fits/mos_revised_magnitude-{num:0>2}.fits
       path_kwargs:
-      - num
-      access_string: mos_target_revised_magnitude = $MOS_TARGET/mos_revised_magnitude_{num:0>2}.fits
+        - num
+        - v_targ
+      access_string: mos_target_revised_magnitude = $MOS_TARGET/{v_targ}/fits/mos_revised_magnitude-{num:0>2}.fits
     survey: SDSS
     hdus:
       hdu0:
@@ -188,66 +195,67 @@ releases:
         is_image: true
         size: 0 bytes
         header:
-        - key: SIMPLE
-          value: true
-          comment: conforms to FITS standard
-        - key: BITPIX
-          value: 8
-          comment: array data type
-        - key: NAXIS
-          value: 0
-          comment: number of array dimensions
-        - key: EXTEND
-          value: true
-          comment: ''
+          - key: SIMPLE
+            value: true
+            comment: conforms to FITS standard
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 0
+            comment: number of array dimensions
+          - key: EXTEND
+            value: true
+            comment: ''
       hdu1:
         name: ''
         description: 'MOS Target Table: revised_magnitude'
         is_image: false
         size: 177 MB
         header:
-        - key: XTENSION
-          value: BINTABLE
-          comment: binary table extension
-        - key: BITPIX
-          value: 8
-          comment: array data type
-        - key: NAXIS
-          value: 2
-          comment: number of array dimensions
-        - key: NAXIS1
-          value: 93
-          comment: length of dimension 1
-        - key: NAXIS2
-          value: 2000000
-          comment: length of dimension 2
-        - key: PCOUNT
-          value: 0
-          comment: number of group parameters
-        - key: GCOUNT
-          value: 1
-          comment: number of groups
-        - key: TFIELDS
-          value: 13
-          comment: number of table fields
-        - key: TNULL1
-          value: -9223372036854775808
-          comment: ''
-        - key: TNULL2
-          value: -9223372036854775808
-          comment: ''
+          - key: XTENSION
+            value: BINTABLE
+            comment: binary table extension
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 2
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 93
+            comment: length of dimension 1
+          - key: NAXIS2
+            value: 2000000
+            comment: length of dimension 2
+          - key: PCOUNT
+            value: 0
+            comment: number of group parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: TFIELDS
+            value: 13
+            comment: number of table fields
+          - key: TNULL1
+            value: -9223372036854775808
+            comment: ''
+          - key: TNULL2
+            value: -9223372036854775808
+            comment: ''
         columns:
           carton_to_target_pk:
             name: carton_to_target_pk
             type: int64
             unit: ''
-            description: The primary key of the target in the dr20_carton_to_target
+            description:
+              The primary key of the target in the dr20_carton_to_target
               table.
           revised_magnitude_pk:
             name: revised_magnitude_pk
             type: int64
             unit: ''
-            description: The primary key. A sequential identifier.
+            description: The primary key of the revised magnitude entry
           g:
             name: g
             type: float64

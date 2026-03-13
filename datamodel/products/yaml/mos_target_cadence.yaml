@@ -15,8 +15,8 @@ general:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_cadence-[NUM].fits, where V_TARG=1.0.1
-    for DR18; and NUM = 1..1 to partition the file into parts
+  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_cadence.fits with V_TARG=2.0.0
+    for DR20.
   generated_by: sdss5db> targetdb, operations database server
   design: false
   vac: false
@@ -214,16 +214,17 @@ releases:
             unit: ''
             description: The total number of exposures planned for this cadence
   DR20:
-    template: $MOS_TARGET/mos_cadence.fits
-    example: mos_cadence.fits
-    location: mos_cadence.fits
+    template: $MOS_TARGET/[V_TARG]/fits/mos_cadence.fits
+    example: 2.0.0/fits/mos_cadence.fits
+    location: '{v_targ}/fits/mos_cadence.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_cadence
-      path_template: $MOS_TARGET/mos_cadence.fits
-      path_kwargs: []
-      access_string: mos_target_cadence = $MOS_TARGET/mos_cadence.fits
+      path_template: $MOS_TARGET/{v_targ}/fits/mos_cadence.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_cadence = $MOS_TARGET/{v_targ}/fits/mos_cadence.fits
     survey: SDSS
     hdus:
       hdu0:

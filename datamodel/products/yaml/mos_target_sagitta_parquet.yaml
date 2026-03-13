@@ -1,0 +1,86 @@
+general:
+  name: mos_target_sagitta_parquet
+  short: 'MOS Target Table: sagitta'
+  description: 'Catalog of pre-main-sequence stars derived from Gaia DR2 and 2MASS
+    from McBride et al. (2021), their Table 4.
+
+
+    For complete details, see the original paper: <a href="https://iopscience.iop.org/article/10.3847/1538-3881/ac2432">https://iopscience.iop.org/article/10.3847/1538-3881/ac2432</a>'
+  datatype: PARQUET
+  filesize: 6 MB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/parquet/mos_sagitta.parquet with V_TARG=2.0.0
+    for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/parquet/mos_sagitta.parquet
+    example: 2.0.0/parquet/mos_sagitta.parquet
+    location: '{v_targ}/parquet/mos_sagitta.parquet'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_sagitta_parquet
+      path_template: $MOS_TARGET/{v_targ}/parquet/mos_sagitta.parquet
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_sagitta_parquet = $MOS_TARGET/{v_targ}/parquet/mos_sagitta.parquet
+    survey: SDSS
+    dataframe:
+      columns:
+        source_id:
+          name: source_id
+          dtype: Int64
+          unit: ''
+          description: Gaia DR2 unique identifier
+        ra:
+          name: ra
+          dtype: Float64
+          unit: degrees
+          description: Right ascension
+        dec:
+          name: dec
+          dtype: Float64
+          unit: degrees
+          description: Declination
+        av:
+          name: av
+          dtype: Float32
+          unit: mag
+          description: Predicted extinction
+        yso:
+          name: yso
+          dtype: Float32
+          unit: ''
+          description: Pre-main-sequence probability
+        yso_std:
+          name: yso_std
+          dtype: Float32
+          unit: ''
+          description: Error on pre-main-sequence probability
+        age:
+          name: age
+          dtype: Float32
+          unit: log yrs
+          description: Age
+        age_std:
+          name: age_std
+          dtype: Float32
+          unit: log yrs
+          description: Error on age
+      metadata: {}
+notes: None
+regrets: I  have no regrets!

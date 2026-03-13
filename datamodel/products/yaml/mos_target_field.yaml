@@ -14,7 +14,8 @@ general:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_field.fits, where V_TARG=1.0.2 for DR19
+  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_field.fits with V_TARG=2.0.0 for
+    DR20.
   generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
@@ -153,16 +154,17 @@ releases:
             unit: ''
             description: The idenifier of a field within a version of the survey plan.
   DR20:
-    template: $MOS_TARGET/mos_field.fits
-    example: mos_field.fits
-    location: mos_field.fits
+    template: $MOS_TARGET/[V_TARG]/fits/mos_field.fits
+    example: 2.0.0/fits/mos_field.fits
+    location: '{v_targ}/fits/mos_field.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_field
-      path_template: $MOS_TARGET/mos_field.fits
-      path_kwargs: []
-      access_string: mos_target_field = $MOS_TARGET/mos_field.fits
+      path_template: $MOS_TARGET/{v_targ}/fits/mos_field.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_field = $MOS_TARGET/{v_targ}/fits/mos_field.fits
     survey: SDSS
     hdus:
       hdu0:

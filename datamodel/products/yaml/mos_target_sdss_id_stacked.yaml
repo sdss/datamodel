@@ -20,8 +20,8 @@ general:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_sdss_id_stacked.fits, where V_TARG=1.0.2
-    for DR19
+  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_sdss_id_stacked-[NUM].fits with
+    V_TARG=2.0.0 and NUM=1..64 for DR20.
   generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
@@ -33,7 +33,8 @@ changelog:
   releases:
     DR20:
       from: DR19
-      note: No changes
+      note: The [NUM] chunk is now separated from the main file species name by a
+        dash instead of an underscore.
 releases:
   DR19:
     template: $MOS_TARGET/[V_TARG]/mos_sdss_id_stacked-[NUM].fits
@@ -138,17 +139,18 @@ releases:
             unit: ''
             description: The SDSS identifier for a unique object.
   DR20:
-    template: $MOS_TARGET/mos_sdss_id_stacked_[NUM2].fits
-    example: mos_sdss_id_stacked_01.fits
-    location: mos_sdss_id_stacked_{num:0>2}.fits
+    template: $MOS_TARGET/[V_TARG]/fits/mos_sdss_id_stacked-[NUM2].fits
+    example: 2.0.0/fits/mos_sdss_id_stacked-01.fits
+    location: '{v_targ}/fits/mos_sdss_id_stacked-{num:0>2}.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_sdss_id_stacked
-      path_template: $MOS_TARGET/mos_sdss_id_stacked_{num:0>2}.fits
+      path_template: $MOS_TARGET/{v_targ}/fits/mos_sdss_id_stacked-{num:0>2}.fits
       path_kwargs:
       - num
-      access_string: mos_target_sdss_id_stacked = $MOS_TARGET/mos_sdss_id_stacked_{num:0>2}.fits
+      - v_targ
+      access_string: mos_target_sdss_id_stacked = $MOS_TARGET/{v_targ}/fits/mos_sdss_id_stacked-{num:0>2}.fits
     survey: SDSS
     hdus:
       hdu0:

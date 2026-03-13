@@ -1,0 +1,153 @@
+general:
+  name: mos_target_bhm_rm_tweaks_parquet
+  short: 'MOS Target Table: bhm_rm_tweaks'
+  description: 'Reverberation mapping (RM) targets for SDSS-V.
+
+
+    This table enables small modifications to be made to the set of reverberation
+    mapping (RM) targets selected for observation in SDSS-V. The dr20_bhm_rm_tweaks
+    table allows identification of confirmed QSOs which were observed in plate mode
+    that should be preferentially targeted in forward-looking FPS mode observations,
+    and reject candidates which the plate-mode observations have revealed to be unsuitable
+    for continued RM studies.'
+  datatype: PARQUET
+  filesize: 58 KB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/parquet/mos_bhm_rm_tweaks.parquet with V_TARG=2.0.0
+    for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/parquet/mos_bhm_rm_tweaks.parquet
+    example: 2.0.0/parquet/mos_bhm_rm_tweaks.parquet
+    location: '{v_targ}/parquet/mos_bhm_rm_tweaks.parquet'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_bhm_rm_tweaks_parquet
+      path_template: $MOS_TARGET/{v_targ}/parquet/mos_bhm_rm_tweaks.parquet
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_bhm_rm_tweaks_parquet = $MOS_TARGET/{v_targ}/parquet/mos_bhm_rm_tweaks.parquet
+    survey: SDSS
+    dataframe:
+      columns:
+        rm_field_name:
+          name: rm_field_name
+          dtype: String
+          unit: ''
+          description: Human readable name of the field (e.g. 'XMM-LSS', 'COSMOS',
+            'SDSS-RM')
+        plate:
+          name: plate
+          dtype: Int32
+          unit: ''
+          description: PLATEID of the SDSS-V spectrum from which the visual inspection
+            information was derived
+        fiberid:
+          name: fiberid
+          dtype: Int32
+          unit: ''
+          description: FIBERID of the SDSS-V spectrum from which the visual inspection
+            information was derived
+        mjd:
+          name: mjd
+          dtype: Int32
+          unit: ''
+          description: MJD of the SDSS-V spectrum from which the visual inspection
+            information was derived
+        catalogid:
+          name: catalogid
+          dtype: Int64
+          unit: ''
+          description: SDSS-V catalogid from version '0.1.0' of the crossmatch
+        ra:
+          name: ra
+          dtype: Float64
+          unit: ''
+          description: PLUG_RA of the SDSS-V spectrum from which the visual inspection
+            information was derived
+        dec:
+          name: dec
+          dtype: Float64
+          unit: ''
+          description: PLUG_DEC of the SDSS-V spectrum from which the visual inspection
+            information was derived
+        rm_suitability:
+          name: rm_suitability
+          dtype: Int32
+          unit: ''
+          description: 'Flag indicating if this target is well suited to continued
+            RM observation. Known values are: -1 - unconfirmed (but might still be
+            a good QSO target, e.g. due to unplugged fiber, or unverified visual inspection);
+            0 - target is probably unsuitable for RM, do not observe in the future;
+            1 - target is probably suitable for RM'
+        in_plate:
+          name: in_plate
+          dtype: Boolean
+          unit: ''
+          description: flag indicating if this target was included in a plate design
+            during SDSS-V plate observations
+        firstcarton:
+          name: firstcarton
+          dtype: String
+          unit: ''
+          description: '''firstcarton'' that selected this target for observation
+            in the SDSS-V plate-mode operations phase'
+        mag_u:
+          name: mag_u
+          dtype: Float32
+          unit: mag
+          description: optical magnitude of the target (u-band)
+        mag_g:
+          name: mag_g
+          dtype: Float32
+          unit: mag
+          description: optical magnitude of the target (g-band)
+        mag_r:
+          name: mag_r
+          dtype: Float32
+          unit: mag
+          description: optical magnitude of the target (r-band)
+        mag_i:
+          name: mag_i
+          dtype: Float32
+          unit: mag
+          description: optical magnitude of the target (i-band)
+        mag_z:
+          name: mag_z
+          dtype: Float32
+          unit: mag
+          description: optical magnitude of the target (z-band)
+        gaia_g:
+          name: gaia_g
+          dtype: Float32
+          unit: mag
+          description: optical magnitude of the target (Gaia G-band)
+        date_set:
+          name: date_set
+          dtype: String
+          unit: ''
+          description: Human readable date string, e.g. '25-Nov-2020' that indicates
+            roughly when this entry was added
+        pkey:
+          name: pkey
+          dtype: Int64
+          unit: ''
+          description: primary key of the table entry
+      metadata: {}
+notes: None
+regrets: I  have no regrets!

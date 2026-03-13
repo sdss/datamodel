@@ -16,8 +16,8 @@ general:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_gaia_dr2_wd-[NUM].fits, where V_TARG=1.0.1
-    for DR18; and NUM = 1..1 to partition the file into parts
+  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_gaia_dr2_wd.fits with V_TARG=2.0.0
+    for DR20.
   generated_by: sdss5db> targetdb, operations database server
   design: false
   vac: false
@@ -729,16 +729,17 @@ releases:
             unit: ''
             description: Chi^2 value of the pure-H fit
   DR20:
-    template: $MOS_TARGET/mos_gaia_dr2_wd.fits
-    example: mos_gaia_dr2_wd.fits
-    location: mos_gaia_dr2_wd.fits
+    template: $MOS_TARGET/[V_TARG]/fits/mos_gaia_dr2_wd.fits
+    example: 2.0.0/fits/mos_gaia_dr2_wd.fits
+    location: '{v_targ}/fits/mos_gaia_dr2_wd.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_gaia_dr2_wd
-      path_template: $MOS_TARGET/mos_gaia_dr2_wd.fits
-      path_kwargs: []
-      access_string: mos_target_gaia_dr2_wd = $MOS_TARGET/mos_gaia_dr2_wd.fits
+      path_template: $MOS_TARGET/{v_targ}/fits/mos_gaia_dr2_wd.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_gaia_dr2_wd = $MOS_TARGET/{v_targ}/fits/mos_gaia_dr2_wd.fits
     survey: SDSS
     hdus:
       hdu0:

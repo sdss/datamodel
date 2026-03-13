@@ -1,0 +1,68 @@
+general:
+  name: mos_target_targetdb_version_parquet
+  short: 'MOS Target Table: targetdb_version'
+  description: List of versions associated with target selection cartons and robostategy
+    runs.
+  datatype: PARQUET
+  filesize: 2 KB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/parquet/mos_targetdb_version.parquet with
+    V_TARG=2.0.0 for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/parquet/mos_targetdb_version.parquet
+    example: 2.0.0/parquet/mos_targetdb_version.parquet
+    location: '{v_targ}/parquet/mos_targetdb_version.parquet'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_targetdb_version_parquet
+      path_template: $MOS_TARGET/{v_targ}/parquet/mos_targetdb_version.parquet
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_targetdb_version_parquet = $MOS_TARGET/{v_targ}/parquet/mos_targetdb_version.parquet
+    survey: SDSS
+    dataframe:
+      columns:
+        pk:
+          name: pk
+          dtype: Int32
+          unit: ''
+          description: Unique identifier
+        plan:
+          name: plan
+          dtype: String
+          unit: ''
+          description: Labeled human readable version
+        tag:
+          name: tag
+          dtype: String
+          unit: ''
+          description: Tag of target selection version used, https://github.com/sdss/target_selection/releases
+        target_selection:
+          name: target_selection
+          dtype: Boolean
+          unit: boolean
+          description: Flag, associated with target selection
+        robostrategy:
+          name: robostrategy
+          dtype: Boolean
+          unit: boolean
+          description: Flag, associated with robostrategy run
+      metadata: {}
+notes: None
+regrets: I  have no regrets!

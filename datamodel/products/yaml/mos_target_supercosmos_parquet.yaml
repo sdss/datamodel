@@ -1,0 +1,347 @@
+general:
+  name: mos_target_supercosmos_parquet
+  short: 'MOS Target Table: supercosmos'
+  description: 'Contains merged sources for every field in the SuperCOSMOS Science
+    Archive (SSA). It consists of data from digitised sky survey plates taken with
+    the UK Schmidt telescope (UKST), the ESO Schmidt, and the Palomar Schmidt.
+
+
+    Each field within the SSA is covered by four plates in passbands B, R and I with
+    R being covered twice at different times. This results in four-plate multi-colour,
+    multi-epoch data which are merged into a single source catalogue for general science
+    exploitation. This table contains the associated merged records created from the
+    records in table Detection, along with a full astrometric solution (including
+    proper motions) computed from the available position measures. The most useful
+    subset of image morphological descriptors are also propagated into this table
+    for ease of use.
+
+
+    Derived from <a href="http://ssa.roe.ac.uk/www/SSA_TABLE_SourceSchema.html#Source">http://ssa.roe.ac.uk/www/SSA_TABLE_SourceSchema.html#Source</a>'
+  datatype: PARQUET
+  filesize: 8 GB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/parquet/mos_supercosmos.parquet with V_TARG=2.0.0
+    for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/parquet/mos_supercosmos.parquet
+    example: 2.0.0/parquet/mos_supercosmos.parquet
+    location: '{v_targ}/parquet/mos_supercosmos.parquet'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_supercosmos_parquet
+      path_template: $MOS_TARGET/{v_targ}/parquet/mos_supercosmos.parquet
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_supercosmos_parquet = $MOS_TARGET/{v_targ}/parquet/mos_supercosmos.parquet
+    survey: SDSS
+    dataframe:
+      columns:
+        objid:
+          name: objid
+          dtype: Int64
+          unit: ''
+          description: Unique identifier of merged source
+        objidb:
+          name: objidb
+          dtype: Int64
+          unit: ''
+          description: objID for B band detection merged into this object
+        objidr1:
+          name: objidr1
+          dtype: Int64
+          unit: ''
+          description: objID for R1 band detection merged into this object
+        objidr2:
+          name: objidr2
+          dtype: Int64
+          unit: ''
+          description: objID for R2 band detection merged into this object
+        objidi:
+          name: objidi
+          dtype: Int64
+          unit: ''
+          description: objID for I band detection merged into this object
+        htmid:
+          name: htmid
+          dtype: Int64
+          unit: ''
+          description: Hierarchical Triangular Mesh (20-deep) of centroid
+        epoch:
+          name: epoch
+          dtype: Float32
+          unit: yr
+          description: Epoch of position (variance weighted mean epoch of available
+            measures)
+        ra:
+          name: ra
+          dtype: Float64
+          unit: deg
+          description: Mean RA, computed from detections merged in this catalogue
+        dec:
+          name: dec
+          dtype: Float64
+          unit: deg
+          description: Mean Dec, computed from detections merged in this catalogue
+        sigra:
+          name: sigra
+          dtype: Float64
+          unit: deg
+          description: Uncertainty in RA (formal random error not inc. systematic
+            errors)
+        sigdec:
+          name: sigdec
+          dtype: Float64
+          unit: deg
+          description: Uncertainty in Dec (formal random error not inc. systematic
+            errors)
+        cx:
+          name: cx
+          dtype: Float64
+          unit: ''
+          description: Cartesian x of unit (ra,dec) vector on celestial sphere
+        cy:
+          name: cy
+          dtype: Float64
+          unit: ''
+          description: Cartesian y of unit (ra,dec) vector on celestial sphere
+        cz:
+          name: cz
+          dtype: Float64
+          unit: ''
+          description: Cartesian z of unit (ra,dec) vector on celestial sphere
+        muacosd:
+          name: muacosd
+          dtype: Float32
+          unit: mas/yr
+          description: Proper motion in RA direction
+        mud:
+          name: mud
+          dtype: Float32
+          unit: mas/yr
+          description: Proper motion in Dec direction
+        sigmuacosd:
+          name: sigmuacosd
+          dtype: Float32
+          unit: mas/yr
+          description: Error on proper motion in RA direction
+        sigmud:
+          name: sigmud
+          dtype: Float32
+          unit: mas/yr
+          description: Error on proper motion in Dec direction
+        chi2:
+          name: chi2
+          dtype: Float32
+          unit: ''
+          description: Chi-squared value of proper motion solution
+        nplates:
+          name: nplates
+          dtype: Int16
+          unit: ''
+          description: No. of plates used for this proper motion measurement
+        classmagb:
+          name: classmagb
+          dtype: Float32
+          unit: mag
+          description: B band magnitude selected by B image class
+        classmagr1:
+          name: classmagr1
+          dtype: Float32
+          unit: mag
+          description: R1 band magnitude selected by R1 image class
+        classmagr2:
+          name: classmagr2
+          dtype: Float32
+          unit: mag
+          description: R2 band magnitude selected by R2 image class
+        classmagi:
+          name: classmagi
+          dtype: Float32
+          unit: mag
+          description: I band magnitude selected by I image class
+        gcormagb:
+          name: gcormagb
+          dtype: Float32
+          unit: mag
+          description: B band magnitude assuming object is galaxy
+        gcormagr1:
+          name: gcormagr1
+          dtype: Float32
+          unit: mag
+          description: R1 band magnitude assuming object is galaxy
+        gcormagr2:
+          name: gcormagr2
+          dtype: Float32
+          unit: mag
+          description: R2 band magnitude assuming object is galaxy
+        gcormagi:
+          name: gcormagi
+          dtype: Float32
+          unit: mag
+          description: I band magnitude assuming object is galaxy
+        scormagb:
+          name: scormagb
+          dtype: Float32
+          unit: mag
+          description: B band magnitude assuming object is star
+        scormagr1:
+          name: scormagr1
+          dtype: Float32
+          unit: mag
+          description: R1 band magnitude assuming object is star
+        scormagr2:
+          name: scormagr2
+          dtype: Float32
+          unit: mag
+          description: R2 band magnitude assuming object is star
+        scormagi:
+          name: scormagi
+          dtype: Float32
+          unit: mag
+          description: I band magnitude assuming object is star
+        meanclass:
+          name: meanclass
+          dtype: Int16
+          unit: ''
+          description: Estimate of image class based on unit-weighted mean of individual
+            classes
+        classb:
+          name: classb
+          dtype: Int16
+          unit: ''
+          description: Image classification from B band detection
+        classr1:
+          name: classr1
+          dtype: Int16
+          unit: ''
+          description: Image classification from R1 band detection
+        classr2:
+          name: classr2
+          dtype: Int16
+          unit: ''
+          description: Image classification from R2 band detection
+        classi:
+          name: classi
+          dtype: Int16
+          unit: ''
+          description: Image classification from I band detection
+        ellipb:
+          name: ellipb
+          dtype: Float32
+          unit: ''
+          description: Ellipticity of B band detection
+        ellipr1:
+          name: ellipr1
+          dtype: Float32
+          unit: ''
+          description: Ellipticity of R1 band detection
+        ellipr2:
+          name: ellipr2
+          dtype: Float32
+          unit: ''
+          description: Ellipticity of R2 band detection
+        ellipi:
+          name: ellipi
+          dtype: Float32
+          unit: ''
+          description: Ellipticity of I band detection
+        qualb:
+          name: qualb
+          dtype: Int32
+          unit: ''
+          description: Bitwise quality flag from B band detection
+        qualr1:
+          name: qualr1
+          dtype: Int32
+          unit: ''
+          description: Bitwise quality flag from R1 band detection
+        qualr2:
+          name: qualr2
+          dtype: Int32
+          unit: ''
+          description: Bitwise quality flag from R2 band detection
+        quali:
+          name: quali
+          dtype: Int32
+          unit: ''
+          description: Bitwise quality flag from I band detection
+        blendb:
+          name: blendb
+          dtype: Int32
+          unit: ''
+          description: Blend flag from B band detection
+        blendr1:
+          name: blendr1
+          dtype: Int32
+          unit: ''
+          description: Blend flag from R1 band detection
+        blendr2:
+          name: blendr2
+          dtype: Int32
+          unit: ''
+          description: Blend flag from R2 band detection
+        blendi:
+          name: blendi
+          dtype: Int32
+          unit: ''
+          description: Blend flag from I band detection
+        prfstatb:
+          name: prfstatb
+          dtype: Float32
+          unit: ''
+          description: Profile statistic from B band detection
+        prfstatr1:
+          name: prfstatr1
+          dtype: Float32
+          unit: ''
+          description: Profile statistic from R1 band detection
+        prfstatr2:
+          name: prfstatr2
+          dtype: Float32
+          unit: ''
+          description: Profile statistic from R2 band detection
+        prfstati:
+          name: prfstati
+          dtype: Float32
+          unit: ''
+          description: Profile statistic from I band detection
+        l:
+          name: l
+          dtype: Float32
+          unit: deg
+          description: The Galactic longitude of the source
+        b:
+          name: b
+          dtype: Float32
+          unit: deg
+          description: The Galactic latitude of the source
+        d:
+          name: d
+          dtype: Float32
+          unit: deg
+          description: The great-circle distance of the source from the Galactic centre
+        ebmv:
+          name: ebmv
+          dtype: Float32
+          unit: mag
+          description: The estimated foreground reddening at this position from Schlegel
+            et al. (1998)
+      metadata: {}
+notes: None
+regrets: I  have no regrets!

@@ -15,8 +15,8 @@ general:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_catalog_to_tic_v8-[NUM].fits, where
-    V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_catalog_to_tic_v8-[NUM].fits with
+    V_TARG=2.0.0 and NUM=1..101 for DR20.
   generated_by: sdss5db> targetdb, operations database server
   design: false
   vac: false
@@ -28,7 +28,8 @@ changelog:
   releases:
     DR20:
       from: DR19
-      note: No changes
+      note: The [NUM] chunk is now separated from the main file species name by a
+        dash instead of an underscore.
     DR19:
       from: DR18
       note: No changes
@@ -200,17 +201,18 @@ releases:
             description: Whether this is considered the best match between the catalog
               entry and mos_target_tic_v8.
   DR20:
-    template: $MOS_TARGET/mos_catalog_to_tic_v8_[NUM3].fits
-    example: mos_catalog_to_tic_v8_001.fits
-    location: mos_catalog_to_tic_v8_{num:0>3}.fits
+    template: $MOS_TARGET/[V_TARG]/fits/mos_catalog_to_tic_v8-[NUM3].fits
+    example: 2.0.0/fits/mos_catalog_to_tic_v8-001.fits
+    location: '{v_targ}/fits/mos_catalog_to_tic_v8-{num:0>3}.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_catalog_to_tic_v8
-      path_template: $MOS_TARGET/mos_catalog_to_tic_v8_{num:0>3}.fits
+      path_template: $MOS_TARGET/{v_targ}/fits/mos_catalog_to_tic_v8-{num:0>3}.fits
       path_kwargs:
       - num
-      access_string: mos_target_catalog_to_tic_v8 = $MOS_TARGET/mos_catalog_to_tic_v8_{num:0>3}.fits
+      - v_targ
+      access_string: mos_target_catalog_to_tic_v8 = $MOS_TARGET/{v_targ}/fits/mos_catalog_to_tic_v8-{num:0>3}.fits
     survey: SDSS
     hdus:
       hdu0:

@@ -14,8 +14,8 @@ general:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_opsdb_apo_exposure_flavor.fits, where
-    V_TARG=1.0.2 for DR19
+  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_opsdb_apo_exposure_flavor.fits
+    with V_TARG=2.0.0 for DR20.
   generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
@@ -106,16 +106,17 @@ releases:
             unit: ''
             description: The type of exposure
   DR20:
-    template: $MOS_TARGET/mos_opsdb_apo_exposure_flavor.fits
-    example: mos_opsdb_apo_exposure_flavor.fits
-    location: mos_opsdb_apo_exposure_flavor.fits
+    template: $MOS_TARGET/[V_TARG]/fits/mos_opsdb_apo_exposure_flavor.fits
+    example: 2.0.0/fits/mos_opsdb_apo_exposure_flavor.fits
+    location: '{v_targ}/fits/mos_opsdb_apo_exposure_flavor.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_opsdb_apo_exposure_flavor
-      path_template: $MOS_TARGET/mos_opsdb_apo_exposure_flavor.fits
-      path_kwargs: []
-      access_string: mos_target_opsdb_apo_exposure_flavor = $MOS_TARGET/mos_opsdb_apo_exposure_flavor.fits
+      path_template: $MOS_TARGET/{v_targ}/fits/mos_opsdb_apo_exposure_flavor.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_opsdb_apo_exposure_flavor = $MOS_TARGET/{v_targ}/fits/mos_opsdb_apo_exposure_flavor.fits
     survey: SDSS
     hdus:
       hdu0:

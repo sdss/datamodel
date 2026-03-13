@@ -15,8 +15,8 @@ general:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_yso_clustering-[NUM].fits, where V_TARG=1.0.1
-    for DR18; and NUM = 1..1 to partition the file into parts
+  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_yso_clustering.fits with V_TARG=2.0.0
+    for DR20.
   generated_by: sdss5db> targetdb, operations database server
   design: false
   vac: false
@@ -327,16 +327,17 @@ releases:
             unit: pc
             description: Uncertainty in dist
   DR20:
-    template: $MOS_TARGET/mos_yso_clustering.fits
-    example: mos_yso_clustering.fits
-    location: mos_yso_clustering.fits
+    template: $MOS_TARGET/[V_TARG]/fits/mos_yso_clustering.fits
+    example: 2.0.0/fits/mos_yso_clustering.fits
+    location: '{v_targ}/fits/mos_yso_clustering.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_yso_clustering
-      path_template: $MOS_TARGET/mos_yso_clustering.fits
-      path_kwargs: []
-      access_string: mos_target_yso_clustering = $MOS_TARGET/mos_yso_clustering.fits
+      path_template: $MOS_TARGET/{v_targ}/fits/mos_yso_clustering.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_yso_clustering = $MOS_TARGET/{v_targ}/fits/mos_yso_clustering.fits
     survey: SDSS
     hdus:
       hdu0:

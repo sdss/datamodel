@@ -1,0 +1,244 @@
+general:
+  name: mos_target_mastar_goodvisits_parquet
+  short: 'MOS Target Table: mastar_goodvisits'
+  description: Summary file of all visits of stars included in MaNGA Stellar Library.
+  datatype: PARQUET
+  filesize: 2 MB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/parquet/mos_mastar_goodvisits.parquet with
+    V_TARG=2.0.0 for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/parquet/mos_mastar_goodvisits.parquet
+    example: 2.0.0/parquet/mos_mastar_goodvisits.parquet
+    location: '{v_targ}/parquet/mos_mastar_goodvisits.parquet'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_mastar_goodvisits_parquet
+      path_template: $MOS_TARGET/{v_targ}/parquet/mos_mastar_goodvisits.parquet
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_mastar_goodvisits_parquet = $MOS_TARGET/{v_targ}/parquet/mos_mastar_goodvisits.parquet
+    survey: SDSS
+    dataframe:
+      columns:
+        drpver:
+          name: drpver
+          dtype: String
+          unit: ''
+          description: Version of mangadrp.
+        mprocver:
+          name: mprocver
+          dtype: String
+          unit: ''
+          description: Version of mastarproc.
+        mangaid:
+          name: mangaid
+          dtype: String
+          unit: ''
+          description: MaNGA-ID for the object.
+        plate:
+          name: plate
+          dtype: Int32
+          unit: ''
+          description: Plate ID.
+        ifudesign:
+          name: ifudesign
+          dtype: String
+          unit: ''
+          description: IFUDESIGN for the fiber bundle.
+        mjd:
+          name: mjd
+          dtype: Int32
+          unit: ''
+          description: Modified Julian Date for this visit.
+        ifura:
+          name: ifura
+          dtype: Float64
+          unit: deg
+          description: Right Ascension of the center of the IFU.
+        ifudec:
+          name: ifudec
+          dtype: Float64
+          unit: deg
+          description: Declination of the center of the IFU.
+        ra:
+          name: ra
+          dtype: Float64
+          unit: deg
+          description: Right Ascension for this object at the time given by the EPOCH
+            column (Equinox J2000).
+        dec:
+          name: dec
+          dtype: Float64
+          unit: deg
+          description: Declination for this object at the time given by the EPOCH
+            column (Equinox J2000).
+        epoch:
+          name: epoch
+          dtype: Float32
+          unit: ''
+          description: Epoch of the astrometry (which is approximate for some catalogs).
+        psfmag_1:
+          name: psfmag_1
+          dtype: Float32
+          unit: mag
+          description: PSF magnitude in the first band with the filter correspondence
+            depending on PHOTOCAT.
+        psfmag_2:
+          name: psfmag_2
+          dtype: Float32
+          unit: mag
+          description: PSF magnitude in the second band with the filter correspondence
+            depending on PHOTOCAT.
+        psfmag_3:
+          name: psfmag_3
+          dtype: Float32
+          unit: mag
+          description: PSF magnitude in the third band with the filter correspondence
+            depending on PHOTOCAT.
+        psfmag_4:
+          name: psfmag_4
+          dtype: Float32
+          unit: mag
+          description: PSF magnitude in the fourth band with the filter correspondence
+            depending on PHOTOCAT.
+        psfmag_5:
+          name: psfmag_5
+          dtype: Float32
+          unit: mag
+          description: PSF magnitude in the fifth band with the filter correspondence
+            depending on PHOTOCAT.
+        mngtarg2:
+          name: mngtarg2
+          dtype: Int32
+          unit: ''
+          description: MANGA_TARGET2 targeting bitmask.
+        exptime:
+          name: exptime
+          dtype: Float32
+          unit: sec
+          description: Median exposure time for all exposures on this visit.
+        nexp_visit:
+          name: nexp_visit
+          dtype: Int16
+          unit: ''
+          description: Total number of exposures during this visit. This column was
+            named 'NEXP' in DR15/16.
+        nvelgood:
+          name: nvelgood
+          dtype: Int16
+          unit: ''
+          description: Number of exposures (from all visits of this PLATE-IFUDESIGN)
+            with good velocity measurements.
+        heliov:
+          name: heliov
+          dtype: Float32
+          unit: km/s
+          description: Median heliocentric velocity of all exposures on all visits
+            that yield good velocity measurements. This is used to shift the spectra
+            to the rest frame.
+        verr:
+          name: verr
+          dtype: Float32
+          unit: km/s
+          description: 1-sigma uncertainty of the heliocentric velocity
+        v_errcode:
+          name: v_errcode
+          dtype: Int16
+          unit: ''
+          description: Error code for HELIOV. Zero is good, nonzero is bad.
+        heliov_visit:
+          name: heliov_visit
+          dtype: Float32
+          unit: km/s
+          description: Median heliocentric velocity of good exposures from only this
+            visit, rather than from all visits.
+        verr_visit:
+          name: verr_visit
+          dtype: Float32
+          unit: km/s
+          description: 1-sigma uncertainty of HELIOV_VISIT.
+        v_errcode_visit:
+          name: v_errcode_visit
+          dtype: Int16
+          unit: ''
+          description: Error code for HELIOV_VISIT. Zero is good, nonzero is bad.
+        velvarflag:
+          name: velvarflag
+          dtype: Int16
+          unit: ''
+          description: Flag indicating the significant variation of the heliocentric
+            velocity from visit to visit. A value of 1 means the variation is beyond
+            3-sigma between at least two of the visits. A value of 0 means all variations
+            between pairs of visits are less than 3-sigma.
+        dv_maxsig:
+          name: dv_maxsig
+          dtype: Float32
+          unit: ''
+          description: Maximum significance in velocity variation between pairs of
+            visits.
+        mjdqual:
+          name: mjdqual
+          dtype: Int32
+          unit: ''
+          description: Spectral quality bitmask (MASTAR_QUAL).
+        bprperr_sp:
+          name: bprperr_sp
+          dtype: Float32
+          unit: ''
+          description: Uncertainty in the synthetic Bp-Rp color derived from the spectra.
+        nexp_used:
+          name: nexp_used
+          dtype: Int16
+          unit: ''
+          description: Number of exposures used in constructing the visit spectrum.
+        s2n:
+          name: s2n
+          dtype: Float32
+          unit: ''
+          description: Median signal-to-noise ratio per pixel of this visit spectrum.
+        s2n10:
+          name: s2n10
+          dtype: Float32
+          unit: ''
+          description: Top 10-th percentile signal-to-noise ratio per pixel of this
+            visit spectrum.
+        badpixfrac:
+          name: badpixfrac
+          dtype: Float32
+          unit: ''
+          description: Fraction of bad pixels (those with inverse variance being zero.)
+        coord_source:
+          name: coord_source
+          dtype: String
+          unit: ''
+          description: Source of astrometry.
+        photocat:
+          name: photocat
+          dtype: String
+          unit: ''
+          description: Source of photometry.
+        pk:
+          name: pk
+          dtype: Int64
+          unit: ''
+          description: Primary key. Sequential identifier for this table.
+      metadata: {}
+notes: None
+regrets: I  have no regrets!

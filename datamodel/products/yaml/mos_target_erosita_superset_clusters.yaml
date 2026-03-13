@@ -24,8 +24,8 @@ general:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_erosita_superset_clusters.fits, where
-    V_TARG=1.0.2 for DR19
+  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_erosita_superset_clusters.fits
+    with V_TARG=2.0.0 for DR20.
   generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
@@ -315,16 +315,17 @@ releases:
             unit: ''
             description: primary key of table entry
   DR20:
-    template: $MOS_TARGET/mos_erosita_superset_clusters.fits
-    example: mos_erosita_superset_clusters.fits
-    location: mos_erosita_superset_clusters.fits
+    template: $MOS_TARGET/[V_TARG]/fits/mos_erosita_superset_clusters.fits
+    example: 2.0.0/fits/mos_erosita_superset_clusters.fits
+    location: '{v_targ}/fits/mos_erosita_superset_clusters.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_erosita_superset_clusters
-      path_template: $MOS_TARGET/mos_erosita_superset_clusters.fits
-      path_kwargs: []
-      access_string: mos_target_erosita_superset_clusters = $MOS_TARGET/mos_erosita_superset_clusters.fits
+      path_template: $MOS_TARGET/{v_targ}/fits/mos_erosita_superset_clusters.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_erosita_superset_clusters = $MOS_TARGET/{v_targ}/fits/mos_erosita_superset_clusters.fits
     survey: SDSS
     hdus:
       hdu0:

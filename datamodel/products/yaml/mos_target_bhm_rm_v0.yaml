@@ -18,8 +18,8 @@ general:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_bhm_rm_v0.fits, where V_TARG=1.0.2 for
-    DR19
+  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_bhm_rm_v0.fits with V_TARG=2.0.0
+    for DR20.
   generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
@@ -1576,16 +1576,17 @@ releases:
             description: The signal-to-noise ratio of the measured intrinsic RMS from
               PS1
   DR20:
-    template: $MOS_TARGET/mos_bhm_rm_v0.fits
-    example: mos_bhm_rm_v0.fits
-    location: mos_bhm_rm_v0.fits
+    template: $MOS_TARGET/[V_TARG]/fits/mos_bhm_rm_v0.fits
+    example: 2.0.0/fits/mos_bhm_rm_v0.fits
+    location: '{v_targ}/fits/mos_bhm_rm_v0.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_bhm_rm_v0
-      path_template: $MOS_TARGET/mos_bhm_rm_v0.fits
-      path_kwargs: []
-      access_string: mos_target_bhm_rm_v0 = $MOS_TARGET/mos_bhm_rm_v0.fits
+      path_template: $MOS_TARGET/{v_targ}/fits/mos_bhm_rm_v0.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_bhm_rm_v0 = $MOS_TARGET/{v_targ}/fits/mos_bhm_rm_v0.fits
     survey: SDSS
     hdus:
       hdu0:

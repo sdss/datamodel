@@ -1,0 +1,70 @@
+general:
+  name: mos_target_opsdb_lco_design_to_status_parquet
+  short: 'MOS Target Table: opsdb_lco_design_to_status'
+  description: The table contains design completion information by joining design
+    and design_status. LCO version.
+  datatype: PARQUET
+  filesize: 3 MB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/parquet/mos_opsdb_lco_design_to_status.parquet
+    with V_TARG=2.0.0 for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/parquet/mos_opsdb_lco_design_to_status.parquet
+    example: 2.0.0/parquet/mos_opsdb_lco_design_to_status.parquet
+    location: '{v_targ}/parquet/mos_opsdb_lco_design_to_status.parquet'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_opsdb_lco_design_to_status_parquet
+      path_template: $MOS_TARGET/{v_targ}/parquet/mos_opsdb_lco_design_to_status.parquet
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_opsdb_lco_design_to_status_parquet = $MOS_TARGET/{v_targ}/parquet/mos_opsdb_lco_design_to_status.parquet
+    survey: SDSS
+    dataframe:
+      columns:
+        pk:
+          name: pk
+          dtype: Int32
+          unit: ''
+          description: Unique identifier
+        design_id:
+          name: design_id
+          dtype: Int32
+          unit: ''
+          description: Unique identifier in the design table
+        completion_status_pk:
+          name: completion_status_pk
+          dtype: Int16
+          unit: ''
+          description: Unique identifier in the design status table
+        mjd:
+          name: mjd
+          dtype: Float32
+          unit: days
+          description: Decimal Modified Julian Date (MJD) on which the design was
+            completed
+        manual:
+          name: manual
+          dtype: Boolean
+          unit: ''
+          description: A flag indicated whether the design was manually marked complete
+            (True) or met normal pipeline criteria (False)
+      metadata: {}
+notes: None
+regrets: I  have no regrets!

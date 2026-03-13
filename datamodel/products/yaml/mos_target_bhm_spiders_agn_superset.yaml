@@ -23,8 +23,8 @@ general:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_bhm_spiders_agn_superset.fits, where
-    V_TARG=1.0.2 for DR19
+  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_bhm_spiders_agn_superset.fits with
+    V_TARG=2.0.0 for DR20.
   generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
@@ -361,16 +361,17 @@ releases:
             description: uncertainty on optical magnitude of counterpart, included
               for validity checks only
   DR20:
-    template: $MOS_TARGET/mos_bhm_spiders_agn_superset.fits
-    example: mos_bhm_spiders_agn_superset.fits
-    location: mos_bhm_spiders_agn_superset.fits
+    template: $MOS_TARGET/[V_TARG]/fits/mos_bhm_spiders_agn_superset.fits
+    example: 2.0.0/fits/mos_bhm_spiders_agn_superset.fits
+    location: '{v_targ}/fits/mos_bhm_spiders_agn_superset.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_bhm_spiders_agn_superset
-      path_template: $MOS_TARGET/mos_bhm_spiders_agn_superset.fits
-      path_kwargs: []
-      access_string: mos_target_bhm_spiders_agn_superset = $MOS_TARGET/mos_bhm_spiders_agn_superset.fits
+      path_template: $MOS_TARGET/{v_targ}/fits/mos_bhm_spiders_agn_superset.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_bhm_spiders_agn_superset = $MOS_TARGET/{v_targ}/fits/mos_bhm_spiders_agn_superset.fits
     survey: SDSS
     hdus:
       hdu0:

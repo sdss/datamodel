@@ -22,8 +22,8 @@ general:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_targeting_generation_to_version.fits,
-    where V_TARG=1.0.2 for DR19
+  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_targeting_generation_to_version.fits
+    with V_TARG=2.0.0 for DR20.
   generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
@@ -127,16 +127,17 @@ releases:
             unit: ''
             description: primary key for this table entry
   DR20:
-    template: $MOS_TARGET/mos_targeting_generation_to_version.fits
-    example: mos_targeting_generation_to_version.fits
-    location: mos_targeting_generation_to_version.fits
+    template: $MOS_TARGET/[V_TARG]/fits/mos_targeting_generation_to_version.fits
+    example: 2.0.0/fits/mos_targeting_generation_to_version.fits
+    location: '{v_targ}/fits/mos_targeting_generation_to_version.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_targeting_generation_to_version
-      path_template: $MOS_TARGET/mos_targeting_generation_to_version.fits
-      path_kwargs: []
-      access_string: mos_target_targeting_generation_to_version = $MOS_TARGET/mos_targeting_generation_to_version.fits
+      path_template: $MOS_TARGET/{v_targ}/fits/mos_targeting_generation_to_version.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_targeting_generation_to_version = $MOS_TARGET/{v_targ}/fits/mos_targeting_generation_to_version.fits
     survey: SDSS
     hdus:
       hdu0:

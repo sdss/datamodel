@@ -1,0 +1,174 @@
+general:
+  name: mos_target_bhm_rm_v1_3_parquet
+  short: 'MOS Target Table: bhm_rm_v1_3'
+  description: "arent sample for the RM project.\n\nUsed to select confirmed and candidate\
+    \ quasar targets for the BHM-RM Program in SDSS-V. For more details please see\
+    \ Yang and Shen, (2022, <a href=\"https://ui.adsabs.harvard.edu/abs/2022arXiv220608989Y/abstract)\"\
+    >https://ui.adsabs.harvard.edu/abs/2022arXiv220608989Y/abstract)</a>.\n\nThis\
+    \ table contains all photometric objects detected in the COSMOS, SDSS-RM, XMM-LSS,\
+    \ CDFS, S-CVZ, and ELAIS-S1 fields., within a circular area of 10 degree^2 from\
+    \ the field center.\n\nField center: Name     RA          DEC\n              XMM-LSS\
+    \  02:22:50.00    -04:45:00.0\n              CDFS     03:30:35.60    -28:06:00.0\n\
+    \              EDFS     04:04:57.84    -48:25:22.8\n              ELAIS-S1 00:37:48.00\
+    \    -44:00:00.0\n              COSMOS   10:00:00.00    +02:12:00.0\n        \
+    \      SDSS-RM  14:14:49.00    +53:05:00.0\n              S-CVZ    06:00:00.00\
+    \    -66:33:38.0\n\nThe table includes information from the following survey data\
+    \ releases:\nPS1: Pan-STARRS, DR1, StackObjectThin\nSDSS: Sloan Digital Sky Survey,\
+    \ DR14, PhotoObjAll\nGaia: DR2, gaia_dr2.gaia_source, DR3, gaia_dr3.gaia_source\n\
+    Legacy Survey DR8 and DR10.\nValues are set to -9.0 or -9 if null.\n\nThe dr20_bhm_rm_v1_3\
+    \ table corresponds to Version: v1, 07/31/2023\n\n[INCOMPLETE]: Tom to check summary\
+    \ and missing column descriptions."
+  datatype: PARQUET
+  filesize: 271 KB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/parquet/mos_bhm_rm_v1_3.parquet with V_TARG=2.0.0
+    for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/parquet/mos_bhm_rm_v1_3.parquet
+    example: 2.0.0/parquet/mos_bhm_rm_v1_3.parquet
+    location: '{v_targ}/parquet/mos_bhm_rm_v1_3.parquet'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_bhm_rm_v1_3_parquet
+      path_template: $MOS_TARGET/{v_targ}/parquet/mos_bhm_rm_v1_3.parquet
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_bhm_rm_v1_3_parquet = $MOS_TARGET/{v_targ}/parquet/mos_bhm_rm_v1_3.parquet
+    survey: SDSS
+    dataframe:
+      columns:
+        rm_field_name:
+          name: rm_field_name
+          dtype: String
+          unit: ''
+          description: One of COSMOS, SDSS-RM, XMM-LSS, CDFS, S-CVZ, or ELAIS-S1
+        ra:
+          name: ra
+          dtype: Float64
+          unit: deg
+          description: Fiducial Right Ascension (J2000)
+        dec:
+          name: dec
+          dtype: Float64
+          unit: deg
+          description: Fiducial Declination (J2000)
+        catalogidv05:
+          name: catalogidv05
+          dtype: Int64
+          unit: ''
+          description: Unique identifier in the dr20_catalog table (corresponding
+            to the v0.5 cross-matching run).
+        rm_known_spec:
+          name: rm_known_spec
+          dtype: Boolean
+          unit: ''
+          description: ''
+        rm_core:
+          name: rm_core
+          dtype: Boolean
+          unit: ''
+          description: ''
+        rm_var:
+          name: rm_var
+          dtype: Boolean
+          unit: ''
+          description: ''
+        rm_ancillary:
+          name: rm_ancillary
+          dtype: Boolean
+          unit: ''
+          description: ''
+        mag_g:
+          name: mag_g
+          dtype: Float32
+          unit: ''
+          description: ''
+        mag_r:
+          name: mag_r
+          dtype: Float32
+          unit: ''
+          description: ''
+        mag_i:
+          name: mag_i
+          dtype: Float32
+          unit: ''
+          description: ''
+        mag_z:
+          name: mag_z
+          dtype: Float32
+          unit: ''
+          description: ''
+        gaia_g:
+          name: gaia_g
+          dtype: Float32
+          unit: mag
+          description: Gaia G-band magnitude
+        gaia_bp:
+          name: gaia_bp
+          dtype: Float32
+          unit: mag
+          description: Gaia BP-band magnitude
+        gaia_rp:
+          name: gaia_rp
+          dtype: Float32
+          unit: mag
+          description: Gaia RP-band magnitude
+        ls_id_dr8:
+          name: ls_id_dr8
+          dtype: Int64
+          unit: ''
+          description: Legacy Survey DR8 ID
+        ls_id_dr10:
+          name: ls_id_dr10
+          dtype: Int64
+          unit: ''
+          description: Legacy Survey DR10 ID
+        gaia_dr2_source_id:
+          name: gaia_dr2_source_id
+          dtype: Int64
+          unit: ''
+          description: Gaia DR2 source ID
+        gaia_dr3_source_id:
+          name: gaia_dr3_source_id
+          dtype: Int64
+          unit: ''
+          description: Gaia DR3 source ID
+        panstarrs1_catid_objid:
+          name: panstarrs1_catid_objid
+          dtype: Int64
+          unit: ''
+          description: Pan-STARRS1 DR1 StackObjectThin unique object identifier
+        rm_unsuitable:
+          name: rm_unsuitable
+          dtype: Boolean
+          unit: ''
+          description: ''
+        rm_xrayqso:
+          name: rm_xrayqso
+          dtype: Int32
+          unit: ''
+          description: ''
+        pkey:
+          name: pkey
+          dtype: Int64
+          unit: ''
+          description: Primary key identifier for this table row
+      metadata: {}
+notes: None
+regrets: I  have no regrets!

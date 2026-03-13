@@ -16,7 +16,8 @@ general:
   - MOS_TARGET
   surveys:
   - SDSS
-  naming_convention: $MOS_TARGET/mos_xmm_om_suss_5_0.fits
+  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_xmm_om_suss_5_0.fits with V_TARG=2.0.0
+    for DR20.
   generated_by: sdss5db targeting database.
   data_level: 2.3.3
   design: false
@@ -28,16 +29,17 @@ changelog:
   releases: {}
 releases:
   DR20:
-    template: $MOS_TARGET/mos_xmm_om_suss_5_0.fits
-    example: mos_xmm_om_suss_5_0.fits
-    location: mos_xmm_om_suss_5_0.fits
+    template: $MOS_TARGET/[V_TARG]/fits/mos_xmm_om_suss_5_0.fits
+    example: 2.0.0/fits/mos_xmm_om_suss_5_0.fits
+    location: '{v_targ}/fits/mos_xmm_om_suss_5_0.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_xmm_om_suss_5_0
-      path_template: $MOS_TARGET/mos_xmm_om_suss_5_0.fits
-      path_kwargs: []
-      access_string: mos_target_xmm_om_suss_5_0 = $MOS_TARGET/mos_xmm_om_suss_5_0.fits
+      path_template: $MOS_TARGET/{v_targ}/fits/mos_xmm_om_suss_5_0.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_xmm_om_suss_5_0 = $MOS_TARGET/{v_targ}/fits/mos_xmm_om_suss_5_0.fits
     survey: SDSS
     hdus:
       hdu0:

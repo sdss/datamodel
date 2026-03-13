@@ -15,8 +15,8 @@ general:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_catalog_to_glimpse-[NUM].fits, where
-    V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_catalog_to_glimpse-[NUM].fits with
+    V_TARG=2.0.0 and NUM=1..5 for DR20.
   generated_by: sdss5db> targetdb, operations database server
   design: false
   vac: false
@@ -28,7 +28,8 @@ changelog:
   releases:
     DR20:
       from: DR19
-      note: No changes
+      note: The [NUM] chunk is now separated from the main file species name by a
+        dash instead of an underscore.
     DR19:
       from: DR18
       note: No changes
@@ -200,17 +201,18 @@ releases:
             description: Whether this is considered the best match between the catalog
               entry and mos_target_glimpse.
   DR20:
-    template: $MOS_TARGET/mos_catalog_to_glimpse_[NUM].fits
-    example: mos_catalog_to_glimpse_1.fits
-    location: mos_catalog_to_glimpse_{num}.fits
+    template: $MOS_TARGET/[V_TARG]/fits/mos_catalog_to_glimpse-[NUM].fits
+    example: 2.0.0/fits/mos_catalog_to_glimpse-1.fits
+    location: '{v_targ}/fits/mos_catalog_to_glimpse-{num}.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_catalog_to_glimpse
-      path_template: $MOS_TARGET/mos_catalog_to_glimpse_{num}.fits
+      path_template: $MOS_TARGET/{v_targ}/fits/mos_catalog_to_glimpse-{num}.fits
       path_kwargs:
       - num
-      access_string: mos_target_catalog_to_glimpse = $MOS_TARGET/mos_catalog_to_glimpse_{num}.fits
+      - v_targ
+      access_string: mos_target_catalog_to_glimpse = $MOS_TARGET/{v_targ}/fits/mos_catalog_to_glimpse-{num}.fits
     survey: SDSS
     hdus:
       hdu0:

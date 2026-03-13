@@ -13,8 +13,8 @@ general:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_mwm_tess_ob.fits, where V_TARG=1.0.2
-    for DR19
+  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_mwm_tess_ob.fits with V_TARG=2.0.0
+    for DR20.
   generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
@@ -126,16 +126,17 @@ releases:
             unit: ''
             description: Cadence requested for this carton
   DR20:
-    template: $MOS_TARGET/mos_mwm_tess_ob.fits
-    example: mos_mwm_tess_ob.fits
-    location: mos_mwm_tess_ob.fits
+    template: $MOS_TARGET/[V_TARG]/fits/mos_mwm_tess_ob.fits
+    example: 2.0.0/fits/mos_mwm_tess_ob.fits
+    location: '{v_targ}/fits/mos_mwm_tess_ob.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_mwm_tess_ob
-      path_template: $MOS_TARGET/mos_mwm_tess_ob.fits
-      path_kwargs: []
-      access_string: mos_target_mwm_tess_ob = $MOS_TARGET/mos_mwm_tess_ob.fits
+      path_template: $MOS_TARGET/{v_targ}/fits/mos_mwm_tess_ob.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_mwm_tess_ob = $MOS_TARGET/{v_targ}/fits/mos_mwm_tess_ob.fits
     survey: SDSS
     hdus:
       hdu0:

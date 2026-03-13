@@ -13,7 +13,8 @@ general:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_hole.fits, where V_TARG=1.0.2 for DR19
+  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_hole.fits with V_TARG=2.0.0 for
+    DR20.
   generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
@@ -129,16 +130,17 @@ releases:
             description: The primary key of the observatory in the dr19_observatory
               table.
   DR20:
-    template: $MOS_TARGET/mos_hole.fits
-    example: mos_hole.fits
-    location: mos_hole.fits
+    template: $MOS_TARGET/[V_TARG]/fits/mos_hole.fits
+    example: 2.0.0/fits/mos_hole.fits
+    location: '{v_targ}/fits/mos_hole.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_hole
-      path_template: $MOS_TARGET/mos_hole.fits
-      path_kwargs: []
-      access_string: mos_target_hole = $MOS_TARGET/mos_hole.fits
+      path_template: $MOS_TARGET/{v_targ}/fits/mos_hole.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_hole = $MOS_TARGET/{v_targ}/fits/mos_hole.fits
     survey: SDSS
     hdus:
       hdu0:

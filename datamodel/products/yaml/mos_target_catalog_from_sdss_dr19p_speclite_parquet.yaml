@@ -1,0 +1,74 @@
+general:
+  name: mos_target_catalog_from_sdss_dr19p_speclite_parquet
+  short: 'MOS Target Table: catalog_from_sdss_dr19p_speclite'
+  description: Relational table linking dr20_catalog with dr20_sdss_dr19p_speclite.
+    Although this table has the same columns and purpose of other "catalog_to_X" tables
+    in this schema, it is explicitly named "catalog_from" as it was generated using
+    a bespoke cross-match different from the usual process used for other cross-matched
+    tables in DR20.
+  datatype: PARQUET
+  filesize: 49 MB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/parquet/mos_catalog_from_sdss_dr19p_speclite.parquet
+    with V_TARG=2.0.0 for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/parquet/mos_catalog_from_sdss_dr19p_speclite.parquet
+    example: 2.0.0/parquet/mos_catalog_from_sdss_dr19p_speclite.parquet
+    location: '{v_targ}/parquet/mos_catalog_from_sdss_dr19p_speclite.parquet'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_catalog_from_sdss_dr19p_speclite_parquet
+      path_template: $MOS_TARGET/{v_targ}/parquet/mos_catalog_from_sdss_dr19p_speclite.parquet
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_catalog_from_sdss_dr19p_speclite_parquet = $MOS_TARGET/{v_targ}/parquet/mos_catalog_from_sdss_dr19p_speclite.parquet
+    survey: SDSS
+    dataframe:
+      columns:
+        catalogid:
+          name: catalogid
+          dtype: Int64
+          unit: ''
+          description: The catalogid identifier in the dr20_catalog table.
+        target_id:
+          name: target_id
+          dtype: Int64
+          unit: ''
+          description: The primary key identifier in the dr20_sdss_dr19p_speclite
+            table.
+        version_id:
+          name: version_id
+          dtype: Int32
+          unit: ''
+          description: The internal version for the cross-match.
+        distance:
+          name: distance
+          dtype: Float64
+          unit: ''
+          description: The distance between the catalog and target coordinates if
+            best=F.
+        best:
+          name: best
+          dtype: Boolean
+          unit: ''
+          description: Whether this is considered the best match between the catalog
+            entry and dr20_sdss_dr19p_speclite.
+      metadata: {}
+notes: None
+regrets: I  have no regrets!

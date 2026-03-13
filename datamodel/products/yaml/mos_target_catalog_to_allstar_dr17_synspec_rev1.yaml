@@ -14,8 +14,8 @@ general:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_catalog_to_allstar_dr17_synspec_rev1.fits,
-    where V_TARG=1.0.2 for DR19
+  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_catalog_to_allstar_dr17_synspec_rev1.fits
+    with V_TARG=2.0.0 for DR20.
   generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
@@ -133,16 +133,17 @@ releases:
             description: Identifier of the cross-matching plan used to generate this
               file.
   DR20:
-    template: $MOS_TARGET/mos_catalog_to_allstar_dr17_synspec_rev1.fits
-    example: mos_catalog_to_allstar_dr17_synspec_rev1.fits
-    location: mos_catalog_to_allstar_dr17_synspec_rev1.fits
+    template: $MOS_TARGET/[V_TARG]/fits/mos_catalog_to_allstar_dr17_synspec_rev1.fits
+    example: 2.0.0/fits/mos_catalog_to_allstar_dr17_synspec_rev1.fits
+    location: '{v_targ}/fits/mos_catalog_to_allstar_dr17_synspec_rev1.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_catalog_to_allstar_dr17_synspec_rev1
-      path_template: $MOS_TARGET/mos_catalog_to_allstar_dr17_synspec_rev1.fits
-      path_kwargs: []
-      access_string: mos_target_catalog_to_allstar_dr17_synspec_rev1 = $MOS_TARGET/mos_catalog_to_allstar_dr17_synspec_rev1.fits
+      path_template: $MOS_TARGET/{v_targ}/fits/mos_catalog_to_allstar_dr17_synspec_rev1.fits
+      path_kwargs:
+      - v_targ
+      access_string: mos_target_catalog_to_allstar_dr17_synspec_rev1 = $MOS_TARGET/{v_targ}/fits/mos_catalog_to_allstar_dr17_synspec_rev1.fits
     survey: SDSS
     hdus:
       hdu0:

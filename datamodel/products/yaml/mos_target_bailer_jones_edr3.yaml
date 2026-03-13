@@ -11,8 +11,8 @@ general:
   - MOS_TARGET
   surveys:
   - SDSS
-  naming_convention: $MOS_TARGET/mos_bailer_jones_edr3-[NUM].fits where NUM>0 is the
-    number of the FITS file if the table is split in multiple files.
+  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_bailer_jones_edr3-[NUM].fits with
+    V_TARG=2.0.0 and NUM=1..31 for DR20.
   generated_by: sdss5db targeting database.
   data_level: 2.3.3
   design: false
@@ -24,17 +24,18 @@ changelog:
   releases: {}
 releases:
   DR20:
-    template: $MOS_TARGET/mos_bailer_jones_edr3-[NUM2].fits
-    example: mos_bailer_jones_edr3-01.fits
-    location: mos_bailer_jones_edr3-{num:0>2}.fits
+    template: $MOS_TARGET/[V_TARG]/fits/mos_bailer_jones_edr3-[NUM2].fits
+    example: 2.0.0/fits/mos_bailer_jones_edr3-01.fits
+    location: '{v_targ}/fits/mos_bailer_jones_edr3-{num:0>2}.fits'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_bailer_jones_edr3
-      path_template: $MOS_TARGET/mos_bailer_jones_edr3-{num:0>2}.fits
+      path_template: $MOS_TARGET/{v_targ}/fits/mos_bailer_jones_edr3-{num:0>2}.fits
       path_kwargs:
       - num
-      access_string: mos_target_bailer_jones_edr3 = $MOS_TARGET/mos_bailer_jones_edr3-{num:0>2}.fits
+      - v_targ
+      access_string: mos_target_bailer_jones_edr3 = $MOS_TARGET/{v_targ}/fits/mos_bailer_jones_edr3-{num:0>2}.fits
     survey: SDSS
     hdus:
       hdu0:
