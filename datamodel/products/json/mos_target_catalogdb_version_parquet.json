@@ -1,0 +1,96 @@
+{
+  "general": {
+    "name": "mos_target_catalogdb_version_parquet",
+    "short": "MOS Target Table: catalogdb_version",
+    "description": "Table containing crossmatch versions",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "1 KB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_catalogdb_version.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_catalogdb_version.[FTYPE]",
+      "example": "2.0.0/parquet/mos_catalogdb_version.parquet",
+      "location": "{v_targ}/{ftype}/mos_catalogdb_version.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_catalogdb_version",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_catalogdb_version.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_catalogdb_version = $MOS_TARGET/{v_targ}/{ftype}/mos_catalogdb_version.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "id": {
+            "name": "id",
+            "description": "Unique identifier",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "plan": {
+            "name": "plan",
+            "description": "Cross match version",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "tag": {
+            "name": "tag",
+            "description": "Tag of target selection software used https://github.com/sdss/target_selection/tags",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

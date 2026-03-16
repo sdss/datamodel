@@ -16,10 +16,10 @@ MOS Target Table: cadence_epoch
 Constraints for a single epoch within a cadence.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_cadence_epoch-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_cadence_epoch.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR18, DR19
+DR18, DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
  - DR19
    - from: DR18
    - note: No changes
@@ -74,7 +77,7 @@ Key | Value | Comment | |
 MOS Target Table: cadence_epoch
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  10 MB
+#### HDU Size:  26 MB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -82,8 +85,8 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 84 | length of dimension 1 |
-| NAXIS2 | 124971 | length of dimension 2 |
+| NAXIS1 | 117 | length of dimension 1 |
+| NAXIS2 | 235519 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 11 | number of table fields |
@@ -95,7 +98,7 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | label | char[26] |  | Descriptive name for the cadence with a version |
+ | label | char[42] |  | Descriptive name for the cadence with a version |
  | nepochs | int32 |  | Number of epochs in the cadence |
  | cadence_pk | int64 |  | Primary key of the cadence this epoch belongs to |
  | epoch | int32 |  | Which epoch is this in the cadence (0-indexed) |
@@ -105,7 +108,7 @@ Name | Type | Unit | Description |
  | delta_min | float32 | days | Minimum allowed time since previous epoch |
  | nexp | int32 |  | Number of exposures in this epoch |
  | max_length | float32 |  | Maximum allowed length of epoch, i.e. time between first and last exposure |
- | obsmode_pk | char[14] |  | Reference to the observing parameters (airmass, moon seperation, etc.) |
+ | obsmode_pk | char[31] |  | Reference to the observing parameters (airmass, moon seperation, etc.) |
 
 
 

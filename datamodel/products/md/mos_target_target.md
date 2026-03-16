@@ -16,10 +16,10 @@ MOS Target Table: target
 This table stores the targets associated with DR18 target selection cartons. Note that the targets in this table are unique, but a target can be associated with multiple cartons. That many-to-many relationship is encoded in the mos_target_carton_to_target table.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_target-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_target-[NUM].[FTYPE] with FTYPE='fits', V_TARG='2.0.0', and NUM=1..94 for DR20.
 
 ### Releases
-DR18, DR19
+DR18, DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
  - DR19
    - from: DR18
    - note: No changes
@@ -94,13 +97,13 @@ Key | Value | Comment | |
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | target_pk | int64 |  | The primary key. A sequential identifier. |
- | ra | float64 | degree | The right ascension of the target in ICRS coordinates at epoch. From mos_target_catalog. |
- | dec | float64 | degree | The declination of the target in ICRS coordinates at epoch. From mos_target_catalog. |
- | pmra | float32 | mas/yr | The proper motion in right ascenscion of the target, as a true angle. From mos_target_catalog. |
- | pmdec | float32 | mas/yr | The proper motion in declination of the target. From mos_target_catalog. |
+ | ra | float64 | degree | The right ascension of the target in ICRS coordinates at epoch. From dr20_catalog. |
+ | dec | float64 | degree | The declination of the target in ICRS coordinates at epoch. From dr20_catalog. |
+ | pmra | float32 | mas/yr | The proper motion in right ascenscion of the target, as a true angle. From dr20_catalog. |
+ | pmdec | float32 | mas/yr | The proper motion in declination of the target. From dr20_catalog. |
  | epoch | float32 | years | The epoch of the coordinates, as a Julian epoch. |
- | parallax | float32 | arcsec | The parallax of the target. From mos_target_catalog. |
- | catalogid | int64 |  | The catalogid of the entry in mos_target_catalog associated with this target. |
+ | parallax | float32 | arcsec | The parallax of the target. From dr20_catalog. |
+ | catalogid | int64 |  | The catalogid of the entry in dr20_catalog associated with this target. |
 
 
 

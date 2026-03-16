@@ -16,10 +16,10 @@ MOS Target table: mos_target_marvels_dr11_star
 Contains data for a MARVELS star (DR11 release).
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_marvels_dr11_star.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_marvels_dr11_star.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,7 +71,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_marvels_dr11_star
+MOS Target Table: marvels_dr11_star
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  2 MB
@@ -131,8 +134,8 @@ Name | Type | Unit | Description |
  | hip_plx | float32 | mas | Hipparcos Parallax |
  | hip_plx_e | float32 | mas | Error in Hipparcos Parallax |
  | hip_sptype | char[12] |  | Hipparcos Spectral Type |
- | twomass_designation | char[16] |  | 2MASS Designation ID in dr19_twomass_psc |
- | tycho2_designation | char[12] |  | Tycho2 Designation ID in dr19_tycho2 |
+ | twomass_designation | char[16] |  | 2MASS Designation ID in dr20_twomass_psc |
+ | tycho2_designation | char[12] |  | Tycho2 Designation ID in dr20_tycho2 |
 
 
 

@@ -16,10 +16,10 @@ MOS Target table: mos_target_catalog_to_marvels_dr12_star
 The table contains the cross-match between the dr19_catalog targets and the dr19_marvels_dr12_star table.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_catalog_to_marvels_dr12_star.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_catalog_to_marvels_dr12_star.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,7 +71,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_catalog_to_marvels_dr12_star
+MOS Target Table: catalog_to_marvels_dr12_star
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  366 KB
@@ -92,11 +95,11 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | catalogid | int64 |  | The catalogid identifier in the dr19_catalog table. |
- | target_id | int64 |  | The primary key identifier in the dr19_marvels_dr12_star table. |
+ | catalogid | int64 |  | The catalogid identifier in the dr20_catalog table. |
+ | target_id | int64 |  | The primary key identifier in the dr20_marvels_dr12_star table. |
  | version_id | int16 |  | The internal version for the cross-match. |
  | distance | float64 |  | The distance between the catalog and target coordinates if best=F. |
- | best | bool |  | Whether this is considered the best match between the catalog entry and dr19_marvels_dr12_star. |
+ | best | bool |  | Whether this is considered the best match between the catalog entry and dr20_marvels_dr12_star. |
  | plan_id | char[5] |  | Identifier of the cross-matching plan used to generate this file. |
  | added_by_phase | int16 |  | The phase of the cross-match in which this target was added. |
 

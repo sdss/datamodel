@@ -1,0 +1,210 @@
+{
+  "general": {
+    "name": "mos_target_sagitta_edr3",
+    "short": "MOS Target Table: sagitta_edr3",
+    "description": "Catalog of pre-main-sequence stars derived from Gaia EDR3 and 2MASS from McBride et al. (2021), their Table 5.\n\nFor complete details, see the original paper: <a href=\"https://iopscience.iop.org/article/10.3847/1538-3881/ac2432\">https://iopscience.iop.org/article/10.3847/1538-3881/ac2432</a>",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "12 MB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sagitta_edr3.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sagitta_edr3.[FTYPE]",
+      "example": "2.0.0/fits/mos_sagitta_edr3.fits",
+      "location": "{v_targ}/{ftype}/mos_sagitta_edr3.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_sagitta_edr3",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_sagitta_edr3.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_sagitta_edr3 = $MOS_TARGET/{v_targ}/{ftype}/mos_sagitta_edr3.{ftype}"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: sagitta_edr3",
+          "size": "12 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "60",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "214949",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "9",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TNULL1",
+              "value": "-9223372036854775808",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "source_id": {
+              "name": "source_id",
+              "description": "Unique identifier in the Gaia (e)DR3 source catalogue",
+              "type": "int64",
+              "unit": ""
+            },
+            "l": {
+              "name": "l",
+              "description": "Galactic longitude",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "b": {
+              "name": "b",
+              "description": "Galactic latitude",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "age": {
+              "name": "age",
+              "description": "Age",
+              "type": "float32",
+              "unit": "log yrs"
+            },
+            "age_std": {
+              "name": "age_std",
+              "description": "Error on age",
+              "type": "float64",
+              "unit": "log yrs"
+            },
+            "pms": {
+              "name": "pms",
+              "description": "Pre-main-sequence probability",
+              "type": "float32",
+              "unit": ""
+            },
+            "pms_std": {
+              "name": "pms_std",
+              "description": "Error on pre-main-sequence probability",
+              "type": "float64",
+              "unit": ""
+            },
+            "av": {
+              "name": "av",
+              "description": "Predicted extinction along the line of sight (positional only)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "av_std": {
+              "name": "av_std",
+              "description": "Uncertainty in the predicted extinction",
+              "type": "float64",
+              "unit": "mag"
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null,
+      "dataframe": null
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

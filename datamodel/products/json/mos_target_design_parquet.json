@@ -1,0 +1,117 @@
+{
+  "general": {
+    "name": "mos_target_design_parquet",
+    "short": "MOS Target Table: design",
+    "description": "This table stores the meta-data for the design, including its Design Mode and versioning information.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "10 MB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_design.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_design.[FTYPE]",
+      "example": "2.0.0/parquet/mos_design.parquet",
+      "location": "{v_targ}/{ftype}/mos_design.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_design",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_design.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_design = $MOS_TARGET/{v_targ}/{ftype}/mos_design.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "design_id": {
+            "name": "design_id",
+            "description": "The primary key. A sequential identifier.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "design_mode_label": {
+            "name": "design_mode_label",
+            "description": "The primary key of the design_mode in the dr20_design_mode table.",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "mugatu_version": {
+            "name": "mugatu_version",
+            "description": "Software version of mugatu used to validate and ingest design.",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "run_on": {
+            "name": "run_on",
+            "description": "Date that design was added to database.",
+            "unit": "",
+            "dtype": "Date",
+            "value": null
+          },
+          "assignment_hash": {
+            "name": "assignment_hash",
+            "description": "Hash of the assignments in the design.",
+            "unit": "",
+            "dtype": "Extension('arrow.opaque', Binary, '{\"type_name\": \"uuid\", \"vendor_name\": \"PostgreSQL\"}')",
+            "value": null
+          },
+          "design_version_pk": {
+            "name": "design_version_pk",
+            "description": "The primary key of the version in the dr20_version table.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

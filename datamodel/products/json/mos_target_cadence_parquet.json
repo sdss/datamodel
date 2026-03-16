@@ -1,0 +1,124 @@
+{
+  "general": {
+    "name": "mos_target_cadence_parquet",
+    "short": "MOS Target Table: cadence",
+    "description": "Cadences define the time between series of exposures (one \"epoch\") on a field, and the observing conditions, e.g., skybrightness, for each epoch.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "67 KB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_cadence.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_cadence.[FTYPE]",
+      "example": "2.0.0/parquet/mos_cadence.parquet",
+      "location": "{v_targ}/{ftype}/mos_cadence.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_cadence",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_cadence.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_cadence = $MOS_TARGET/{v_targ}/{ftype}/mos_cadence.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "label": {
+            "name": "label",
+            "description": "Descriptive name for the cadence with a version",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "nepochs": {
+            "name": "nepochs",
+            "description": "Number of epochs in the cadence",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "pk": {
+            "name": "pk",
+            "description": "Primary key",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "label_root": {
+            "name": "label_root",
+            "description": "Descriptive name, typically {bright/dark}_{nepochs}x{nexps}",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "label_version": {
+            "name": "label_version",
+            "description": "Version; cadences are added in versioned batches",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "max_skybrightness": {
+            "name": "max_skybrightness",
+            "description": "The maximum skybrightness for all epochs in this cadence",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "nexp_total": {
+            "name": "nexp_total",
+            "description": "The total number of exposures planned for this cadence",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

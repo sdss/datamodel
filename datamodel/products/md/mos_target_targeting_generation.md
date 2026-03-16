@@ -16,10 +16,10 @@ MOS Target Table: targeting_generation
 A targeting_generation describes a collection of versioned cartons, together with their robostrategy control parameters.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_targeting_generation.fits, where V_TARG=1.0.1 for DR18
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_targeting_generation.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR18, DR19
+DR18, DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
  - DR19
    - from: DR18
    - note: No changes
@@ -74,7 +77,7 @@ Key | Value | Comment | |
 MOS Target Table: targeting_generation
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  145 bytes
+#### HDU Size:  290 bytes
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -83,7 +86,7 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
 | NAXIS1 | 29 | length of dimension 1 |
-| NAXIS2 | 5 | length of dimension 2 |
+| NAXIS2 | 10 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 3 | number of table fields |
@@ -93,7 +96,7 @@ Key | Value | Comment | |
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | pk | int32 |  | primary key for this table entry |
- | label | char[21] |  | A human-readable name for the targeting_generation |
+ | label | char[21] |  | A human-readble name for the targeting_generation |
  | first_release | char[4] |  | The first SDSS data release containing this targeting_generation |
 
 

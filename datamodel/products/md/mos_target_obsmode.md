@@ -16,10 +16,10 @@ MOS Target table: mos_target_obsmode
 The table contains observing constraints for different observing modes. Cadences have an observing mode associated with each epoch, and the constraints are checked before an epoch can be scheduled.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_obsmode.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_obsmode.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,10 +71,10 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_obsmode
+MOS Target Table: obsmode
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  155 bytes
+#### HDU Size:  700 bytes
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -79,8 +82,8 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 31 | length of dimension 1 |
-| NAXIS2 | 5 | length of dimension 2 |
+| NAXIS1 | 50 | length of dimension 1 |
+| NAXIS2 | 14 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 6 | number of table fields |
@@ -88,7 +91,7 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | label | char[11] |  | Descriptive name for the observing mode, e.g. 'dark_rm' |
+ | label | char[30] |  | Descriptive name for the observing mode, e.g. 'dark_rm' |
  | min_moon_sep | float32 | deg | Minimum distance a target must be from the Moon |
  | min_deltav_ks91 | float32 | mag | Minimum estimated background flux from the Moon, using the method of Krisciunas, K., & Schaefer 1991 |
  | min_twilight_ang | float32 | deg | Minimum twilight angle (angle of the Sun below the horizon) for a target to be observed |

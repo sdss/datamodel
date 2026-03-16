@@ -1,0 +1,152 @@
+{
+  "general": {
+    "name": "mos_target_gedr3spur_main_parquet",
+    "short": "MOS Target Table: gedr3spur_main",
+    "description": "This table contains estimates of the \"fidelity\" of Gaia eDR3 astrometric solutions, a measure of the likelihood the eDR3 solution is physical rather than spurious obtained using a neural network trained on a small, hand-selected sample.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "1 GB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_gedr3spur_main.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_gedr3spur_main.[FTYPE]",
+      "example": "2.0.0/parquet/mos_gedr3spur_main.parquet",
+      "location": "{v_targ}/{ftype}/mos_gedr3spur_main.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_gedr3spur_main",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_gedr3spur_main@mos_target_num2|.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_gedr3spur_main = $MOS_TARGET/{v_targ}/{ftype}/mos_gedr3spur_main.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "source_id": {
+            "name": "source_id",
+            "description": "Gaia DR3 unique source identifier. Matches the source_id column in the dr20_gaia_dr3_source table.",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "fidelity_v2": {
+            "name": "fidelity_v2",
+            "description": "A probability that eDR3 has a good astrometric solution for this source, with values between 0 (meaning likely spurious solution) and 1 (meaning likely good solution). This is the published probability estimate.",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "theta_arcsec_worst_source": {
+            "name": "theta_arcsec_worst_source",
+            "description": "Distance to the eDR3 source within 30 arcsec of the object for which delta_g-theta is maximal. See norm_dg for details.",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "norm_dg": {
+            "name": "norm_dg",
+            "description": "This is a heuristic measure for contamination by bright stars in the neighbourhood. It is computed as delta_g-theta, where theta is the distance to another Gaia eDR3 object in arcsec (reported in theta_arcsec_worst_source), and delta_g is the magnitude difference in mag. This column gives the maximum of the values for all eDR3 sources within 30 arcsecs of the object.",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "dist_nearest_neighbor_at_least_m2_brighter": {
+            "name": "dist_nearest_neighbor_at_least_m2_brighter",
+            "description": "Distance to the nearest neighbour in gaia_source at least 2 m fainter than this source.",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "dist_nearest_neighbor_at_least_0_brighter": {
+            "name": "dist_nearest_neighbor_at_least_0_brighter",
+            "description": "Distance to the nearest neighbour in gaia_source at least as bright as this source.",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "dist_nearest_neighbor_at_least_2_brighter": {
+            "name": "dist_nearest_neighbor_at_least_2_brighter",
+            "description": "Distance to the nearest neighbour in gaia_source at least 2 m brighter than this source.",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "dist_nearest_neighbor_at_least_4_brighter": {
+            "name": "dist_nearest_neighbor_at_least_4_brighter",
+            "description": "Distance to the nearest neighbour in gaia_source at least 4 m brighter than this source.",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "dist_nearest_neighbor_at_least_6_brighter": {
+            "name": "dist_nearest_neighbor_at_least_6_brighter",
+            "description": "Distance to the nearest neighbour in gaia_source at least 6 m brighter than this source.",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "dist_nearest_neighbor_at_least_10_brighter": {
+            "name": "dist_nearest_neighbor_at_least_10_brighter",
+            "description": "Distance to the nearest neighbour in gaia_source at least 10 m brighter than this source.",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fidelity_v1": {
+            "name": "fidelity_v1",
+            "description": "A probablity that eDR3 has a good astrometric solution for this source, with values between 0 (meaning likely spurious solution) and 1 (meaning likely good solution). This comes from a first version of the estimator that was reviewed based on an astro-ph paper.",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

@@ -16,10 +16,10 @@ MOS Target Table: bhm_rm_v0_2
 Parent sample for the RM project, used to select confirmed and candidate quasar targets for the BHM-RM Program in SDSS-V. For more details please see Yang and Shen, (2022, https://ui.adsabs.harvard.edu/abs/2022arXiv220608989Y/abstract). This table contains all photometric objects detected in the COSMOS, SDSS-RM, XMM-LSS, CDFS, S-CVZ, and ELAIS-S1 fields., within a circular area of 10 degree^2 from the field center.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_bhm_rm_v0_2-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_bhm_rm_v0_2.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR18, DR19
+DR18, DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
  - DR19
    - from: DR18
    - note: No changes
@@ -74,7 +77,7 @@ Key | Value | Comment | |
 MOS Target Table: bhm_rm_v0_2
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  172 MB
+#### HDU Size:  231 MB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -83,7 +86,7 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
 | NAXIS1 | 1792 | length of dimension 1 |
-| NAXIS2 | 101049 | length of dimension 2 |
+| NAXIS2 | 135653 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 249 | number of table fields |
@@ -188,7 +191,7 @@ Name | Type | Unit | Description |
  | mg | float64 | mag | Gaia g-band magnitude (phot_g_mean_mag in Gaia catalog, Vega) |
  | parallax | float64 | mas | Parallax, Angle, |
  | parallax_error | float64 | mas | Standard error of parallax, Angle, |
- | plxsig | float64 |  | Parallax significance defined as |PARALLAX/PARALLAX_ERROR| |
+ | plxsig | float64 |  | Parallax significance defined as (PARALLAX/PARALLAX_ERROR) |
  | pmra | float64 | mas/year | Proper motion in RA direction, Angular Velocity, |
  | pmra_error | float64 | mas/year | Standard error of proper motion in RA direction, Angular Velocity, |
  | pmdec | float64 | mas/year | Proper motion in DEC direction, Angular Velocity, |
@@ -238,7 +241,7 @@ Name | Type | Unit | Description |
  | photoz_gaia_unwise | float64 |  | Photometric redshift from the Gaia-unWISE AGN catalog |
  | des_var_sn_max | float64 |  | The signal-to-noise ratio of the measured intrinsic RMS in grizy bands (DES). |
  | ps1_var_sn_max | float64 |  | The maximum signal-to-noise ratio of the measured intrinsic RMS over 5 bands (PS1). |
- | spec_q | int32 |  | flag indicating if the object was spectroscopically confirmed as QSO from earlier surveys. |
+ | spec_q | int32 |  | flag indicating if the object was spectroscopically confirmed as QSO from earlier surveys (-9=False, 1=True) |
  | spec_strmask | char[6] |  | string format of spec_bitmask, e.g., '000001'. |
  | spec_bitmask | int64 |  | bitmask - bit 0: SDSS-DR14Q, bit 1: SDSS-DR7Q, bit 2: OzDES-DR1Q, bit 3: SDSS-RM_Q, bit 4: COSMOS_Q, bit 5: Milliquas_QA. (Note: Milliquas_QA=1 are objects spectroscopically classified as broad-line QSO/AGN in the Million Quasars (MILLIQUAS) catalog.) |
  | specz | float64 |  | spectroscopic redshift from multiple surveys. Priority: SDSS-RM_Q/COSMOS_Q > SDSS-DR14Q > SDSS-DR7Q > OzDES-DR1Q > Milliquas_QA |

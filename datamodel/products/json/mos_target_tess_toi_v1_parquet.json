@@ -1,0 +1,138 @@
+{
+  "general": {
+    "name": "mos_target_tess_toi_v1_parquet",
+    "short": "MOS Target Table: tess_toi_v1",
+    "description": "This catalog contains targets that received the 2 minute cadence during the TESS Mission, are TESS Objects of Interest (TOI) or Community TESS Objects of Interest (CTOI).\n\nThe contents of this catalog were derived from the MIT TESS website (<a href=\"https://tess.mit.edu/public/target_lists/target_lists.html)\">https://tess.mit.edu/public/target_lists/target_lists.html)</a> and the ExoFOP website <a href=\"https://exofop.ipac.caltech.edu/tess/index.php\">https://exofop.ipac.caltech.edu/tess/index.php</a>. These targets were updated on 2022-08-05.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "1 MB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_tess_toi_v1.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_tess_toi_v1.[FTYPE]",
+      "example": "2.0.0/parquet/mos_tess_toi_v1.parquet",
+      "location": "{v_targ}/{ftype}/mos_tess_toi_v1.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_tess_toi_v1",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_tess_toi_v1.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_tess_toi_v1 = $MOS_TARGET/{v_targ}/{ftype}/mos_tess_toi_v1.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "ticid": {
+            "name": "ticid",
+            "description": "TESS Input Catalog (TIC) ID",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "target_type": {
+            "name": "target_type",
+            "description": "Type of target. Options: 2min = 2 minute cadence, exo_TOI = TOI, and exo_CTOI = CTOI",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "toi": {
+            "name": "toi",
+            "description": "TESS Object of Interest ID",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "tess_disposition": {
+            "name": "tess_disposition",
+            "description": "TESS Team Dispositon Options: EB = Eclipsing Binary, KP = Known Planet, PC = Planet Candidate, O = Other, or blank",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "tfopwg_disposition": {
+            "name": "tfopwg_disposition",
+            "description": "TESS Follow-up Observing Program (TFOP) Working Group Disposition Options: APC = Ambiguous Planet Candidate, CP = Confirmed Planet, FA = False Alarm, FP = False Positive, KP = Known Planet, PC = Planet Candidate or blank",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "ctoi": {
+            "name": "ctoi",
+            "description": "Community Tareget of Interest ID",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "user_disposition": {
+            "name": "user_disposition",
+            "description": "Initial Community User Disposition",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "num_sectors": {
+            "name": "num_sectors",
+            "description": "The total number of sectors that this object was observed on as of the catalog date",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "pkey": {
+            "name": "pkey",
+            "description": "Primary Key",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

@@ -1,0 +1,110 @@
+{
+  "general": {
+    "name": "mos_target_targeting_generation_to_carton_parquet",
+    "short": "MOS Target Table: targeting_generation_to_carton",
+    "description": "Mapping of SDSS-V targeting generations to cartons.\n\nA 'targeting_generation' describes a collection of versioned cartons, together with their robostrategy control parameters. This is a convenient way to describe the specific set of carton-versions that were used (and the way that they were treated) within any particular run of robostrategy.\n\nThe dr20_targeting_generation_to_carton table describes a many-to-many relationship, connecting each targeting_generation to a set of entries in the dr20_carton table, as well as recording how those carton-versions were treated in the robostrategy code (i.e. the rs_stage and rs_active parameters).\n\nTaken together, the dr20_targeting_generation, dr20_targeting_generation_to_carton and dr20_targeting_generation_to_version tables duplicate, in a database form, the robostrategy carton configuration information available via the rsconfig product (<a href=\"https://github.com/sdss/rsconfig)\">https://github.com/sdss/rsconfig)</a>.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "8 KB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_targeting_generation_to_carton.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_targeting_generation_to_carton.[FTYPE]",
+      "example": "2.0.0/parquet/mos_targeting_generation_to_carton.parquet",
+      "location": "{v_targ}/{ftype}/mos_targeting_generation_to_carton.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_targeting_generation_to_carton",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_targeting_generation_to_carton.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_targeting_generation_to_carton = $MOS_TARGET/{v_targ}/{ftype}/mos_targeting_generation_to_carton.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "pk": {
+            "name": "pk",
+            "description": "primary key for this table entry",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "generation_pk": {
+            "name": "generation_pk",
+            "description": "primary key of an entry in the dr20_targeting_generation table",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "carton_pk": {
+            "name": "carton_pk",
+            "description": "primary key of an entry in the dr20_carton table, i.e. a carton-version",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "rs_stage": {
+            "name": "rs_stage",
+            "description": "the algorithimic stage of robostrategy in which targets from this carton-version are considered for assignment. Options: 'none', 'plates', 'srd', 'filler', or 'open'. See the robostrategy documentation for further information.",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "rs_active": {
+            "name": "rs_active",
+            "description": "a Boolean column describing whether the carton-version is considered within robostrategy",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

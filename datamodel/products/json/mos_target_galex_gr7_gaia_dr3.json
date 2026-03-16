@@ -1,0 +1,215 @@
+{
+  "general": {
+    "name": "mos_target_galex_gr7_gaia_dr3",
+    "short": "MOS Target Table: galex_gr7_gaia_dr3",
+    "description": "Cross-match between the Gaia DR3 catalogue and the GALEX General Release 7 catalogue. For more details about the GALEX columns refer to <a href=\"https://archive.stsci.edu/prepds/gcat/gcat_dataproducts.html\">https://archive.stsci.edu/prepds/gcat/gcat_dataproducts.html</a>.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "122 MB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_galex_gr7_gaia_dr3-[NUM].[FTYPE] with FTYPE='fits', V_TARG='2.0.0', and NUM=1..9 for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_galex_gr7_gaia_dr3-[NUM].[FTYPE]",
+      "example": "2.0.0/fits/mos_galex_gr7_gaia_dr3-1.fits",
+      "location": "{v_targ}/{ftype}/mos_galex_gr7_gaia_dr3-{num}.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_galex_gr7_gaia_dr3",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_galex_gr7_gaia_dr3@mos_target_num|.{ftype}",
+        "path_kwargs": [
+          "num",
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_galex_gr7_gaia_dr3 = $MOS_TARGET/{v_targ}/{ftype}/mos_galex_gr7_gaia_dr3-{num}.{ftype}"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: galex_gr7_gaia_dr3",
+          "size": "122 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "64",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "2000000",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "8",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TNULL1",
+              "value": "-9223372036854775808",
+              "comment": ""
+            },
+            {
+              "key": "TNULL2",
+              "value": "-9223372036854775808",
+              "comment": ""
+            },
+            {
+              "key": "TNULL8",
+              "value": "-9223372036854775808",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "gaia_edr3_source_id": {
+              "name": "gaia_edr3_source_id",
+              "description": "Gaia DR3 source identifier. Matches the source_id column in the dr20_gaia_dr3_source table.",
+              "type": "int64",
+              "unit": ""
+            },
+            "galex_objid": {
+              "name": "galex_objid",
+              "description": "This is the 64-bit integer version of the global object ID uniquely identifying this source including the tile number, band, product number, and other parameters, in the Gaia General Release 7 catalogue.",
+              "type": "int64",
+              "unit": ""
+            },
+            "fuv_mag": {
+              "name": "fuv_mag",
+              "description": "Calibrated FUV magnitude on the AB system measured within the NUV-defined \"AUTO\" aperture. Sources with either a negative FLUX_FUV or without FUV observations will be flagged with values of either +99 or -99.",
+              "type": "float64",
+              "unit": "AB mag"
+            },
+            "fuv_magerr": {
+              "name": "fuv_magerr",
+              "description": "The error in MAG_FUV. Sources with either a negative flux or without FUV observations will be flagged with values of either +99 or -99.",
+              "type": "float64",
+              "unit": "AB mag"
+            },
+            "nuv_mag": {
+              "name": "nuv_mag",
+              "description": "Calibrated NUV magnitude on the AB system. This is currently always set to the SExtractor \"AUTO\" magnitude.",
+              "type": "float64",
+              "unit": "AB mag"
+            },
+            "nuv_magerr": {
+              "name": "nuv_magerr",
+              "description": "The error in nuv_mag.",
+              "type": "float64",
+              "unit": "AB mag"
+            },
+            "galex_separation": {
+              "name": "galex_separation",
+              "description": "Separation between the Gaia DR3 source and the GALEX GR7 source.",
+              "type": "float64",
+              "unit": "arcsec"
+            },
+            "pk": {
+              "name": "pk",
+              "description": "Unique identifier for each row in the table.",
+              "type": "int64",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null,
+      "dataframe": null
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

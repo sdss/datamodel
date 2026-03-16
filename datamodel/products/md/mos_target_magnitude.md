@@ -16,10 +16,10 @@ MOS Target Table: magnitude
 This table stores magnitude information for a target. Optical magnitudes that are not selected from SDSS photometry have been converted to the SDSS system.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_magnitude-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_magnitude-[NUM].[FTYPE] with FTYPE='fits', V_TARG='2.0.0', and NUM=1..126 for DR20.
 
 ### Releases
-DR18, DR19
+DR18, DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
  - DR19
    - from: DR18
    - note: No changes
@@ -93,19 +96,19 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | carton_to_target_pk | int64 |  | The primary key of the target in the mos_target_carton_to_target table. |
+ | carton_to_target_pk | int64 |  | The primary key of the target in the dr20_carton_to_target table. |
  | magnitude_pk | int64 |  | The primary key. A sequential identifier. |
- | g | float32 |  | The optical g magnitude. |
- | r | float32 |  | The optical r magnitude. |
- | i | float32 |  | The optical i magnitude. |
- | h | float32 |  | The IR H magnitude. |
- | bp | float32 |  | The Gaia BP magnitude. |
- | rp | float32 |  | The Gaia RP magnitude. |
- | z | float32 |  | The optical z magnitude. |
- | j | float32 |  | The IR J magnitude. |
- | k | float32 |  | The IR K magnitude. |
- | gaia_g | float32 |  | The Gaia G magnitude. |
- | optical_prov | char[4] |  | The source of the optical magnitudes. |
+ | g | float32 | mag | The optical g magnitude, AB. |
+ | r | float32 | mag | The optical r magnitude, AB. |
+ | i | float32 | mag | The optical i magnitude, AB. |
+ | h | float32 | mag | The IR H magnitude, Vega. |
+ | bp | float32 | mag | The Gaia BP magnitude, Vega. |
+ | rp | float32 | mag | The Gaia RP magnitude, Vega. |
+ | z | float32 | mag | The optical z magnitude, AB. |
+ | j | float32 | mag | The IR J magnitude, Vega. |
+ | k | float32 | mag | The IR K magnitude, Vega. |
+ | gaia_g | float32 | mag | The Gaia G magnitude, Vega. |
+ | optical_prov | char[4] |  | The providence/origin of the optical magnitudes. |
 
 
 

@@ -16,10 +16,10 @@ MOS Target table: mos_target_targeting_generation_to_version
 A 'targeting_generation' describes a collection of versioned cartons, together with their robostrategy control parameters. This is a convenient way to describe the specific set of carton-versions that were used (and the way that they were treated) within any particular run of robostrategy.  The dr19_targeting_generation_to_version table describes a one-to-many relationship, connecting each robostrategy run to one targeting_generation. In general, a single target_generation can be used my more than one robostrategy run.  Taken together, the dr19_targeting_generation, dr19_targeting_generation_to_carton and dr19_targeting_generation_to_version tables duplicate, in a database form, the robostrategy carton configuration information available via the rsconfig product (https://github.com/sdss/rsconfig).
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_targeting_generation_to_version.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_targeting_generation_to_version.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,10 +71,10 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_targeting_generation_to_version
+MOS Target Table: targeting_generation_to_version
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  48 bytes
+#### HDU Size:  156 bytes
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -80,7 +83,7 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
 | NAXIS1 | 12 | length of dimension 1 |
-| NAXIS2 | 4 | length of dimension 2 |
+| NAXIS2 | 13 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 3 | number of table fields |
@@ -91,8 +94,8 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | generation_pk | int32 |  | primary key of an entry in the dr19_targeting_generation table |
- | version_pk | int32 |  | primary key of an entry in the dr19_targetdb_version table, which lists the robostrategy run version ('plan' and 'tag') |
+ | generation_pk | int32 |  | primary key of an entry in the dr20_targeting_generation table |
+ | version_pk | int32 |  | primary key of an entry in the dr20_targetdb_version table, which lists the robostrategy run version ('plan' and 'tag') |
  | pk | int32 |  | primary key for this table entry |
 
 

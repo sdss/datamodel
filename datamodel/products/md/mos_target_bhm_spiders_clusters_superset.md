@@ -16,10 +16,10 @@ MOS Target table: mos_target_bhm_spiders_clusters_superset
 One of several tables describing optical/IR counterparts to eROSITA X-ray sources identified via various methods.  These tables contain a superset of potential targets from which the SDSS-V spectroscopic targets were drawn.  The dr19_bhm_spiders_clusters_superset table includes counterparts selected via algorithms optimised to find clusters of galaxies. Each row corresponds to one possible match between an X-ray source and a potential optical/IR counterpart.  The X-ray columns (ero_*) record the eROSITA information known at the time of target selection and may differ from publicly available eROSITA catalogs. The dr19_bhm_spiders_*_superset tables are derived from eROSITA observations of the eROSITA Final Equatorial Depth performance verification field ('eFEDS').
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_bhm_spiders_clusters_superset.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_bhm_spiders_clusters_superset.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,7 +71,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_bhm_spiders_clusters_superset
+MOS Target Table: bhm_spiders_clusters_superset
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  2 MB
@@ -80,7 +83,7 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
 | NAXIS1 | 267 | length of dimension 1 |
-| NAXIS2 | 10195 | length of dimension 2 |
+| NAXIS2 | 11576 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 40 | number of table fields |
@@ -118,10 +121,10 @@ Name | Type | Unit | Description |
  | target_priority | int32 |  | Relative to other targets in this catalog, interpreted/adapted later to derive a final target priority |
  | target_has_spec | int32 |  | Flags used to indicate if target has good quality archival spectroscopy available |
  | best_opt | char[6] |  | Describes which OIR survey provided the optical counterpart for this row of the table, i.e. which OIR cat gives the entries in fields opt_ra, opt_dec, opt_pmra, opt_pmdec, opt_epoch, and which OIR identifier is given in the *_id columns |
- | ls_id | int64 |  | Identifier of counterpart (if any) in dr19_legacy_survey_dr8 ('ls_id' field). Arithmetically derived from legacysurvey sweep file columns: release, brickid and objid:  ls_id = objid + (brickid * 2**16) + (release * 2**40) |
- | ps1_dr2_objid | int64 |  | Identifier of counterpart (if any) in dr19_panstarrs1 (catid_objid field). Identical to MAST 'ippObjID' identifier |
- | gaia_dr2_source_id | int64 |  | Identifier of counterpart (if any) in dr19_gaia_dr2_source ('source_id' field) |
- | unwise_dr1_objid | char[1] |  | Identifier of counterpart (if any) in dr19_unwise (not used) |
+ | ls_id | int64 |  | Identifier of counterpart (if any) in dr20_legacy_survey_dr8 ('ls_id' field). Arithmetically derived from legacysurvey sweep file columns: release, brickid and objid:  ls_id = objid + (brickid * 2**16) + (release * 2**40) |
+ | ps1_dr2_objid | int64 |  | Identifier of counterpart (if any) in dr20_panstarrs1 (catid_objid field). Identical to MAST 'ippObjID' identifier |
+ | gaia_dr2_source_id | int64 |  | Identifier of counterpart (if any) in dr20_gaia_dr2_source ('source_id' field) |
+ | unwise_dr1_objid | char[1] |  | Identifier of counterpart (if any) in dr20_unwise (not used) |
  | des_dr1_coadd_object_id | int64 |  | Identifier of counterpart (if any) in DES/dr1 coadd catalogg (not used) |
  | sdss_dr16_objid | int64 |  | Identifier of counterpart (if any) in SDSS dr16 photobj table (not used) |
  | opt_ra | float64 | deg | Sky coordinate of optical/IR counterpart, included for validity checks only |

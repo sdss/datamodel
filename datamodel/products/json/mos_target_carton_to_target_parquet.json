@@ -1,0 +1,152 @@
+{
+  "general": {
+    "name": "mos_target_carton_to_target_parquet",
+    "short": "MOS Target Table: carton_to_target",
+    "description": "The table stores the targets assigned to a given carton along with information about the instrument that will observe that target, and offsetting data.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "913 MB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_carton_to_target.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_carton_to_target.[FTYPE]",
+      "example": "2.0.0/parquet/mos_carton_to_target.parquet",
+      "location": "{v_targ}/{ftype}/mos_carton_to_target.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_carton_to_target",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_carton_to_target@mos_target_num3|.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_carton_to_target = $MOS_TARGET/{v_targ}/{ftype}/mos_carton_to_target.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "carton_to_target_pk": {
+            "name": "carton_to_target_pk",
+            "description": "The primary key. A sequential identifier.",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "lambda_eff": {
+            "name": "lambda_eff",
+            "description": "The effective wavelength at which the object will be observed",
+            "unit": "angstrom",
+            "dtype": "Float32",
+            "value": null
+          },
+          "carton_pk": {
+            "name": "carton_pk",
+            "description": "The primary key of the carton in the dr20_carton table.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "target_pk": {
+            "name": "target_pk",
+            "description": "The primary key of the target in the dr20_target table.",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "cadence_pk": {
+            "name": "cadence_pk",
+            "description": "The primary key of the cadence in the dr20_cadence table.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "priority": {
+            "name": "priority",
+            "description": "The target priority. Used for scheduling.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "value": {
+            "name": "value",
+            "description": "An internal metric of the target value used for scheduling.",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "instrument_pk": {
+            "name": "instrument_pk",
+            "description": "The primary key of the instrument in the dr20_instrument table.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "delta_ra": {
+            "name": "delta_ra",
+            "description": "The RA offset for fibre positioning, in arcsec.",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "delta_dec": {
+            "name": "delta_dec",
+            "description": "The Dec offset for fibre positioning, in arcsec.",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "inertial": {
+            "name": "inertial",
+            "description": "Whether this is an inertial target (no proper motion will be applied).",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

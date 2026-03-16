@@ -1,0 +1,111 @@
+{
+  "general": {
+    "name": "mos_target_catalog_from_sdss_dr19p_speclite_parquet",
+    "short": "MOS Target Table: catalog_from_sdss_dr19p_speclite",
+    "description": "Relational table linking dr20_catalog with dr20_sdss_dr19p_speclite. Although this table has the same columns and purpose of other \"catalog_to_X\" tables in this schema, it is explicitly named \"catalog_from\" as it was generated using a bespoke cross-match different from the usual process used for other cross-matched tables in DR20.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "49 MB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_catalog_from_sdss_dr19p_speclite.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_catalog_from_sdss_dr19p_speclite.[FTYPE]",
+      "example": "2.0.0/parquet/mos_catalog_from_sdss_dr19p_speclite.parquet",
+      "location": "{v_targ}/{ftype}/mos_catalog_from_sdss_dr19p_speclite.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_catalog_from_sdss_dr19p_speclite",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_catalog_from_sdss_dr19p_speclite@mos_target_num|.{ftype}",
+        "path_kwargs": [
+          "num",
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_catalog_from_sdss_dr19p_speclite = $MOS_TARGET/{v_targ}/{ftype}/mos_catalog_from_sdss_dr19p_speclite.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "catalogid": {
+            "name": "catalogid",
+            "description": "The catalogid identifier in the dr20_catalog table.",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "target_id": {
+            "name": "target_id",
+            "description": "The primary key identifier in the dr20_sdss_dr19p_speclite table.",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "version_id": {
+            "name": "version_id",
+            "description": "The internal version for the cross-match.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "distance": {
+            "name": "distance",
+            "description": "The distance between the catalog and target coordinates if best=F.",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "best": {
+            "name": "best",
+            "description": "Whether this is considered the best match between the catalog entry and dr20_sdss_dr19p_speclite.",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

@@ -16,10 +16,10 @@ MOS Target table: mos_target_sdss_dr17_specobj
 This table contains the list of all SDSS optical spectra for a given data release, with associated parameters from the 2D and 1D pipelines for each. The table contains both the BOSS and SDSS spectrograph data. The database representation is derived from the flat file information described here: <a href="https://data.sdss.org/datamodel/files/SPECTRO_REDUX/specObj.html">https://data.sdss.org/datamodel/files/SPECTRO_REDUX/specObj.html</a> Note: the order of the columns in this documentation may not match the order of the columns in the database table.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_sdss_dr17_specobj.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdss_dr17_specobj-[NUM].[FTYPE] with FTYPE='fits', V_TARG='2.0.0', and NUM=1..3 for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,7 +71,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_sdss_dr17_specobj
+MOS Target Table: sdss_dr17_specobj
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  1 GB

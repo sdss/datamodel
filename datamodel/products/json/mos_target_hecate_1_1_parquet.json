@@ -1,0 +1,775 @@
+{
+  "general": {
+    "name": "mos_target_hecate_1_1_parquet",
+    "short": "MOS Target Table: hecate_1_1",
+    "description": "The Heraklion Extragalactic Catalogue (HECATE). For more details, refer to Kovlakas et al. 2021 (<a href=\"https://academic.oup.com/mnras/article/506/2/1896/6309318)\">https://academic.oup.com/mnras/article/506/2/1896/6309318)</a>.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "32 MB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_hecate_1_1.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_hecate_1_1.[FTYPE]",
+      "example": "2.0.0/parquet/mos_hecate_1_1.parquet",
+      "location": "{v_targ}/{ftype}/mos_hecate_1_1.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_hecate_1_1",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_hecate_1_1.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_hecate_1_1 = $MOS_TARGET/{v_targ}/{ftype}/mos_hecate_1_1.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "pgc": {
+            "name": "pgc",
+            "description": "Principal Catalogue of Galaxies number",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "objname": {
+            "name": "objname",
+            "description": "Object name in the HyperLEDA",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "id_ned": {
+            "name": "id_ned",
+            "description": "Name in NED",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "id_nedd": {
+            "name": "id_nedd",
+            "description": "Name in NED-Distance Catalogue",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "id_iras": {
+            "name": "id_iras",
+            "description": "Name in IRAS-RBGS, or in RIFSCz if in the form Fxxxxx+xxxx",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "id_2mass": {
+            "name": "id_2mass",
+            "description": "ID in 2MASS-LGA, 2MASS-XSC, or 2MASS-PSC (see flag_2mass)",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "sdss_photid": {
+            "name": "sdss_photid",
+            "description": "SDSS photometric ID (consistent with DR8 releases and later)",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "sdss_specid": {
+            "name": "sdss_specid",
+            "description": "SDSS spectroscopic ID (consistent with DR8 releases and later)",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "ra": {
+            "name": "ra",
+            "description": "Decimal right ascension J2000.0",
+            "unit": "degrees",
+            "dtype": "Float64",
+            "value": null
+          },
+          "dec": {
+            "name": "dec",
+            "description": "Decimal declination J2000.0",
+            "unit": "degrees",
+            "dtype": "Float64",
+            "value": null
+          },
+          "f_astrom": {
+            "name": "f_astrom",
+            "description": "Astrometric precision flag: -1 for ~0.1 arcsec, 0 for 1 arcsec, 1 for 10 arcsec, etc",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "r1": {
+            "name": "r1",
+            "description": "D25 semi-major axis",
+            "unit": "arcmin",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r2": {
+            "name": "r2",
+            "description": "D25 semi-minor axis",
+            "unit": "arcmin",
+            "dtype": "Float32",
+            "value": null
+          },
+          "pa": {
+            "name": "pa",
+            "description": "D25 positional angle, North-to-Northeast",
+            "unit": "degrees",
+            "dtype": "Float32",
+            "value": null
+          },
+          "rsource": {
+            "name": "rsource",
+            "description": "Source of the galaxy-size information: H=HyperLEDA, S=SDSS, 2=2MASS, 6=2dFGS, W=WINGS, Y=SkyMapper, A=Amiga-CIG, K=UNGC, V=VIII/77, 1=KKH2001, 7=KKH2007, N=NED",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "rflag": {
+            "name": "rflag",
+            "description": "Galaxy-size information flag: 0=missing, 1=all axes and positional angle defined, 2=r2 and/or pa were missing and they were set equal to r1 and 0 (circular isophote)",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "t": {
+            "name": "t",
+            "description": "Numerical Hubble-type following the de Vaucouleurs et al. 1976 system",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_t": {
+            "name": "e_t",
+            "description": "Uncertainty on the numerical Hubble-type",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "incl": {
+            "name": "incl",
+            "description": "Inclination",
+            "unit": "degrees",
+            "dtype": "Float32",
+            "value": null
+          },
+          "v": {
+            "name": "v",
+            "description": "Heliocentric radial velocity",
+            "unit": "km/s",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_v": {
+            "name": "e_v",
+            "description": "Uncertainty on the heliocentric radial velocity",
+            "unit": "km/s",
+            "dtype": "Float32",
+            "value": null
+          },
+          "v_vir": {
+            "name": "v_vir",
+            "description": "Virgo-infall corrected radial velocity",
+            "unit": "km/s",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_v_vir": {
+            "name": "e_v_vir",
+            "description": "Uncertainty on the Virgo-infall corrected radial velocity",
+            "unit": "km/s",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ndist": {
+            "name": "ndist",
+            "description": "Number of redshift-independent measurements in NED-D used for the computation of the distance",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "edist": {
+            "name": "edist",
+            "description": "If True, the NED-D distance measurements had uncertainties",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "d": {
+            "name": "d",
+            "description": "Distance",
+            "unit": "Mpc",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_d": {
+            "name": "e_d",
+            "description": "Uncertainty on the distance",
+            "unit": "Mpc",
+            "dtype": "Float32",
+            "value": null
+          },
+          "d_lo68": {
+            "name": "d_lo68",
+            "description": "Lower bound of the 68% confidence interval of the distance",
+            "unit": "Mpc",
+            "dtype": "Float64",
+            "value": null
+          },
+          "d_hi68": {
+            "name": "d_hi68",
+            "description": "Upper bound of the 68% confidence interval of the distance",
+            "unit": "Mpc",
+            "dtype": "Float64",
+            "value": null
+          },
+          "d_lo95": {
+            "name": "d_lo95",
+            "description": "Lower bound of the 95% confidence interval of the distance",
+            "unit": "Mpc",
+            "dtype": "Float64",
+            "value": null
+          },
+          "d_hi95": {
+            "name": "d_hi95",
+            "description": "Upper bound of the 95% confidence interval of the distance",
+            "unit": "Mpc",
+            "dtype": "Float64",
+            "value": null
+          },
+          "dmethod": {
+            "name": "dmethod",
+            "description": "Method for the estimation of the distance: N=using NED-D distance measurements, Z=regression, Zv=regression for Virgo Cluster members, C=distance from NED-D measurements but uncertainty from regression, Cv=distance from NED-D measurements but uncertainty from Virgo Cluster regressor",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "ut": {
+            "name": "ut",
+            "description": "Total U-band apparent magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "bt": {
+            "name": "bt",
+            "description": "Total B-band apparent magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "vt": {
+            "name": "vt",
+            "description": "Total V-band apparent magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "it": {
+            "name": "it",
+            "description": "Total I-band apparent magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_ut": {
+            "name": "e_ut",
+            "description": "Uncertainty on the total U-band apparent magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_bt": {
+            "name": "e_bt",
+            "description": "Uncertainty on the total B-band apparent magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_vt": {
+            "name": "e_vt",
+            "description": "Uncertainty on the total V-band apparent magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_it": {
+            "name": "e_it",
+            "description": "Uncertainty on the total I-band apparent magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ag": {
+            "name": "ag",
+            "description": "Galactic absorption in B-band",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ai": {
+            "name": "ai",
+            "description": "Intrinsic absorption in B-band",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "s12": {
+            "name": "s12",
+            "description": "12μm-band flux from IRAS",
+            "unit": "Jy",
+            "dtype": "Float64",
+            "value": null
+          },
+          "s25": {
+            "name": "s25",
+            "description": "25μm-band flux from IRAS",
+            "unit": "Jy",
+            "dtype": "Float64",
+            "value": null
+          },
+          "s60": {
+            "name": "s60",
+            "description": "60μm-band flux from IRAS",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "s100": {
+            "name": "s100",
+            "description": "100μm-band flux from IRAS",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "q12": {
+            "name": "q12",
+            "description": "Quality flag for the 12μm-band flux from IRAS: 0=not in IRAS, 1=upper limit, 2=moderate, 3=high, 4=flux from IRAS-RBGS",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "q25": {
+            "name": "q25",
+            "description": "Quality flag for the 25μm-band flux from IRAS: 0=not in IRAS, 1=upper limit, 2=moderate, 3=high, 4=flux from IRAS-RBGS",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "q60": {
+            "name": "q60",
+            "description": "Quality flag for the 60μm-band flux from IRAS: 0=not in IRAS, 1=upper limit, 2=moderate, 3=high, 4=flux from IRAS-RBGS",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "q100": {
+            "name": "q100",
+            "description": "Quality flag for the 100μm-band flux from IRAS: 0=not in IRAS, 1=upper limit, 2=moderate, 3=high, 4=flux from IRAS-RBGS",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "wf1": {
+            "name": "wf1",
+            "description": "3.3μm-band (W1) apparent magnitude in the WISE forced photometry catalog",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "wf2": {
+            "name": "wf2",
+            "description": "4.6μm-band (W2) apparent magnitude in the WISE forced photometry catalog",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "wf3": {
+            "name": "wf3",
+            "description": "12μm-band (W3) apparent magnitude in the WISE forced photometry catalog",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "wf4": {
+            "name": "wf4",
+            "description": "22μm-band (W4) apparent magnitude in the WISE forced photometry catalog",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_wf1": {
+            "name": "e_wf1",
+            "description": "Uncertainty on the 3.3μm-band (W1) apparent magnitude in the WISE forced photometry catalog",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_wf2": {
+            "name": "e_wf2",
+            "description": "Uncertainty on the 4.6μm-band (W2) apparent magnitude in the WISE forced photometry catalog",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_wf3": {
+            "name": "e_wf3",
+            "description": "Uncertainty on the 12μm-band (W3) apparent magnitude in the WISE forced photometry catalog",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_wf4": {
+            "name": "e_wf4",
+            "description": "Uncertainty on the 22μm-band (W4) apparent magnitude in the WISE forced photometry catalog",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "wfpoint": {
+            "name": "wfpoint",
+            "description": "True if point source in the WISE forced photometry catalog",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "wftreat": {
+            "name": "wftreat",
+            "description": "True if treated as point source in the WISE forced photometry catalog",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "j": {
+            "name": "j",
+            "description": "J-band apparent magnitude in 2MASS",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "h": {
+            "name": "h",
+            "description": "H-band apparent magnitude in 2MASS",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "k": {
+            "name": "k",
+            "description": "K-band apparent magnitude in 2MASS",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_j": {
+            "name": "e_j",
+            "description": "Uncertainty on the J-band apparent magnitude in 2MASS",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_h": {
+            "name": "e_h",
+            "description": "Uncertainty on the H-band apparent magnitude in 2MASS",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_k": {
+            "name": "e_k",
+            "description": "Uncertainty on the K-band apparent magnitude in 2MASS",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "flag_2mass": {
+            "name": "flag_2mass",
+            "description": "Source of the 2MASS ID and magnitudes: 0=none, 1=LGA, 2=XSC, 3=PSC",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "u": {
+            "name": "u",
+            "description": "u-band SDSS apparent magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "g": {
+            "name": "g",
+            "description": "g-band SDSS apparent magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r": {
+            "name": "r",
+            "description": "r-band SDSS apparent magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "i": {
+            "name": "i",
+            "description": "i-band SDSS apparent magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z": {
+            "name": "z",
+            "description": "z-band SDSS apparent magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_u": {
+            "name": "e_u",
+            "description": "Uncertainty on the u-band SDSS apparent magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_g": {
+            "name": "e_g",
+            "description": "Uncertainty on the g-band SDSS apparent magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_r": {
+            "name": "e_r",
+            "description": "Uncertainty on the r-band SDSS apparent magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_i": {
+            "name": "e_i",
+            "description": "Uncertainty on the i-band SDSS apparent magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_z": {
+            "name": "e_z",
+            "description": "Uncertainty on the z-band SDSS apparent magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "logl_tir": {
+            "name": "logl_tir",
+            "description": "Decimal logarithm of the total-infrared (TIR) luminosity in solar luminosities",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "logl_fir": {
+            "name": "logl_fir",
+            "description": "Decimal logarithm of the far-infrared (FIR) luminosity in solar luminosities",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "logl_60u": {
+            "name": "logl_60u",
+            "description": "Decimal logarithm of the 60μm-band luminosity in solar luminosities",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "logl_12u": {
+            "name": "logl_12u",
+            "description": "Decimal logarithm of the 12μm-band luminosity in solar luminosities",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "logl_22u": {
+            "name": "logl_22u",
+            "description": "Decimal logarithm of the 22μm-band luminosity in solar luminosities",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "logl_k": {
+            "name": "logl_k",
+            "description": "Decimal logarithm of the K-band luminosity in solar luminosities",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ml_ratio": {
+            "name": "ml_ratio",
+            "description": "Mass-to-light ratio for the 2MASS K-band using SDSS g-r colour (Bell et al. 2003)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "logsfr_tir": {
+            "name": "logsfr_tir",
+            "description": "Decimal logarithm of the TIR-based star-formation rate in solar masses per year",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "logsfr_fir": {
+            "name": "logsfr_fir",
+            "description": "Decimal logarithm of the FIR-based star-formation rate in solar masses per year",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "logsfr_60u": {
+            "name": "logsfr_60u",
+            "description": "Decimal logarithm of the 60μm-based star-formation rate in solar masses per year",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "logsfr_12u": {
+            "name": "logsfr_12u",
+            "description": "Decimal logarithm of the 12μm-based star-formation rate in solar masses per year",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "logsfr_22u": {
+            "name": "logsfr_22u",
+            "description": "Decimal logarithm of the 22μm-based star-formation rate in solar masses per year",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "logsfr_hec": {
+            "name": "logsfr_hec",
+            "description": "Decimal logarithm of the homogenised star-formation rate in solar masses per year",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "flag_sfr_hec": {
+            "name": "flag_sfr_hec",
+            "description": "Flag indicating the source of the photometry and the SFR indicator used in the homogenised SFR: RT=IRAS-RBGS photometry and TIR indicator, FT=RIFSCz photometry and TIR indicator, FF=RIFSCz photometry and FIR indicator, W3=WISE W3-band forced photometry and indicator, W4=WISE W4-band forced photometry and indicator",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "logm_hec": {
+            "name": "logm_hec",
+            "description": "Decimal logarithm of the total stellar mass in solar masses",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "logsfr_gsw": {
+            "name": "logsfr_gsw",
+            "description": "Decimal logarithm of the SED-based star-formation rate from the GSWLC-2 in solar masses per year",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "logm_gsw": {
+            "name": "logm_gsw",
+            "description": "Decimal logarithm of the SED-based stellar mass from the GSWLC-2 in solar masses",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "min_snr": {
+            "name": "min_snr",
+            "description": "Minimum signal-to-noise ratio of the emission lines used for the activity classification",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "metal": {
+            "name": "metal",
+            "description": "12+log(O/H) gas-phase metallicity",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "flag_metal": {
+            "name": "flag_metal",
+            "description": "Metallicity flag: -1=missing, 0=reliable, 1=O3N2 ratio >2 (outside the PP04 range), 2=low signal-to-noise ratio (<3 for the weakest line)",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "class_sp": {
+            "name": "class_sp",
+            "description": "Nuclear activity classification using the method in Stampoulis et al. 2019: 0=star-forming, 1=Seyfert, 2=LINER, 3=composite, -1=unknown",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "agn_s17": {
+            "name": "agn_s17",
+            "description": "AGN classification in She et al. 2017: Y=AGN, N=non-AGN, ?=unknown",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "agn_hec": {
+            "name": "agn_hec",
+            "description": "Adopted activity classification based on the combination of class_sp and agn_s17: Y=AGN, N=non-AGN, ?=unknown",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

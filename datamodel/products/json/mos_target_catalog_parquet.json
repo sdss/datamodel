@@ -1,0 +1,138 @@
+{
+  "general": {
+    "name": "mos_target_catalog_parquet",
+    "short": "MOS Target Table: catalog",
+    "description": "The results of the cross-match used for DR20 targeting. Entries in this table are expected to be unique physical objects drawn from one or more parent catalogues. The dr20_catalog_to_ tables provide the relationships to their parent catalogue counterparts.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "5 GB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_catalog.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_catalog.[FTYPE]",
+      "example": "2.0.0/parquet/mos_catalog.parquet",
+      "location": "{v_targ}/{ftype}/mos_catalog.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_catalog",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_catalog@mos_target_num3|.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_catalog = $MOS_TARGET/{v_targ}/{ftype}/mos_catalog.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "catalogid": {
+            "name": "catalogid",
+            "description": "The SDSS identifier for a unique object in this cross-match run.",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "iauname": {
+            "name": "iauname",
+            "description": "The IAU-style name. Not used.",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "ra": {
+            "name": "ra",
+            "description": "The right ascension of the target in ICRS coordinates for J2015.5. Taken from the lead parent catalogue",
+            "unit": "degrees",
+            "dtype": "Float64",
+            "value": null
+          },
+          "dec": {
+            "name": "dec",
+            "description": "The declination of the target in ICRS coordinates for J2015.5. Taken from the lead parent catalogue",
+            "unit": "degrees",
+            "dtype": "Float64",
+            "value": null
+          },
+          "pmra": {
+            "name": "pmra",
+            "description": "The proper motion of the target in right ascension. Taken from the lead parent catalogue. This is a true angle (i.e., the cos(dec) factor has been applied)",
+            "unit": "mas/yr",
+            "dtype": "Float32",
+            "value": null
+          },
+          "pmdec": {
+            "name": "pmdec",
+            "description": "The proper motion of the target in declination. Taken from the lead parent catalogue",
+            "unit": "mas/yr",
+            "dtype": "Float32",
+            "value": null
+          },
+          "parallax": {
+            "name": "parallax",
+            "description": "The parallax of the target. Taken from the lead parent catalogue",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "lead": {
+            "name": "lead",
+            "description": "The name of the parent catalogue from which this target was selected and whose data was used to determine its astrometric position.",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "version_id": {
+            "name": "version_id",
+            "description": "The internal version for the cross-match.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

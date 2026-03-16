@@ -16,10 +16,10 @@ MOS Target table: mos_target_revised_magnitude
 This table stores magnitude information for a target. Optical magnitudes that are not selected from SDSS photometry have been converted to the SDSS system.  Entries in this revised_magnitude table only exist if there was an issue with the values in the original magnitude table. Therefore: if a carton_to_target_pk exists in this table, the values in this table should be used instead.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_revised_magnitude.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_revised_magnitude-[NUM].[FTYPE] with FTYPE='fits', V_TARG='2.0.0', and NUM=1..26 for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,7 +71,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_revised_magnitude
+MOS Target Table: revised_magnitude
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  177 MB
@@ -90,8 +93,8 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | carton_to_target_pk | int64 |  | The primary key of the target in the dr19_carton_to_target table. |
- | revised_magnitude_pk | int64 |  | The primary key. A sequential identifier. |
+ | carton_to_target_pk | int64 |  | The primary key of the target in the dr20_carton_to_target table. |
+ | revised_magnitude_pk | int64 |  | The primary key of the revised magnitude entry. |
  | g | float64 | mag | The optical g magnitude, AB. |
  | r | float64 | mag | The optical r magnitude, AB. |
  | i | float64 | mag | The optical i magnitude, AB. |

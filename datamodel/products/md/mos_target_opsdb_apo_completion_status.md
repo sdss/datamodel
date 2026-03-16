@@ -16,10 +16,10 @@ MOS Target table: mos_target_opsdb_apo_completion_status
 The table complains completion statuses referenced in design_to_status
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_opsdb_apo_completion_status.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_opsdb_apo_completion_status.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,7 +71,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_opsdb_apo_completion_status
+MOS Target Table: opsdb_apo_completion_status
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  45 bytes
