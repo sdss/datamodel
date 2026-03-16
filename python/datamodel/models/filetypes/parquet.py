@@ -162,6 +162,12 @@ class ChangeParquet(CoreModel):
         A list of columns that were added between the two Parquet files.
     removed_columns: List[str]
         A list of columns that were removed between the two Parquet files.
+    delta_nmetadata: int
+        The difference in number of metadata entries between the two Parquet files.
+    added_metadata: List[str]
+        A list of metadata entries that were added between the two Parquet files.
+    removed_metadata: List[str]
+        A list of metadata entries that were removed between the two Parquet files.
 
     """
 
@@ -176,4 +182,16 @@ class ChangeParquet(CoreModel):
     removed_columns: List[str] = Field(
         default_factory=list,
         description="A list of columns that were removed between the two Parquet files.",
+    )
+    delta_nmetadata: int = Field(
+        default=0,
+        description="The difference in number of metadata entries between the two Parquet files.",
+    )
+    added_metadata: List[str] = Field(
+        default_factory=list,
+        description="A list of metadata entries that were added between the two Parquet files.",
+    )
+    removed_metadata: List[str] = Field(
+        default_factory=list,
+        description="A list of metadata entries that were removed between the two Parquet files.",
     )

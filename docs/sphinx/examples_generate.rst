@@ -1788,14 +1788,14 @@ Here are examples of generating datamodels for different supported filetypes.
 
 .. tab:: Parquet
 
-    And Apache Parquet file.
+    An Apache Parquet file.
 
     **File Info**
 
     A LVM AGcam CoAdd Frame file
 
     - **Example**: $AGCAM_DATA_S/61103/lvm.spec.guider_00003767.parquet
-    - **File Species**: mangaRss
+    - **File Species**: lvmAgcamCoaddFrames
     - **Abstract Path**: AGCAM_DATA_S/{mjd}/lvm.{tel}.guider_{expnum:0>8}.parquet
     - **Example Keys**: mjd=61103; tel=spec; expnum=3767
 
