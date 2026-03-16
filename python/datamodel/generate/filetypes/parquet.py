@@ -51,7 +51,8 @@ class ParquetFileType(BaseFile):
     def _generate_new_cache(self) -> dict:
         """Generate a new cache for Parquet files."""
 
-        assert polars, "Polars is required to work with Parquet file products."
+        if polars is None:
+            raise ImportError("Polars is required to work with Parquet file products.")
 
         columns: Dict[str, Dict] = self._parse_columns()
 
@@ -97,17 +98,20 @@ class ParquetFileType(BaseFile):
     ) -> Dict[str, Dict]:
         """Parse the columns of the Parquet file."""
 
-        assert polars, "Polars is required to work with Parquet file products."
+        if polars is None:
+            raise ImportError("Polars is required to work with Parquet file products.")
 
         df = df or self.dataframe
-        assert df is not None, "Dataframe is not loaded."
+        if df is None:
+            raise RuntimeError("Dataframe is not loaded.")
 
         columns: Dict[str, Dict] = {}
 
         if isinstance(df, polars.LazyFrame):
             df = df.head(1).collect() # type: ignore
 
-        assert isinstance(df, polars.DataFrame), "Dataframe is not a Polars DataFrame."
+        if not isinstance(df, polars.DataFrame):
+            raise RuntimeError("Dataframe is not a Polars DataFrame.")
 
         row0 = df.row(0) if len(df) > 0 else None
 
@@ -148,7 +152,8 @@ class ParquetFileType(BaseFile):
 
         """
 
-        assert polars, "Polars is required to work with Parquet file products."
+        if polars is None:
+            raise ImportError("Polars is required to work with Parquet file products.")
 
         if not self.design or (self.filename and os.path.exists(self.filename)):
             raise RuntimeError(
