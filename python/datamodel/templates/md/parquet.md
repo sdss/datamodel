@@ -1,5 +1,10 @@
 {% extends "md/base.md" %}
 
+{% block content %}
+- Primary data frame.
+{% endblock content %}
+
+{% block example %}
 {% if data.metadata %}
 ### Metadata
 
@@ -16,8 +21,9 @@
 #### {{ cname }}
 
 - Column Name: {{ cdata.name }}
-- Description: {{ cdata.description }}
-- Unit: {{ cdata.unit }}
+- Description: {{ cdata.description if cdata.description else "N/A" }}
+- Unit: {{ cdata.unit if cdata.unit else "N/A" }}
 - Data Type: {{ cdata.dtype }}
 
 {% endfor %}
+{% endblock example %}
