@@ -1786,3 +1786,387 @@ Here are examples of generating datamodels for different supported filetypes.
                   is_virtual: false
                   is_empty: false
 
+.. tab:: Parquet
+
+    An Apache Parquet file.
+
+    **File Info**
+
+    A LVM AGcam CoAdd Frame file
+
+    - **Example**: $AGCAM_DATA_S/61103/lvm.spec.guider_00003767.parquet
+    - **File Species**: lvmAgcamCoaddFrames
+    - **Abstract Path**: AGCAM_DATA_S/{mjd}/lvm.{tel}.guider_{expnum:0>8}.parquet
+    - **Example Keys**: mjd=61103; tel=spec; expnum=3767
+
+    **Generate Commands**
+
+    Command-line and Python commands to generate a datamodel
+
+    .. tab:: CLI
+
+        .. code-block:: console
+
+            $ datamodel generate -r WORK -f lvmAgcamCoaddFrames -a lvm_agcam_coadd_frames -p "AGCAM_DATA_S/{mjd}/lvm.{tel}.guider_{expnum:0>8}.parquet" -k "mjd=61103" -k "tel=spec" -k "expnum=3767"
+
+    .. tab:: Python
+
+        .. code-block:: python
+
+            # Define the inputs
+            file_species = "lvmAgcamCoaddFrames"
+            path = "AGCAM_DATA_S/{mjd}/lvm.{tel}.guider_{expnum:0>8}.parquet"
+            keys = ['mjd=61103', 'tel=spec', 'expnum=3767']
+
+            # Generate a datamodel for sdsswork
+            dm = DataModel(file_spec=file_species, path=path, keywords=keys, release='WORK')
+            dm.write_stubs()
+
+    **YAML Output**
+
+    The generated output YAML datamodel stub
+
+    .. code-block:: yaml
+
+        general:
+          name: lvmAgcamCoaddFrames
+          short: replace me - with a short one sentence summary of file
+          description: replace me - with a longer description of the data product
+          datatype: PARQUET
+          filesize: 31 KB
+          releases:
+          - WORK
+          environments:
+          - AGCAM_DATA_S
+          surveys:
+          - SDSS
+          naming_convention: replace me - with $AGCAM_DATA_S/[MJD]/lvm.[TEL].guider_[EXPNUM8].parquet
+            or lvm.spec.guider_00003767.parquet but with regex pattern matches
+          generated_by: replace me - with the name(s) of any git or svn product(s) that produces
+            this product.
+          data_level: 2.3.3
+          design: false
+          vac: false
+          recommended_science_product: false
+        changelog:
+          description: Describes changes to the datamodel product and/or file structure from
+            one release to another
+          releases: {}
+        releases:
+          WORK:
+            template: $AGCAM_DATA_S/[MJD]/lvm.[TEL].guider_[EXPNUM8].parquet
+            example: 61103/lvm.spec.guider_00003767.parquet
+            location: '{mjd}/lvm.{tel}.guider_{expnum:0>8}.parquet'
+            environment: AGCAM_DATA_S
+            access:
+              in_sdss_access: true
+              path_name: lvm_agcam_coadd_frames
+              path_template: $AGCAM_DATA_S/{mjd}/coadds/lvm.{tel}.coadd_s{specframe:0>8}_frames.parquet
+              path_kwargs:
+              - mjd
+              - tel
+              - specframe
+              access_string: lvm_agcam_coadd_frames = $AGCAM_DATA_S/{mjd}/lvm.{tel}.guider_{expnum:0>8}.parquet
+            survey: SDSS
+            dataframe:
+              columns:
+                thresh:
+                  name: thresh
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                npix:
+                  name: npix
+                  dtype: Int32
+                  unit: replace me - with content
+                  description: replace me - with content
+                tnpix:
+                  name: tnpix
+                  dtype: Int32
+                  unit: replace me - with content
+                  description: replace me - with content
+                xmin:
+                  name: xmin
+                  dtype: Int32
+                  unit: replace me - with content
+                  description: replace me - with content
+                xmax:
+                  name: xmax
+                  dtype: Int32
+                  unit: replace me - with content
+                  description: replace me - with content
+                ymin:
+                  name: ymin
+                  dtype: Int32
+                  unit: replace me - with content
+                  description: replace me - with content
+                ymax:
+                  name: ymax
+                  dtype: Int32
+                  unit: replace me - with content
+                  description: replace me - with content
+                x:
+                  name: x
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                y:
+                  name: y
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                x2:
+                  name: x2
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                y2:
+                  name: y2
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                xy:
+                  name: xy
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                errx2:
+                  name: errx2
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                erry2:
+                  name: erry2
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                errxy:
+                  name: errxy
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                a:
+                  name: a
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                b:
+                  name: b
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                theta:
+                  name: theta
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                cxx:
+                  name: cxx
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                cyy:
+                  name: cyy
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                cxy:
+                  name: cxy
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                cflux:
+                  name: cflux
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                flux:
+                  name: flux
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                cpeak:
+                  name: cpeak
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                peak:
+                  name: peak
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                xcpeak:
+                  name: xcpeak
+                  dtype: Int32
+                  unit: replace me - with content
+                  description: replace me - with content
+                ycpeak:
+                  name: ycpeak
+                  dtype: Int32
+                  unit: replace me - with content
+                  description: replace me - with content
+                xpeak:
+                  name: xpeak
+                  dtype: Int32
+                  unit: replace me - with content
+                  description: replace me - with content
+                ypeak:
+                  name: ypeak
+                  dtype: Int32
+                  unit: replace me - with content
+                  description: replace me - with content
+                flag:
+                  name: flag
+                  dtype: Int8
+                  unit: replace me - with content
+                  description: replace me - with content
+                ecc:
+                  name: ecc
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                x1:
+                  name: x1
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                xstd:
+                  name: xstd
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                xrms:
+                  name: xrms
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                xfitvalid:
+                  name: xfitvalid
+                  dtype: Int8
+                  unit: replace me - with content
+                  description: replace me - with content
+                y1:
+                  name: y1
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                ystd:
+                  name: ystd
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                yrms:
+                  name: yrms
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                yfitvalid:
+                  name: yfitvalid
+                  dtype: Int8
+                  unit: replace me - with content
+                  description: replace me - with content
+                valid:
+                  name: valid
+                  dtype: Int8
+                  unit: replace me - with content
+                  description: replace me - with content
+                fwhm:
+                  name: fwhm
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                telescope:
+                  name: telescope
+                  dtype: String
+                  unit: replace me - with content
+                  description: replace me - with content
+                camera:
+                  name: camera
+                  dtype: String
+                  unit: replace me - with content
+                  description: replace me - with content
+                x_ff:
+                  name: x_ff
+                  dtype: Float32
+                  unit: replace me - with content
+                  description: replace me - with content
+                z_ff:
+                  name: z_ff
+                  dtype: Float32
+                  unit: replace me - with content
+                  description: replace me - with content
+                source_id:
+                  name: source_id
+                  dtype: Int64
+                  unit: replace me - with content
+                  description: replace me - with content
+                ra:
+                  name: ra
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                dec:
+                  name: dec
+                  dtype: Float64
+                  unit: replace me - with content
+                  description: replace me - with content
+                pmra:
+                  name: pmra
+                  dtype: Float32
+                  unit: replace me - with content
+                  description: replace me - with content
+                pmdec:
+                  name: pmdec
+                  dtype: Float32
+                  unit: replace me - with content
+                  description: replace me - with content
+                phot_g_mean_mag:
+                  name: phot_g_mean_mag
+                  dtype: Float32
+                  unit: replace me - with content
+                  description: replace me - with content
+                ra_epoch:
+                  name: ra_epoch
+                  dtype: Float32
+                  unit: replace me - with content
+                  description: replace me - with content
+                dec_epoch:
+                  name: dec_epoch
+                  dtype: Float32
+                  unit: replace me - with content
+                  description: replace me - with content
+                lmag_ab:
+                  name: lmag_ab
+                  dtype: Float32
+                  unit: replace me - with content
+                  description: replace me - with content
+                lflux:
+                  name: lflux
+                  dtype: Float32
+                  unit: replace me - with content
+                  description: replace me - with content
+                match_sep:
+                  name: match_sep
+                  dtype: Float32
+                  unit: replace me - with content
+                  description: replace me - with content
+                ap_flux:
+                  name: ap_flux
+                  dtype: Float32
+                  unit: replace me - with content
+                  description: replace me - with content
+                ap_fluxerr:
+                  name: ap_fluxerr
+                  dtype: Float32
+                  unit: replace me - with content
+                  description: replace me - with content
+                zp:
+                  name: zp
+                  dtype: Float32
+                  unit: replace me - with content
+                  description: replace me - with content
+              metadata: {}
+        notes: |-
+          None
+        regrets: |-
+          I  have no regrets!

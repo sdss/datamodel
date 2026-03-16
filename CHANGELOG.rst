@@ -10,6 +10,7 @@ Change Log
 - Add support for multiple compressions, gz, fz, bz2
 - Add new ``data_level`` field into the datamodel yaml
 - Add support for ``data_level`` to the programmatic datamodel products
+- Add support for generating and designing datamodels for Parquet files.
 
 0.5.3 (06-16-2023)
 ------------------

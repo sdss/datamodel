@@ -42,6 +42,10 @@ Support for additional file types requires extra dependency packages to be insta
      - .h5
      - `h5py <https://docs.h5py.org/en/stable/>`_
      - ".[gen, hdf]"
+   * - Parquet files
+     - .parquet
+     - `Polars <https://docs.pola.rs>`_ and others
+     - ".[gen, parquet]"
 
 To install all extra file dependencies, run ``pip install -e ".[all]"`` during the installation process.
 
@@ -72,4 +76,3 @@ datamodels for SDSS data products.
    CHANGELOG
    commands
    adding_files
-

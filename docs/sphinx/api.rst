@@ -48,6 +48,11 @@ Filetypes
    :undoc-members:
    :show-inheritance:
 
+.. automodule:: datamodel.generate.filetypes.parquet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Changelog
 ^^^^^^^^^
 

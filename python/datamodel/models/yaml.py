@@ -11,25 +11,33 @@
 # Modified By: Brian Cherinka
 
 
-from __future__ import print_function, division, absolute_import, annotations
+from __future__ import absolute_import, annotations, division, print_function
 
 import re
-from typing import List, Dict, Union, Optional
-from typing_extensions import Annotated
+from typing import Dict, List, Optional, Union
 
 import orjson
 from astropy.io import fits
-from pydantic import field_validator, ConfigDict, Field, ValidationInfo, model_serializer
+from pydantic import Field, ValidationInfo, field_validator
 from pydantic.functional_validators import AfterValidator
-#from pydantic_core import SchemaSerializer
+from typing_extensions import Annotated
 
+# from pydantic_core import SchemaSerializer
 from .base import CoreModel
-from .releases import releases, Release
-from .surveys import surveys, Survey
+from .filetypes import (
+    HDU,
+    ChangeFits,
+    ChangeHdf,
+    ChangePar,
+    ChangeParquet,
+    DataFrame,
+    HdfModel,
+    ParModel,
+)
 from .levels import DataLevel
-from .validators import replace_me, check_release
-from .filetypes import HDU, ParModel, HdfModel, ChangeFits, ChangePar, ChangeHdf
-
+from .releases import Release, releases
+from .surveys import Survey, surveys
+from .validators import check_release, replace_me
 
 # class OrJsonSerializer(SchemaSerializer):
 
@@ -43,32 +51,32 @@ from .filetypes import HDU, ParModel, HdfModel, ChangeFits, ChangePar, ChangeHdf
 
 def orjson_dumps(v, *, default):
     # orjson.dumps returns bytes, to match standard json.dumps we need to decode
-    return orjson.dumps(v, default=default,
-                        option=orjson.OPT_INDENT_2 |
-                        orjson.OPT_SERIALIZE_NUMPY).decode()
+    return orjson.dumps(
+        v, default=default, option=orjson.OPT_INDENT_2 | orjson.OPT_SERIALIZE_NUMPY
+    ).decode()
 
 
 def check_gen_release(value: str) -> str:
-    """ Validator to check release against list of releases """
+    """Validator to check release against list of releases"""
     if isinstance(value, Release):
         value = value.name
     elif isinstance(value, dict):
-        value = value.get('name', None)
+        value = value.get("name", None)
 
     if value not in releases:
-        raise ValueError(f'{value} is not a valid release')
+        raise ValueError(f"{value} is not a valid release")
     return releases[value]
 
 
 def check_survey(value: str) -> str:
-    """ Validator to check survey against list of surveys """
+    """Validator to check survey against list of surveys"""
     if isinstance(value, Survey):
         value = value.name
     elif isinstance(value, dict):
-        value = value.get('name', None)
+        value = value.get("name", None)
 
     if value not in surveys:
-        raise ValueError(f'{value} is not a valid survey')
+        raise ValueError(f"{value} is not a valid survey")
     return surveys[value]
 
 
@@ -77,7 +85,7 @@ AnnoSurvey = Annotated[Union[str, Survey], AfterValidator(check_survey)]
 
 
 class GeneralSection(CoreModel):
-    """ Pydantic model representing the YAML general section
+    """Pydantic model representing the YAML general section
 
     Parameters
     ----------
@@ -113,6 +121,7 @@ class GeneralSection(CoreModel):
     ValueError
         when any of the releases are not a valid SDSS Release
     """
+
     name: str
     short: str
     description: str = Field(..., repr=False)
@@ -128,8 +137,9 @@ class GeneralSection(CoreModel):
     recommended_science_product: bool = None
     data_level: DataLevel = None
 
-    _check_replace_me = field_validator('short', 'description', 'naming_convention',
-                                  'generated_by', 'data_level')(replace_me)
+    _check_replace_me = field_validator(
+        "short", "description", "naming_convention", "generated_by", "data_level"
+    )(replace_me)
 
     # TODO[pydantic]: We couldn't refactor the `validator`, please replace it by `field_validator` manually.
     # Check https://docs.pydantic.dev/dev-v2/migration/#changes-to-validators for more information.
@@ -141,12 +151,14 @@ class GeneralSection(CoreModel):
     #         raise ValueError(f'{value} is not a valid release')
     #     return releases[value]
 
-    @field_validator('design')
+    @field_validator("design")
     @classmethod
     def no_design(cls, value: bool):
-        """ Validator to check if the design flag is set to True """
+        """Validator to check if the design flag is set to True"""
         if value:
-            raise ValueError('Design is set to True. YAML will not validate until out of design phase.')
+            raise ValueError(
+                "Design is set to True. YAML will not validate until out of design phase."
+            )
         return value
 
     # TODO[pydantic]: We couldn't refactor the `validator`, please replace it by `field_validator` manually.
@@ -158,16 +170,20 @@ class GeneralSection(CoreModel):
     #         raise ValueError(f'{value} is not a valid survey')
     #     return surveys[value]
 
-    @field_validator('data_level')
+    @field_validator("data_level")
     @classmethod
     def valid_data_level(cls, value: DataLevel):
-        if not re.match(r'^\d+\.\d+(\.\d+)?$', str(value)):
-            raise ValueError('data_level must be in the format x.y or x.y.z where x, y, z are integers')
+        if not re.match(r"^\d+\.\d+(\.\d+)?$", str(value)):
+            raise ValueError(
+                "data_level must be in the format x.y or x.y.z where x, y, z are integers"
+            )
         return value
 
+
 class ChangeBase(CoreModel):
-    """ Base Pydantic model representing a YAML changelog release section"""
-    from_: str = Field(..., alias='from')
+    """Base Pydantic model representing a YAML changelog release section"""
+
+    from_: str = Field(..., alias="from")
     note: Optional[str] = None
     # TODO[pydantic]: The following keys were removed: `fields`.
     # Check https://docs.pydantic.dev/dev-v2/migration/#changes-to-config for more information.
@@ -176,8 +192,8 @@ class ChangeBase(CoreModel):
     # })
 
 
-class ChangeRelease(ChangeHdf, ChangePar, ChangeFits, ChangeBase):
-    """ Pydantic model representing a YAML changelog release section
+class ChangeRelease(ChangeParquet, ChangeHdf, ChangePar, ChangeFits, ChangeBase):
+    """Pydantic model representing a YAML changelog release section
 
     Represents a computed section of the changelog, for the specified
     release.  Changelog is computed between the data products of release (key)
@@ -229,11 +245,17 @@ class ChangeRelease(ChangeHdf, ChangePar, ChangeFits, ChangeBase):
         A list of any removed HDF5 groups or datasets
     members : Dict[str, ChangeMember]
         A dictionary of HDF5 group/dataset member changes
+    ndelta_ncolumns : int
+        The difference in number of columns in a Parquet file
+    added_columns : List[str]
+        A list of any added columns in a Parquet file
+    removed_columns : List[str]
+        A list of any removed columns in a Parquet file
     """
 
 
 class ChangeLog(CoreModel):
-    """ Pydantic model representing the YAML changelog section
+    """Pydantic model representing the YAML changelog section
 
     Parameters
     ----------
@@ -242,30 +264,31 @@ class ChangeLog(CoreModel):
     releases : Dict[str, `.ChangeRelease`]
         A dictionary of the file changes between the given release and previous one
     """
+
     description: str
     releases: Dict[str, ChangeRelease] = Field(None, repr=False)
 
-    _check_releases = field_validator('releases')(check_release)
+    _check_releases = field_validator("releases")(check_release)
 
     def model_dump_json(self, **kwargs):
-        """ override json method to exclude none fields by default """
-        kwargs.pop('exclude_none', None)
+        """override json method to exclude none fields by default"""
+        kwargs.pop("exclude_none", None)
         return super().model_dump_json(exclude_none=True, **kwargs)
 
     def dict(self, **kwargs):
-        """ override dict method to exclude none fields by default
+        """override dict method to exclude none fields by default
 
         Need to override this method as well when serializing YamlModel to json,
         because nested models are already converted to dict when json.dumps is called.
         See https://github.com/samuelcolvin/pydantic/issues/1778
 
         """
-        kwargs.pop('exclude_none', None)
-        return super().model_dump(exclude_none=True, **kwargs)
+        kwargs.pop("exclude_none", None)
+        return super().model_dump(exclude_none=False, **kwargs)
 
 
 class Access(CoreModel):
-    """ Pydantic model representing the YAML releases access section
+    """Pydantic model representing the YAML releases access section
 
     Parameters
     ----------
@@ -280,6 +303,7 @@ class Access(CoreModel):
     access_string : str
         The full sdss_access entry, "path_name=path_template"
     """
+
     in_sdss_access: bool
     path_name: Optional[str] = None
     path_template: Optional[str] = Field(None, repr=False)
@@ -296,29 +320,33 @@ class Access(CoreModel):
     #         raise ValueError(f'{field.name} cannot be None if in_sdss_access is True')
     #     return value
 
-    @field_validator('path_name', 'path_template', 'access_string')
+    @field_validator("path_name", "path_template", "access_string")
     @classmethod
     def check_path_nulls(cls, value: str, info: ValidationInfo):
-        in_access = info.data.get('in_sdss_access')
+        in_access = info.data.get("in_sdss_access")
         if in_access and not value:
-            raise ValueError(f'{info.field_name} cannot be None if in_sdss_access is True')
+            raise ValueError(
+                f"{info.field_name} cannot be None if in_sdss_access is True"
+            )
         return value
 
     # TODO[pydantic]: We couldn't refactor the `validator`, please replace it by `field_validator` manually.
     # Check https://docs.pydantic.dev/dev-v2/migration/#changes-to-validators for more information.
-    @field_validator('path_kwargs')
+    @field_validator("path_kwargs")
     @classmethod
     def check_path_kwargs(cls, value: str, info: ValidationInfo):
-        in_access = info.data.get('in_sdss_access')
-        path = info.data.get('path_template')
+        in_access = info.data.get("in_sdss_access")
+        path = info.data.get("path_template")
         needskwargs = re.findall("{(.*?)}", path) if path else None
         if in_access and needskwargs and not value:
-            raise ValueError('path_kwargs cannot be None if path_template has {} kwargs')
+            raise ValueError(
+                "path_kwargs cannot be None if path_template has {} kwargs"
+            )
         return value
 
 
 class ReleaseModel(CoreModel):
-    """ Pydantic model representing an item in the YAML releases section
+    """Pydantic model representing an item in the YAML releases section
 
     Contains any information on the data product that is specific to a given
     release, or that changes across releases.
@@ -338,6 +366,7 @@ class ReleaseModel(CoreModel):
     hdus : Dict[str, `.HDU`]
         A dictionary of HDU content for the product for the given release
     """
+
     template: str
     example: Optional[str] = Field(..., repr=False)
     location: str = Field(..., repr=False)
@@ -347,15 +376,16 @@ class ReleaseModel(CoreModel):
     hdus: Optional[Dict[str, HDU]] = Field(None, repr=False)
     par: Optional[ParModel] = Field(None, repr=False)
     hdfs: Optional[HdfModel] = Field(None, repr=False)
+    dataframe: Optional[DataFrame] = Field(None, repr=False)
 
     def convert_to_hdulist(self) -> fits.HDUList:
-        """ Convert the hdus to a fits.HDUList """
+        """Convert the hdus to a fits.HDUList"""
         hdus = [HDU.model_validate(v).convert_hdu() for v in self.hdus.values()]
         return fits.HDUList(hdus)
 
 
 class YamlModel(CoreModel):
-    """ Pydantic model representing a YAML file
+    """Pydantic model representing a YAML file
 
     Parameters
     ----------
@@ -371,17 +401,18 @@ class YamlModel(CoreModel):
         A string or multi-line text blob of any regrets over the datamodel
 
     """
-    #__pydantic_serializer__ = OrJsonSerializer
+
+    # __pydantic_serializer__ = OrJsonSerializer
     general: GeneralSection
     changelog: ChangeLog = Field(..., repr=False)
     releases: Dict[str, ReleaseModel] = Field(..., repr=False)
     notes: str = Field(None, repr=False)
     regrets: str = Field("I have no regrets!", repr=False)
 
-    _check_releases = field_validator('releases')(check_release)
+    _check_releases = field_validator("releases")(check_release)
     # TODO[pydantic]: The following keys were removed: `json_loads`, `json_dumps`.
     # Check https://docs.pydantic.dev/dev-v2/migration/#changes-to-config for more information.
-    #model_config = ConfigDict(json_loads=orjson.loads, json_dumps=orjson_dumps)
+    # model_config = ConfigDict(json_loads=orjson.loads, json_dumps=orjson_dumps)
 
     # @model_serializer
     # def ser_model(self) -> Dict[str, Any]:
@@ -389,7 +420,7 @@ class YamlModel(CoreModel):
 
 
 class ProductModel(YamlModel):
-    """ Pydantic model representing a data product JSON file
+    """Pydantic model representing a data product JSON file
 
     Parameters
     ----------
@@ -400,6 +431,7 @@ class ProductModel(YamlModel):
     releases : Dict[str, `.ReleaseModel`]
         A dictionary of information specific to that release
     """
+
     # TODO[pydantic]: The following keys were removed: `json_loads`, `json_dumps`.
     # Check https://docs.pydantic.dev/dev-v2/migration/#changes-to-config for more information.
-    #model_config = ConfigDict(json_loads=orjson.loads, json_dumps=orjson_dumps)
+    # model_config = ConfigDict(json_loads=orjson.loads, json_dumps=orjson_dumps)
