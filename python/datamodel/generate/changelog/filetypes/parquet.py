@@ -52,12 +52,23 @@ class YamlParquet(YamlDiff):
         removed_columns = columns_2 - columns_1
         delta_ncolumns = abs(len(columns_1) - len(columns_2))
 
+        # Find added and removed metadata entries
+        metadata_1 = set(parquet_1.get("metadata", {}).keys())
+        metadata_2 = set(parquet_2.get("metadata", {}).keys())
+
+        added_metadata = metadata_1 - metadata_2
+        removed_metadata = metadata_2 - metadata_1
+        delta_nmetadata = abs(len(metadata_1) - len(metadata_2))
+
         changes = {
             version1: {
                 "from": version2,
                 "delta_ncolumns": delta_ncolumns,
+                "delta_nmetadata": delta_nmetadata,
                 "added_columns": list(added_columns),
                 "removed_columns": list(removed_columns),
+                "added_metadata": list(added_metadata),
+                "removed_metadata": list(removed_metadata),
             }
         }
 
