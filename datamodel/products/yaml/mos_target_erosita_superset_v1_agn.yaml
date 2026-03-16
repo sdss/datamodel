@@ -28,8 +28,8 @@ general:
   - MOS_TARGET
   surveys:
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_erosita_superset_v1_agn-[NUM].fits
-    with V_TARG=2.0.0 and NUM=1..3 for DR20.
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_erosita_superset_v1_agn-[NUM].[FTYPE]
+    with FTYPE='fits', V_TARG='2.0.0', and NUM=1..3 for DR20.
   generated_by: sdss5db targeting database.
   data_level: 2.3.3
   design: false
@@ -41,18 +41,19 @@ changelog:
   releases: {}
 releases:
   DR20:
-    template: $MOS_TARGET/[V_TARG]/fits/mos_erosita_superset_v1_agn-[NUM].fits
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_erosita_superset_v1_agn-[NUM].[FTYPE]
     example: 2.0.0/fits/mos_erosita_superset_v1_agn-1.fits
-    location: '{v_targ}/fits/mos_erosita_superset_v1_agn-{num}.fits'
+    location: '{v_targ}/{ftype}/mos_erosita_superset_v1_agn-{num}.{ftype}'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_erosita_superset_v1_agn
-      path_template: $MOS_TARGET/{v_targ}/fits/mos_erosita_superset_v1_agn-{num}.fits
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_erosita_superset_v1_agn@mos_target_num|.{ftype}
       path_kwargs:
       - num
+      - ftype
       - v_targ
-      access_string: mos_target_erosita_superset_v1_agn = $MOS_TARGET/{v_targ}/fits/mos_erosita_superset_v1_agn-{num}.fits
+      access_string: mos_target_erosita_superset_v1_agn = $MOS_TARGET/{v_targ}/{ftype}/mos_erosita_superset_v1_agn-{num}.{ftype}
     survey: SDSS
     hdus:
       hdu0:

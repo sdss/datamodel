@@ -12,8 +12,8 @@ general:
   - MOS_TARGET
   surveys:
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/parquet/mos_gedr3spur_main.parquet with
-    V_TARG=2.0.0 for DR20.
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_gedr3spur_main.[FTYPE] with
+    FTYPE='parquet' and V_TARG='2.0.0' for DR20.
   generated_by: sdss5db targeting database.
   data_level: 2.3.3
   design: false
@@ -25,17 +25,18 @@ changelog:
   releases: {}
 releases:
   DR20:
-    template: $MOS_TARGET/[V_TARG]/parquet/mos_gedr3spur_main.parquet
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_gedr3spur_main.[FTYPE]
     example: 2.0.0/parquet/mos_gedr3spur_main.parquet
-    location: '{v_targ}/parquet/mos_gedr3spur_main.parquet'
+    location: '{v_targ}/{ftype}/mos_gedr3spur_main.{ftype}'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
-      path_name: mos_target_gedr3spur_main_parquet
-      path_template: $MOS_TARGET/{v_targ}/parquet/mos_gedr3spur_main.parquet
+      path_name: mos_target_gedr3spur_main
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_gedr3spur_main@mos_target_num2|.{ftype}
       path_kwargs:
+      - ftype
       - v_targ
-      access_string: mos_target_gedr3spur_main_parquet = $MOS_TARGET/{v_targ}/parquet/mos_gedr3spur_main.parquet
+      access_string: mos_target_gedr3spur_main = $MOS_TARGET/{v_targ}/{ftype}/mos_gedr3spur_main.{ftype}
     survey: SDSS
     dataframe:
       columns:

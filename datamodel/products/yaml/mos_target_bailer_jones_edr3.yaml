@@ -11,8 +11,8 @@ general:
   - MOS_TARGET
   surveys:
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_bailer_jones_edr3-[NUM].fits with
-    V_TARG=2.0.0 and NUM=1..31 for DR20.
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_bailer_jones_edr3-[NUM].[FTYPE]
+    with FTYPE='fits', V_TARG='2.0.0', and NUM=1..31 for DR20.
   generated_by: sdss5db targeting database.
   data_level: 2.3.3
   design: false
@@ -24,18 +24,19 @@ changelog:
   releases: {}
 releases:
   DR20:
-    template: $MOS_TARGET/[V_TARG]/fits/mos_bailer_jones_edr3-[NUM2].fits
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_bailer_jones_edr3-[NUM].[FTYPE]
     example: 2.0.0/fits/mos_bailer_jones_edr3-01.fits
-    location: '{v_targ}/fits/mos_bailer_jones_edr3-{num:0>2}.fits'
+    location: '{v_targ}/{ftype}/mos_bailer_jones_edr3-{num}.{ftype}'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_bailer_jones_edr3
-      path_template: $MOS_TARGET/{v_targ}/fits/mos_bailer_jones_edr3-{num:0>2}.fits
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_bailer_jones_edr3@mos_target_num2|.{ftype}
       path_kwargs:
-      - num
+      - ftype
       - v_targ
-      access_string: mos_target_bailer_jones_edr3 = $MOS_TARGET/{v_targ}/fits/mos_bailer_jones_edr3-{num:0>2}.fits
+      - num
+      access_string: mos_target_bailer_jones_edr3 = $MOS_TARGET/{v_targ}/{ftype}/mos_bailer_jones_edr3-{num}.{ftype}
     survey: SDSS
     hdus:
       hdu0:

@@ -16,8 +16,8 @@ general:
   - MOS_TARGET
   surveys:
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/parquet/mos_revised_magnitude.parquet with
-    V_TARG=2.0.0 for DR20.
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_revised_magnitude.[FTYPE] with
+    FTYPE='parquet' and V_TARG='2.0.0' for DR20.
   generated_by: sdss5db targeting database.
   data_level: 2.3.3
   design: false
@@ -29,17 +29,18 @@ changelog:
   releases: {}
 releases:
   DR20:
-    template: $MOS_TARGET/[V_TARG]/parquet/mos_revised_magnitude.parquet
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_revised_magnitude.[FTYPE]
     example: 2.0.0/parquet/mos_revised_magnitude.parquet
-    location: '{v_targ}/parquet/mos_revised_magnitude.parquet'
+    location: '{v_targ}/{ftype}/mos_revised_magnitude.{ftype}'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
-      path_name: mos_target_revised_magnitude_parquet
-      path_template: $MOS_TARGET/{v_targ}/parquet/mos_revised_magnitude.parquet
+      path_name: mos_target_revised_magnitude
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_revised_magnitude@mos_target_num2|.{ftype}
       path_kwargs:
+      - ftype
       - v_targ
-      access_string: mos_target_revised_magnitude_parquet = $MOS_TARGET/{v_targ}/parquet/mos_revised_magnitude.parquet
+      access_string: mos_target_revised_magnitude = $MOS_TARGET/{v_targ}/{ftype}/mos_revised_magnitude.{ftype}
     survey: SDSS
     dataframe:
       columns:
@@ -52,8 +53,8 @@ releases:
         revised_magnitude_pk:
           name: revised_magnitude_pk
           dtype: Int64
-          unit: replace me - with content
-          description: replace me - with content
+          unit: ''
+          description: The primary key of the revised magnitude entry.
         g:
           name: g
           dtype: Float64

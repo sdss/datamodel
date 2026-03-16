@@ -11,8 +11,8 @@ general:
   - MOS_TARGET
   surveys:
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/parquet/mos_opsdb_lco_configuration.parquet
-    with V_TARG=2.0.0 for DR20.
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_opsdb_lco_configuration.[FTYPE]
+    with FTYPE='parquet' and V_TARG='2.0.0' for DR20.
   generated_by: sdss5db targeting database.
   data_level: 2.3.3
   design: false
@@ -24,17 +24,18 @@ changelog:
   releases: {}
 releases:
   DR20:
-    template: $MOS_TARGET/[V_TARG]/parquet/mos_opsdb_lco_configuration.parquet
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_opsdb_lco_configuration.[FTYPE]
     example: 2.0.0/parquet/mos_opsdb_lco_configuration.parquet
-    location: '{v_targ}/parquet/mos_opsdb_lco_configuration.parquet'
+    location: '{v_targ}/{ftype}/mos_opsdb_lco_configuration.{ftype}'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
-      path_name: mos_target_opsdb_lco_configuration_parquet
-      path_template: $MOS_TARGET/{v_targ}/parquet/mos_opsdb_lco_configuration.parquet
+      path_name: mos_target_opsdb_lco_configuration
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_opsdb_lco_configuration.{ftype}
       path_kwargs:
+      - ftype
       - v_targ
-      access_string: mos_target_opsdb_lco_configuration_parquet = $MOS_TARGET/{v_targ}/parquet/mos_opsdb_lco_configuration.parquet
+      access_string: mos_target_opsdb_lco_configuration = $MOS_TARGET/{v_targ}/{ftype}/mos_opsdb_lco_configuration.{ftype}
     survey: SDSS
     dataframe:
       columns:

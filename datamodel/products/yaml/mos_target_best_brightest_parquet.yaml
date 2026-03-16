@@ -12,8 +12,8 @@ general:
   - MOS_TARGET
   surveys:
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/parquet/mos_best_brightest.parquet with
-    V_TARG=2.0.0 for DR20.
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_best_brightest.[FTYPE] with
+    FTYPE='parquet' and V_TARG='2.0.0' for DR20.
   generated_by: sdss5db targeting database.
   data_level: 2.3.3
   design: false
@@ -25,17 +25,18 @@ changelog:
   releases: {}
 releases:
   DR20:
-    template: $MOS_TARGET/[V_TARG]/parquet/mos_best_brightest.parquet
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_best_brightest.[FTYPE]
     example: 2.0.0/parquet/mos_best_brightest.parquet
-    location: '{v_targ}/parquet/mos_best_brightest.parquet'
+    location: '{v_targ}/{ftype}/mos_best_brightest.{ftype}'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
-      path_name: mos_target_best_brightest_parquet
-      path_template: $MOS_TARGET/{v_targ}/parquet/mos_best_brightest.parquet
+      path_name: mos_target_best_brightest
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_best_brightest.{ftype}
       path_kwargs:
+      - ftype
       - v_targ
-      access_string: mos_target_best_brightest_parquet = $MOS_TARGET/{v_targ}/parquet/mos_best_brightest.parquet
+      access_string: mos_target_best_brightest = $MOS_TARGET/{v_targ}/{ftype}/mos_best_brightest.{ftype}
     survey: SDSS
     dataframe:
       columns:

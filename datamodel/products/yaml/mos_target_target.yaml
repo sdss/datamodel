@@ -1,251 +1,44 @@
 general:
   name: mos_target_target
   short: 'MOS Target Table: target'
-  description: This table stores the targets associated with DR18 target selection
+  description: This table stores the targets associated with DR20 target selection
     cartons. Note that the targets in this table are unique, but a target can be associated
-    with multiple cartons. That many-to-many relationship is encoded in the mos_target_carton_to_target
+    with multiple cartons. That many-to-many relationship is encoded in the dr20_carton_to_target
     table.
   datatype: FITS
   filesize: 91 MB
   releases:
-  - DR18
-  - DR19
   - DR20
   environments:
   - MOS_TARGET
   surveys:
-  - BHM
-  - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_target-[NUM].fits with V_TARG=2.0.0
-    and NUM=1..94 for DR20.
-  generated_by: sdss5db> targetdb, operations database server
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_target-[NUM].[FTYPE] with FTYPE='fits',
+    V_TARG='2.0.0', and NUM=1..94 for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
   design: false
   vac: false
   recommended_science_product: false
-  data_level: 2.3.3
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases:
-    DR20:
-      from: DR19
-      note: The [NUM] chunk is now separated from the main file species name by a
-        dash instead of an underscore.
-    DR19:
-      from: DR18
-      note: No changes
+  releases: {}
 releases:
-  DR18:
-    template: $MOS_TARGET/[V_TARG]/mos_target-[NUM].fits
-    example: 1.0.1/mos_target-01.fits
-    location: '{v_targ}/mos_target-{num}.fits'
-    environment: MOS_TARGET
-    access:
-      in_sdss_access: true
-      path_name: mos_target_target
-      path_template: $MOS_TARGET/{v_targ}/mos_target-{num}.fits
-      path_kwargs:
-      - v_targ
-      - num
-      access_string: mos_target_target = $MOS_TARGET/{v_targ}/mos_target-{num}.fits
-    survey: SDSS
-    hdus:
-      hdu0:
-        name: PRIMARY
-        description: Primary header
-        is_image: true
-        size: 0 bytes
-        header:
-        - key: SIMPLE
-          value: true
-          comment: conforms to FITS standard
-        - key: BITPIX
-          value: 8
-          comment: array data type
-        - key: NAXIS
-          value: 0
-          comment: number of array dimensions
-        - key: EXTEND
-          value: true
-          comment: ''
-      hdu1:
-        name: ''
-        description: 'MOS Target Table: target'
-        is_image: false
-        size: 91 MB
-        columns:
-          target_pk:
-            name: TARGET_PK
-            type: int64
-            unit: ''
-            description: The primary key. A sequential identifier.
-          ra:
-            name: RA
-            type: float64
-            unit: degree
-            description: The right ascension of the target in ICRS coordinates at
-              epoch. From mos_target_catalog.
-          dec:
-            name: DEC
-            type: float64
-            unit: degree
-            description: The declination of the target in ICRS coordinates at epoch.
-              From mos_target_catalog.
-          pmra:
-            name: PMRA
-            type: float32
-            unit: mas/yr
-            description: The proper motion in right ascenscion of the target, as a
-              true angle. From mos_target_catalog.
-          pmdec:
-            name: PMDEC
-            type: float32
-            unit: mas/yr
-            description: The proper motion in declination of the target. From mos_target_catalog.
-          epoch:
-            name: EPOCH
-            type: float32
-            unit: years
-            description: The epoch of the coordinates, as a Julian epoch.
-          parallax:
-            name: PARALLAX
-            type: float32
-            unit: arcsec
-            description: The parallax of the target. From mos_target_catalog.
-          catalogid:
-            name: CATALOGID
-            type: int64
-            unit: ''
-            description: The catalogid of the entry in mos_target_catalog associated
-              with this target.
-  DR19:
-    template: $MOS_TARGET/[V_TARG]/mos_target-[NUM].fits
-    example: 1.0.2/mos_target-01.fits
-    location: '{v_targ}/mos_target-{num}.fits'
-    environment: MOS_TARGET
-    access:
-      in_sdss_access: true
-      path_name: mos_target_target
-      path_template: $MOS_TARGET/{v_targ}/mos_target-{num}.fits
-      path_kwargs:
-      - v_targ
-      - num
-      access_string: mos_target_target = $MOS_TARGET/{v_targ}/mos_target-{num}.fits
-    survey: SDSS
-    hdus:
-      hdu0:
-        name: PRIMARY
-        description: Primary header
-        is_image: true
-        size: 0 bytes
-        header:
-        - key: SIMPLE
-          value: true
-          comment: conforms to FITS standard
-        - key: BITPIX
-          value: 8
-          comment: array data type
-        - key: NAXIS
-          value: 0
-          comment: number of array dimensions
-        - key: EXTEND
-          value: true
-          comment: ''
-      hdu1:
-        name: ''
-        description: 'MOS Target Table: target'
-        is_image: false
-        size: 91 MB
-        header:
-        - key: XTENSION
-          value: BINTABLE
-          comment: binary table extension
-        - key: BITPIX
-          value: 8
-          comment: array data type
-        - key: NAXIS
-          value: 2
-          comment: number of array dimensions
-        - key: NAXIS1
-          value: 48
-          comment: length of dimension 1
-        - key: NAXIS2
-          value: 2000000
-          comment: length of dimension 2
-        - key: PCOUNT
-          value: 0
-          comment: number of group parameters
-        - key: GCOUNT
-          value: 1
-          comment: number of groups
-        - key: TFIELDS
-          value: 8
-          comment: number of table fields
-        - key: TNULL1
-          value: -9223372036854775808
-          comment: ''
-        - key: TNULL8
-          value: -9223372036854775808
-          comment: ''
-        columns:
-          target_pk:
-            name: target_pk
-            type: int64
-            unit: ''
-            description: The primary key. A sequential identifier.
-          ra:
-            name: ra
-            type: float64
-            unit: degree
-            description: The right ascension of the target in ICRS coordinates at
-              epoch. From mos_target_catalog.
-          dec:
-            name: dec
-            type: float64
-            unit: degree
-            description: The declination of the target in ICRS coordinates at epoch.
-              From mos_target_catalog.
-          pmra:
-            name: pmra
-            type: float32
-            unit: mas/yr
-            description: The proper motion in right ascenscion of the target, as a
-              true angle. From mos_target_catalog.
-          pmdec:
-            name: pmdec
-            type: float32
-            unit: mas/yr
-            description: The proper motion in declination of the target. From mos_target_catalog.
-          epoch:
-            name: epoch
-            type: float32
-            unit: years
-            description: The epoch of the coordinates, as a Julian epoch.
-          parallax:
-            name: parallax
-            type: float32
-            unit: arcsec
-            description: The parallax of the target. From mos_target_catalog.
-          catalogid:
-            name: catalogid
-            type: int64
-            unit: ''
-            description: The catalogid of the entry in mos_target_catalog associated
-              with this target.
   DR20:
-    template: $MOS_TARGET/[V_TARG]/fits/mos_target-[NUM2].fits
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_target-[NUM].[FTYPE]
     example: 2.0.0/fits/mos_target-01.fits
-    location: '{v_targ}/fits/mos_target-{num:0>2}.fits'
+    location: '{v_targ}/{ftype}/mos_target-{num}.{ftype}'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_target
-      path_template: $MOS_TARGET/{v_targ}/fits/mos_target-{num:0>2}.fits
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_target@mos_target_num2|.{ftype}
       path_kwargs:
-      - num
+      - ftype
       - v_targ
-      access_string: mos_target_target = $MOS_TARGET/{v_targ}/fits/mos_target-{num:0>2}.fits
+      - num
+      access_string: mos_target_target = $MOS_TARGET/{v_targ}/{ftype}/mos_target-{num}.{ftype}
     survey: SDSS
     hdus:
       hdu0:
@@ -348,4 +141,4 @@ releases:
             description: The catalogid of the entry in dr20_catalog associated with
               this target.
 notes: None
-regrets: I have no regrets!
+regrets: I  have no regrets!

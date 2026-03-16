@@ -10,8 +10,8 @@ general:
   - MOS_TARGET
   surveys:
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_wd_gaia_dr3.fits with V_TARG=2.0.0
-    for DR20.
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_wd_gaia_dr3.[FTYPE] with FTYPE='fits'
+    and V_TARG='2.0.0' for DR20.
   generated_by: sdss5db targeting database.
   data_level: 2.3.3
   design: false
@@ -23,17 +23,18 @@ changelog:
   releases: {}
 releases:
   DR20:
-    template: $MOS_TARGET/[V_TARG]/fits/mos_wd_gaia_dr3.fits
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_wd_gaia_dr3.[FTYPE]
     example: 2.0.0/fits/mos_wd_gaia_dr3.fits
-    location: '{v_targ}/fits/mos_wd_gaia_dr3.fits'
+    location: '{v_targ}/{ftype}/mos_wd_gaia_dr3.{ftype}'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_wd_gaia_dr3
-      path_template: $MOS_TARGET/{v_targ}/fits/mos_wd_gaia_dr3.fits
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_wd_gaia_dr3.{ftype}
       path_kwargs:
+      - ftype
       - v_targ
-      access_string: mos_target_wd_gaia_dr3 = $MOS_TARGET/{v_targ}/fits/mos_wd_gaia_dr3.fits
+      access_string: mos_target_wd_gaia_dr3 = $MOS_TARGET/{v_targ}/{ftype}/mos_wd_gaia_dr3.{ftype}
     survey: SDSS
     hdus:
       hdu0:

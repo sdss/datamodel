@@ -1,215 +1,42 @@
 general:
   name: mos_target_catalog_to_sdss_dr16_specobj
   short: 'MOS Target Table: catalog_to_sdss_dr16_specobj'
-  description: The table contains the cross-match between the mos_target_catalog targets
-    and the mos_target_sdss_dr16_specobj table.
+  description: The table contains the cross-match between the dr20_catalog targets
+    and the dr20_sdss_dr16_specobj table.
   datatype: FITS
-  filesize: 42 MB
+  filesize: 43 MB
   releases:
-  - DR18
-  - DR19
   - DR20
   environments:
   - MOS_TARGET
   surveys:
-  - BHM
-  - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_catalog_to_sdss_dr16_specobj-[NUM].fits
-    with V_TARG=2.0.0 and NUM=1..6 for DR20.
-  generated_by: sdss5db> targetdb, operations database server
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_catalog_to_sdss_dr16_specobj-[NUM].[FTYPE]
+    with FTYPE='fits', V_TARG='2.0.0', and NUM=1..6 for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
   design: false
   vac: false
   recommended_science_product: false
-  data_level: 2.3.3
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases:
-    DR20:
-      from: DR19
-      note: The [NUM] chunk is now separated from the main file species name by a
-        dash instead of an underscore.
-    DR19:
-      from: DR18
-      note: No changes
+  releases: {}
 releases:
-  DR18:
-    template: $MOS_TARGET/[V_TARG]/mos_catalog_to_sdss_dr16_specobj.fits
-    example: 1.0.1/mos_catalog_to_sdss_dr16_specobj.fits
-    location: '{v_targ}/mos_catalog_to_sdss_dr16_specobj.fits'
-    environment: MOS_TARGET
-    access:
-      in_sdss_access: true
-      path_name: mos_target_catalog_to_sdss_dr16_specobj
-      path_template: $MOS_TARGET/{v_targ}/mos_catalog_to_sdss_dr16_specobj.fits
-      path_kwargs:
-      - v_targ
-      access_string: mos_target_catalog_to_sdss_dr16_specobj = $MOS_TARGET/{v_targ}/mos_catalog_to_sdss_dr16_specobj.fits
-    survey: SDSS
-    hdus:
-      hdu0:
-        name: PRIMARY
-        description: Primary header
-        is_image: true
-        size: 0 bytes
-        header:
-        - key: SIMPLE
-          value: true
-          comment: conforms to FITS standard
-        - key: BITPIX
-          value: 8
-          comment: array data type
-        - key: NAXIS
-          value: 0
-          comment: number of array dimensions
-        - key: EXTEND
-          value: true
-          comment: ''
-      hdu1:
-        name: ''
-        description: 'MOS Target Table: catalog_to_sdss_dr16_specobj'
-        is_image: false
-        size: 42 MB
-        columns:
-          catalogid:
-            name: CATALOGID
-            type: int64
-            unit: ''
-            description: The catalogid identifier in the mos_target_catalog table.
-          target_id:
-            name: TARGET_ID
-            type: float32
-            unit: ''
-            description: The primary key identifier in the mos_target_sdss_dr16_specobj
-              table.
-          version_id:
-            name: VERSION_ID
-            type: int16
-            unit: ''
-            description: The internal version for the cross-match.
-          distance:
-            name: DISTANCE
-            type: float64
-            unit: ''
-            description: The distance between the catalog and target coordinates if
-              best=F.
-          best:
-            name: BEST
-            type: bool
-            unit: ''
-            description: Whether this is considered the best match between the catalog
-              entry and mos_target_sdss_dr16_specobj.
-  DR19:
-    template: $MOS_TARGET/[V_TARG]/mos_catalog_to_sdss_dr16_specobj-[NUM].fits
-    example: 1.0.2/mos_catalog_to_sdss_dr16_specobj-1.fits
-    location: '{v_targ}/mos_catalog_to_sdss_dr16_specobj-{num}.fits'
-    environment: MOS_TARGET
-    access:
-      in_sdss_access: true
-      path_name: mos_target_catalog_to_sdss_dr16_specobj
-      path_template: $MOS_TARGET/{v_targ}/mos_catalog_to_sdss_dr16_specobj.fits
-      path_kwargs:
-      - v_targ
-      access_string: mos_target_catalog_to_sdss_dr16_specobj = $MOS_TARGET/{v_targ}/mos_catalog_to_sdss_dr16_specobj-{num}.fits
-    survey: SDSS
-    hdus:
-      hdu0:
-        name: PRIMARY
-        description: Primary header
-        is_image: true
-        size: 0 bytes
-        header:
-        - key: SIMPLE
-          value: true
-          comment: conforms to FITS standard
-        - key: BITPIX
-          value: 8
-          comment: array data type
-        - key: NAXIS
-          value: 0
-          comment: number of array dimensions
-        - key: EXTEND
-          value: true
-          comment: ''
-      hdu1:
-        name: ''
-        description: 'MOS Target Table: catalog_to_sdss_dr16_specobj'
-        is_image: false
-        size: 43 MB
-        header:
-        - key: XTENSION
-          value: BINTABLE
-          comment: binary table extension
-        - key: BITPIX
-          value: 8
-          comment: array data type
-        - key: NAXIS
-          value: 2
-          comment: number of array dimensions
-        - key: NAXIS1
-          value: 23
-          comment: length of dimension 1
-        - key: NAXIS2
-          value: 2000000
-          comment: length of dimension 2
-        - key: PCOUNT
-          value: 0
-          comment: number of group parameters
-        - key: GCOUNT
-          value: 1
-          comment: number of groups
-        - key: TFIELDS
-          value: 5
-          comment: number of table fields
-        - key: TNULL1
-          value: -9223372036854775808
-          comment: ''
-        - key: TNULL3
-          value: -32768
-          comment: ''
-        columns:
-          catalogid:
-            name: catalogid
-            type: int64
-            unit: ''
-            description: The catalogid identifier in the mos_target_catalog table.
-          target_id:
-            name: target_id
-            type: float32
-            unit: ''
-            description: The primary key identifier in the mos_target_sdss_dr16_specobj
-              table.
-          version_id:
-            name: version_id
-            type: int16
-            unit: ''
-            description: The internal version for the cross-match.
-          distance:
-            name: distance
-            type: float64
-            unit: ''
-            description: The distance between the catalog and target coordinates if
-              best=F.
-          best:
-            name: best
-            type: bool
-            unit: ''
-            description: Whether this is considered the best match between the catalog
-              entry and mos_target_sdss_dr16_specobj.
   DR20:
-    template: $MOS_TARGET/[V_TARG]/fits/mos_catalog_to_sdss_dr16_specobj-[NUM].fits
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_catalog_to_sdss_dr16_specobj-[NUM].[FTYPE]
     example: 2.0.0/fits/mos_catalog_to_sdss_dr16_specobj-1.fits
-    location: '{v_targ}/fits/mos_catalog_to_sdss_dr16_specobj-{num}.fits'
+    location: '{v_targ}/{ftype}/mos_catalog_to_sdss_dr16_specobj-{num}.{ftype}'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_catalog_to_sdss_dr16_specobj
-      path_template: $MOS_TARGET/{v_targ}/fits/mos_catalog_to_sdss_dr16_specobj-{num}.fits
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_catalog_to_sdss_dr16_specobj@mos_target_num|.{ftype}
       path_kwargs:
       - num
+      - ftype
       - v_targ
-      access_string: mos_target_catalog_to_sdss_dr16_specobj = $MOS_TARGET/{v_targ}/fits/mos_catalog_to_sdss_dr16_specobj-{num}.fits
+      access_string: mos_target_catalog_to_sdss_dr16_specobj = $MOS_TARGET/{v_targ}/{ftype}/mos_catalog_to_sdss_dr16_specobj-{num}.{ftype}
     survey: SDSS
     hdus:
       hdu0:
@@ -296,4 +123,4 @@ releases:
             description: Whether this is considered the best match between the catalog
               entry and dr20_sdss_dr16_specobj.
 notes: None
-regrets: I have no regrets!
+regrets: I  have no regrets!

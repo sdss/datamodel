@@ -1,415 +1,49 @@
 general:
   name: mos_target_bhm_efeds_veto
   short: 'MOS Target Table: bhm_efeds_veto'
-  description: The BHM-SPIDERS eFEDS veto catalogue.
+  description: 'The BHM-SPIDERS eFEDS veto catalogue.
+
+
+    A minimalist catalogue of 6300 science targets in the SPIDERS eFEDS field that
+    received SDSS-IV spectroscopy during the March2020 SPIDERS observing run (and
+    hence are not in SDSS-SpecObj-DR16). Many of these spectra have very low SNR and
+    so we will want to observe them again, but we will take account of this in the
+    Carton code. This is a subset (in both rows and columns) of the spAll-v5_13_1.fits
+    idlspec2d pipeline product. The original data model for that file is here: <a
+    href="https://data.sdss.org/datamodel/files/BOSS_SPECTRO_REDUX/RUN2D/spAll.html">https://data.sdss.org/datamodel/files/BOSS_SPECTRO_REDUX/RUN2D/spAll.html</a>'
   datatype: FITS
-  filesize: 382 KB
+  filesize: 1 MB
   releases:
-  - DR18
-  - DR19
   - DR20
   environments:
   - MOS_TARGET
   surveys:
-  - BHM
-  - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/fits/mos_bhm_efeds_veto.fits with V_TARG=2.0.0
-    for DR20.
-  generated_by: sdss5db> targetdb, operations database server
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_bhm_efeds_veto.[FTYPE] with
+    FTYPE='fits' and V_TARG='2.0.0' for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
   design: false
   vac: false
   recommended_science_product: false
-  data_level: 2.3.3
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases:
-    DR20:
-      from: DR19
-      note: No changes
-    DR19:
-      from: DR18
-      note: No changes
+  releases: {}
 releases:
-  DR18:
-    template: $MOS_TARGET/[V_TARG]/mos_bhm_efeds_veto.fits
-    example: 1.0.1/mos_bhm_efeds_veto.fits
-    location: '{v_targ}/mos_bhm_efeds_veto.fits'
-    environment: MOS_TARGET
-    access:
-      in_sdss_access: true
-      path_name: mos_target_bhm_efeds_veto
-      path_template: $MOS_TARGET/{v_targ}/mos_bhm_efeds_veto.fits
-      path_kwargs:
-      - v_targ
-      access_string: mos_target_bhm_efeds_veto = $MOS_TARGET/{v_targ}/mos_bhm_efeds_veto.fits
-    survey: SDSS
-    hdus:
-      hdu0:
-        name: PRIMARY
-        description: Primary header
-        is_image: true
-        size: 0 bytes
-        header:
-        - key: SIMPLE
-          value: true
-          comment: conforms to FITS standard
-        - key: BITPIX
-          value: 8
-          comment: array data type
-        - key: NAXIS
-          value: 0
-          comment: number of array dimensions
-        - key: EXTEND
-          value: true
-          comment: ''
-      hdu1:
-        name: ''
-        description: 'MOS Target Table: bhm_efeds_veto'
-        is_image: false
-        size: 371 KB
-        columns:
-          programname:
-            name: PROGRAMNAME
-            type: char[5]
-            unit: ''
-            description: program name within a given survey
-          chunk:
-            name: CHUNK
-            type: char[7]
-            unit: ''
-            description: Name of tiling chunk
-          platesn2:
-            name: PLATESN2
-            type: float32
-            unit: ''
-            description: Overall (S/N)^2 measure for plate; minimum of all 4 cameras
-          plate:
-            name: PLATE
-            type: int32
-            unit: ''
-            description: Plate ID
-          tile:
-            name: TILE
-            type: int32
-            unit: ''
-            description: Tile ID
-          mjd:
-            name: MJD
-            type: int32
-            unit: days
-            description: MJD of (last) observation
-          fiberid:
-            name: FIBERID
-            type: int32
-            unit: ''
-            description: Fiber ID (1-1000)
-          run2d:
-            name: RUN2D
-            type: char[7]
-            unit: ''
-            description: idlspec 2D reduction version
-          run1d:
-            name: RUN1D
-            type: char[7]
-            unit: ''
-            description: idlspec 1D reduction version
-          plug_ra:
-            name: PLUG_RA
-            type: float64
-            unit: deg
-            description: Object RA (drilled fiber position at expected epoch of observation)
-          plug_dec:
-            name: PLUG_DEC
-            type: float64
-            unit: deg
-            description: Object Dec (drilled fiber position at expected epoch of observation)
-          z_err:
-            name: Z_ERR
-            type: float32
-            unit: ''
-            description: Redshift error based upon fit to chi^2 minimum; negative
-              for invalid fit
-          rchi2:
-            name: RCHI2
-            type: float32
-            unit: ''
-            description: Reduced chi^2 for best fit
-          dof:
-            name: DOF
-            type: int32
-            unit: ''
-            description: Degrees of freedom for best fit
-          rchi2diff:
-            name: RCHI2DIFF
-            type: float32
-            unit: ''
-            description: Difference in reduced chi^2 of best solution to 2nd best
-              solution
-          wavemin:
-            name: WAVEMIN
-            type: float32
-            unit: Angstroms
-            description: Minimum observed (vacuum) wavelength for this object
-          wavemax:
-            name: WAVEMAX
-            type: float32
-            unit: Angstroms
-            description: Maximum observed (vacuum) wavelength for this object
-          wcoverage:
-            name: WCOVERAGE
-            type: float32
-            unit: ''
-            description: Amount of wavelength coverage in log-10(Angstroms)
-          zwarning:
-            name: ZWARNING
-            type: int32
-            unit: ''
-            description: A flag bitmask set for bad data or redshift fits
-          sn_median_all:
-            name: SN_MEDIAN_ALL
-            type: float32
-            unit: ''
-            description: Median S/N for all good pixels in all filters
-          anyandmask:
-            name: ANYANDMASK
-            type: int32
-            unit: ''
-            description: Mask bits which are set if any pixels for an object's ANDMASK
-              have that bit set
-          anyormask:
-            name: ANYORMASK
-            type: int32
-            unit: ''
-            description: Mask bits which are set if any pixels for an object's ORMASK
-              have that bit set
-          pk:
-            name: PK
-            type: int64
-            unit: ''
-            description: primary key in the database table
-  DR19:
-    template: $MOS_TARGET/[V_TARG]/mos_bhm_efeds_veto.fits
-    example: 1.0.2/mos_bhm_efeds_veto.fits
-    location: '{v_targ}/mos_bhm_efeds_veto.fits'
-    environment: MOS_TARGET
-    access:
-      in_sdss_access: true
-      path_name: mos_target_bhm_efeds_veto
-      path_template: $MOS_TARGET/{v_targ}/mos_bhm_efeds_veto.fits
-      path_kwargs:
-      - v_targ
-      access_string: mos_target_bhm_efeds_veto = $MOS_TARGET/{v_targ}/mos_bhm_efeds_veto.fits
-    survey: SDSS
-    hdus:
-      hdu0:
-        name: PRIMARY
-        description: Primary header
-        is_image: true
-        size: 0 bytes
-        header:
-        - key: SIMPLE
-          value: true
-          comment: conforms to FITS standard
-        - key: BITPIX
-          value: 8
-          comment: array data type
-        - key: NAXIS
-          value: 0
-          comment: number of array dimensions
-        - key: EXTEND
-          value: true
-          comment: ''
-      hdu1:
-        name: ''
-        description: 'MOS Target Table: bhm_efeds_veto'
-        is_image: false
-        size: 418 KB
-        header:
-        - key: XTENSION
-          value: BINTABLE
-          comment: binary table extension
-        - key: BITPIX
-          value: 8
-          comment: array data type
-        - key: NAXIS
-          value: 2
-          comment: number of array dimensions
-        - key: NAXIS1
-          value: 114
-          comment: length of dimension 1
-        - key: NAXIS2
-          value: 3756
-          comment: length of dimension 2
-        - key: PCOUNT
-          value: 0
-          comment: number of group parameters
-        - key: GCOUNT
-          value: 1
-          comment: number of groups
-        - key: TFIELDS
-          value: 23
-          comment: number of table fields
-        - key: TNULL4
-          value: -2147483648
-          comment: ''
-        - key: TNULL5
-          value: -2147483648
-          comment: ''
-        - key: TNULL6
-          value: -2147483648
-          comment: ''
-        - key: TNULL7
-          value: -2147483648
-          comment: ''
-        - key: TNULL14
-          value: -2147483648
-          comment: ''
-        - key: TNULL19
-          value: -2147483648
-          comment: ''
-        - key: TNULL21
-          value: -2147483648
-          comment: ''
-        - key: TNULL22
-          value: -2147483648
-          comment: ''
-        - key: TNULL23
-          value: -9223372036854775808
-          comment: ''
-        columns:
-          programname:
-            name: programname
-            type: char[5]
-            unit: ''
-            description: program name within a given survey
-          chunk:
-            name: chunk
-            type: char[7]
-            unit: ''
-            description: Name of tiling chunk
-          platesn2:
-            name: platesn2
-            type: float32
-            unit: ''
-            description: Overall (S/N)^2 measure for plate; minimum of all 4 cameras
-          plate:
-            name: plate
-            type: int32
-            unit: ''
-            description: Plate ID
-          tile:
-            name: tile
-            type: int32
-            unit: ''
-            description: Tile ID
-          mjd:
-            name: mjd
-            type: int32
-            unit: days
-            description: MJD of (last) observation
-          fiberid:
-            name: fiberid
-            type: int32
-            unit: ''
-            description: Fiber ID (1-1000)
-          run2d:
-            name: run2d
-            type: char[7]
-            unit: ''
-            description: idlspec 2D reduction version
-          run1d:
-            name: run1d
-            type: char[7]
-            unit: ''
-            description: idlspec 1D reduction version
-          plug_ra:
-            name: plug_ra
-            type: float64
-            unit: deg
-            description: Object RA (drilled fiber position at expected epoch of observation)
-          plug_dec:
-            name: plug_dec
-            type: float64
-            unit: deg
-            description: Object Dec (drilled fiber position at expected epoch of observation)
-          z_err:
-            name: z_err
-            type: float32
-            unit: ''
-            description: Redshift error based upon fit to chi^2 minimum; negative
-              for invalid fit
-          rchi2:
-            name: rchi2
-            type: float32
-            unit: ''
-            description: Reduced chi^2 for best fit
-          dof:
-            name: dof
-            type: int32
-            unit: ''
-            description: Degrees of freedom for best fit
-          rchi2diff:
-            name: rchi2diff
-            type: float32
-            unit: ''
-            description: Difference in reduced chi^2 of best solution to 2nd best
-              solution
-          wavemin:
-            name: wavemin
-            type: float32
-            unit: Angstroms
-            description: Minimum observed (vacuum) wavelength for this object
-          wavemax:
-            name: wavemax
-            type: float32
-            unit: Angstroms
-            description: Maximum observed (vacuum) wavelength for this object
-          wcoverage:
-            name: wcoverage
-            type: float32
-            unit: ''
-            description: Amount of wavelength coverage in log-10(Angstroms)
-          zwarning:
-            name: zwarning
-            type: int32
-            unit: ''
-            description: A flag bitmask set for bad data or redshift fits
-          sn_median_all:
-            name: sn_median_all
-            type: float32
-            unit: ''
-            description: Median S/N for all good pixels in all filters
-          anyandmask:
-            name: anyandmask
-            type: int32
-            unit: ''
-            description: Mask bits which are set if any pixels for an object's ANDMASK
-              have that bit set
-          anyormask:
-            name: anyormask
-            type: int32
-            unit: ''
-            description: Mask bits which are set if any pixels for an object's ORMASK
-              have that bit set
-          pk:
-            name: pk
-            type: int64
-            unit: ''
-            description: primary key in the database table
   DR20:
-    template: $MOS_TARGET/[V_TARG]/fits/mos_bhm_efeds_veto.fits
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_bhm_efeds_veto.[FTYPE]
     example: 2.0.0/fits/mos_bhm_efeds_veto.fits
-    location: '{v_targ}/fits/mos_bhm_efeds_veto.fits'
+    location: '{v_targ}/{ftype}/mos_bhm_efeds_veto.{ftype}'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
       path_name: mos_target_bhm_efeds_veto
-      path_template: $MOS_TARGET/{v_targ}/fits/mos_bhm_efeds_veto.fits
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_bhm_efeds_veto.{ftype}
       path_kwargs:
+      - ftype
       - v_targ
-      access_string: mos_target_bhm_efeds_veto = $MOS_TARGET/{v_targ}/fits/mos_bhm_efeds_veto.fits
+      access_string: mos_target_bhm_efeds_veto = $MOS_TARGET/{v_targ}/{ftype}/mos_bhm_efeds_veto.{ftype}
     survey: SDSS
     hdus:
       hdu0:
@@ -683,4 +317,4 @@ releases:
             unit: ''
             description: primary key in the database table
 notes: None
-regrets: I have no regrets!
+regrets: I  have no regrets!

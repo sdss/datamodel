@@ -12,8 +12,8 @@ general:
   - MOS_TARGET
   surveys:
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/parquet/mos_gaia_dr3_astrophysical_parameters.parquet
-    with V_TARG=2.0.0 for DR20.
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_gaia_dr3_astrophysical_parameters.[FTYPE]
+    with FTYPE='parquet' and V_TARG='2.0.0' for DR20.
   generated_by: sdss5db targeting database.
   data_level: 2.3.3
   design: false
@@ -25,17 +25,18 @@ changelog:
   releases: {}
 releases:
   DR20:
-    template: $MOS_TARGET/[V_TARG]/parquet/mos_gaia_dr3_astrophysical_parameters.parquet
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_gaia_dr3_astrophysical_parameters.[FTYPE]
     example: 2.0.0/parquet/mos_gaia_dr3_astrophysical_parameters.parquet
-    location: '{v_targ}/parquet/mos_gaia_dr3_astrophysical_parameters.parquet'
+    location: '{v_targ}/{ftype}/mos_gaia_dr3_astrophysical_parameters.{ftype}'
     environment: MOS_TARGET
     access:
       in_sdss_access: true
-      path_name: mos_target_gaia_dr3_astrophysical_parameters_parquet
-      path_template: $MOS_TARGET/{v_targ}/parquet/mos_gaia_dr3_astrophysical_parameters.parquet
+      path_name: mos_target_gaia_dr3_astrophysical_parameters
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_gaia_dr3_astrophysical_parameters@mos_target_num2|.{ftype}
       path_kwargs:
+      - ftype
       - v_targ
-      access_string: mos_target_gaia_dr3_astrophysical_parameters_parquet = $MOS_TARGET/{v_targ}/parquet/mos_gaia_dr3_astrophysical_parameters.parquet
+      access_string: mos_target_gaia_dr3_astrophysical_parameters = $MOS_TARGET/{v_targ}/{ftype}/mos_gaia_dr3_astrophysical_parameters.{ftype}
     survey: SDSS
     dataframe:
       columns:
