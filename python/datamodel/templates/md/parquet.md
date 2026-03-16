@@ -8,7 +8,7 @@
 {% if data.metadata %}
 ### Metadata
 
-{% for mdata in data.metadata %}
+{% for mdata in data.metadata.values() %}
 - {{ mdata.key }}: {{ mdata.description }}
 {% endfor %}
 
