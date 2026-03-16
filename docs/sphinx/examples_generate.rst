@@ -1788,7 +1788,7 @@ Here are examples of generating datamodels for different supported filetypes.
 
 .. tab:: Parquet
 
-    And Apache Parquet file.
+    An Apache Parquet file.
 
     **File Info**
 
