@@ -188,6 +188,7 @@ class DataModel(object):
         access_path_name: str = None,
         design: bool = False,
         science_product: bool = None,
+        suffixes: Union[list[str], None] = None,
     ) -> None:
 
         # environment options
@@ -254,7 +255,7 @@ class DataModel(object):
             self._set_real_and_abstract_location()
 
         # check for valid file support
-        self.suffixes = pathlib.Path(self.location).suffixes
+        self.suffixes = suffixes or pathlib.Path(self.location).suffixes
         if set(self.suffixes).isdisjoint(set(self.supported_filetypes)):
             raise ValueError(
                 f"File type {self.suffixes[0]} is not currently supported by sdss-datamodel."
