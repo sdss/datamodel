@@ -1,0 +1,110 @@
+{
+  "general": {
+    "name": "mos_target_opsdb_lco_design_to_status_parquet",
+    "short": "MOS Target Table: opsdb_lco_design_to_status",
+    "description": "The table contains design completion information by joining design and design_status. LCO version.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "3 MB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_opsdb_lco_design_to_status.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_opsdb_lco_design_to_status.[FTYPE]",
+      "example": "2.0.0/parquet/mos_opsdb_lco_design_to_status.parquet",
+      "location": "{v_targ}/{ftype}/mos_opsdb_lco_design_to_status.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_opsdb_lco_design_to_status",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_opsdb_lco_design_to_status.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_opsdb_lco_design_to_status = $MOS_TARGET/{v_targ}/{ftype}/mos_opsdb_lco_design_to_status.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "pk": {
+            "name": "pk",
+            "description": "Unique identifier",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "design_id": {
+            "name": "design_id",
+            "description": "Unique identifier in the design table",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "completion_status_pk": {
+            "name": "completion_status_pk",
+            "description": "Unique identifier in the design status table",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "mjd": {
+            "name": "mjd",
+            "description": "Decimal Modified Julian Date (MJD) on which the design was completed",
+            "unit": "days",
+            "dtype": "Float32",
+            "value": null
+          },
+          "manual": {
+            "name": "manual",
+            "description": "A flag indicated whether the design was manually marked complete (True) or met normal pipeline criteria (False)",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

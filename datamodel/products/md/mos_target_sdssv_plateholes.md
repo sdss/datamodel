@@ -16,10 +16,10 @@ MOS Target table: mos_target_sdssv_plateholes
 The combination of the dr19_sdssv_plateholes and dr19_sdssv_plateholes_meta tables are a database representation of the SDSS-V platelist data product (https://svn.sdss.org/public/data/sdss/platelist/trunk/). These tables were used within early iterations of FPS target_selection as a way to communicate information about which targets had been included in SDSS-V plates. This information was used to e.g. de-prioritise targets that were expected to have a good quality spectroscopic measurement by the end of the SDSS-V plate observations. The dr19_sdssv_plateholes_meta table contains meta-data for each SDSS-V plate (one record per plate), whereas the dr19_sdssv_plateholes table has one entry for each drilled hole in each SDSS-V plate. The dr19_sdssv_plateholes and dr19_sdssv_plateholes_meta tables should be joined via the yanny_uid field.  Mostly derived from: https://data.sdss.org/datamodel/files/PLATELIST_DIR/designs/DESIGNID6XX/DESIGNID6/plateDesign.html
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_sdssv_plateholes.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdssv_plateholes.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,7 +71,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_sdssv_plateholes
+MOS Target Table: sdssv_plateholes
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  254 MB

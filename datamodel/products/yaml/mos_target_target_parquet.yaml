@@ -1,0 +1,112 @@
+general:
+  name: mos_target_target_parquet
+  short: 'MOS Target Table: target'
+  description: This table stores the targets associated with DR20 target selection
+    cartons. Note that the targets in this table are unique, but a target can be associated
+    with multiple cartons. That many-to-many relationship is encoded in the dr20_carton_to_target
+    table.
+  datatype: PARQUET
+  filesize: 3 GB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_target.[FTYPE] with FTYPE='parquet'
+    and V_TARG='2.0.0' for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_target.[FTYPE]
+    example: 2.0.0/parquet/mos_target.parquet
+    location: '{v_targ}/{ftype}/mos_target.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_target
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_target@mos_target_num2|.{ftype}
+      path_kwargs:
+      - ftype
+      - v_targ
+      access_string: mos_target_target = $MOS_TARGET/{v_targ}/{ftype}/mos_target.{ftype}
+    survey: SDSS
+    dataframe:
+      columns:
+        target_pk:
+          name: target_pk
+          dtype: Int64
+          unit: ''
+          description: The primary key. A sequential identifier.
+        ra:
+          name: ra
+          dtype: Float64
+          unit: degree
+          description: The right ascension of the target in ICRS coordinates at epoch.
+            From dr20_catalog.
+        dec:
+          name: dec
+          dtype: Float64
+          unit: degree
+          description: The declination of the target in ICRS coordinates at epoch.
+            From dr20_catalog.
+        pmra:
+          name: pmra
+          dtype: Float32
+          unit: mas/yr
+          description: The proper motion in right ascenscion of the target, as a true
+            angle. From dr20_catalog.
+        pmdec:
+          name: pmdec
+          dtype: Float32
+          unit: mas/yr
+          description: The proper motion in declination of the target. From dr20_catalog.
+        epoch:
+          name: epoch
+          dtype: Float32
+          unit: years
+          description: The epoch of the coordinates, as a Julian epoch.
+        parallax:
+          name: parallax
+          dtype: Float32
+          unit: arcsec
+          description: The parallax of the target. From dr20_catalog.
+        catalogid:
+          name: catalogid
+          dtype: Int64
+          unit: ''
+          description: The catalogid of the entry in dr20_catalog associated with
+            this target.
+        htmid:
+          name: htmid
+          dtype: Int64
+          unit: replace me - with content
+          description: replace me - with content
+        cx:
+          name: cx
+          dtype: Float64
+          unit: replace me - with content
+          description: replace me - with content
+        cy:
+          name: cy
+          dtype: Float64
+          unit: replace me - with content
+          description: replace me - with content
+        cz:
+          name: cz
+          dtype: Float64
+          unit: replace me - with content
+          description: replace me - with content
+      metadata: {}
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

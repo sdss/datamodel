@@ -1,0 +1,257 @@
+general:
+  name: mos_target_bhm_csc_v3
+  short: 'MOS Target Table: bhm_csc_v3'
+  description: 'Chandra Source Catalog (CSC) 2.1 Optical/IR Counterparts Catalog
+
+    2022 Dec. See <a href="https://asc.harvard.edu/csc2.1/index.html">https://asc.harvard.edu/csc2.1/index.html</a>
+    for the CSC 2.1 release notes and documentation.'
+  datatype: FITS
+  filesize: 34 MB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_bhm_csc_v3.[FTYPE] with FTYPE='fits'
+    and V_TARG='2.0.0' for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_bhm_csc_v3.[FTYPE]
+    example: 2.0.0/fits/mos_bhm_csc_v3.fits
+    location: '{v_targ}/{ftype}/mos_bhm_csc_v3.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_bhm_csc_v3
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_bhm_csc_v3.{ftype}
+      path_kwargs:
+      - ftype
+      - v_targ
+      access_string: mos_target_bhm_csc_v3 = $MOS_TARGET/{v_targ}/{ftype}/mos_bhm_csc_v3.{ftype}
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: bhm_csc_v3'
+        is_image: false
+        size: 34 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 193
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 188647
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 26
+          comment: number of table fields
+        - key: TNULL8
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL9
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL10
+          value: -2147483648
+          comment: ''
+        - key: TNULL11
+          value: -2147483648
+          comment: ''
+        - key: TNULL12
+          value: -32768
+          comment: ''
+        - key: TNULL13
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL14
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL25
+          value: -2147483648
+          comment: ''
+        - key: TNULL26
+          value: -9223372036854775808
+          comment: ''
+        columns:
+          csc21p_id:
+            name: csc21p_id
+            type: char[22]
+            unit: ''
+            description: CSC 2.1 source name in the form "2CXO Jhhmmss.s{+|-}ddmmss"
+          csc21p_ensemble:
+            name: csc21p_ensemble
+            type: char[14]
+            unit: ''
+            description: CSC 2.1 ensemble. An ensemble is a set of overlapping stacks.
+              It represents all the data used to match detections (i.e. to identify
+              sources), and for calculating source properties.
+          ra:
+            name: ra
+            type: float64
+            unit: deg
+            description: Preferred counterpart RA coordinate
+          dec:
+            name: dec
+            type: float64
+            unit: deg
+            description: Preferred counterpart Dec coordinate
+          best_oir_cat:
+            name: best_oir_cat
+            type: char[6]
+            unit: ''
+            description: Best optical counterpart match; 'gdr3', 'lsdr10', 'ps1dr2',
+              or '2mass' in that order of decreasing priority.
+          best_mag:
+            name: best_mag
+            type: float32
+            unit: mag
+            description: Preferred magnitude of the optical counterpart
+          mag_type:
+            name: mag_type
+            type: char[6]
+            unit: ''
+            description: Source of best_mag; GAIA_G, LS_g,LS_r, LS_z, PS_gMeanPSFMag,
+              PS_rMeanPSFMag, PS_iMeanPSFMag, PS_zMeanPSFMag,2MASS_h_m in that order
+              of decreasing priority.
+          gaia_dr3_srcid:
+            name: gaia_dr3_srcid
+            type: int64
+            unit: ''
+            description: Gaia DR3 source ID
+          ls_dr10_lsid:
+            name: ls_dr10_lsid
+            type: int64
+            unit: ''
+            description: Legacy Survey DR10 ID
+          ls_dr10_objid:
+            name: ls_dr10_objid
+            type: int32
+            unit: ''
+            description: Legacy Survey DR10 object ID
+          ls_dr10_brickid:
+            name: ls_dr10_brickid
+            type: int32
+            unit: ''
+            description: Legacy Survey DR10 brick ID
+          ls_dr10_release:
+            name: ls_dr10_release
+            type: int16
+            unit: ''
+            description: Legacy Survey DR10 release
+          ps21p_objid:
+            name: ps21p_objid
+            type: int64
+            unit: ''
+            description: Pan-STARRS1 DR2 IPP unique object identifier
+          ps21p_ippobjid:
+            name: ps21p_ippobjid
+            type: int64
+            unit: ''
+            description: Pan-STARRS1 DR2 IPP internal object identifier
+          tmass_designation:
+            name: tmass_designation
+            type: char[17]
+            unit: ''
+            description: 2MASS designation
+          tmass_ra:
+            name: tmass_ra
+            type: float64
+            unit: deg
+            description: RA from 2MASS
+          tmass_dec:
+            name: tmass_dec
+            type: float64
+            unit: deg
+            description: Dec from 2MASS
+          tmass_h:
+            name: tmass_h
+            type: float32
+            unit: mag
+            description: H-band magnitude from 2MASS
+          csc21p_ra:
+            name: csc21p_ra
+            type: float64
+            unit: ''
+            description: RA of X-ray source
+          csc21p_dec:
+            name: csc21p_dec
+            type: float64
+            unit: ''
+            description: DEC of X-ray source
+          logfx:
+            name: logfx
+            type: float64
+            unit: ''
+            description: log10 of X-ray flux in xband
+          xband:
+            name: xband
+            type: char[1]
+            unit: ''
+            description: X-ray bandpass for logfx, priority b,m,s,h,w
+          extent:
+            name: extent
+            type: bool
+            unit: ''
+            description: X-ray extent flag
+          xsig:
+            name: xsig
+            type: float64
+            unit: ''
+            description: X-ray significance
+          xpriority:
+            name: xpriority
+            type: int32
+            unit: ''
+            description: X-ray priority, calculated from significance
+          pk:
+            name: pk
+            type: int64
+            unit: ''
+            description: Primary key identifier for this table row
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

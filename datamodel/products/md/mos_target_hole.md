@@ -16,10 +16,10 @@ MOS Target table: mos_target_hole
 The holes in which the positioners sit for the FPS at each observatory.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_hole.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_hole.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,7 +71,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_hole
+MOS Target Table: hole
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  24 KB
@@ -96,7 +99,7 @@ Name | Type | Unit | Description |
  | row_num | int32 |  | The row of the hole in which the positioner is sitting. |
  | column_num | int32 |  | The column of the hole in which the positioner is sitting. |
  | holeid | char[7] |  | The identifier for the hole in which the positioner is sitting. |
- | observatory_pk | int32 |  | The primary key of the observatory in the dr19_observatory table. |
+ | observatory_pk | int32 |  | The primary key of the observatory in the dr20_observatory table. |
 
 
 

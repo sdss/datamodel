@@ -1,0 +1,1103 @@
+general:
+  name: mos_target_sdss_dr16_specobj_parquet
+  short: 'MOS Target Table: sdss_dr16_specobj'
+  description: 'This table contains the list of all SDSS optical spectra for a given
+    data release, with associated parameters from the 2D and 1D pipelines for each.
+
+
+    The table contains both the BOSS and SDSS spectrograph data. The database representation
+    is derived from the flat file information described here: <a href="<a href="https://data.sdss.org/datamodel/files/SPECTRO_REDUX/specObj.html">https://data.sdss.org/datamodel/files/SPECTRO_REDUX/specObj.html</a>">https://data.sdss.org/datamodel/files/SPECTRO_REDUX/specObj.html">https://data.sdss.org/datamodel/files/SPECTRO_REDUX/specObj.html</a></a>
+    Note: the order of the columns in this documentation may not match the order of
+    the columns in the database table.'
+  datatype: PARQUET
+  filesize: 1 GB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdss_dr16_specobj.[FTYPE] with
+    FTYPE='parquet' and V_TARG='2.0.0' for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdss_dr16_specobj.[FTYPE]
+    example: 2.0.0/parquet/mos_sdss_dr16_specobj.parquet
+    location: '{v_targ}/{ftype}/mos_sdss_dr16_specobj.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_sdss_dr16_specobj
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_sdss_dr16_specobj@mos_target_num|.{ftype}
+      path_kwargs:
+      - num
+      - ftype
+      - v_targ
+      access_string: mos_target_sdss_dr16_specobj = $MOS_TARGET/{v_targ}/{ftype}/mos_sdss_dr16_specobj.{ftype}
+    survey: SDSS
+    dataframe:
+      columns:
+        specobjid:
+          name: specobjid
+          dtype: 'Extension(''arrow.opaque'', String, ''{"type_name": "numeric", "vendor_name":
+            "PostgreSQL"}'')'
+          unit: ''
+          description: Unique database ID based on PLATE, MJD, FIBERID, RUN2D (same
+            as SkyServer version)
+        bestobjid:
+          name: bestobjid
+          dtype: Int64
+          unit: ''
+          description: Unique database ID of (recommended) position-based photometric
+            match based on RUN, RERUN, CAMCOl, FIELD, ID (same as SkyServer version)
+        fluxobjid:
+          name: fluxobjid
+          dtype: Int64
+          unit: ''
+          description: Unique database ID of flux-based photometric match based on
+            RUN, RERUN, CAMCOl, FIELD, ID (same as SkyServer version)
+        targetobjid:
+          name: targetobjid
+          dtype: Int64
+          unit: ''
+          description: Unique database ID of targeting object based on RUN, RERUN,
+            CAMCOl, FIELD, ID (same as SkyServer version)
+        plateid:
+          name: plateid
+          dtype: 'Extension(''arrow.opaque'', String, ''{"type_name": "numeric", "vendor_name":
+            "PostgreSQL"}'')'
+          unit: ''
+          description: Unique database ID of plate based on PLATE, MJD, RUN2D (same
+            as SkyServer version)
+        scienceprimary:
+          name: scienceprimary
+          dtype: Int16
+          unit: ''
+          description: Set to 1 for primary observation of object, 0 otherwise
+        sdssprimary:
+          name: sdssprimary
+          dtype: Int16
+          unit: ''
+          description: Set to 1 for primary SDSS spectrograph observation of object,
+            0 otherwise
+        legacyprimary:
+          name: legacyprimary
+          dtype: Int16
+          unit: ''
+          description: Set to 1 for primary SDSS Legacy program observation of object,
+            0 otherwise
+        segueprimary:
+          name: segueprimary
+          dtype: Int16
+          unit: ''
+          description: Set to 1 for primary SDSS SEGUE program observation of object
+            (including SEGUE-1 and SEGUE-2), 0 otherwise
+        segue1primary:
+          name: segue1primary
+          dtype: Int16
+          unit: ''
+          description: Set to 1 for primary SDSS SEGUE-1 program observation of object,
+            0 otherwise
+        segue2primary:
+          name: segue2primary
+          dtype: Int16
+          unit: ''
+          description: Set to 1 for primary SDSS SEGUE-2 program observation of object,
+            0 otherwise
+        bossprimary:
+          name: bossprimary
+          dtype: Int16
+          unit: ''
+          description: Set to 1 for primary BOSS spectrograph observation of object,
+            0 otherwise
+        bossspecobjid:
+          name: bossspecobjid
+          dtype: Int32
+          unit: ''
+          description: Identification number internal to BOSS for SPECBOSS=1 objects
+        firstrelease:
+          name: firstrelease
+          dtype: String
+          unit: ''
+          description: Name of first release this PLATE, MJD, FIBERID, RUN2D was associated
+            with
+        survey:
+          name: survey
+          dtype: String
+          unit: ''
+          description: Survey that this object is part of
+        instrument:
+          name: instrument
+          dtype: String
+          unit: ''
+          description: Instrument that this spectrum was observed with (SDSS or BOSS)
+        programname:
+          name: programname
+          dtype: String
+          unit: ''
+          description: Program within each survey that the plate was part of
+        chunk:
+          name: chunk
+          dtype: String
+          unit: ''
+          description: Name of tiling chunk that this spectrum was tiled in (boss1,
+            boss2, etc), important for tracking large-scale structure samples
+        platerun:
+          name: platerun
+          dtype: String
+          unit: ''
+          description: Drilling run that this plate was drilled in
+        mjd:
+          name: mjd
+          dtype: Int32
+          unit: day
+          description: Modified Julian Day of observation
+        plate:
+          name: plate
+          dtype: Int16
+          unit: ''
+          description: Plate number (each plate corresponds to an actual plug plate)
+        fiberid:
+          name: fiberid
+          dtype: Int16
+          unit: ''
+          description: Fiber number
+        run1d:
+          name: run1d
+          dtype: String
+          unit: ''
+          description: Spectroscopic 1D reduction (redshift and classification) name
+        run2d:
+          name: run2d
+          dtype: String
+          unit: ''
+          description: Spectroscopic 2D reduction (extraction of spectra) name
+        tile:
+          name: tile
+          dtype: Int32
+          unit: ''
+          description: Tile number (each tile can have several plates drilled for
+            it)
+        designid:
+          name: designid
+          dtype: Int32
+          unit: ''
+          description: Design identification number for plate
+        legacy_target1:
+          name: legacy_target1
+          dtype: Int64
+          unit: ''
+          description: Primary (science) target flags for SDSS-I and SDSS-II Legacy
+            survey
+        legacy_target2:
+          name: legacy_target2
+          dtype: Int64
+          unit: ''
+          description: Secondary (calibration) target flags for SDSS-I and SDSS-II
+            Legacy survey
+        special_target1:
+          name: special_target1
+          dtype: Int64
+          unit: ''
+          description: Primary (science) target flags for SDSS-I and SDSS-II special
+            program targets
+        special_target2:
+          name: special_target2
+          dtype: Int64
+          unit: ''
+          description: Secondary (calibration) target flags for SDSS-I and SDSS-II
+            special program targets
+        segue1_target1:
+          name: segue1_target1
+          dtype: Int64
+          unit: ''
+          description: Primary (science) target flags for SEGUE-1 targets
+        segue1_target2:
+          name: segue1_target2
+          dtype: Int64
+          unit: ''
+          description: Secondary (calibration) target flags for SEGUE-1 targets
+        segue2_target1:
+          name: segue2_target1
+          dtype: Int64
+          unit: ''
+          description: Primary (science) target flags for SEGUE-2 targets
+        segue2_target2:
+          name: segue2_target2
+          dtype: Int64
+          unit: ''
+          description: Secondary (calibration) target flags for SEGUE-2 targets
+        boss_target1:
+          name: boss_target1
+          dtype: Int64
+          unit: ''
+          description: Primary (science) target flags for BOSS targets
+        eboss_target0:
+          name: eboss_target0
+          dtype: Int64
+          unit: ''
+          description: SEQUELS, TDSS and SPIDERS target selection flags
+        eboss_target1:
+          name: eboss_target1
+          dtype: Int64
+          unit: ''
+          description: eBOSS, TDSS and SPIDERS target selection flags for main eBOSS
+            survey
+        eboss_target2:
+          name: eboss_target2
+          dtype: Int64
+          unit: ''
+          description: eBOSS, TDSS and SPIDERS target selection flags for main eBOSS
+            survey
+        eboss_target_id:
+          name: eboss_target_id
+          dtype: Int64
+          unit: ''
+          description: eBOSS unique target identifier for every spectroscopic target
+        ancillary_target1:
+          name: ancillary_target1
+          dtype: Int64
+          unit: ''
+          description: Target flags for BOSS ancillary targets
+        ancillary_target2:
+          name: ancillary_target2
+          dtype: Int64
+          unit: ''
+          description: More target flags for BOSS ancillary targets
+        thing_id_targeting:
+          name: thing_id_targeting
+          dtype: Int64
+          unit: ''
+          description: Resolve THING_ID in SDSS imaging for targeted object
+        thing_id:
+          name: thing_id
+          dtype: Int32
+          unit: ''
+          description: Resolve THING_ID in SDSS imaging for best positional match
+        primtarget:
+          name: primtarget
+          dtype: Int64
+          unit: ''
+          description: Deprecated version of primary (science) target flags (meanings
+            highly overloaded)
+        sectarget:
+          name: sectarget
+          dtype: Int64
+          unit: ''
+          description: Deprecated version of secondary (calibration) target flags
+            (meanings highly overloaded)
+        spectrographid:
+          name: spectrographid
+          dtype: Int16
+          unit: ''
+          description: Which spectrograph (1 or 2)
+        sourcetype:
+          name: sourcetype
+          dtype: String
+          unit: ''
+          description: String expressing type of source (similar to OBJTYPE in DR8
+            and earlier)
+        targettype:
+          name: targettype
+          dtype: String
+          unit: ''
+          description: General type of target ("SCIENCE", "STANDARD" or "SKY")
+        ra:
+          name: ra
+          dtype: Float64
+          unit: degrees
+          description: Right ascension of hole (J2000)
+        dec:
+          name: dec
+          dtype: Float64
+          unit: degrees
+          description: Declination of hole (J2000)
+        cx:
+          name: cx
+          dtype: Float64
+          unit: ''
+          description: Position of object on J2000 unit sphere
+        cy:
+          name: cy
+          dtype: Float64
+          unit: ''
+          description: Position of object on J2000 unit sphere
+        cz:
+          name: cz
+          dtype: Float64
+          unit: ''
+          description: Position of object on J2000 unit sphere
+        xfocal:
+          name: xfocal
+          dtype: Float32
+          unit: mm
+          description: Hole position on plate (+X = +RA)
+        yfocal:
+          name: yfocal
+          dtype: Float32
+          unit: mm
+          description: Hole position on plate (+Y = +DEC)
+        lambdaeff:
+          name: lambdaeff
+          dtype: Float32
+          unit: Angstroms
+          description: Effective wavelength drilling position was optimized for
+        bluefiber:
+          name: bluefiber
+          dtype: Int32
+          unit: ''
+          description: Set to 1 if this was requested to be a "blue fiber" target,
+            0 if it was a "red fiber" (in BOSS high redshift LRGs are requested to
+            be on red fibers)
+        zoffset:
+          name: zoffset
+          dtype: Float32
+          unit: microns
+          description: Washer thickness used (for backstopping BOSS quasar targets,
+            so they are closer to 4000 Angstrom focal plan)
+        z:
+          name: z
+          dtype: Float32
+          unit: ''
+          description: Best redshift
+        zerr:
+          name: zerr
+          dtype: Float32
+          unit: ''
+          description: Error in best redshift
+        zwarning:
+          name: zwarning
+          dtype: Int32
+          unit: ''
+          description: Bitmask of spectroscopic warning values; 0 means everything
+            is OK
+        class:
+          name: class
+          dtype: String
+          unit: ''
+          description: Best spectroscopic classification ("STAR", "GALAXY" or "QSO")
+        subclass:
+          name: subclass
+          dtype: String
+          unit: ''
+          description: Best spectroscopic subclassification
+        rchi2:
+          name: rchi2
+          dtype: Float32
+          unit: ''
+          description: Reduced chi-squared of best fit
+        dof:
+          name: dof
+          dtype: Float32
+          unit: ''
+          description: Number of degrees of freedom in best fit
+        rchi2diff:
+          name: rchi2diff
+          dtype: Float32
+          unit: ''
+          description: Difference in reduced chi-squared between best and second best
+            fit
+        z_noqso:
+          name: z_noqso
+          dtype: Float32
+          unit: ''
+          description: Best redshift when ignoring QSO fits, recommended for BOSS
+            CMASS and LOWZ targets; calculated only for survey='boss' spectra, not
+            for any SDSS spectrograph data
+        zerr_noqso:
+          name: zerr_noqso
+          dtype: Float32
+          unit: ''
+          description: Error in Z_NOQSO redshift
+        zwarning_noqso:
+          name: zwarning_noqso
+          dtype: Int32
+          unit: ''
+          description: For Z_NOQSO redshift, the bitmask of spectroscopic warning
+            values; 0 means everything is OK
+        class_noqso:
+          name: class_noqso
+          dtype: String
+          unit: ''
+          description: Spectroscopic classification for Z_NOQSO redshift
+        subclass_noqso:
+          name: subclass_noqso
+          dtype: String
+          unit: ''
+          description: Spectroscopic subclassification for Z_NOQSO redshift
+        rchi2diff_noqso:
+          name: rchi2diff_noqso
+          dtype: Float32
+          unit: ''
+          description: Difference in reduced chi-squared between best and second best
+            fit for Z_NOQSO redshift
+        z_person:
+          name: z_person
+          dtype: Float32
+          unit: ''
+          description: Visual-inspection redshift
+        class_person:
+          name: class_person
+          dtype: String
+          unit: ''
+          description: Visual-inspection classification (0=not inspected or unknown,
+            1=star, 2=narrow emission-line galaxy, 3=QSO, 4=galaxy)
+        comments_person:
+          name: comments_person
+          dtype: String
+          unit: ''
+          description: Visual-inspection comments
+        tfile:
+          name: tfile
+          dtype: String
+          unit: ''
+          description: File that best fit template comes from in idlspec1d product
+        tcolumn_0:
+          name: tcolumn_0
+          dtype: Int16
+          unit: ''
+          description: 'Which column of the template file corresponds to template
+            #0'
+        tcolumn_1:
+          name: tcolumn_1
+          dtype: Int16
+          unit: ''
+          description: 'Which column of the template file corresponds to template
+            #1'
+        tcolumn_2:
+          name: tcolumn_2
+          dtype: Int16
+          unit: ''
+          description: 'Which column of the template file corresponds to template
+            #2'
+        tcolumn_3:
+          name: tcolumn_3
+          dtype: Int16
+          unit: ''
+          description: 'Which column of the template file corresponds to template
+            #3'
+        tcolumn_4:
+          name: tcolumn_4
+          dtype: Int16
+          unit: ''
+          description: 'Which column of the template file corresponds to template
+            #4'
+        tcolumn_5:
+          name: tcolumn_5
+          dtype: Int16
+          unit: ''
+          description: 'Which column of the template file corresponds to template
+            #5'
+        tcolumn_6:
+          name: tcolumn_6
+          dtype: Int16
+          unit: ''
+          description: 'Which column of the template file corresponds to template
+            #6'
+        tcolumn_7:
+          name: tcolumn_7
+          dtype: Int16
+          unit: ''
+          description: 'Which column of the template file corresponds to template
+            #7'
+        tcolumn_8:
+          name: tcolumn_8
+          dtype: Int16
+          unit: ''
+          description: 'Which column of the template file corresponds to template
+            #8'
+        tcolumn_9:
+          name: tcolumn_9
+          dtype: Int16
+          unit: ''
+          description: 'Which column of the template file corresponds to template
+            #9'
+        npoly:
+          name: npoly
+          dtype: Float32
+          unit: ''
+          description: Number of polynomial terms in fit
+        theta_0:
+          name: theta_0
+          dtype: Float32
+          unit: ''
+          description: 'Template coefficients of best fit (polynomial term #0)'
+        theta_1:
+          name: theta_1
+          dtype: Float32
+          unit: ''
+          description: 'Template coefficients of best fit (polynomial term #1)'
+        theta_2:
+          name: theta_2
+          dtype: Float32
+          unit: ''
+          description: 'Template coefficients of best fit (polynomial term #2)'
+        theta_3:
+          name: theta_3
+          dtype: Float32
+          unit: ''
+          description: 'Template coefficients of best fit (polynomial term #3)'
+        theta_4:
+          name: theta_4
+          dtype: Float32
+          unit: ''
+          description: 'Template coefficients of best fit (polynomial term #4)'
+        theta_5:
+          name: theta_5
+          dtype: Float32
+          unit: ''
+          description: 'Template coefficients of best fit (polynomial term #5)'
+        theta_6:
+          name: theta_6
+          dtype: Float32
+          unit: ''
+          description: 'Template coefficients of best fit (polynomial term #6)'
+        theta_7:
+          name: theta_7
+          dtype: Float32
+          unit: ''
+          description: 'Template coefficients of best fit (polynomial term #7)'
+        theta_8:
+          name: theta_8
+          dtype: Float32
+          unit: ''
+          description: 'Template coefficients of best fit (polynomial term #8)'
+        theta_9:
+          name: theta_9
+          dtype: Float32
+          unit: ''
+          description: 'Template coefficients of best fit (polynomial term #9)'
+        veldisp:
+          name: veldisp
+          dtype: Float32
+          unit: km/s
+          description: Velocity dispersion
+        veldisperr:
+          name: veldisperr
+          dtype: Float32
+          unit: km/s
+          description: Error in velocity dispersion
+        veldispz:
+          name: veldispz
+          dtype: Float32
+          unit: ''
+          description: Redshift associated with best-fit velocity dispersion
+        veldispzerr:
+          name: veldispzerr
+          dtype: Float32
+          unit: ''
+          description: Error in redshift associated with best-fit velocity dispersion
+        veldispchi2:
+          name: veldispchi2
+          dtype: Float32
+          unit: ''
+          description: Chi-squared for best-fit velocity dispersion
+        veldispnpix:
+          name: veldispnpix
+          dtype: Int32
+          unit: ''
+          description: Number of pixels overlapping the templates used in the velocity
+            dispersion fit
+        veldispdof:
+          name: veldispdof
+          dtype: Int32
+          unit: ''
+          description: Number of degrees of freedom in velocity dispersion fit
+        wavemin:
+          name: wavemin
+          dtype: Float32
+          unit: Angstroms
+          description: Minimum observed (vacuum) wavelength
+        wavemax:
+          name: wavemax
+          dtype: Float32
+          unit: Angstroms
+          description: Maximum observed (vacuum) wavelength
+        wcoverage:
+          name: wcoverage
+          dtype: Float32
+          unit: ''
+          description: Coverage in wavelength, in units of log10 wavelength
+        snmedian_u:
+          name: snmedian_u
+          dtype: Float32
+          unit: ''
+          description: Median signal-to-noise per pixel within the u bandpass
+        snmedian_g:
+          name: snmedian_g
+          dtype: Float32
+          unit: ''
+          description: Median signal-to-noise per pixel within the g bandpass
+        snmedian_r:
+          name: snmedian_r
+          dtype: Float32
+          unit: ''
+          description: Median signal-to-noise per pixel within the r bandpass
+        snmedian_i:
+          name: snmedian_i
+          dtype: Float32
+          unit: ''
+          description: Median signal-to-noise per pixel within the i bandpass
+        snmedian_z:
+          name: snmedian_z
+          dtype: Float32
+          unit: ''
+          description: Median signal-to-noise per pixel within the z bandpass
+        snmedian:
+          name: snmedian
+          dtype: Float32
+          unit: ''
+          description: Median signal-to-noise per pixel across full spectrum (aka
+            SN_MEDIAN_ALL)
+        chi68p:
+          name: chi68p
+          dtype: Float32
+          unit: ''
+          description: 68-th percentile value of abs(chi) of the best-fit synthetic
+            spectrum to the actual spectrum (around 1.0 for a good fit)
+        fracnsigma_1:
+          name: fracnsigma_1
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels deviant by more than 1 sigma relative to
+            best-fit
+        fracnsigma_2:
+          name: fracnsigma_2
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels deviant by more than 2 sigma relative to
+            best-fit
+        fracnsigma_3:
+          name: fracnsigma_3
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels deviant by more than 3 sigma relative to
+            best-fit
+        fracnsigma_4:
+          name: fracnsigma_4
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels deviant by more than 4 sigma relative to
+            best-fit
+        fracnsigma_5:
+          name: fracnsigma_5
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels deviant by more than 5 sigma relative to
+            best-fit
+        fracnsigma_6:
+          name: fracnsigma_6
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels deviant by more than 6 sigma relative to
+            best-fit
+        fracnsigma_7:
+          name: fracnsigma_7
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels deviant by more than 7 sigma relative to
+            best-fit
+        fracnsigma_8:
+          name: fracnsigma_8
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels deviant by more than 8 sigma relative to
+            best-fit
+        fracnsigma_9:
+          name: fracnsigma_9
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels deviant by more than 9 sigma relative to
+            best-fit
+        fracnsigma_10:
+          name: fracnsigma_10
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels deviant by more than 10 sigma relative to
+            best-fit
+        fracnsighi_1:
+          name: fracnsighi_1
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels high by more than 1 sigma relative to best-fit
+        fracnsighi_2:
+          name: fracnsighi_2
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels high by more than 2 sigma relative to best-fit
+        fracnsighi_3:
+          name: fracnsighi_3
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels high by more than 3 sigma relative to best-fit
+        fracnsighi_4:
+          name: fracnsighi_4
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels high by more than 4 sigma relative to best-fit
+        fracnsighi_5:
+          name: fracnsighi_5
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels high by more than 5 sigma relative to best-fit
+        fracnsighi_6:
+          name: fracnsighi_6
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels high by more than 6 sigma relative to best-fit
+        fracnsighi_7:
+          name: fracnsighi_7
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels high by more than 7 sigma relative to best-fit
+        fracnsighi_8:
+          name: fracnsighi_8
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels high by more than 8 sigma relative to best-fit
+        fracnsighi_9:
+          name: fracnsighi_9
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels high by more than 9 sigma relative to best-fit
+        fracnsighi_10:
+          name: fracnsighi_10
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels high by more than 10 sigma relative to best-fit
+        fracnsiglo_1:
+          name: fracnsiglo_1
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels low by more than 1 sigma relative to best-fit
+        fracnsiglo_2:
+          name: fracnsiglo_2
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels low by more than 2 sigma relative to best-fit
+        fracnsiglo_3:
+          name: fracnsiglo_3
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels low by more than 3 sigma relative to best-fit
+        fracnsiglo_4:
+          name: fracnsiglo_4
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels low by more than 4 sigma relative to best-fit
+        fracnsiglo_5:
+          name: fracnsiglo_5
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels low by more than 5 sigma relative to best-fit
+        fracnsiglo_6:
+          name: fracnsiglo_6
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels low by more than 6 sigma relative to best-fit
+        fracnsiglo_7:
+          name: fracnsiglo_7
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels low by more than 7 sigma relative to best-fit
+        fracnsiglo_8:
+          name: fracnsiglo_8
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels low by more than 8 sigma relative to best-fit
+        fracnsiglo_9:
+          name: fracnsiglo_9
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels low by more than 9 sigma relative to best-fit
+        fracnsiglo_10:
+          name: fracnsiglo_10
+          dtype: Float32
+          unit: ''
+          description: Fraction of pixels low by more than 10 sigma relative to best-fit
+        spectroflux_u:
+          name: spectroflux_u
+          dtype: Float32
+          unit: nanomaggies
+          description: Spectral flux within u filter bandpass
+        spectroflux_g:
+          name: spectroflux_g
+          dtype: Float32
+          unit: nanomaggies
+          description: Spectral flux within g filter bandpass
+        spectroflux_r:
+          name: spectroflux_r
+          dtype: Float32
+          unit: nanomaggies
+          description: Spectral flux within r filter bandpass
+        spectroflux_i:
+          name: spectroflux_i
+          dtype: Float32
+          unit: nanomaggies
+          description: Spectral flux within i filter bandpass
+        spectroflux_z:
+          name: spectroflux_z
+          dtype: Float32
+          unit: nanomaggies
+          description: Spectral flux within z filter bandpass
+        spectrosynflux_u:
+          name: spectrosynflux_u
+          dtype: Float32
+          unit: nanomaggies
+          description: Spectral flux of best-fit template spectrum within u filter
+            bandpass
+        spectrosynflux_g:
+          name: spectrosynflux_g
+          dtype: Float32
+          unit: nanomaggies
+          description: Spectral flux of best-fit template spectrum within g filter
+            bandpass
+        spectrosynflux_r:
+          name: spectrosynflux_r
+          dtype: Float32
+          unit: nanomaggies
+          description: Spectral flux of best-fit template spectrum within r filter
+            bandpass
+        spectrosynflux_i:
+          name: spectrosynflux_i
+          dtype: Float32
+          unit: nanomaggies
+          description: Spectral flux of best-fit template spectrum within i filter
+            bandpass
+        spectrosynflux_z:
+          name: spectrosynflux_z
+          dtype: Float32
+          unit: nanomaggies
+          description: Spectral flux of best-fit template spectrum within z filter
+            bandpass
+        spectrofluxivar_u:
+          name: spectrofluxivar_u
+          dtype: Float32
+          unit: nanomaggies^-2
+          description: Inverse variance of spectral flux within u filter bandpass
+        spectrofluxivar_g:
+          name: spectrofluxivar_g
+          dtype: Float32
+          unit: nanomaggies^-2
+          description: Inverse variance of spectral flux within g filter bandpass
+        spectrofluxivar_r:
+          name: spectrofluxivar_r
+          dtype: Float32
+          unit: nanomaggies^-2
+          description: Inverse variance of spectral flux within r filter bandpass
+        spectrofluxivar_i:
+          name: spectrofluxivar_i
+          dtype: Float32
+          unit: nanomaggies^-2
+          description: Inverse variance of spectral flux within i filter bandpass
+        spectrofluxivar_z:
+          name: spectrofluxivar_z
+          dtype: Float32
+          unit: nanomaggies^-2
+          description: Inverse variance of spectral flux within z filter bandpass
+        spectrosynfluxivar_u:
+          name: spectrosynfluxivar_u
+          dtype: Float32
+          unit: nanomaggies^-2
+          description: Inverse variance of spectral flux of best-fit template spectrum
+            within u filter bandpass
+        spectrosynfluxivar_g:
+          name: spectrosynfluxivar_g
+          dtype: Float32
+          unit: nanomaggies^-2
+          description: Inverse variance of spectral flux of best-fit template spectrum
+            within g filter bandpass
+        spectrosynfluxivar_r:
+          name: spectrosynfluxivar_r
+          dtype: Float32
+          unit: nanomaggies^-2
+          description: Inverse variance of spectral flux of best-fit template spectrum
+            within r filter bandpass
+        spectrosynfluxivar_i:
+          name: spectrosynfluxivar_i
+          dtype: Float32
+          unit: nanomaggies^-2
+          description: Inverse variance of spectral flux of best-fit template spectrum
+            within i filter bandpass
+        spectrosynfluxivar_z:
+          name: spectrosynfluxivar_z
+          dtype: Float32
+          unit: nanomaggies^-2
+          description: Inverse variance of spectral flux of best-fit template spectrum
+            within z filter bandpass
+        spectroskyflux_u:
+          name: spectroskyflux_u
+          dtype: Float32
+          unit: nanomaggies
+          description: Sky flux in the u filter bandpass
+        spectroskyflux_g:
+          name: spectroskyflux_g
+          dtype: Float32
+          unit: nanomaggies
+          description: Sky flux in the g filter bandpass
+        spectroskyflux_r:
+          name: spectroskyflux_r
+          dtype: Float32
+          unit: nanomaggies
+          description: Sky flux in the r filter bandpass
+        spectroskyflux_i:
+          name: spectroskyflux_i
+          dtype: Float32
+          unit: nanomaggies
+          description: Sky flux in the i filter bandpass
+        spectroskyflux_z:
+          name: spectroskyflux_z
+          dtype: Float32
+          unit: nanomaggies
+          description: Sky flux in the z filter bandpass
+        anyandmask:
+          name: anyandmask
+          dtype: Int32
+          unit: ''
+          description: For each bit, records whether any pixel in the spectrum has
+            that bit set in its ANDMASK
+        anyormask:
+          name: anyormask
+          dtype: Int32
+          unit: ''
+          description: For each bit, records whether any pixel in the spectrum has
+            that bit set in its ORMASK
+        platesn2:
+          name: platesn2
+          dtype: Float32
+          unit: ''
+          description: Overall signal-to-noise-squared measure for plate (only for
+            SDSS spectrograph plates)
+        deredsn2:
+          name: deredsn2
+          dtype: Float32
+          unit: ''
+          description: Dereddened overall signal-to-noise-squared measure for plate
+            (only for BOSS spectrograph plates)
+        snturnoff:
+          name: snturnoff
+          dtype: Float32
+          unit: ''
+          description: Signal to noise measure for MS turnoff stars on plate (-9999
+            if not appropriate)
+        sn1_g:
+          name: sn1_g
+          dtype: Float32
+          unit: ''
+          description: 'Signal-to-noise squared for spectrograph #1, at fiducial (psf)magnitude
+            g=20.20 for SDSS spectrograph spectra, g=21.20 for BOSS spectrograph spectra'
+        sn1_r:
+          name: sn1_r
+          dtype: Float32
+          unit: ''
+          description: 'Signal-to-noise squared for spectrograph #1, at fiducial (psf)magnitude
+            r=20.25 for SDSS spectrograph spectra, r=20.20 for BOSS spectrograph spectra'
+        sn1_i:
+          name: sn1_i
+          dtype: Float32
+          unit: ''
+          description: 'Signal-to-noise squared for spectrograph #1, at fiducial (psf)magnitude
+            i=19.90 for SDSS spectrograph spectra, i=20.20 for BOSS spectrograph spectra'
+        sn2_g:
+          name: sn2_g
+          dtype: Float32
+          unit: ''
+          description: 'Signal-to-noise squared for spectrograph #2, at fiducial (psf)magnitude
+            g=20.20 for SDSS spectrograph spectra, g=21.20 for BOSS spectrograph spectra'
+        sn2_r:
+          name: sn2_r
+          dtype: Float32
+          unit: ''
+          description: 'Signal-to-noise squared for spectrograph #2, at fiducial (psf)magnitude
+            r=20.25 for SDSS spectrograph spectra, r=20.20 for BOSS spectrograph spectra'
+        sn2_i:
+          name: sn2_i
+          dtype: Float32
+          unit: ''
+          description: 'Signal-to-noise squared for spectrograph #2, at fiducial (psf)magnitude
+            i=19.90 for SDSS spectrograph spectra, i=20.20 for BOSS spectrograph spectra'
+        elodiefilename:
+          name: elodiefilename
+          dtype: String
+          unit: ''
+          description: File name for best-fit ELODIE star
+        elodieobject:
+          name: elodieobject
+          dtype: String
+          unit: ''
+          description: Star name for ELODIE star
+        elodiesptype:
+          name: elodiesptype
+          dtype: String
+          unit: ''
+          description: ELODIE star spectral type
+        elodiebv:
+          name: elodiebv
+          dtype: Float32
+          unit: mag
+          description: (B-V) color index for ELODIE star
+        elodieteff:
+          name: elodieteff
+          dtype: Float32
+          unit: Kelvin
+          description: Effective temperature of ELODIE star
+        elodielogg:
+          name: elodielogg
+          dtype: Float32
+          unit: ''
+          description: log10(gravity) of ELODIE star
+        elodiefeh:
+          name: elodiefeh
+          dtype: Float32
+          unit: ''
+          description: Metallicity of ELODIE star log10(Fe/H)
+        elodiez:
+          name: elodiez
+          dtype: Float32
+          unit: ''
+          description: Redshift fit to ELODIE star
+        elodiezerr:
+          name: elodiezerr
+          dtype: Float32
+          unit: ''
+          description: Error in redshift fit to ELODIE star
+        elodiezmodelerr:
+          name: elodiezmodelerr
+          dtype: Float32
+          unit: ''
+          description: Standard deviation in redshift among the 12 best-fit ELODIE
+            stars
+        elodierchi2:
+          name: elodierchi2
+          dtype: Float32
+          unit: ''
+          description: Reduced chi-squared of fit to best ELODIE star
+        elodiedof:
+          name: elodiedof
+          dtype: Float32
+          unit: ''
+          description: Degrees of freedom in fit to best ELODIE star
+        htmid:
+          name: htmid
+          dtype: Int64
+          unit: ''
+          description: 20 deep Hierarchical Triangular Mesh ID
+        loadversion:
+          name: loadversion
+          dtype: Int32
+          unit: ''
+          description: Load Version
+      metadata: {}
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

@@ -16,10 +16,10 @@ MOS Target table: mos_target_bhm_rm_tweaks
 This table enables small modifications to be made to the set of reverberation mapping (RM) targets selected for observation in SDSS-V. The dr19_bhm_rm_tweaks table allows identification of i) confirmed QSOs which were observed in plate mode that should be preferentially targeted in forward-looking FPS mode observations, and ii) reject candidates which the plate-mode observations have revealed to be unsuitable for continued RM studies.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_bhm_rm_tweaks.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_bhm_rm_tweaks.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,7 +71,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_bhm_rm_tweaks
+MOS Target Table: bhm_rm_tweaks
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  211 KB

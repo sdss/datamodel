@@ -1,0 +1,112 @@
+general:
+  name: mos_target_magnitude_parquet
+  short: 'MOS Target Table: magnitude'
+  description: This table stores magnitude information for a target. Optical magnitudes
+    that are not selected from SDSS photometry have been converted to the SDSS system.
+  datatype: PARQUET
+  filesize: 6 GB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_magnitude.[FTYPE] with FTYPE='parquet'
+    and V_TARG='2.0.0' for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_magnitude.[FTYPE]
+    example: 2.0.0/parquet/mos_magnitude.parquet
+    location: '{v_targ}/{ftype}/mos_magnitude.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_magnitude
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_magnitude@mos_target_num3|.{ftype}
+      path_kwargs:
+      - ftype
+      - v_targ
+      access_string: mos_target_magnitude = $MOS_TARGET/{v_targ}/{ftype}/mos_magnitude.{ftype}
+    survey: SDSS
+    dataframe:
+      columns:
+        carton_to_target_pk:
+          name: carton_to_target_pk
+          dtype: Int64
+          unit: ''
+          description: The primary key of the target in the dr20_carton_to_target
+            table.
+        magnitude_pk:
+          name: magnitude_pk
+          dtype: Int64
+          unit: ''
+          description: The primary key. A sequential identifier.
+        g:
+          name: g
+          dtype: Float32
+          unit: mag
+          description: The optical g magnitude, AB.
+        r:
+          name: r
+          dtype: Float32
+          unit: mag
+          description: The optical r magnitude, AB.
+        i:
+          name: i
+          dtype: Float32
+          unit: mag
+          description: The optical i magnitude, AB.
+        h:
+          name: h
+          dtype: Float32
+          unit: mag
+          description: The IR H magnitude, Vega.
+        bp:
+          name: bp
+          dtype: Float32
+          unit: mag
+          description: The Gaia BP magnitude, Vega.
+        rp:
+          name: rp
+          dtype: Float32
+          unit: mag
+          description: The Gaia RP magnitude, Vega.
+        z:
+          name: z
+          dtype: Float32
+          unit: mag
+          description: The optical z magnitude, AB.
+        j:
+          name: j
+          dtype: Float32
+          unit: mag
+          description: The IR J magnitude, Vega.
+        k:
+          name: k
+          dtype: Float32
+          unit: mag
+          description: The IR K magnitude, Vega.
+        gaia_g:
+          name: gaia_g
+          dtype: Float32
+          unit: mag
+          description: The Gaia G magnitude, Vega.
+        optical_prov:
+          name: optical_prov
+          dtype: String
+          unit: ''
+          description: The providence/origin of the optical magnitudes.
+      metadata: {}
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

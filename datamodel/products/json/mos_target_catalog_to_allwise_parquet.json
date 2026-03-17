@@ -1,0 +1,110 @@
+{
+  "general": {
+    "name": "mos_target_catalog_to_allwise_parquet",
+    "short": "MOS Target Table: catalog_to_allwise",
+    "description": "The table contains the cross-match between the dr20_catalog targets and the dr20_allwise table.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "683 MB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_catalog_to_allwise.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_catalog_to_allwise.[FTYPE]",
+      "example": "2.0.0/parquet/mos_catalog_to_allwise.parquet",
+      "location": "{v_targ}/{ftype}/mos_catalog_to_allwise.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_catalog_to_allwise",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_catalog_to_allwise@mos_target_num2|.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_catalog_to_allwise = $MOS_TARGET/{v_targ}/{ftype}/mos_catalog_to_allwise.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "catalogid": {
+            "name": "catalogid",
+            "description": "The catalogid identifier in the dr20_catalog table.",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "target_id": {
+            "name": "target_id",
+            "description": "The primary key identifier in the dr20_allwise table.",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "version_id": {
+            "name": "version_id",
+            "description": "The internal version for the cross-match.",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "distance": {
+            "name": "distance",
+            "description": "The distance between the catalog and target coordinates if best=F.",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "best": {
+            "name": "best",
+            "description": "Whether this is considered the best match between the catalog entry and dr20_allwise.",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

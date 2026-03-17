@@ -1,0 +1,264 @@
+{
+  "general": {
+    "name": "mos_target_design_mode_check_results_parquet",
+    "short": "MOS Target Table: design_mode_check_results",
+    "description": "Summary if design passed individual Design Mode checks from dr20_design_mode.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "17 MB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_design_mode_check_results.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_design_mode_check_results.[FTYPE]",
+      "example": "2.0.0/parquet/mos_design_mode_check_results.parquet",
+      "location": "{v_targ}/{ftype}/mos_design_mode_check_results.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_design_mode_check_results",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_design_mode_check_results.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_design_mode_check_results = $MOS_TARGET/{v_targ}/{ftype}/mos_design_mode_check_results.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "pk": {
+            "name": "pk",
+            "description": "The primary key. A sequential identifier.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "design_id": {
+            "name": "design_id",
+            "description": "The primary key of the design in the dr20_design table.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "design_pass": {
+            "name": "design_pass",
+            "description": "If minimum design checks were passed.",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          },
+          "design_status": {
+            "name": "design_status",
+            "description": "Bitmask for design. 1 if revalidated design. 2 if replacement design.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "boss_skies_min_pass": {
+            "name": "boss_skies_min_pass",
+            "description": "If passed minimum Boss skies metric.",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          },
+          "boss_skies_min_value": {
+            "name": "boss_skies_min_value",
+            "description": "How many Boss skies in the design.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "boss_skies_fov_pass": {
+            "name": "boss_skies_fov_pass",
+            "description": "If passed Boss skies Field of View metric.",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          },
+          "boss_skies_fov_value": {
+            "name": "boss_skies_fov_value",
+            "description": "Boss skies Field of View metric value.",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "apogee_skies_min_pass": {
+            "name": "apogee_skies_min_pass",
+            "description": "If passed minimum Apogee skies metric.",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          },
+          "apogee_skies_min_value": {
+            "name": "apogee_skies_min_value",
+            "description": "How many Apogee skies in the design.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "apogee_skies_fov_pass": {
+            "name": "apogee_skies_fov_pass",
+            "description": "If passed Apogee skies Field of View metric.",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          },
+          "apogee_skies_fov_value": {
+            "name": "apogee_skies_fov_value",
+            "description": "Apogee skies Field of View metric value.",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "boss_stds_min_pass": {
+            "name": "boss_stds_min_pass",
+            "description": "If passed minimum Boss standards metric.",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          },
+          "boss_stds_min_value": {
+            "name": "boss_stds_min_value",
+            "description": "How many Boss standards in the design.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "boss_stds_fov_pass": {
+            "name": "boss_stds_fov_pass",
+            "description": "If passed Boss standards Field of View metric.",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          },
+          "boss_stds_fov_value": {
+            "name": "boss_stds_fov_value",
+            "description": "Boss standards Field of View metric value.",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "apogee_stds_min_pass": {
+            "name": "apogee_stds_min_pass",
+            "description": "If passed minimum Apogee standards metric.",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          },
+          "apogee_stds_min_value": {
+            "name": "apogee_stds_min_value",
+            "description": "How many Apogee standards in the design.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "apogee_stds_fov_pass": {
+            "name": "apogee_stds_fov_pass",
+            "description": "If passed Apogee standards Field of View metric.",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          },
+          "apogee_stds_fov_value": {
+            "name": "apogee_stds_fov_value",
+            "description": "Apogee standards Field of View metric value.",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "boss_stds_mags_pass": {
+            "name": "boss_stds_mags_pass",
+            "description": "If all Boss standards within magnitude limits.",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          },
+          "apogee_stds_mags_pass": {
+            "name": "apogee_stds_mags_pass",
+            "description": "If all Apogee standards within magnitude limits.",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          },
+          "boss_bright_limit_targets_pass": {
+            "name": "boss_bright_limit_targets_pass",
+            "description": "If all Boss science targets within magnitude limits.",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          },
+          "apogee_bright_limit_targets_pass": {
+            "name": "apogee_bright_limit_targets_pass",
+            "description": "If all Apogee science targets within magnitude limits.",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          },
+          "boss_sky_neighbors_targets_pass": {
+            "name": "boss_sky_neighbors_targets_pass",
+            "description": "If all Boss assignments pass bright neighobor check.",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          },
+          "apogee_sky_neighbors_targets_pass": {
+            "name": "apogee_sky_neighbors_targets_pass",
+            "description": "If all Apogee assignments pass bright neighobor check.",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          },
+          "apogee_trace_diff_targets_pass": {
+            "name": "apogee_trace_diff_targets_pass",
+            "description": "If all Apogee assignments pass magnitude difference between adjacent traces check.",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

@@ -1,0 +1,138 @@
+{
+  "general": {
+    "name": "mos_target_gaiadr2_tmass_best_neighbour_parquet",
+    "short": "MOS Target Table: gaiadr2_tmass_best_neighbour",
+    "description": "The Gaia DR2 vs. 2MASS PSC crossmatch provided by the Gaia collaboration.\n\nSee <a href=\"https://gea.esac.esa.int/archive/documentation/GDR2/Catalogue_consolidation/chap_cu9val_cu9val/ssec_cu9xma/sssec_cu9xma_extcat.html\">https://gea.esac.esa.int/archive/documentation/GDR2/Catalogue_consolidation/chap_cu9val_cu9val/ssec_cu9xma/sssec_cu9xma_extcat.html</a> for complete details.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "1 GB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_gaiadr2_tmass_best_neighbour.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_gaiadr2_tmass_best_neighbour.[FTYPE]",
+      "example": "2.0.0/parquet/mos_gaiadr2_tmass_best_neighbour.parquet",
+      "location": "{v_targ}/{ftype}/mos_gaiadr2_tmass_best_neighbour.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_gaiadr2_tmass_best_neighbour",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_gaiadr2_tmass_best_neighbour@mos_target_num2|.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_gaiadr2_tmass_best_neighbour = $MOS_TARGET/{v_targ}/{ftype}/mos_gaiadr2_tmass_best_neighbour.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "tmass_oid": {
+            "name": "tmass_oid",
+            "description": "Additional numeric unique source identifier of 2MASS, increasing with declination",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "number_of_neighbours": {
+            "name": "number_of_neighbours",
+            "description": "Number of sources in the 2MASS Catalogue which match the Gaia source within position errors",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "number_of_mates": {
+            "name": "number_of_mates",
+            "description": "Number of other Gaia sources that have as best-neighbour the same 2MASS source.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "best_neighbour_multiplicity": {
+            "name": "best_neighbour_multiplicity",
+            "description": "Number of neighbours with same probability as best neighbour",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "source_id": {
+            "name": "source_id",
+            "description": "Unique Gaia DR2 source identifier",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "original_ext_source_id": {
+            "name": "original_ext_source_id",
+            "description": "The unique source identifier in the original 2MASS catalogue",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "angular_distance": {
+            "name": "angular_distance",
+            "description": "Angular distance between the two sources",
+            "unit": "arcsec",
+            "dtype": "Float64",
+            "value": null
+          },
+          "gaia_astrometric_params": {
+            "name": "gaia_astrometric_params",
+            "description": "Number of Gaia astrometric params used",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "tmass_pts_key": {
+            "name": "tmass_pts_key",
+            "description": "key for crossmatch",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

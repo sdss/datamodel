@@ -1,0 +1,229 @@
+general:
+  name: mos_target_best_brightest_parquet
+  short: 'MOS Target Table: best_brightest'
+  description: 'Catalog for the selection of bright metal-poor stars from the method
+    of Schlaufman and Casey (2014): <a href="https://ui.adsabs.harvard.edu/abs/2014ApJ">https://ui.adsabs.harvard.edu/abs/2014ApJ</a>...797...13S/abstract.
+    WISE values from WHICH CATALOG, 2MASS values from 2MASS point source catalog.'
+  datatype: PARQUET
+  filesize: 71 MB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_best_brightest.[FTYPE] with
+    FTYPE='parquet' and V_TARG='2.0.0' for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_best_brightest.[FTYPE]
+    example: 2.0.0/parquet/mos_best_brightest.parquet
+    location: '{v_targ}/{ftype}/mos_best_brightest.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_best_brightest
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_best_brightest.{ftype}
+      path_kwargs:
+      - ftype
+      - v_targ
+      access_string: mos_target_best_brightest = $MOS_TARGET/{v_targ}/{ftype}/mos_best_brightest.{ftype}
+    survey: SDSS
+    dataframe:
+      columns:
+        designation:
+          name: designation
+          dtype: String
+          unit: ''
+          description: 2MASS Designation
+        ra_1:
+          name: ra_1
+          dtype: Float64
+          unit: degrees
+          description: right ascension from the AllWISE catalog
+        dec_1:
+          name: dec_1
+          dtype: Float64
+          unit: degrees
+          description: declination from the AllWISE catalog
+        glon:
+          name: glon
+          dtype: Float64
+          unit: degrees
+          description: Galactic longitude from AllWISE catalog
+        glat:
+          name: glat
+          dtype: Float64
+          unit: degrees
+          description: Galactic latitude from the AllWISE catalog
+        w1mpro:
+          name: w1mpro
+          dtype: Float32
+          unit: mag
+          description: AllWISE W1-band magnitude measured with profile-fitting photometry
+        w2mpro:
+          name: w2mpro
+          dtype: Float32
+          unit: mag
+          description: AllWISE W2-band magnitude measured with profile-fitting photometry
+        w3mpro:
+          name: w3mpro
+          dtype: Float32
+          unit: mag
+          description: AllWISE W3-band magnitude measured with profile-fitting photometry
+        w4mpro:
+          name: w4mpro
+          dtype: String
+          unit: mag
+          description: AllWISE W4-band magnitude measured with profile-fitting photometry
+        pmra:
+          name: pmra
+          dtype: Int32
+          unit: mas/yr
+          description: Gaia DR2 proper motion
+        pmdec:
+          name: pmdec
+          dtype: Int32
+          unit: mas/yr
+          description: Gaia DR2 proper motion
+        j_m_2mass:
+          name: j_m_2mass
+          dtype: Float32
+          unit: mag
+          description: 2MASS J=band magnitude
+        h_m_2mass:
+          name: h_m_2mass
+          dtype: Float32
+          unit: mag
+          description: 2MASS magnitude
+        k_m_2mass:
+          name: k_m_2mass
+          dtype: Float32
+          unit: mag
+          description: 2MASS magnitude
+        ra_2:
+          name: ra_2
+          dtype: Float64
+          unit: degrees
+          description: Right ascension from the 2MASS catalog
+        raerr:
+          name: raerr
+          dtype: Float64
+          unit: degrees
+          description: Uncertainty in right ascension from the 2MASS catalog
+        dec_2:
+          name: dec_2
+          dtype: Float64
+          unit: degrees
+          description: Declination from the 2MASS catalog
+        decerr:
+          name: decerr
+          dtype: Float64
+          unit: degrees
+          description: Uncertainty in declination from the 2MASS catalog
+        nobs:
+          name: nobs
+          dtype: Int32
+          unit: ''
+          description: Number of observed nights from the APASS catalog
+        mobs:
+          name: mobs
+          dtype: Int32
+          unit: ''
+          description: Number of images for this field from the APASS catalog
+        vjmag:
+          name: vjmag
+          dtype: Float32
+          unit: mag
+          description: APASS V_J magnitude
+        bjmag:
+          name: bjmag
+          dtype: Float32
+          unit: mag
+          description: APASS B_J magnitude
+        gmag:
+          name: gmag
+          dtype: Float32
+          unit: mag
+          description: APASS Sloan g' magnitude
+        rmag:
+          name: rmag
+          dtype: Float32
+          unit: mag
+          description: APASS Sloan r' magnitude
+        imag:
+          name: imag
+          dtype: Float32
+          unit: mag
+          description: APASS Sloan i' magnitude
+        evjmag:
+          name: evjmag
+          dtype: Float32
+          unit: mag
+          description: Uncertainty in APASS V_J  magnitude
+        ebjmag:
+          name: ebjmag
+          dtype: Float32
+          unit: mag
+          description: Uncertainty in APASS B_J magnitude
+        egmag:
+          name: egmag
+          dtype: Float32
+          unit: mag
+          description: Uncertainty in APASS Sloan g' magnitude
+        ermag:
+          name: ermag
+          dtype: Float32
+          unit: mag
+          description: Uncertainty in APASS Sloan r' magnitude
+        eimag:
+          name: eimag
+          dtype: Float32
+          unit: mag
+          description: Uncertainty in APASS Sloan i' magnitude
+        name:
+          name: name
+          dtype: Int32
+          unit: ''
+          description: APASS field name
+        separation:
+          name: separation
+          dtype: Float64
+          unit: arcsec
+          description: Separation between AllWISE object and APASS object
+        ebv:
+          name: ebv
+          dtype: Float32
+          unit: mag
+          description: SFD dustmap E(B-V)
+        version:
+          name: version
+          dtype: Int32
+          unit: ''
+          description: version 2 is high priiority, version 1 is low priority (see
+            Schlaufman + Casey 2014 for definitions)
+        original_ext_source_id:
+          name: original_ext_source_id
+          dtype: String
+          unit: ''
+          description: 2MASS designation removing the "." from the coordinates and
+            getting rid of "J" at the front
+        cntr:
+          name: cntr
+          dtype: Int64
+          unit: ''
+          description: Internal Identifier
+      metadata: {}
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

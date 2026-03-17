@@ -16,10 +16,10 @@ MOS Target table: mos_target_sdss_id_flat
 This table includes associations between sdss_id identifiers and the best matched catalogid for each catalogue cross-match. Unlike dr19_sdss_id_stacked, this table contains multiple rows per sdss_id, one for each cross-match association. When multiple sdss_ids are associated with the same catalogid, the one with the lowest rank (rank=1) should be preferred. Note: The sdss_id match was extended internally for a more recent crossmatch not yet part of the publicly released data. As such, the ra/dec_sdss_id columns may differ from the catalogid coordinates.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_sdss_id_flat.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdss_id_flat-[NUM].[FTYPE] with FTYPE='fits', V_TARG='2.0.0', and NUM=1..140 for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,7 +71,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_sdss_id_flat
+MOS Target Table: sdss_id_flat
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  122 MB
@@ -97,11 +100,11 @@ Name | Type | Unit | Description |
  | sdss_id | int64 |  | The SDSS identifier for a unique object. |
  | catalogid | int64 |  | The associated catalogid for this target. |
  | version_id | int16 |  | The version of the cross-match associated with the catalogid. |
- | ra_sdss_id | float64 |  | The right ascension of the target in ICRS J2015.5 coordinates (taken from the highest version catalogid in dr19_sdss_id_stacked). |
- | dec_sdss_id | float64 |  | The declination of the target in ICRS J2015.5 coordinates (taken from the highest version catalogid in dr19_sdss_id_stacked). |
+ | ra_sdss_id | float64 |  | The right ascension of the target in ICRS J2015.5 coordinates (taken from the highest version catalogid in dr20_sdss_id_stacked). |
+ | dec_sdss_id | float64 |  | The declination of the target in ICRS J2015.5 coordinates (taken from the highest version catalogid in dr20_sdss_id_stacked). |
  | n_associated | int16 |  | The number of sdss_ids associated with this catalogid. |
- | ra_catalogid | float64 |  | The right ascension of this row's catalogid from the dr19_catalog table. |
- | dec_catalogid | float64 |  | The declination of this row's catalogid from the dr19_catalog table. |
+ | ra_catalogid | float64 |  | The right ascension of this row's catalogid from the dr20_catalog table. |
+ | dec_catalogid | float64 |  | The declination of this row's catalogid from the dr20_catalog table. |
  | pk | int64 |  | The primary key. A sequential identifier for this table. |
  | rank | int32 |  | The rank of the sdss_id to catalogid association. When multiple sdss_ids are associated with the same catalogid, the one with the lowest rank (rank=1) should be preferred. |
 

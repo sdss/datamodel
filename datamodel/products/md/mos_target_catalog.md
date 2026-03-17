@@ -16,10 +16,10 @@ MOS Target Table: catalog
 The table stores the results of the cross-match used for DR18 targeting. All entries in this table are expected to be unique physical objects drawn from one or more parent catalogues. The mos_target_catalog_to_ tables provide the relationship between mos_target_catalog objects and their parent catalogue counterparts.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_catalog-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_catalog-[NUM].[FTYPE] with FTYPE='fits', V_TARG='2.0.0', and NUM=1..137 for DR20.
 
 ### Releases
-DR18, DR19
+DR18, DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
  - DR19
    - from: DR18
    - note: No changes
@@ -74,7 +77,7 @@ Key | Value | Comment | |
 MOS Target Table: catalog
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  133 MB
+#### HDU Size:  95 MB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -82,7 +85,7 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 70 | length of dimension 1 |
+| NAXIS1 | 50 | length of dimension 1 |
 | NAXIS2 | 2000000 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
@@ -100,7 +103,7 @@ Name | Type | Unit | Description |
  | pmra | float32 | mas/yr | The proper motion of the target in right ascension. Taken from the lead parent catalogue. This is a true angle (i.e., the cos(dec) factor has been applied) |
  | pmdec | float32 | mas/yr | The proper motion of the target in declination. Taken from the lead parent catalogue |
  | parallax | float32 | arcsec | The parallax of the target. Taken from the lead parent catalogue |
- | lead | char[26] |  | The name of the parent catalogue from which this target was selected and whose data was used to determine its astrometric position. |
+ | lead | char[6] |  | The name of the parent catalogue from which this target was selected and whose data was used to determine its astrometric position. |
  | version_id | int32 |  | The internal version for the cross-match. |
 
 

@@ -16,10 +16,10 @@ MOS Target Table: catwise2020
 The CatWISE2020 Catalog (https://ui.adsabs.harvard.edu/abs/2021ApJS..253....8M/abstract) See https://irsa.ipac.caltech.edu/data/WISE/CatWISE/gator_docs/catwise_colDescriptions.html for more detailed column descriptions
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_catwise2020-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_catwise2020-[NUM].[FTYPE] with FTYPE='fits', V_TARG='2.0.0', and NUM=1..36 for DR20.
 
 ### Releases
-DR18, DR19
+DR18, DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
  - DR19
    - from: DR18
    - note: No changes
@@ -142,20 +145,20 @@ Name | Type | Unit | Description |
  | sigradec | float32 | arcsec | cross-term of RA and Dec uncertainties |
  | wx | float32 | pix | x pixel value |
  | wy | float32 | pix | y pixel value |
- | w1sky | float32 | 'dn' | frame sky background value, band 1 |
- | w1sigsk | float32 | 'dn' | frame sky background value uncertainty, band 1 |
- | w1conf | float32 | 'dn' | frame sky confusion based on the uncertainty images, band 1 |
- | w2sky | float32 | 'dn' | frame sky background value, band 2 |
- | w2sigsk | float32 | 'dn' | frame sky background value uncertainty, band 2 |
- | w2conf | float32 | 'dn' | frame sky confusion based on the uncertainty images, band 2 |
+ | w1sky | float32 | dn | frame sky background value, band 1 |
+ | w1sigsk | float32 | dn | frame sky background value uncertainty, band 1 |
+ | w1conf | float32 | dn | frame sky confusion based on the uncertainty images, band 1 |
+ | w2sky | float32 | dn | frame sky background value, band 2 |
+ | w2sigsk | float32 | dn | frame sky background value uncertainty, band 2 |
+ | w2conf | float32 | dn | frame sky confusion based on the uncertainty images, band 2 |
  | w1fitr | float32 | arcsec | fitting radius for W1; see note |
  | w2fitr | float32 | arcsec | fitting radius for W2; see note |
  | w1snr | float32 |  | instrumental profile-fit photometry S/N ratio, band 1 |
  | w2snr | float32 |  | instrumental profile-fit photometry S/N ratio, band 2 |
- | w1flux | float32 | 'dn' | profile-fit photometry raw flux, band 1 |
- | w1sigflux | float32 | 'dn' | profile-fit photometry raw flux uncertainty, band 1 |
+ | w1flux | float32 | dn | profile-fit photometry raw flux, band 1 |
+ | w1sigflux | float32 | dn | profile-fit photometry raw flux uncertainty, band 1 |
  | w2flux | float32 | 'db' | profile-fit photometry raw flux, band 2 |
- | w2sigflux | float32 | 'dn' | profile-fit photometry raw flux uncertainty, band 2 |
+ | w2sigflux | float32 | dn | profile-fit photometry raw flux uncertainty, band 2 |
  | w1mpro | float32 | mag | instrumental profile-fit photometry magnitude, band 1 |
  | w1sigmpro | float32 | mag | instrumental profile-fit photometry flux uncertainty in mag units, band 1 |
  | w1rchi2 | float32 |  | instrumental profile-fit photometry reduced chi^2, band 1 |
@@ -264,10 +267,10 @@ Name | Type | Unit | Description |
  | sigpmdec | float32 | arcsec/yr | Uncertainty in the Dec motion estimate |
  | w1snr_pm | float32 |  | S/N ratio of the W1 profile-fit photometry including motion |
  | w2snr_pm | float32 |  | S/N ratio of the W2 profile-fit photometry including motion |
- | w1flux_pm | float32 | 'dn' | Raw flux W1 profile-fit photometry including motion |
- | w1sigflux_pm | float32 | 'dn' | Raw flux uncertainty W1 profile-fit photometry including motion |
- | w2flux_pm | float32 | 'dn' | Raw flux W2 profile-fit photometry including motion |
- | w2sigflux_pm | float32 | 'dn' | Raw flux uncertainty W2 profile-fit photometry including motion |
+ | w1flux_pm | float32 | dn | Raw flux W1 profile-fit photometry including motion |
+ | w1sigflux_pm | float32 | dn | Raw flux uncertainty W1 profile-fit photometry including motion |
+ | w2flux_pm | float32 | dn | Raw flux W2 profile-fit photometry including motion |
+ | w2sigflux_pm | float32 | dn | Raw flux uncertainty W2 profile-fit photometry including motion |
  | w1mpro_pm | float32 | nag | W1 magnitude from profile-fit photometry including motion |
  | w1sigmpro_pm | float32 | mag | W1 flux uncertainty in mag units from profile-fit photometry including motion |
  | w1rchi2_pm | float32 |  | Reduced chi^2 of the W1 profile-fit photometry measurement including motion est |

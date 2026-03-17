@@ -1,0 +1,621 @@
+{
+  "general": {
+    "name": "mos_target_gaia_assas_sn_cepheids_parquet",
+    "short": "MOS Target Table: gaia_assas_sn_cepheids",
+    "description": "Well-defined and characterized all-sky sample of classical Cepheids in the Milky Way presented in Inno+2021.\n\nThe sample is obtained by combining two time-domain all-sky surveys: Gaia DR2 (Gaia Col. 2018; see I/345) and All-Sky Automated Survey for Supernovae (ASAS-SN; Shappee+ 2014AAS...22323603S). Inno+21 use parallax and variability information from Gaia  to select ~30000 bright (G<17) Cepheid candidates with M_K_{<}-1. They analyze their ASAS-SN V-band light curves, determining periods  and classifying the light curves using their Fourier parameters. This results in ~1900 likely Galactic Cepheids, Inno+21 estimate to be >~90% complete and pure within their adopted selection criteria.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "935 KB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_gaia_assas_sn_cepheids.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_gaia_assas_sn_cepheids.[FTYPE]",
+      "example": "2.0.0/parquet/mos_gaia_assas_sn_cepheids.parquet",
+      "location": "{v_targ}/{ftype}/mos_gaia_assas_sn_cepheids.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_gaia_assas_sn_cepheids",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_gaia_assas_sn_cepheids.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_gaia_assas_sn_cepheids = $MOS_TARGET/{v_targ}/{ftype}/mos_gaia_assas_sn_cepheids.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "source": {
+            "name": "source",
+            "description": "Source of photometric data",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "ref": {
+            "name": "ref",
+            "description": "Reference of the catalog from which period and mode are adopted (I20 = Inno+21)",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "star": {
+            "name": "star",
+            "description": "Name of the star from literature sources",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "period": {
+            "name": "period",
+            "description": "Period",
+            "unit": "days",
+            "dtype": "Float64",
+            "value": null
+          },
+          "amp_v": {
+            "name": "amp_v",
+            "description": "Variability amplitude in the V band",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "mean_v": {
+            "name": "mean_v",
+            "description": "Mean V band magnitude",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "a1_v": {
+            "name": "a1_v",
+            "description": "A_1 column in Table 2 of Inno+2021",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "source_id": {
+            "name": "source_id",
+            "description": "Unique Gaia DR2 source identifier",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "random_index": {
+            "name": "random_index",
+            "description": "Random index used to select subsets",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "ref_epoch": {
+            "name": "ref_epoch",
+            "description": "Reference epoch",
+            "unit": "Julian years",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ra": {
+            "name": "ra",
+            "description": "Right ascension",
+            "unit": "deg",
+            "dtype": "Float64",
+            "value": null
+          },
+          "ra_error": {
+            "name": "ra_error",
+            "description": "Standard error of right ascenscion",
+            "unit": "mas",
+            "dtype": "Float64",
+            "value": null
+          },
+          "dec": {
+            "name": "dec",
+            "description": "Declination",
+            "unit": "deg",
+            "dtype": "Float64",
+            "value": null
+          },
+          "dec_error": {
+            "name": "dec_error",
+            "description": "Standard error of declination",
+            "unit": "mas",
+            "dtype": "Float64",
+            "value": null
+          },
+          "parallax": {
+            "name": "parallax",
+            "description": "Absolute stellar parallax of the source at J2015.5",
+            "unit": "mas",
+            "dtype": "Float64",
+            "value": null
+          },
+          "parallax_error": {
+            "name": "parallax_error",
+            "description": "Standard error of parallax",
+            "unit": "mas",
+            "dtype": "Float64",
+            "value": null
+          },
+          "parallax_over_error": {
+            "name": "parallax_over_error",
+            "description": "Ratio of parallax/parallax_error",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "pmra": {
+            "name": "pmra",
+            "description": "Proper motion in right ascension",
+            "unit": "mas/yr",
+            "dtype": "Float64",
+            "value": null
+          },
+          "pmra_error": {
+            "name": "pmra_error",
+            "description": "Standard error of proper motion in right ascension",
+            "unit": "mas/yr",
+            "dtype": "Float64",
+            "value": null
+          },
+          "pmdec": {
+            "name": "pmdec",
+            "description": "Proper motion in right declination",
+            "unit": "mas/yr",
+            "dtype": "Float64",
+            "value": null
+          },
+          "pmdec_error": {
+            "name": "pmdec_error",
+            "description": "Standard error of proper motion in declination",
+            "unit": "mas/yr",
+            "dtype": "Float64",
+            "value": null
+          },
+          "ra_dec_corr": {
+            "name": "ra_dec_corr",
+            "description": "Correlation between right ascension and declination",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "ra_parallax_corr": {
+            "name": "ra_parallax_corr",
+            "description": "Correlation between right ascension and parallax",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "ra_pmra_corr": {
+            "name": "ra_pmra_corr",
+            "description": "Correlation between right ascension and proper motion in right ascension",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "ra_pmdec_corr": {
+            "name": "ra_pmdec_corr",
+            "description": "Correlation between right ascension and proper motion in declination",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "dec_parallax_corr": {
+            "name": "dec_parallax_corr",
+            "description": "Correlation between declination and parallax",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "dec_pmra_corr": {
+            "name": "dec_pmra_corr",
+            "description": "Correlation between declination and proper motion in right ascension",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "dec_pmdec_corr": {
+            "name": "dec_pmdec_corr",
+            "description": "Correlation between declination and proper motion in declination",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "parallax_pmra_corr": {
+            "name": "parallax_pmra_corr",
+            "description": "Correlation between parallax and proper motion in right ascension",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "parallax_pmdec_corr": {
+            "name": "parallax_pmdec_corr",
+            "description": "Correlation between parallax and proper motion in declination",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "pmra_pmdec_corr": {
+            "name": "pmra_pmdec_corr",
+            "description": "Correlation between proper motion in right ascension and proper motion in declination",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "phot_g_n_obs": {
+            "name": "phot_g_n_obs",
+            "description": "Number of observations contributing to G photometry",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "phot_g_mean_flux": {
+            "name": "phot_g_mean_flux",
+            "description": "G-band mean flux",
+            "unit": "e-/s",
+            "dtype": "Float64",
+            "value": null
+          },
+          "phot_g_mean_flux_error": {
+            "name": "phot_g_mean_flux_error",
+            "description": "Error on G-band mean flux",
+            "unit": "e-/s",
+            "dtype": "Float64",
+            "value": null
+          },
+          "phot_g_mean_flux_over_error": {
+            "name": "phot_g_mean_flux_over_error",
+            "description": "G-band mean flux divided by its error",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "phot_g_mean_mag": {
+            "name": "phot_g_mean_mag",
+            "description": "G-band mean magnitude",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "phot_bp_n_obs": {
+            "name": "phot_bp_n_obs",
+            "description": "Number of observations contributing to BP photometry",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "phot_bp_mean_flux": {
+            "name": "phot_bp_mean_flux",
+            "description": "BP-band mean flux",
+            "unit": "e-/s",
+            "dtype": "Float64",
+            "value": null
+          },
+          "phot_bp_mean_flux_error": {
+            "name": "phot_bp_mean_flux_error",
+            "description": "Error on BP-band mean flux",
+            "unit": "e-/s",
+            "dtype": "Float64",
+            "value": null
+          },
+          "phot_bp_mean_flux_over_error": {
+            "name": "phot_bp_mean_flux_over_error",
+            "description": "BP-band mean flux divided by its error",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "phot_bp_mean_mag": {
+            "name": "phot_bp_mean_mag",
+            "description": "BP-band mean magnitude",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "phot_rp_n_obs": {
+            "name": "phot_rp_n_obs",
+            "description": "Number of observations contributing to RP photometry",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "phot_rp_mean_flux": {
+            "name": "phot_rp_mean_flux",
+            "description": "RP-band mean flux",
+            "unit": "e-/s",
+            "dtype": "Float64",
+            "value": null
+          },
+          "phot_rp_mean_flux_error": {
+            "name": "phot_rp_mean_flux_error",
+            "description": "Error on RP-band mean flux",
+            "unit": "e-/s",
+            "dtype": "Float64",
+            "value": null
+          },
+          "phot_rp_mean_flux_over_error": {
+            "name": "phot_rp_mean_flux_over_error",
+            "description": "RP-band mean flux divided by its error",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "phot_rp_mean_mag": {
+            "name": "phot_rp_mean_mag",
+            "description": "RP-band mean magnitude",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "phot_bp_rp_excess_factor": {
+            "name": "phot_bp_rp_excess_factor",
+            "description": "BP/RP excess factor",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "phot_proc_mode": {
+            "name": "phot_proc_mode",
+            "description": "Photometry processing mode",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "bp_rp": {
+            "name": "bp_rp",
+            "description": "BP - RP",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "bp_g": {
+            "name": "bp_g",
+            "description": "BP - G",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "g_rp": {
+            "name": "g_rp",
+            "description": "G - RP",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "radial_velocity": {
+            "name": "radial_velocity",
+            "description": "Gaia radial velocity",
+            "unit": "km/s",
+            "dtype": "Float64",
+            "value": null
+          },
+          "radial_velocity_error": {
+            "name": "radial_velocity_error",
+            "description": "Gaia radial velocity error",
+            "unit": "km/s",
+            "dtype": "Float64",
+            "value": null
+          },
+          "a_g_val": {
+            "name": "a_g_val",
+            "description": "line-of-sight extinction in the G band, A_G",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "a_g_percentile_lower": {
+            "name": "a_g_percentile_lower",
+            "description": "aGVal lower uncertainty",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "a_g_percentile_upper": {
+            "name": "a_g_percentile_upper",
+            "description": "aGVal upper uncertainty",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_bp_min_rp_val": {
+            "name": "e_bp_min_rp_val",
+            "description": "line-of-sight reddening E(BP-RP)",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_bp_min_rp_percentile_lower": {
+            "name": "e_bp_min_rp_percentile_lower",
+            "description": "eBPminRPVal lower uncertainty",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_bp_min_rp_percentile_upper": {
+            "name": "e_bp_min_rp_percentile_upper",
+            "description": "eBPminRPVal upper uncertainty",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "variability": {
+            "name": "variability",
+            "description": "Proxy for rms variability in the Gaia G band, defined as in Eq. 2 in Inno+21",
+            "unit": "2",
+            "dtype": "Float64",
+            "value": null
+          },
+          "type": {
+            "name": "type",
+            "description": "Pulsation mode. F is Fundamental, 1O is First Overtone",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "twomass": {
+            "name": "twomass",
+            "description": "Two Mass source identifier",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "raj2000": {
+            "name": "raj2000",
+            "description": "Right ascension (J2000)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "dej2000": {
+            "name": "dej2000",
+            "description": "Declination (J2000)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "errhalfmaj": {
+            "name": "errhalfmaj",
+            "description": "Semi-major axis length of the one sigma position uncertainty ellipse",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "errhalfmin": {
+            "name": "errhalfmin",
+            "description": "Semi-minor axis length of the one sigma position uncertainty ellipse",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "errposang": {
+            "name": "errposang",
+            "description": "Position angle on the sky of the semi-major axis of the position uncertainty ellipse (East of North)",
+            "unit": "deg",
+            "dtype": "Float32",
+            "value": null
+          },
+          "jmag": {
+            "name": "jmag",
+            "description": "Default J-band magnitude. In case of a source not detected in the J-band, it is an upper limit and the corresponding total photometric uncertainty is NULL. In case of a source detected in the J-band and with no useful brightness estimate, it is set to NULL",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "hmag": {
+            "name": "hmag",
+            "description": "Default H-band magnitude. In case of a source not detected in the H-band, it is an upper limit and the corresponding total photometric uncertainty is NULL. In case of a source detected in the H-band and with no useful brightness estimate, it is set to NULL",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "kmag": {
+            "name": "kmag",
+            "description": "Default Ks-band magnitude. In case of a source not detected in the Ks-band, it is an upper limit and the corresponding total photometric uncertainty is NULL. In case of a source detected in the Ks-band and with no useful brightness estimate, it is set to NULL",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_jmag": {
+            "name": "e_jmag",
+            "description": "Total photometric uncertainty for the default J-band magnitude. This column is NULL if the default magnitude is a 95% confidence upper limit (i.e. the source is not detected, or inconsistently deblended in the J-band)",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_hmag": {
+            "name": "e_hmag",
+            "description": "Total photometric uncertainty for the default H-band magnitude. This column is NULL if the default magnitude is a 95% confidence upper limit (i.e. the source is not detected, or inconsistently deblended in the H-band)",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_kmag": {
+            "name": "e_kmag",
+            "description": "Total photometric uncertainty for the default Ks-band magnitude. This column is NULL if the default magnitude is a 95% confidence upper limit (i.e. the source is not detected, or inconsistently deblended in the Ks-band)",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "qfl": {
+            "name": "qfl",
+            "description": "JHK photometric quality flag",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "rfl": {
+            "name": "rfl",
+            "description": "JHK default magnitude read flag",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "x": {
+            "name": "x",
+            "description": "Distance of source from focal plane centerline",
+            "unit": "deg",
+            "dtype": "Int16",
+            "value": null
+          },
+          "measurejd": {
+            "name": "measurejd",
+            "description": "Julian date of detection",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "angdist": {
+            "name": "angdist",
+            "description": "X-match angular distance",
+            "unit": "arcsec",
+            "dtype": "Float64",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

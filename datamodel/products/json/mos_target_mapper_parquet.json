@@ -1,0 +1,89 @@
+{
+  "general": {
+    "name": "mos_target_mapper_parquet",
+    "short": "MOS Target Table: mapper",
+    "description": "This table stores the names of the mappers associated with cartons in dr20_carton.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "771 bytes",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_mapper.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_mapper.[FTYPE]",
+      "example": "2.0.0/parquet/mos_mapper.parquet",
+      "location": "{v_targ}/{ftype}/mos_mapper.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_mapper",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_mapper.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_mapper = $MOS_TARGET/{v_targ}/{ftype}/mos_mapper.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "pk": {
+            "name": "pk",
+            "description": "The primary key. A sequential identifier.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "label": {
+            "name": "label",
+            "description": "The name of the mapper.",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

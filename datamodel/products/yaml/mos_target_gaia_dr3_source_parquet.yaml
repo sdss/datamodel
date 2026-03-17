@@ -1,0 +1,846 @@
+general:
+  name: mos_target_gaia_dr3_source_parquet
+  short: 'MOS Target Table: gaia_dr3_source'
+  description: The main Gaia Data Release 3 source tbale. This table has an entry
+    for every Gaia observed source as published with this data release. It contains
+    the basic source parameters, in their final state as processed by the Gaia Data
+    Processing and Analysis Consortium from the raw data coming from the spacecraft.
+    For more details, refer to <a href="https://gea.esac.esa.int/archive/documentation/GDR3/Gaia_archive/chap_datamodel/sec_dm_main_source_catalogue/ssec_dm_gaia_source.html">https://gea.esac.esa.int/archive/documentation/GDR3/Gaia_archive/chap_datamodel/sec_dm_main_source_catalogue/ssec_dm_gaia_source.html</a>.
+  datatype: PARQUET
+  filesize: 21 GB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_gaia_dr3_source.[FTYPE] with
+    FTYPE='parquet' and V_TARG='2.0.0' for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_gaia_dr3_source.[FTYPE]
+    example: 2.0.0/parquet/mos_gaia_dr3_source.parquet
+    location: '{v_targ}/{ftype}/mos_gaia_dr3_source.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_gaia_dr3_source
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_gaia_dr3_source@mos_target_num2|.{ftype}
+      path_kwargs:
+      - ftype
+      - v_targ
+      access_string: mos_target_gaia_dr3_source = $MOS_TARGET/{v_targ}/{ftype}/mos_gaia_dr3_source.{ftype}
+    survey: SDSS
+    dataframe:
+      columns:
+        solution_id:
+          name: solution_id
+          dtype: Int64
+          unit: ''
+          description: Solution Identifier
+        designation:
+          name: designation
+          dtype: String
+          unit: ''
+          description: Unique source designation (unique across all Data Releases)
+        source_id:
+          name: source_id
+          dtype: Int64
+          unit: ''
+          description: Unique source identifier (unique within a particular Data Release)
+        random_index:
+          name: random_index
+          dtype: Int64
+          unit: ''
+          description: Random index for use when selecting subsets
+        ref_epoch:
+          name: ref_epoch
+          dtype: Float64
+          unit: Julian years
+          description: Reference epoch
+        ra:
+          name: ra
+          dtype: Float64
+          unit: deg
+          description: Right ascension
+        ra_error:
+          name: ra_error
+          dtype: Float32
+          unit: mas
+          description: Standard error of right ascension
+        dec:
+          name: dec
+          dtype: Float64
+          unit: deg
+          description: Declination
+        dec_error:
+          name: dec_error
+          dtype: Float32
+          unit: mas
+          description: Standard error of declination
+        parallax:
+          name: parallax
+          dtype: Float64
+          unit: mas
+          description: Parallax
+        parallax_error:
+          name: parallax_error
+          dtype: Float32
+          unit: mas
+          description: Standard error of parallax
+        parallax_over_error:
+          name: parallax_over_error
+          dtype: Float32
+          unit: ''
+          description: Parallax divided by its standard error
+        pm:
+          name: pm
+          dtype: Float32
+          unit: "mas yr\u22121"
+          description: Total proper motion
+        pmra:
+          name: pmra
+          dtype: Float64
+          unit: "mas yr\u22121"
+          description: Proper motion in right ascension direction
+        pmra_error:
+          name: pmra_error
+          dtype: Float32
+          unit: "mas yr\u22121"
+          description: Standard error of proper motion in right ascension direction
+        pmdec:
+          name: pmdec
+          dtype: Float64
+          unit: "mas yr\u22121"
+          description: Proper motion in declination direction
+        pmdec_error:
+          name: pmdec_error
+          dtype: Float32
+          unit: "mas yr\u22121"
+          description: Standard error of proper motion in declination direction
+        ra_dec_corr:
+          name: ra_dec_corr
+          dtype: Float32
+          unit: ''
+          description: Correlation between right ascension and declination
+        ra_parallax_corr:
+          name: ra_parallax_corr
+          dtype: Float32
+          unit: ''
+          description: Correlation between right ascension and parallax
+        ra_pmra_corr:
+          name: ra_pmra_corr
+          dtype: Float32
+          unit: ''
+          description: Correlation between right ascension and proper motion in right
+            ascension
+        ra_pmdec_corr:
+          name: ra_pmdec_corr
+          dtype: Float32
+          unit: ''
+          description: Correlation between right ascension and proper motion in declination
+        dec_parallax_corr:
+          name: dec_parallax_corr
+          dtype: Float32
+          unit: ''
+          description: Correlation between declination and parallax
+        dec_pmra_corr:
+          name: dec_pmra_corr
+          dtype: Float32
+          unit: ''
+          description: Correlation between declination and proper motion in right
+            ascension
+        dec_pmdec_corr:
+          name: dec_pmdec_corr
+          dtype: Float32
+          unit: ''
+          description: Correlation between declination and proper motion in declination
+        parallax_pmra_corr:
+          name: parallax_pmra_corr
+          dtype: Float32
+          unit: ''
+          description: Correlation between parallax and proper motion in right ascension
+        parallax_pmdec_corr:
+          name: parallax_pmdec_corr
+          dtype: Float32
+          unit: ''
+          description: Correlation between parallax and proper motion in declination
+        pmra_pmdec_corr:
+          name: pmra_pmdec_corr
+          dtype: Float32
+          unit: ''
+          description: Correlation between proper motion in right ascension and proper
+            motion in declination
+        astrometric_n_obs_al:
+          name: astrometric_n_obs_al
+          dtype: Int16
+          unit: ''
+          description: Total number of observations in the along-scan (AL) direction
+        astrometric_n_obs_ac:
+          name: astrometric_n_obs_ac
+          dtype: Int16
+          unit: ''
+          description: Total number of observations in the across-scan (AC) direction
+        astrometric_n_good_obs_al:
+          name: astrometric_n_good_obs_al
+          dtype: Int16
+          unit: ''
+          description: Number of good observations in the along-scan (AL) direction
+        astrometric_n_bad_obs_al:
+          name: astrometric_n_bad_obs_al
+          dtype: Int16
+          unit: ''
+          description: Number of bad observations in the along-scan (AL) direction
+        astrometric_gof_al:
+          name: astrometric_gof_al
+          dtype: Float32
+          unit: ''
+          description: Goodness of fit statistic of model wrt along-scan observations
+        astrometric_chi2_al:
+          name: astrometric_chi2_al
+          dtype: Float32
+          unit: ''
+          description: AL chi-square value
+        astrometric_excess_noise:
+          name: astrometric_excess_noise
+          dtype: Float32
+          unit: mas
+          description: Excess noise of the source
+        astrometric_excess_noise_sig:
+          name: astrometric_excess_noise_sig
+          dtype: Float32
+          unit: ''
+          description: Significance of excess noise
+        astrometric_params_solved:
+          name: astrometric_params_solved
+          dtype: Int16
+          unit: ''
+          description: Which parameters have been solved for?
+        astrometric_primary_flag:
+          name: astrometric_primary_flag
+          dtype: Boolean
+          unit: ''
+          description: Primary or seconday
+        nu_eff_used_in_astrometry:
+          name: nu_eff_used_in_astrometry
+          dtype: Float32
+          unit: 1/micrometer
+          description: Effective wavenumber of the source used in the astrometric
+            solution
+        pseudocolour:
+          name: pseudocolour
+          dtype: Float32
+          unit: 1/micrometer
+          description: Astrometrically estimated pseudocolour of the source
+        pseudocolour_error:
+          name: pseudocolour_error
+          dtype: Float32
+          unit: 1/micrometer
+          description: Standard error of the pseudocolour of the source
+        ra_pseudocolour_corr:
+          name: ra_pseudocolour_corr
+          dtype: Float32
+          unit: ''
+          description: Correlation between right ascension and pseudocolour
+        dec_pseudocolour_corr:
+          name: dec_pseudocolour_corr
+          dtype: Float32
+          unit: ''
+          description: Correlation between declination and pseudocolour
+        parallax_pseudocolour_corr:
+          name: parallax_pseudocolour_corr
+          dtype: Float32
+          unit: ''
+          description: Correlation between parallax and pseudocolour
+        pmra_pseudocolour_corr:
+          name: pmra_pseudocolour_corr
+          dtype: Float32
+          unit: ''
+          description: Correlation between proper motion in right asension and pseudocolour
+        pmdec_pseudocolour_corr:
+          name: pmdec_pseudocolour_corr
+          dtype: Float32
+          unit: ''
+          description: Correlation between proper motion in declination and pseudocolour
+        astrometric_matched_transits:
+          name: astrometric_matched_transits
+          dtype: Int16
+          unit: ''
+          description: Matched FOV transits used in the AGIS solution
+        visibility_periods_used:
+          name: visibility_periods_used
+          dtype: Int16
+          unit: ''
+          description: Number of visibility periods used in Astrometric solution
+        astrometric_sigma5d_max:
+          name: astrometric_sigma5d_max
+          dtype: Float32
+          unit: mas
+          description: The longest semi-major axis of the 5-d error ellipsoid
+        matched_transits:
+          name: matched_transits
+          dtype: Int16
+          unit: ''
+          description: The number of transits matched to this source
+        new_matched_transits:
+          name: new_matched_transits
+          dtype: Int16
+          unit: ''
+          description: The number of transits newly incorporated into an existing
+            source in the current cycle
+        matched_transits_removed:
+          name: matched_transits_removed
+          dtype: Int16
+          unit: ''
+          description: The number of transits removed from an existing source in the
+            current cycle
+        ipd_gof_harmonic_amplitude:
+          name: ipd_gof_harmonic_amplitude
+          dtype: Float32
+          unit: ''
+          description: Amplitude of the IPD GoF versus position angle of scan
+        ipd_gof_harmonic_phase:
+          name: ipd_gof_harmonic_phase
+          dtype: Float32
+          unit: deg
+          description: Phase of the IPD GoF versus position angle of scan
+        ipd_frac_multi_peak:
+          name: ipd_frac_multi_peak
+          dtype: Int16
+          unit: ''
+          description: Percent of successful-IPD windows with more than one peak
+        ipd_frac_odd_win:
+          name: ipd_frac_odd_win
+          dtype: Int16
+          unit: ''
+          description: Percent of transits with truncated windows or multiple gate
+        ruwe:
+          name: ruwe
+          dtype: Float32
+          unit: ''
+          description: Renormalised unit weight error
+        scan_direction_strength_k1:
+          name: scan_direction_strength_k1
+          dtype: Float32
+          unit: ''
+          description: Degree of concentration of scan directions across the source
+        scan_direction_strength_k2:
+          name: scan_direction_strength_k2
+          dtype: Float32
+          unit: ''
+          description: Degree of concentration of scan directions across the source
+        scan_direction_strength_k3:
+          name: scan_direction_strength_k3
+          dtype: Float32
+          unit: ''
+          description: Degree of concentration of scan directions across the source
+        scan_direction_strength_k4:
+          name: scan_direction_strength_k4
+          dtype: Float32
+          unit: ''
+          description: Degree of concentration of scan directions across the source
+        scan_direction_mean_k1:
+          name: scan_direction_mean_k1
+          dtype: Float32
+          unit: deg
+          description: Mean position angle of scan directions across the source
+        scan_direction_mean_k2:
+          name: scan_direction_mean_k2
+          dtype: Float32
+          unit: deg
+          description: Mean position angle of scan directions across the source
+        scan_direction_mean_k3:
+          name: scan_direction_mean_k3
+          dtype: Float32
+          unit: deg
+          description: Mean position angle of scan directions across the source
+        scan_direction_mean_k4:
+          name: scan_direction_mean_k4
+          dtype: Float32
+          unit: deg
+          description: Mean position angle of scan directions across the source
+        duplicated_source:
+          name: duplicated_source
+          dtype: Boolean
+          unit: ''
+          description: Source with multiple source identifiers
+        phot_g_n_obs:
+          name: phot_g_n_obs
+          dtype: Int16
+          unit: ''
+          description: Number of observations contributing to G photometry
+        phot_g_mean_flux:
+          name: phot_g_mean_flux
+          dtype: Float64
+          unit: e-/s
+          description: G-band mean flux
+        phot_g_mean_flux_error:
+          name: phot_g_mean_flux_error
+          dtype: Float32
+          unit: e-/s
+          description: Error on G-band mean flux
+        phot_g_mean_flux_over_error:
+          name: phot_g_mean_flux_over_error
+          dtype: Float32
+          unit: ''
+          description: G-band mean flux divided by its error
+        phot_g_mean_mag:
+          name: phot_g_mean_mag
+          dtype: Float32
+          unit: mag
+          description: G-band mean magnitude
+        phot_bp_n_obs:
+          name: phot_bp_n_obs
+          dtype: Int16
+          unit: ''
+          description: Number of observations contributing to BP photometry
+        phot_bp_mean_flux:
+          name: phot_bp_mean_flux
+          dtype: Float64
+          unit: e-/s
+          description: Integrated BP mean flux
+        phot_bp_mean_flux_error:
+          name: phot_bp_mean_flux_error
+          dtype: Float32
+          unit: e-/s
+          description: Error on the integrated BP mean flux
+        phot_bp_mean_flux_over_error:
+          name: phot_bp_mean_flux_over_error
+          dtype: Float32
+          unit: ''
+          description: Integrated BP mean flux divided by its error
+        phot_bp_mean_mag:
+          name: phot_bp_mean_mag
+          dtype: Float32
+          unit: mag
+          description: Integrated BP mean magnitude
+        phot_rp_n_obs:
+          name: phot_rp_n_obs
+          dtype: Int16
+          unit: ''
+          description: Number of observations contributing to RP photometry
+        phot_rp_mean_flux:
+          name: phot_rp_mean_flux
+          dtype: Float64
+          unit: e-/s
+          description: Integrated RP mean flux
+        phot_rp_mean_flux_error:
+          name: phot_rp_mean_flux_error
+          dtype: Float32
+          unit: e-/s
+          description: Error on the integrated RP mean flux
+        phot_rp_mean_flux_over_error:
+          name: phot_rp_mean_flux_over_error
+          dtype: Float32
+          unit: ''
+          description: Integrated RP mean flux divided by its error
+        phot_rp_mean_mag:
+          name: phot_rp_mean_mag
+          dtype: Float32
+          unit: mag
+          description: Integrated RP mean magnitude
+        phot_bp_rp_excess_factor:
+          name: phot_bp_rp_excess_factor
+          dtype: Float32
+          unit: ''
+          description: BP/RP excess factor
+        phot_bp_n_contaminated_transits:
+          name: phot_bp_n_contaminated_transits
+          dtype: Int16
+          unit: ''
+          description: Number of BP contaminated transits
+        phot_bp_n_blended_transits:
+          name: phot_bp_n_blended_transits
+          dtype: Int16
+          unit: ''
+          description: Number of BP blended transits
+        phot_rp_n_contaminated_transits:
+          name: phot_rp_n_contaminated_transits
+          dtype: Int16
+          unit: ''
+          description: Number of RP contaminated transits
+        phot_rp_n_blended_transits:
+          name: phot_rp_n_blended_transits
+          dtype: Int16
+          unit: ''
+          description: Number of RP blended transits
+        phot_proc_mode:
+          name: phot_proc_mode
+          dtype: Int16
+          unit: ''
+          description: Photometry processing mode
+        bp_rp:
+          name: bp_rp
+          dtype: Float32
+          unit: mag
+          description: BP - RP colour
+        bp_g:
+          name: bp_g
+          dtype: Float32
+          unit: mag
+          description: BP - G colour
+        g_rp:
+          name: g_rp
+          dtype: Float32
+          unit: mag
+          description: G - RP colour
+        radial_velocity:
+          name: radial_velocity
+          dtype: Float32
+          unit: km/s
+          description: Radial velocity
+        radial_velocity_error:
+          name: radial_velocity_error
+          dtype: Float32
+          unit: km/s
+          description: Radial velocity error
+        rv_method_used:
+          name: rv_method_used
+          dtype: Int16
+          unit: ''
+          description: Method used to obtain the radial velocity
+        rv_nb_transits:
+          name: rv_nb_transits
+          dtype: Int16
+          unit: ''
+          description: Number of transits used to compute the radial velocity
+        rv_nb_deblended_transits:
+          name: rv_nb_deblended_transits
+          dtype: Int16
+          unit: ''
+          description: Number of valid transits that have undergone deblending
+        rv_visibility_periods_used:
+          name: rv_visibility_periods_used
+          dtype: Int16
+          unit: ''
+          description: Number of visibility periods used to estimate the radial velocity
+        rv_expected_sig_to_noise:
+          name: rv_expected_sig_to_noise
+          dtype: Float32
+          unit: ''
+          description: Expected signal to noise ratio in the combination of the spectra
+            used to obtain the radial velocity
+        rv_renormalised_gof:
+          name: rv_renormalised_gof
+          dtype: Float32
+          unit: ''
+          description: Radial velocity renormalised goodness of fit
+        rv_chisq_pvalue:
+          name: rv_chisq_pvalue
+          dtype: Float32
+          unit: ''
+          description: P-value for constancy based on a chi-squared criterion
+        rv_time_duration:
+          name: rv_time_duration
+          dtype: Float32
+          unit: day
+          description: Time coverage of the radial velocity time series
+        rv_amplitude_robust:
+          name: rv_amplitude_robust
+          dtype: Float32
+          unit: km/s
+          description: Total amplitude in the radial velocity time series after outlier
+            removal
+        rv_template_teff:
+          name: rv_template_teff
+          dtype: Float32
+          unit: K
+          description: Teff of the template used to compute the radial velocity
+        rv_template_logg:
+          name: rv_template_logg
+          dtype: Float32
+          unit: log cgs
+          description: Logg of the template used to compute the radial velocity
+        rv_template_fe_h:
+          name: rv_template_fe_h
+          dtype: Float32
+          unit: dex
+          description: '[Fe/H] of the template used to compute the radial velocity'
+        rv_atm_param_origin:
+          name: rv_atm_param_origin
+          dtype: Int16
+          unit: ''
+          description: Origin of the atmospheric parameters associated to the template
+        vbroad:
+          name: vbroad
+          dtype: Float32
+          unit: km/s
+          description: Spectral line broadening parameter
+        vbroad_error:
+          name: vbroad_error
+          dtype: Float32
+          unit: km/s
+          description: Uncertainty on the spectral line broadening
+        vbroad_nb_transits:
+          name: vbroad_nb_transits
+          dtype: Int16
+          unit: ''
+          description: Number of transits used to compute vbroad
+        grvs_mag:
+          name: grvs_mag
+          dtype: Float32
+          unit: mag
+          description: Integrated Grvs magnitude
+        grvs_mag_error:
+          name: grvs_mag_error
+          dtype: Float32
+          unit: mag
+          description: Grvs magnitude uncertainty
+        grvs_mag_nb_transits:
+          name: grvs_mag_nb_transits
+          dtype: Int16
+          unit: ''
+          description: Number of transits used to compute Grvs
+        rvs_spec_sig_to_noise:
+          name: rvs_spec_sig_to_noise
+          dtype: Float32
+          unit: ''
+          description: Signal to noise ratio in the mean RVS spectrum
+        phot_variable_flag:
+          name: phot_variable_flag
+          dtype: String
+          unit: ''
+          description: Photometric variability flag
+        l:
+          name: l
+          dtype: Float64
+          unit: deg
+          description: Galactic longitude
+        b:
+          name: b
+          dtype: Float64
+          unit: deg
+          description: Galactic latitude
+        ecl_lon:
+          name: ecl_lon
+          dtype: Float64
+          unit: deg
+          description: Ecliptic longitude
+        ecl_lat:
+          name: ecl_lat
+          dtype: Float64
+          unit: deg
+          description: Ecliptic latitude
+        in_qso_candidates:
+          name: in_qso_candidates
+          dtype: Boolean
+          unit: ''
+          description: Flag indicating the availability of additional information
+            in the QSO candidates table
+        in_galaxy_candidates:
+          name: in_galaxy_candidates
+          dtype: Boolean
+          unit: ''
+          description: Flag indicating the availability of additional information
+            in the galaxy candidates table
+        non_single_star:
+          name: non_single_star
+          dtype: Int16
+          unit: ''
+          description: Flag indicating the availability of additional information
+            in the various Non-Single Star tables
+        has_xp_continuous:
+          name: has_xp_continuous
+          dtype: Boolean
+          unit: ''
+          description: Flag indicating the availability of mean BP/RP spectrum in
+            continuous representation for this source
+        has_xp_sampled:
+          name: has_xp_sampled
+          dtype: Boolean
+          unit: ''
+          description: Flag indicating the availability of mean BP/RP spectrum in
+            sampled form for this source
+        has_rvs:
+          name: has_rvs
+          dtype: Boolean
+          unit: ''
+          description: Flag indicating the availability of mean RVS spectrum for this
+            source
+        has_epoch_photometry:
+          name: has_epoch_photometry
+          dtype: Boolean
+          unit: ''
+          description: Flag indicating the availability of epoch photometry for this
+            source
+        has_epoch_rv:
+          name: has_epoch_rv
+          dtype: Boolean
+          unit: ''
+          description: Flag indicating the availability of epoch radial velocity for
+            this source
+        has_mcmc_gspphot:
+          name: has_mcmc_gspphot
+          dtype: Boolean
+          unit: ''
+          description: Flag indicating the availability of GSP-Phot MCMC samples for
+            this source
+        has_mcmc_msc:
+          name: has_mcmc_msc
+          dtype: Boolean
+          unit: ''
+          description: Flag indicating the availability of MSC MCMC samples for this
+            source
+        in_andromeda_survey:
+          name: in_andromeda_survey
+          dtype: Boolean
+          unit: ''
+          description: Flag indicating that the source is present in the Gaia Andromeda
+            Photometric Survey (GAPS)
+        classprob_dsc_combmod_quasar:
+          name: classprob_dsc_combmod_quasar
+          dtype: Float64
+          unit: ''
+          description: 'Probability from DSC-Combmod of being a quasar (data used:
+            BP/RP spectrum, photometry, astrometry)'
+        classprob_dsc_combmod_galaxy:
+          name: classprob_dsc_combmod_galaxy
+          dtype: Float64
+          unit: ''
+          description: 'Probability from DSC-Combmod of being a galaxy (data used:
+            BP/RP spectrum, photometry, astrometry)'
+        classprob_dsc_combmod_star:
+          name: classprob_dsc_combmod_star
+          dtype: Float64
+          unit: ''
+          description: 'Probability from DSC-Combmod of being a single star (but not
+            a white dwarf) (data used: BP/RP spectrum, photometry, astrometry)'
+        teff_gspphot:
+          name: teff_gspphot
+          dtype: Float64
+          unit: K
+          description: Effective temperature from GSP-Phot Aeneas best library using
+            BP/RP spectra
+        teff_gspphot_lower:
+          name: teff_gspphot_lower
+          dtype: Float64
+          unit: K
+          description: Lower confidence level (16%) of effective temperature from
+            GSP-Phot Aeneas best library using BP/RP spectra
+        teff_gspphot_upper:
+          name: teff_gspphot_upper
+          dtype: Float64
+          unit: K
+          description: Upper confidence level (84%) of effective temperature from
+            GSP-Phot Aeneas best library using BP/RP spectra
+        logg_gspphot:
+          name: logg_gspphot
+          dtype: Float64
+          unit: log cgs
+          description: Surface gravity from GSP-Phot Aeneas best library using BP/RP
+            spectra
+        logg_gspphot_lower:
+          name: logg_gspphot_lower
+          dtype: Float64
+          unit: log cgs
+          description: Lower confidence level (16%) of surface gravity from GSP-Phot
+            Aeneas best library using BP/RP spectra
+        logg_gspphot_upper:
+          name: logg_gspphot_upper
+          dtype: Float64
+          unit: log cgs
+          description: Upper confidence level (84%) of surface gravity from GSP-Phot
+            Aeneas best library using BP/RP spectra
+        mh_gspphot:
+          name: mh_gspphot
+          dtype: Float64
+          unit: dex
+          description: Iron abundance from GSP-Phot Aeneas best library using BP/RP
+            spectra
+        mh_gspphot_lower:
+          name: mh_gspphot_lower
+          dtype: Float64
+          unit: dex
+          description: Lower confidence level (16%) of iron abundance from GSP-Phot
+            Aeneas best library using BP/RP spectra
+        mh_gspphot_upper:
+          name: mh_gspphot_upper
+          dtype: Float64
+          unit: dex
+          description: Upper confidence level (84%) of iron abundance from GSP-Phot
+            Aeneas best library using BP/RP spectra
+        distance_gspphot:
+          name: distance_gspphot
+          dtype: Float64
+          unit: pc
+          description: Distance from GSP-Phot Aeneas best library using BP/RP spectra
+        distance_gspphot_lower:
+          name: distance_gspphot_lower
+          dtype: Float64
+          unit: pc
+          description: Lower confidence level (16%) of distance from GSP-Phot Aeneas
+            best library using BP/RP spectra
+        distance_gspphot_upper:
+          name: distance_gspphot_upper
+          dtype: Float64
+          unit: pc
+          description: Upper confidence level (84%) of distance from GSP-Phot Aeneas
+            best library using BP/RP spectra
+        azero_gspphot:
+          name: azero_gspphot
+          dtype: Float64
+          unit: ''
+          description: Monochromatic extinction
+        azero_gspphot_lower:
+          name: azero_gspphot_lower
+          dtype: Float64
+          unit: ''
+          description: Lower confidence level (16%) of monochromatic extinction
+        azero_gspphot_upper:
+          name: azero_gspphot_upper
+          dtype: Float64
+          unit: ''
+          description: Upper confidence level (84%) of monochromatic extinction
+        ag_gspphot:
+          name: ag_gspphot
+          dtype: Float64
+          unit: mag
+          description: Extinction in G band from GSP-Phot Aeneas best library using
+            BP/RP spectra
+        ag_gspphot_lower:
+          name: ag_gspphot_lower
+          dtype: Float64
+          unit: mag
+          description: Lower confidence level (16%) of extinction in G band from GSP-Phot
+            Aeneas best library using BP/RP spectra
+        ag_gspphot_upper:
+          name: ag_gspphot_upper
+          dtype: Float64
+          unit: mag
+          description: Upper confidence level (84%) of extinction in G band from GSP-Phot
+            Aeneas best library using BP/RP spectra
+        ebpminrp_gspphot:
+          name: ebpminrp_gspphot
+          dtype: Float64
+          unit: ''
+          description: Reddening E(GBP-GRP)
+        ebpminrp_gspphot_lower:
+          name: ebpminrp_gspphot_lower
+          dtype: Float64
+          unit: ''
+          description: Lower confidence level (16%) of reddening E(GBP-GRP)
+        ebpminrp_gspphot_upper:
+          name: ebpminrp_gspphot_upper
+          dtype: Float64
+          unit: ''
+          description: Upper confidence level (84%) of reddening E(GBP-GRP)
+        libname_gspphot:
+          name: libname_gspphot
+          dtype: String
+          unit: ''
+          description: Name of library that achieves the highest mean log-posterior
+            in MCMC samples and was used to derive GSP-Phot parameters in this table
+      metadata: {}
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

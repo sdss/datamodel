@@ -16,10 +16,10 @@ MOS Target Table: carton_to_target
 The table stores the targets assigned to a given carton along with information about the instrument that will observe that target, and offseting data.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_carton_to_target-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_carton_to_target-[NUM].[FTYPE] with FTYPE='fits', V_TARG='2.0.0', and NUM=1..198 for DR20.
 
 ### Releases
-DR18, DR19
+DR18, DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
  - DR19
    - from: DR18
    - note: No changes
@@ -99,12 +102,12 @@ Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | carton_to_target_pk | int64 |  | The primary key. A sequential identifier. |
  | lambda_eff | float32 | angstrom | The effective wavelength at which the object will be observed |
- | carton_pk | int32 |  | The primary key of the carton in the mos_target_carton table. |
- | target_pk | int64 |  | The primary key of the target in the mos_target_target table. |
- | cadence_pk | int32 |  | The primary key of the cadence in the mos_target_cadence table. |
+ | carton_pk | int32 |  | The primary key of the carton in the dr20_carton table. |
+ | target_pk | int64 |  | The primary key of the target in the dr20_target table. |
+ | cadence_pk | int32 |  | The primary key of the cadence in the dr20_cadence table. |
  | priority | int32 |  | The target priority. Used for scheduling. |
  | value | float32 |  | An internal metric of the target value used for scheduling. |
- | instrument_pk | int32 |  | The primary key of the instrument in the mos_target_instrument table. |
+ | instrument_pk | int32 |  | The primary key of the instrument in the dr20_instrument table. |
  | delta_ra | float64 |  | The RA offset for fibre positioning, in arcsec. |
  | delta_dec | float64 |  | The Dec offset for fibre positioning, in arcsec. |
  | inertial | bool |  | Whether this is an inertial target (no proper motion will be applied). |

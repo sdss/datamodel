@@ -1,0 +1,866 @@
+{
+  "general": {
+    "name": "mos_target_sdssv_plateholes_meta_parquet",
+    "short": "MOS Target Table: sdssv_plateholes_meta",
+    "description": "The combination of the dr20_sdssv_plateholes and dr20_sdssv_plateholes_meta\ntables are a database representation of the SDSS-V platelist data\nproduct (<a href=\"https://svn.sdss.org/public/data/sdss/platelist/trunk/)\">https://svn.sdss.org/public/data/sdss/platelist/trunk/)</a>.\n\nThese tables were used within early iterations of FPS target_selection as a way to communicate information about which targets had been included in SDSS-V plates. This information was used to e.g. de-prioritise targets that were expected to have a good quality spectroscopic measurement by the end of the SDSS-V plate observations.\n\nThe dr20_sdssv_plateholes_meta table contains meta-data for each SDSS-V plate (one record per plate), whereas the dr20_sdssv_plateholes table has one entry for each drilled hole in each SDSS-V plate. The dr20_sdssv_plateholes and dr20_sdssv_plateholes_meta tables should be joined via the yanny_uid field.\n\nMostly derived from: <a href=\"https://data.sdss.org/datamodel/files/PLATELIST_DIR/plates/PLATEID6XX/PLATEID6/plateHoles.html\">https://data.sdss.org/datamodel/files/PLATELIST_DIR/plates/PLATEID6XX/PLATEID6/plateHoles.html</a>",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "152 KB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdssv_plateholes_meta.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdssv_plateholes_meta.[FTYPE]",
+      "example": "2.0.0/parquet/mos_sdssv_plateholes_meta.parquet",
+      "location": "{v_targ}/{ftype}/mos_sdssv_plateholes_meta.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_sdssv_plateholes_meta",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_sdssv_plateholes_meta.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_sdssv_plateholes_meta = $MOS_TARGET/{v_targ}/{ftype}/mos_sdssv_plateholes_meta.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "plateid": {
+            "name": "plateid",
+            "description": "plate ID number",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "ha": {
+            "name": "ha",
+            "description": "the hour angle for which each pointing is designed (negative = rising, positive = setting, given in degrees)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ha_observable_min": {
+            "name": "ha_observable_min",
+            "description": "the minimum observable hour angle to guarantee no hole offsets due to refraction greater than value given by MAX_OFF_FIBER_FOR_HA header keyword in plateDefaults file (negative = rising, positive = setting, given in degrees)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ha_observable_max": {
+            "name": "ha_observable_max",
+            "description": "the minimum observable hour angle to guarantee no hole offsets due to refraction greater than value given by MAX_OFF_FIBER_FOR_HA header keyword in plateDefaults file (negative = rising, positive = setting, given in degrees)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "programname": {
+            "name": "programname",
+            "description": "The scientific program to which this plate belongs",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "temp": {
+            "name": "temp",
+            "description": "temperature of design (deg C)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "design_platescale_alt": {
+            "name": "design_platescale_alt",
+            "description": "effective plate scale of the design (in altitude direction, mm per deg)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "design_platescale_az": {
+            "name": "design_platescale_az",
+            "description": "effective plate scale of the design (in azimuth direction, mm per deg)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "design_parallactic_angle": {
+            "name": "design_parallactic_angle",
+            "description": "parallactic angle (deg E of N)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "guider_coeff_0": {
+            "name": "guider_coeff_0",
+            "description": "placeholders for guider coefficients, unused (N from 0 to 9)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "guider_coeff_1": {
+            "name": "guider_coeff_1",
+            "description": "placeholders for guider coefficients, unused (N from 0 to 9)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "guider_coeff_2": {
+            "name": "guider_coeff_2",
+            "description": "placeholders for guider coefficients, unused (N from 0 to 9)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "guider_coeff_3": {
+            "name": "guider_coeff_3",
+            "description": "placeholders for guider coefficients, unused (N from 0 to 9)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "guider_coeff_4": {
+            "name": "guider_coeff_4",
+            "description": "placeholders for guider coefficients, unused (N from 0 to 9)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "guider_coeff_5": {
+            "name": "guider_coeff_5",
+            "description": "placeholders for guider coefficients, unused (N from 0 to 9)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "guider_coeff_6": {
+            "name": "guider_coeff_6",
+            "description": "placeholders for guider coefficients, unused (N from 0 to 9)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "guider_coeff_7": {
+            "name": "guider_coeff_7",
+            "description": "placeholders for guider coefficients, unused (N from 0 to 9)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "guider_coeff_8": {
+            "name": "guider_coeff_8",
+            "description": "placeholders for guider coefficients, unused (N from 0 to 9)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "guider_coeff_9": {
+            "name": "guider_coeff_9",
+            "description": "placeholders for guider coefficients, unused (N from 0 to 9)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "locationid": {
+            "name": "locationid",
+            "description": "An internal identifier for each unique location on the sky for which SDSS-V plates were designed",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "instruments": {
+            "name": "instruments",
+            "description": "list of instrument names that are used in this type of plate (allowed: \"SDSS\", \"BOSS\", \"MARVELS\", \"APOGEE\")",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "npointings": {
+            "name": "npointings",
+            "description": "number of pointings that the plate is designed to make; each pointing will correspond to one or more exposures during observation; number must be less than or equal to 6",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "noffsets": {
+            "name": "noffsets",
+            "description": "number of offsets to perform within each exposure",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "minstdinblockboss_shared": {
+            "name": "minstdinblockboss_shared",
+            "description": "for the given instrument, specify if we have a minimum number of standards we want to assign per fiber block (default 0)",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "maxskyinblockboss_shared": {
+            "name": "maxskyinblockboss_shared",
+            "description": "for the given instrument, specify if we have a maximum number of skies we want to assign per fiber block (default 0)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "gfibertype": {
+            "name": "gfibertype",
+            "description": "type of guide fibers to assume (old \"gfiber\" or new \"gfiber2\")",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "guidetype": {
+            "name": "guidetype",
+            "description": "for each pointing, the source to search for guide fibers from (can be \"SDSS\" or \"2MASS\")",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "guidemag_min": {
+            "name": "guidemag_min",
+            "description": "minimum and maximum g-band magnitudes for guide stars (default: [13, 15.5])",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "guidemag_max": {
+            "name": "guidemag_max",
+            "description": "minimum and maximum g-band magnitudes for guide stars (default: [13, 15.5])",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "guide_lambda_eff": {
+            "name": "guide_lambda_eff",
+            "description": "The effective wavelength at which to guide, Angstroms",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "nguidemax": {
+            "name": "nguidemax",
+            "description": "maximum number of possible guide stars to track, otherwise tracks 10s of thousands at low b (default: infinite)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "ferrulesizeboss_shared": {
+            "name": "ferrulesizeboss_shared",
+            "description": "for specified instrument, diameter of ferrule in mm; must exist for all instruments, plus also for instrument=GUIDE",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "buffersizeboss_shared": {
+            "name": "buffersizeboss_shared",
+            "description": "for specified instrument, buffer to include outside ferrule for checking for conflicts; must exist for all instruments, plus also for instrument=GUIDE",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ferrulesizeapogee_shared": {
+            "name": "ferrulesizeapogee_shared",
+            "description": "for specified instrument, diameter of ferrule in mm; must exist for all instruments, plus also for instrument=GUIDE",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "buffersizeapogee_shared": {
+            "name": "buffersizeapogee_shared",
+            "description": "for specified instrument, diameter of ferrule in mm; must exist for all instruments, plus also for instrument=GUIDE",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ferrulesizeguide": {
+            "name": "ferrulesizeguide",
+            "description": "for specified instrument, diameter of ferrule in mm; must exist for all instruments, plus also for instrument=GUIDE",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "buffersizeguide": {
+            "name": "buffersizeguide",
+            "description": "for specified instrument, buffer to include outside ferrule for checking for conflicts; must exist for all instruments, plus also for instrument=GUIDE",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "platedesignstandards": {
+            "name": "platedesignstandards",
+            "description": "specify what instruments we want plate design to find standards for; otherwise one of the plateInput files specified by the plateDefinition file should find them; (default: plate design doesn't find standards)",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "standardtype": {
+            "name": "standardtype",
+            "description": "for each pointing, type of standard to find (can be \"SDSS\" or \"2MASS\", or \"None\" --- in fact, any value other than SDSS or 2MASS is equivalent to \"None\")",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "platedesignskies": {
+            "name": "platedesignskies",
+            "description": "specify what instruments we want plate design to find skies for, if any",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "skytype": {
+            "name": "skytype",
+            "description": "for each pointing, type of skies to find (can be \"SDSS\" or \"2MASS\")",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plugmapstyle": {
+            "name": "plugmapstyle",
+            "description": "type of plugmap file to create (default \"plplugmap\")",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "bossmagtype": {
+            "name": "bossmagtype",
+            "description": "type of magnitude used for fiber magnitudes for BOSS targets",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "pointing_name": {
+            "name": "pointing_name",
+            "description": "\"name\" for each of the pointings (in legacy plates where not given, default to \"A B C D E F\")",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "max_off_fiber_for_ha": {
+            "name": "max_off_fiber_for_ha",
+            "description": "set HA limits (ha_observable_min, haobservable_max) to guarantee no offsets greater than this limit, in arcsec (platedesign v1_27 and above)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "collectfactor": {
+            "name": "collectfactor",
+            "description": "oversampling factor for collecting skies and standards; to ensure pluggability, should be at least 5 (default: 5)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "designid": {
+            "name": "designid",
+            "description": "design identification number",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "platedesignversion": {
+            "name": "platedesignversion",
+            "description": "version of plateDefault file to use (for backwards compatibility; if specified it must agree with the corresponding entry in the platePlans file",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "platetype": {
+            "name": "platetype",
+            "description": "type of plateDefault file to use (always \"APOGEE-BOSS\")",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "racen": {
+            "name": "racen",
+            "description": "right ascension of pointing center, J2000 deg",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "deccen": {
+            "name": "deccen",
+            "description": "declination of pointing center, J2000 deg",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ninputs": {
+            "name": "ninputs",
+            "description": "Number of input files to platedesign",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "plateinput1": {
+            "name": "plateinput1",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plateinput2": {
+            "name": "plateinput2",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plateinput3": {
+            "name": "plateinput3",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plateinput4": {
+            "name": "plateinput4",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plateinput5": {
+            "name": "plateinput5",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plateinput6": {
+            "name": "plateinput6",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plateinput7": {
+            "name": "plateinput7",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "priority": {
+            "name": "priority",
+            "description": "order of priority for input files; lower numbers get checked first; if two files have the same priority, their targets are checked simultaneously (in order of the individual priority number for each object); (default is 1..nInputs).",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "relaxed_fiber_classes": {
+            "name": "relaxed_fiber_classes",
+            "description": "for APOGEE, do not break target classes up into bright/medium/faint.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "targettypes": {
+            "name": "targettypes",
+            "description": "Which targettypes to include in plate design (e.g. \"standard science sky\")",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "napogee_shared_standard": {
+            "name": "napogee_shared_standard",
+            "description": "The number of APOGEE standard star targets in this plate",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "napogee_shared_science": {
+            "name": "napogee_shared_science",
+            "description": "The number of APOGEE science targets in this plate",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "napogee_shared_sky": {
+            "name": "napogee_shared_sky",
+            "description": "- The number of APOGEE sky targets in this plate",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "nboss_shared_standard": {
+            "name": "nboss_shared_standard",
+            "description": "The number of BOSS standard star targets in this plate",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "nboss_shared_science": {
+            "name": "nboss_shared_science",
+            "description": "The number of BOSS science targets in this plate",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "nboss_shared_sky": {
+            "name": "nboss_shared_sky",
+            "description": "The number of BOSS sky targets in this plate",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "minskyinblockboss_shared": {
+            "name": "minskyinblockboss_shared",
+            "description": "for the given instrument, specify if we have a minimum number of skies we want to assign per fiber block (default 0)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "minstandardinblockboss_shared": {
+            "name": "minstandardinblockboss_shared",
+            "description": "for the given instrument, specify if we have a minimum number of standards we want to assign per fiber block (default 0)",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "reddeningmed_u": {
+            "name": "reddeningmed_u",
+            "description": "The estimated Galactic reddening (u-band) at the sky location of this plate",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "reddeningmed_g": {
+            "name": "reddeningmed_g",
+            "description": "The estimated Galactic reddening (g-band) at the sky location of this plate",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "reddeningmed_r": {
+            "name": "reddeningmed_r",
+            "description": "The estimated Galactic reddening (r-band) at the sky location of this plate",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "reddeningmed_i": {
+            "name": "reddeningmed_i",
+            "description": "The estimated Galactic reddening (i-band) at the sky location of this plate",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "reddeningmed_z": {
+            "name": "reddeningmed_z",
+            "description": "The estimated Galactic reddening (z-band) at the sky location of this plate",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "tileid": {
+            "name": "tileid",
+            "description": "Not used",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "theta": {
+            "name": "theta",
+            "description": "position angle of design (always 0 in practice)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "platerun": {
+            "name": "platerun",
+            "description": "name of platerun this file was part of",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "platedesign_version": {
+            "name": "platedesign_version",
+            "description": "version of platedesign used to produce design file",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "yanny_uid": {
+            "name": "yanny_uid",
+            "description": "internal integer identifier for the platelist file from which this inforation was extracted",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "yanny_filename": {
+            "name": "yanny_filename",
+            "description": "filename from which this information was extracted",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plateinput8": {
+            "name": "plateinput8",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plateinput9": {
+            "name": "plateinput9",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plateinput10": {
+            "name": "plateinput10",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plateinput11": {
+            "name": "plateinput11",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plateinput12": {
+            "name": "plateinput12",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plateinput13": {
+            "name": "plateinput13",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plateinput14": {
+            "name": "plateinput14",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plateinput15": {
+            "name": "plateinput15",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plateinput16": {
+            "name": "plateinput16",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "skyinput17": {
+            "name": "skyinput17",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plateinput18": {
+            "name": "plateinput18",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plateinput17": {
+            "name": "plateinput17",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "skyinput18": {
+            "name": "skyinput18",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plateinput19": {
+            "name": "plateinput19",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "skyinput16": {
+            "name": "skyinput16",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "skyinput19": {
+            "name": "skyinput19",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plateinput20": {
+            "name": "plateinput20",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "skyinput15": {
+            "name": "skyinput15",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "skyinput21": {
+            "name": "skyinput21",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plateinput22": {
+            "name": "plateinput22",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "skyinput13": {
+            "name": "skyinput13",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "skyinput20": {
+            "name": "skyinput20",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plateinput21": {
+            "name": "plateinput21",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "skyinput14": {
+            "name": "skyinput14",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "skyinput6": {
+            "name": "skyinput6",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "defaultsurveymode": {
+            "name": "defaultsurveymode",
+            "description": "Which mapper leads the plate design (bhmLead or mwmLead). Ony set for plateID>=15072.",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "skyinput23": {
+            "name": "skyinput23",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plateinput24": {
+            "name": "plateinput24",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "skyinput22": {
+            "name": "skyinput22",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plateinput23": {
+            "name": "plateinput23",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "skyinput8": {
+            "name": "skyinput8",
+            "description": "filename of input to platedesign",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "isvalid": {
+            "name": "isvalid",
+            "description": "Whether the plate design is valid (i.e. eligible for drilling+plugging)",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

@@ -58,9 +58,15 @@
         "description": "SDSS public data release 19",
         "public": true,
         "release_date": "2025-07-11"
+      },
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
       }
     ],
-    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_sdss_id_flat.fits, where V_TARG=1.0.2 for DR19",
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdss_id_flat-[NUM].[FTYPE] with FTYPE='fits', V_TARG='2.0.0', and NUM=1..140 for DR20.",
     "generated_by": "sdss5db> targetdb, operations database server",
     "design": false,
     "vac": false,
@@ -69,7 +75,36 @@
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {}
+    "releases": {
+      "DR20": {
+        "from": "DR19",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null,
+        "delta_ncolumns": 0,
+        "added_columns": [],
+        "removed_columns": []
+      }
+    }
   },
   "releases": {
     "DR19": {
@@ -260,7 +295,199 @@
         }
       },
       "par": null,
-      "hdfs": null
+      "hdfs": null,
+      "dataframe": null
+    },
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdss_id_flat-[NUM].[FTYPE]",
+      "example": "2.0.0/fits/mos_sdss_id_flat-001.fits",
+      "location": "{v_targ}/{ftype}/mos_sdss_id_flat-{num}.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_sdss_id_flat",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_sdss_id_flat@mos_target_num3|.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_sdss_id_flat = $MOS_TARGET/{v_targ}/{ftype}/mos_sdss_id_flat-{num}.{ftype}"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: sdss_id_flat",
+          "size": "122 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "64",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "2000000",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "10",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TNULL1",
+              "value": "-9223372036854775808",
+              "comment": ""
+            },
+            {
+              "key": "TNULL2",
+              "value": "-9223372036854775808",
+              "comment": ""
+            },
+            {
+              "key": "TNULL3",
+              "value": "-32768",
+              "comment": ""
+            },
+            {
+              "key": "TNULL6",
+              "value": "-32768",
+              "comment": ""
+            },
+            {
+              "key": "TNULL9",
+              "value": "-9223372036854775808",
+              "comment": ""
+            },
+            {
+              "key": "TNULL10",
+              "value": "-2147483648",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "sdss_id": {
+              "name": "sdss_id",
+              "description": "The SDSS identifier for a unique object.",
+              "type": "int64",
+              "unit": ""
+            },
+            "catalogid": {
+              "name": "catalogid",
+              "description": "The associated catalogid for this target.",
+              "type": "int64",
+              "unit": ""
+            },
+            "version_id": {
+              "name": "version_id",
+              "description": "The version of the cross-match associated with the catalogid.",
+              "type": "int16",
+              "unit": ""
+            },
+            "ra_sdss_id": {
+              "name": "ra_sdss_id",
+              "description": "The right ascension of the target in ICRS J2015.5 coordinates (taken from the highest version catalogid in dr20_sdss_id_stacked).",
+              "type": "float64",
+              "unit": ""
+            },
+            "dec_sdss_id": {
+              "name": "dec_sdss_id",
+              "description": "The declination of the target in ICRS J2015.5 coordinates (taken from the highest version catalogid in dr20_sdss_id_stacked).",
+              "type": "float64",
+              "unit": ""
+            },
+            "n_associated": {
+              "name": "n_associated",
+              "description": "The number of sdss_ids associated with this catalogid.",
+              "type": "int16",
+              "unit": ""
+            },
+            "ra_catalogid": {
+              "name": "ra_catalogid",
+              "description": "The right ascension of this row's catalogid from the dr20_catalog table.",
+              "type": "float64",
+              "unit": ""
+            },
+            "dec_catalogid": {
+              "name": "dec_catalogid",
+              "description": "The declination of this row's catalogid from the dr20_catalog table.",
+              "type": "float64",
+              "unit": ""
+            },
+            "pk": {
+              "name": "pk",
+              "description": "The primary key. A sequential identifier for this table.",
+              "type": "int64",
+              "unit": ""
+            },
+            "rank": {
+              "name": "rank",
+              "description": "The rank of the sdss_id to catalogid association. When multiple sdss_ids are associated with the same catalogid, the one with the lowest rank (rank=1) should be preferred.",
+              "type": "int32",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null,
+      "dataframe": null
     }
   },
   "notes": "None",

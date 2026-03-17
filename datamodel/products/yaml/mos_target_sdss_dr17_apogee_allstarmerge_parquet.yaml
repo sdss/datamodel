@@ -1,0 +1,288 @@
+general:
+  name: mos_target_sdss_dr17_apogee_allstarmerge_parquet
+  short: 'MOS Target Table: sdss_dr17_apogee_allstarmerge'
+  description: In the SDSS-IV APOGEE-2, if a star was observed in multiple fields
+    or multiple survey modes (e.g., observed at APO vs. LCO), then the star would
+    end up with multiple entries in the summary allStar file. This table merges all
+    multiple entries for stars in the DR17 APOGEE allStar file. This file was primarily
+    used for target selection for the mwm_bin_rv_long carton.
+  datatype: PARQUET
+  filesize: 79 MB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdss_dr17_apogee_allstarmerge.[FTYPE]
+    with FTYPE='parquet' and V_TARG='2.0.0' for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdss_dr17_apogee_allstarmerge.[FTYPE]
+    example: 2.0.0/parquet/mos_sdss_dr17_apogee_allstarmerge.parquet
+    location: '{v_targ}/{ftype}/mos_sdss_dr17_apogee_allstarmerge.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_sdss_dr17_apogee_allstarmerge
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_sdss_dr17_apogee_allstarmerge.{ftype}
+      path_kwargs:
+      - ftype
+      - v_targ
+      access_string: mos_target_sdss_dr17_apogee_allstarmerge = $MOS_TARGET/{v_targ}/{ftype}/mos_sdss_dr17_apogee_allstarmerge.{ftype}
+    survey: SDSS
+    dataframe:
+      columns:
+        apogee_id:
+          name: apogee_id
+          dtype: String
+          unit: ''
+          description: 2MASS style ID from APOGEE DR16
+        nvisits:
+          name: nvisits
+          dtype: Int16
+          unit: ''
+          description: Number of visits into combined spectra, accross all allStar
+            entries for the star
+        nentries:
+          name: nentries
+          dtype: Int32
+          unit: ''
+          description: Number of unique allStar entries for the star
+        ra:
+          name: ra
+          dtype: Float64
+          unit: degrees
+          description: Right ascension (J2000)
+        dec:
+          name: dec
+          dtype: Float64
+          unit: degrees
+          description: Declination (J2000)
+        glon:
+          name: glon
+          dtype: Float64
+          unit: degrees
+          description: Galactic longitude
+        glat:
+          name: glat
+          dtype: Float64
+          unit: degrees
+          description: Galactic latitude
+        pmra:
+          name: pmra
+          dtype: Float32
+          unit: mas/yr
+          description: proper motion in RA
+        pmdec:
+          name: pmdec
+          dtype: Float32
+          unit: mas/yr
+          description: proper motion in DEC
+        pm_src:
+          name: pm_src
+          dtype: String
+          unit: ''
+          description: source of proper motion (e.g. gaia)
+        j:
+          name: j
+          dtype: Float32
+          unit: mag
+          description: 2MASS J mag [bad=99]
+        j_err:
+          name: j_err
+          dtype: Float32
+          unit: mag
+          description: Uncertainty in 2MASS J mag
+        h:
+          name: h
+          dtype: Float32
+          unit: mag
+          description: 2MASS H mag [bad=99]
+        h_err:
+          name: h_err
+          dtype: Float32
+          unit: mag
+          description: Uncertainty in 2MASS H mag
+        k:
+          name: k
+          dtype: Float32
+          unit: mag
+          description: 2MASS Ks mag [bad=99]
+        k_err:
+          name: k_err
+          dtype: Float32
+          unit: mag
+          description: Uncertainty in 2MASS Ks mag
+        ak:
+          name: ak
+          dtype: Float32
+          unit: mag
+          description: K-band extinction adopted for targetting
+        vhelio_avg:
+          name: vhelio_avg
+          dtype: Float32
+          unit: km/s
+          description: Average radial velocity, weighted by S/N, rederived to reflect
+            all entries
+        vhelio_err:
+          name: vhelio_err
+          dtype: Float32
+          unit: km/s
+          description: Uncertainty in VHELIO_AVG from the S/N-weighted individual
+            RVs, rederived to reflect all entries
+        vscatter:
+          name: vscatter
+          dtype: Float32
+          unit: km/s
+          description: Scatter of individual visit RVs around average, rederived to
+            reflect all entries
+        sig_rvvar:
+          name: sig_rvvar
+          dtype: Float32
+          unit: ''
+          description: Measure of the significance of the star's RV variability (see
+            Troup, et. al 2016)
+        baseline:
+          name: baseline
+          dtype: Float32
+          unit: days
+          description: Temporal baseline of the observations (JD_last-JD-first)
+        mean_fiber:
+          name: mean_fiber
+          dtype: Float32
+          unit: ''
+          description: The mean fiberID of all of the star's visits
+        sig_fiber:
+          name: sig_fiber
+          dtype: Float32
+          unit: ''
+          description: The standard deviation of the fiberID of all of the star's
+            visits
+        stars_pk:
+          name: stars_pk
+          dtype: String
+          unit: ''
+          description: "Indices of the star\u2019s allStar entries (from DR17)"
+        nvisits_entry:
+          name: nvisits_entry
+          dtype: String
+          unit: ''
+          description: "Number of visits associated with each of the star\u2019s DR17\
+            \ allStar entries"
+        snr_entry:
+          name: snr_entry
+          dtype: String
+          unit: ''
+          description: "Combined spectrum S/N for each of the star\u2019s DR17 allStar\
+            \ entries"
+        telescopes:
+          name: telescopes
+          dtype: String
+          unit: ''
+          description: List of TELESCOPE flags from each of the star's DR17 allStar
+            entries
+        fields:
+          name: fields
+          dtype: String
+          unit: ''
+          description: "Field associated with each of the star\u2019s DR17 allStar\
+            \ entries"
+        targflags:
+          name: targflags
+          dtype: String
+          unit: ''
+          description: "Text form of APOGEE target flags concatenated from the star\u2019\
+            s DR17 allStar entries"
+        starflags:
+          name: starflags
+          dtype: String
+          unit: ''
+          description: "Text form of APOGEE reduction flags concatenated from the\
+            \ star\u2019s DR17 allStar entries"
+        aspcapflags:
+          name: aspcapflags
+          dtype: String
+          unit: ''
+          description: "Text form of ASPCAP analysis flags concatenated from the star\u2019\
+            s DR17 allStar entries"
+        member:
+          name: member
+          dtype: String
+          unit: ''
+          description: "Text form of the APOGEE cluster membership flag  concatenated\
+            \ from the star\u2019s DR17 allStar entries"
+        gaia_source_id:
+          name: gaia_source_id
+          dtype: Int64
+          unit: ''
+          description: Associated Gaia DR3 source ID
+        dist:
+          name: dist
+          dtype: Float32
+          unit: pc
+          description: Derived or given distance to the star
+        dist_err:
+          name: dist_err
+          dtype: Float32
+          unit: pc
+          description: Uncertainty of the distance
+        dist_src:
+          name: dist_src
+          dtype: String
+          unit: ''
+          description: Source of the star's distance measurement (e.g. gaia=derived
+            from gaia parallax)
+        teff_avg:
+          name: teff_avg
+          dtype: Float32
+          unit: ''
+          description: "SNR-weighted average of the star\u2019s allStar T_eff entries\
+            \ from DR17"
+        teff_avg_err:
+          name: teff_avg_err
+          dtype: Float32
+          unit: ''
+          description: Uncertainty in teff_avg
+        logg_avg:
+          name: logg_avg
+          dtype: Float32
+          unit: ''
+          description: "SNR-weighted average of the star\u2019s allStar log g entries\
+            \ from DR17"
+        logg_avg_err:
+          name: logg_avg_err
+          dtype: Float32
+          unit: ''
+          description: Uncertainty in logg_avg
+        m_h_avg:
+          name: m_h_avg
+          dtype: Float32
+          unit: ''
+          description: "SNR-weighted average of the star\u2019s allStar [M/H] entries\
+            \ from DR17"
+        m_h_avg_err:
+          name: m_h_avg_err
+          dtype: Float32
+          unit: ''
+          description: Uncertainty in m_h_avg
+        visits_pk:
+          name: visits_pk
+          dtype: String
+          unit: ''
+          description: "The indices of the star\u2019s DR17 allVisit entries included\
+            \ in visit combination"
+      metadata: {}
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

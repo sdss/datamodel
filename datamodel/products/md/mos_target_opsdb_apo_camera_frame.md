@@ -16,10 +16,10 @@ MOS Target table: mos_target_opsdb_apo_camera_frame
 The table contains signal-to-noise estimates for each 'camera', for each exposure. APOGEE is treated as one camera, while R1/2 and B1/2 are treated separately.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_opsdb_apo_camera_frame.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_opsdb_apo_camera_frame.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,10 +71,10 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_opsdb_apo_camera_frame
+MOS Target Table: opsdb_apo_camera_frame
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  3 MB
+#### HDU Size:  8 MB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -79,8 +82,8 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 118 | length of dimension 1 |
-| NAXIS2 | 29792 | length of dimension 2 |
+| NAXIS1 | 193 | length of dimension 1 |
+| NAXIS2 | 48440 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 5 | number of table fields |
@@ -95,7 +98,7 @@ Name | Type | Unit | Description |
  | exposure_pk | int32 |  | Unique identifier in the exposure table |
  | camera_pk | int16 |  | Unique identifier in the camera table |
  | sn2 | float32 |  | Signal-to-noise squared estimate from on-mountain quick reduction pipelines |
- | comment | char[104] |  | An optional comment |
+ | comment | char[179] |  | An optional comment |
 
 
 

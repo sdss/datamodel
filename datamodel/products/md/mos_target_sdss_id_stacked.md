@@ -16,10 +16,10 @@ MOS Target table: mos_target_sdss_id_stacked
 This table includes associations between sdss_id identifiers and the matched catalogids for each catalogue cross-match. The table contains one row per sdss_id with columns for each catalogid version. However, catalogids may be associated with multiple sdss_id. dr19_sdss_id_flat is a pivoted/flattened version of this table and contains information about the preferred sdss_id for a catalogid. Note: The sdss_id match was extended internally for a more recent crossmatch not yet part of the publicly released data. As such, the ra/dec_sdss_id columns may differ from the catalogid coordinates.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_sdss_id_stacked.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdss_id_stacked-[NUM].[FTYPE] with FTYPE='fits', V_TARG='2.0.0', and NUM=1..64 for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,10 +71,10 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_sdss_id_stacked
+MOS Target Table: sdss_id_stacked
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  76 MB
+#### HDU Size:  91 MB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -79,20 +82,22 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 40 | length of dimension 1 |
+| NAXIS1 | 48 | length of dimension 1 |
 | NAXIS2 | 2000000 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 5 | number of table fields |
+| TFIELDS | 6 | number of table fields |
 | TNULL1 | -9223372036854775808 |  |
 | TNULL2 | -9223372036854775808 |  |
-| TNULL5 | -9223372036854775808 |  |
+| TNULL3 | -9223372036854775808 |  |
+| TNULL6 | -9223372036854775808 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | catalogid21 | int64 |  | The catalogid for the best matched object in the v0.1 cross-match (pk=21). |
  | catalogid25 | int64 |  | The catalogid for the best matched object in the v0.5 cross-match (pk=25). |
+ | catalogid31 | int64 |  | The catalogid for the best matched object in the v1 cross-match (pk=31). |
  | ra_sdss_id | float64 |  | The right ascension of the target in ICRS J2015.5 coordinates (taken from the highest version catalogid). |
  | dec_sdss_id | float64 |  | The declination of the target in ICRS J2015.5 coordinates (taken from the highest version catalogid). |
  | sdss_id | int64 |  | The SDSS identifier for a unique object. |

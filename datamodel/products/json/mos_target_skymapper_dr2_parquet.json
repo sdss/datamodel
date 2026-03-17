@@ -1,0 +1,775 @@
+{
+  "general": {
+    "name": "mos_target_skymapper_dr2_parquet",
+    "short": "MOS Target Table: skymapper_dr2",
+    "description": "Skymapper Data Release 2 photometry.\n\nFor detailed descriptions, please see the SkyMapper documentation: <a href=\"https://skymapper.anu.edu.au/table-browser/\">https://skymapper.anu.edu.au/table-browser/</a>",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "4 GB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_skymapper_dr2.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_skymapper_dr2.[FTYPE]",
+      "example": "2.0.0/parquet/mos_skymapper_dr2.parquet",
+      "location": "{v_targ}/{ftype}/mos_skymapper_dr2.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_skymapper_dr2",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_skymapper_dr2@mos_target_num2|.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_skymapper_dr2 = $MOS_TARGET/{v_targ}/{ftype}/mos_skymapper_dr2.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "object_id": {
+            "name": "object_id",
+            "description": "Global unique SkyMapper object ID in the master table",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "raj2000": {
+            "name": "raj2000",
+            "description": "Mean ICRS Right Ascension of the object",
+            "unit": "degrees",
+            "dtype": "Float64",
+            "value": null
+          },
+          "dej2000": {
+            "name": "dej2000",
+            "description": "Mean ICRS Declination of the object",
+            "unit": "degrees",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_raj2000": {
+            "name": "e_raj2000",
+            "description": "RMS variation around the mean Right Ascension",
+            "unit": "mas",
+            "dtype": "Int32",
+            "value": null
+          },
+          "e_dej2000": {
+            "name": "e_dej2000",
+            "description": "RMS variation around the mean Declination",
+            "unit": "mas",
+            "dtype": "Int32",
+            "value": null
+          },
+          "smss_j": {
+            "name": "smss_j",
+            "description": "SkyMapper Southern Survey designation of the form SMSS Jhhmmss.ss+/-ddmmss.s",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "mean_epoch": {
+            "name": "mean_epoch",
+            "description": "Mean MJD epoch of the observations",
+            "unit": "days",
+            "dtype": "Float64",
+            "value": null
+          },
+          "rms_epoch": {
+            "name": "rms_epoch",
+            "description": "RMS variation around the mean epoch",
+            "unit": "days",
+            "dtype": "Float32",
+            "value": null
+          },
+          "glon": {
+            "name": "glon",
+            "description": "Galactic longitude derived from ICRS coordinate",
+            "unit": "degrees",
+            "dtype": "Float32",
+            "value": null
+          },
+          "glat": {
+            "name": "glat",
+            "description": "Galactic latitude derived from ICRS coordinate",
+            "unit": "degrees",
+            "dtype": "Float32",
+            "value": null
+          },
+          "flags": {
+            "name": "flags",
+            "description": "Bitwise OR of Source Extractor flags across all observations",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "nimaflags": {
+            "name": "nimaflags",
+            "description": "Total number of flagged pixels from bad, saturated, and crosstalk pixel masks across all observations",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "ngood": {
+            "name": "ngood",
+            "description": "Number of observations used across all filters",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "ngood_min": {
+            "name": "ngood_min",
+            "description": "Minimum number of observations used in any filter",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "nch_max": {
+            "name": "nch_max",
+            "description": "Maximum number of child sources combined into this global object_id in any filter",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "density": {
+            "name": "density",
+            "description": "Number of DR2 sources within 15 arcsec (including this source)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "u_flags": {
+            "name": "u_flags",
+            "description": "Bitwise OR of Source Extractor flags from u-band measurements in photometry table",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "u_nimaflags": {
+            "name": "u_nimaflags",
+            "description": "Number of flagged pixels from bad, saturated, and crosstalk pixel masks from u-band measurements in photometry table",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "u_ngood": {
+            "name": "u_ngood",
+            "description": "Number of u-band observations used",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "u_nch": {
+            "name": "u_nch",
+            "description": "Number of u-band child sources combined into this object_id",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "u_nclip": {
+            "name": "u_nclip",
+            "description": "Number of u-band observations with magnitudes clipped from the final PSF magnitude estimate",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "v_flags": {
+            "name": "v_flags",
+            "description": "Bitwise OR of Source Extractor flags from v-band measurements in photometry table",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "v_nimaflags": {
+            "name": "v_nimaflags",
+            "description": "Number of flagged pixels from bad, saturated, and crosstalk pixel masks from u-band measurements in photometry table",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "v_ngood": {
+            "name": "v_ngood",
+            "description": "Number of v-band observations used",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "v_nch": {
+            "name": "v_nch",
+            "description": "Number of v-band child sources combined into this object_id",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "v_nclip": {
+            "name": "v_nclip",
+            "description": "Number of v-band observations with magnitudes clipped from the final PSF magnitude estimate",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "g_flags": {
+            "name": "g_flags",
+            "description": "Bitwise OR of Source Extractor flags from g-band measurements in photometry table",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "g_nimaflags": {
+            "name": "g_nimaflags",
+            "description": "Number of flagged pixels from bad, saturated, and crosstalk pixel masks from g-band measurements in photometry table",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "g_ngood": {
+            "name": "g_ngood",
+            "description": "Number of g-band observations used",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "g_nch": {
+            "name": "g_nch",
+            "description": "Number of g-band child sources combined into this object_id",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "g_nclip": {
+            "name": "g_nclip",
+            "description": "Number of g-band observations with magnitudes clipped from the final PSF magnitude estimate",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "r_flags": {
+            "name": "r_flags",
+            "description": "Bitwise OR of Source Extractor flags from r-band measurements in photometry table",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "r_nimaflags": {
+            "name": "r_nimaflags",
+            "description": "Number of flagged pixels from bad, saturated, and crosstalk pixel masks from r-band measurements in photometry table",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "r_ngood": {
+            "name": "r_ngood",
+            "description": "Number of r-band observations used",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "r_nch": {
+            "name": "r_nch",
+            "description": "Number of r-band child sources combined into this object_id",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "r_nclip": {
+            "name": "r_nclip",
+            "description": "Number of r-band observations with magnitudes clipped from the final PSF magnitude estimate",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "i_flags": {
+            "name": "i_flags",
+            "description": "Bitwise OR of Source Extractor flags from i-band measurements in photometry table",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "i_nimaflags": {
+            "name": "i_nimaflags",
+            "description": "Number of flagged pixels from bad, saturated, and crosstalk pixel masks from i-band measurements in photometry table",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "i_ngood": {
+            "name": "i_ngood",
+            "description": "Number of i-band observations used",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "i_nch": {
+            "name": "i_nch",
+            "description": "Number of i-band child sources combined into this object_id",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "i_nclip": {
+            "name": "i_nclip",
+            "description": "Number of i-band observations with magnitudes clipped from the final PSF magnitude estimate",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "z_flags": {
+            "name": "z_flags",
+            "description": "Bitwise OR of Source Extractor flags from z-band measurements in photometry table",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "z_nimaflags": {
+            "name": "z_nimaflags",
+            "description": "Number of flagged pixels from bad, saturated, and crosstalk pixel masks from z-band measurements in photometry table",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "z_ngood": {
+            "name": "z_ngood",
+            "description": "Number of z-band observations used",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "z_nch": {
+            "name": "z_nch",
+            "description": "Number of z-band child sources combined into this object_id",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "z_nclip": {
+            "name": "z_nclip",
+            "description": "Number of a-band observations with magnitudes clipped from the final PSF magnitude estimate",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "class_star": {
+            "name": "class_star",
+            "description": "Maximum stellarity index from photometry table (between 0=no star and 1=star)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "flags_psf": {
+            "name": "flags_psf",
+            "description": "Bitmask indicating whether photometry is likely biased by neighbours at greater than 1%",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "radius_petro": {
+            "name": "radius_petro",
+            "description": "Mean r-band Petrosian radius",
+            "unit": "pix",
+            "dtype": "Float32",
+            "value": null
+          },
+          "u_psf": {
+            "name": "u_psf",
+            "description": "Mean u-band PSF magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_u_psf": {
+            "name": "e_u_psf",
+            "description": "Error in u-band PSF magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "u_rchi2var": {
+            "name": "u_rchi2var",
+            "description": "Reduced chi-squared for a constant-magnitude model of the u-band PSF magnitude, including clipped sources",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "u_petro": {
+            "name": "u_petro",
+            "description": "Mean u-band Petrosian magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_u_petro": {
+            "name": "e_u_petro",
+            "description": "Error in u-band Petrosian magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "v_psf": {
+            "name": "v_psf",
+            "description": "Mean v-band PSF magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_v_psf": {
+            "name": "e_v_psf",
+            "description": "Error in v-band PSF magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "v_rchi2var": {
+            "name": "v_rchi2var",
+            "description": "Reduced chi-squared for a constant-magnitude model of the v-band PSF magnitude, including clipped sources",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "v_petro": {
+            "name": "v_petro",
+            "description": "Mean v-band Petrosian magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_v_petro": {
+            "name": "e_v_petro",
+            "description": "Error in v-band Petrosian magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "g_psf": {
+            "name": "g_psf",
+            "description": "Mean g-band PSF magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_g_psf": {
+            "name": "e_g_psf",
+            "description": "Error in g-band PSF magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "g_rchi2var": {
+            "name": "g_rchi2var",
+            "description": "Reduced chi-squared for a constant-magnitude model of the g-band PSF magnitude, including clipped sources",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "g_petro": {
+            "name": "g_petro",
+            "description": "Mean g-band Petrosian magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_g_petro": {
+            "name": "e_g_petro",
+            "description": "Error in g-band Petrosian magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r_psf": {
+            "name": "r_psf",
+            "description": "Mean r-band PSF magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_r_psf": {
+            "name": "e_r_psf",
+            "description": "Error in r-band PSF magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r_rchi2var": {
+            "name": "r_rchi2var",
+            "description": "Reduced chi-squared for a constant-magnitude model of the r-band PSF magnitude, including clipped sources",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r_petro": {
+            "name": "r_petro",
+            "description": "Mean r-band Petrosian magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_r_petro": {
+            "name": "e_r_petro",
+            "description": "Error in r-band Petrosian magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "i_psf": {
+            "name": "i_psf",
+            "description": "Mean i-band PSF magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_i_psf": {
+            "name": "e_i_psf",
+            "description": "Error in i-band PSF magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "i_rchi2var": {
+            "name": "i_rchi2var",
+            "description": "Reduced chi-squared for a constant-magnitude model of the i-band PSF magnitude, including clipped sources",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "i_petro": {
+            "name": "i_petro",
+            "description": "Mean i-band Petrosian magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_i_petro": {
+            "name": "e_i_petro",
+            "description": "Error in i-band Petrosian magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_psf": {
+            "name": "z_psf",
+            "description": "Mean z-band PSF magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_z_psf": {
+            "name": "e_z_psf",
+            "description": "Error in z-band PSF magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_rchi2var": {
+            "name": "z_rchi2var",
+            "description": "Reduced chi-squared for a constant-magnitude model of the z-band PSF magnitude, including clipped sources",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_petro": {
+            "name": "z_petro",
+            "description": "Mean z-band Petrosian magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_z_petro": {
+            "name": "e_z_petro",
+            "description": "Error in z-band Petrosian magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ebmv_sfd": {
+            "name": "ebmv_sfd",
+            "description": "E(B-V) from Schlegel+1998 extinction maps at the ICRS coordinates",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "prox": {
+            "name": "prox",
+            "description": "Distance to next-closest DR2 source",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "prox_id": {
+            "name": "prox_id",
+            "description": "object_id of next-closest DR2 source",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "dr1_id": {
+            "name": "dr1_id",
+            "description": "object_id of closest SkyMapper Data Release 1 source",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "dr1_dist": {
+            "name": "dr1_dist",
+            "description": "Distance to closest SkyMapper Data Release 1 source",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "twomass_key": {
+            "name": "twomass_key",
+            "description": "Unique identifier (pts_key) of closest 2MASS PSC source",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "twomass_dist": {
+            "name": "twomass_dist",
+            "description": "Distance on sky to closest 2MASS PSC source",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "allwise_cntr": {
+            "name": "allwise_cntr",
+            "description": "Unique identifier (cntr) of closest AllWISE source",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "allwise_dist": {
+            "name": "allwise_dist",
+            "description": "Distance on sky to closest AllWISE source",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ucac4_mpos": {
+            "name": "ucac4_mpos",
+            "description": "Unique identifier (mpos) of closest UCAC4 source",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "ucac4_dist": {
+            "name": "ucac4_dist",
+            "description": "Distance on sky to closest UCAC4 source",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "refcat2_id": {
+            "name": "refcat2_id",
+            "description": "Unique identifier (objid) of closest ATLAS Refcat2 source",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "refcat2_dist": {
+            "name": "refcat2_dist",
+            "description": "Distance on sky to closest ATLAS Refcat2 source",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ps1_dr1_id": {
+            "name": "ps1_dr1_id",
+            "description": "Unique identifier (objID) of closest Pan-STARRS1 DR1 source",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "ps1_dr1_dist": {
+            "name": "ps1_dr1_dist",
+            "description": "Distance on sky to closest Pan-STARRS1 DR1 source",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "galex_guv_id": {
+            "name": "galex_guv_id",
+            "description": "Unique identifier (objid) of closest GALEX GUVcat AIS source (Bianchi et al. 2017)",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "galex_guv_dist": {
+            "name": "galex_guv_dist",
+            "description": "Distance on sky to closest GALEX GUVcat AIS source",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "gaia_dr2_id1": {
+            "name": "gaia_dr2_id1",
+            "description": "Unique identifier (source_id) of closest Gaia DR2 source",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "gaia_dr2_dist1": {
+            "name": "gaia_dr2_dist1",
+            "description": "Distance on sky to closest Gaia DR2 source",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "gaia_dr2_id2": {
+            "name": "gaia_dr2_id2",
+            "description": "Unique identifier (source_id) of second-closest Gaia DR2 source",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "gaia_dr2_dist2": {
+            "name": "gaia_dr2_dist2",
+            "description": "Distance on sky to second-closest Gaia DR2 source",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

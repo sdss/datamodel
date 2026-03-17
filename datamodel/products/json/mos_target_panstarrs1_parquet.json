@@ -1,0 +1,1419 @@
+{
+  "general": {
+    "name": "mos_target_panstarrs1_parquet",
+    "short": "MOS Target Table: panstarrs1",
+    "description": "A copy of the PanSTARRS1-dr2 catalogue provided by E. Magnier.\n\nBased on the internal IPP database representation maintained by IfA, U. Hawaii. Column names may differ from publically available catalogues hosted at MAST (mapping provided in column descriptions). The SDSS-V copy of this database is derived from a combination of the PS1-dr2 StackObjectThin and ObjectThin tables (<a href=\"https://outerspace.stsci.edu/display/PANSTARRS/PS1+Database+object+and+detection+tables)\">https://outerspace.stsci.edu/display/PANSTARRS/PS1+Database+object+and+detection+tables)</a>. The catalogue contains PSF, Kron, and Aper measurements based on stacked and forced warp photometry, and expressed as fluxes, including measurements are made of low-significance detections. The average exposure (chip) measurements are expressed in magnitudes since photometry is not measured at this stage for sources with S/N < 5, so there should not be any negative fluxes. Magnitudes are on the AB system, fluxes are in Janskys. Conversion to AB mags is via: mag = 8.9 - 2.5*log10(flux).",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "18 GB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_panstarrs1.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_panstarrs1.[FTYPE]",
+      "example": "2.0.0/parquet/mos_panstarrs1.parquet",
+      "location": "{v_targ}/{ftype}/mos_panstarrs1.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_panstarrs1",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_panstarrs1@mos_target_num2|.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_panstarrs1 = $MOS_TARGET/{v_targ}/{ftype}/mos_panstarrs1.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "ra": {
+            "name": "ra",
+            "description": "mean RA, (J2000, tied to Gaia DR1)",
+            "unit": "deg",
+            "dtype": "Float64",
+            "value": null
+          },
+          "dec": {
+            "name": "dec",
+            "description": "mean Dec, (J2000, tied to Gaia DR1)",
+            "unit": "deg",
+            "dtype": "Float64",
+            "value": null
+          },
+          "dra": {
+            "name": "dra",
+            "description": "error on RA",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ddec": {
+            "name": "ddec",
+            "description": "error on DEC",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "tmean": {
+            "name": "tmean",
+            "description": "Mean epoch (MJD)",
+            "unit": "days",
+            "dtype": "Float32",
+            "value": null
+          },
+          "trange": {
+            "name": "trange",
+            "description": "Time range -- may include 2MASS values",
+            "unit": "days",
+            "dtype": "Float32",
+            "value": null
+          },
+          "chisqpos": {
+            "name": "chisqpos",
+            "description": "chi-square of a fixed position astrometry solution (equiv to ObjectThin.posMeanChisq)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "stargal": {
+            "name": "stargal",
+            "description": "Measure of extendedness. Computed as the median across all chip measurements of extNsigma, where extNsigma = (PSF mag - Kron mag) expressed as a number of sigmas, so it somewhat adjusts for the spread at low signal-to-noise.",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "nmeas": {
+            "name": "nmeas",
+            "description": "total number of measurements in databases (including non-PS1 data)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "nwarp_ok": {
+            "name": "nwarp_ok",
+            "description": "number of warps with psf_qf > 0 (any unmasked pixels)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "flags": {
+            "name": "flags",
+            "description": "ObjectInfoFlags",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "objid": {
+            "name": "objid",
+            "description": "internal Pan-STARRS IPP object ID : unique within database spatial partition (see catID)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "catid": {
+            "name": "catid",
+            "description": "database spatial partition ID - (equiv. to StackObjectThin.dvoRegionID)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "extid_hi": {
+            "name": "extid_hi",
+            "description": "upper 32 bits of PSPS object ID (objID in MAST PSPS database)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "extid_lo": {
+            "name": "extid_lo",
+            "description": "lower 32 bits of PSPS object ID (objID in MAST PSPS database)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "g_chp_psf": {
+            "name": "g_chp_psf",
+            "description": "mean g-band chip PSF magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "g_chp_psf_err": {
+            "name": "g_chp_psf_err",
+            "description": "error on mean g-band chip PSF magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "g_chp_psf_nphot": {
+            "name": "g_chp_psf_nphot",
+            "description": "number of measurements used for g_chp_psf (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "g_chp_aper": {
+            "name": "g_chp_aper",
+            "description": "mean g-band chip seeing-adapted aperture magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "g_chp_aper_err": {
+            "name": "g_chp_aper_err",
+            "description": "error on mean g-band chip seeing-adapted aperture magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "g_chp_aper_nphot": {
+            "name": "g_chp_aper_nphot",
+            "description": "number of measurements used for above (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "g_chp_kron": {
+            "name": "g_chp_kron",
+            "description": "mean g-band chip Kron magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "g_chp_kron_err": {
+            "name": "g_chp_kron_err",
+            "description": "error on mean g-band chip Kron magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "g_chp_kron_nphot": {
+            "name": "g_chp_kron_nphot",
+            "description": "number of measurements used for g_chp_kron (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "g_stk_psf_flux": {
+            "name": "g_stk_psf_flux",
+            "description": "best g-band stack PSF flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "g_stk_psf_fluxerr": {
+            "name": "g_stk_psf_fluxerr",
+            "description": "error on best g-band stack PSF flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "g_stk_psf_nphot": {
+            "name": "g_stk_psf_nphot",
+            "description": "number of measurements used for g_stk_psf_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "g_stk_aper_flux": {
+            "name": "g_stk_aper_flux",
+            "description": "g-band stack seeing-adapted aperture flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "g_stk_aper_fluxerr": {
+            "name": "g_stk_aper_fluxerr",
+            "description": "error on g-band stack seeing-adapted aperture flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "g_stk_aper_nphot": {
+            "name": "g_stk_aper_nphot",
+            "description": "number of measurements used for g_stk_aper_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "g_stk_kron_flux": {
+            "name": "g_stk_kron_flux",
+            "description": "g-band stack Kron flux from same stack as 'best' PSF above",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "g_stk_kron_fluxerr": {
+            "name": "g_stk_kron_fluxerr",
+            "description": "error on g-band stack Kron flux from same stack as 'best' PSF above",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "g_stk_kron_nphot": {
+            "name": "g_stk_kron_nphot",
+            "description": "number of measurements used for g_stk_kron_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "g_wrp_psf_flux": {
+            "name": "g_wrp_psf_flux",
+            "description": "mean g-band forced-warp PSF flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "g_wrp_psf_fluxerr": {
+            "name": "g_wrp_psf_fluxerr",
+            "description": "error on mean g-band forced-warp PSF flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "g_wrp_psf_nphot": {
+            "name": "g_wrp_psf_nphot",
+            "description": "number of measurements used for g_wrp_psf_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "g_wrp_aper_flux": {
+            "name": "g_wrp_aper_flux",
+            "description": "mean g-band forced-warp seeing-adapted aperture flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "g_wrp_aper_fluxerr": {
+            "name": "g_wrp_aper_fluxerr",
+            "description": "error on mean g-band forced-warp seeing-adapted aperture flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "g_wrp_aper_nphot": {
+            "name": "g_wrp_aper_nphot",
+            "description": "number of measurements used for g_wrp_aper_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "g_wrp_kron_flux": {
+            "name": "g_wrp_kron_flux",
+            "description": "mean g-band forced-warp Kron flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "g_wrp_kron_fluxerr": {
+            "name": "g_wrp_kron_fluxerr",
+            "description": "error on mean g-band forced-warp Kron flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "g_wrp_kron_nphot": {
+            "name": "g_wrp_kron_nphot",
+            "description": "number of measurements used for g_wrp_kron_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "g_flags": {
+            "name": "g_flags",
+            "description": "per-filter info flags (equiv. to StackObjectThin.ginfoFlag4)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "g_ncode": {
+            "name": "g_ncode",
+            "description": "number of chip detections in this filter (equiv. to StackObjectThin.ng)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "g_nwarp": {
+            "name": "g_nwarp",
+            "description": "number of warp measurements in this filter (including primary & secondary skycells)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "g_nwarp_good": {
+            "name": "g_nwarp_good",
+            "description": "number of warp measurements with psfqfperf > 0.85 in this filter (including primary & secondary skycells)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "g_nstack": {
+            "name": "g_nstack",
+            "description": "number of stack measurements (primary and secondary)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "g_nstack_det": {
+            "name": "g_nstack_det",
+            "description": "number of stack detections (S/N > 5, primary and secondary)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "g_psfqf": {
+            "name": "g_psfqf",
+            "description": "g-band PSF coverage factor",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "g_psfqfperf": {
+            "name": "g_psfqfperf",
+            "description": "g-band PSF weighted fraction of pixels totally unmasked",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r_chp_psf": {
+            "name": "r_chp_psf",
+            "description": "mean r-band chip PSF magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r_chp_psf_err": {
+            "name": "r_chp_psf_err",
+            "description": "error on mean r-band chip PSF magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r_chp_psf_nphot": {
+            "name": "r_chp_psf_nphot",
+            "description": "number of measurements used for r_chp_psf (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "r_chp_aper": {
+            "name": "r_chp_aper",
+            "description": "mean r-band chip seeing-adapted aperture magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r_chp_aper_err": {
+            "name": "r_chp_aper_err",
+            "description": "error on mean r-band chip seeing-adapted aperture magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r_chp_aper_nphot": {
+            "name": "r_chp_aper_nphot",
+            "description": "number of measurements used for above (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "r_chp_kron": {
+            "name": "r_chp_kron",
+            "description": "mean r-band chip Kron magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r_chp_kron_err": {
+            "name": "r_chp_kron_err",
+            "description": "error on mean r-band chip Kron magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r_chp_kron_nphot": {
+            "name": "r_chp_kron_nphot",
+            "description": "number of measurements used for r_chp_kron (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "r_stk_psf_flux": {
+            "name": "r_stk_psf_flux",
+            "description": "best r-band stack PSF flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r_stk_psf_fluxerr": {
+            "name": "r_stk_psf_fluxerr",
+            "description": "error on best r-band stack PSF flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r_stk_psf_nphot": {
+            "name": "r_stk_psf_nphot",
+            "description": "number of measurements used for r_stk_psf_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "r_stk_aper_flux": {
+            "name": "r_stk_aper_flux",
+            "description": "r-band stack seeing-adapted aperture flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r_stk_aper_fluxerr": {
+            "name": "r_stk_aper_fluxerr",
+            "description": "error on r-band stack seeing-adapted aperture flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r_stk_aper_nphot": {
+            "name": "r_stk_aper_nphot",
+            "description": "number of measurements used for r_stk_aper_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "r_stk_kron_flux": {
+            "name": "r_stk_kron_flux",
+            "description": "r-band stack Kron flux from same stack as 'best' PSF above",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r_stk_kron_fluxerr": {
+            "name": "r_stk_kron_fluxerr",
+            "description": "error on r-band stack Kron flux from same stack as 'best' PSF above",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r_stk_kron_nphot": {
+            "name": "r_stk_kron_nphot",
+            "description": "number of measurements used for r_stk_kron_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "r_wrp_psf_flux": {
+            "name": "r_wrp_psf_flux",
+            "description": "mean r-band forced-warp PSF flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r_wrp_psf_fluxerr": {
+            "name": "r_wrp_psf_fluxerr",
+            "description": "error on mean r-band forced-warp PSF flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r_wrp_psf_nphot": {
+            "name": "r_wrp_psf_nphot",
+            "description": "number of measurements used for r_wrp_psf_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "r_wrp_aper_flux": {
+            "name": "r_wrp_aper_flux",
+            "description": "mean r-band forced-warp seeing-adapted aperture flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r_wrp_aper_fluxerr": {
+            "name": "r_wrp_aper_fluxerr",
+            "description": "error on mean r-band forced-warp seeing-adapted aperture flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r_wrp_aper_nphot": {
+            "name": "r_wrp_aper_nphot",
+            "description": "number of measurements used for r_wrp_aper_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "r_wrp_kron_flux": {
+            "name": "r_wrp_kron_flux",
+            "description": "mean r-band forced-warp Kron flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r_wrp_kron_fluxerr": {
+            "name": "r_wrp_kron_fluxerr",
+            "description": "error on mean r-band forced-warp Kron flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r_wrp_kron_nphot": {
+            "name": "r_wrp_kron_nphot",
+            "description": "number of measurements used for r_wrp_kron_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "r_flags": {
+            "name": "r_flags",
+            "description": "per-filter info flags (equiv. to StackObjectThin.rinfoFlag4)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "r_ncode": {
+            "name": "r_ncode",
+            "description": "number of chip detections in this filter (equiv. to StackObjectThin.nr)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "r_nwarp": {
+            "name": "r_nwarp",
+            "description": "number of warp measurements in this filter (including primary & secondary skycells)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "r_nwarp_good": {
+            "name": "r_nwarp_good",
+            "description": "number of warp measurements with psfqfperf > 0.85 in this filter (including primary & secondary skycells)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "r_nstack": {
+            "name": "r_nstack",
+            "description": "number of stack measurements (primary and secondary)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "r_nstack_det": {
+            "name": "r_nstack_det",
+            "description": "number of stack detections (S/N > 5, primary and secondary)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "r_psfqf": {
+            "name": "r_psfqf",
+            "description": "r-band PSF coverage factor",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "r_psfqfperf": {
+            "name": "r_psfqfperf",
+            "description": "r-band PSF weighted fraction of pixels totally unmasked",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "i_chp_psf": {
+            "name": "i_chp_psf",
+            "description": "mean i-band chip PSF magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "i_chp_psf_err": {
+            "name": "i_chp_psf_err",
+            "description": "error on mean i-band chip PSF magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "i_chp_psf_nphot": {
+            "name": "i_chp_psf_nphot",
+            "description": "number of measurements used for i_chp_psf (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "i_chp_aper": {
+            "name": "i_chp_aper",
+            "description": "mean i-band chip seeing-adapted aperture magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "i_chp_aper_err": {
+            "name": "i_chp_aper_err",
+            "description": "error on mean i-band chip seeing-adapted aperture magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "i_chp_aper_nphot": {
+            "name": "i_chp_aper_nphot",
+            "description": "number of measurements used for above (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "i_chp_kron": {
+            "name": "i_chp_kron",
+            "description": "mean i-band chip Kron magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "i_chp_kron_err": {
+            "name": "i_chp_kron_err",
+            "description": "error on mean i-band chip Kron magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "i_chp_kron_nphot": {
+            "name": "i_chp_kron_nphot",
+            "description": "number of measurements used for i_chp_kron (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "i_stk_psf_flux": {
+            "name": "i_stk_psf_flux",
+            "description": "best i-band stack PSF flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "i_stk_psf_fluxerr": {
+            "name": "i_stk_psf_fluxerr",
+            "description": "error on best i-band stack PSF flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "i_stk_psf_nphot": {
+            "name": "i_stk_psf_nphot",
+            "description": "number of measurements used for i_stk_psf_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "i_stk_aper_flux": {
+            "name": "i_stk_aper_flux",
+            "description": "i-band stack seeing-adapted aperture flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "i_stk_aper_fluxerr": {
+            "name": "i_stk_aper_fluxerr",
+            "description": "error on i-band stack seeing-adapted aperture flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "i_stk_aper_nphot": {
+            "name": "i_stk_aper_nphot",
+            "description": "number of measurements used for i_stk_aper_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "i_stk_kron_flux": {
+            "name": "i_stk_kron_flux",
+            "description": "i-band stack Kron flux from same stack as 'best' PSF above",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "i_stk_kron_fluxerr": {
+            "name": "i_stk_kron_fluxerr",
+            "description": "error on i-band stack Kron flux from same stack as 'best' PSF above",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "i_stk_kron_nphot": {
+            "name": "i_stk_kron_nphot",
+            "description": "number of measurements used for i_stk_kron_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "i_wrp_psf_flux": {
+            "name": "i_wrp_psf_flux",
+            "description": "mean i-band forced-warp PSF flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "i_wrp_psf_fluxerr": {
+            "name": "i_wrp_psf_fluxerr",
+            "description": "error on mean i-band forced-warp PSF flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "i_wrp_psf_nphot": {
+            "name": "i_wrp_psf_nphot",
+            "description": "number of measurements used for i_wrp_psf_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "i_wrp_aper_flux": {
+            "name": "i_wrp_aper_flux",
+            "description": "mean i-band forced-warp seeing-adapted aperture flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "i_wrp_aper_fluxerr": {
+            "name": "i_wrp_aper_fluxerr",
+            "description": "error on mean i-band forced-warp seeing-adapted aperture flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "i_wrp_aper_nphot": {
+            "name": "i_wrp_aper_nphot",
+            "description": "number of measurements used for i_wrp_aper_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "i_wrp_kron_flux": {
+            "name": "i_wrp_kron_flux",
+            "description": "mean i-band forced-warp Kron flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "i_wrp_kron_fluxerr": {
+            "name": "i_wrp_kron_fluxerr",
+            "description": "error on mean i-band forced-warp Kron flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "i_wrp_kron_nphot": {
+            "name": "i_wrp_kron_nphot",
+            "description": "number of measurements used for i_wrp_kron_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "i_flags": {
+            "name": "i_flags",
+            "description": "per-filter info flags (equiv. to StackObjectThin.iinfoFlag4)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "i_ncode": {
+            "name": "i_ncode",
+            "description": "number of chip detections in this filter (equiv. to StackObjectThin.ni)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "i_nwarp": {
+            "name": "i_nwarp",
+            "description": "number of warp measurements in this filter (including primary & secondary skycells)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "i_nwarp_good": {
+            "name": "i_nwarp_good",
+            "description": "number of warp measurements with psfqfperf > 0.85 in this filter (including primary & secondary skycells)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "i_nstack": {
+            "name": "i_nstack",
+            "description": "number of stack measurements (primary and secondary)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "i_nstack_det": {
+            "name": "i_nstack_det",
+            "description": "number of stack detections (S/N > 5, primary and secondary)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "i_psfqf": {
+            "name": "i_psfqf",
+            "description": "i-band PSF coverage factor",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "i_psfqfperf": {
+            "name": "i_psfqfperf",
+            "description": "i-band PSF weighted fraction of pixels totally unmasked",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_chp_psf": {
+            "name": "z_chp_psf",
+            "description": "mean z-band chip PSF magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_chp_psf_err": {
+            "name": "z_chp_psf_err",
+            "description": "error on mean z-band chip PSF magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_chp_psf_nphot": {
+            "name": "z_chp_psf_nphot",
+            "description": "number of measurements used for z_chp_psf (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "z_chp_aper": {
+            "name": "z_chp_aper",
+            "description": "mean z-band chip seeing-adapted aperture magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_chp_aper_err": {
+            "name": "z_chp_aper_err",
+            "description": "error on mean z-band chip seeing-adapted aperture magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_chp_aper_nphot": {
+            "name": "z_chp_aper_nphot",
+            "description": "number of measurements used for above (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "z_chp_kron": {
+            "name": "z_chp_kron",
+            "description": "mean z-band chip Kron magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_chp_kron_err": {
+            "name": "z_chp_kron_err",
+            "description": "error on mean z-band chip Kron magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_chp_kron_nphot": {
+            "name": "z_chp_kron_nphot",
+            "description": "number of measurements used for z_chp_kron (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "z_stk_psf_flux": {
+            "name": "z_stk_psf_flux",
+            "description": "best z-band stack PSF flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_stk_psf_fluxerr": {
+            "name": "z_stk_psf_fluxerr",
+            "description": "error on best z-band stack PSF flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_stk_psf_nphot": {
+            "name": "z_stk_psf_nphot",
+            "description": "number of measurements used for z_stk_psf_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "z_stk_aper_flux": {
+            "name": "z_stk_aper_flux",
+            "description": "z-band stack seeing-adapted aperture flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_stk_aper_fluxerr": {
+            "name": "z_stk_aper_fluxerr",
+            "description": "error on z-band stack seeing-adapted aperture flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_stk_aper_nphot": {
+            "name": "z_stk_aper_nphot",
+            "description": "number of measurements used for z_stk_aper_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "z_stk_kron_flux": {
+            "name": "z_stk_kron_flux",
+            "description": "z-band stack Kron flux from same stack as 'best' PSF above",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_stk_kron_fluxerr": {
+            "name": "z_stk_kron_fluxerr",
+            "description": "error on z-band stack Kron flux from same stack as 'best' PSF above",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_stk_kron_nphot": {
+            "name": "z_stk_kron_nphot",
+            "description": "number of measurements used for z_stk_kron_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "z_wrp_psf_flux": {
+            "name": "z_wrp_psf_flux",
+            "description": "mean z-band forced-warp PSF flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_wrp_psf_fluxerr": {
+            "name": "z_wrp_psf_fluxerr",
+            "description": "error on mean z-band forced-warp PSF flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_wrp_psf_nphot": {
+            "name": "z_wrp_psf_nphot",
+            "description": "number of measurements used for z_wrp_psf_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "z_wrp_aper_flux": {
+            "name": "z_wrp_aper_flux",
+            "description": "mean z-band forced-warp seeing-adapted aperture flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_wrp_aper_fluxerr": {
+            "name": "z_wrp_aper_fluxerr",
+            "description": "error on mean z-band forced-warp seeing-adapted aperture flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_wrp_aper_nphot": {
+            "name": "z_wrp_aper_nphot",
+            "description": "number of measurements used for z_wrp_aper_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "z_wrp_kron_flux": {
+            "name": "z_wrp_kron_flux",
+            "description": "mean z-band forced-warp Kron flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_wrp_kron_fluxerr": {
+            "name": "z_wrp_kron_fluxerr",
+            "description": "error on mean z-band forced-warp Kron flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_wrp_kron_nphot": {
+            "name": "z_wrp_kron_nphot",
+            "description": "number of measurements used for z_wrp_kron_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "z_flags": {
+            "name": "z_flags",
+            "description": "per-filter info flags (equiv. to StackObjectThin.zinfoFlag4)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "z_ncode": {
+            "name": "z_ncode",
+            "description": "number of chip detections in this filter (equiv. to StackObjectThin.nz)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "z_nwarp": {
+            "name": "z_nwarp",
+            "description": "number of warp measurements in this filter (including primary & secondary skycells)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "z_nwarp_good": {
+            "name": "z_nwarp_good",
+            "description": "number of warp measurements with psfqfperf > 0.85 in this filter (including primary & secondary skycells)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "z_nstack": {
+            "name": "z_nstack",
+            "description": "number of stack measurements (primary and secondary)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "z_nstack_det": {
+            "name": "z_nstack_det",
+            "description": "number of stack detections (S/N > 5, primary and secondary)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "z_psfqf": {
+            "name": "z_psfqf",
+            "description": "z-band PSF coverage factor",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_psfqfperf": {
+            "name": "z_psfqfperf",
+            "description": "z-band PSF weighted fraction of pixels totally unmasked",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "y_chp_psf": {
+            "name": "y_chp_psf",
+            "description": "mean y-band chip PSF magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "y_chp_psf_err": {
+            "name": "y_chp_psf_err",
+            "description": "error on mean y-band chip PSF magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "y_chp_psf_nphot": {
+            "name": "y_chp_psf_nphot",
+            "description": "number of measurements used for y_chp_psf (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "y_chp_aper": {
+            "name": "y_chp_aper",
+            "description": "mean y-band chip seeing-adapted aperture magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "y_chp_aper_err": {
+            "name": "y_chp_aper_err",
+            "description": "error on mean y-band chip seeing-adapted aperture magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "y_chp_aper_nphot": {
+            "name": "y_chp_aper_nphot",
+            "description": "number of measurements used for above (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "y_chp_kron": {
+            "name": "y_chp_kron",
+            "description": "mean y-band chip Kron magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "y_chp_kron_err": {
+            "name": "y_chp_kron_err",
+            "description": "error on mean y-band chip Kron magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "y_chp_kron_nphot": {
+            "name": "y_chp_kron_nphot",
+            "description": "number of measurements used for y_chp_kron (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "y_stk_psf_flux": {
+            "name": "y_stk_psf_flux",
+            "description": "best y-band stack PSF flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "y_stk_psf_fluxerr": {
+            "name": "y_stk_psf_fluxerr",
+            "description": "error on best y-band stack PSF flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "y_stk_psf_nphot": {
+            "name": "y_stk_psf_nphot",
+            "description": "number of measurements used for y_stk_psf_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "y_stk_aper_flux": {
+            "name": "y_stk_aper_flux",
+            "description": "y-band stack seeing-adapted aperture flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "y_stk_aper_fluxerr": {
+            "name": "y_stk_aper_fluxerr",
+            "description": "error on y-band stack seeing-adapted aperture flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "y_stk_aper_nphot": {
+            "name": "y_stk_aper_nphot",
+            "description": "number of measurements used for y_stk_aper_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "y_stk_kron_flux": {
+            "name": "y_stk_kron_flux",
+            "description": "y-band stack Kron flux from same stack as 'best' PSF above",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "y_stk_kron_fluxerr": {
+            "name": "y_stk_kron_fluxerr",
+            "description": "error on y-band stack Kron flux from same stack as 'best' PSF above",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "y_stk_kron_nphot": {
+            "name": "y_stk_kron_nphot",
+            "description": "number of measurements used for y_stk_kron_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "y_wrp_psf_flux": {
+            "name": "y_wrp_psf_flux",
+            "description": "mean y-band forced-warp PSF flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "y_wrp_psf_fluxerr": {
+            "name": "y_wrp_psf_fluxerr",
+            "description": "error on mean y-band forced-warp PSF flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "y_wrp_psf_nphot": {
+            "name": "y_wrp_psf_nphot",
+            "description": "number of measurements used for y_wrp_psf_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "y_wrp_aper_flux": {
+            "name": "y_wrp_aper_flux",
+            "description": "mean y-band forced-warp seeing-adapted aperture flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "y_wrp_aper_fluxerr": {
+            "name": "y_wrp_aper_fluxerr",
+            "description": "error on mean y-band forced-warp seeing-adapted aperture flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "y_wrp_aper_nphot": {
+            "name": "y_wrp_aper_nphot",
+            "description": "number of measurements used for y_wrp_aper_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "y_wrp_kron_flux": {
+            "name": "y_wrp_kron_flux",
+            "description": "mean y-band forced-warp Kron flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "y_wrp_kron_fluxerr": {
+            "name": "y_wrp_kron_fluxerr",
+            "description": "error on mean y-band forced-warp Kron flux",
+            "unit": "Jy",
+            "dtype": "Float32",
+            "value": null
+          },
+          "y_wrp_kron_nphot": {
+            "name": "y_wrp_kron_nphot",
+            "description": "number of measurements used for y_wrp_kron_flux (excluding outliers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "y_flags": {
+            "name": "y_flags",
+            "description": "per-filter info flags (equiv. to StackObjectThin.yinfoFlag4)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "y_ncode": {
+            "name": "y_ncode",
+            "description": "number of chip detections in this filter (equiv. to StackObjectThin.ny)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "y_nwarp": {
+            "name": "y_nwarp",
+            "description": "number of warp measurements in this filter (including primary & secondary skycells)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "y_nwarp_good": {
+            "name": "y_nwarp_good",
+            "description": "number of warp measurements with psfqfperf > 0.85 in this filter (including primary & secondary skycells)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "y_nstack": {
+            "name": "y_nstack",
+            "description": "number of stack measurements (primary and secondary)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "y_nstack_det": {
+            "name": "y_nstack_det",
+            "description": "number of stack detections (S/N > 5, primary and secondary)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "y_psfqf": {
+            "name": "y_psfqf",
+            "description": "y-band PSF coverage factor",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "y_psfqfperf": {
+            "name": "y_psfqfperf",
+            "description": "y-band PSF weighted fraction of pixels totally unmasked",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "catid_objid": {
+            "name": "catid_objid",
+            "description": "computed as (catid << 32) & objid. Equivalent to StackObjectThin.ippObjID",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "extid_hi_lo": {
+            "name": "extid_hi_lo",
+            "description": "computed as (extid_hi << 32) & extid_lo. Equivalent to StackObjectThin.ObjID",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

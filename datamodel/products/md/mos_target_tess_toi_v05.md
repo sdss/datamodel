@@ -16,10 +16,10 @@ MOS Target table: mos_target_tess_toi_v05
 This catalog contains targets that recieved the 2 minute cadence during the TESS Mission, are TESS Objects of Interest (TOI) or Community TESS Objects of Interest (CTOI). The contents of this catalog were derived from the MIT TESS website (https://tess.mit.edu/public/target_lists/target_lists.html) and the ExoFOP website https://exofop.ipac.caltech.edu/tess/index.php. These targets were updated on 2020-11-24.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_tess_toi_v05.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_tess_toi_v05.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,7 +71,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_tess_toi_v05
+MOS Target Table: tess_toi_v05
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  28 MB
@@ -80,7 +83,7 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
 | NAXIS1 | 105 | length of dimension 1 |
-| NAXIS2 | 279747 | length of dimension 2 |
+| NAXIS2 | 280151 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 9 | number of table fields |

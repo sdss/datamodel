@@ -16,10 +16,10 @@ MOS Target Table: yso_clustering
 YSO candidates from Kounkel et al. 2020. Please see details in the original paper: https://iopscience.iop.org/article/10.3847/1538-3881/abc0e6
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_yso_clustering-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_yso_clustering.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR18, DR19
+DR18, DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
  - DR19
    - from: DR18
    - note: No changes
@@ -74,7 +77,7 @@ Key | Value | Comment | |
 MOS Target Table: yso_clustering
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  100 MB
+#### HDU Size:  103 MB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -83,7 +86,7 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
 | NAXIS1 | 133 | length of dimension 1 |
-| NAXIS2 | 791219 | length of dimension 2 |
+| NAXIS2 | 814380 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 18 | number of table fields |

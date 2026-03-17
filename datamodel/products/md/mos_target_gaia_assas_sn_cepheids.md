@@ -16,10 +16,10 @@ MOS Target table: mos_target_gaia_assas_sn_cepheids
 Well-defined and characterized all-sky sample of classical Cepheids in the Milky Way, obtained by combining two time-domain all-sky surveys: Gaia DR2 (Gaia Col. 2018; see I/345) and All-Sky Automated Survey for Supernovae (ASAS-SN; Shappee+ 2014AAS...22323603S) and presented in Inno+2021.   Inno+21 use parallax and variability information from Gaia  to select ~30000 bright (G<17) Cepheid candidates with M_K_{<}-1.  They analyze their ASAS-SN V-band light curves, determining periods  and classifying the light curves using their Fourier parameters.  This results in ~1900 likely Galactic Cepheids, Inno+21 estimate  to be >~90% complete and pure within their adopted selection criteria.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_gaia_assas_sn_cepheids.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_gaia_assas_sn_cepheids.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,7 +71,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_gaia_assas_sn_cepheids
+MOS Target Table: gaia_assas_sn_cepheids
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  1 MB
@@ -105,7 +108,7 @@ Name | Type | Unit | Description |
  | a1_v | float64 |  | A_1 column in Table 2 of Inno+2021 |
  | source_id | int64 |  | Unique Gaia DR2 source identifier |
  | random_index | int32 |  | Random index used to select subsets |
- | ref_epoch | float32 |  |  |
+ | ref_epoch | float32 | Julian years | Reference epoch |
  | ra | float64 | deg | Right ascension |
  | ra_error | float64 | mas | Standard error of right ascenscion |
  | dec | float64 | deg | Declination |

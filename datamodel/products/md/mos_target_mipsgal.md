@@ -16,10 +16,10 @@ MOS Target table: mos_target_mipsgal
 This table contains target from a 24µm catalog based point source catalog derived from the image data of the MIPSGAL 24µm Galactic Plane Survey and the corresponding data products.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_mipsgal.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_mipsgal.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,10 +71,10 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_mipsgal
+MOS Target Table: mipsgal
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  426 MB
+#### HDU Size:  433 MB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -80,7 +83,7 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
 | NAXIS1 | 531 | length of dimension 1 |
-| NAXIS2 | 841790 | length of dimension 2 |
+| NAXIS2 | 855305 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 63 | number of table fields |
@@ -99,7 +102,7 @@ Name | Type | Unit | Description |
  | s24 | float64 | mJy | 24µm flux density |
  | e_s24 | float64 | mJy | 1σ uncertainty in S24 |
  | mag_24 | float64 | mag | 24µm magnitude (Vega) |
- | e_mag_24 | float64 | 24] [mag | 1σ uncertainty in |
+ | e_mag_24 | float64 | mag | 1σ uncertainty in [24] |
  | twomass_name | char[17] |  | 2MASS name (HHMMSSss+DDMMSSs, Cat. II/246) |
  | sj | float64 | mJy | 2MASS J-band flux density |
  | e_sj | float64 | mJy | 1σ uncertainty in SJ |
@@ -131,13 +134,13 @@ Name | Type | Unit | Description |
  | kmag | float64 | mag | 2MASS Ks band magnitude (Vega) |
  | e_kmag | float64 | mag | 1σ uncertainty in Kmag (Vega) |
  | mag_3_6 | float64 | mag | Spitzer/IRAC 3.6µm magnitude (Vega) |
- | e_mag_3_6 | float64 | 3.6] [mag | 1σ uncertainty in |
+ | e_mag_3_6 | float64 | mag | 1σ uncertainty in [3.6] |
  | mag_4_5 | float64 | mag | Spitzer/IRAC 4.5µm magnitude (Vega) |
- | e_mag_4_5 | float64 | 4.5] [mag | 1σ uncertainty in |
+ | e_mag_4_5 | float64 | mag | 1σ uncertainty in [4.5] |
  | mag_5_8 | float64 | mag | Spitzer/IRAC 5.8µm magnitude (Vega) |
- | e_mag_5_8 | float64 | 5.8] [mag | 1σ uncertainty in |
+ | e_mag_5_8 | float64 | mag | 1σ uncertainty in [5.8] |
  | mag_8_0 | float64 | mag | Spitzer/IRAC 8.0µm magnitude (Vega) |
- | e_mag_8_0 | float64 | 8.0] [mag | 1σ uncertainty in |
+ | e_mag_8_0 | float64 | mag | 1σ uncertainty in [8.0] |
  | w1mag | float64 | mag | WISE/W1 (3.35um) magnitude (Vega) |
  | e_w1mag | float64 | mag | 1σ uncertainty in W1mag (Vega) |
  | w2mag | float64 | mag | WISE/W2 (4.6µm) magnitude (Vega) |

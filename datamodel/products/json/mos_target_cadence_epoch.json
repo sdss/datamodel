@@ -64,9 +64,15 @@
         "description": "SDSS public data release 19",
         "public": true,
         "release_date": "2025-07-11"
+      },
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
       }
     ],
-    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_cadence_epoch-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts",
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_cadence_epoch.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.",
     "generated_by": "sdss5db> targetdb, operations database server",
     "design": false,
     "vac": false,
@@ -76,6 +82,34 @@
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
     "releases": {
+      "DR20": {
+        "from": "DR19",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null,
+        "delta_ncolumns": 0,
+        "added_columns": [],
+        "removed_columns": []
+      },
       "DR19": {
         "from": "DR18",
         "note": "No changes",
@@ -99,7 +133,10 @@
         "delta_nmembers": null,
         "addead_members": null,
         "removed_members": null,
-        "members": null
+        "members": null,
+        "delta_ncolumns": 0,
+        "added_columns": [],
+        "removed_columns": []
       }
     }
   },
@@ -226,7 +263,8 @@
         }
       },
       "par": null,
-      "hdfs": null
+      "hdfs": null,
+      "dataframe": null
     },
     "DR19": {
       "template": "$MOS_TARGET/[V_TARG]/mos_cadence_epoch.fits",
@@ -411,7 +449,195 @@
         }
       },
       "par": null,
-      "hdfs": null
+      "hdfs": null,
+      "dataframe": null
+    },
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_cadence_epoch.[FTYPE]",
+      "example": "2.0.0/fits/mos_cadence_epoch.fits",
+      "location": "{v_targ}/{ftype}/mos_cadence_epoch.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_cadence_epoch",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_cadence_epoch.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_cadence_epoch = $MOS_TARGET/{v_targ}/{ftype}/mos_cadence_epoch.{ftype}"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: cadence_epoch",
+          "size": "26 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "117",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "235519",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "11",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TNULL2",
+              "value": "-2147483648",
+              "comment": ""
+            },
+            {
+              "key": "TNULL3",
+              "value": "-9223372036854775808",
+              "comment": ""
+            },
+            {
+              "key": "TNULL4",
+              "value": "-2147483648",
+              "comment": ""
+            },
+            {
+              "key": "TNULL9",
+              "value": "-2147483648",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "label": {
+              "name": "label",
+              "description": "Descriptive name for the cadence with a version",
+              "type": "char[42]",
+              "unit": ""
+            },
+            "nepochs": {
+              "name": "nepochs",
+              "description": "Number of epochs in the cadence",
+              "type": "int32",
+              "unit": ""
+            },
+            "cadence_pk": {
+              "name": "cadence_pk",
+              "description": "Primary key of the cadence this epoch belongs to",
+              "type": "int64",
+              "unit": ""
+            },
+            "epoch": {
+              "name": "epoch",
+              "description": "Which epoch is this in the cadence (0-indexed)",
+              "type": "int32",
+              "unit": ""
+            },
+            "delta": {
+              "name": "delta",
+              "description": "Nominal (goal) time since previous epoch",
+              "type": "float64",
+              "unit": "days"
+            },
+            "skybrightness": {
+              "name": "skybrightness",
+              "description": "Maximum allowed skybrightness, i.e. moon illumination (0.0 to 1.0)",
+              "type": "float32",
+              "unit": ""
+            },
+            "delta_max": {
+              "name": "delta_max",
+              "description": "Maximum allowed time since previous epoch",
+              "type": "float32",
+              "unit": "days"
+            },
+            "delta_min": {
+              "name": "delta_min",
+              "description": "Minimum allowed time since previous epoch",
+              "type": "float32",
+              "unit": "days"
+            },
+            "nexp": {
+              "name": "nexp",
+              "description": "Number of exposures in this epoch",
+              "type": "int32",
+              "unit": ""
+            },
+            "max_length": {
+              "name": "max_length",
+              "description": "Maximum allowed length of epoch, i.e. time between first and last exposure",
+              "type": "float32",
+              "unit": ""
+            },
+            "obsmode_pk": {
+              "name": "obsmode_pk",
+              "description": "Reference to the observing parameters (airmass, moon seperation, etc.)",
+              "type": "char[31]",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null,
+      "dataframe": null
     }
   },
   "notes": "None",

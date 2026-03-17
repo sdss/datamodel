@@ -16,10 +16,10 @@ MOS Target table: mos_target_erosita_superset_agn
 One of several tables describing optical/IR counterparts to eROSITA X-ray sources identified via various methods.  These tables contain a superset of potential targets from which the SDSS-V spectroscopic targets were drawn.  The dr19_erosita_superset_agn table includes counterparts to point-like X-ray sources. The sample is expected to be dominated by Active Galactic Nuclei (AGN) but should also include a significant minority of galaxies, stars and other Galactic sources. Each row corresponds to one possible match between an X-ray source and a potential optical/IR counterpart.  The X-ray columns (ero_*) record the eROSITA information known at the time of target selection and may differ from publicly available eROSITA catalogs. The dr19_erosita_superset_* tables are derived from a combination of eROSITA's first 6-month survey of of the West Galactic hemisphere ('eRASS1'), and from the eROSITA observations of the eROSITA Final Equatorial Depth performance verification field ('eFEDS').
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_erosita_superset_agn.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_erosita_superset_agn-[NUM].[FTYPE] with FTYPE='fits', V_TARG='2.0.0', and NUM=1..2 for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,7 +71,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_erosita_superset_agn
+MOS Target Table: erosita_superset_agn
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  598 MB
@@ -115,14 +118,14 @@ Name | Type | Unit | Description |
  | target_priority | int32 |  | Relative to other targets in this catalog, interpreted/adapted later to derive a final target priority |
  | target_has_spec | int64 |  | Flags used to indicate if target has good quality archival spectroscopy available |
  | opt_cat | char[12] |  | Describes which OIR survey provided the optical counterpart for this row of the table, i.e. which OIR cat gives the entries in fields opt_ra, opt_dec, opt_pmra, opt_pmdec, opt_epoch, and which OIR identifier is given in the *_id columns |
- | ls_id | int64 |  | Identifier of counterpart (if any) in dr19_legacy_survey_dr8 ('ls_id' field). Arithmetically derived from legacysurvey sweep file columns: release, brickid and objid:  ls_id = objid + (brickid * 2**16) + (release * 2**40) |
- | ps1_dr2_id | int64 |  | Identifier of counterpart (if any) in dr19_panstarrs1 (catid_objid field). Identical to MAST 'ippObjID' identifier |
- | gaia_dr2_id | int64 |  | Identifier of counterpart (if any) in dr19_gaia_dr2_source ('source_id' field) |
- | catwise2020_id | char[25] |  | Identifier of counterpart (if any) in dr19_catwise2020 ('source_id' field) |
- | skymapper_dr2_id | int64 |  | Identifier of counterpart (if any) in dr19_skymapper_dr2 ('object_id' field) |
- | supercosmos_id | int64 |  | Identifier of counterpart (if any) in dr19_supercosmos ('objid' field) |
- | tycho2_id | char[12] |  | Identifier of counterpart (if any) in dr19_tycho2 ('designation' field) |
- | sdss_dr13_id | int64 |  | Identifier of counterpart (if any) in dr19_sdss_dr13_photoobj ('objid' field) |
+ | ls_id | int64 |  | Identifier of counterpart (if any) in dr20_legacy_survey_dr8 ('ls_id' field). Arithmetically derived from legacysurvey sweep file columns: release, brickid and objid:  ls_id = objid + (brickid * 2**16) + (release * 2**40) |
+ | ps1_dr2_id | int64 |  | Identifier of counterpart (if any) in dr20_panstarrs1 (catid_objid field). Identical to MAST 'ippObjID' identifier |
+ | gaia_dr2_id | int64 |  | Identifier of counterpart (if any) in dr20_gaia_dr2_source ('source_id' field) |
+ | catwise2020_id | char[25] |  | Identifier of counterpart (if any) in dr20_catwise2020 ('source_id' field) |
+ | skymapper_dr2_id | int64 |  | Identifier of counterpart (if any) in dr20_skymapper_dr2 ('object_id' field) |
+ | supercosmos_id | int64 |  | Identifier of counterpart (if any) in dr20_supercosmos ('objid' field) |
+ | tycho2_id | char[12] |  | Identifier of counterpart (if any) in dr20_tycho2 ('designation' field) |
+ | sdss_dr13_id | int64 |  | Identifier of counterpart (if any) in dr20_sdss_dr13_photoobj ('objid' field) |
  | opt_ra | float64 | deg | Sky coordinate of optical/IR counterpart, included for validity checks only |
  | opt_dec | float64 | deg | Sky coordinate of optical/IR counterpart, included for validity checks only |
  | opt_pmra | float32 | mas/yr | Proper motion of optical/IR counterpart, included for validity checks only |

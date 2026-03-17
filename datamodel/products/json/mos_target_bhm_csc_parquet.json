@@ -1,0 +1,152 @@
+{
+  "general": {
+    "name": "mos_target_bhm_csc_parquet",
+    "short": "MOS Target Table: bhm_csc",
+    "description": "Chandra Source Catalogue version 2.0 (CSC2) sources.\n\nChandra Source Catalogue version 2.0 (CSC2) sources that have been matched (separately) to the PanSTARRS-1 and 2MASS catalogs.  This version of the CSC2 catalog informed early (plate era) SDSS-V observations but was then replaced by updated versions.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "3 MB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_bhm_csc.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_bhm_csc.[FTYPE]",
+      "example": "2.0.0/parquet/mos_bhm_csc.parquet",
+      "location": "{v_targ}/{ftype}/mos_bhm_csc.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_bhm_csc",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_bhm_csc.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_bhm_csc = $MOS_TARGET/{v_targ}/{ftype}/mos_bhm_csc.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "pk": {
+            "name": "pk",
+            "description": "primary key of this table entry",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "csc_version": {
+            "name": "csc_version",
+            "description": "Always equal to 'CSC2stub1'",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "cxo_name": {
+            "name": "cxo_name",
+            "description": "unique identifier for the CSC X-ray source",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "oir_ra": {
+            "name": "oir_ra",
+            "description": "despite the name, this is the X-ray coordinate of the target",
+            "unit": "deg",
+            "dtype": "Float64",
+            "value": null
+          },
+          "oir_dec": {
+            "name": "oir_dec",
+            "description": "despite the name, this is the X-ray coordinate of the target",
+            "unit": "deg",
+            "dtype": "Float64",
+            "value": null
+          },
+          "mag_g": {
+            "name": "mag_g",
+            "description": "optical magnitude (g-band) from Pan-STARRS1 catalog, if available",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "mag_r": {
+            "name": "mag_r",
+            "description": "optical magnitude (r-band) from Pan-STARRS1 catalog, if available",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "mag_i": {
+            "name": "mag_i",
+            "description": "optical magnitude (i-band) from Pan-STARRS1 catalog, if available",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "mag_z": {
+            "name": "mag_z",
+            "description": "optical magnitude (z-band) from Pan-STARRS1 catalog, if available",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "mag_h": {
+            "name": "mag_h",
+            "description": "H-band NIR magnitude from 2MASS catalog, if available",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectrograph": {
+            "name": "spectrograph",
+            "description": "Which spectrograph this target should be observed with (BOSS or APOGEE)",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

@@ -1,0 +1,73 @@
+general:
+  name: mos_target_catalog_to_guvcat_parquet
+  short: 'MOS Target Table: catalog_to_guvcat'
+  description: The table contains the cross-match between the dr20_catalog targets
+    and the dr20_guvcat table.
+  datatype: PARQUET
+  filesize: 434 MB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_catalog_to_guvcat.[FTYPE] with
+    FTYPE='parquet' and V_TARG='2.0.0' for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_catalog_to_guvcat.[FTYPE]
+    example: 2.0.0/parquet/mos_catalog_to_guvcat.parquet
+    location: '{v_targ}/{ftype}/mos_catalog_to_guvcat.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_catalog_to_guvcat
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_catalog_to_guvcat@mos_target_num2|.{ftype}
+      path_kwargs:
+      - ftype
+      - v_targ
+      access_string: mos_target_catalog_to_guvcat = $MOS_TARGET/{v_targ}/{ftype}/mos_catalog_to_guvcat.{ftype}
+    survey: SDSS
+    dataframe:
+      columns:
+        catalogid:
+          name: catalogid
+          dtype: Int64
+          unit: ''
+          description: The catalogid identifier in the dr20_catalog table.
+        target_id:
+          name: target_id
+          dtype: Int64
+          unit: ''
+          description: The primary key identifier in the dr20_guvcat table.
+        version_id:
+          name: version_id
+          dtype: Int16
+          unit: ''
+          description: The internal version for the cross-match.
+        distance:
+          name: distance
+          dtype: Float64
+          unit: ''
+          description: The distance between the catalog and target coordinates if
+            best=F.
+        best:
+          name: best
+          dtype: Boolean
+          unit: ''
+          description: Whether this is considered the best match between the catalog
+            entry and dr20_guvcat.
+      metadata: {}
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

@@ -16,10 +16,10 @@ MOS Target Table: sdss_dr16_specobj
 This is a base table containing ALL the spectroscopic information, including a lot of duplicate and bad data. Use the SpecObj view instead, which has the data properly filtered for cleanliness. These tables contain both the BOSS and SDSS spectrograph data. NOTE: The RA and Dec in this table refer to the DR8 coordinates, which have errors in the region north of 41 deg in Dec. This change does not affect the matching to the photometric catalog.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_sdss_dr16_specobj-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdss_dr16_specobj-[NUM].[FTYPE] with FTYPE='fits', V_TARG='2.0.0', and NUM=1..3 for DR20.
 
 ### Releases
-DR18, DR19
+DR18, DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
  - DR19
    - from: DR18
    - note: No changes
@@ -146,82 +149,82 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | specobjid | float32 |  | Unique database ID based on PLATE, MJD, FIBERID, RUN2D |
- | bestobjid | int64 |  | Object ID of photoObj match (position-based) |
- | fluxobjid | int64 |  | Object ID of photoObj match (flux-based) |
- | targetobjid | int64 |  | Object ID of original target |
- | plateid | float32 |  | Database ID of Plate |
- | scienceprimary | int16 |  | Best version of spectrum at this location (defines default view SpecObj) |
- | sdssprimary | int16 |  | Best version of spectrum at this location among SDSS plates (defines default view SpecObj) |
- | legacyprimary | int16 |  | Best version of spectrum at this location, among Legacy plates |
- | segueprimary | int16 |  | Best version of spectrum at this location, among SEGUE plates |
- | segue1primary | int16 |  | Best version of spectrum at this location, among SEGUE-1 plates |
- | segue2primary | int16 |  | Best version of spectrum at this location, among SEGUE-2 plates |
- | bossprimary | int16 |  | Best version of spectrum at this location, among BOSS plates |
- | bossspecobjid | int32 |  | Index of BOSS observation in spAll flat file |
- | firstrelease | char[4] |  | Name of first release this object was associated with |
- | survey | char[6] |  | Survey name |
- | instrument | char[4] |  | Instrument used (SDSS or BOSS spectrograph) |
- | programname | char[23] |  | Program name |
- | chunk | char[16] |  | Chunk name |
- | platerun | char[16] |  | Plate drill run name |
- | mjd | int32 |  | MJD of observation |
- | plate | int16 |  | Plate number |
- | fiberid | int16 |  | Fiber ID |
- | run1d | char[7] |  | 1D Reduction version of spectrum |
- | run2d | char[7] |  | 2D Reduction version of spectrum |
- | tile | int32 |  | Tile number |
- | designid | int32 |  | Design ID number |
- | legacy_target1 | int64 |  | for Legacy program, target selection information at plate design |
- | legacy_target2 | int64 |  | for Legacy program target selection information at plate design, secondary/qa/calibration |
- | special_target1 | int64 |  | for Special program target selection information at plate design |
- | special_target2 | int64 |  | for Special program target selection information at plate design, secondary/qa/calibration |
- | segue1_target1 | int64 |  | SEGUE-1 target selection information at plate design, primary science selection |
- | segue1_target2 | int64 |  | SEGUE-1 target selection information at plate design, secondary/qa/calib selection |
- | segue2_target1 | int64 |  | SEGUE-2 target selection information at plate design, primary science selection |
- | segue2_target2 | int64 |  | SEGUE-2 target selection information at plate design, secondary/qa/calib selection |
- | boss_target1 | int64 |  | BOSS target selection information at plate |
- | eboss_target0 | int64 |  | EBOSS target selection information, for SEQUELS plates |
- | eboss_target1 | int64 |  | EBOSS target selection information, for eBOSS plates |
- | eboss_target2 | int64 |  | EBOSS target selection information, for TDSS, SPIDERS, ELG, etc. plates |
- | eboss_target_id | int64 |  | EBOSS unique target identifier for every spectroscopic target, |
- | ancillary_target1 | int64 |  | BOSS ancillary science target selection information at plate design |
- | ancillary_target2 | int64 |  | BOSS ancillary target selection information at plate design |
- | thing_id_targeting | int64 |  | thing_id value from the version of resolve from which the targeting was created |
- | thing_id | int32 |  | Unique identifier from global resolve |
- | primtarget | int64 |  | target selection information at plate design, primary science selection (for backwards compatibility) |
- | sectarget | int64 |  | target selection information at plate design, secondary/qa/calib selection (for backwards compatibility) |
- | spectrographid | int16 |  | which spectrograph (1,2) |
- | sourcetype | char[21] |  | For Legacy, SEGUE-2 and BOSS science targets, type of object targeted as (target bits contain full information and are recommended) |
- | targettype | char[8] |  | Nature of target: SCIENCE, STANDARD, or SKY |
- | ra | float64 |  | DR8 Right ascension of fiber, J2000 |
- | dec | float64 |  | DR8 Declination of fiber, J2000 |
- | cx | float64 |  | x of Normal unit vector in J2000 |
- | cy | float64 |  | y of Normal unit vector in J2000 |
- | cz | float64 |  | z of Normal unit vector in J2000 |
- | xfocal | float32 |  | X focal plane position (+RA direction) |
- | yfocal | float32 |  | Y focal plane position (+Dec direction) |
- | lambdaeff | float32 |  | Effective wavelength that hole was drilled for (accounting for atmopheric refraction) |
- | bluefiber | int32 |  | Set to 1 if this hole was designated a "blue fiber", 0 if designated a "red fiber" (high redshift LRGs are preferentially in "red fibers") |
- | zoffset | float32 |  | Washer thickness used (for backstopping BOSS quasar targets, so they are closer to 4000 Angstrom focal plan) |
- | z | float32 |  | Final Redshift |
- | zerr | float32 |  | Redshift error |
- | zwarning | int32 |  | Bitmask of warning values; 0 means all is well |
- | class | char[6] |  | Spectroscopic class (GALAXY, QSO, or STAR) |
- | subclass | char[21] |  | Spectroscopic subclass |
+ | specobjid | float32 |  | Unique database ID based on PLATE, MJD, FIBERID, RUN2D (same as SkyServer version) |
+ | bestobjid | int64 |  | Unique database ID of (recommended) position-based photometric match based on RUN, RERUN, CAMCOl, FIELD, ID (same as SkyServer version) |
+ | fluxobjid | int64 |  | Unique database ID of flux-based photometric match based on RUN, RERUN, CAMCOl, FIELD, ID (same as SkyServer version) |
+ | targetobjid | int64 |  | Unique database ID of targeting object based on RUN, RERUN, CAMCOl, FIELD, ID (same as SkyServer version) |
+ | plateid | float32 |  | Unique database ID of plate based on PLATE, MJD, RUN2D (same as SkyServer version) |
+ | scienceprimary | int16 |  | Set to 1 for primary observation of object, 0 otherwise |
+ | sdssprimary | int16 |  | Set to 1 for primary SDSS spectrograph observation of object, 0 otherwise |
+ | legacyprimary | int16 |  | Set to 1 for primary SDSS Legacy program observation of object, 0 otherwise |
+ | segueprimary | int16 |  | Set to 1 for primary SDSS SEGUE program observation of object (including SEGUE-1 and SEGUE-2), 0 otherwise |
+ | segue1primary | int16 |  | Set to 1 for primary SDSS SEGUE-1 program observation of object, 0 otherwise |
+ | segue2primary | int16 |  | Set to 1 for primary SDSS SEGUE-2 program observation of object, 0 otherwise |
+ | bossprimary | int16 |  | Set to 1 for primary BOSS spectrograph observation of object, 0 otherwise |
+ | bossspecobjid | int32 |  | Identification number internal to BOSS for SPECBOSS=1 objects |
+ | firstrelease | char[4] |  | Name of first release this PLATE, MJD, FIBERID, RUN2D was associated with |
+ | survey | char[6] |  | Survey that this object is part of |
+ | instrument | char[4] |  | Instrument that this spectrum was observed with (SDSS or BOSS) |
+ | programname | char[23] |  | Program within each survey that the plate was part of |
+ | chunk | char[16] |  | Name of tiling chunk that this spectrum was tiled in (boss1, boss2, etc), important for tracking large-scale structure samples |
+ | platerun | char[16] |  | Drilling run that this plate was drilled in |
+ | mjd | int32 | day | Modified Julian Day of observation |
+ | plate | int16 |  | Plate number (each plate corresponds to an actual plug plate) |
+ | fiberid | int16 |  | Fiber number |
+ | run1d | char[7] |  | Spectroscopic 1D reduction (redshift and classification) name |
+ | run2d | char[7] |  | Spectroscopic 2D reduction (extraction of spectra) name |
+ | tile | int32 |  | Tile number (each tile can have several plates drilled for it) |
+ | designid | int32 |  | Design identification number for plate |
+ | legacy_target1 | int64 |  | Primary (science) target flags for SDSS-I and SDSS-II Legacy survey |
+ | legacy_target2 | int64 |  | Secondary (calibration) target flags for SDSS-I and SDSS-II Legacy survey |
+ | special_target1 | int64 |  | Primary (science) target flags for SDSS-I and SDSS-II special program targets |
+ | special_target2 | int64 |  | Secondary (calibration) target flags for SDSS-I and SDSS-II special program targets |
+ | segue1_target1 | int64 |  | Primary (science) target flags for SEGUE-1 targets |
+ | segue1_target2 | int64 |  | Secondary (calibration) target flags for SEGUE-1 targets |
+ | segue2_target1 | int64 |  | Primary (science) target flags for SEGUE-2 targets |
+ | segue2_target2 | int64 |  | Secondary (calibration) target flags for SEGUE-2 targets |
+ | boss_target1 | int64 |  | Primary (science) target flags for BOSS targets |
+ | eboss_target0 | int64 |  | SEQUELS, TDSS and SPIDERS target selection flags |
+ | eboss_target1 | int64 |  | eBOSS, TDSS and SPIDERS target selection flags for main eBOSS survey |
+ | eboss_target2 | int64 |  | eBOSS, TDSS and SPIDERS target selection flags for main eBOSS survey |
+ | eboss_target_id | int64 |  | eBOSS unique target identifier for every spectroscopic target |
+ | ancillary_target1 | int64 |  | Target flags for BOSS ancillary targets |
+ | ancillary_target2 | int64 |  | More target flags for BOSS ancillary targets |
+ | thing_id_targeting | int64 |  | Resolve THING_ID in SDSS imaging for targeted object |
+ | thing_id | int32 |  | Resolve THING_ID in SDSS imaging for best positional match |
+ | primtarget | int64 |  | Deprecated version of primary (science) target flags (meanings highly overloaded) |
+ | sectarget | int64 |  | Deprecated version of secondary (calibration) target flags (meanings highly overloaded) |
+ | spectrographid | int16 |  | Which spectrograph (1 or 2) |
+ | sourcetype | char[21] |  | String expressing type of source (similar to OBJTYPE in DR8 and earlier) |
+ | targettype | char[8] |  | General type of target ("SCIENCE", "STANDARD" or "SKY") |
+ | ra | float64 | degrees | Right ascension of hole (J2000) |
+ | dec | float64 | degrees | Declination of hole (J2000) |
+ | cx | float64 |  | Position of object on J2000 unit sphere |
+ | cy | float64 |  | Position of object on J2000 unit sphere |
+ | cz | float64 |  | Position of object on J2000 unit sphere |
+ | xfocal | float32 | mm | Hole position on plate (+X = +RA) |
+ | yfocal | float32 | mm | Hole position on plate (+Y = +DEC) |
+ | lambdaeff | float32 | Angstroms | Effective wavelength drilling position was optimized for |
+ | bluefiber | int32 |  | Set to 1 if this was requested to be a "blue fiber" target, 0 if it was a "red fiber" (in BOSS high redshift LRGs are requested to be on red fibers) |
+ | zoffset | float32 | microns | Washer thickness used (for backstopping BOSS quasar targets, so they are closer to 4000 Angstrom focal plan) |
+ | z | float32 |  | Best redshift |
+ | zerr | float32 |  | Error in best redshift |
+ | zwarning | int32 |  | Bitmask of spectroscopic warning values; 0 means everything is OK |
+ | class | char[6] |  | Best spectroscopic classification ("STAR", "GALAXY" or "QSO") |
+ | subclass | char[21] |  | Best spectroscopic subclassification |
  | rchi2 | float32 |  | Reduced chi-squared of best fit |
- | dof | float32 |  | Degrees of freedom in best fit |
+ | dof | float32 |  | Number of degrees of freedom in best fit |
  | rchi2diff | float32 |  | Difference in reduced chi-squared between best and second best fit |
- | z_noqso | float32 |  | Best redshift when excluding QSO fit in BOSS spectra (right redshift to use for galaxy targets) |
- | zerr_noqso | float32 |  | Error in "z_noqso" redshift (BOSS spectra only) |
- | zwarning_noqso | int32 |  | Warnings in "z_noqso" redshift (BOSS spectra only) |
- | class_noqso | char[6] |  | Classification in "z_noqso" redshift |
- | subclass_noqso | char[21] |  | Sub-classification in "z_noqso" redshift |
- | rchi2diff_noqso | float32 |  | Reduced chi-squared difference from next best redshift, for "z_noqso" redshift |
- | z_person | float32 |  | Person-assigned redshift, if this object has been inspected |
- | class_person | char[1] |  | Person-assigned classification, if this object has been inspected |
- | comments_person | char[4] |  | Comments from person for inspected objects |
- | tfile | char[24] |  | File name of best fit template source |
+ | z_noqso | float32 |  | Best redshift when ignoring QSO fits, recommended for BOSS CMASS and LOWZ targets; calculated only for survey='boss' spectra, not for any SDSS spectrograph data |
+ | zerr_noqso | float32 |  | Error in Z_NOQSO redshift |
+ | zwarning_noqso | int32 |  | For Z_NOQSO redshift, the bitmask of spectroscopic warning values; 0 means everything is OK |
+ | class_noqso | char[6] |  | Spectroscopic classification for Z_NOQSO redshift |
+ | subclass_noqso | char[21] |  | Spectroscopic subclassification for Z_NOQSO redshift |
+ | rchi2diff_noqso | float32 |  | Difference in reduced chi-squared between best and second best fit for Z_NOQSO redshift |
+ | z_person | float32 |  | Visual-inspection redshift |
+ | class_person | char[1] |  | Visual-inspection classification (0=not inspected or unknown, 1=star, 2=narrow emission-line galaxy, 3=QSO, 4=galaxy) |
+ | comments_person | char[4] |  | Visual-inspection comments |
+ | tfile | char[24] |  | File that best fit template comes from in idlspec1d product |
  | tcolumn_0 | int16 |  | Which column of the template file corresponds to template #0 |
  | tcolumn_1 | int16 |  | Which column of the template file corresponds to template #1 |
  | tcolumn_2 | int16 |  | Which column of the template file corresponds to template #2 |
@@ -232,33 +235,33 @@ Name | Type | Unit | Description |
  | tcolumn_7 | int16 |  | Which column of the template file corresponds to template #7 |
  | tcolumn_8 | int16 |  | Which column of the template file corresponds to template #8 |
  | tcolumn_9 | int16 |  | Which column of the template file corresponds to template #9 |
- | npoly | float32 |  | Number of polynomial terms used in the fit |
- | theta_0 | float32 |  | Coefficient for template #0 of fit |
- | theta_1 | float32 |  | Coefficient for template #1 of fit |
- | theta_2 | float32 |  | Coefficient for template #2 of fit |
- | theta_3 | float32 |  | Coefficient for template #3 of fit |
- | theta_4 | float32 |  | Coefficient for template #4 of fit |
- | theta_5 | float32 |  | Coefficient for template #5 of fit |
- | theta_6 | float32 |  | Coefficient for template #6 of fit |
- | theta_7 | float32 |  | Coefficient for template #7 of fit |
- | theta_8 | float32 |  | Coefficient for template #8 of fit |
- | theta_9 | float32 |  | Coefficient for template #9 of fit |
- | veldisp | float32 |  | Velocity dispersion |
- | veldisperr | float32 |  | Error in velocity dispersion |
- | veldispz | float32 |  | Redshift associated with best fit velocity dispersion |
- | veldispzerr | float32 |  | Error in redshift associated with best fit velocity dispersion |
- | veldispchi2 | float32 |  | Chi-squared associated with velocity dispersion fit |
- | veldispnpix | int32 |  | Number of pixels overlapping best template in velocity dispersion fit |
+ | npoly | float32 |  | Number of polynomial terms in fit |
+ | theta_0 | float32 |  | Template coefficients of best fit (polynomial term #0) |
+ | theta_1 | float32 |  | Template coefficients of best fit (polynomial term #1) |
+ | theta_2 | float32 |  | Template coefficients of best fit (polynomial term #2) |
+ | theta_3 | float32 |  | Template coefficients of best fit (polynomial term #3) |
+ | theta_4 | float32 |  | Template coefficients of best fit (polynomial term #4) |
+ | theta_5 | float32 |  | Template coefficients of best fit (polynomial term #5) |
+ | theta_6 | float32 |  | Template coefficients of best fit (polynomial term #6) |
+ | theta_7 | float32 |  | Template coefficients of best fit (polynomial term #7) |
+ | theta_8 | float32 |  | Template coefficients of best fit (polynomial term #8) |
+ | theta_9 | float32 |  | Template coefficients of best fit (polynomial term #9) |
+ | veldisp | float32 | km/s | Velocity dispersion |
+ | veldisperr | float32 | km/s | Error in velocity dispersion |
+ | veldispz | float32 |  | Redshift associated with best-fit velocity dispersion |
+ | veldispzerr | float32 |  | Error in redshift associated with best-fit velocity dispersion |
+ | veldispchi2 | float32 |  | Chi-squared for best-fit velocity dispersion |
+ | veldispnpix | int32 |  | Number of pixels overlapping the templates used in the velocity dispersion fit |
  | veldispdof | int32 |  | Number of degrees of freedom in velocity dispersion fit |
- | wavemin | float32 |  | Minimum observed (vacuum) wavelength |
- | wavemax | float32 |  | Maximum observed (vacuum) wavelength |
+ | wavemin | float32 | Angstroms | Minimum observed (vacuum) wavelength |
+ | wavemax | float32 | Angstroms | Maximum observed (vacuum) wavelength |
  | wcoverage | float32 |  | Coverage in wavelength, in units of log10 wavelength |
- | snmedian_u | float32 |  | Median signal-to-noise over all good pixels in u-band |
- | snmedian_g | float32 |  | Median signal-to-noise over all good pixels in g-band |
- | snmedian_r | float32 |  | Median signal-to-noise over all good pixels in r-band |
- | snmedian_i | float32 |  | Median signal-to-noise over all good pixels in i-band |
- | snmedian_z | float32 |  | Median signal-to-noise over all good pixels in z-band |
- | snmedian | float32 |  | Median signal-to-noise over all good pixels |
+ | snmedian_u | float32 |  | Median signal-to-noise per pixel within the u bandpass |
+ | snmedian_g | float32 |  | Median signal-to-noise per pixel within the g bandpass |
+ | snmedian_r | float32 |  | Median signal-to-noise per pixel within the r bandpass |
+ | snmedian_i | float32 |  | Median signal-to-noise per pixel within the i bandpass |
+ | snmedian_z | float32 |  | Median signal-to-noise per pixel within the z bandpass |
+ | snmedian | float32 |  | Median signal-to-noise per pixel across full spectrum (aka SN_MEDIAN_ALL) |
  | chi68p | float32 |  | 68-th percentile value of abs(chi) of the best-fit synthetic spectrum to the actual spectrum (around 1.0 for a good fit) |
  | fracnsigma_1 | float32 |  | Fraction of pixels deviant by more than 1 sigma relative to best-fit |
  | fracnsigma_2 | float32 |  | Fraction of pixels deviant by more than 2 sigma relative to best-fit |
@@ -290,54 +293,54 @@ Name | Type | Unit | Description |
  | fracnsiglo_8 | float32 |  | Fraction of pixels low by more than 8 sigma relative to best-fit |
  | fracnsiglo_9 | float32 |  | Fraction of pixels low by more than 9 sigma relative to best-fit |
  | fracnsiglo_10 | float32 |  | Fraction of pixels low by more than 10 sigma relative to best-fit |
- | spectroflux_u | float32 |  | Spectrum projected onto u filter |
- | spectroflux_g | float32 |  | Spectrum projected onto g filter |
- | spectroflux_r | float32 |  | Spectrum projected onto r filter |
- | spectroflux_i | float32 |  | Spectrum projected onto i filter |
- | spectroflux_z | float32 |  | Spectrum projected onto z filter |
- | spectrosynflux_u | float32 |  | Best-fit template spectrum projected onto u filter |
- | spectrosynflux_g | float32 |  | Best-fit template spectrum projected onto g filter |
- | spectrosynflux_r | float32 |  | Best-fit template spectrum projected onto r filter |
- | spectrosynflux_i | float32 |  | Best-fit template spectrum projected onto i filter |
- | spectrosynflux_z | float32 |  | Best-fit template spectrum projected onto z filter |
- | spectrofluxivar_u | float32 |  | Inverse variance of spectrum projected onto u filter |
- | spectrofluxivar_g | float32 |  | Inverse variance of spectrum projected onto g filter |
- | spectrofluxivar_r | float32 |  | Inverse variance of spectrum projected onto r filter |
- | spectrofluxivar_i | float32 |  | Inverse variance of spectrum projected onto i filter |
- | spectrofluxivar_z | float32 |  | Inverse variance of spectrum projected onto z filter |
- | spectrosynfluxivar_u | float32 |  | Inverse variance of best-fit template spectrum projected onto u filter |
- | spectrosynfluxivar_g | float32 |  | Inverse variance of best-fit template spectrum projected onto g filter |
- | spectrosynfluxivar_r | float32 |  | Inverse variance of best-fit template spectrum projected onto r filter |
- | spectrosynfluxivar_i | float32 |  | Inverse variance of best-fit template spectrum projected onto i filter |
- | spectrosynfluxivar_z | float32 |  | Inverse variance of best-fit template spectrum projected onto z filter |
- | spectroskyflux_u | float32 |  | Sky spectrum projected onto u filter |
- | spectroskyflux_g | float32 |  | Sky spectrum projected onto g filter |
- | spectroskyflux_r | float32 |  | Sky spectrum projected onto r filter |
- | spectroskyflux_i | float32 |  | Sky spectrum projected onto i filter |
- | spectroskyflux_z | float32 |  | Sky spectrum projected onto z filter |
+ | spectroflux_u | float32 | nanomaggies | Spectral flux within u filter bandpass |
+ | spectroflux_g | float32 | nanomaggies | Spectral flux within g filter bandpass |
+ | spectroflux_r | float32 | nanomaggies | Spectral flux within r filter bandpass |
+ | spectroflux_i | float32 | nanomaggies | Spectral flux within i filter bandpass |
+ | spectroflux_z | float32 | nanomaggies | Spectral flux within z filter bandpass |
+ | spectrosynflux_u | float32 | nanomaggies | Spectral flux of best-fit template spectrum within u filter bandpass |
+ | spectrosynflux_g | float32 | nanomaggies | Spectral flux of best-fit template spectrum within g filter bandpass |
+ | spectrosynflux_r | float32 | nanomaggies | Spectral flux of best-fit template spectrum within r filter bandpass |
+ | spectrosynflux_i | float32 | nanomaggies | Spectral flux of best-fit template spectrum within i filter bandpass |
+ | spectrosynflux_z | float32 | nanomaggies | Spectral flux of best-fit template spectrum within z filter bandpass |
+ | spectrofluxivar_u | float32 | nanomaggies^-2 | Inverse variance of spectral flux within u filter bandpass |
+ | spectrofluxivar_g | float32 | nanomaggies^-2 | Inverse variance of spectral flux within g filter bandpass |
+ | spectrofluxivar_r | float32 | nanomaggies^-2 | Inverse variance of spectral flux within r filter bandpass |
+ | spectrofluxivar_i | float32 | nanomaggies^-2 | Inverse variance of spectral flux within i filter bandpass |
+ | spectrofluxivar_z | float32 | nanomaggies^-2 | Inverse variance of spectral flux within z filter bandpass |
+ | spectrosynfluxivar_u | float32 | nanomaggies^-2 | Inverse variance of spectral flux of best-fit template spectrum within u filter bandpass |
+ | spectrosynfluxivar_g | float32 | nanomaggies^-2 | Inverse variance of spectral flux of best-fit template spectrum within g filter bandpass |
+ | spectrosynfluxivar_r | float32 | nanomaggies^-2 | Inverse variance of spectral flux of best-fit template spectrum within r filter bandpass |
+ | spectrosynfluxivar_i | float32 | nanomaggies^-2 | Inverse variance of spectral flux of best-fit template spectrum within i filter bandpass |
+ | spectrosynfluxivar_z | float32 | nanomaggies^-2 | Inverse variance of spectral flux of best-fit template spectrum within z filter bandpass |
+ | spectroskyflux_u | float32 | nanomaggies | Sky flux in the u filter bandpass |
+ | spectroskyflux_g | float32 | nanomaggies | Sky flux in the g filter bandpass |
+ | spectroskyflux_r | float32 | nanomaggies | Sky flux in the r filter bandpass |
+ | spectroskyflux_i | float32 | nanomaggies | Sky flux in the i filter bandpass |
+ | spectroskyflux_z | float32 | nanomaggies | Sky flux in the z filter bandpass |
  | anyandmask | int32 |  | For each bit, records whether any pixel in the spectrum has that bit set in its ANDMASK |
  | anyormask | int32 |  | For each bit, records whether any pixel in the spectrum has that bit set in its ORMASK |
- | platesn2 | float32 |  | Overall signal-to-noise-squared measure for plate (only set for SDSS spectrograph) |
- | deredsn2 | float32 |  | Dereddened signal-to-noise-squared measure for plate (only set for BOSS spectrograph) |
+ | platesn2 | float32 |  | Overall signal-to-noise-squared measure for plate (only for SDSS spectrograph plates) |
+ | deredsn2 | float32 |  | Dereddened overall signal-to-noise-squared measure for plate (only for BOSS spectrograph plates) |
  | snturnoff | float32 |  | Signal to noise measure for MS turnoff stars on plate (-9999 if not appropriate) |
- | sn1_g | float32 |  | (S/N)^2 at g=20.20 for spectrograph #1 |
- | sn1_r | float32 |  | (S/N)^2 at r=20.25 for spectrograph #1 |
- | sn1_i | float32 |  | (S/N)^2 at i=19.90 for spectrograph #1 |
- | sn2_g | float32 |  | (S/N)^2 at g=20.20 for spectrograph #2 |
- | sn2_r | float32 |  | (S/N)^2 at r=20.25 for spectrograph #2 |
- | sn2_i | float32 |  | (S/N)^2 at i=19.90 for spectrograph #2 |
- | elodiefilename | char[25] |  | File name for best-fit Elodie star |
- | elodieobject | char[21] |  | Star name (mostly Henry Draper names) |
- | elodiesptype | char[10] |  | Spectral type |
- | elodiebv | float32 |  | (B-V) color |
- | elodieteff | float32 |  | Effective temperature |
- | elodielogg | float32 |  | log10(gravity) |
- | elodiefeh | float32 | Fe/H | Metallicity ( |
- | elodiez | float32 |  | Redshift |
- | elodiezerr | float32 |  | Redshift error (negative for invalid fit) |
- | elodiezmodelerr | float32 |  | Standard deviation in redshift among the 12 best-fit stars |
- | elodierchi2 | float32 |  | Reduced chi^2 |
- | elodiedof | float32 |  | Degrees of freedom for fit |
+ | sn1_g | float32 |  | Signal-to-noise squared for spectrograph #1, at fiducial (psf)magnitude g=20.20 for SDSS spectrograph spectra, g=21.20 for BOSS spectrograph spectra |
+ | sn1_r | float32 |  | Signal-to-noise squared for spectrograph #1, at fiducial (psf)magnitude r=20.25 for SDSS spectrograph spectra, r=20.20 for BOSS spectrograph spectra |
+ | sn1_i | float32 |  | Signal-to-noise squared for spectrograph #1, at fiducial (psf)magnitude i=19.90 for SDSS spectrograph spectra, i=20.20 for BOSS spectrograph spectra |
+ | sn2_g | float32 |  | Signal-to-noise squared for spectrograph #2, at fiducial (psf)magnitude g=20.20 for SDSS spectrograph spectra, g=21.20 for BOSS spectrograph spectra |
+ | sn2_r | float32 |  | Signal-to-noise squared for spectrograph #2, at fiducial (psf)magnitude r=20.25 for SDSS spectrograph spectra, r=20.20 for BOSS spectrograph spectra |
+ | sn2_i | float32 |  | Signal-to-noise squared for spectrograph #2, at fiducial (psf)magnitude i=19.90 for SDSS spectrograph spectra, i=20.20 for BOSS spectrograph spectra |
+ | elodiefilename | char[25] |  | File name for best-fit ELODIE star |
+ | elodieobject | char[21] |  | Star name for ELODIE star |
+ | elodiesptype | char[10] |  | ELODIE star spectral type |
+ | elodiebv | float32 | mag | (B-V) color index for ELODIE star |
+ | elodieteff | float32 | Kelvin | Effective temperature of ELODIE star |
+ | elodielogg | float32 |  | log10(gravity) of ELODIE star |
+ | elodiefeh | float32 |  | Metallicity of ELODIE star log10(Fe/H) |
+ | elodiez | float32 |  | Redshift fit to ELODIE star |
+ | elodiezerr | float32 |  | Error in redshift fit to ELODIE star |
+ | elodiezmodelerr | float32 |  | Standard deviation in redshift among the 12 best-fit ELODIE stars |
+ | elodierchi2 | float32 |  | Reduced chi-squared of fit to best ELODIE star |
+ | elodiedof | float32 |  | Degrees of freedom in fit to best ELODIE star |
  | htmid | int64 |  | 20 deep Hierarchical Triangular Mesh ID |
  | loadversion | int32 |  | Load Version |
 

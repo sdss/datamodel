@@ -1,0 +1,684 @@
+general:
+  name: mos_target_hecate_1_1
+  short: 'MOS Target Table: hecate_1_1'
+  description: The Heraklion Extragalactic Catalogue (HECATE). For more details, refer
+    to Kovlakas et al. 2021 (<a href="https://academic.oup.com/mnras/article/506/2/1896/6309318)">https://academic.oup.com/mnras/article/506/2/1896/6309318)</a>.
+  datatype: FITS
+  filesize: 109 MB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_hecate_1_1.[FTYPE] with FTYPE='fits'
+    and V_TARG='2.0.0' for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_hecate_1_1.[FTYPE]
+    example: 2.0.0/fits/mos_hecate_1_1.fits
+    location: '{v_targ}/{ftype}/mos_hecate_1_1.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_hecate_1_1
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_hecate_1_1.{ftype}
+      path_kwargs:
+      - ftype
+      - v_targ
+      access_string: mos_target_hecate_1_1 = $MOS_TARGET/{v_targ}/{ftype}/mos_hecate_1_1.{ftype}
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: hecate_1_1'
+        is_image: false
+        size: 109 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 562
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 204733
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 100
+          comment: number of table fields
+        - key: TNULL1
+          value: -2147483648
+          comment: ''
+        - key: TNULL11
+          value: -32768
+          comment: ''
+        - key: TNULL16
+          value: -32768
+          comment: ''
+        - key: TNULL24
+          value: -32768
+          comment: ''
+        - key: TNULL25
+          value: -32768
+          comment: ''
+        - key: TNULL47
+          value: -32768
+          comment: ''
+        - key: TNULL48
+          value: -32768
+          comment: ''
+        - key: TNULL49
+          value: -32768
+          comment: ''
+        - key: TNULL50
+          value: -32768
+          comment: ''
+        - key: TNULL59
+          value: -32768
+          comment: ''
+        - key: TNULL60
+          value: -32768
+          comment: ''
+        - key: TNULL67
+          value: -32768
+          comment: ''
+        - key: TNULL97
+          value: -32768
+          comment: ''
+        - key: TNULL98
+          value: -32768
+          comment: ''
+        columns:
+          pgc:
+            name: pgc
+            type: int32
+            unit: ''
+            description: Principal Catalogue of Galaxies number
+          objname:
+            name: objname
+            type: char[30]
+            unit: ''
+            description: Object name in the HyperLEDA
+          id_ned:
+            name: id_ned
+            type: char[30]
+            unit: ''
+            description: Name in NED
+          id_nedd:
+            name: id_nedd
+            type: char[29]
+            unit: ''
+            description: Name in NED-Distance Catalogue
+          id_iras:
+            name: id_iras
+            type: char[17]
+            unit: ''
+            description: Name in IRAS-RBGS, or in RIFSCz if in the form Fxxxxx+xxxx
+          id_2mass:
+            name: id_2mass
+            type: char[17]
+            unit: ''
+            description: ID in 2MASS-LGA, 2MASS-XSC, or 2MASS-PSC (see flag_2mass)
+          sdss_photid:
+            name: sdss_photid
+            type: char[19]
+            unit: ''
+            description: SDSS photometric ID (consistent with DR8 releases and later)
+          sdss_specid:
+            name: sdss_specid
+            type: char[19]
+            unit: ''
+            description: SDSS spectroscopic ID (consistent with DR8 releases and later)
+          ra:
+            name: ra
+            type: float64
+            unit: degrees
+            description: Decimal right ascension J2000.0
+          dec:
+            name: dec
+            type: float64
+            unit: degrees
+            description: Decimal declination J2000.0
+          f_astrom:
+            name: f_astrom
+            type: int16
+            unit: ''
+            description: 'Astrometric precision flag: -1 for ~0.1 arcsec, 0 for 1
+              arcsec, 1 for 10 arcsec, etc'
+          r1:
+            name: r1
+            type: float32
+            unit: arcmin
+            description: D25 semi-major axis
+          r2:
+            name: r2
+            type: float32
+            unit: arcmin
+            description: D25 semi-minor axis
+          pa:
+            name: pa
+            type: float32
+            unit: degrees
+            description: D25 positional angle, North-to-Northeast
+          rsource:
+            name: rsource
+            type: char[1]
+            unit: ''
+            description: 'Source of the galaxy-size information: H=HyperLEDA, S=SDSS,
+              2=2MASS, 6=2dFGS, W=WINGS, Y=SkyMapper, A=Amiga-CIG, K=UNGC, V=VIII/77,
+              1=KKH2001, 7=KKH2007, N=NED'
+          rflag:
+            name: rflag
+            type: int16
+            unit: ''
+            description: 'Galaxy-size information flag: 0=missing, 1=all axes and
+              positional angle defined, 2=r2 and/or pa were missing and they were
+              set equal to r1 and 0 (circular isophote)'
+          t:
+            name: t
+            type: float32
+            unit: ''
+            description: Numerical Hubble-type following the de Vaucouleurs et al.
+              1976 system
+          e_t:
+            name: e_t
+            type: float32
+            unit: ''
+            description: Uncertainty on the numerical Hubble-type
+          incl:
+            name: incl
+            type: float32
+            unit: degrees
+            description: Inclination
+          v:
+            name: v
+            type: float32
+            unit: km/s
+            description: Heliocentric radial velocity
+          e_v:
+            name: e_v
+            type: float32
+            unit: km/s
+            description: Uncertainty on the heliocentric radial velocity
+          v_vir:
+            name: v_vir
+            type: float32
+            unit: km/s
+            description: Virgo-infall corrected radial velocity
+          e_v_vir:
+            name: e_v_vir
+            type: float32
+            unit: km/s
+            description: Uncertainty on the Virgo-infall corrected radial velocity
+          ndist:
+            name: ndist
+            type: int16
+            unit: ''
+            description: Number of redshift-independent measurements in NED-D used
+              for the computation of the distance
+          edist:
+            name: edist
+            type: int16
+            unit: ''
+            description: If True, the NED-D distance measurements had uncertainties
+          d:
+            name: d
+            type: float64
+            unit: Mpc
+            description: Distance
+          e_d:
+            name: e_d
+            type: float32
+            unit: Mpc
+            description: Uncertainty on the distance
+          d_lo68:
+            name: d_lo68
+            type: float64
+            unit: Mpc
+            description: Lower bound of the 68% confidence interval of the distance
+          d_hi68:
+            name: d_hi68
+            type: float64
+            unit: Mpc
+            description: Upper bound of the 68% confidence interval of the distance
+          d_lo95:
+            name: d_lo95
+            type: float64
+            unit: Mpc
+            description: Lower bound of the 95% confidence interval of the distance
+          d_hi95:
+            name: d_hi95
+            type: float64
+            unit: Mpc
+            description: Upper bound of the 95% confidence interval of the distance
+          dmethod:
+            name: dmethod
+            type: char[2]
+            unit: ''
+            description: 'Method for the estimation of the distance: N=using NED-D
+              distance measurements, Z=regression, Zv=regression for Virgo Cluster
+              members, C=distance from NED-D measurements but uncertainty from regression,
+              Cv=distance from NED-D measurements but uncertainty from Virgo Cluster
+              regressor'
+          ut:
+            name: ut
+            type: float32
+            unit: mag
+            description: Total U-band apparent magnitude
+          bt:
+            name: bt
+            type: float32
+            unit: mag
+            description: Total B-band apparent magnitude
+          vt:
+            name: vt
+            type: float32
+            unit: mag
+            description: Total V-band apparent magnitude
+          it:
+            name: it
+            type: float32
+            unit: mag
+            description: Total I-band apparent magnitude
+          e_ut:
+            name: e_ut
+            type: float32
+            unit: mag
+            description: Uncertainty on the total U-band apparent magnitude
+          e_bt:
+            name: e_bt
+            type: float32
+            unit: mag
+            description: Uncertainty on the total B-band apparent magnitude
+          e_vt:
+            name: e_vt
+            type: float32
+            unit: mag
+            description: Uncertainty on the total V-band apparent magnitude
+          e_it:
+            name: e_it
+            type: float32
+            unit: mag
+            description: Uncertainty on the total I-band apparent magnitude
+          ag:
+            name: ag
+            type: float32
+            unit: mag
+            description: Galactic absorption in B-band
+          ai:
+            name: ai
+            type: float32
+            unit: mag
+            description: Intrinsic absorption in B-band
+          s12:
+            name: s12
+            type: float64
+            unit: Jy
+            description: "12\u03BCm-band flux from IRAS"
+          s25:
+            name: s25
+            type: float64
+            unit: Jy
+            description: "25\u03BCm-band flux from IRAS"
+          s60:
+            name: s60
+            type: float32
+            unit: Jy
+            description: "60\u03BCm-band flux from IRAS"
+          s100:
+            name: s100
+            type: float32
+            unit: Jy
+            description: "100\u03BCm-band flux from IRAS"
+          q12:
+            name: q12
+            type: int16
+            unit: ''
+            description: "Quality flag for the 12\u03BCm-band flux from IRAS: 0=not\
+              \ in IRAS, 1=upper limit, 2=moderate, 3=high, 4=flux from IRAS-RBGS"
+          q25:
+            name: q25
+            type: int16
+            unit: ''
+            description: "Quality flag for the 25\u03BCm-band flux from IRAS: 0=not\
+              \ in IRAS, 1=upper limit, 2=moderate, 3=high, 4=flux from IRAS-RBGS"
+          q60:
+            name: q60
+            type: int16
+            unit: ''
+            description: "Quality flag for the 60\u03BCm-band flux from IRAS: 0=not\
+              \ in IRAS, 1=upper limit, 2=moderate, 3=high, 4=flux from IRAS-RBGS"
+          q100:
+            name: q100
+            type: int16
+            unit: ''
+            description: "Quality flag for the 100\u03BCm-band flux from IRAS: 0=not\
+              \ in IRAS, 1=upper limit, 2=moderate, 3=high, 4=flux from IRAS-RBGS"
+          wf1:
+            name: wf1
+            type: float64
+            unit: mag
+            description: "3.3\u03BCm-band (W1) apparent magnitude in the WISE forced\
+              \ photometry catalog"
+          wf2:
+            name: wf2
+            type: float64
+            unit: mag
+            description: "4.6\u03BCm-band (W2) apparent magnitude in the WISE forced\
+              \ photometry catalog"
+          wf3:
+            name: wf3
+            type: float64
+            unit: mag
+            description: "12\u03BCm-band (W3) apparent magnitude in the WISE forced\
+              \ photometry catalog"
+          wf4:
+            name: wf4
+            type: float64
+            unit: mag
+            description: "22\u03BCm-band (W4) apparent magnitude in the WISE forced\
+              \ photometry catalog"
+          e_wf1:
+            name: e_wf1
+            type: float64
+            unit: mag
+            description: "Uncertainty on the 3.3\u03BCm-band (W1) apparent magnitude\
+              \ in the WISE forced photometry catalog"
+          e_wf2:
+            name: e_wf2
+            type: float64
+            unit: mag
+            description: "Uncertainty on the 4.6\u03BCm-band (W2) apparent magnitude\
+              \ in the WISE forced photometry catalog"
+          e_wf3:
+            name: e_wf3
+            type: float64
+            unit: mag
+            description: "Uncertainty on the 12\u03BCm-band (W3) apparent magnitude\
+              \ in the WISE forced photometry catalog"
+          e_wf4:
+            name: e_wf4
+            type: float64
+            unit: mag
+            description: "Uncertainty on the 22\u03BCm-band (W4) apparent magnitude\
+              \ in the WISE forced photometry catalog"
+          wfpoint:
+            name: wfpoint
+            type: int16
+            unit: ''
+            description: True if point source in the WISE forced photometry catalog
+          wftreat:
+            name: wftreat
+            type: int16
+            unit: ''
+            description: True if treated as point source in the WISE forced photometry
+              catalog
+          j:
+            name: j
+            type: float32
+            unit: mag
+            description: J-band apparent magnitude in 2MASS
+          h:
+            name: h
+            type: float32
+            unit: mag
+            description: H-band apparent magnitude in 2MASS
+          k:
+            name: k
+            type: float32
+            unit: mag
+            description: K-band apparent magnitude in 2MASS
+          e_j:
+            name: e_j
+            type: float32
+            unit: mag
+            description: Uncertainty on the J-band apparent magnitude in 2MASS
+          e_h:
+            name: e_h
+            type: float32
+            unit: mag
+            description: Uncertainty on the H-band apparent magnitude in 2MASS
+          e_k:
+            name: e_k
+            type: float32
+            unit: mag
+            description: Uncertainty on the K-band apparent magnitude in 2MASS
+          flag_2mass:
+            name: flag_2mass
+            type: int16
+            unit: ''
+            description: 'Source of the 2MASS ID and magnitudes: 0=none, 1=LGA, 2=XSC,
+              3=PSC'
+          u:
+            name: u
+            type: float32
+            unit: mag
+            description: u-band SDSS apparent magnitude
+          g:
+            name: g
+            type: float32
+            unit: mag
+            description: g-band SDSS apparent magnitude
+          r:
+            name: r
+            type: float32
+            unit: mag
+            description: r-band SDSS apparent magnitude
+          i:
+            name: i
+            type: float32
+            unit: mag
+            description: i-band SDSS apparent magnitude
+          z:
+            name: z
+            type: float32
+            unit: mag
+            description: z-band SDSS apparent magnitude
+          e_u:
+            name: e_u
+            type: float32
+            unit: mag
+            description: Uncertainty on the u-band SDSS apparent magnitude
+          e_g:
+            name: e_g
+            type: float32
+            unit: mag
+            description: Uncertainty on the g-band SDSS apparent magnitude
+          e_r:
+            name: e_r
+            type: float32
+            unit: mag
+            description: Uncertainty on the r-band SDSS apparent magnitude
+          e_i:
+            name: e_i
+            type: float32
+            unit: mag
+            description: Uncertainty on the i-band SDSS apparent magnitude
+          e_z:
+            name: e_z
+            type: float32
+            unit: mag
+            description: Uncertainty on the z-band SDSS apparent magnitude
+          logl_tir:
+            name: logl_tir
+            type: float32
+            unit: ''
+            description: Decimal logarithm of the total-infrared (TIR) luminosity
+              in solar luminosities
+          logl_fir:
+            name: logl_fir
+            type: float32
+            unit: ''
+            description: Decimal logarithm of the far-infrared (FIR) luminosity in
+              solar luminosities
+          logl_60u:
+            name: logl_60u
+            type: float32
+            unit: ''
+            description: "Decimal logarithm of the 60\u03BCm-band luminosity in solar\
+              \ luminosities"
+          logl_12u:
+            name: logl_12u
+            type: float32
+            unit: ''
+            description: "Decimal logarithm of the 12\u03BCm-band luminosity in solar\
+              \ luminosities"
+          logl_22u:
+            name: logl_22u
+            type: float32
+            unit: ''
+            description: "Decimal logarithm of the 22\u03BCm-band luminosity in solar\
+              \ luminosities"
+          logl_k:
+            name: logl_k
+            type: float32
+            unit: ''
+            description: Decimal logarithm of the K-band luminosity in solar luminosities
+          ml_ratio:
+            name: ml_ratio
+            type: float32
+            unit: ''
+            description: Mass-to-light ratio for the 2MASS K-band using SDSS g-r colour
+              (Bell et al. 2003)
+          logsfr_tir:
+            name: logsfr_tir
+            type: float32
+            unit: ''
+            description: Decimal logarithm of the TIR-based star-formation rate in
+              solar masses per year
+          logsfr_fir:
+            name: logsfr_fir
+            type: float32
+            unit: ''
+            description: Decimal logarithm of the FIR-based star-formation rate in
+              solar masses per year
+          logsfr_60u:
+            name: logsfr_60u
+            type: float32
+            unit: ''
+            description: "Decimal logarithm of the 60\u03BCm-based star-formation\
+              \ rate in solar masses per year"
+          logsfr_12u:
+            name: logsfr_12u
+            type: float32
+            unit: ''
+            description: "Decimal logarithm of the 12\u03BCm-based star-formation\
+              \ rate in solar masses per year"
+          logsfr_22u:
+            name: logsfr_22u
+            type: float32
+            unit: ''
+            description: "Decimal logarithm of the 22\u03BCm-based star-formation\
+              \ rate in solar masses per year"
+          logsfr_hec:
+            name: logsfr_hec
+            type: float32
+            unit: ''
+            description: Decimal logarithm of the homogenised star-formation rate
+              in solar masses per year
+          flag_sfr_hec:
+            name: flag_sfr_hec
+            type: char[2]
+            unit: ''
+            description: 'Flag indicating the source of the photometry and the SFR
+              indicator used in the homogenised SFR: RT=IRAS-RBGS photometry and TIR
+              indicator, FT=RIFSCz photometry and TIR indicator, FF=RIFSCz photometry
+              and FIR indicator, W3=WISE W3-band forced photometry and indicator,
+              W4=WISE W4-band forced photometry and indicator'
+          logm_hec:
+            name: logm_hec
+            type: float32
+            unit: ''
+            description: Decimal logarithm of the total stellar mass in solar masses
+          logsfr_gsw:
+            name: logsfr_gsw
+            type: float32
+            unit: ''
+            description: Decimal logarithm of the SED-based star-formation rate from
+              the GSWLC-2 in solar masses per year
+          logm_gsw:
+            name: logm_gsw
+            type: float32
+            unit: ''
+            description: Decimal logarithm of the SED-based stellar mass from the
+              GSWLC-2 in solar masses
+          min_snr:
+            name: min_snr
+            type: float32
+            unit: ''
+            description: Minimum signal-to-noise ratio of the emission lines used
+              for the activity classification
+          metal:
+            name: metal
+            type: float32
+            unit: ''
+            description: 12+log(O/H) gas-phase metallicity
+          flag_metal:
+            name: flag_metal
+            type: int16
+            unit: ''
+            description: 'Metallicity flag: -1=missing, 0=reliable, 1=O3N2 ratio >2
+              (outside the PP04 range), 2=low signal-to-noise ratio (<3 for the weakest
+              line)'
+          class_sp:
+            name: class_sp
+            type: int16
+            unit: ''
+            description: 'Nuclear activity classification using the method in Stampoulis
+              et al. 2019: 0=star-forming, 1=Seyfert, 2=LINER, 3=composite, -1=unknown'
+          agn_s17:
+            name: agn_s17
+            type: char[1]
+            unit: ''
+            description: 'AGN classification in She et al. 2017: Y=AGN, N=non-AGN,
+              ?=unknown'
+          agn_hec:
+            name: agn_hec
+            type: char[1]
+            unit: ''
+            description: 'Adopted activity classification based on the combination
+              of class_sp and agn_s17: Y=AGN, N=non-AGN, ?=unknown'
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

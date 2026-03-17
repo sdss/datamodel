@@ -58,9 +58,15 @@
         "description": "SDSS public data release 19",
         "public": true,
         "release_date": "2025-07-11"
+      },
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
       }
     ],
-    "naming_convention": "$MOS_TARGET/[V_TARG]/mos_obsmode.fits, where V_TARG=1.0.2 for DR19",
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_obsmode.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.",
     "generated_by": "sdss5db> targetdb, operations database server",
     "design": false,
     "vac": false,
@@ -69,7 +75,36 @@
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {}
+    "releases": {
+      "DR20": {
+        "from": "DR19",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null,
+        "delta_ncolumns": 0,
+        "added_columns": [],
+        "removed_columns": []
+      }
+    }
   },
   "releases": {
     "DR19": {
@@ -205,7 +240,145 @@
         }
       },
       "par": null,
-      "hdfs": null
+      "hdfs": null,
+      "dataframe": null
+    },
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_obsmode.[FTYPE]",
+      "example": "2.0.0/fits/mos_obsmode.fits",
+      "location": "{v_targ}/{ftype}/mos_obsmode.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_obsmode",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_obsmode.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_obsmode = $MOS_TARGET/{v_targ}/{ftype}/mos_obsmode.{ftype}"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "MOS Target Table: obsmode",
+          "size": "700 bytes",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "50",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "14",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "6",
+              "comment": "number of table fields"
+            }
+          ],
+          "columns": {
+            "label": {
+              "name": "label",
+              "description": "Descriptive name for the observing mode, e.g. 'dark_rm'",
+              "type": "char[30]",
+              "unit": ""
+            },
+            "min_moon_sep": {
+              "name": "min_moon_sep",
+              "description": "Minimum distance a target must be from the Moon",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "min_deltav_ks91": {
+              "name": "min_deltav_ks91",
+              "description": "Minimum estimated background flux from the Moon, using the method of Krisciunas, K., & Schaefer 1991",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "min_twilight_ang": {
+              "name": "min_twilight_ang",
+              "description": "Minimum twilight angle (angle of the Sun below the horizon) for a target to be observed",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "max_airmass_apo": {
+              "name": "max_airmass_apo",
+              "description": "Max airmass at which a target can be observed at APO",
+              "type": "float32",
+              "unit": ""
+            },
+            "max_airmass_lco": {
+              "name": "max_airmass_lco",
+              "description": "Max airmass at which a target can be observed at LCO",
+              "type": "float32",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null,
+      "dataframe": null
     }
   },
   "notes": "None",

@@ -108,7 +108,7 @@ class ParquetFileType(BaseFile):
         columns: Dict[str, Dict] = {}
 
         if isinstance(df, polars.LazyFrame):
-            df = df.head(1).collect() # type: ignore
+            df = df.head(1).collect()  # type: ignore
 
         if not isinstance(df, polars.DataFrame):
             raise RuntimeError("Dataframe is not a Polars DataFrame.")

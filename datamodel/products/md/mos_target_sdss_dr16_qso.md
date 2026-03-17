@@ -16,10 +16,10 @@ MOS Target Table: sdss_dr16_qso
 SDSS Data Release 16 Quasar Catalog (Lyke et al. 2020). For complete details, please see the original paper: https://ui.adsabs.harvard.edu/abs/2020ApJS..250....8L/abstract
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_sdss_dr16_qso-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdss_dr16_qso.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR18, DR19
+DR18, DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
  - DR19
    - from: DR18
    - note: No changes
@@ -83,7 +86,7 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
 | NAXIS1 | 2796 | length of dimension 1 |
-| NAXIS2 | 750372 | length of dimension 2 |
+| NAXIS2 | 750255 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 204 | number of table fields |
@@ -182,9 +185,9 @@ Name | Type | Unit | Description |
  | z_mgii | float64 |  | PCA line redshift for Mg II 2799AA from redvsblue |
  | zwarn_mgii | int64 |  | Warning flag for Mg II 2799AA redshift |
  | deltachi2_mgii | float64 |  | Delta χ2 for Mg II 2799AA line redshift vs. cubic continuum fit |
- | z_ciii | float64 |  | PCA line redshift for C III] 1908AA from redvsblue |
- | zwarn_ciii | int64 |  | Warning flag for C III] 1908AA redshift |
- | deltachi2_ciii | float64 |  | Delta χ2 for C III] 1908AA line redshift vs. cubic continuum fit |
+ | z_ciii | float64 |  | PCA line redshift for C III 1908AA from redvsblue |
+ | zwarn_ciii | int64 |  | Warning flag for C III 1908AA redshift |
+ | deltachi2_ciii | float64 |  | Delta χ2 for C III 1908AA line redshift vs. cubic continuum fit |
  | z_civ | float64 |  | PCA line redshift for C IV 1549AA from redvsblue |
  | zwarn_civ | int64 |  | Warning flag for C IV 1549AA redshift |
  | deltachi2_civ | float64 |  | Delta χ2 for C IV 1549AA line redshift vs. cubic continuum fit |
@@ -193,8 +196,8 @@ Name | Type | Unit | Description |
  | deltachi2_lya | float64 |  | Delta χ2 for Lyalpha line redshift vs. cubic continuum fit |
  | z_lyawg | float32 |  | PCA systemic redshift from redvsblue with a masked Lyalpha emission line and forest |
  | z_dla | char[91] |  | Redshift for damped Lyalpha features |
- | nhi_dla | char[94] | log(cm**-2) | Absorber column density for damped Lyalpha features |
- | conf_dla | char[43] |  | Confidence of detection for damped Lyalpha features |
+ | nhi_dla | char[94] | log(cm**-2) | Absorber column density for damped Ly-alpha features |
+ | conf_dla | char[43] |  | Confidence of detection for damped Ly-alpha features |
  | bal_prob | float32 |  | BAL probability |
  | bi_civ | float64 | km/s | BALnicity index for C IV 1549AA region |
  | err_bi_civ | float64 | km/s | Uncertainty of BI for C IV 1549AA region |
@@ -230,31 +233,31 @@ Name | Type | Unit | Description |
  | chunk | char[14] |  | Name of tiling chunk (from platelist product) |
  | tile | int32 |  | Tile number |
  | platesn2 | float64 |  | Overall (S/N)^2 measure for plate, minimum of all 4 cameras |
- | psfflux_u | float32 | nMgy | PSF flux, u-band |
- | psfflux_g | float32 | nMgy | PSF flux, g-band |
- | psfflux_r | float32 | nMgy | PSF flux, r-band |
- | psfflux_i | float32 | nMgy | PSF flux, i-band |
- | psfflux_z | float32 | nMgy | PSF flux, z-band |
- | psfflux_ivar_u | float64 | nMgy^{-2} | PSF flux inverse variance, u-band |
- | psfflux_ivar_g | float64 | nMgy^{-2} | PSF flux inverse variance, g-band |
- | psfflux_ivar_r | float64 | nMgy^{-2} | PSF flux inverse variance, r-band |
- | psfflux_ivar_i | float64 | nMgy^{-2} | PSF flux inverse variance, r-band |
- | psfflux_ivar_z | float64 | nMgy^{-2} | PSF flux inverse variance, i-band |
- | psfmag_u | float32 | mag | SDSS PSF magnitude |
- | psfmag_g | float32 | mag | SDSS PSF magnitude |
- | psfmag_r | float32 | mag | SDSS PSF magnitude |
- | psfmag_i | float32 | mag | SDSS PSF magnitude |
- | psfmag_z | float32 | mag | SDSS PSF magnitude |
- | psfmagerr_u | float64 | mag | Error on SDSS PSF magnitude |
- | psfmagerr_g | float64 | mag | Error on SDSS PSF magnitude |
- | psfmagerr_r | float64 | mag | Error on SDSS PSF magnitude |
- | psfmagerr_i | float64 | mag | Error on SDSS PSF magnitude |
- | psfmagerr_z | float64 | mag | Error on SDSS PSF magnitude |
- | extinction_u | float32 | mag | Extinction in u-band |
- | extinction_g | float32 | mag | Extinction in g-band |
- | extinction_r | float32 | mag | Extinction in r-band |
- | extinction_i | float32 | mag | Extinction in i-band |
- | extinction_z | float32 | mag | Extinction in z-band |
+ | psfflux_u | float32 | nMgy | Flux in the u band |
+ | psfflux_g | float32 | nMgy | Flux in the g band |
+ | psfflux_r | float32 | nMgy | Flux in the r band |
+ | psfflux_i | float32 | nMgy | Flux in the i band |
+ | psfflux_z | float32 | nMgy | Flux in the z band |
+ | psfflux_ivar_u | float64 | nMgy**-2 | Inverse variance of u band flux |
+ | psfflux_ivar_g | float64 | nMgy**-2 | Inverse variance of g band flux |
+ | psfflux_ivar_r | float64 | nMgy**-2 | Inverse variance of r band flux |
+ | psfflux_ivar_i | float64 | nMgy**-2 | Inverse variance of i band flux |
+ | psfflux_ivar_z | float64 | nMgy**-2 | Inverse variance of z band flux |
+ | psfmag_u | float32 | mag | PSF magnitudes in the u band |
+ | psfmag_g | float32 | mag | PSF magnitudes in the g band |
+ | psfmag_r | float32 | mag | PSF magnitudes in the r band |
+ | psfmag_i | float32 | mag | PSF magnitudes in the i band |
+ | psfmag_z | float32 | mag | PSF magnitudes in the z band |
+ | psfmagerr_u | float64 | mag | Error of PSF magnitudes in the u band |
+ | psfmagerr_g | float64 | mag | Error of PSF magnitudes in the g band |
+ | psfmagerr_r | float64 | mag | Error of PSF magnitudes in the r band |
+ | psfmagerr_i | float64 | mag | Error of PSF magnitudes in the i band |
+ | psfmagerr_z | float64 | mag | Error of PSF magnitudes in the z band |
+ | extinction_u | float32 | mag | Galactic extinction in the u band |
+ | extinction_g | float32 | mag | Galactic extinction in the g band |
+ | extinction_r | float32 | mag | Galactic extinction in the r band |
+ | extinction_i | float32 | mag | Galactic extinction in the i band |
+ | extinction_z | float32 | mag | Galactic extinction in the z band |
  | m_i | float64 | mag | Absolute i-band magnitude. Assuming H0 = 67.6 km/s/Mpc, OmegaM=0.31, OmegaL=0.69, Omega_r=9.11e-5. K-corrections taken from Table 4 of Richards et al. (2006). Z_PCA used for redshifts |
  | sn_median_all | float64 |  | Median S/N value of all good spectroscopic pixels |
  | galex_matched | int32 |  | Matching flag for GALEX |
@@ -308,11 +311,11 @@ Name | Type | Unit | Description |
  | ksnr | float64 |  | 2MASS Ks-band S/N |
  | krdflag | int32 |  | 2MASS Ks-band photometry flag |
  | sdss2mass_sep | float64 | arcsec | SDSS-2MASS separation |
- | rass2rxs_id | char[21] |  | Second ROSAT All-Sky Survey Point Source Catalog (RASS2RXS) ID |
- | rass2rxs_ra | float64 | degrees | Right Ascension for RASS2RXS Source |
- | rass2rxs_dec | float64 | degrees | Declination for RASS2RXS Source |
- | rass2rxs_src_flux | float32 | erg/s/cm2 | flux from RASS2RXS |
- | rass2rxs_src_flux_err | float32 | erg/s/cm2 | Error in flux from RASS2RXS |
+ | rass2rxs_id | char[21] |  | ROSAT ID |
+ | rass2rxs_ra | float64 | degrees | Right ascension of the ROSAT source in decimal degrees (J2000) |
+ | rass2rxs_dec | float64 | degrees | Declination of the ROSAT source in decimal degrees (J2000) |
+ | rass2rxs_src_flux | float32 | erg/s/cm2 | ROSAT source flux in 0.5-2.0 keV band (G = 2.4, dered) |
+ | rass2rxs_src_flux_err | float32 | erg/s/cm2 | ROSAT source flux error in 0.5-2.0 keV band (G = 2.4, dered) |
  | sdss2rosat_sep | float64 | arcsec | SDSS-ROSAT separation |
  | xmm_src_id | int64 |  | XMM source ID |
  | xmm_ra | float64 | degrees | Right ascension for XMM source in decimal degrees (J2000) |

@@ -1,0 +1,267 @@
+general:
+  name: mos_target_lamost_dr6_parquet
+  short: 'MOS Target Table: lamost_dr6'
+  description: 'Cross-match between the LAMOST DR6 low resolution spectral survey
+    and Gaia eDR3. For more details on the LAMOS LRS survey, refer to <a href="https://dr6.lamost.org/doc/lr-data-production-description">https://dr6.lamost.org/doc/lr-data-production-description</a>.
+
+
+    [INCOMPLETE] Missing column descriptions for what I think is the cross-match with
+    eDR3.'
+  datatype: PARQUET
+  filesize: 916 MB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_lamost_dr6.[FTYPE] with FTYPE='parquet'
+    and V_TARG='2.0.0' for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_lamost_dr6.[FTYPE]
+    example: 2.0.0/parquet/mos_lamost_dr6.parquet
+    location: '{v_targ}/{ftype}/mos_lamost_dr6.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_lamost_dr6
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_lamost_dr6@mos_target_num2|.{ftype}
+      path_kwargs:
+      - ftype
+      - v_targ
+      access_string: mos_target_lamost_dr6 = $MOS_TARGET/{v_targ}/{ftype}/mos_lamost_dr6.{ftype}
+    survey: SDSS
+    dataframe:
+      columns:
+        obsid:
+          name: obsid
+          dtype: Int32
+          unit: ''
+          description: Unique Spectra ID
+        designation:
+          name: designation
+          dtype: String
+          unit: ''
+          description: Target Designation
+        obsdate:
+          name: obsdate
+          dtype: String
+          unit: ''
+          description: Target Observation Date
+        lmjd:
+          name: lmjd
+          dtype: Int32
+          unit: ''
+          description: Local Modified Julian Day
+        mjd:
+          name: mjd
+          dtype: Int32
+          unit: ''
+          description: Modified Julian Day
+        planid:
+          name: planid
+          dtype: String
+          unit: ''
+          description: Plan Name
+        spid:
+          name: spid
+          dtype: Int16
+          unit: ''
+          description: Spectrograph ID
+        fiberid:
+          name: fiberid
+          dtype: Int16
+          unit: ''
+          description: Fiber ID
+        ra_obs:
+          name: ra_obs
+          dtype: Float64
+          unit: degrees
+          description: Fiber Pointing Right Ascension
+        dec_obs:
+          name: dec_obs
+          dtype: Float64
+          unit: degrees
+          description: Fiber Pointing Declination
+        snru:
+          name: snru
+          dtype: Float32
+          unit: ''
+          description: S/N of u filter
+        snrg:
+          name: snrg
+          dtype: Float32
+          unit: ''
+          description: S/N of g filter
+        snrr:
+          name: snrr
+          dtype: Float32
+          unit: ''
+          description: S/N of r filter
+        snri:
+          name: snri
+          dtype: Float32
+          unit: ''
+          description: S/N of i filter
+        snrz:
+          name: snrz
+          dtype: Float32
+          unit: ''
+          description: S/N of z filter
+        objtype:
+          name: objtype
+          dtype: String
+          unit: ''
+          description: Object Type
+        class:
+          name: class
+          dtype: String
+          unit: ''
+          description: Spectra Type
+        subclass:
+          name: subclass
+          dtype: String
+          unit: ''
+          description: Stellar Sub-Class
+        z:
+          name: z
+          dtype: Float32
+          unit: ''
+          description: Redshift
+        z_err:
+          name: z_err
+          dtype: Float32
+          unit: ''
+          description: Redshift Uncertainty
+        magtype:
+          name: magtype
+          dtype: String
+          unit: ''
+          description: Target Magnitude Type
+        mag1:
+          name: mag1
+          dtype: Float32
+          unit: mag
+          description: Associated Magnitude 1
+        mag2:
+          name: mag2
+          dtype: Float32
+          unit: mag
+          description: Associated Magnitude 2
+        mag3:
+          name: mag3
+          dtype: Float32
+          unit: mag
+          description: Associated Magnitude 3
+        mag4:
+          name: mag4
+          dtype: Float32
+          unit: mag
+          description: Associated Magnitude 4
+        mag5:
+          name: mag5
+          dtype: Float32
+          unit: mag
+          description: Associated Magnitude 5
+        mag6:
+          name: mag6
+          dtype: Float32
+          unit: mag
+          description: Associated Magnitude 6
+        mag7:
+          name: mag7
+          dtype: Float32
+          unit: mag
+          description: Associated Magnitude 7
+        tsource:
+          name: tsource
+          dtype: String
+          unit: ''
+          description: Organization or person who submit input catalog
+        fibertype:
+          name: fibertype
+          dtype: String
+          unit: Obj, Sky, F-std, Unused, PosErr, Dead
+          description: Fiber Type of target
+        tfrom:
+          name: tfrom
+          dtype: String
+          unit: ''
+          description: Input catalog submitted by an organization or a person determined
+            by the tsource
+        tcomment:
+          name: tcomment
+          dtype: String
+          unit: ''
+          description: Target ID from SDSS, UCAC4, PANSTAR and other catalogues
+        offsets:
+          name: offsets
+          dtype: Int16
+          unit: ''
+          description: Whether there is a fiber offset during observation
+        offsets_v:
+          name: offsets_v
+          dtype: Float32
+          unit: arcsec
+          description: If the offsets field is true, offsets_v gives the offset distance
+            from the target's coordinator in input catalog
+        ra:
+          name: ra
+          dtype: Float64
+          unit: degrees
+          description: Right Ascension from input catalog
+        dec:
+          name: dec
+          dtype: Float64
+          unit: degrees
+          description: Declination from input catalog
+        fibermask:
+          name: fibermask
+          dtype: Int16
+          unit: ''
+          description: Possible fiber problems
+        ra_x:
+          name: ra_x
+          dtype: Float64
+          unit: ''
+          description: ''
+        dec_x:
+          name: dec_x
+          dtype: Float64
+          unit: ''
+          description: ''
+        errhalfmaj:
+          name: errhalfmaj
+          dtype: Float32
+          unit: ''
+          description: ''
+        errhalfmin:
+          name: errhalfmin
+          dtype: Float32
+          unit: ''
+          description: ''
+        errposang:
+          name: errposang
+          dtype: Float32
+          unit: ''
+          description: ''
+        source_id:
+          name: source_id
+          dtype: Int64
+          unit: ''
+          description: ''
+      metadata: {}
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

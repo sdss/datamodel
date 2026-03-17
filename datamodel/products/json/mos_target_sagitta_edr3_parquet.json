@@ -1,0 +1,138 @@
+{
+  "general": {
+    "name": "mos_target_sagitta_edr3_parquet",
+    "short": "MOS Target Table: sagitta_edr3",
+    "description": "Catalog of pre-main-sequence stars derived from Gaia EDR3 and 2MASS from McBride et al. (2021), their Table 5.\n\nFor complete details, see the original paper: <a href=\"https://iopscience.iop.org/article/10.3847/1538-3881/ac2432\">https://iopscience.iop.org/article/10.3847/1538-3881/ac2432</a>",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "6 MB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sagitta_edr3.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sagitta_edr3.[FTYPE]",
+      "example": "2.0.0/parquet/mos_sagitta_edr3.parquet",
+      "location": "{v_targ}/{ftype}/mos_sagitta_edr3.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_sagitta_edr3",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_sagitta_edr3.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_sagitta_edr3 = $MOS_TARGET/{v_targ}/{ftype}/mos_sagitta_edr3.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "source_id": {
+            "name": "source_id",
+            "description": "Unique identifier in the Gaia (e)DR3 source catalogue",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "l": {
+            "name": "l",
+            "description": "Galactic longitude",
+            "unit": "deg",
+            "dtype": "Float64",
+            "value": null
+          },
+          "b": {
+            "name": "b",
+            "description": "Galactic latitude",
+            "unit": "deg",
+            "dtype": "Float64",
+            "value": null
+          },
+          "age": {
+            "name": "age",
+            "description": "Age",
+            "unit": "log yrs",
+            "dtype": "Float32",
+            "value": null
+          },
+          "age_std": {
+            "name": "age_std",
+            "description": "Error on age",
+            "unit": "log yrs",
+            "dtype": "Float64",
+            "value": null
+          },
+          "pms": {
+            "name": "pms",
+            "description": "Pre-main-sequence probability",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "pms_std": {
+            "name": "pms_std",
+            "description": "Error on pre-main-sequence probability",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "av": {
+            "name": "av",
+            "description": "Predicted extinction along the line of sight (positional only)",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "av_std": {
+            "name": "av_std",
+            "description": "Uncertainty in the predicted extinction",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

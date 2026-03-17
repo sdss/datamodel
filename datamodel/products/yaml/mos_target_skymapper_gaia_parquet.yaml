@@ -1,0 +1,81 @@
+general:
+  name: mos_target_skymapper_gaia_parquet
+  short: 'MOS Target Table: skymapper_gaia'
+  description: 'This catalogue contains photometric stellar parameters for 9+ million
+    stars in common between the SkyMapper survey and Gaia DR2.
+
+
+    See <a href="https://skymapper.anu.edu.au/_data/sm-gaia/">https://skymapper.anu.edu.au/_data/sm-gaia/</a>
+    for details.'
+  datatype: PARQUET
+  filesize: 48 MB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_skymapper_gaia.[FTYPE] with
+    FTYPE='parquet' and V_TARG='2.0.0' for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_skymapper_gaia.[FTYPE]
+    example: 2.0.0/parquet/mos_skymapper_gaia.parquet
+    location: '{v_targ}/{ftype}/mos_skymapper_gaia.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_skymapper_gaia
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_skymapper_gaia@mos_target_num|.{ftype}
+      path_kwargs:
+      - num
+      - ftype
+      - v_targ
+      access_string: mos_target_skymapper_gaia = $MOS_TARGET/{v_targ}/{ftype}/mos_skymapper_gaia.{ftype}
+    survey: SDSS
+    dataframe:
+      columns:
+        skymapper_object_id:
+          name: skymapper_object_id
+          dtype: Int64
+          unit: ''
+          description: SkyMapper object_id
+        gaia_source_id:
+          name: gaia_source_id
+          dtype: Int64
+          unit: ''
+          description: Gaia DR2 source_id
+        teff:
+          name: teff
+          dtype: Float32
+          unit: K
+          description: Effective temperature
+        e_teff:
+          name: e_teff
+          dtype: Float32
+          unit: K
+          description: Effective temperature uncertainty
+        feh:
+          name: feh
+          dtype: Float32
+          unit: dex
+          description: Metallicity
+        e_feh:
+          name: e_feh
+          dtype: Float32
+          unit: dex
+          description: Metallicity uncertainty
+      metadata: {}
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

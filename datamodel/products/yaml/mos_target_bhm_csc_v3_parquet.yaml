@@ -1,0 +1,183 @@
+general:
+  name: mos_target_bhm_csc_v3_parquet
+  short: 'MOS Target Table: bhm_csc_v3'
+  description: 'Chandra Source Catalog (CSC) 2.1 Optical/IR Counterparts Catalog
+
+    2022 Dec. See <a href="https://asc.harvard.edu/csc2.1/index.html">https://asc.harvard.edu/csc2.1/index.html</a>
+    for the CSC 2.1 release notes and documentation.'
+  datatype: PARQUET
+  filesize: 12 MB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_bhm_csc_v3.[FTYPE] with FTYPE='parquet'
+    and V_TARG='2.0.0' for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_bhm_csc_v3.[FTYPE]
+    example: 2.0.0/parquet/mos_bhm_csc_v3.parquet
+    location: '{v_targ}/{ftype}/mos_bhm_csc_v3.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_bhm_csc_v3
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_bhm_csc_v3.{ftype}
+      path_kwargs:
+      - ftype
+      - v_targ
+      access_string: mos_target_bhm_csc_v3 = $MOS_TARGET/{v_targ}/{ftype}/mos_bhm_csc_v3.{ftype}
+    survey: SDSS
+    dataframe:
+      columns:
+        csc21p_id:
+          name: csc21p_id
+          dtype: String
+          unit: ''
+          description: CSC 2.1 source name in the form "2CXO Jhhmmss.s{+|-}ddmmss"
+        csc21p_ensemble:
+          name: csc21p_ensemble
+          dtype: String
+          unit: ''
+          description: CSC 2.1 ensemble. An ensemble is a set of overlapping stacks.
+            It represents all the data used to match detections (i.e. to identify
+            sources), and for calculating source properties.
+        ra:
+          name: ra
+          dtype: Float64
+          unit: deg
+          description: Preferred counterpart RA coordinate
+        dec:
+          name: dec
+          dtype: Float64
+          unit: deg
+          description: Preferred counterpart Dec coordinate
+        best_oir_cat:
+          name: best_oir_cat
+          dtype: String
+          unit: ''
+          description: Best optical counterpart match; 'gdr3', 'lsdr10', 'ps1dr2',
+            or '2mass' in that order of decreasing priority.
+        best_mag:
+          name: best_mag
+          dtype: Float32
+          unit: mag
+          description: Preferred magnitude of the optical counterpart
+        mag_type:
+          name: mag_type
+          dtype: String
+          unit: ''
+          description: Source of best_mag; GAIA_G, LS_g,LS_r, LS_z, PS_gMeanPSFMag,
+            PS_rMeanPSFMag, PS_iMeanPSFMag, PS_zMeanPSFMag,2MASS_h_m in that order
+            of decreasing priority.
+        gaia_dr3_srcid:
+          name: gaia_dr3_srcid
+          dtype: Int64
+          unit: ''
+          description: Gaia DR3 source ID
+        ls_dr10_lsid:
+          name: ls_dr10_lsid
+          dtype: Int64
+          unit: ''
+          description: Legacy Survey DR10 ID
+        ls_dr10_objid:
+          name: ls_dr10_objid
+          dtype: Int32
+          unit: ''
+          description: Legacy Survey DR10 object ID
+        ls_dr10_brickid:
+          name: ls_dr10_brickid
+          dtype: Int32
+          unit: ''
+          description: Legacy Survey DR10 brick ID
+        ls_dr10_release:
+          name: ls_dr10_release
+          dtype: Int16
+          unit: ''
+          description: Legacy Survey DR10 release
+        ps21p_objid:
+          name: ps21p_objid
+          dtype: Int64
+          unit: ''
+          description: Pan-STARRS1 DR2 IPP unique object identifier
+        ps21p_ippobjid:
+          name: ps21p_ippobjid
+          dtype: Int64
+          unit: ''
+          description: Pan-STARRS1 DR2 IPP internal object identifier
+        tmass_designation:
+          name: tmass_designation
+          dtype: String
+          unit: ''
+          description: 2MASS designation
+        tmass_ra:
+          name: tmass_ra
+          dtype: Float64
+          unit: deg
+          description: RA from 2MASS
+        tmass_dec:
+          name: tmass_dec
+          dtype: Float64
+          unit: deg
+          description: Dec from 2MASS
+        tmass_h:
+          name: tmass_h
+          dtype: Float32
+          unit: mag
+          description: H-band magnitude from 2MASS
+        csc21p_ra:
+          name: csc21p_ra
+          dtype: Float64
+          unit: ''
+          description: RA of X-ray source
+        csc21p_dec:
+          name: csc21p_dec
+          dtype: Float64
+          unit: ''
+          description: DEC of X-ray source
+        logfx:
+          name: logfx
+          dtype: Float64
+          unit: ''
+          description: log10 of X-ray flux in xband
+        xband:
+          name: xband
+          dtype: String
+          unit: ''
+          description: X-ray bandpass for logfx, priority b,m,s,h,w
+        extent:
+          name: extent
+          dtype: Boolean
+          unit: ''
+          description: X-ray extent flag
+        xsig:
+          name: xsig
+          dtype: Float64
+          unit: ''
+          description: X-ray significance
+        xpriority:
+          name: xpriority
+          dtype: Int32
+          unit: ''
+          description: X-ray priority, calculated from significance
+        pk:
+          name: pk
+          dtype: Int64
+          unit: ''
+          description: Primary key identifier for this table row
+      metadata: {}
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

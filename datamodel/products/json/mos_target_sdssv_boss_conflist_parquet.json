@@ -1,0 +1,733 @@
+{
+  "general": {
+    "name": "mos_target_sdssv_boss_conflist_parquet",
+    "short": "MOS Target Table: sdssv_boss_conflist",
+    "description": "The dr20_sdssv_boss_conflist table is a database representation of an\nearly version of the SDSS-V BOSS fieldlist data product.\n\nThe dr20_sdssv_boss_conflist table was used within early iterations of FPS target_selection as a way to communicate information about which SDSS-V plates had been observed by the time of target selection. This information was used to e.g. de-prioritise targets that were expected to have a good quality spectroscopic measurement before the start of SDSS-V FPS operations.\n\nCaution. The dr20_sdssv_boss_conflist table should only be used in order to recreate the target_selection selection function.\n\nColumn descriptions are mainly derived from: <a href=\"https://data.sdss.org/datamodel/files/BOSS_SPECTRO_REDUX/RUN2D/platelist.html\">https://data.sdss.org/datamodel/files/BOSS_SPECTRO_REDUX/RUN2D/platelist.html</a>",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "113 KB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdssv_boss_conflist.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdssv_boss_conflist.[FTYPE]",
+      "example": "2.0.0/parquet/mos_sdssv_boss_conflist.parquet",
+      "location": "{v_targ}/{ftype}/mos_sdssv_boss_conflist.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_sdssv_boss_conflist",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_sdssv_boss_conflist.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_sdssv_boss_conflist = $MOS_TARGET/{v_targ}/{ftype}/mos_sdssv_boss_conflist.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "plate": {
+            "name": "plate",
+            "description": "Plate ID number",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "designid": {
+            "name": "designid",
+            "description": "Design ID number",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "mjd": {
+            "name": "mjd",
+            "description": "Modified Julian date of combined Spectra",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "run2d": {
+            "name": "run2d",
+            "description": "Spectro-2D reduction name",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "run1d": {
+            "name": "run1d",
+            "description": "Spectro-1D reduction name",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "racen": {
+            "name": "racen",
+            "description": "RA of the telescope pointing",
+            "unit": "deg",
+            "dtype": "Float32",
+            "value": null
+          },
+          "deccen": {
+            "name": "deccen",
+            "description": "DEC of the telescope pointing",
+            "unit": "deg",
+            "dtype": "Float32",
+            "value": null
+          },
+          "epoch": {
+            "name": "epoch",
+            "description": "Epoch of the RACEN/DECCEN",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "cartid": {
+            "name": "cartid",
+            "description": "The currently loaded cartridge/instrument",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "tai": {
+            "name": "tai",
+            "description": "Mean MJD(TAI) seconds of integration",
+            "unit": "s",
+            "dtype": "Float64",
+            "value": null
+          },
+          "tai_beg": {
+            "name": "tai_beg",
+            "description": "MJD(TAI) seconds at start of integration",
+            "unit": "s",
+            "dtype": "Float64",
+            "value": null
+          },
+          "tai_end": {
+            "name": "tai_end",
+            "description": "MJD(TAI) seconds at end of integration",
+            "unit": "s",
+            "dtype": "Float64",
+            "value": null
+          },
+          "airmass": {
+            "name": "airmass",
+            "description": "Mean Airmass",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "exptime": {
+            "name": "exptime",
+            "description": "Total Exposure time",
+            "unit": "s",
+            "dtype": "Float32",
+            "value": null
+          },
+          "mapname": {
+            "name": "mapname",
+            "description": "ID of plate mapping file",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "survey": {
+            "name": "survey",
+            "description": "Survey that plate is part of",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "programname": {
+            "name": "programname",
+            "description": "Program name within a given survey",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "chunk": {
+            "name": "chunk",
+            "description": "Name of tiling chunk",
+            "unit": "from platelist product",
+            "dtype": "String",
+            "value": null
+          },
+          "platequality": {
+            "name": "platequality",
+            "description": "Characterization of plate quality",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "platesn2": {
+            "name": "platesn2",
+            "description": "Overall (S/N)^2 measure for plate",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "deredsn2": {
+            "name": "deredsn2",
+            "description": "Overall Dereddened (S/N)^2 for plate",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "qsurvey": {
+            "name": "qsurvey",
+            "description": "1 for an survey quality plate, 0 otherwise",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "mjdlist": {
+            "name": "mjdlist",
+            "description": "List of MJD for each included exposure",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "tailist": {
+            "name": "tailist",
+            "description": "List of TAI for each included exposure",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "nexp": {
+            "name": "nexp",
+            "description": "Number of Included Exposures",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "nexp_b1": {
+            "name": "nexp_b1",
+            "description": "Number of Included Exposures from b1",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "nexp_r1": {
+            "name": "nexp_r1",
+            "description": "Number of Included Exposures from r1",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "expt_b1": {
+            "name": "expt_b1",
+            "description": "Total Exposure Time of b1",
+            "unit": "s",
+            "dtype": "Float32",
+            "value": null
+          },
+          "expt_r1": {
+            "name": "expt_r1",
+            "description": "Total Exposure Time of r1",
+            "unit": "s",
+            "dtype": "Float32",
+            "value": null
+          },
+          "sn2_g1": {
+            "name": "sn2_g1",
+            "description": "Fit (S/N)^2 at g=20.20 for spectrograph #1",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "sn2_r1": {
+            "name": "sn2_r1",
+            "description": "Fit (S/N)^2 at r=20.25 for spectrograph #1",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "sn2_i1": {
+            "name": "sn2_i1",
+            "description": "Fit (S/N)^2 at i=19.90 for spectrograph #1",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "dered_sn2_g1": {
+            "name": "dered_sn2_g1",
+            "description": "Extinction corrected (S/N)^2 for sp1 g-band",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "dered_sn2_r1": {
+            "name": "dered_sn2_r1",
+            "description": "Extinction corrected (S/N)^2 for sp1 r-band",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "dered_sn2_i1": {
+            "name": "dered_sn2_i1",
+            "description": "Extinction corrected (S/N)^2 for sp1 i-band",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "goffstd": {
+            "name": "goffstd",
+            "description": "Mean g mag difference (spectro-photo) for STDs",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "grmsstd": {
+            "name": "grmsstd",
+            "description": "Stddev g mag diff (spectro-photo) for STDs",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "roffstd": {
+            "name": "roffstd",
+            "description": "Mean r mag difference (spectro-photo) for STDs",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "rrmsstd": {
+            "name": "rrmsstd",
+            "description": "Stddev r mag diff (spectro-photo) for STDs",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ioffstd": {
+            "name": "ioffstd",
+            "description": "Mean i mag difference (spectro-photo) for STDs",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "irmsstd": {
+            "name": "irmsstd",
+            "description": "Stddev i mag diff (spectro-photo) for STDs",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "groffstd": {
+            "name": "groffstd",
+            "description": "Spectrophoto offset for G-R in standards",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "grrmsstd": {
+            "name": "grrmsstd",
+            "description": "Spectrophoto RMS for G-R in standards",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "rioffstd": {
+            "name": "rioffstd",
+            "description": "Spectrophoto offset for R-I in standards",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "rirmsstd": {
+            "name": "rirmsstd",
+            "description": "Spectrophoto RMS for R-I in standards",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "goffgal": {
+            "name": "goffgal",
+            "description": "Mean g mag diff (spectro-photo) for galaxies",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "grmsgal": {
+            "name": "grmsgal",
+            "description": "Stddev g mag diff (spectro-photo) for galaxies",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "roffgal": {
+            "name": "roffgal",
+            "description": "Mean r mag diff (spectro-photo) for galaxies",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "rrmsgal": {
+            "name": "rrmsgal",
+            "description": "Stddev r mag diff (spectro-photo) for galaxies",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ioffgal": {
+            "name": "ioffgal",
+            "description": "Mean i mag diff (spectro-photo) for galaxies",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "irmsgal": {
+            "name": "irmsgal",
+            "description": "Stddev i mag diff (spectro-photo) for galaxies",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "groffgal": {
+            "name": "groffgal",
+            "description": "Spectrophoto offset for G-R in galaxies",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "grrmsgal": {
+            "name": "grrmsgal",
+            "description": "Spectrophoto RMS for G-R in galaxies",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "rioffgal": {
+            "name": "rioffgal",
+            "description": "Spectrophoto offset for R-I in galaxies",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "rirmsgal": {
+            "name": "rirmsgal",
+            "description": "Spectrophoto RMS for R-I in galaxies",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "nguide": {
+            "name": "nguide",
+            "description": "Number of guider frames during the exposures",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "seeing20": {
+            "name": "seeing20",
+            "description": "Mean 20% seeing during exposures",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "seeing50": {
+            "name": "seeing50",
+            "description": "Mean 50% seeing during exposures",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "seeing80": {
+            "name": "seeing80",
+            "description": "Mean 80% seeing during exposures",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "rmsoff20": {
+            "name": "rmsoff20",
+            "description": "20% of RMS offset of guide fibers",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "rmsoff50": {
+            "name": "rmsoff50",
+            "description": "50% of RMS offset of guide fibers",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "rmsoff80": {
+            "name": "rmsoff80",
+            "description": "80% of RMS offset of guide fibers",
+            "unit": "arcsec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "airtemp": {
+            "name": "airtemp",
+            "description": "Air temperature in the dome",
+            "unit": "dec",
+            "dtype": "Float32",
+            "value": null
+          },
+          "xsigma": {
+            "name": "xsigma",
+            "description": "Mean of median trace extraction profile width",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "xsigmin": {
+            "name": "xsigmin",
+            "description": "Min of median trace extraction profile width",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "xsigmax": {
+            "name": "xsigmax",
+            "description": "Max of median trace extraction profile width",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "wsigma": {
+            "name": "wsigma",
+            "description": "Mean of median Arc Lines wavelength (Y) width",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "wsigmin": {
+            "name": "wsigmin",
+            "description": "Min of median Arc Lines wavelength (Y) width",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "wsigmax": {
+            "name": "wsigmax",
+            "description": "Max of median Arc Lines wavelength (Y) width",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "xchi2": {
+            "name": "xchi2",
+            "description": "Mean of XCHI2 (reduced chi^2 of row-by-row)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "xchi2min": {
+            "name": "xchi2min",
+            "description": "Minimum of XCHI2 (reduced chi^2 of row-by-row)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "xchi2max": {
+            "name": "xchi2max",
+            "description": "Maximum of XCHI2 (reduced chi^2 of row-by-row)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "skychi2": {
+            "name": "skychi2",
+            "description": "Average chi^2 from sky subtraction",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "schi2min": {
+            "name": "schi2min",
+            "description": "Minimum skyChi2 over all exposures",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "schi2max": {
+            "name": "schi2max",
+            "description": "Maximum skyChi2 over all exposures",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fbadpix": {
+            "name": "fbadpix",
+            "description": "Fraction of bad pixels",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fbadpix1": {
+            "name": "fbadpix1",
+            "description": "Fraction of bad pixels from spectrograph #1",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fbadpix2": {
+            "name": "fbadpix2",
+            "description": "Fraction of bad pixels from spectrograph #2",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "n_total": {
+            "name": "n_total",
+            "description": "Number of Sources",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "n_galaxy": {
+            "name": "n_galaxy",
+            "description": "Number of Galaxies",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "n_qso": {
+            "name": "n_qso",
+            "description": "Number of QSOs",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "n_star": {
+            "name": "n_star",
+            "description": "Number of Stars",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "n_unknown": {
+            "name": "n_unknown",
+            "description": "Number of Unknown Sources",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "n_sky": {
+            "name": "n_sky",
+            "description": "Number of Skys",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "n_std": {
+            "name": "n_std",
+            "description": "Number of Standards",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "n_target_qso": {
+            "name": "n_target_qso",
+            "description": "Number of QSO Targeted",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "success_qso": {
+            "name": "success_qso",
+            "description": "Success rate of QSOs",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "status2d": {
+            "name": "status2d",
+            "description": "Status of 2d extraction",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "statuscombine": {
+            "name": "statuscombine",
+            "description": "Status of 1d combine",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "status1d": {
+            "name": "status1d",
+            "description": "Status of 1d analysis",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "public": {
+            "name": "public",
+            "description": "Is this Plate Public",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "qualcomments": {
+            "name": "qualcomments",
+            "description": "Comments on Plate Quality",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "moon_frac": {
+            "name": "moon_frac",
+            "description": "Mean Moon phase of the Coadded Spectra",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "pkey": {
+            "name": "pkey",
+            "description": "primary key for table entry",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

@@ -1,0 +1,164 @@
+general:
+  name: mos_target_mastar_goodstars_parquet
+  short: 'MOS Target Table: mastar_goodstars'
+  description: Summary file of MaNGA Stellar Library.
+  datatype: PARQUET
+  filesize: 940 KB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_mastar_goodstars.[FTYPE] with
+    FTYPE='parquet' and V_TARG='2.0.0' for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_mastar_goodstars.[FTYPE]
+    example: 2.0.0/parquet/mos_mastar_goodstars.parquet
+    location: '{v_targ}/{ftype}/mos_mastar_goodstars.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_mastar_goodstars
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_mastar_goodstars.{ftype}
+      path_kwargs:
+      - ftype
+      - v_targ
+      access_string: mos_target_mastar_goodstars = $MOS_TARGET/{v_targ}/{ftype}/mos_mastar_goodstars.{ftype}
+    survey: SDSS
+    dataframe:
+      columns:
+        drpver:
+          name: drpver
+          dtype: String
+          unit: ''
+          description: Version of mangadrp.
+        mprocver:
+          name: mprocver
+          dtype: String
+          unit: ''
+          description: Version of mastarproc.
+        mangaid:
+          name: mangaid
+          dtype: String
+          unit: ''
+          description: MaNGA-ID for the target.
+        minmjd:
+          name: minmjd
+          dtype: Int32
+          unit: ''
+          description: Minimum Modified Julian Date of Observations.
+        maxmjd:
+          name: maxmjd
+          dtype: Int32
+          unit: ''
+          description: Maximum Modified Julian Date of Observations.
+        nvisits:
+          name: nvisits
+          dtype: Int32
+          unit: ''
+          description: Number of visits for this star (including good and bad observations).
+        nplates:
+          name: nplates
+          dtype: Int32
+          unit: ''
+          description: Number of plates this star is on.
+        ra:
+          name: ra
+          dtype: Float64
+          unit: deg
+          description: Right Ascension for this object at the time given by the EPOCH
+            column (Equinox J2000).
+        dec:
+          name: dec
+          dtype: Float64
+          unit: deg
+          description: Declination for this object at the time given by the EPOCH
+            column (Equinox J2000).
+        epoch:
+          name: epoch
+          dtype: Float32
+          unit: ''
+          description: Epoch of the astrometry (which is approximate for some catalogs).
+        psfmag_1:
+          name: psfmag_1
+          dtype: Float32
+          unit: mag
+          description: PSF magnitude in the first band with the filter correspondence
+            depending on PHOTOCAT.
+        psfmag_2:
+          name: psfmag_2
+          dtype: Float32
+          unit: mag
+          description: PSF magnitude in the second band with the filter correspondence
+            depending on PHOTOCAT.
+        psfmag_3:
+          name: psfmag_3
+          dtype: Float32
+          unit: mag
+          description: PSF magnitude in the third band with the filter correspondence
+            depending on PHOTOCAT.
+        psfmag_4:
+          name: psfmag_4
+          dtype: Float32
+          unit: mag
+          description: PSF magnitude in the fourth band with the filter correspondence
+            depending on PHOTOCAT.
+        psfmag_5:
+          name: psfmag_5
+          dtype: Float32
+          unit: mag
+          description: PSF magnitude in the fifth band with the filter correspondence
+            depending on PHOTOCAT.
+        mngtarg2:
+          name: mngtarg2
+          dtype: Int32
+          unit: ''
+          description: MANGA_TARGET2 targeting bitmask.
+        input_logg:
+          name: input_logg
+          dtype: Float32
+          unit: log(cm/s^2)
+          description: Surface gravity in the input catalog (with some adjustment
+            made).
+        input_teff:
+          name: input_teff
+          dtype: Float32
+          unit: K
+          description: Effective temperature in the input catalog (with some adjustment
+            made).
+        input_fe_h:
+          name: input_fe_h
+          dtype: Float32
+          unit: ''
+          description: '[Fe/H] in the input catalog (with some adjustment made).'
+        input_alpha_m:
+          name: input_alpha_m
+          dtype: Float32
+          unit: ''
+          description: '[alpha/M] in the input catalog (with some adjustment made).'
+        input_source:
+          name: input_source
+          dtype: String
+          unit: ''
+          description: Source catalog for stellar parameters.
+        photocat:
+          name: photocat
+          dtype: String
+          unit: ''
+          description: Source of astrometry and photometry.
+      metadata: {}
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!
