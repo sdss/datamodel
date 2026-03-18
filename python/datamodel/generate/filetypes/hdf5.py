@@ -88,7 +88,7 @@ class HdfFile(BaseFile):
             if isinstance(value, h5py.Empty):
                 return None
             elif isinstance(value, np.generic):
-                return str(value.item()) if isinstance(value.item(), bytes) else value.item()
+                return str(value) if isinstance(value, bytes) else value
             else:
                 return value
 
@@ -101,10 +101,10 @@ class HdfFile(BaseFile):
             "description": "replace me - with a description of this dataset",
             "attrs": self._create_attrs(h5obj),
             "shape": h5obj.shape,
-            "size": h5obj.size.item(),
+            "size": int(h5obj.size),
             "ndim": h5obj.ndim,
             "dtype": str(h5obj.dtype),
-            "nbytes": h5obj.nbytes.item(),
+            "nbytes": h5obj.nbytes,
             "is_virtual": h5obj.is_virtual,
             "is_empty": isinstance(h5obj, h5py.Empty),
         }
@@ -232,7 +232,7 @@ class HdfFile(BaseFile):
             member['attrs'] = self._design_attrs(attrs) or []
             if hdftype == 'dataset':
                 member['shape'] = ds_shape or (10,)
-                member['size'] = np.prod(member['shape']).item()
+                member['size'] = np.prod(member['shape'])
                 member['dtype'] = ds_dtype or 'S10'
                 member['ndim'] = len(member['shape'])
             elif hdftype == 'group':
