@@ -19,7 +19,7 @@ M dwarf pseudo-continuum from Medan, Way, et al. (2025), which can be used to st
 $VAC_ROOT/mwm/mdwarf-contin/mdwarf-contin-standardization-[V_VAC].h5
 
 ### Releases
-DR19
+DR20
 
 ### Enviroments
 VAC_ROOT
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDFS List for release DR19
+### HDFS List for release DR20
   - [top](#top-level)
   - [meta](#meta)
   - [meta/airmass](#metaairmass)
