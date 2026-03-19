@@ -16,13 +16,13 @@ M dwarf pseudo-continuum used to standardize BOSS spectra
 M dwarf pseudo-continuum from Medan, Way, et al. (2025), which can be used to standardize BOSS spectra of M dwarfs. When standardized, the issues in flux calibration in the optical spectra are removed such that M dwarfs of similar stellar parameters should not have comparable spectrum shapes and features. This VAC includes all meta-data from mwmAllVisit, flux and ivar from the mwmVisit files, and the computed pseudo-continuum for the subset of M dwarfs in DR20.
 
 ### Naming Convention
-$VAC_ROOT/mwm/mdwarf-contin/mdwarf-contin-standardization-[V_VAC].h5
+$MWM_MDWARF/mdwarf-contin/mdwarf-contin-standardization-[V_VAC].h5
 
 ### Releases
 DR20
 
 ### Enviroments
-VAC_ROOT
+MWM_MDWARF
 
 ### Approximate Size
 27 GB
