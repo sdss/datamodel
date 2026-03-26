@@ -13,7 +13,7 @@ MOS Target Table: sdss_dr19p_speclite
 ---
 
 ## Basic Information
-[INCOMPLETE]: Tom to provide a summary and check the column descriptions.
+Selection of columns from the SDSS DR19 specLite file.
 
 ### Naming Convention
 $MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdss_dr19p_speclite-[NUM].[FTYPE] with FTYPE='fits', V_TARG='2.0.0', and NUM=1..4 for DR20.

@@ -1,16 +1,24 @@
 general:
   name: mos_target_targeting_generation_to_version
-  short: 'MOS Target table: mos_target_targeting_generation_to_version'
-  description: A 'targeting_generation' describes a collection of versioned cartons,
-    together with their robostrategy control parameters. This is a convenient way
-    to describe the specific set of carton-versions that were used (and the way that
-    they were treated) within any particular run of robostrategy.  The dr19_targeting_generation_to_version
-    table describes a one-to-many relationship, connecting each robostrategy run to
-    one targeting_generation. In general, a single target_generation can be used my
-    more than one robostrategy run.  Taken together, the dr19_targeting_generation,
-    dr19_targeting_generation_to_carton and dr19_targeting_generation_to_version tables
-    duplicate, in a database form, the robostrategy carton configuration information
-    available via the rsconfig product (https://github.com/sdss/rsconfig).
+  short: 'MOS Target Table: targeting_generation_to_version'
+  description: 'Mapping of targeting generations to robostrategy runs.
+
+
+    A ''targeting_generation'' describes a collection of versioned cartons, together
+    with their robostrategy control parameters. This is a convenient way to describe
+    the specific set of carton-versions that were used (and the way that they were
+    treated) within any particular run of robostrategy.
+
+
+    The dr20_targeting_generation_to_version table describes a one-to-many relationship,
+    connecting each robostrategy run to one targeting_generation. In general, a single
+    target_generation can be used my more than one robostrategy run.
+
+
+    Taken together, the dr20_targeting_generation, dr20_targeting_generation_to_carton
+    and dr20_targeting_generation_to_version tables duplicate, in a database form,
+    the robostrategy carton configuration information available via the rsconfig product
+    (<a href="https://github.com/sdss/rsconfig)">https://github.com/sdss/rsconfig)</a>.'
   datatype: FITS
   filesize: 8 KB
   releases:
@@ -24,7 +32,7 @@ general:
   - SDSS
   naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_targeting_generation_to_version.[FTYPE]
     with FTYPE='fits' and V_TARG='2.0.0' for DR20.
-  generated_by: sdss5db> targetdb, operations database server
+  generated_by: sdss5db targeting database.
   data_level: 2.3.3
   design: false
   vac: false
@@ -136,8 +144,8 @@ releases:
       path_name: mos_target_targeting_generation_to_version
       path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_targeting_generation_to_version.{ftype}
       path_kwargs:
-      - ftype
       - v_targ
+      - ftype
       access_string: mos_target_targeting_generation_to_version = $MOS_TARGET/{v_targ}/{ftype}/mos_targeting_generation_to_version.{ftype}
     survey: SDSS
     hdus:

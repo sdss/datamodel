@@ -16,8 +16,7 @@ general:
     \ releases:\nPS1: Pan-STARRS, DR1, StackObjectThin\nSDSS: Sloan Digital Sky Survey,\
     \ DR14, PhotoObjAll\nGaia: DR2, gaia_dr2.gaia_source, DR3, gaia_dr3.gaia_source\n\
     Legacy Survey DR8 and DR10.\nValues are set to -9.0 or -9 if null.\n\nThe dr20_bhm_rm_v1\
-    \ table corresponds to Version: v1, 11/29/2022\n\n[INCOMPLETE]: Tom to check summary\
-    \ and missing column descriptions."
+    \ table corresponds to Version: v1, 11/29/2022"
   datatype: FITS
   filesize: 635 KB
   releases:
@@ -48,8 +47,8 @@ releases:
       path_name: mos_target_bhm_rm_v1
       path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_bhm_rm_v1.{ftype}
       path_kwargs:
-      - ftype
       - v_targ
+      - ftype
       access_string: mos_target_bhm_rm_v1 = $MOS_TARGET/{v_targ}/{ftype}/mos_bhm_rm_v1.{ftype}
     survey: SDSS
     hdus:
@@ -151,42 +150,46 @@ releases:
             name: rm_known_spec
             type: bool
             unit: ''
-            description: ''
+            description: Boolen flag indicating if the object belongs to the bhm_rm_known_spec
+              carton
           rm_core:
             name: rm_core
             type: bool
             unit: ''
-            description: ''
+            description: Boolean flag indicating if the object belongs to the bhm_rm_core
+              carton
           rm_var:
             name: rm_var
             type: bool
             unit: ''
-            description: ''
+            description: Boolean flag indicating if the object belongs to the bhm_rm_var
+              carton
           rm_ancillary:
             name: rm_ancillary
             type: bool
             unit: ''
-            description: ''
+            description: Boolean flag indicating if the object belongs to the bhm_rm_ancillary
+              carton
           mag_g:
             name: mag_g
             type: float32
-            unit: ''
-            description: ''
+            unit: mag
+            description: PS1 g-band magnitude
           mag_r:
             name: mag_r
             type: float32
-            unit: ''
-            description: ''
+            unit: mag
+            description: PS1 r-band magnitude
           mag_i:
             name: mag_i
             type: float32
-            unit: ''
-            description: ''
+            unit: mag
+            description: PS1 i-band magnitude
           mag_z:
             name: mag_z
             type: float32
-            unit: ''
-            description: ''
+            unit: mag
+            description: PS1 z-band magnitude
           gaia_g:
             name: gaia_g
             type: float32
@@ -231,12 +234,12 @@ releases:
             name: rm_unsuitable
             type: bool
             unit: ''
-            description: ''
+            description: Whether the entry is consider unsuitable as a RM target
           rm_xrayqso:
             name: rm_xrayqso
             type: int32
             unit: ''
-            description: ''
+            description: Whether to include the target in the bhm_rm_xrayqso carton
           pkey:
             name: pkey
             type: int64

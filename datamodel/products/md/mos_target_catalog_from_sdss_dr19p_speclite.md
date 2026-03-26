@@ -13,7 +13,9 @@ MOS Target Table: catalog_from_sdss_dr19p_speclite
 ---
 
 ## Basic Information
-Relational table linking dr20_catalog with dr20_sdss_dr19p_speclite. Although this table has the same columns and purpose of other "catalog_to_X" tables in this schema, it is explicitly named "catalog_from" as it was generated using a bespoke cross-match different from the usual process used for other cross-matched tables in DR20.
+Relational table linking dr20_catalog with dr20_sdss_dr19p_speclite.
+
+Although this table has the same columns and purpose of other "catalog_to_X" tables in this schema, it is explicitly named "catalog_from" as it was generated using a bespoke cross-match different from the usual process used for other cross-matched tables in DR20.
 
 ### Naming Convention
 $MOS_TARGET/[V_TARG]/[FTYPE]/mos_catalog_from_sdss_dr19p_speclite-[NUM].[FTYPE] with FTYPE='fits', V_TARG='2.0.0', and NUM=1..4 for DR20.

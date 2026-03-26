@@ -37,8 +37,6 @@ Values are set to -9.0 or -9 if null.
 
 The dr20_bhm_rm_v1 table corresponds to Version: v1, 03/31/2023
 
-[INCOMPLETE]: Tom to check summary and missing column descriptions.
-
 ### Naming Convention
 $MOS_TARGET/[V_TARG]/[FTYPE]/mos_bhm_rm_v1_1.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
@@ -124,14 +122,14 @@ Name | Type | Unit | Description |
  | ra | float64 | deg | Fiducial Right Ascension (J2000) |
  | dec | float64 | deg | Fiducial Declination (J2000) |
  | catalogidv05 | int64 |  | Unique identifier in the dr20_catalog table (corresponding to the v0.5 cross-matching run). |
- | rm_known_spec | bool |  |  |
- | rm_core | bool |  |  |
- | rm_var | bool |  |  |
- | rm_ancillary | bool |  |  |
- | mag_g | float32 |  |  |
- | mag_r | float32 |  |  |
- | mag_i | float32 |  |  |
- | mag_z | float32 |  |  |
+ | rm_known_spec | bool |  | Boolen flag indicating if the object belongs to the bhm_rm_known_spec carton |
+ | rm_core | bool |  | Boolean flag indicating if the object belongs to the bhm_rm_core carton |
+ | rm_var | bool |  | Boolean flag indicating if the object belongs to the bhm_rm_var carton |
+ | rm_ancillary | bool |  | Boolean flag indicating if the object belongs to the bhm_rm_ancillary carton |
+ | mag_g | float32 | mag | PS1 g-band magnitude |
+ | mag_r | float32 | mag | PS1 r-band magnitude |
+ | mag_i | float32 | mag | PS1 i-band magnitude |
+ | mag_z | float32 | mag | PS1 z-band magnitude |
  | gaia_g | float32 | mag | Gaia G-band magnitude |
  | gaia_bp | float32 | mag | Gaia BP-band magnitude |
  | gaia_rp | float32 | mag | Gaia RP-band magnitude |
@@ -140,8 +138,8 @@ Name | Type | Unit | Description |
  | gaia_dr2_source_id | int64 |  | Gaia DR2 source ID |
  | gaia_dr3_source_id | int64 |  | Gaia DR3 source ID |
  | panstarrs1_catid_objid | int64 |  | Pan-STARRS1 DR1 StackObjectThin unique object identifier |
- | rm_unsuitable | bool |  |  |
- | rm_xrayqso | int32 |  |  |
+ | rm_unsuitable | bool |  | Whether the entry is consider unsuitable as a RM target |
+ | rm_xrayqso | int32 |  | Whether to include the target in the bhm_rm_xrayqso carton |
  | pkey | int64 |  | Primary key identifier for this table row |
 
 

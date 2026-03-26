@@ -1,8 +1,8 @@
 {
   "general": {
     "name": "mos_target_sdss_id_stacked",
-    "short": "MOS Target table: mos_target_sdss_id_stacked",
-    "description": "This table includes associations between sdss_id identifiers and the matched catalogids for each catalogue cross-match. The table contains one row per sdss_id with columns for each catalogid version. However, catalogids may be associated with multiple sdss_id. dr19_sdss_id_flat is a pivoted/flattened version of this table and contains information about the preferred sdss_id for a catalogid. Note: The sdss_id match was extended internally for a more recent crossmatch not yet part of the publicly released data. As such, the ra/dec_sdss_id columns may differ from the catalogid coordinates.",
+    "short": "MOS Target Table: sdss_id_stacked",
+    "description": "This table includes associations between sdss_id identifiers and the matched catalogids for each catalogue cross-match.\n\nThe table contains one row per sdss_id with columns for each catalogid version. However, catalogids may be associated with multiple sdss_id. dr20_sdss_id_flat is a pivoted/flattened version of this table and contains information about the preferred sdss_id for a catalogid.\n\nNote: The sdss_id match was extended internally for a more recent crossmatch not yet part of the publicly released data. As such, the ra/dec_sdss_id columns may differ from the catalogid coordinates.",
     "environments": [
       "MOS_TARGET"
     ],
@@ -67,7 +67,7 @@
       }
     ],
     "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdss_id_stacked-[NUM].[FTYPE] with FTYPE='fits', V_TARG='2.0.0', and NUM=1..64 for DR20.",
-    "generated_by": "sdss5db> targetdb, operations database server",
+    "generated_by": "sdss5db targeting database.",
     "design": false,
     "vac": false,
     "recommended_science_product": false,
@@ -102,7 +102,10 @@
         "members": null,
         "delta_ncolumns": 0,
         "added_columns": [],
-        "removed_columns": []
+        "removed_columns": [],
+        "delta_nmetadata": 0,
+        "added_metadata": [],
+        "removed_metadata": []
       }
     }
   },
@@ -264,8 +267,8 @@
         "path_name": "mos_target_sdss_id_stacked",
         "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_sdss_id_stacked@mos_target_num2|.{ftype}",
         "path_kwargs": [
-          "ftype",
-          "v_targ"
+          "v_targ",
+          "ftype"
         ],
         "access_string": "mos_target_sdss_id_stacked = $MOS_TARGET/{v_targ}/{ftype}/mos_sdss_id_stacked-{num}.{ftype}"
       },

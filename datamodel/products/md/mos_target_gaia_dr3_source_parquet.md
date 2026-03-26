@@ -13,7 +13,9 @@ MOS Target Table: gaia_dr3_source
 ---
 
 ## Basic Information
-The main Gaia Data Release 3 source tbale. This table has an entry for every Gaia observed source as published with this data release. It contains the basic source parameters, in their final state as processed by the Gaia Data Processing and Analysis Consortium from the raw data coming from the spacecraft. For more details, refer to <a href="https://gea.esac.esa.int/archive/documentation/GDR3/Gaia_archive/chap_datamodel/sec_dm_main_source_catalogue/ssec_dm_gaia_source.html">https://gea.esac.esa.int/archive/documentation/GDR3/Gaia_archive/chap_datamodel/sec_dm_main_source_catalogue/ssec_dm_gaia_source.html</a>.
+The main Gaia Data Release 3 source table.
+
+This table has an entry for every Gaia observed source as published with this data release. It contains the basic source parameters, in their final state as processed by the Gaia Data Processing and Analysis Consortium from the raw data coming from the spacecraft. For more details, refer to <a href="https://gea.esac.esa.int/archive/documentation/GDR3/Gaia_archive/chap_datamodel/sec_dm_main_source_catalogue/ssec_dm_gaia_source.html">https://gea.esac.esa.int/archive/documentation/GDR3/Gaia_archive/chap_datamodel/sec_dm_main_source_catalogue/ssec_dm_gaia_source.html</a>.
 
 ### Naming Convention
 $MOS_TARGET/[V_TARG]/[FTYPE]/mos_gaia_dr3_source.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.
@@ -344,7 +346,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### astrometric_primary_flag
 
 - Column Name: astrometric_primary_flag
-- Description: Primary or seconday
+- Description: Primary or secondary
 - Unit: N/A
 - Data Type: Boolean
 
@@ -400,7 +402,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### pmra_pseudocolour_corr
 
 - Column Name: pmra_pseudocolour_corr
-- Description: Correlation between proper motion in right asension and pseudocolour
+- Description: Correlation between proper motion in right ascension and pseudocolour
 - Unit: N/A
 - Data Type: Float32
 
