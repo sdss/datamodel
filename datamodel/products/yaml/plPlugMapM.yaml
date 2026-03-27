@@ -1,0 +1,574 @@
+general:
+  name: plPlugMapM
+  short: Plug Plate Fiber to Object Mapping for Mapped Plates
+  description: Plug Plate Fiber to Object Mapping for Mapped Plates
+  datatype: PAR
+  filesize: 140 KB
+  releases:
+  - IPL4
+  environments:
+  - SPECLOG_DIR
+  surveys:
+  - SDSS
+  naming_convention: $SPECLOG_DIR/[MJD]/plPlugMapM-[PLATEID5]-[FSMJD]-[FSCANID2].par
+  generated_by: platedesign
+  data_level: 0.3.0
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  IPL4:
+    template: $SPECLOG_DIR/[MJD]/plPlugMapM-[PLATEID5]-[FSMJD]-[FSCANID2].par
+    example: 59393/plPlugMapM-15090-59392-01.par
+    location: '{mjd}/plPlugMapM-{plateid:0>5}-{fsmjd}-{fscanId:0>2}.par'
+    environment: SPECLOG_DIR
+    access:
+      in_sdss_access: true
+      path_name: plPlugMapM
+      path_template: $SPECLOG_DIR/{mjd}/plPlugMapM-{plateid:0>4}.par
+      path_kwargs:
+      - mjd
+      - plateid
+      access_string: plPlugMapM = $SPECLOG_DIR/{mjd}/plPlugMapM-{plateid:0>5}-{fsmjd}-{fscanId:0>2}.par
+    survey: SDSS
+    par:
+      comments: |-
+        # Following keywords meant for guider
+      header:
+      - key: completeTileVersion
+        value: none
+        comment: ''
+      - key: mjdDesign
+        value: '59153'
+        comment: MJD of Plate Design
+      - key: pointing
+        value: A
+        comment: which pointing (1-indexed) this target is associated with
+      - key: mag_quality
+        value: bad
+        comment: Plate Input Magnitude Quality Flag
+      - key: plateId
+        value: '15090'
+        comment: plate ID number
+      - key: ha
+        value: 30.000 0.000 0.000 0.000 0.000 0.000
+        comment: the hour angle for which each pointing is designed (negative = rising,
+          positive = setting, given in degrees)
+      - key: ha_observable_min
+        value: -0.373 0.000 0.000 0.000 0.000 0.000
+        comment: the minimum observable hour angle to guarantee no hole offsets due
+          to refraction greater than value given by MAX_OFF_FIBER_FOR_HA header keyword
+          in plateDefaults file (negative = rising, positive = setting, given in degrees)
+      - key: ha_observable_max
+        value: 44.938 0.000 0.000 0.000 0.000 0.000
+        comment: the maximum observable hour angle to guarantee no hole offsets due
+          to refraction greater than value given by MAX_OFF_FIBER_FOR_HA header keyword
+          in plateDefaults file (negative = rising, positive = setting, given in degrees)
+      - key: programname
+        value: MWM_30min
+        comment: SDSS Program Name for which plate is designed
+      - key: temp
+        value: '14.000'
+        comment: temperature of design (deg C)
+      - key: design_platescale_alt
+        value: '217.8914049'
+        comment: effective plate scale of the design (in altitude direction, mm per
+          deg)
+      - key: design_platescale_az
+        value: '217.9256691'
+        comment: effective plate scale of the design (in azimuth direction, mm per
+          deg)
+      - key: design_parallactic_angle
+        value: '98.4312627'
+        comment: parallactic angle (deg E of N)
+      - key: guider_coeff_0
+        value: '0.'
+        comment: placeholders for guider coefficients, unused
+      - key: guider_coeff_1
+        value: '0.'
+        comment: placeholders for guider coefficients, unused
+      - key: guider_coeff_2
+        value: '0.'
+        comment: placeholders for guider coefficients, unused
+      - key: guider_coeff_3
+        value: '0.'
+        comment: placeholders for guider coefficients, unused
+      - key: guider_coeff_4
+        value: '0.'
+        comment: placeholders for guider coefficients, unused
+      - key: guider_coeff_5
+        value: '0.'
+        comment: placeholders for guider coefficients, unused
+      - key: guider_coeff_6
+        value: '0.'
+        comment: placeholders for guider coefficients, unused
+      - key: guider_coeff_7
+        value: '0.'
+        comment: placeholders for guider coefficients, unused
+      - key: guider_coeff_8
+        value: '0.'
+        comment: placeholders for guider coefficients, unused
+      - key: guider_coeff_9
+        value: '0.'
+        comment: placeholders for guider coefficients, unused
+      - key: locationId
+        value: '50098'
+        comment: Number identifying the physical location of the plate on the Sky
+          for Apogee
+      - key: instruments
+        value: APOGEE_SHARED BOSS_SHARED
+        comment: Instruments for which plate is designed
+      - key: npointings
+        value: '1'
+        comment: number of pointings that the plate is designed to make; each pointing
+          will correspond to one or more exposures during observation; number must
+          be less than or equal to 6
+      - key: noffsets
+        value: '0'
+        comment: number of offsets to perform within each exposure
+      - key: maxskyinblockboss_shared
+        value: '4'
+        comment: specify if we have a minimum number of standards we want to assign
+          per Plate fiber block (default 0)
+      - key: gfibertype
+        value: gfiber2
+        comment: type of Plate guide fibers to assume (old "gfiber" or new "gfiber2")
+      - key: guidetype
+        value: GAIA
+        comment: for each Plate pointing, the source to search for guide fibers from
+          (can be "SDSS" or "2MASS")
+      - key: guidenums1
+        value: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+        comment: for each Plate pointing, the source to search for guide fibers from
+          (can be "SDSS" or "2MASS")
+      - key: guidemag_minmax
+        value: 11. 15.0
+        comment: minimum and maximum g-band magnitudes for Plate guide stars (default
+          - [13, 15.5])
+      - key: guide_lambda_eff
+        value: '5400.'
+        comment: Guiding wavelength (in Angstroms)
+      - key: nguidemax
+        value: '600'
+        comment: maximum number of possible plate guide stars to track, otherwise
+          tracks 10s of thousands at low b (default - infinite)
+      - key: ferrulesizeboss_shared
+        value: '3.72231'
+        comment: diameter of plate ferrule in mm for BOSS
+      - key: buffersizeboss_shared
+        value: '0.000'
+        comment: buffer to include outside boss ferrule for checking for conflicts
+      - key: ferrulesizeapogee_shared
+        value: '3.72231'
+        comment: diameter of plate ferrule in mm for APOGEE
+      - key: buffersizeapogee_shared
+        value: '0.300'
+        comment: buffer to include outside apogee ferrule for checking for conflicts
+      - key: ferrulesizeguide
+        value: '6.9555'
+        comment: diameter of plate ferrule in mm for guide fibers
+      - key: buffersizeguide
+        value: '0.3'
+        comment: buffer to include outside guide ferrule for checking for conflicts
+      - key: platedesignstandards
+        value: NONE
+        comment: specify what instruments we want plate design to find standards for
+      - key: standardtype
+        value: NONE
+        comment: for each plate pointing, type of standard to find (can be "SDSS"
+          or "2MASS", or "None" --- in fact, any value other than SDSS or 2MASS is
+          equivalent to "None")
+      - key: platedesignskies
+        value: NONE
+        comment: specify what instruments we want plate design to find skies for,
+          if any
+      - key: skytype
+        value: NONE
+        comment: for each pointing, type of skies to find (can be "SDSS" or "2MASS")
+      - key: plugmapstyle
+        value: plplugmap_apogee_boss
+        comment: type of plugmap file to create (default "plplugmap")
+      - key: bossmagtype
+        value: fiber2mag
+        comment: type of magnitude used for fiber magnitudes for BOSS targets
+      - key: pointing_name
+        value: A B C D E F
+        comment: name of the plate pointings ('A B C D E F')
+      - key: max_off_fiber_for_ha
+        value: '0.3'
+        comment: set HA limits (ha_observable_min, haobservable_max) to guarantee
+          no offsets greater than this limit, in arcsec (platedesign v1_27 and above)
+      - key: collectfactor
+        value: '6'
+        comment: oversampling factor for collecting skies and standards; to ensure
+          pluggability, should be at least 5 (default - 5)
+      - key: designid
+        value: '15098'
+        comment: plate design identification number
+      - key: platedesignversion
+        value: v2
+        comment: version of the plate design
+      - key: platetype
+        value: APOGEE-BOSS
+        comment: type of plateDefault file to use
+      - key: defaultsurveymode
+        value: mwmLead
+        comment: Which mapper leads the plate design (bhmLead or mwmLead). Ony set
+          for plateID>=15072.
+      - key: ninputs
+        value: '19'
+        comment: Number of PlateInput files used to create this plate design
+      - key: plateinput1
+        value: mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_boss_SCI_mwm_cb_15098.par
+        comment: Plate input file 1
+      - key: plateinput2
+        value: mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_boss_SCI_mwm_wd_15098.par
+        comment: Plate input file 2
+      - key: plateinput3
+        value: mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_boss_SCI_mwm_snc_shared_15098.par
+        comment: Plate input file 3
+      - key: plateinput4
+        value: mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_apogee_STA_15098.par
+        comment: Plate input file 4
+      - key: plateinput5
+        value: mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_apogee_SCI_mwm_snc_shared_15098.par
+        comment: Plate input file 5
+      - key: plateinput6
+        value: mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_apogee_SCI_mwm_planet_15098.par
+        comment: Plate input file 6
+      - key: plateinput7
+        value: mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_apogee_SCI_mwm_yso_apo_15098.par
+        comment: Plate input file 7
+      - key: plateinput8
+        value: mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_boss_SCI_mwm_yso_shared_15098.par
+        comment: Plate input file 8
+      - key: plateinput9
+        value: mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_apogee_SCI_mwm_gg_15098.par
+        comment: Plate input file 9
+      - key: plateinput10
+        value: mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_apogee_SCI_mwm_dust_15098.par
+        comment: Plate input file 10
+      - key: plateinput11
+        value: mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_apogee_SCI_mwm_yso_shared_15098.par
+        comment: Plate input file 11
+      - key: plateinput12
+        value: mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_boss_STA_15098.par
+        comment: Plate input file 12
+      - key: plateinput13
+        value: mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_boss_SCI_mwm_ob_15098.par
+        comment: Plate input file 13
+      - key: plateinput14
+        value: mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_boss_SCI_bhm_csc_bright_boss_15098.par
+        comment: Plate
+      - key: plateinput15
+        value: mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_apogee_SCI_bhm_csc_bright_apo_15098.par
+        comment: Plate input file 15
+      - key: plateinput16
+        value: mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_boss_SCI_mwm_filler_15098.par
+        comment: Plate input file 16
+      - key: plateinput17
+        value: mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_apogee_SCI_mwm_rv_fps_15098.par
+        comment: Plate input file 17
+      - key: skyinput18
+        value: mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_boss_SKY_15098.par
+        comment: Sky input file 18
+      - key: plateinput19
+        value: mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_apogee_SKY_15098.par
+        comment: Plate input file 19
+      - key: priority
+        value: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+        comment: priority number assigned by the plateInput file; lower numbers indicate
+          higher priority
+      - key: relaxed_fiber_classes
+        value: '1'
+        comment: for APOGEE, do not break target classes up into bright/medium/faint.
+      - key: targettypes
+        value: standard science sky
+        comment: types of targets which the file will specify a certain number of
+          (allowed - "science", "sky", "standard")
+      - key: napogee_shared_standard
+        value: '15'
+        comment: number of apogee standard fibers
+      - key: napogee_shared_science
+        value: '250'
+        comment: number of apogee science fibers
+      - key: napogee_shared_sky
+        value: '35'
+        comment: number of apogee sky fibers
+      - key: nboss_shared_standard
+        value: '50'
+        comment: number of boss standard fibers
+      - key: nboss_shared_science
+        value: '400'
+        comment: number of boss science fibers
+      - key: nboss_shared_sky
+        value: '50'
+        comment: number of boss sky fibers
+      - key: minskyinblockboss_shared
+        value: '2'
+        comment: specify if we have a minimum number of standards we want to assign
+          per Plate fiber block (default 0)
+      - key: reddeningMed
+        value: 13.1472 10.2442 7.0869 5.2663 3.9172
+        comment: reddening values
+      - key: tileId
+        value: '-1'
+        comment: SDSS Plate Tiling ID
+      - key: theta
+        value: '0'
+        comment: position angle of plate design (0 in practice)
+      - key: platerun
+        value: 2020.10.a.mwm-bhm
+        comment: name of platerun this file was part of
+      - key: platedesign_version
+        value: $HeadURL$
+        comment: Plate design version
+      - key: haMin
+        value: '30.0000'
+        comment: min design hour angle
+      - key: haMax
+        value: '30.0000'
+        comment: max design hour angle (same as haMin)
+      - key: raCen
+        value: '304.54646000'
+        comment: Right ascension of plate center
+      - key: decCen
+        value: '40.56630000'
+        comment: Declination of plate center
+      - key: EVILSCAN
+        value: ''
+        comment: ''
+      - key: fscanVersion
+        value: '$HeadURL: https://svn.sdss.org/repo/operations/general/idlmapper/tags/v7_0_9/src/evilscan.c
+          $'
+        comment: version of scan software
+      - key: pluggers
+        value: cope/sanchez
+        comment: who plugged the plate
+      - key: fscanMJD
+        value: '59392'
+        comment: MJD when plugged plate was scanned
+      - key: fscanId
+        value: '1'
+        comment: unique mapped-plugged-plate id
+      - key: fscanDate
+        value: Sat Jun 26 21:47:55 2021
+        comment: Date of Fiber Scan Run
+      - key: fscanFile
+        value: fiberScan-15090-59392-01.par
+        comment: Name of Fiber Scan Parameter File
+      - key: fscanMode
+        value: interpolated
+        comment: Fscan mode (slow, fast or extrema)
+      - key: fscanSpeed
+        value: '400'
+        comment: Fscan motor scanning speed
+      - key: fscanRows
+        value: '960'
+        comment: ''
+      - key: fscanCols
+        value: '960'
+        comment: ''
+      - key: fscanBias
+        value: '41.000000'
+        comment: ''
+      - key: motorId1
+        value: '41'
+        comment: ''
+      - key: motorId2
+        value: '9'
+        comment: ''
+      - key: motorId3
+        value: '31'
+        comment: ''
+      - key: cartridgeId
+        value: '9'
+        comment: Cartridge ID
+      - key: fmapVersion
+        value: NOCVS:v7_0_9
+        comment: Fiber mapper version used to create this file
+      - key: idlutilsVersion
+        value: v5_5_17
+        comment: IDL utils version used to create this file
+      - key: idlVersion
+        value: '7.1'
+        comment: IDL version used to create this file
+      tables:
+        PLUGMAPOBJ:
+          name: PLUGMAPOBJ
+          description: Plate Plug Map Object Information
+          n_rows: 840
+          structure:
+          - name: objId
+            type: int[5]
+            description: Unique object id from SDSS imaging
+            unit: ''
+            is_array: true
+            is_enum: false
+            example:
+            - 0
+            - 0
+            - 0
+            - 0
+            - 0
+          - name: holeType
+            type: HOLETYPE
+            description: type of hole to be drilled; one of SDSS, BOSS, MARVELS, APOGEE,
+              GUIDE, CENTER, TRAP, or ALIGNMENT; this really refers to the instrument
+              to be used, so for example SEGUE targets should be either SDSS or BOSS
+            unit: ''
+            is_array: false
+            is_enum: true
+            enum_values:
+            - OBJECT
+            - COHERENT_SKY
+            - GUIDE
+            - LIGHT_TRAP
+            - ALIGNMENT
+            - QUALITY
+            - MANGA
+            - MANGA_SINGLE
+            - MANGA_ALIGNMENT
+            - ACQUISITION_CENTER
+            - ACQUISITION_OFFAXIS
+            example: LIGHT_TRAP
+          - name: ra
+            type: double
+            description: Right ascension of object (J2000)
+            unit: degrees
+            is_array: false
+            is_enum: false
+            example: 304.23039
+          - name: dec
+            type: double
+            description: declination of object (J2000)
+            unit: degrees
+            is_array: false
+            is_enum: false
+            example: 40.365043
+          - name: mag
+            type: float[5]
+            description: magnitude to use for the SOS software as the best known fiber
+              magnitude for the object
+            unit: mag
+            is_array: true
+            is_enum: false
+            example:
+            - 0.0
+            - 0.0
+            - 0.0
+            - 0.0
+            - 0.0
+          - name: starL
+            type: float
+            description: likelihood object is star
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 0.0
+          - name: expL
+            type: float
+            description: likelihood object is exponential disk
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 0.0
+          - name: deVaucL
+            type: float
+            description: likelihood object is deVaucouleurs profile
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 0.0
+          - name: objType
+            type: OBJTYPE
+            description: Why object was targetted (QSO = Science Target)
+            unit: ''
+            is_array: false
+            is_enum: true
+            enum_values:
+            - GALAXY
+            - QSO
+            - STAR_BHB
+            - STAR_CARBON
+            - STAR_BROWN_DWARF
+            - STAR_SUB_DWARF
+            - STAR_CATY_VAR
+            - STAR_RED_DWARF
+            - STAR_WHITE_DWARF
+            - REDDEN_STD
+            - SPECTROPHOTO_STD
+            - HOT_STD
+            - ROSAT_A
+            - ROSAT_B
+            - ROSAT_C
+            - ROSAT_D
+            - SERENDIPITY_BLUE
+            - SERENDIPITY_FIRST
+            - SERENDIPITY_RED
+            - SERENDIPITY_DISTANT
+            - SERENDIPITY_MANUAL
+            - QA
+            - SKY
+            - NA
+            example: NA
+          - name: xFocal
+            type: double
+            description: The X value in focal plane coordinates.
+            unit: mm
+            is_array: false
+            is_enum: false
+            example: -52.375185
+          - name: yFocal
+            type: double
+            description: The Y value in focal plane coordinates.
+            unit: mm
+            is_array: false
+            is_enum: false
+            example: -43.679834
+          - name: spectrographId
+            type: int
+            description: Spectrograph to which the fibre is assigned.
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 0
+          - name: fiberId
+            type: int
+            description: Fiber ID for the spectrograph
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: -9999
+          - name: throughput
+            type: int
+            description: Plate Fiber throughput (0-65535, 0=no light)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 0
+          - name: primTarget
+            type: int
+            description: Plate Primary target flags
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 0
+          - name: secTarget
+            type: int
+            description: Plate Secondary target flags
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 0
+notes: |-
+  General description: This file is a stripped version of the plateHolesSorted file, transformed to an ancient format for the purposes of plate mapping and other onsite operational things. If there are multiple pointings in a plate, there are multiple plPlugMap files (with pointings subsequent to the first labeled "B", "C", etc).
+  Note that there can be single-pointing plates with the plPlugMapP file labeled "B", since for MARVELS "A" and "B" specify the appropriate gang connector to use for each pointing. For this reason, the pointing_name keyword exists, to specify the mapping between pointing number and name. E.g., the default "A B C D E F" tells you that pointing 1 is A, pointing 2 is B, etc. Single-pointing MARVELS B-side plates have pointing_name set to "B C D E F".
+  The fiberID and guide fiber number ranges have changed over time and differ for different instruments. For the SDSS spectrograph, the fiberID range was 1-640. For the MARVELS spectograph it was 1-120. For the BOSS spectrograph it is 1-1000. For the APOGEE spectrograph it is 1-300. For the MaNGA instrument the fiberID range is 1-1423. Prior to roughly 2009 there were 11 guide fibers; now there are 16 guide fibers.
+  Naming convention: plPlugMapP-YYYYQ.par for a plate with YYYY the plate id, and plPlugMapM-YYYY-ZZZZZ-AAQ.par for a plate with YYYY the plate id, ZZZZZ the MJD of the mapper run (keyword fscanMJD), AA a unique integer over this mapper run for the plate (keyword fscanId), and Q the pointing identifier (A, B, C, ...) for plates with multiple pointings (it is absent for plates with a single pointing, which is most plates).
+regrets: |-
+  I  have no regrets!

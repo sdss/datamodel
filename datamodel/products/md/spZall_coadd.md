@@ -9,17 +9,17 @@ All BOSS spectroscopic classifications and redshifts measurements for custom coa
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 The spZall files contain the spectroscopic classifications and redshifts for all fits done in the spectro-1d step of the BOSS idlspec1d pipeline for custom coadds
 
 ### Naming Convention
-$BOSS_SPECTRO_REDUX/[RUN2D]/[COADD]/[RUN1D]/spZall-[COADD]-[MJD].fits
+$BOSS_SPECTRO_REDUX/[RUN2D]/fields/[COADD]/[COADD]_[OBS]/[RUN1D]/spZall-[COADD]_[OBS]-[MJD].fits
 
 ### Releases
-IPL3, DR19
+IPL3, DR19, IPL4
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,14 +36,22 @@ idlspec2d
 ### Is a VAC
 False
 
+### Data Level
+2.2.3
+
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - IPL4
+   - from: DR19
+   - added_hdus: ['ZALL']
+   - primary_delta_nkeys: 18
+   - added_primary_header_kwargs: ['IRMSSTD', 'SN2EXT2G', 'SPEC2_I', 'RRMSSTD', 'EXTNAME', 'GRRMSSTD', 'SPEC2_G', 'IOFFSTD', 'GOFFSTD', 'RIRMSSTD', 'RIOFFSTD', 'SN2EXT2I', 'GRMSSTD', 'GROFFSTD', 'NSTD', 'SN2EXT2R', 'ROFFSTD', 'SPEC2_R']
  - DR19
    - from: IPL3
    - note: No changes
@@ -198,3 +206,7 @@ Name | Type | Unit | Description |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

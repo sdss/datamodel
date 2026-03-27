@@ -1,11 +1,11 @@
 general:
-  name: sdR
+  name: sdR_N
   short: BOSS spectrograph data
   description: This file contains raw spectro data from the BOSS/eBOSS/BHM spectro
-    CCDs. Simultaneous frames in different chips all have the same frame number. Which
-    frames are what type of observation is indicated by the FLAVOR keyword in each
-    header. HDU 0 contains the raw counts as integers (4352x4224). For SDSS-I raw
-    spectro data, please look at SDSS-I,-II sdR files:https://data.sdss.org/datamodel/files/RAWDATA_DIR/MJD/sdR.html.
+    CCDs from APO. Simultaneous frames in different chips all have the same frame
+    number. Which frames are what type of observation is indicated by the FLAVOR keyword
+    in each header. HDU 0 contains the raw counts as integers (4352x4224). For SDSS-I
+    raw spectro data, please look at SDSS-I,-II sdR files:https://data.sdss.org/datamodel/files/RAWDATA_DIR/MJD/sdR.html.
   datatype: FITS
   filesize: 35 KB
   releases:
@@ -20,6 +20,7 @@ general:
   - DR17
   - DR18
   - DR19
+  - IPL4
   environments:
   - BOSS_SPECTRO_DATA
   - BOSS_SPECTRO_DATA_N
@@ -39,6 +40,41 @@ changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
   releases:
+    IPL4:
+      from: DR19
+      primary_delta_nkeys: 8
+      added_primary_header_kwargs:
+      - OFFDEC
+      - VJAEGER
+      - GUIDOFFR
+      - CONFID
+      - VCALIBS
+      - CALOFFY
+      - ARCOFFY
+      - BOREOFFY
+      - GUIDOFFY
+      - VCOORDIO
+      - CALOFFX
+      - VKAIJU
+      - OFFRA
+      - DESIGNID
+      - SHCLOTIM
+      - FIELDID
+      - CALOFFR
+      - SHOPETIM
+      - BOREOFFX
+      - OFFPA
+      - ROTPOS
+      - ARCOFFX
+      - SEEING
+      - GUIDOFFX
+      removed_primary_header_kwargs:
+      - POINTING
+      - MAPID
+      - PLATEID
+      - COMMENT
+      - NAME
+      - PLATETYP
     DR19:
       from: DR18
       note: No changes
@@ -46,89 +82,89 @@ changelog:
       from: DR17
       primary_delta_nkeys: 84
       added_primary_header_kwargs:
-      - M1YTILT
-      - M1XTILT
-      - DEC
-      - RA
-      - PRESSURE
-      - M2ZROT
-      - SCALE
-      - M2XTRAN
-      - MC1TBCB
-      - LN2TEMP
-      - POINTING
-      - NAME
-      - M2YTILT
-      - MC1HUMHT
-      - SUBFRAME
-      - M2PISTON
-      - IONPUMP
-      - REQTIME
-      - FOCUS
-      - PLATEID
-      - GUSTS
-      - MC1THT
-      - COLLA
-      - PLATETYP
-      - OBJSYS
-      - WINDD
-      - CCDTEMP
-      - M1XTRAN
-      - GUSTD
-      - FLAVOR
-      - V_BOSS
-      - TAI-BEG
-      - M2XTILT
-      - CHECKSUM
-      - MC1TEMDN
-      - DATE-OBS
-      - DARKTIME
-      - MC1TRCB
-      - DUSTA
-      - WINDS
-      - COLLC
-      - EXPTIME
-      - AZ
-      - FF
-      - COMMENT
-      - HGCD
-      - TRUSTEMP
-      - M1ZROT
       - HUMIDITY
-      - V_APO
-      - SPA
-      - CARTID
-      - MC1TRCT
-      - M1PISTON
-      - MC1HUMCO
-      - NE
-      - MJD
-      - DIDFLUSH
-      - ALT
-      - DEWPOINT
-      - M1YTRAN
-      - M2YTRAN
-      - SLITID1
-      - WINDD25M
-      - PFERR
-      - MC1TBCT
-      - AIRTEMP
-      - FFS
-      - WINDS25M
+      - WINDS
+      - AZ
       - DUSTB
-      - IPA
-      - COLLB
+      - M1YTILT
+      - DUSTA
+      - ALT
+      - PRESSURE
+      - CHECKSUM
+      - REQTIME
+      - V_APO
+      - MC1TRCT
+      - TAI-BEG
+      - MC1TBCT
+      - GUSTS
+      - MC1TEMDN
+      - PLATEID
+      - SPA
+      - WINDD25M
+      - M2ZROT
+      - MC1TRCB
+      - PLATETYP
+      - FFS
+      - SUBFRAME
+      - FOCUS
+      - OBJSYS
+      - COMMENT
+      - MC1THT
+      - DIDFLUSH
+      - MC1TBCB
+      - SLITID1
       - MAPID
+      - COLLC
+      - M2XTILT
+      - FLAVOR
+      - GUSTD
+      - M2XTRAN
+      - LN2TEMP
+      - M1XTILT
+      - COLLA
+      - DECDEG
+      - M2YTRAN
       - RADEG
-      - CAMERAS
+      - M1ZROT
+      - CARTID
+      - WINDS25M
+      - IONPUMP
+      - DATE-OBS
+      - IPA
+      - SCALE
+      - MC1HUMCO
       - HARTMANN
       - EXPOSURE
-      - DECDEG
+      - TRUSTEMP
+      - M1PISTON
+      - MC1HUMHT
+      - V_BOSS
+      - PFERR
+      - FF
+      - HGCD
+      - M2YTILT
+      - DEC
+      - CAMERAS
+      - WINDD
+      - M2PISTON
+      - MJD
+      - RA
+      - M1YTRAN
+      - EXPTIME
+      - DEWPOINT
+      - POINTING
+      - CCDTEMP
+      - DARKTIME
+      - NAME
+      - M1XTRAN
+      - NE
+      - COLLB
+      - AIRTEMP
       removed_primary_header_kwargs:
       - DAQVER
-      - CAMERA
-      - DATASEC
       - OBSID
+      - DATASEC
+      - CAMERA
     DR17:
       from: DR16
       note: No changes
@@ -172,73 +208,73 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: 'migration: Intro info not in database. Needs update'
+        description: Example header
         is_image: true
         size: 35 MB
         header:
         - key: SIMPLE
           value: true
-          comment: ''
+          comment: This file conforms to FITS standard
         - key: BITPIX
           value: 16
-          comment: ''
+          comment: Number of bits per data pixel
         - key: NAXIS
           value: 2
-          comment: ''
+          comment: Number of data axes
         - key: NAXIS1
           value: 4352
-          comment: ''
+          comment: Length of data axis 1
         - key: NAXIS2
           value: 4224
-          comment: ''
+          comment: Length of data axis 2
         - key: EXTEND
           value: false
-          comment: ''
+          comment: FITS dataset may contain extensions
         - key: TELESCOP
           value: SDSS 2.5-M
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Telescope
         - key: FILENAME
           value: sdR-b1-00100006.fits
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: File basename
         - key: CAMERA
           value: B1
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Instrument CAMERA
         - key: OBSID
           value: 100006
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Exposure number
         - key: BZERO
           value: 32768.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Zero-point offset for pixel values
         - key: BSCALE
           value: 1.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Linear scaling factor for pixel values
         - key: DATASEC
           value: '[128:4224,56:4168]'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Data regions of image (trimming overscans)
         - key: DAQVER
           value: 1.2.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSS Data Acquisition Version
         - key: CAMDAQ
           value: 1.2.0:28
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Camera Data Acquisition Version
         - key: ERRCNT
           value: '2112'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Error Count
         - key: SYNCERR
           value: NONE
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Sync Error Count
         - key: SLINES
           value: NONE
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Sync Error Lines
         - key: PIXERR
           value: '2112'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Pixel Error Count
         - key: PLINES
           value: 0,1,2,3,4,5,6,7,8,9,
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Pixel Error Lines
         - key: DATASUM
           value: '0000000000000000'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: DATA checksum
     survey: BOSS
   DR10:
     template: $BOSS_SPECTRO_DATA/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz
@@ -258,73 +294,73 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: 'migration: Intro info not in database. Needs update'
+        description: Example header
         is_image: true
         size: 35 MB
         header:
         - key: SIMPLE
           value: true
-          comment: ''
+          comment: This file conforms to FITS standard
         - key: BITPIX
           value: 16
-          comment: ''
+          comment: Number of bits per data pixel
         - key: NAXIS
           value: 2
-          comment: ''
+          comment: Number of data axes
         - key: NAXIS1
           value: 4352
-          comment: ''
+          comment: Length of data axis 1
         - key: NAXIS2
           value: 4224
-          comment: ''
+          comment: Length of data axis 2
         - key: EXTEND
           value: false
-          comment: ''
+          comment: FITS dataset may contain extensions
         - key: TELESCOP
           value: SDSS 2.5-M
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Telescope
         - key: FILENAME
           value: sdR-b1-00100006.fits
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: File basename
         - key: CAMERA
           value: B1
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Instrument CAMERA
         - key: OBSID
           value: 100006
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Exposure number
         - key: BZERO
           value: 32768.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Zero-point offset for pixel values
         - key: BSCALE
           value: 1.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Linear scaling factor for pixel values
         - key: DATASEC
           value: '[128:4224,56:4168]'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Data regions of image (trimming overscans)
         - key: DAQVER
           value: 1.2.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSS Data Acquisition Version
         - key: CAMDAQ
           value: 1.2.0:28
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Camera Data Acquisition Version
         - key: ERRCNT
           value: '2112'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Error Count
         - key: SYNCERR
           value: NONE
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Sync Error Count
         - key: SLINES
           value: NONE
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Sync Error Lines
         - key: PIXERR
           value: '2112'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Pixel Error Count
         - key: PLINES
           value: 0,1,2,3,4,5,6,7,8,9,
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Pixel Error Lines
         - key: DATASUM
           value: '0000000000000000'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: DATA checksum
     survey: BOSS
   DR11:
     template: $BOSS_SPECTRO_DATA/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz
@@ -344,73 +380,73 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: 'migration: Intro info not in database. Needs update'
+        description: Example header
         is_image: true
         size: 35 MB
         header:
         - key: SIMPLE
           value: true
-          comment: ''
+          comment: This file conforms to FITS standard
         - key: BITPIX
           value: 16
-          comment: ''
+          comment: Number of bits per data pixel
         - key: NAXIS
           value: 2
-          comment: ''
+          comment: Number of data axes
         - key: NAXIS1
           value: 4352
-          comment: ''
+          comment: Length of data axis 1
         - key: NAXIS2
           value: 4224
-          comment: ''
+          comment: Length of data axis 2
         - key: EXTEND
           value: false
-          comment: ''
+          comment: FITS dataset may contain extensions
         - key: TELESCOP
           value: SDSS 2.5-M
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Telescope
         - key: FILENAME
           value: sdR-b1-00100006.fits
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: File basename
         - key: CAMERA
           value: B1
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Instrument CAMERA
         - key: OBSID
           value: 100006
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Exposure number
         - key: BZERO
           value: 32768.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Zero-point offset for pixel values
         - key: BSCALE
           value: 1.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Linear scaling factor for pixel values
         - key: DATASEC
           value: '[128:4224,56:4168]'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Data regions of image (trimming overscans)
         - key: DAQVER
           value: 1.2.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSS Data Acquisition Version
         - key: CAMDAQ
           value: 1.2.0:28
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Camera Data Acquisition Version
         - key: ERRCNT
           value: '2112'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Error Count
         - key: SYNCERR
           value: NONE
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Sync Error Count
         - key: SLINES
           value: NONE
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Sync Error Lines
         - key: PIXERR
           value: '2112'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Pixel Error Count
         - key: PLINES
           value: 0,1,2,3,4,5,6,7,8,9,
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Pixel Error Lines
         - key: DATASUM
           value: '0000000000000000'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: DATA checksum
     survey: BOSS
   DR12:
     template: $BOSS_SPECTRO_DATA/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz
@@ -430,73 +466,73 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: 'migration: Intro info not in database. Needs update'
+        description: Example header
         is_image: true
         size: 35 MB
         header:
         - key: SIMPLE
           value: true
-          comment: ''
+          comment: This file conforms to FITS standard
         - key: BITPIX
           value: 16
-          comment: ''
+          comment: Number of bits per data pixel
         - key: NAXIS
           value: 2
-          comment: ''
+          comment: Number of data axes
         - key: NAXIS1
           value: 4352
-          comment: ''
+          comment: Length of data axis 1
         - key: NAXIS2
           value: 4224
-          comment: ''
+          comment: Length of data axis 2
         - key: EXTEND
           value: false
-          comment: ''
+          comment: FITS dataset may contain extensions
         - key: TELESCOP
           value: SDSS 2.5-M
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Telescope
         - key: FILENAME
           value: sdR-b1-00100006.fits
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: File basename
         - key: CAMERA
           value: B1
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Instrument CAMERA
         - key: OBSID
           value: 100006
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Exposure number
         - key: BZERO
           value: 32768.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Zero-point offset for pixel values
         - key: BSCALE
           value: 1.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Linear scaling factor for pixel values
         - key: DATASEC
           value: '[128:4224,56:4168]'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Data regions of image (trimming overscans)
         - key: DAQVER
           value: 1.2.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSS Data Acquisition Version
         - key: CAMDAQ
           value: 1.2.0:28
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Camera Data Acquisition Version
         - key: ERRCNT
           value: '2112'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Error Count
         - key: SYNCERR
           value: NONE
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Sync Error Count
         - key: SLINES
           value: NONE
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Sync Error Lines
         - key: PIXERR
           value: '2112'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Pixel Error Count
         - key: PLINES
           value: 0,1,2,3,4,5,6,7,8,9,
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Pixel Error Lines
         - key: DATASUM
           value: '0000000000000000'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: DATA checksum
     survey: BOSS
   DR13:
     template: $BOSS_SPECTRO_DATA/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz
@@ -516,73 +552,73 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: 'migration: Intro info not in database. Needs update'
+        description: Example header
         is_image: true
         size: 35 MB
         header:
         - key: SIMPLE
           value: true
-          comment: ''
+          comment: This file conforms to FITS standard
         - key: BITPIX
           value: 16
-          comment: ''
+          comment: Number of bits per data pixel
         - key: NAXIS
           value: 2
-          comment: ''
+          comment: Number of data axes
         - key: NAXIS1
           value: 4352
-          comment: ''
+          comment: Length of data axis 1
         - key: NAXIS2
           value: 4224
-          comment: ''
+          comment: Length of data axis 2
         - key: EXTEND
           value: false
-          comment: ''
+          comment: FITS dataset may contain extensions
         - key: TELESCOP
           value: SDSS 2.5-M
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Telescope
         - key: FILENAME
           value: sdR-b1-00100006.fits
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: File basename
         - key: CAMERA
           value: B1
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Instrument CAMERA
         - key: OBSID
           value: 100006
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Exposure number
         - key: BZERO
           value: 32768.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Zero-point offset for pixel values
         - key: BSCALE
           value: 1.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Linear scaling factor for pixel values
         - key: DATASEC
           value: '[128:4224,56:4168]'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Data regions of image (trimming overscans)
         - key: DAQVER
           value: 1.2.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSS Data Acquisition Version
         - key: CAMDAQ
           value: 1.2.0:28
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Camera Data Acquisition Version
         - key: ERRCNT
           value: '2112'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Error Count
         - key: SYNCERR
           value: NONE
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Sync Error Count
         - key: SLINES
           value: NONE
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Sync Error Lines
         - key: PIXERR
           value: '2112'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Pixel Error Count
         - key: PLINES
           value: 0,1,2,3,4,5,6,7,8,9,
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Pixel Error Lines
         - key: DATASUM
           value: '0000000000000000'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: DATA checksum
     survey: eBOSS
   DR14:
     template: $BOSS_SPECTRO_DATA/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz
@@ -602,73 +638,73 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: 'migration: Intro info not in database. Needs update'
+        description: Example header
         is_image: true
         size: 35 MB
         header:
         - key: SIMPLE
           value: true
-          comment: ''
+          comment: This file conforms to FITS standard
         - key: BITPIX
           value: 16
-          comment: ''
+          comment: Number of bits per data pixel
         - key: NAXIS
           value: 2
-          comment: ''
+          comment: Number of data axes
         - key: NAXIS1
           value: 4352
-          comment: ''
+          comment: Length of data axis 1
         - key: NAXIS2
           value: 4224
-          comment: ''
+          comment: Length of data axis 2
         - key: EXTEND
           value: false
-          comment: ''
+          comment: FITS dataset may contain extensions
         - key: TELESCOP
           value: SDSS 2.5-M
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Telescope
         - key: FILENAME
           value: sdR-b1-00100006.fits
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: File basename
         - key: CAMERA
           value: B1
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Instrument CAMERA
         - key: OBSID
           value: 100006
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Exposure number
         - key: BZERO
           value: 32768.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Zero-point offset for pixel values
         - key: BSCALE
           value: 1.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Linear scaling factor for pixel values
         - key: DATASEC
           value: '[128:4224,56:4168]'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Data regions of image (trimming overscans)
         - key: DAQVER
           value: 1.2.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSS Data Acquisition Version
         - key: CAMDAQ
           value: 1.2.0:28
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Camera Data Acquisition Version
         - key: ERRCNT
           value: '2112'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Error Count
         - key: SYNCERR
           value: NONE
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Sync Error Count
         - key: SLINES
           value: NONE
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Sync Error Lines
         - key: PIXERR
           value: '2112'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Pixel Error Count
         - key: PLINES
           value: 0,1,2,3,4,5,6,7,8,9,
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Pixel Error Lines
         - key: DATASUM
           value: '0000000000000000'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: DATA checksum
     survey: eBOSS
   DR15:
     template: $BOSS_SPECTRO_DATA/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz
@@ -688,73 +724,73 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: 'migration: Intro info not in database. Needs update'
+        description: Example header
         is_image: true
         size: 35 MB
         header:
         - key: SIMPLE
           value: true
-          comment: ''
+          comment: This file conforms to FITS standard
         - key: BITPIX
           value: 16
-          comment: ''
+          comment: Number of bits per data pixel
         - key: NAXIS
           value: 2
-          comment: ''
+          comment: Number of data axes
         - key: NAXIS1
           value: 4352
-          comment: ''
+          comment: Length of data axis 1
         - key: NAXIS2
           value: 4224
-          comment: ''
+          comment: Length of data axis 2
         - key: EXTEND
           value: false
-          comment: ''
+          comment: FITS dataset may contain extensions
         - key: TELESCOP
           value: SDSS 2.5-M
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Telescope
         - key: FILENAME
           value: sdR-b1-00100006.fits
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: File basename
         - key: CAMERA
           value: B1
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Instrument CAMERA
         - key: OBSID
           value: 100006
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Exposure number
         - key: BZERO
           value: 32768.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Zero-point offset for pixel values
         - key: BSCALE
           value: 1.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Linear scaling factor for pixel values
         - key: DATASEC
           value: '[128:4224,56:4168]'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Data regions of image (trimming overscans)
         - key: DAQVER
           value: 1.2.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSS Data Acquisition Version
         - key: CAMDAQ
           value: 1.2.0:28
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Camera Data Acquisition Version
         - key: ERRCNT
           value: '2112'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Error Count
         - key: SYNCERR
           value: NONE
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Sync Error Count
         - key: SLINES
           value: NONE
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Sync Error Lines
         - key: PIXERR
           value: '2112'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Pixel Error Count
         - key: PLINES
           value: 0,1,2,3,4,5,6,7,8,9,
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Pixel Error Lines
         - key: DATASUM
           value: '0000000000000000'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: DATA checksum
     survey: eBOSS
   DR16:
     template: $BOSS_SPECTRO_DATA/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz
@@ -774,73 +810,73 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: 'migration: Intro info not in database. Needs update'
+        description: Example header
         is_image: true
         size: 35 MB
         header:
         - key: SIMPLE
           value: true
-          comment: ''
+          comment: This file conforms to FITS standard
         - key: BITPIX
           value: 16
-          comment: ''
+          comment: Number of bits per data pixel
         - key: NAXIS
           value: 2
-          comment: ''
+          comment: Number of data axes
         - key: NAXIS1
           value: 4352
-          comment: ''
+          comment: Length of data axis 1
         - key: NAXIS2
           value: 4224
-          comment: ''
+          comment: Length of data axis 2
         - key: EXTEND
           value: false
-          comment: ''
+          comment: FITS dataset may contain extensions
         - key: TELESCOP
           value: SDSS 2.5-M
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Telescope
         - key: FILENAME
           value: sdR-b1-00100006.fits
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: File basename
         - key: CAMERA
           value: B1
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Instrument CAMERA
         - key: OBSID
           value: 100006
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Exposure number
         - key: BZERO
           value: 32768.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Zero-point offset for pixel values
         - key: BSCALE
           value: 1.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Linear scaling factor for pixel values
         - key: DATASEC
           value: '[128:4224,56:4168]'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Data regions of image (trimming overscans)
         - key: DAQVER
           value: 1.2.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSS Data Acquisition Version
         - key: CAMDAQ
           value: 1.2.0:28
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Camera Data Acquisition Version
         - key: ERRCNT
           value: '2112'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Error Count
         - key: SYNCERR
           value: NONE
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Sync Error Count
         - key: SLINES
           value: NONE
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Sync Error Lines
         - key: PIXERR
           value: '2112'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Pixel Error Count
         - key: PLINES
           value: 0,1,2,3,4,5,6,7,8,9,
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Pixel Error Lines
         - key: DATASUM
           value: '0000000000000000'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: DATA checksum
     survey: eBOSS
   DR17:
     template: $BOSS_SPECTRO_DATA/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz
@@ -860,73 +896,73 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: 'migration: Intro info not in database. Needs update'
+        description: Example header
         is_image: true
         size: 35 MB
         header:
         - key: SIMPLE
           value: true
-          comment: ''
+          comment: This file conforms to FITS standard
         - key: BITPIX
           value: 16
-          comment: ''
+          comment: Number of bits per data pixel
         - key: NAXIS
           value: 2
-          comment: ''
+          comment: Number of data axes
         - key: NAXIS1
           value: 4352
-          comment: ''
+          comment: Length of data axis 1
         - key: NAXIS2
           value: 4224
-          comment: ''
+          comment: Length of data axis 2
         - key: EXTEND
           value: false
-          comment: ''
+          comment: FITS dataset may contain extensions
         - key: TELESCOP
           value: SDSS 2.5-M
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Telescope
         - key: FILENAME
           value: sdR-b1-00100006.fits
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: File basename
         - key: CAMERA
           value: B1
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Instrument CAMERA
         - key: OBSID
           value: 100006
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Exposure number
         - key: BZERO
           value: 32768.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Zero-point offset for pixel values
         - key: BSCALE
           value: 1.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Linear scaling factor for pixel values
         - key: DATASEC
           value: '[128:4224,56:4168]'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Data regions of image (trimming overscans)
         - key: DAQVER
           value: 1.2.0
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSS Data Acquisition Version
         - key: CAMDAQ
           value: 1.2.0:28
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Camera Data Acquisition Version
         - key: ERRCNT
           value: '2112'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Error Count
         - key: SYNCERR
           value: NONE
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Sync Error Count
         - key: SLINES
           value: NONE
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Sync Error Lines
         - key: PIXERR
           value: '2112'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: BOSSDAQ Pixel Error Count
         - key: PLINES
           value: 0,1,2,3,4,5,6,7,8,9,
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: Pixel Error Lines
         - key: DATASUM
           value: '0000000000000000'
-          comment: 'migration: description of keyword/column not found. Needs update'
+          comment: DATA checksum
     survey: eBOSS
   DR18:
     template: $BOSS_SPECTRO_DATA/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz
@@ -952,67 +988,67 @@ releases:
         header:
         - key: SIMPLE
           value: true
-          comment: conforms to FITS standard
+          comment: This file conforms to FITS standard
         - key: BITPIX
           value: 16
-          comment: array data type
+          comment: Number of bits per data pixel
         - key: NAXIS
           value: 2
-          comment: number of array dimensions
+          comment: Number of data axes
         - key: NAXIS1
           value: 4352
-          comment: ''
+          comment: Length of data axis 1
         - key: NAXIS2
           value: 4224
-          comment: ''
+          comment: Length of data axis 2
         - key: EXTEND
           value: true
-          comment: ''
+          comment: FITS dataset may contain extensions
         - key: BSCALE
           value: 1
-          comment: ''
+          comment: Linear scaling factor for pixel values
         - key: BZERO
           value: 32768
-          comment: ''
+          comment: Zero-point offset for pixel values
         - key: TELESCOP
           value: SDSS 2-5m
-          comment: ''
+          comment: Telescope
         - key: FILENAME
           value: sdR-b1-00334717.fit
-          comment: ''
+          comment: File basename
         - key: CAMERAS
           value: b1
-          comment: ''
+          comment: BOSS CAMERA
         - key: EXPOSURE
           value: 334717
-          comment: ''
+          comment: Exposure number
         - key: V_BOSS
           value: 6.0.1-alpha.0
           comment: Active version of the BOSS ICC
         - key: CAMDAQ
           value: 1.5.0:37
-          comment: ''
+          comment: Camera Data Acquisition Version
         - key: SUBFRAME
           value: ''
           comment: the subframe readout command
         - key: ERRCNT
           value: NONE
-          comment: ''
+          comment: BOSSDAQ Error Count
         - key: SYNCERR
           value: NONE
-          comment: ''
+          comment: BOSSDAQ Sync Error Count
         - key: SLINES
           value: NONE
-          comment: ''
+          comment: BOSSDAQ Sync Error Lines
         - key: PIXERR
           value: NONE
-          comment: ''
+          comment: BOSSDAQ Pixel Error Count
         - key: PLINES
           value: NONE
-          comment: ''
+          comment: Pixel Error Lines
         - key: PFERR
           value: NONE
-          comment: ''
+          comment: Pixel Frame Error
         - key: DIDFLUSH
           value: true
           comment: CCD was flushed before integration
@@ -1021,7 +1057,7 @@ releases:
           comment: exposure type, SDSS spectro style
         - key: MJD
           value: 59527
-          comment: APO fMJD day at start of exposure
+          comment: Modified Julian Date at telescope at start of exposure
         - key: TAI-BEG
           value: 5143128023.0
           comment: MJD(TAI) seconds at start of integration
@@ -1030,13 +1066,13 @@ releases:
           comment: TAI date at start of integration
         - key: NAME
           value: 0000-00000-00
-          comment: Could not fetch guider.cartridgeLoaded keyword-
+          comment: The name of the currently loaded plate
         - key: PLATEID
           value: -1
           comment: The currently loaded plate
         - key: CARTID
           value: -1
-          comment: The currently loaded cartridge
+          comment: The currently loaded cartridge/instrument
         - key: MAPID
           value: -1
           comment: The mapping version of the loaded plate
@@ -1045,25 +1081,25 @@ releases:
           comment: The currently specified pointing
         - key: PLATETYP
           value: 'sop.survey KeyError: ''sop'''
-          comment: Type of plate (e.g. BOSS, MANGA, APOG
+          comment: Type of plate (e.g. BOSS, MANGA, APOGEE, APOGEE)
         - key: OBJSYS
           value: Mount
           comment: The TCC objSys
         - key: RA
           value: NaN
-          comment: Telescope is not tracking the sky
+          comment: RA of telescope boresight (deg)
         - key: DEC
           value: NaN
-          comment: Telescope is not tracking the sky
+          comment: Dec of telescope boresight (deg)
         - key: RADEG
           value: NaN
-          comment: Telescope is not tracking the sky
+          comment: RA of telescope pointing(deg)
         - key: DECDEG
           value: NaN
-          comment: Telescope is not tracking the sky
+          comment: Dec of telescope pointing (deg)
         - key: SPA
           value: NaN
-          comment: Telescope is not tracking the sky
+          comment: TCC SpiderInstAng
         - key: AZ
           value: 120.999564
           comment: Azimuth axis pos. (approx, deg)
@@ -1117,61 +1153,61 @@ releases:
           comment: User-specified scale factor
         - key: V_APO
           value: 3.0.0
-          comment: version of the current apoActor
+          comment: Version of the current apoActor
         - key: PRESSURE
           value: 21.624
-          comment: ''
+          comment: APO SDSS 2.5m Air Pressure (inch Hg)
         - key: WINDD
           value: 220.1
-          comment: ''
+          comment: APO SDSS 2.5m Wind Direction (deg)
         - key: WINDS
           value: 10.0
-          comment: ''
+          comment: APO SDSS 2.5m Wind Speed (mph)
         - key: GUSTD
           value: 237.8
-          comment: ''
+          comment: APO SDSS 2.5m Wind Gust Direction (deg)
         - key: GUSTS
           value: 12.3
-          comment: ''
+          comment: APO SDSS 2.5m Wind Gust Speed (mph)
         - key: AIRTEMP
           value: 10.9
-          comment: ''
+          comment: APO SDSS 2.5m Outside temperature (deg C)
         - key: DEWPOINT
           value: -4.0
-          comment: ''
+          comment: APO SDSS 2.5m Dewpoint (deg C)
         - key: TRUSTEMP
           value: -20.7
-          comment: ''
+          comment: APO SDSS 2.5m Truss Temperature (deg C)
         - key: HUMIDITY
           value: 32.8
-          comment: ''
+          comment: APO SDSS 2.5m Humidity (percent)
         - key: DUSTA
           value: 23908.0
-          comment: ''
+          comment: APO SDSS 2.5m dust (count of 0.3mu/particles/vol/time)
         - key: DUSTB
           value: 710.0
-          comment: ''
+          comment: APO SDSS 2.5m dust (count of 1mu/particles/vol/time)
         - key: WINDD25M
           value: -999.0
-          comment: ''
+          comment: Wind Direction at APO SDSS 2.5m (deg)
         - key: WINDS25M
           value: -999.0
-          comment: ''
+          comment: Wind Speed at APO SDSS 2.5m (deg)
         - key: FF
           value: 0 0 0 0
-          comment: FF lamps 1:on 0:0ff
+          comment: Flat Field lamps 1:on 0:off
         - key: NE
           value: 0 0 0 0
-          comment: NE lamps 1:on 0:0ff
+          comment: Ne Arc lamps 1:on 0:off
         - key: HGCD
           value: 0 0 0 0
-          comment: HGCD lamps 1:on 0:0ff
+          comment: HgCd Arc lamps 1:on 0:off
         - key: FFS
           value: 1 1 1 1 1 1 1 1
           comment: Flatfield Screen 1:closed 0:open
         - key: SLITID1
           value: 0
-          comment: Normalized slithead ID. sp1&2 should match.
+          comment: spectrograph Normalized slithead ID.
         - key: COLLA
           value: 0
           comment: The position of the A collimator motor
@@ -1183,7 +1219,7 @@ releases:
           comment: The position of the C collimator motor
         - key: HARTMANN
           value: Closed, Closed
-          comment: 'Hartmanns: Left,Right,Out'
+          comment: 'Hartmanns: Left,Right,Out,Closed'
         - key: MC1HUMHT
           value: -5.9
           comment: sp1 mech Hartmann humidity, %
@@ -1219,19 +1255,19 @@ releases:
           comment: time between flush end and readout start
         - key: LN2TEMP
           value: 95.312
-          comment: ''
+          comment: LN2 can temperature
         - key: CCDTEMP
           value: -99.609
-          comment: ''
+          comment: Temperature of the sensor
         - key: IONPUMP
           value: -6.46
-          comment: ''
+          comment: log10(Ion_Pump_pressure/torr)
         - key: CHECKSUM
           value: jAAAk377j9AAj955
-          comment: HDU checksum updated 2021-11-08T22:41:25
+          comment: HDU checksum
         - key: DATASUM
           value: '1144906806'
-          comment: data unit checksum updated 2021-11-08T22:41:25
+          comment: DATA checksum
         - key: COMMENT
           value: failed to make ROTPOS card from nan
           comment: ''
@@ -1291,67 +1327,67 @@ releases:
         header:
         - key: SIMPLE
           value: true
-          comment: conforms to FITS standard
+          comment: This file conforms to FITS standard
         - key: BITPIX
           value: 16
-          comment: array data type
+          comment: Number of bits per data pixel
         - key: NAXIS
           value: 2
-          comment: number of array dimensions
+          comment: Number of data axes
         - key: NAXIS1
           value: 4352
-          comment: ''
+          comment: Length of data axis 1
         - key: NAXIS2
           value: 4224
-          comment: ''
+          comment: Length of data axis 2
         - key: EXTEND
           value: true
-          comment: ''
+          comment: FITS dataset may contain extensions
         - key: BSCALE
           value: 1
-          comment: ''
+          comment: Linear scaling factor for pixel values
         - key: BZERO
           value: 32768
-          comment: ''
+          comment: Zero-point offset for pixel values
         - key: TELESCOP
           value: SDSS 2-5m
-          comment: ''
+          comment: Telescope
         - key: FILENAME
           value: sdR-b1-00333993.fit
-          comment: ''
+          comment: File basename
         - key: CAMERAS
           value: b1
-          comment: ''
+          comment: BOSS CAMERA
         - key: EXPOSURE
           value: 333993
-          comment: ''
+          comment: Exposure number
         - key: V_BOSS
           value: 6.0.0
           comment: Active version of the BOSS ICC
         - key: CAMDAQ
           value: 1.5.0:37
-          comment: ''
+          comment: Camera Data Acquisition Version
         - key: SUBFRAME
           value: ''
           comment: the subframe readout command
         - key: ERRCNT
           value: NONE
-          comment: ''
+          comment: BOSSDAQ Error Count
         - key: SYNCERR
           value: NONE
-          comment: ''
+          comment: BOSSDAQ Sync Error Count
         - key: SLINES
           value: NONE
-          comment: ''
+          comment: BOSSDAQ Sync Error Lines
         - key: PIXERR
           value: NONE
-          comment: ''
+          comment: BOSSDAQ Pixel Error Count
         - key: PLINES
           value: NONE
-          comment: ''
+          comment: Pixel Error Lines
         - key: PFERR
           value: NONE
-          comment: ''
+          comment: Pixel Frame Error
         - key: DIDFLUSH
           value: true
           comment: CCD was flushed before integration
@@ -1360,7 +1396,7 @@ releases:
           comment: exposure type, SDSS spectro style
         - key: MJD
           value: 59501
-          comment: APO fMJD day at start of exposure
+          comment: Modified Julian Date at telescope at start of exposure
         - key: TAI-BEG
           value: 5140891130.0
           comment: MJD(TAI) seconds at start of integration
@@ -1369,13 +1405,13 @@ releases:
           comment: TAI date at start of integration
         - key: NAME
           value: 0000-00000-00
-          comment: Could not fetch guider.cartridgeLoaded keyword-
+          comment: The name of the currently loaded plate
         - key: PLATEID
           value: -1
           comment: The currently loaded plate
         - key: CARTID
           value: -1
-          comment: The currently loaded cartridge
+          comment: The currently loaded cartridge/instrument
         - key: MAPID
           value: -1
           comment: The mapping version of the loaded plate
@@ -1384,25 +1420,25 @@ releases:
           comment: The currently specified pointing
         - key: PLATETYP
           value: 'sop.survey KeyError: ''sop'''
-          comment: Type of plate (e.g. BOSS, MANGA, APOG
+          comment: Type of plate (e.g. BOSS, MANGA, APOGEE, APOGEE)
         - key: OBJSYS
           value: Mount
           comment: The TCC objSys
         - key: RA
           value: NaN
-          comment: Telescope is not tracking the sky
+          comment: RA of telescope boresight (deg)
         - key: DEC
           value: NaN
-          comment: Telescope is not tracking the sky
+          comment: Dec of telescope boresight (deg)
         - key: RADEG
           value: NaN
-          comment: Telescope is not tracking the sky
+          comment: RA of telescope pointing(deg)
         - key: DECDEG
           value: NaN
-          comment: Telescope is not tracking the sky
+          comment: Dec of telescope pointing (deg)
         - key: SPA
           value: NaN
-          comment: Telescope is not tracking the sky
+          comment: TCC SpiderInstAng
         - key: AZ
           value: 121.003459
           comment: Azimuth axis pos. (approx, deg)
@@ -1456,61 +1492,61 @@ releases:
           comment: User-specified scale factor
         - key: V_APO
           value: 3.0.0
-          comment: version of the current apoActor
+          comment: Version of the current apoActor
         - key: PRESSURE
           value: 21.361
-          comment: ''
+          comment: APO SDSS 2.5m Air Pressure (inch Hg)
         - key: WINDD
           value: 239.3
-          comment: ''
+          comment: APO SDSS 2.5m Wind Direction (deg)
         - key: WINDS
           value: 12.5
-          comment: ''
+          comment: APO SDSS 2.5m Wind Speed (mph)
         - key: GUSTD
           value: 241.5
-          comment: ''
+          comment: APO SDSS 2.5m Wind Gust Direction (deg)
         - key: GUSTS
           value: 16.9
-          comment: ''
+          comment: APO SDSS 2.5m Wind Gust Speed (mph)
         - key: AIRTEMP
           value: 7.9
-          comment: ''
+          comment: APO SDSS 2.5m Outside temperature (deg C)
         - key: DEWPOINT
           value: -2.1
-          comment: ''
+          comment: APO SDSS 2.5m Dewpoint (deg C)
         - key: TRUSTEMP
           value: -23.1
-          comment: ''
+          comment: APO SDSS 2.5m Truss Temperature (deg C)
         - key: HUMIDITY
           value: 50.8
-          comment: ''
+          comment: APO SDSS 2.5m Humidity (percent)
         - key: DUSTA
           value: 19645.0
-          comment: ''
+          comment: APO SDSS 2.5m dust (count of 0.3mu/particles/vol/time)
         - key: DUSTB
           value: 2921.0
-          comment: ''
+          comment: APO SDSS 2.5m dust (count of 1mu/particles/vol/time)
         - key: WINDD25M
           value: -999.0
-          comment: ''
+          comment: Wind Direction at APO SDSS 2.5m (deg)
         - key: WINDS25M
           value: -999.0
-          comment: ''
+          comment: Wind Speed at APO SDSS 2.5m (deg)
         - key: FF
           value: 0 0 0 0
-          comment: FF lamps 1:on 0:0ff
+          comment: Flat Field lamps 1:on 0:off
         - key: NE
           value: 0 0 0 0
-          comment: NE lamps 1:on 0:0ff
+          comment: Ne Arc lamps 1:on 0:off
         - key: HGCD
           value: 0 0 0 0
-          comment: HGCD lamps 1:on 0:0ff
+          comment: HgCd Arc lamps 1:on 0:off
         - key: FFS
           value: 1 1 1 1 1 1 1 1
           comment: Flatfield Screen 1:closed 0:open
         - key: SLITID1
           value: 0
-          comment: Normalized slithead ID. sp1&2 should match.
+          comment: spectrograph Normalized slithead ID.
         - key: COLLA
           value: 0
           comment: The position of the A collimator motor
@@ -1522,7 +1558,7 @@ releases:
           comment: The position of the C collimator motor
         - key: HARTMANN
           value: Closed, Closed
-          comment: 'Hartmanns: Left,Right,Out'
+          comment: 'Hartmanns: Left,Right,Out,Closed'
         - key: MC1HUMHT
           value: 5.2
           comment: sp1 mech Hartmann humidity, %
@@ -1558,19 +1594,19 @@ releases:
           comment: time between flush end and readout start
         - key: LN2TEMP
           value: 95.312
-          comment: ''
+          comment: LN2 can temperature
         - key: CCDTEMP
           value: -99.609
-          comment: ''
+          comment: Temperature of the sensor
         - key: IONPUMP
           value: -6.32
-          comment: ''
+          comment: log10(Ion_Pump_pressure/torr)
         - key: CHECKSUM
           value: 9eDDGcC99cCCEcC9
-          comment: HDU checksum updated 2021-10-14T01:19:52
+          comment: HDU checksum
         - key: DATASUM
           value: '1783492906'
-          comment: data unit checksum updated 2021-10-14T01:19:52
+          comment: DATA checksum
         - key: COMMENT
           value: failed to make ROTPOS card from nan
           comment: ''
@@ -1604,6 +1640,368 @@ releases:
         - key: COMMENT
           value: failed to make GUIDOFFR card from nan
           comment: ''
+  IPL4:
+    template: $BOSS_SPECTRO_DATA_N/[MJD]/sdR-[BR][ID]-[FRAME].fit.gz
+    example: 60708/sdR-b1-00380717.fit.gz
+    location: '{mjd}/sdR-{br}{id}-{frame}.fit.gz'
+    environment: BOSS_SPECTRO_DATA_N
+    access:
+      in_sdss_access: true
+      path_name: sdR_N
+      path_template: $BOSS_SPECTRO_DATA_N/{mjd}/sdR-{br}{id}-{frame}.fit
+      path_kwargs:
+      - id
+      - br
+      - mjd
+      - frame
+      access_string: sdR_N = $BOSS_SPECTRO_DATA_N/{mjd}/sdR-{br}{id}-{frame}.fit.gz
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Example header
+        is_image: true
+        size: 35 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: This file conforms to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: Number of bits per data pixel
+        - key: NAXIS
+          value: 2
+          comment: Number of data axes
+        - key: NAXIS1
+          value: 4352
+          comment: Length of data axis 1
+        - key: NAXIS2
+          value: 4224
+          comment: Length of data axis 2
+        - key: EXTEND
+          value: true
+          comment: FITS dataset may contain extensions
+        - key: BSCALE
+          value: 1
+          comment: Linear scaling factor for pixel values
+        - key: BZERO
+          value: 32768
+          comment: Zero-point offset for pixel values
+        - key: TELESCOP
+          value: SDSS 2-5m
+          comment: Telescope
+        - key: FILENAME
+          value: sdR-b1-00380717.fit
+          comment: File basename
+        - key: CAMERAS
+          value: b1
+          comment: BOSS CAMERA
+        - key: EXPOSURE
+          value: 380717
+          comment: Exposure number
+        - key: V_BOSS
+          value: 6.0.2
+          comment: Active version of the BOSS ICC
+        - key: CAMDAQ
+          value: 1.5.0:37
+          comment: Camera Data Acquisition Version
+        - key: SUBFRAME
+          value: ''
+          comment: the subframe readout command
+        - key: ERRCNT
+          value: NONE
+          comment: BOSSDAQ Error Count
+        - key: SYNCERR
+          value: NONE
+          comment: BOSSDAQ Sync Error Count
+        - key: SLINES
+          value: NONE
+          comment: BOSSDAQ Sync Error Lines
+        - key: PIXERR
+          value: NONE
+          comment: BOSSDAQ Pixel Error Count
+        - key: PLINES
+          value: NONE
+          comment: Pixel Error Lines
+        - key: PFERR
+          value: NONE
+          comment: Pixel Frame Error
+        - key: DIDFLUSH
+          value: true
+          comment: CCD was flushed before integration
+        - key: FLAVOR
+          value: arc
+          comment: exposure type, SDSS spectro style
+        - key: MJD
+          value: 60708
+          comment: Modified Julian Date at telescope at start of exposure
+        - key: TAI-BEG
+          value: 5245217920.0
+          comment: MJD(TAI) seconds at start of integration
+        - key: DATE-OBS
+          value: '2025-02-02T12:58:40'
+          comment: TAI date at start of integration
+        - key: CARTID
+          value: FPS-N
+          comment: The currently loaded cartridge/instrument
+        - key: CONFID
+          value: 19024
+          comment: FPS configuration
+        - key: DESIGNID
+          value: 671546
+          comment: FPS design
+        - key: FIELDID
+          value: 101528
+          comment: FPS field
+        - key: VJAEGER
+          value: 1.7.8a0
+          comment: Version of Jaeger
+        - key: VKAIJU
+          value: 1.4.0
+          comment: Version of Kaiju
+        - key: VCOORDIO
+          value: 1.13.0
+          comment: Version of coordIO
+        - key: VCALIBS
+          value: 2024.10.16+008b5e2
+          comment: Version of FPS calibrations
+        - key: OBJSYS
+          value: ICRS
+          comment: The TCC objSys
+        - key: RA
+          value: 163.658368
+          comment: RA of telescope boresight (deg)
+        - key: DEC
+          value: 20.515672
+          comment: Dec of telescope boresight (deg)
+        - key: RADEG
+          value: 163.659606
+          comment: RA of telescope pointing(deg)
+        - key: DECDEG
+          value: 20.51513
+          comment: Dec of telescope pointing (deg)
+        - key: SPA
+          value: -15.988515
+          comment: TCC SpiderInstAng
+        - key: ROTPOS
+          value: 47.6814
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset (deg)
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset (deg)
+        - key: ARCOFFX
+          value: -0.00116
+          comment: TCC ObjArcOff (deg)
+        - key: ARCOFFY
+          value: 0.000541999999999999
+          comment: TCC ObjArcOff (deg)
+        - key: CALOFFX
+          value: 0.0
+          comment: TCC CalibOff (deg)
+        - key: CALOFFY
+          value: 0.0
+          comment: TCC CalibOff (deg)
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff (deg)
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff (deg)
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff (deg)
+        - key: GUIDOFFR
+          value: -0.262598
+          comment: TCC GuideOff (deg)
+        - key: AZ
+          value: -91.564348
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 37.661503
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: 163.841737
+          comment: Rotator axis pos. (approx, deg)
+        - key: FOCUS
+          value: -55.93
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 4569.22
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: -24.47
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: -17.53
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: 18.25
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: 92.01
+          comment: TCC SecOrient
+        - key: M2ZROT
+          value: -31.31
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: 0.0
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: -18.23
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: -7.9
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: -427.17
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: -999.0
+          comment: TCC PrimOrient
+        - key: M1ZROT
+          value: 0.0
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 1.0
+          comment: User-specified scale factor
+        - key: V_APO
+          value: 4.1.0
+          comment: Version of the current apoActor
+        - key: PRESSURE
+          value: 21.507
+          comment: APO SDSS 2.5m Air Pressure (inch Hg)
+        - key: WINDD
+          value: 16.0
+          comment: APO SDSS 2.5m Wind Direction (deg)
+        - key: WINDS
+          value: 13.8
+          comment: APO SDSS 2.5m Wind Speed (mph)
+        - key: GUSTD
+          value: 2.8
+          comment: APO SDSS 2.5m Wind Gust Direction (deg)
+        - key: GUSTS
+          value: 23.0
+          comment: APO SDSS 2.5m Wind Gust Speed (mph)
+        - key: AIRTEMP
+          value: 0.0
+          comment: APO SDSS 2.5m Outside temperature (deg C)
+        - key: DEWPOINT
+          value: 0.0
+          comment: APO SDSS 2.5m Dewpoint (deg C)
+        - key: TRUSTEMP
+          value: -24.5
+          comment: APO SDSS 2.5m Truss Temperature (deg C)
+        - key: HUMIDITY
+          value: 37.2
+          comment: APO SDSS 2.5m Humidity (percent)
+        - key: DUSTA
+          value: 27622.0
+          comment: APO SDSS 2.5m dust (count of 0.3mu/particles/vol/time)
+        - key: DUSTB
+          value: 241.0
+          comment: APO SDSS 2.5m dust (count of 1mu/particles/vol/time)
+        - key: WINDD25M
+          value: -999.0
+          comment: Wind Direction at APO SDSS 2.5m (deg)
+        - key: WINDS25M
+          value: -999.0
+          comment: Wind Speed at APO SDSS 2.5m (deg)
+        - key: FF
+          value: 0 0 0 0
+          comment: Flat Field lamps 1:on 0:off
+        - key: NE
+          value: 1 1 1 1
+          comment: Ne Arc lamps 1:on 0:off
+        - key: HGCD
+          value: 1 1 1 1
+          comment: HgCd Arc lamps 1:on 0:off
+        - key: FFS
+          value: 1 1 1 1 1 1 1 1
+          comment: Flatfield Screen 1:closed 0:open
+        - key: SLITID1
+          value: 0
+          comment: spectrograph Normalized slithead ID.
+        - key: COLLA
+          value: -58
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: 78
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: 63
+          comment: The position of the C collimator motor
+        - key: HARTMANN
+          value: Out
+          comment: 'Hartmanns: Left,Right,Out,Closed'
+        - key: MC1HUMHT
+          value: 0.8
+          comment: sp1 mech Hartmann humidity, %
+        - key: MC1HUMCO
+          value: -0.1
+          comment: sp1 mech Central optics humidity, %
+        - key: MC1TEMDN
+          value: 3.9
+          comment: sp1 mech Median temp, C
+        - key: MC1THT
+          value: 3.9
+          comment: sp1 mech Hartmann Top Temp, C
+        - key: MC1TRCB
+          value: 3.7
+          comment: sp1 mech Red Cam Bottom Temp, C
+        - key: MC1TRCT
+          value: 4.0
+          comment: sp1 mech Red Cam Top Temp, C
+        - key: MC1TBCB
+          value: 3.7
+          comment: sp1 mech Blue Cam Bottom Temp, C
+        - key: MC1TBCT
+          value: 3.9
+          comment: sp1 mech Blue Cam Top Temp, C
+        - key: REQTIME
+          value: 4.0
+          comment: requested exposure time
+        - key: EXPTIME
+          value: 4.09
+          comment: requested exposure time
+        - key: SHOPETIM
+          value: 0.73
+          comment: open shutter transit time (s)
+        - key: SHCLOTIM
+          value: 0.54
+          comment: close shutter transit time (s)
+        - key: DARKTIME
+          value: 15.81032562255859
+          comment: time between flush end and readout start
+        - key: LN2TEMP
+          value: 94.922
+          comment: LN2 can temperature
+        - key: CCDTEMP
+          value: -99.609
+          comment: Temperature of the sensor
+        - key: IONPUMP
+          value: -6.38
+          comment: log10(Ion_Pump_pressure/torr)
+        - key: OFFRA
+          value: 0.0
+          comment: Absolute guider offset in RA
+        - key: OFFDEC
+          value: 0.0
+          comment: Absolute guider offset in DEC
+        - key: OFFPA
+          value: -420.0
+          comment: Absolute guider offset in PA
+        - key: SEEING
+          value: 1.96
+          comment: Seeing from the guider (arcsec)
+        - key: CHECKSUM
+          value: iE8ckE8ZiE8biE8Z
+          comment: HDU checksum
+        - key: DATASUM
+          value: '3810825493'
+          comment: DATA checksum
 notes: |-
   None
 regrets: |-

@@ -19,7 +19,7 @@ Contains the output of the pyXCSAO package, a Python replication of IRAF XCSAO (
 spXCSAO-[FIELDID]-[MJD].fits
 
 ### Releases
-DR18, IPL3, DR19
+DR18, IPL3, DR19, IPL4
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -37,7 +37,7 @@ idlspec2d - run_pyXCSAO.py
 False
 
 ### Data Level
-0.0.0
+1.3
 
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - IPL4
+   - from: DR19
+   - added_hdus: ['PYXCSAO']
  - DR19
    - from: IPL3
    - note: No changes
@@ -124,9 +127,9 @@ Name | Type | Unit | Description |
  | gaia_G | float64 | Mag | Gaia G band photmetry |
  | BP | float64 | Mag | Gaia BP band photmetry |
  | RP | float64 | Mag | Gaia RP band photmetry |
- | J | float64 | Mag | Gaia J band photmetry |
- | H | float64 | Mag | Gaia H band photmetry |
- | K | float64 | Mag | Gaia K band photmetry |
+ | J | float64 | Mag | 2MASS J band photmetry |
+ | H | float64 | Mag | 2MASS H band photmetry |
+ | K | float64 | Mag | 2MASS K band photmetry |
  | r | float64 |  | Cross correlation strength, as defined in Tonry+79 |
  | rv | float64 | km/s | Radial velocity measured with XCSAO |
  | erv | float64 | km/s | Uncertainty in rv |
