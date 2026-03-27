@@ -1,0 +1,474 @@
+{
+  "general": {
+    "name": "mos_target_supercosmos_parquet",
+    "short": "MOS Target Table: supercosmos",
+    "description": "Contains merged sources for every field in the SuperCOSMOS Science Archive (SSA). It consists of data from digitised sky survey plates taken with the UK Schmidt telescope (UKST), the ESO Schmidt, and the Palomar Schmidt.\n\nEach field within the SSA is covered by four plates in passbands B, R and I with R being covered twice at different times. This results in four-plate multi-colour, multi-epoch data which are merged into a single source catalogue for general science exploitation. This table contains the associated merged records created from the records in table Detection, along with a full astrometric solution (including proper motions) computed from the available position measures. The most useful subset of image morphological descriptors are also propagated into this table for ease of use.\n\nDerived from <a href=\"http://ssa.roe.ac.uk/www/SSA_TABLE_SourceSchema.html#Source\">http://ssa.roe.ac.uk/www/SSA_TABLE_SourceSchema.html#Source</a>",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "8 GB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_supercosmos.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_supercosmos.[FTYPE]",
+      "example": "2.0.0/parquet/mos_supercosmos.parquet",
+      "location": "{v_targ}/{ftype}/mos_supercosmos.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_supercosmos",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_supercosmos@mos_target_num2|.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_supercosmos = $MOS_TARGET/{v_targ}/{ftype}/mos_supercosmos.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "objid": {
+            "name": "objid",
+            "description": "Unique identifier of merged source",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "objidb": {
+            "name": "objidb",
+            "description": "objID for B band detection merged into this object",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "objidr1": {
+            "name": "objidr1",
+            "description": "objID for R1 band detection merged into this object",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "objidr2": {
+            "name": "objidr2",
+            "description": "objID for R2 band detection merged into this object",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "objidi": {
+            "name": "objidi",
+            "description": "objID for I band detection merged into this object",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "htmid": {
+            "name": "htmid",
+            "description": "Hierarchical Triangular Mesh (20-deep) of centroid",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "epoch": {
+            "name": "epoch",
+            "description": "Epoch of position (variance weighted mean epoch of available measures)",
+            "unit": "yr",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ra": {
+            "name": "ra",
+            "description": "Mean RA, computed from detections merged in this catalogue",
+            "unit": "deg",
+            "dtype": "Float64",
+            "value": null
+          },
+          "dec": {
+            "name": "dec",
+            "description": "Mean Dec, computed from detections merged in this catalogue",
+            "unit": "deg",
+            "dtype": "Float64",
+            "value": null
+          },
+          "sigra": {
+            "name": "sigra",
+            "description": "Uncertainty in RA (formal random error not inc. systematic errors)",
+            "unit": "deg",
+            "dtype": "Float64",
+            "value": null
+          },
+          "sigdec": {
+            "name": "sigdec",
+            "description": "Uncertainty in Dec (formal random error not inc. systematic errors)",
+            "unit": "deg",
+            "dtype": "Float64",
+            "value": null
+          },
+          "cx": {
+            "name": "cx",
+            "description": "Cartesian x of unit (ra,dec) vector on celestial sphere",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "cy": {
+            "name": "cy",
+            "description": "Cartesian y of unit (ra,dec) vector on celestial sphere",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "cz": {
+            "name": "cz",
+            "description": "Cartesian z of unit (ra,dec) vector on celestial sphere",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "muacosd": {
+            "name": "muacosd",
+            "description": "Proper motion in RA direction",
+            "unit": "mas/yr",
+            "dtype": "Float32",
+            "value": null
+          },
+          "mud": {
+            "name": "mud",
+            "description": "Proper motion in Dec direction",
+            "unit": "mas/yr",
+            "dtype": "Float32",
+            "value": null
+          },
+          "sigmuacosd": {
+            "name": "sigmuacosd",
+            "description": "Error on proper motion in RA direction",
+            "unit": "mas/yr",
+            "dtype": "Float32",
+            "value": null
+          },
+          "sigmud": {
+            "name": "sigmud",
+            "description": "Error on proper motion in Dec direction",
+            "unit": "mas/yr",
+            "dtype": "Float32",
+            "value": null
+          },
+          "chi2": {
+            "name": "chi2",
+            "description": "Chi-squared value of proper motion solution",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "nplates": {
+            "name": "nplates",
+            "description": "No. of plates used for this proper motion measurement",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "classmagb": {
+            "name": "classmagb",
+            "description": "B band magnitude selected by B image class",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "classmagr1": {
+            "name": "classmagr1",
+            "description": "R1 band magnitude selected by R1 image class",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "classmagr2": {
+            "name": "classmagr2",
+            "description": "R2 band magnitude selected by R2 image class",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "classmagi": {
+            "name": "classmagi",
+            "description": "I band magnitude selected by I image class",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "gcormagb": {
+            "name": "gcormagb",
+            "description": "B band magnitude assuming object is galaxy",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "gcormagr1": {
+            "name": "gcormagr1",
+            "description": "R1 band magnitude assuming object is galaxy",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "gcormagr2": {
+            "name": "gcormagr2",
+            "description": "R2 band magnitude assuming object is galaxy",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "gcormagi": {
+            "name": "gcormagi",
+            "description": "I band magnitude assuming object is galaxy",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "scormagb": {
+            "name": "scormagb",
+            "description": "B band magnitude assuming object is star",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "scormagr1": {
+            "name": "scormagr1",
+            "description": "R1 band magnitude assuming object is star",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "scormagr2": {
+            "name": "scormagr2",
+            "description": "R2 band magnitude assuming object is star",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "scormagi": {
+            "name": "scormagi",
+            "description": "I band magnitude assuming object is star",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "meanclass": {
+            "name": "meanclass",
+            "description": "Estimate of image class based on unit-weighted mean of individual classes",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "classb": {
+            "name": "classb",
+            "description": "Image classification from B band detection",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "classr1": {
+            "name": "classr1",
+            "description": "Image classification from R1 band detection",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "classr2": {
+            "name": "classr2",
+            "description": "Image classification from R2 band detection",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "classi": {
+            "name": "classi",
+            "description": "Image classification from I band detection",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "ellipb": {
+            "name": "ellipb",
+            "description": "Ellipticity of B band detection",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ellipr1": {
+            "name": "ellipr1",
+            "description": "Ellipticity of R1 band detection",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ellipr2": {
+            "name": "ellipr2",
+            "description": "Ellipticity of R2 band detection",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ellipi": {
+            "name": "ellipi",
+            "description": "Ellipticity of I band detection",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "qualb": {
+            "name": "qualb",
+            "description": "Bitwise quality flag from B band detection",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "qualr1": {
+            "name": "qualr1",
+            "description": "Bitwise quality flag from R1 band detection",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "qualr2": {
+            "name": "qualr2",
+            "description": "Bitwise quality flag from R2 band detection",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "quali": {
+            "name": "quali",
+            "description": "Bitwise quality flag from I band detection",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "blendb": {
+            "name": "blendb",
+            "description": "Blend flag from B band detection",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "blendr1": {
+            "name": "blendr1",
+            "description": "Blend flag from R1 band detection",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "blendr2": {
+            "name": "blendr2",
+            "description": "Blend flag from R2 band detection",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "blendi": {
+            "name": "blendi",
+            "description": "Blend flag from I band detection",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "prfstatb": {
+            "name": "prfstatb",
+            "description": "Profile statistic from B band detection",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "prfstatr1": {
+            "name": "prfstatr1",
+            "description": "Profile statistic from R1 band detection",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "prfstatr2": {
+            "name": "prfstatr2",
+            "description": "Profile statistic from R2 band detection",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "prfstati": {
+            "name": "prfstati",
+            "description": "Profile statistic from I band detection",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "l": {
+            "name": "l",
+            "description": "The Galactic longitude of the source",
+            "unit": "deg",
+            "dtype": "Float32",
+            "value": null
+          },
+          "b": {
+            "name": "b",
+            "description": "The Galactic latitude of the source",
+            "unit": "deg",
+            "dtype": "Float32",
+            "value": null
+          },
+          "d": {
+            "name": "d",
+            "description": "The great-circle distance of the source from the Galactic centre",
+            "unit": "deg",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ebmv": {
+            "name": "ebmv",
+            "description": "The estimated foreground reddening at this position from Schlegel et al. (1998)",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

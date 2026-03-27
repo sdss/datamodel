@@ -16,10 +16,10 @@ MOS Target Table: gaiadr2_tmass_best_neighbour
 The Gaia DR2 vs. 2MASS PSC crossmatch provided by the Gaia collaboration. Please see https://gea.esac.esa.int/archive/documentation/GDR2/Catalogue_consolidation/chap_cu9val_cu9val/ssec_cu9xma/sssec_cu9xma_extcat.html for complete details.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_gaiadr2_tmass_best_neighbour-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_gaiadr2_tmass_best_neighbour-[NUM].[FTYPE] with FTYPE='fits', V_TARG='2.0.0', and NUM=1..27 for DR20.
 
 ### Releases
-DR18, DR19
+DR18, DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
  - DR19
    - from: DR18
    - note: No changes

@@ -16,10 +16,10 @@ MOS Target table: mos_target_bhm_csc
 Chandra Source Catalogue version 2.0 (CSC2) sources that have been matched (separately) to the PanSTARRS-1 and 2MASS catalogs.  This version of the CSC2 catalog informed early (plate era) SDSS-V observations but was then replaced by updated versions.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_bhm_csc.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_bhm_csc.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,7 +71,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_bhm_csc
+MOS Target Table: bhm_csc
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  6 MB
@@ -80,7 +83,7 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
 | NAXIS1 | 81 | length of dimension 1 |
-| NAXIS2 | 86039 | length of dimension 2 |
+| NAXIS2 | 86050 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 11 | number of table fields |

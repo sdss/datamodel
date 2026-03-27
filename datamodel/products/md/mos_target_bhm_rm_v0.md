@@ -16,10 +16,10 @@ MOS Target table: mos_target_bhm_rm_v0
 Parent sample for the RM project, used to select confirmed and candidate quasar targets for the BHM-RM Program in SDSS-V. For more details please see Yang and Shen, (2022, https://ui.adsabs.harvard.edu/abs/2022arXiv220608989Y/abstract). This table contains all photometric objects detected in the COSMOS, SDSS-RM, XMM-LSS, CDFS, S-CVZ, and ELAIS-S1 fields., within a circular area of 10 degree^2 from the field center.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_bhm_rm_v0.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_bhm_rm_v0.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,10 +71,10 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_bhm_rm_v0
+MOS Target Table: bhm_rm_v0
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  172 MB
+#### HDU Size:  231 MB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -80,7 +83,7 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
 | NAXIS1 | 1792 | length of dimension 1 |
-| NAXIS2 | 101049 | length of dimension 2 |
+| NAXIS2 | 135653 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 249 | number of table fields |

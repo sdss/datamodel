@@ -1,0 +1,1454 @@
+{
+  "general": {
+    "name": "mos_target_galah_dr3_parquet",
+    "short": "MOS Target Table: galah_dr3",
+    "description": "The GALAH DR3 main catalogue. See <a href=\"https://www.galah-survey.org/dr3/table_schema/\">https://www.galah-survey.org/dr3/table_schema/</a>",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "223 MB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_galah_dr3.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_galah_dr3.[FTYPE]",
+      "example": "2.0.0/parquet/mos_galah_dr3.parquet",
+      "location": "{v_targ}/{ftype}/mos_galah_dr3.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_galah_dr3",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_galah_dr3.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_galah_dr3 = $MOS_TARGET/{v_targ}/{ftype}/mos_galah_dr3.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "star_id": {
+            "name": "star_id",
+            "description": "2MASS identifier",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "sobject_id": {
+            "name": "sobject_id",
+            "description": "GALAH identifier",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "dr2_source_id": {
+            "name": "dr2_source_id",
+            "description": "Gaia DR2 source_id",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "dr3_source_id": {
+            "name": "dr3_source_id",
+            "description": "Gaia DR3 source_id",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "survey_name": {
+            "name": "survey_name",
+            "description": "Name of survey as part of GALAH+DR3",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "field_id": {
+            "name": "field_id",
+            "description": "GALAH field identifier",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_repeat": {
+            "name": "flag_repeat",
+            "description": "Repeat observation flag, indicating if used for clean catalog",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "wg4_field": {
+            "name": "wg4_field",
+            "description": "GALAH WG4 field",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "wg4_pipeline": {
+            "name": "wg4_pipeline",
+            "description": "SME pipeline version free/lbol/seis",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "flag_sp": {
+            "name": "flag_sp",
+            "description": "Stellar parameter quality flag",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "teff": {
+            "name": "teff",
+            "description": "Spectroscopic effective temperature (used for fitting)",
+            "unit": "K",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_teff": {
+            "name": "e_teff",
+            "description": "Uncertainty teff",
+            "unit": "K",
+            "dtype": "Float64",
+            "value": null
+          },
+          "irfm_teff": {
+            "name": "irfm_teff",
+            "description": "IRFM temperature (not used for synthesis)",
+            "unit": "K",
+            "dtype": "Float32",
+            "value": null
+          },
+          "irfm_ebv": {
+            "name": "irfm_ebv",
+            "description": "E(B-V) used for IRFM teff estimation",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "irfm_ebv_ref": {
+            "name": "irfm_ebv_ref",
+            "description": "Reference irfm_ebv",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "logg": {
+            "name": "logg",
+            "description": "Surface gravity (not fitted via spectra if wg4_pipeline not free)",
+            "unit": "log(cm s-2)",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_logg": {
+            "name": "e_logg",
+            "description": "Uncertainty logg",
+            "unit": "log(cm s-2)",
+            "dtype": "Float64",
+            "value": null
+          },
+          "fe_h": {
+            "name": "fe_h",
+            "description": "Fe atomic abundance from Fe lines (final, 1D-NLTE)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_fe_h": {
+            "name": "e_fe_h",
+            "description": "Uncertainty fe_h",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "flag_fe_h": {
+            "name": "flag_fe_h",
+            "description": "Quality flag fe_h",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "fe_h_atmo": {
+            "name": "fe_h_atmo",
+            "description": "sme.feh from stellar parameter run, fitted from H, Ti, Sc, Fe",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "vmic": {
+            "name": "vmic",
+            "description": "Microturbulence velocity (from empirical relation)",
+            "unit": "km s-1",
+            "dtype": "Float32",
+            "value": null
+          },
+          "vbroad": {
+            "name": "vbroad",
+            "description": "Broadening velocity (fitted sme.vsini with sme.vmac=0)",
+            "unit": "km s-1",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_vbroad": {
+            "name": "e_vbroad",
+            "description": "Uncertainty of vbroad",
+            "unit": "km s-1",
+            "dtype": "Float64",
+            "value": null
+          },
+          "chi2_sp": {
+            "name": "chi2_sp",
+            "description": "Chi-square value of stellar parameter fitting",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "alpha_fe": {
+            "name": "alpha_fe",
+            "description": "Combined, weighted alpha-process element abundance",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_alpha_fe": {
+            "name": "e_alpha_fe",
+            "description": "Uncertainty of alpha_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_alpha_fe": {
+            "name": "nr_alpha_fe",
+            "description": "Bitmask of used measurements for alpha_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "flag_alpha_fe": {
+            "name": "flag_alpha_fe",
+            "description": "Quality flag of measurements for alpha_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flux_a_fe": {
+            "name": "flux_a_fe",
+            "description": "Normalised maximum absorption strength in iron lines",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "chi_a_fe": {
+            "name": "chi_a_fe",
+            "description": "Chi-square value of iron abundance fitting",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "li_fe": {
+            "name": "li_fe",
+            "description": "Neutral/ionised Li atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_li_fe": {
+            "name": "e_li_fe",
+            "description": "Uncertainty li_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_li_fe": {
+            "name": "nr_li_fe",
+            "description": "Bitmask of used Li individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_li_fe": {
+            "name": "flag_li_fe",
+            "description": "Quality flag of li_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "c_fe": {
+            "name": "c_fe",
+            "description": "Neutral/ionised C atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_c_fe": {
+            "name": "e_c_fe",
+            "description": "Uncertainty c_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_c_fe": {
+            "name": "nr_c_fe",
+            "description": "Bitmask of used C individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_c_fe": {
+            "name": "flag_c_fe",
+            "description": "Quality flag of c_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "o_fe": {
+            "name": "o_fe",
+            "description": "Neutral/ionised O atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_o_fe": {
+            "name": "e_o_fe",
+            "description": "Uncertainty o_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_o_fe": {
+            "name": "nr_o_fe",
+            "description": "Bitmask of used O individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_o_fe": {
+            "name": "flag_o_fe",
+            "description": "Quality flag of o_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "na_fe": {
+            "name": "na_fe",
+            "description": "Neutral/ionised Na atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_na_fe": {
+            "name": "e_na_fe",
+            "description": "Uncertainty na_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_na_fe": {
+            "name": "nr_na_fe",
+            "description": "Bitmask of used Na individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_na_fe": {
+            "name": "flag_na_fe",
+            "description": "Quality flag of na_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "mg_fe": {
+            "name": "mg_fe",
+            "description": "Neutral/ionised Mg atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_mg_fe": {
+            "name": "e_mg_fe",
+            "description": "Uncertainty mg_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_mg_fe": {
+            "name": "nr_mg_fe",
+            "description": "Bitmask of used Mg individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_mg_fe": {
+            "name": "flag_mg_fe",
+            "description": "Quality flag of mg_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "al_fe": {
+            "name": "al_fe",
+            "description": "Neutral/ionised Al atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_al_fe": {
+            "name": "e_al_fe",
+            "description": "Uncertainty al_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_al_fe": {
+            "name": "nr_al_fe",
+            "description": "Bitmask of used Al individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_al_fe": {
+            "name": "flag_al_fe",
+            "description": "Quality flag of al_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "si_fe": {
+            "name": "si_fe",
+            "description": "Neutral/ionised Si atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_si_fe": {
+            "name": "e_si_fe",
+            "description": "Uncertainty si_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_si_fe": {
+            "name": "nr_si_fe",
+            "description": "Bitmask of used Si individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_si_fe": {
+            "name": "flag_si_fe",
+            "description": "Quality flag of si_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "k_fe": {
+            "name": "k_fe",
+            "description": "Neutral/ionised K atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_k_fe": {
+            "name": "e_k_fe",
+            "description": "Uncertainty k_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_k_fe": {
+            "name": "nr_k_fe",
+            "description": "Bitmask of used K individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_k_fe": {
+            "name": "flag_k_fe",
+            "description": "Quality flag of k_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "ca_fe": {
+            "name": "ca_fe",
+            "description": "Neutral/ionised Ca atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_ca_fe": {
+            "name": "e_ca_fe",
+            "description": "Uncertainty ca_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_ca_fe": {
+            "name": "nr_ca_fe",
+            "description": "Bitmask of used Ca individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_ca_fe": {
+            "name": "flag_ca_fe",
+            "description": "Quality flag of ca_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "sc_fe": {
+            "name": "sc_fe",
+            "description": "Neutral/ionised Sc atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_sc_fe": {
+            "name": "e_sc_fe",
+            "description": "Uncertainty sc_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_sc_fe": {
+            "name": "nr_sc_fe",
+            "description": "Bitmask of used Sc individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_sc_fe": {
+            "name": "flag_sc_fe",
+            "description": "Quality flag of sc_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "sc2_fe": {
+            "name": "sc2_fe",
+            "description": "Neutral/ionised Sc2 atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_sc2_fe": {
+            "name": "e_sc2_fe",
+            "description": "Uncertainty sc2_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_sc2_fe": {
+            "name": "nr_sc2_fe",
+            "description": "Bitmask of used Sc2 individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_sc2_fe": {
+            "name": "flag_sc2_fe",
+            "description": "Quality flag of sc2_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "ti_fe": {
+            "name": "ti_fe",
+            "description": "Neutral/ionised Ti atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_ti_fe": {
+            "name": "e_ti_fe",
+            "description": "Uncertainty ti_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_ti_fe": {
+            "name": "nr_ti_fe",
+            "description": "Bitmask of used Ti individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_ti_fe": {
+            "name": "flag_ti_fe",
+            "description": "Quality flag of ti_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "ti2_fe": {
+            "name": "ti2_fe",
+            "description": "Neutral/ionised Ti2 atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_ti2_fe": {
+            "name": "e_ti2_fe",
+            "description": "Uncertainty ti2_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_ti2_fe": {
+            "name": "nr_ti2_fe",
+            "description": "Bitmask of used Ti2 individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_ti2_fe": {
+            "name": "flag_ti2_fe",
+            "description": "Quality flag of ti2_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "v_fe": {
+            "name": "v_fe",
+            "description": "Neutral/ionised V atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_v_fe": {
+            "name": "e_v_fe",
+            "description": "Uncertainty v_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_v_fe": {
+            "name": "nr_v_fe",
+            "description": "Bitmask of used V individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_v_fe": {
+            "name": "flag_v_fe",
+            "description": "Quality flag of v_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "cr_fe": {
+            "name": "cr_fe",
+            "description": "Neutral/ionised Cr atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_cr_fe": {
+            "name": "e_cr_fe",
+            "description": "Uncertainty cr_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_cr_fe": {
+            "name": "nr_cr_fe",
+            "description": "Bitmask of used Cr individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_cr_fe": {
+            "name": "flag_cr_fe",
+            "description": "Quality flag of cr_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "cr2_fe": {
+            "name": "cr2_fe",
+            "description": "Neutral/ionised Cr2 atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_cr2_fe": {
+            "name": "e_cr2_fe",
+            "description": "Uncertainty cr2_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_cr2_fe": {
+            "name": "nr_cr2_fe",
+            "description": "Bitmask of used Cr2 individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_cr2_fe": {
+            "name": "flag_cr2_fe",
+            "description": "Quality flag of cr2_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "mn_fe": {
+            "name": "mn_fe",
+            "description": "Neutral/ionised Mn atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_mn_fe": {
+            "name": "e_mn_fe",
+            "description": "Uncertainty mn_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_mn_fe": {
+            "name": "nr_mn_fe",
+            "description": "Bitmask of used Mn individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_mn_fe": {
+            "name": "flag_mn_fe",
+            "description": "Quality flag of mn_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "co_fe": {
+            "name": "co_fe",
+            "description": "Neutral/ionised Co atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_co_fe": {
+            "name": "e_co_fe",
+            "description": "Uncertainty co_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_co_fe": {
+            "name": "nr_co_fe",
+            "description": "Bitmask of used Co individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_co_fe": {
+            "name": "flag_co_fe",
+            "description": "Quality flag of co_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "ni_fe": {
+            "name": "ni_fe",
+            "description": "Neutral/ionised Ni atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_ni_fe": {
+            "name": "e_ni_fe",
+            "description": "Uncertainty ni_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_ni_fe": {
+            "name": "nr_ni_fe",
+            "description": "Bitmask of used Ni individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_ni_fe": {
+            "name": "flag_ni_fe",
+            "description": "Quality flag of ni_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "cu_fe": {
+            "name": "cu_fe",
+            "description": "Neutral/ionised Cu atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_cu_fe": {
+            "name": "e_cu_fe",
+            "description": "Uncertainty cu_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_cu_fe": {
+            "name": "nr_cu_fe",
+            "description": "Bitmask of used Cu individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_cu_fe": {
+            "name": "flag_cu_fe",
+            "description": "Quality flag of cu_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "zn_fe": {
+            "name": "zn_fe",
+            "description": "Neutral/ionised Zn atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_zn_fe": {
+            "name": "e_zn_fe",
+            "description": "Uncertainty zn_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_zn_fe": {
+            "name": "nr_zn_fe",
+            "description": "Bitmask of used Zn individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_zn_fe": {
+            "name": "flag_zn_fe",
+            "description": "Quality flag of zn_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "rb_fe": {
+            "name": "rb_fe",
+            "description": "Neutral/ionised Rb atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_rb_fe": {
+            "name": "e_rb_fe",
+            "description": "Uncertainty rb_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_rb_fe": {
+            "name": "nr_rb_fe",
+            "description": "Bitmask of used Rb individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_rb_fe": {
+            "name": "flag_rb_fe",
+            "description": "Quality flag of rb_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "sr_fe": {
+            "name": "sr_fe",
+            "description": "Neutral/ionised Sr atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_sr_fe": {
+            "name": "e_sr_fe",
+            "description": "Uncertainty sr_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_sr_fe": {
+            "name": "nr_sr_fe",
+            "description": "Bitmask of used Sr individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_sr_fe": {
+            "name": "flag_sr_fe",
+            "description": "Quality flag of sr_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "y_fe": {
+            "name": "y_fe",
+            "description": "Neutral/ionised Y atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_y_fe": {
+            "name": "e_y_fe",
+            "description": "Uncertainty y_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_y_fe": {
+            "name": "nr_y_fe",
+            "description": "Bitmask of used Y individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_y_fe": {
+            "name": "flag_y_fe",
+            "description": "Quality flag of y_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "zr_fe": {
+            "name": "zr_fe",
+            "description": "Neutral/ionised Zr atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_zr_fe": {
+            "name": "e_zr_fe",
+            "description": "Uncertainty zr_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_zr_fe": {
+            "name": "nr_zr_fe",
+            "description": "Bitmask of used Zr individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_zr_fe": {
+            "name": "flag_zr_fe",
+            "description": "Quality flag of zr_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "mo_fe": {
+            "name": "mo_fe",
+            "description": "Neutral/ionised Mo atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_mo_fe": {
+            "name": "e_mo_fe",
+            "description": "Uncertainty mo_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_mo_fe": {
+            "name": "nr_mo_fe",
+            "description": "Bitmask of used Mo individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_mo_fe": {
+            "name": "flag_mo_fe",
+            "description": "Quality flag of mo_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "ru_fe": {
+            "name": "ru_fe",
+            "description": "Neutral/ionised Ru atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_ru_fe": {
+            "name": "e_ru_fe",
+            "description": "Uncertainty ru_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_ru_fe": {
+            "name": "nr_ru_fe",
+            "description": "Bitmask of used Ru individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_ru_fe": {
+            "name": "flag_ru_fe",
+            "description": "Quality flag of ru_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "ba_fe": {
+            "name": "ba_fe",
+            "description": "Neutral/ionised Ba atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_ba_fe": {
+            "name": "e_ba_fe",
+            "description": "Uncertainty ba_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_ba_fe": {
+            "name": "nr_ba_fe",
+            "description": "Bitmask of used Ba individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_ba_fe": {
+            "name": "flag_ba_fe",
+            "description": "Quality flag of ba_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "la_fe": {
+            "name": "la_fe",
+            "description": "Neutral/ionised La atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_la_fe": {
+            "name": "e_la_fe",
+            "description": "Uncertainty la_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_la_fe": {
+            "name": "nr_la_fe",
+            "description": "Bitmask of used La individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_la_fe": {
+            "name": "flag_la_fe",
+            "description": "Quality flag of la_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "ce_fe": {
+            "name": "ce_fe",
+            "description": "Neutral/ionised Ce atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_ce_fe": {
+            "name": "e_ce_fe",
+            "description": "Uncertainty ce_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_ce_fe": {
+            "name": "nr_ce_fe",
+            "description": "Bitmask of used Ce individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_ce_fe": {
+            "name": "flag_ce_fe",
+            "description": "Quality flag of ce_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "nd_fe": {
+            "name": "nd_fe",
+            "description": "Neutral/ionised Nd atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_nd_fe": {
+            "name": "e_nd_fe",
+            "description": "Uncertainty nd_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_nd_fe": {
+            "name": "nr_nd_fe",
+            "description": "Bitmask of used Nd individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_nd_fe": {
+            "name": "flag_nd_fe",
+            "description": "Quality flag of nd_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "sm_fe": {
+            "name": "sm_fe",
+            "description": "Neutral/ionised Sm atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_sm_fe": {
+            "name": "e_sm_fe",
+            "description": "Uncertainty sm_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_sm_fe": {
+            "name": "nr_sm_fe",
+            "description": "Bitmask of used Sm individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_sm_fe": {
+            "name": "flag_sm_fe",
+            "description": "Quality flag of sm_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "eu_fe": {
+            "name": "eu_fe",
+            "description": "Neutral/ionised Eu atomic abundance (final, 1D-LTE or NLTE)",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_eu_fe": {
+            "name": "e_eu_fe",
+            "description": "Uncertainty eu_fe",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "nr_eu_fe": {
+            "name": "nr_eu_fe",
+            "description": "Bitmask of used Eu individual lines",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "flag_eu_fe": {
+            "name": "flag_eu_fe",
+            "description": "Quality flag of eu_fe",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "ra_dr2": {
+            "name": "ra_dr2",
+            "description": "Right Ascension propagated from Gaia DR2",
+            "unit": "deg",
+            "dtype": "Float64",
+            "value": null
+          },
+          "dec_dr2": {
+            "name": "dec_dr2",
+            "description": "Declination propagated from Gaia DR2",
+            "unit": "deg",
+            "dtype": "Float64",
+            "value": null
+          },
+          "parallax_dr2": {
+            "name": "parallax_dr2",
+            "description": "Parallax propagated from Gaia DR2",
+            "unit": "mas",
+            "dtype": "Float64",
+            "value": null
+          },
+          "parallax_error_dr2": {
+            "name": "parallax_error_dr2",
+            "description": "Parallax error propagated from Gaia DR2",
+            "unit": "mas",
+            "dtype": "Float64",
+            "value": null
+          },
+          "r_est_dr2": {
+            "name": "r_est_dr2",
+            "description": "Estimated distance propagated from Bailer-Jones et al. (2018)",
+            "unit": "pc",
+            "dtype": "Float64",
+            "value": null
+          },
+          "r_lo_dr2": {
+            "name": "r_lo_dr2",
+            "description": "Lower bound on the confidence interval of the estimated distance propagated",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "r_hi_dr2": {
+            "name": "r_hi_dr2",
+            "description": "Upper bound on the confidence interval of the estimated distance propagated",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "r_len_dr2": {
+            "name": "r_len_dr2",
+            "description": "Length scale used in the prior for the distance estimation propagated from",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "rv_galah": {
+            "name": "rv_galah",
+            "description": "Best-method radial velocity from GALAH spectra",
+            "unit": "km s-1",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_rv_galah": {
+            "name": "e_rv_galah",
+            "description": "Uncertainty of rv_galah",
+            "unit": "km s-1",
+            "dtype": "Float64",
+            "value": null
+          },
+          "rv_gaia_dr2": {
+            "name": "rv_gaia_dr2",
+            "description": "Radial velocity propagated from Gaia DR2; identical to",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_rv_gaia_dr2": {
+            "name": "e_rv_gaia_dr2",
+            "description": "Radial velocity error propagated from Gaia DR2; identical to",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "red_flag": {
+            "name": "red_flag",
+            "description": "Reduction pipeline quality flag",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "ebv": {
+            "name": "ebv",
+            "description": "Schlegel et al. (1998) extinction value",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "snr_c1_iraf": {
+            "name": "snr_c1_iraf",
+            "description": "Average SNR/px CCD1",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "snr_c2_iraf": {
+            "name": "snr_c2_iraf",
+            "description": "Average SNR/px CCD2",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "snr_c3_iraf": {
+            "name": "snr_c3_iraf",
+            "description": "Average SNR/px CCD3",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "snr_c4_iraf": {
+            "name": "snr_c4_iraf",
+            "description": "Average SNR/px CCD4",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "flag_guess": {
+            "name": "flag_guess",
+            "description": "GUESS reduction pipeline quality flag",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "v_jk": {
+            "name": "v_jk",
+            "description": "V magnitude estimated from 2MASS J and Ks mag",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "j_m": {
+            "name": "j_m",
+            "description": "J magnitude propagated from 2MASS",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "j_msigcom": {
+            "name": "j_msigcom",
+            "description": "J magnitude uncertainty propagated from 2MASS",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "h_m": {
+            "name": "h_m",
+            "description": "Band H magnitude propagated from 2MASS",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "h_msigcom": {
+            "name": "h_msigcom",
+            "description": "H magnitude uncertainty propagated from 2MASS",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ks_m": {
+            "name": "ks_m",
+            "description": "Band Ks magnitude propagated from 2MASS",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ks_msigcom": {
+            "name": "ks_msigcom",
+            "description": "Ks magnitude uncertainty propagated from 2MASS",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ph_qual_tmass": {
+            "name": "ph_qual_tmass",
+            "description": "JHKs photometric quality flag propagated from 2MASS",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "w2mpro": {
+            "name": "w2mpro",
+            "description": "W2 profile-fitting magnitude propagated from AllWISE",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "w2mpro_error": {
+            "name": "w2mpro_error",
+            "description": "Error on W2 profile-fitting magnitude propagated from AllWISE",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "ph_qual_wise": {
+            "name": "ph_qual_wise",
+            "description": "Photometric quality flag propagated from AllWISE",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "a_ks": {
+            "name": "a_ks",
+            "description": "Used Ks band extinction",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "e_a_ks": {
+            "name": "e_a_ks",
+            "description": "Uncertainty of a_ks",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "bc_ks": {
+            "name": "bc_ks",
+            "description": "Used bolometric correction for Ks band",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ruwe_dr2": {
+            "name": "ruwe_dr2",
+            "description": "Renormalised unit weight error propagated from Gaia DR2",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

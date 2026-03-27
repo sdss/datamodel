@@ -16,10 +16,10 @@ MOS Target table: mos_target_unwise
 The unWISE catalog, containing the positions and fluxes of approximately two billion objects observed by the Wide-field Infrared Survey Explorer (WISE). See Schlafly et al. (2019). The original catalogs are hosted at https://catalog.unwise.me/catalogs.html
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_unwise.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_unwise-[NUM].[FTYPE] with FTYPE='fits', V_TARG='2.0.0', and NUM=1..40 for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,7 +71,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_unwise
+MOS Target Table: unwise
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  534 MB

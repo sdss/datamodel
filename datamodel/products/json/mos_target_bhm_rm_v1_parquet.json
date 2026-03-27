@@ -1,0 +1,236 @@
+{
+  "general": {
+    "name": "mos_target_bhm_rm_v1_parquet",
+    "short": "MOS Target Table: bhm_rm_v1",
+    "description": "arent sample for the RM project.\n\nUsed to select confirmed and candidate quasar targets for the BHM-RM Program in SDSS-V. For more details please see Yang and Shen, (2022, <a href=\"https://ui.adsabs.harvard.edu/abs/2022arXiv220608989Y/abstract)\">https://ui.adsabs.harvard.edu/abs/2022arXiv220608989Y/abstract)</a>.\n\nThis table contains all photometric objects detected in the COSMOS, SDSS-RM, XMM-LSS, CDFS, S-CVZ, and ELAIS-S1 fields., within a circular area of 10 degree^2 from the field center.\n\nField center: Name     RA          DEC\n              XMM-LSS  02:22:50.00    -04:45:00.0\n              CDFS     03:30:35.60    -28:06:00.0\n              EDFS     04:04:57.84    -48:25:22.8\n              ELAIS-S1 00:37:48.00    -44:00:00.0\n              COSMOS   10:00:00.00    +02:12:00.0\n              SDSS-RM  14:14:49.00    +53:05:00.0\n              S-CVZ    06:00:00.00    -66:33:38.0\n\nThe table includes information from the following survey data releases:\nPS1: Pan-STARRS, DR1, StackObjectThin\nSDSS: Sloan Digital Sky Survey, DR14, PhotoObjAll\nGaia: DR2, gaia_dr2.gaia_source, DR3, gaia_dr3.gaia_source\nLegacy Survey DR8 and DR10.\nValues are set to -9.0 or -9 if null.\n\nThe dr20_bhm_rm_v1 table corresponds to Version: v1, 11/29/2022\n\n[INCOMPLETE]: Tom to check summary and missing column descriptions.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "247 KB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_bhm_rm_v1.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_bhm_rm_v1.[FTYPE]",
+      "example": "2.0.0/parquet/mos_bhm_rm_v1.parquet",
+      "location": "{v_targ}/{ftype}/mos_bhm_rm_v1.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_bhm_rm_v1",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_bhm_rm_v1.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_bhm_rm_v1 = $MOS_TARGET/{v_targ}/{ftype}/mos_bhm_rm_v1.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "rm_field_name": {
+            "name": "rm_field_name",
+            "description": "One of COSMOS, SDSS-RM, XMM-LSS, CDFS, S-CVZ, or ELAIS-S1",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "ra": {
+            "name": "ra",
+            "description": "Fiducial Right Ascension (J2000)",
+            "unit": "deg",
+            "dtype": "Float64",
+            "value": null
+          },
+          "dec": {
+            "name": "dec",
+            "description": "Fiducial Declination (J2000)",
+            "unit": "deg",
+            "dtype": "Float64",
+            "value": null
+          },
+          "catalogidv05": {
+            "name": "catalogidv05",
+            "description": "Unique identifier in the dr20_catalog table (corresponding to the v0.5 cross-matching run).",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "rm_known_spec": {
+            "name": "rm_known_spec",
+            "description": "",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          },
+          "rm_core": {
+            "name": "rm_core",
+            "description": "",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          },
+          "rm_var": {
+            "name": "rm_var",
+            "description": "",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          },
+          "rm_ancillary": {
+            "name": "rm_ancillary",
+            "description": "",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          },
+          "mag_g": {
+            "name": "mag_g",
+            "description": "",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "mag_r": {
+            "name": "mag_r",
+            "description": "",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "mag_i": {
+            "name": "mag_i",
+            "description": "",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "mag_z": {
+            "name": "mag_z",
+            "description": "",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "gaia_g": {
+            "name": "gaia_g",
+            "description": "Gaia G-band magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "gaia_bp": {
+            "name": "gaia_bp",
+            "description": "Gaia BP-band magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "gaia_rp": {
+            "name": "gaia_rp",
+            "description": "Gaia RP-band magnitude",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "ls_id_dr8": {
+            "name": "ls_id_dr8",
+            "description": "Legacy Survey DR8 ID",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "ls_id_dr10": {
+            "name": "ls_id_dr10",
+            "description": "Legacy Survey DR10 ID",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "gaia_dr2_source_id": {
+            "name": "gaia_dr2_source_id",
+            "description": "Gaia DR2 source ID",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "gaia_dr3_source_id": {
+            "name": "gaia_dr3_source_id",
+            "description": "Gaia DR3 source ID",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "panstarrs1_catid_objid": {
+            "name": "panstarrs1_catid_objid",
+            "description": "Pan-STARRS1 DR1 StackObjectThin unique object identifier",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "rm_unsuitable": {
+            "name": "rm_unsuitable",
+            "description": "",
+            "unit": "",
+            "dtype": "Boolean",
+            "value": null
+          },
+          "rm_xrayqso": {
+            "name": "rm_xrayqso",
+            "description": "",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "pkey": {
+            "name": "pkey",
+            "description": "Primary key identifier for this table row",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

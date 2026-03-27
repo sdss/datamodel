@@ -1,0 +1,117 @@
+{
+  "general": {
+    "name": "mos_target_mwm_tess_ob_parquet",
+    "short": "MOS Target Table: mwm_tess_ob",
+    "description": "This table contains targets requested for the manual carton mwm_tess_ob.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "11 KB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_mwm_tess_ob.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_mwm_tess_ob.[FTYPE]",
+      "example": "2.0.0/parquet/mos_mwm_tess_ob.parquet",
+      "location": "{v_targ}/{ftype}/mos_mwm_tess_ob.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_mwm_tess_ob",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_mwm_tess_ob.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_mwm_tess_ob = $MOS_TARGET/{v_targ}/{ftype}/mos_mwm_tess_ob.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "gaia_dr2_id": {
+            "name": "gaia_dr2_id",
+            "description": "Gaia DR2 unique source identifier",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "ra": {
+            "name": "ra",
+            "description": "Right Ascension (J2000)",
+            "unit": "degrees",
+            "dtype": "Float64",
+            "value": null
+          },
+          "dec": {
+            "name": "dec",
+            "description": "Declination (J2000)",
+            "unit": "degrees",
+            "dtype": "Float64",
+            "value": null
+          },
+          "h_mag": {
+            "name": "h_mag",
+            "description": "2MASS H-band mangitude",
+            "unit": "mag",
+            "dtype": "Float64",
+            "value": null
+          },
+          "instrument": {
+            "name": "instrument",
+            "description": "Instrument requested for this target (only APOGEE for this carton)",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "cadence": {
+            "name": "cadence",
+            "description": "Cadence requested for this carton",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

@@ -1,0 +1,171 @@
+general:
+  name: mos_target_gedr3spur_main
+  short: 'MOS Target Table: gedr3spur_main'
+  description: This table contains estimates of the "fidelity" of Gaia eDR3 astrometric
+    solutions, a measure of the likelihood the eDR3 solution is physical rather than
+    spurious obtained using a neural network trained on a small, hand-selected sample.
+  datatype: FITS
+  filesize: 91 MB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_gedr3spur_main-[NUM].[FTYPE]
+    with FTYPE='fits', V_TARG='2.0.0', and NUM=1..31 for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_gedr3spur_main-[NUM].[FTYPE]
+    example: 2.0.0/fits/mos_gedr3spur_main-01.fits
+    location: '{v_targ}/{ftype}/mos_gedr3spur_main-{num}.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_gedr3spur_main
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_gedr3spur_main@mos_target_num2|.{ftype}
+      path_kwargs:
+      - ftype
+      - v_targ
+      access_string: mos_target_gedr3spur_main = $MOS_TARGET/{v_targ}/{ftype}/mos_gedr3spur_main-{num}.{ftype}
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: gedr3spur_main'
+        is_image: false
+        size: 91 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 48
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 2000000
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 11
+          comment: number of table fields
+        - key: TNULL1
+          value: -9223372036854775808
+          comment: ''
+        columns:
+          source_id:
+            name: source_id
+            type: int64
+            unit: ''
+            description: Gaia DR3 unique source identifier. Matches the source_id
+              column in the dr20_gaia_dr3_source table.
+          fidelity_v2:
+            name: fidelity_v2
+            type: float32
+            unit: ''
+            description: A probability that eDR3 has a good astrometric solution for
+              this source, with values between 0 (meaning likely spurious solution)
+              and 1 (meaning likely good solution). This is the published probability
+              estimate.
+          theta_arcsec_worst_source:
+            name: theta_arcsec_worst_source
+            type: float32
+            unit: arcsec
+            description: Distance to the eDR3 source within 30 arcsec of the object
+              for which delta_g-theta is maximal. See norm_dg for details.
+          norm_dg:
+            name: norm_dg
+            type: float32
+            unit: ''
+            description: This is a heuristic measure for contamination by bright stars
+              in the neighbourhood. It is computed as delta_g-theta, where theta is
+              the distance to another Gaia eDR3 object in arcsec (reported in theta_arcsec_worst_source),
+              and delta_g is the magnitude difference in mag. This column gives the
+              maximum of the values for all eDR3 sources within 30 arcsecs of the
+              object.
+          dist_nearest_neighbor_at_least_m2_brighter:
+            name: dist_nearest_neighbor_at_least_m2_brighter
+            type: float32
+            unit: arcsec
+            description: Distance to the nearest neighbour in gaia_source at least
+              2 m fainter than this source.
+          dist_nearest_neighbor_at_least_0_brighter:
+            name: dist_nearest_neighbor_at_least_0_brighter
+            type: float32
+            unit: arcsec
+            description: Distance to the nearest neighbour in gaia_source at least
+              as bright as this source.
+          dist_nearest_neighbor_at_least_2_brighter:
+            name: dist_nearest_neighbor_at_least_2_brighter
+            type: float32
+            unit: arcsec
+            description: Distance to the nearest neighbour in gaia_source at least
+              2 m brighter than this source.
+          dist_nearest_neighbor_at_least_4_brighter:
+            name: dist_nearest_neighbor_at_least_4_brighter
+            type: float32
+            unit: arcsec
+            description: Distance to the nearest neighbour in gaia_source at least
+              4 m brighter than this source.
+          dist_nearest_neighbor_at_least_6_brighter:
+            name: dist_nearest_neighbor_at_least_6_brighter
+            type: float32
+            unit: arcsec
+            description: Distance to the nearest neighbour in gaia_source at least
+              6 m brighter than this source.
+          dist_nearest_neighbor_at_least_10_brighter:
+            name: dist_nearest_neighbor_at_least_10_brighter
+            type: float32
+            unit: arcsec
+            description: Distance to the nearest neighbour in gaia_source at least
+              10 m brighter than this source.
+          fidelity_v1:
+            name: fidelity_v1
+            type: float32
+            unit: ''
+            description: A probablity that eDR3 has a good astrometric solution for
+              this source, with values between 0 (meaning likely spurious solution)
+              and 1 (meaning likely good solution). This comes from a first version
+              of the estimator that was reviewed based on an astro-ph paper.
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

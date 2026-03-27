@@ -1,0 +1,106 @@
+general:
+  name: mos_target_bhm_csc_parquet
+  short: 'MOS Target Table: bhm_csc'
+  description: 'Chandra Source Catalogue version 2.0 (CSC2) sources.
+
+
+    Chandra Source Catalogue version 2.0 (CSC2) sources that have been matched (separately)
+    to the PanSTARRS-1 and 2MASS catalogs.  This version of the CSC2 catalog informed
+    early (plate era) SDSS-V observations but was then replaced by updated versions.'
+  datatype: PARQUET
+  filesize: 3 MB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_bhm_csc.[FTYPE] with FTYPE='parquet'
+    and V_TARG='2.0.0' for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_bhm_csc.[FTYPE]
+    example: 2.0.0/parquet/mos_bhm_csc.parquet
+    location: '{v_targ}/{ftype}/mos_bhm_csc.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_bhm_csc
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_bhm_csc.{ftype}
+      path_kwargs:
+      - ftype
+      - v_targ
+      access_string: mos_target_bhm_csc = $MOS_TARGET/{v_targ}/{ftype}/mos_bhm_csc.{ftype}
+    survey: SDSS
+    dataframe:
+      columns:
+        pk:
+          name: pk
+          dtype: Int64
+          unit: ''
+          description: primary key of this table entry
+        csc_version:
+          name: csc_version
+          dtype: String
+          unit: ''
+          description: Always equal to 'CSC2stub1'
+        cxo_name:
+          name: cxo_name
+          dtype: String
+          unit: ''
+          description: unique identifier for the CSC X-ray source
+        oir_ra:
+          name: oir_ra
+          dtype: Float64
+          unit: deg
+          description: despite the name, this is the X-ray coordinate of the target
+        oir_dec:
+          name: oir_dec
+          dtype: Float64
+          unit: deg
+          description: despite the name, this is the X-ray coordinate of the target
+        mag_g:
+          name: mag_g
+          dtype: Float32
+          unit: mag
+          description: optical magnitude (g-band) from Pan-STARRS1 catalog, if available
+        mag_r:
+          name: mag_r
+          dtype: Float32
+          unit: mag
+          description: optical magnitude (r-band) from Pan-STARRS1 catalog, if available
+        mag_i:
+          name: mag_i
+          dtype: Float32
+          unit: mag
+          description: optical magnitude (i-band) from Pan-STARRS1 catalog, if available
+        mag_z:
+          name: mag_z
+          dtype: Float32
+          unit: mag
+          description: optical magnitude (z-band) from Pan-STARRS1 catalog, if available
+        mag_h:
+          name: mag_h
+          dtype: Float32
+          unit: mag
+          description: H-band NIR magnitude from 2MASS catalog, if available
+        spectrograph:
+          name: spectrograph
+          dtype: String
+          unit: ''
+          description: Which spectrograph this target should be observed with (BOSS
+            or APOGEE)
+      metadata: {}
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

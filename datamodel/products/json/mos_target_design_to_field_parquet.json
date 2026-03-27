@@ -1,0 +1,110 @@
+{
+  "general": {
+    "name": "mos_target_design_to_field_parquet",
+    "short": "MOS Target Table: design_to_field",
+    "description": "Connects a design to a given field within a version of the survey. Sets the placement of the design in the overall exposure sequence for that field.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "5 MB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_design_to_field.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_design_to_field.[FTYPE]",
+      "example": "2.0.0/parquet/mos_design_to_field.parquet",
+      "location": "{v_targ}/{ftype}/mos_design_to_field.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_design_to_field",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_design_to_field.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_design_to_field = $MOS_TARGET/{v_targ}/{ftype}/mos_design_to_field.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "pk": {
+            "name": "pk",
+            "description": "The primary key. A sequential identifier.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "design_id": {
+            "name": "design_id",
+            "description": "The primary key of the design in the dr20_design table.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "field_pk": {
+            "name": "field_pk",
+            "description": "The primary key of the field in the dr20_field table.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "exposure": {
+            "name": "exposure",
+            "description": "The 0-indexed exposure number in the lunation sequence for the field.",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "field_exposure": {
+            "name": "field_exposure",
+            "description": "The 0-indexed overall exposure number in the sequence for the field.",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

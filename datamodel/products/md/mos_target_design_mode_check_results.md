@@ -16,10 +16,10 @@ MOS Target table: mos_target_design_mode_check_results
 Summary if design passed individual Design Mode checks from dr19_design_mode.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_design_mode_check_results.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_design_mode_check_results.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,10 +71,10 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_design_mode_check_results
+MOS Target Table: design_mode_check_results
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  12 MB
+#### HDU Size:  46 MB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -80,7 +83,7 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
 | NAXIS1 | 76 | length of dimension 1 |
-| NAXIS2 | 166104 | length of dimension 2 |
+| NAXIS2 | 634712 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 27 | number of table fields |
@@ -96,7 +99,7 @@ Key | Value | Comment | |
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | pk | int32 |  | The primary key. A sequential identifier. |
- | design_id | int32 |  | The primary key of the design in the dr19_design table. |
+ | design_id | int32 |  | The primary key of the design in the dr20_design table. |
  | design_pass | bool |  | If minimum design checks were passed. |
  | design_status | int32 |  | Bitmask for design. 1 if revalidated design. 2 if replacement design. |
  | boss_skies_min_pass | bool |  | If passed minimum Boss skies metric. |

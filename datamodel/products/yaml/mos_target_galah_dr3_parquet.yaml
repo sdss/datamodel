@@ -1,0 +1,1035 @@
+general:
+  name: mos_target_galah_dr3_parquet
+  short: 'MOS Target Table: galah_dr3'
+  description: The GALAH DR3 main catalogue. See <a href="https://www.galah-survey.org/dr3/table_schema/">https://www.galah-survey.org/dr3/table_schema/</a>
+  datatype: PARQUET
+  filesize: 223 MB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_galah_dr3.[FTYPE] with FTYPE='parquet'
+    and V_TARG='2.0.0' for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_galah_dr3.[FTYPE]
+    example: 2.0.0/parquet/mos_galah_dr3.parquet
+    location: '{v_targ}/{ftype}/mos_galah_dr3.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_galah_dr3
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_galah_dr3.{ftype}
+      path_kwargs:
+      - ftype
+      - v_targ
+      access_string: mos_target_galah_dr3 = $MOS_TARGET/{v_targ}/{ftype}/mos_galah_dr3.{ftype}
+    survey: SDSS
+    dataframe:
+      columns:
+        star_id:
+          name: star_id
+          dtype: String
+          unit: ''
+          description: 2MASS identifier
+        sobject_id:
+          name: sobject_id
+          dtype: Int64
+          unit: ''
+          description: GALAH identifier
+        dr2_source_id:
+          name: dr2_source_id
+          dtype: Int64
+          unit: ''
+          description: Gaia DR2 source_id
+        dr3_source_id:
+          name: dr3_source_id
+          dtype: Int64
+          unit: ''
+          description: Gaia DR3 source_id
+        survey_name:
+          name: survey_name
+          dtype: String
+          unit: ''
+          description: Name of survey as part of GALAH+DR3
+        field_id:
+          name: field_id
+          dtype: Int64
+          unit: ''
+          description: GALAH field identifier
+        flag_repeat:
+          name: flag_repeat
+          dtype: Int64
+          unit: ''
+          description: Repeat observation flag, indicating if used for clean catalog
+        wg4_field:
+          name: wg4_field
+          dtype: String
+          unit: ''
+          description: GALAH WG4 field
+        wg4_pipeline:
+          name: wg4_pipeline
+          dtype: String
+          unit: ''
+          description: SME pipeline version free/lbol/seis
+        flag_sp:
+          name: flag_sp
+          dtype: Int64
+          unit: ''
+          description: Stellar parameter quality flag
+        teff:
+          name: teff
+          dtype: Float32
+          unit: K
+          description: Spectroscopic effective temperature (used for fitting)
+        e_teff:
+          name: e_teff
+          dtype: Float64
+          unit: K
+          description: Uncertainty teff
+        irfm_teff:
+          name: irfm_teff
+          dtype: Float32
+          unit: K
+          description: IRFM temperature (not used for synthesis)
+        irfm_ebv:
+          name: irfm_ebv
+          dtype: Float32
+          unit: mag
+          description: E(B-V) used for IRFM teff estimation
+        irfm_ebv_ref:
+          name: irfm_ebv_ref
+          dtype: String
+          unit: ''
+          description: Reference irfm_ebv
+        logg:
+          name: logg
+          dtype: Float32
+          unit: log(cm s-2)
+          description: Surface gravity (not fitted via spectra if wg4_pipeline not
+            free)
+        e_logg:
+          name: e_logg
+          dtype: Float64
+          unit: log(cm s-2)
+          description: Uncertainty logg
+        fe_h:
+          name: fe_h
+          dtype: Float32
+          unit: ''
+          description: Fe atomic abundance from Fe lines (final, 1D-NLTE)
+        e_fe_h:
+          name: e_fe_h
+          dtype: Float64
+          unit: ''
+          description: Uncertainty fe_h
+        flag_fe_h:
+          name: flag_fe_h
+          dtype: Int64
+          unit: ''
+          description: Quality flag fe_h
+        fe_h_atmo:
+          name: fe_h_atmo
+          dtype: Float32
+          unit: ''
+          description: sme.feh from stellar parameter run, fitted from H, Ti, Sc,
+            Fe
+        vmic:
+          name: vmic
+          dtype: Float32
+          unit: km s-1
+          description: Microturbulence velocity (from empirical relation)
+        vbroad:
+          name: vbroad
+          dtype: Float32
+          unit: km s-1
+          description: Broadening velocity (fitted sme.vsini with sme.vmac=0)
+        e_vbroad:
+          name: e_vbroad
+          dtype: Float64
+          unit: km s-1
+          description: Uncertainty of vbroad
+        chi2_sp:
+          name: chi2_sp
+          dtype: Float32
+          unit: ''
+          description: Chi-square value of stellar parameter fitting
+        alpha_fe:
+          name: alpha_fe
+          dtype: Float64
+          unit: ''
+          description: Combined, weighted alpha-process element abundance
+        e_alpha_fe:
+          name: e_alpha_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty of alpha_fe
+        nr_alpha_fe:
+          name: nr_alpha_fe
+          dtype: Float64
+          unit: ''
+          description: Bitmask of used measurements for alpha_fe
+        flag_alpha_fe:
+          name: flag_alpha_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of measurements for alpha_fe
+        flux_a_fe:
+          name: flux_a_fe
+          dtype: Float32
+          unit: ''
+          description: Normalised maximum absorption strength in iron lines
+        chi_a_fe:
+          name: chi_a_fe
+          dtype: Float32
+          unit: ''
+          description: Chi-square value of iron abundance fitting
+        li_fe:
+          name: li_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Li atomic abundance (final, 1D-LTE or NLTE)
+        e_li_fe:
+          name: e_li_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty li_fe
+        nr_li_fe:
+          name: nr_li_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Li individual lines
+        flag_li_fe:
+          name: flag_li_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of li_fe
+        c_fe:
+          name: c_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised C atomic abundance (final, 1D-LTE or NLTE)
+        e_c_fe:
+          name: e_c_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty c_fe
+        nr_c_fe:
+          name: nr_c_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used C individual lines
+        flag_c_fe:
+          name: flag_c_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of c_fe
+        o_fe:
+          name: o_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised O atomic abundance (final, 1D-LTE or NLTE)
+        e_o_fe:
+          name: e_o_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty o_fe
+        nr_o_fe:
+          name: nr_o_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used O individual lines
+        flag_o_fe:
+          name: flag_o_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of o_fe
+        na_fe:
+          name: na_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Na atomic abundance (final, 1D-LTE or NLTE)
+        e_na_fe:
+          name: e_na_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty na_fe
+        nr_na_fe:
+          name: nr_na_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Na individual lines
+        flag_na_fe:
+          name: flag_na_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of na_fe
+        mg_fe:
+          name: mg_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Mg atomic abundance (final, 1D-LTE or NLTE)
+        e_mg_fe:
+          name: e_mg_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty mg_fe
+        nr_mg_fe:
+          name: nr_mg_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Mg individual lines
+        flag_mg_fe:
+          name: flag_mg_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of mg_fe
+        al_fe:
+          name: al_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Al atomic abundance (final, 1D-LTE or NLTE)
+        e_al_fe:
+          name: e_al_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty al_fe
+        nr_al_fe:
+          name: nr_al_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Al individual lines
+        flag_al_fe:
+          name: flag_al_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of al_fe
+        si_fe:
+          name: si_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Si atomic abundance (final, 1D-LTE or NLTE)
+        e_si_fe:
+          name: e_si_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty si_fe
+        nr_si_fe:
+          name: nr_si_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Si individual lines
+        flag_si_fe:
+          name: flag_si_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of si_fe
+        k_fe:
+          name: k_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised K atomic abundance (final, 1D-LTE or NLTE)
+        e_k_fe:
+          name: e_k_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty k_fe
+        nr_k_fe:
+          name: nr_k_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used K individual lines
+        flag_k_fe:
+          name: flag_k_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of k_fe
+        ca_fe:
+          name: ca_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Ca atomic abundance (final, 1D-LTE or NLTE)
+        e_ca_fe:
+          name: e_ca_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty ca_fe
+        nr_ca_fe:
+          name: nr_ca_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Ca individual lines
+        flag_ca_fe:
+          name: flag_ca_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of ca_fe
+        sc_fe:
+          name: sc_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Sc atomic abundance (final, 1D-LTE or NLTE)
+        e_sc_fe:
+          name: e_sc_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty sc_fe
+        nr_sc_fe:
+          name: nr_sc_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Sc individual lines
+        flag_sc_fe:
+          name: flag_sc_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of sc_fe
+        sc2_fe:
+          name: sc2_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Sc2 atomic abundance (final, 1D-LTE or NLTE)
+        e_sc2_fe:
+          name: e_sc2_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty sc2_fe
+        nr_sc2_fe:
+          name: nr_sc2_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Sc2 individual lines
+        flag_sc2_fe:
+          name: flag_sc2_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of sc2_fe
+        ti_fe:
+          name: ti_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Ti atomic abundance (final, 1D-LTE or NLTE)
+        e_ti_fe:
+          name: e_ti_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty ti_fe
+        nr_ti_fe:
+          name: nr_ti_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Ti individual lines
+        flag_ti_fe:
+          name: flag_ti_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of ti_fe
+        ti2_fe:
+          name: ti2_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Ti2 atomic abundance (final, 1D-LTE or NLTE)
+        e_ti2_fe:
+          name: e_ti2_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty ti2_fe
+        nr_ti2_fe:
+          name: nr_ti2_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Ti2 individual lines
+        flag_ti2_fe:
+          name: flag_ti2_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of ti2_fe
+        v_fe:
+          name: v_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised V atomic abundance (final, 1D-LTE or NLTE)
+        e_v_fe:
+          name: e_v_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty v_fe
+        nr_v_fe:
+          name: nr_v_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used V individual lines
+        flag_v_fe:
+          name: flag_v_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of v_fe
+        cr_fe:
+          name: cr_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Cr atomic abundance (final, 1D-LTE or NLTE)
+        e_cr_fe:
+          name: e_cr_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty cr_fe
+        nr_cr_fe:
+          name: nr_cr_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Cr individual lines
+        flag_cr_fe:
+          name: flag_cr_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of cr_fe
+        cr2_fe:
+          name: cr2_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Cr2 atomic abundance (final, 1D-LTE or NLTE)
+        e_cr2_fe:
+          name: e_cr2_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty cr2_fe
+        nr_cr2_fe:
+          name: nr_cr2_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Cr2 individual lines
+        flag_cr2_fe:
+          name: flag_cr2_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of cr2_fe
+        mn_fe:
+          name: mn_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Mn atomic abundance (final, 1D-LTE or NLTE)
+        e_mn_fe:
+          name: e_mn_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty mn_fe
+        nr_mn_fe:
+          name: nr_mn_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Mn individual lines
+        flag_mn_fe:
+          name: flag_mn_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of mn_fe
+        co_fe:
+          name: co_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Co atomic abundance (final, 1D-LTE or NLTE)
+        e_co_fe:
+          name: e_co_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty co_fe
+        nr_co_fe:
+          name: nr_co_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Co individual lines
+        flag_co_fe:
+          name: flag_co_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of co_fe
+        ni_fe:
+          name: ni_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Ni atomic abundance (final, 1D-LTE or NLTE)
+        e_ni_fe:
+          name: e_ni_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty ni_fe
+        nr_ni_fe:
+          name: nr_ni_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Ni individual lines
+        flag_ni_fe:
+          name: flag_ni_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of ni_fe
+        cu_fe:
+          name: cu_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Cu atomic abundance (final, 1D-LTE or NLTE)
+        e_cu_fe:
+          name: e_cu_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty cu_fe
+        nr_cu_fe:
+          name: nr_cu_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Cu individual lines
+        flag_cu_fe:
+          name: flag_cu_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of cu_fe
+        zn_fe:
+          name: zn_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Zn atomic abundance (final, 1D-LTE or NLTE)
+        e_zn_fe:
+          name: e_zn_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty zn_fe
+        nr_zn_fe:
+          name: nr_zn_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Zn individual lines
+        flag_zn_fe:
+          name: flag_zn_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of zn_fe
+        rb_fe:
+          name: rb_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Rb atomic abundance (final, 1D-LTE or NLTE)
+        e_rb_fe:
+          name: e_rb_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty rb_fe
+        nr_rb_fe:
+          name: nr_rb_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Rb individual lines
+        flag_rb_fe:
+          name: flag_rb_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of rb_fe
+        sr_fe:
+          name: sr_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Sr atomic abundance (final, 1D-LTE or NLTE)
+        e_sr_fe:
+          name: e_sr_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty sr_fe
+        nr_sr_fe:
+          name: nr_sr_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Sr individual lines
+        flag_sr_fe:
+          name: flag_sr_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of sr_fe
+        y_fe:
+          name: y_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Y atomic abundance (final, 1D-LTE or NLTE)
+        e_y_fe:
+          name: e_y_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty y_fe
+        nr_y_fe:
+          name: nr_y_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Y individual lines
+        flag_y_fe:
+          name: flag_y_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of y_fe
+        zr_fe:
+          name: zr_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Zr atomic abundance (final, 1D-LTE or NLTE)
+        e_zr_fe:
+          name: e_zr_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty zr_fe
+        nr_zr_fe:
+          name: nr_zr_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Zr individual lines
+        flag_zr_fe:
+          name: flag_zr_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of zr_fe
+        mo_fe:
+          name: mo_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Mo atomic abundance (final, 1D-LTE or NLTE)
+        e_mo_fe:
+          name: e_mo_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty mo_fe
+        nr_mo_fe:
+          name: nr_mo_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Mo individual lines
+        flag_mo_fe:
+          name: flag_mo_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of mo_fe
+        ru_fe:
+          name: ru_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Ru atomic abundance (final, 1D-LTE or NLTE)
+        e_ru_fe:
+          name: e_ru_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty ru_fe
+        nr_ru_fe:
+          name: nr_ru_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Ru individual lines
+        flag_ru_fe:
+          name: flag_ru_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of ru_fe
+        ba_fe:
+          name: ba_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Ba atomic abundance (final, 1D-LTE or NLTE)
+        e_ba_fe:
+          name: e_ba_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty ba_fe
+        nr_ba_fe:
+          name: nr_ba_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Ba individual lines
+        flag_ba_fe:
+          name: flag_ba_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of ba_fe
+        la_fe:
+          name: la_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised La atomic abundance (final, 1D-LTE or NLTE)
+        e_la_fe:
+          name: e_la_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty la_fe
+        nr_la_fe:
+          name: nr_la_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used La individual lines
+        flag_la_fe:
+          name: flag_la_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of la_fe
+        ce_fe:
+          name: ce_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Ce atomic abundance (final, 1D-LTE or NLTE)
+        e_ce_fe:
+          name: e_ce_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty ce_fe
+        nr_ce_fe:
+          name: nr_ce_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Ce individual lines
+        flag_ce_fe:
+          name: flag_ce_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of ce_fe
+        nd_fe:
+          name: nd_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Nd atomic abundance (final, 1D-LTE or NLTE)
+        e_nd_fe:
+          name: e_nd_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty nd_fe
+        nr_nd_fe:
+          name: nr_nd_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Nd individual lines
+        flag_nd_fe:
+          name: flag_nd_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of nd_fe
+        sm_fe:
+          name: sm_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Sm atomic abundance (final, 1D-LTE or NLTE)
+        e_sm_fe:
+          name: e_sm_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty sm_fe
+        nr_sm_fe:
+          name: nr_sm_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Sm individual lines
+        flag_sm_fe:
+          name: flag_sm_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of sm_fe
+        eu_fe:
+          name: eu_fe
+          dtype: Float64
+          unit: ''
+          description: Neutral/ionised Eu atomic abundance (final, 1D-LTE or NLTE)
+        e_eu_fe:
+          name: e_eu_fe
+          dtype: Float64
+          unit: ''
+          description: Uncertainty eu_fe
+        nr_eu_fe:
+          name: nr_eu_fe
+          dtype: Int64
+          unit: ''
+          description: Bitmask of used Eu individual lines
+        flag_eu_fe:
+          name: flag_eu_fe
+          dtype: Int64
+          unit: ''
+          description: Quality flag of eu_fe
+        ra_dr2:
+          name: ra_dr2
+          dtype: Float64
+          unit: deg
+          description: Right Ascension propagated from Gaia DR2
+        dec_dr2:
+          name: dec_dr2
+          dtype: Float64
+          unit: deg
+          description: Declination propagated from Gaia DR2
+        parallax_dr2:
+          name: parallax_dr2
+          dtype: Float64
+          unit: mas
+          description: Parallax propagated from Gaia DR2
+        parallax_error_dr2:
+          name: parallax_error_dr2
+          dtype: Float64
+          unit: mas
+          description: Parallax error propagated from Gaia DR2
+        r_est_dr2:
+          name: r_est_dr2
+          dtype: Float64
+          unit: pc
+          description: Estimated distance propagated from Bailer-Jones et al. (2018)
+        r_lo_dr2:
+          name: r_lo_dr2
+          dtype: Float64
+          unit: ''
+          description: Lower bound on the confidence interval of the estimated distance
+            propagated
+        r_hi_dr2:
+          name: r_hi_dr2
+          dtype: Float64
+          unit: ''
+          description: Upper bound on the confidence interval of the estimated distance
+            propagated
+        r_len_dr2:
+          name: r_len_dr2
+          dtype: Float64
+          unit: ''
+          description: Length scale used in the prior for the distance estimation
+            propagated from
+        rv_galah:
+          name: rv_galah
+          dtype: Float64
+          unit: km s-1
+          description: Best-method radial velocity from GALAH spectra
+        e_rv_galah:
+          name: e_rv_galah
+          dtype: Float64
+          unit: km s-1
+          description: Uncertainty of rv_galah
+        rv_gaia_dr2:
+          name: rv_gaia_dr2
+          dtype: Float32
+          unit: ''
+          description: Radial velocity propagated from Gaia DR2; identical to
+        e_rv_gaia_dr2:
+          name: e_rv_gaia_dr2
+          dtype: Float32
+          unit: ''
+          description: Radial velocity error propagated from Gaia DR2; identical to
+        red_flag:
+          name: red_flag
+          dtype: Int64
+          unit: ''
+          description: Reduction pipeline quality flag
+        ebv:
+          name: ebv
+          dtype: Float64
+          unit: mag
+          description: Schlegel et al. (1998) extinction value
+        snr_c1_iraf:
+          name: snr_c1_iraf
+          dtype: Float64
+          unit: ''
+          description: Average SNR/px CCD1
+        snr_c2_iraf:
+          name: snr_c2_iraf
+          dtype: Float64
+          unit: ''
+          description: Average SNR/px CCD2
+        snr_c3_iraf:
+          name: snr_c3_iraf
+          dtype: Float64
+          unit: ''
+          description: Average SNR/px CCD3
+        snr_c4_iraf:
+          name: snr_c4_iraf
+          dtype: Float64
+          unit: ''
+          description: Average SNR/px CCD4
+        flag_guess:
+          name: flag_guess
+          dtype: Int64
+          unit: ''
+          description: GUESS reduction pipeline quality flag
+        v_jk:
+          name: v_jk
+          dtype: Float32
+          unit: mag
+          description: V magnitude estimated from 2MASS J and Ks mag
+        j_m:
+          name: j_m
+          dtype: Float32
+          unit: mag
+          description: J magnitude propagated from 2MASS
+        j_msigcom:
+          name: j_msigcom
+          dtype: Float32
+          unit: mag
+          description: J magnitude uncertainty propagated from 2MASS
+        h_m:
+          name: h_m
+          dtype: Float32
+          unit: mag
+          description: Band H magnitude propagated from 2MASS
+        h_msigcom:
+          name: h_msigcom
+          dtype: Float32
+          unit: mag
+          description: H magnitude uncertainty propagated from 2MASS
+        ks_m:
+          name: ks_m
+          dtype: Float32
+          unit: mag
+          description: Band Ks magnitude propagated from 2MASS
+        ks_msigcom:
+          name: ks_msigcom
+          dtype: Float32
+          unit: mag
+          description: Ks magnitude uncertainty propagated from 2MASS
+        ph_qual_tmass:
+          name: ph_qual_tmass
+          dtype: String
+          unit: ''
+          description: JHKs photometric quality flag propagated from 2MASS
+        w2mpro:
+          name: w2mpro
+          dtype: Float64
+          unit: mag
+          description: W2 profile-fitting magnitude propagated from AllWISE
+        w2mpro_error:
+          name: w2mpro_error
+          dtype: Float64
+          unit: mag
+          description: Error on W2 profile-fitting magnitude propagated from AllWISE
+        ph_qual_wise:
+          name: ph_qual_wise
+          dtype: String
+          unit: ''
+          description: Photometric quality flag propagated from AllWISE
+        a_ks:
+          name: a_ks
+          dtype: Float64
+          unit: mag
+          description: Used Ks band extinction
+        e_a_ks:
+          name: e_a_ks
+          dtype: Float64
+          unit: mag
+          description: Uncertainty of a_ks
+        bc_ks:
+          name: bc_ks
+          dtype: Float32
+          unit: mag
+          description: Used bolometric correction for Ks band
+        ruwe_dr2:
+          name: ruwe_dr2
+          dtype: Float64
+          unit: ''
+          description: Renormalised unit weight error propagated from Gaia DR2
+      metadata: {}
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

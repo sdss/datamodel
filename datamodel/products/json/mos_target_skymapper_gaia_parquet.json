@@ -1,0 +1,118 @@
+{
+  "general": {
+    "name": "mos_target_skymapper_gaia_parquet",
+    "short": "MOS Target Table: skymapper_gaia",
+    "description": "This catalogue contains photometric stellar parameters for 9+ million stars in common between the SkyMapper survey and Gaia DR2.\n\nSee <a href=\"https://skymapper.anu.edu.au/_data/sm-gaia/\">https://skymapper.anu.edu.au/_data/sm-gaia/</a> for details.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "48 MB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_skymapper_gaia.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_skymapper_gaia.[FTYPE]",
+      "example": "2.0.0/parquet/mos_skymapper_gaia.parquet",
+      "location": "{v_targ}/{ftype}/mos_skymapper_gaia.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_skymapper_gaia",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_skymapper_gaia@mos_target_num|.{ftype}",
+        "path_kwargs": [
+          "num",
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_skymapper_gaia = $MOS_TARGET/{v_targ}/{ftype}/mos_skymapper_gaia.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "skymapper_object_id": {
+            "name": "skymapper_object_id",
+            "description": "SkyMapper object_id",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "gaia_source_id": {
+            "name": "gaia_source_id",
+            "description": "Gaia DR2 source_id",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "teff": {
+            "name": "teff",
+            "description": "Effective temperature",
+            "unit": "K",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_teff": {
+            "name": "e_teff",
+            "description": "Effective temperature uncertainty",
+            "unit": "K",
+            "dtype": "Float32",
+            "value": null
+          },
+          "feh": {
+            "name": "feh",
+            "description": "Metallicity",
+            "unit": "dex",
+            "dtype": "Float32",
+            "value": null
+          },
+          "e_feh": {
+            "name": "e_feh",
+            "description": "Metallicity uncertainty",
+            "unit": "dex",
+            "dtype": "Float32",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

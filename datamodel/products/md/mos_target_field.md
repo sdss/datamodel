@@ -16,10 +16,10 @@ MOS Target table: mos_target_field
 The table includes the field information, where a field is a unique pointing of the telescope on the sky.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_field.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_field.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,10 +71,10 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_field
+MOS Target Table: field
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  7 MB
+#### HDU Size:  25 MB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -80,7 +83,7 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
 | NAXIS1 | 193 | length of dimension 1 |
-| NAXIS2 | 38919 | length of dimension 2 |
+| NAXIS2 | 138116 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 9 | number of table fields |
@@ -96,9 +99,9 @@ Name | Type | Unit | Description |
  | pk | int32 |  | The primary key. A sequential identifier. |
  | racen | float64 |  | The Right Ascension of the center of the field. |
  | deccen | float64 |  | The Declination of the center of the field. |
- | version_pk | int32 |  | The primary key of the version in the dr19_version table. |
- | cadence_pk | int32 |  | The primary key of the cadence in the dr19_cadence table. |
- | observatory_pk | int32 |  | The primary key of the observatory in the dr19_observatory table. |
+ | version_pk | int32 |  | The primary key of the version in the dr20_version table. |
+ | cadence_pk | int32 |  | The primary key of the cadence in the dr20_cadence table. |
+ | observatory_pk | int32 |  | The primary key of the observatory in the dr20_observatory table. |
  | position_angle | float32 |  | The position angle of the field E of N in degrees. |
  | slots_exposures | char[153] |  | Exposures assigned to each LST and sky brightness slot |
  | field_id | int32 |  | The idenifier of a field within a version of the survey plan. |

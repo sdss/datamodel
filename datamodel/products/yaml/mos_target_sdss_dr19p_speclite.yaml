@@ -1,0 +1,314 @@
+general:
+  name: mos_target_sdss_dr19p_speclite
+  short: 'MOS Target Table: sdss_dr19p_speclite'
+  description: '[INCOMPLETE]: Tom to provide a summary and check the column descriptions.'
+  datatype: FITS
+  filesize: 438 MB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdss_dr19p_speclite-[NUM].[FTYPE]
+    with FTYPE='fits', V_TARG='2.0.0', and NUM=1..4 for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdss_dr19p_speclite-[NUM].[FTYPE]
+    example: 2.0.0/fits/mos_sdss_dr19p_speclite-1.fits
+    location: '{v_targ}/{ftype}/mos_sdss_dr19p_speclite-{num}.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_sdss_dr19p_speclite
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_sdss_dr19p_speclite@mos_target_num|.{ftype}
+      path_kwargs:
+      - num
+      - ftype
+      - v_targ
+      access_string: mos_target_sdss_dr19p_speclite = $MOS_TARGET/{v_targ}/{ftype}/mos_sdss_dr19p_speclite-{num}.{ftype}
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: sdss_dr19p_speclite'
+        is_image: false
+        size: 438 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 230
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 2000000
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 34
+          comment: number of table fields
+        - key: TNULL1
+          value: -2147483648
+          comment: ''
+        - key: TNULL2
+          value: -2147483648
+          comment: ''
+        - key: TNULL3
+          value: -2147483648
+          comment: ''
+        - key: TNULL4
+          value: -2147483648
+          comment: ''
+        - key: TNULL5
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL6
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL7
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL27
+          value: -2147483648
+          comment: ''
+        - key: TNULL28
+          value: -2147483648
+          comment: ''
+        - key: TNULL32
+          value: -2147483648
+          comment: ''
+        - key: TNULL33
+          value: -2147483648
+          comment: ''
+        - key: TNULL34
+          value: -9223372036854775808
+          comment: ''
+        columns:
+          plate:
+            name: plate
+            type: int32
+            unit: ''
+            description: Plate number (each plate corresponds to an actual plug plate)
+          mjd:
+            name: mjd
+            type: int32
+            unit: day
+            description: Modified Julian Day of observation
+          fiberid:
+            name: fiberid
+            type: int32
+            unit: ''
+            description: Fiber number
+          field:
+            name: field
+            type: int32
+            unit: ''
+            description: Field identifier
+          catalogid:
+            name: catalogid
+            type: int64
+            unit: ''
+            description: The associated ID in the dr20_catalog table
+          bestobjid:
+            name: bestobjid
+            type: int64
+            unit: ''
+            description: Unique database ID of (recommended) position-based photometric
+              match based on RUN, RERUN, CAMCOl, FIELD, ID (same as SkyServer version)
+          targetobjid:
+            name: targetobjid
+            type: int64
+            unit: ''
+            description: Unique database ID of targeting object based on RUN, RERUN,
+              CAMCOl, FIELD, ID (same as SkyServer version)
+          run2d:
+            name: run2d
+            type: char[7]
+            unit: ''
+            description: Spectroscopic 2D reduction (extraction of spectra) name
+          run1d:
+            name: run1d
+            type: char[7]
+            unit: ''
+            description: Spectroscopic 1D reduction (redshift and classification)
+              name
+          firstrelease:
+            name: firstrelease
+            type: char[4]
+            unit: ''
+            description: Name of first release this PLATE, MJD, FIBERID, RUN2D was
+              associated with
+          plug_ra:
+            name: plug_ra
+            type: float64
+            unit: degrees
+            description: Right ascension of hole (J2000)
+          plug_dec:
+            name: plug_dec
+            type: float64
+            unit: degrees
+            description: Declination of hole (J2000)
+          sourcetype:
+            name: sourcetype
+            type: char[21]
+            unit: ''
+            description: String expressing type of source (similar to OBJTYPE in DR8
+              and earlier)
+          objtype:
+            name: objtype
+            type: char[4]
+            unit: ''
+            description: Why this object was targeted. Note that if this field says
+              QSO, it could be the case that this object would have been targetted
+              as a GALAXY or any number of other categories as well. The PRIMTARGET
+              and SECTARGET flags in the plug-map structure (in the spField file)
+              gives this full information.
+          targettype:
+            name: targettype
+            type: char[8]
+            unit: ''
+            description: General type of target ("SCIENCE", "STANDARD" or "SKY")
+          lambda_eff:
+            name: lambda_eff
+            type: float32
+            unit: Angstroms
+            description: Effective wavelength drilling position was optimized for
+          sn_median_all:
+            name: sn_median_all
+            type: float32
+            unit: ''
+            description: Median signal-to-noise per pixel across full spectrum (aka
+              SN_MEDIAN_ALL)
+          sn_median_u:
+            name: sn_median_u
+            type: float32
+            unit: ''
+            description: Median signal-to-noise per pixel within the u bandpass
+          sn_median_g:
+            name: sn_median_g
+            type: float32
+            unit: ''
+            description: Median signal-to-noise per pixel within the g bandpass
+          sn_median_r:
+            name: sn_median_r
+            type: float32
+            unit: ''
+            description: Median signal-to-noise per pixel within the r bandpass
+          sn_median_i:
+            name: sn_median_i
+            type: float32
+            unit: ''
+            description: Median signal-to-noise per pixel within the i bandpass
+          sn_median_z:
+            name: sn_median_z
+            type: float32
+            unit: ''
+            description: Median signal-to-noise per pixel within the z bandpass
+          platesn2:
+            name: platesn2
+            type: float32
+            unit: ''
+            description: Overall signal-to-noise-squared measure for plate (only for
+              SDSS spectrograph plates)
+          platequality:
+            name: platequality
+            type: char[8]
+            unit: ''
+            description: Characterization of plate quality.
+          z:
+            name: z
+            type: float32
+            unit: ''
+            description: Best redshift
+          z_err:
+            name: z_err
+            type: float32
+            unit: ''
+            description: Error in best redshift
+          zwarning:
+            name: zwarning
+            type: int32
+            unit: ''
+            description: Bitmask of spectroscopic warning values; 0 means everything
+              is OK
+          zwarning_noqso:
+            name: zwarning_noqso
+            type: int32
+            unit: ''
+            description: Best redshift when ignoring QSO fits, recommended for BOSS
+              CMASS and LOWZ targets; calculated only for survey='boss' spectra, not
+              for any SDSS spectrograph data
+          class:
+            name: class
+            type: char[6]
+            unit: ''
+            description: Best spectroscopic classification ("STAR", "GALAXY" or "QSO")
+          subclass:
+            name: subclass
+            type: char[21]
+            unit: ''
+            description: Best spectroscopic subclassification
+          tfile:
+            name: tfile
+            type: char[24]
+            unit: ''
+            description: File that best fit template comes from in idlspec1d product
+          specprimary:
+            name: specprimary
+            type: int32
+            unit: ''
+            description: Objects observed multiple times will have this set to 1 for
+              one observation only. This is usually the 'best' observation.
+          nspecobs:
+            name: nspecobs
+            type: int32
+            unit: ''
+            description: Number of spectral observations.
+          pk:
+            name: pk
+            type: int64
+            unit: ''
+            description: A unique identifier for this table row.
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

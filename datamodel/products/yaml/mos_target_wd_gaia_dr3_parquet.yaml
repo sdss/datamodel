@@ -1,0 +1,880 @@
+general:
+  name: mos_target_wd_gaia_dr3_parquet
+  short: 'MOS Target Table: wd_gaia_dr3'
+  description: Catalogue of white dwarfs in Gaia EDR3 Gentile Fusillo et al. (2021).
+  datatype: PARQUET
+  filesize: 146 MB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_wd_gaia_dr3.[FTYPE] with FTYPE='parquet'
+    and V_TARG='2.0.0' for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_wd_gaia_dr3.[FTYPE]
+    example: 2.0.0/parquet/mos_wd_gaia_dr3.parquet
+    location: '{v_targ}/{ftype}/mos_wd_gaia_dr3.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_wd_gaia_dr3
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_wd_gaia_dr3.{ftype}
+      path_kwargs:
+      - ftype
+      - v_targ
+      access_string: mos_target_wd_gaia_dr3 = $MOS_TARGET/{v_targ}/{ftype}/mos_wd_gaia_dr3.{ftype}
+    survey: SDSS
+    dataframe:
+      columns:
+        wdjname:
+          name: wdjname
+          dtype: String
+          unit: ''
+          description: WD name (JHHMMSS.ss+DDMMSS.ss) equinox and epoch 2000
+        gaiaedr3:
+          name: gaiaedr3
+          dtype: Int64
+          unit: ''
+          description: Gaia EDR3 source_id
+        gaiadr2:
+          name: gaiadr2
+          dtype: Int64
+          unit: ''
+          description: Gaia DR2 source_id
+        edr3name:
+          name: edr3name
+          dtype: String
+          unit: ''
+          description: GaiaEDR3 name (Gaia EDR3 NNNNNNNNNNNNNNNNNNN)
+        radeg:
+          name: radeg
+          dtype: Float64
+          unit: deg
+          description: Gaia EDR3 Barycentric right ascension (ICRS) at Ep=2016.0
+        e_radeg:
+          name: e_radeg
+          dtype: Float64
+          unit: mas
+          description: Gaia EDR3 standard error on right ascension, e_RA=e_RA*cosDE
+        dedeg:
+          name: dedeg
+          dtype: Float64
+          unit: deg
+          description: Gaia EDR3 Barycentric declination (ICRS) at Ep=2016.0
+        e_dedeg:
+          name: e_dedeg
+          dtype: Float64
+          unit: mas
+          description: Gaia EDR3 standard error on declination
+        plx:
+          name: plx
+          dtype: Float64
+          unit: mas
+          description: Gaia EDR3 Absolute stellar parallax at Ep=2016.0
+        e_plx:
+          name: e_plx
+          dtype: Float64
+          unit: mas
+          description: Gaia EDR3 parallax error
+        rplx:
+          name: rplx
+          dtype: Float64
+          unit: ''
+          description: Gaia EDR3 Parallax divided by its standard error
+        zpcor:
+          name: zpcor
+          dtype: Float64
+          unit: ''
+          description: Zero point offset correction (Lindegren et al., 2020A&A...633A...2L)
+        pwd:
+          name: pwd
+          dtype: Float64
+          unit: ''
+          description: The probability of being a white dwarf
+        density:
+          name: density
+          dtype: Int64
+          unit: ''
+          description: The number of Gaia sources in the same ~= 50 arcsec sq. bin
+            as this object
+        solid:
+          name: solid
+          dtype: Int64
+          unit: ''
+          description: Gaia EDR3 Solution ID
+        randomi:
+          name: randomi
+          dtype: Int64
+          unit: ''
+          description: Gaia EDR3 Random index used to select subsets
+        epoch:
+          name: epoch
+          dtype: Int64
+          unit: yr
+          description: Gaia EDR3 Reference epoch
+        pm:
+          name: pm
+          dtype: Float64
+          unit: mas/yr
+          description: Gaia EDR3 Total proper motion
+        e_pm:
+          name: e_pm
+          dtype: Float64
+          unit: mas/yr
+          description: Gaia EDR3 Total proper motion error
+        pmra:
+          name: pmra
+          dtype: Float64
+          unit: mas/yr
+          description: Gaia EDR3 Proper motion in RA, pmRA*cosDE
+        e_pmra:
+          name: e_pmra
+          dtype: Float64
+          unit: mas/yr
+          description: Gaia EDR3 Proper motion in RA error
+        pmde:
+          name: pmde
+          dtype: Float64
+          unit: mas/yr
+          description: Gaia EDR3 Proper motion in DE
+        e_pmde:
+          name: e_pmde
+          dtype: Float64
+          unit: mas/yr
+          description: Gaia EDR3 Proper motion in DE error
+        radecor:
+          name: radecor
+          dtype: Float64
+          unit: -1/1
+          description: Correlation between right ascension and declination
+        raplxcor:
+          name: raplxcor
+          dtype: Float64
+          unit: -1/1
+          description: Correlation between right ascension and parallax
+        rapmracor:
+          name: rapmracor
+          dtype: Float64
+          unit: -1/1
+          description: Correlation between right ascension and proper motion in right
+            ascension
+        rapmdecor:
+          name: rapmdecor
+          dtype: Float64
+          unit: -1/1
+          description: Correlation between right ascension and proper motion in declination
+        deplxcor:
+          name: deplxcor
+          dtype: Float64
+          unit: -1/1
+          description: Correlation between declination and parallax
+        depmracor:
+          name: depmracor
+          dtype: Float64
+          unit: -1/1
+          description: Correlation between declination and proper motion in right
+            ascension
+        depmdecor:
+          name: depmdecor
+          dtype: Float64
+          unit: -1/1
+          description: Correlation between declination and proper motion in declination
+        plxpmracor:
+          name: plxpmracor
+          dtype: Float64
+          unit: -1/1
+          description: Correlation between parallax and proper motion in right ascension
+        plxpmdecor:
+          name: plxpmdecor
+          dtype: Float64
+          unit: -1/1
+          description: Correlation between parallax and proper motion in declination
+        pmrapmdecor:
+          name: pmrapmdecor
+          dtype: Float64
+          unit: -1/1
+          description: Correlation between proper motion in right ascension and proper
+            motion in declination
+        nal:
+          name: nal
+          dtype: Int64
+          unit: ''
+          description: Total number of observations AL
+        nac:
+          name: nac
+          dtype: Int64
+          unit: ''
+          description: Total number of observations AC
+        ngal:
+          name: ngal
+          dtype: Int64
+          unit: ''
+          description: Number of good observations AL
+        nbal:
+          name: nbal
+          dtype: Int64
+          unit: ''
+          description: Number of bad observations AL
+        gofal:
+          name: gofal
+          dtype: Float64
+          unit: ''
+          description: Goodness of fit statistic of model wrt along-scan observations
+        chi2al:
+          name: chi2al
+          dtype: Float64
+          unit: ''
+          description: AL chi-square value
+        epsi:
+          name: epsi
+          dtype: Float64
+          unit: mas
+          description: Excess noise of the source
+        sepsi:
+          name: sepsi
+          dtype: Float64
+          unit: ''
+          description: Significance of excess noise
+        solved:
+          name: solved
+          dtype: Int64
+          unit: ''
+          description: Which parameters have been solved for?
+        apf:
+          name: apf
+          dtype: Int64
+          unit: ''
+          description: Primary or secondary
+        nueff:
+          name: nueff
+          dtype: Float64
+          unit: um-1
+          description: Effective wavenumber of the source used in the astrometric
+            solution
+        pscol:
+          name: pscol
+          dtype: Float64
+          unit: um
+          description: Astrometrically estimated pseudocolour of the source
+        e_pscol:
+          name: e_pscol
+          dtype: Float64
+          unit: um
+          description: Standard error of the pseudocolour of the source
+        rapscolcorr:
+          name: rapscolcorr
+          dtype: Float64
+          unit: -1/1
+          description: Correlation between right ascension and pseudocolour
+        depscolcorr:
+          name: depscolcorr
+          dtype: Float64
+          unit: -1/1
+          description: Correlation between declination and pseudocolour
+        plxpscolcorr:
+          name: plxpscolcorr
+          dtype: Float64
+          unit: -1/1
+          description: Correlation between parallax and pseudocolour
+        pmrapscolcorr:
+          name: pmrapscolcorr
+          dtype: Float64
+          unit: -1/1
+          description: Correlation between proper motion in right ascension and pseudocolour
+        pmdepscolcorr:
+          name: pmdepscolcorr
+          dtype: Float64
+          unit: -1/1
+          description: Correlation between proper motion in declination and pseudocolour
+        matchobsa:
+          name: matchobsa
+          dtype: Int64
+          unit: ''
+          description: Matched FOV transits used in the AGIS solution
+        nper:
+          name: nper
+          dtype: Int64
+          unit: ''
+          description: Number of visibility periods used in Astrometric solution
+        amax:
+          name: amax
+          dtype: Float64
+          unit: mas
+          description: The longest semi-major axis of the 5--10 error ellipsoid
+        matchobs:
+          name: matchobs
+          dtype: Int64
+          unit: ''
+          description: The total number of field-of-view transits matched to this
+            source
+        newmatchobs:
+          name: newmatchobs
+          dtype: Int64
+          unit: ''
+          description: The number of transits newly incorporated into an existing
+            source in the current cycle
+        matchobsrm:
+          name: matchobsrm
+          dtype: Int64
+          unit: ''
+          description: The number of transits removed from an existing source in the
+            current cycle
+        ipdgofha:
+          name: ipdgofha
+          dtype: Float64
+          unit: ''
+          description: Amplitude of the IPD GoF versus position angle of scan
+        ipdgofhp:
+          name: ipdgofhp
+          dtype: Float64
+          unit: ''
+          description: Phase of the IPD GoF versus position angle of scan
+        ipdfmp:
+          name: ipdfmp
+          dtype: Int64
+          unit: ''
+          description: Percent of successful-IPD windows with more than one peak
+        ipdfow:
+          name: ipdfow
+          dtype: Int64
+          unit: ''
+          description: Percent of transits with truncated windows or multiple gate
+        ruwe:
+          name: ruwe
+          dtype: Float64
+          unit: ''
+          description: Renormalised unit weight error
+        sdsk1:
+          name: sdsk1
+          dtype: Float64
+          unit: ''
+          description: Degree of concentration of scan directions across the source
+        sdsk2:
+          name: sdsk2
+          dtype: Float64
+          unit: ''
+          description: Degree of concentration of scan directions across the source
+        sdsk3:
+          name: sdsk3
+          dtype: Float64
+          unit: ''
+          description: Degree of concentration of scan directions across the source
+        sdsk4:
+          name: sdsk4
+          dtype: Float64
+          unit: ''
+          description: Degree of concentration of scan directions across the source
+        sdmk1:
+          name: sdmk1
+          dtype: Float64
+          unit: ''
+          description: Mean position angle of scan directions across the source
+        sdmk2:
+          name: sdmk2
+          dtype: Float64
+          unit: ''
+          description: Mean position angle of scan directions across the source
+        sdmk3:
+          name: sdmk3
+          dtype: Float64
+          unit: ''
+          description: Mean position angle of scan directions across the source
+        sdmk4:
+          name: sdmk4
+          dtype: Float64
+          unit: ''
+          description: Mean position angle of scan directions across the source
+        dup:
+          name: dup
+          dtype: Int64
+          unit: ''
+          description: Source with multiple source identifiers
+        o_gmag:
+          name: o_gmag
+          dtype: Int64
+          unit: ''
+          description: Number of observations (CCD transits) that contributed to the
+            G mean flux and mean flux error
+        fg:
+          name: fg
+          dtype: Float64
+          unit: e-/s
+          description: Mean flux in the G-band
+        e_fg:
+          name: e_fg
+          dtype: Float64
+          unit: e-/s
+          description: Standard deviation of the G-band fluxes divided by sqrt(photGNObs)
+        rfg:
+          name: rfg
+          dtype: Float64
+          unit: ''
+          description: Mean flux in the G-band divided by its error
+        gmag_vega:
+          name: gmag_vega
+          dtype: Float64
+          unit: mag
+          description: G-band mean magnitude (Vega)
+        e_gmag:
+          name: e_gmag
+          dtype: Float64
+          unit: mag
+          description: Standard error of G-band mean magnitude (Vega)
+        fgcorr:
+          name: fgcorr
+          dtype: Float64
+          unit: mag
+          description: Calibration corrected G-band mean flux
+        gmagcorr:
+          name: gmagcorr
+          dtype: Float64
+          unit: mag
+          description: Calibration corrected G magnitude
+        e_gmagcorr:
+          name: e_gmagcorr
+          dtype: Float64
+          unit: mag
+          description: Standard error of calibration corrected G magnitude
+        o_bpmag:
+          name: o_bpmag
+          dtype: Int64
+          unit: ''
+          description: Number of observations contributing to BP photometry
+        fbp:
+          name: fbp
+          dtype: Float64
+          unit: e-/s
+          description: Mean flux in the integrated BP band
+        e_fbp:
+          name: e_fbp
+          dtype: Float64
+          unit: e-/s
+          description: Error on the integrated BP mean flux
+        rfbp:
+          name: rfbp
+          dtype: Float64
+          unit: ''
+          description: Integrated BP mean flux divided by its error
+        bpmag:
+          name: bpmag
+          dtype: Float64
+          unit: mag
+          description: Integrated BP mean magnitude (Vega)
+        e_bpmag:
+          name: e_bpmag
+          dtype: Float64
+          unit: mag
+          description: Standard error of BP mean magnitude (Vega)
+        o_rpmag:
+          name: o_rpmag
+          dtype: Int64
+          unit: ''
+          description: Number of observations (CCD transits) that contributed to the
+            integrated RP mean flux and mean flux error
+        frp:
+          name: frp
+          dtype: Float64
+          unit: e-/s
+          description: Mean flux in the integrated RP band
+        e_frp:
+          name: e_frp
+          dtype: Float64
+          unit: e-/s
+          description: Error on the integrated RP mean flux
+        rfrp:
+          name: rfrp
+          dtype: Float64
+          unit: ''
+          description: Integrated RP mean flux divided by its error
+        rpmag:
+          name: rpmag
+          dtype: Float64
+          unit: mag
+          description: Integrated RP mean magnitude (Vega)
+        e_rpmag:
+          name: e_rpmag
+          dtype: Float64
+          unit: mag
+          description: Standard error of RP mean magnitude (Vega)
+        nbpcont:
+          name: nbpcont
+          dtype: Int64
+          unit: ''
+          description: Number of BP contaminated transits
+        nbpblend:
+          name: nbpblend
+          dtype: Int64
+          unit: ''
+          description: Number of BP blended transits
+        nrpcont:
+          name: nrpcont
+          dtype: Int64
+          unit: ''
+          description: Number of RP contaminated transits
+        nrpblend:
+          name: nrpblend
+          dtype: Int64
+          unit: ''
+          description: Number of RP blended transits
+        mode:
+          name: mode
+          dtype: Int64
+          unit: ''
+          description: Photometry processing mode
+        e_bp_rp:
+          name: e_bp_rp
+          dtype: Float64
+          unit: ''
+          description: BP/RP excess factor
+        e_bp_rp_corr:
+          name: e_bp_rp_corr
+          dtype: Float64
+          unit: ''
+          description: BP/RP excess factor corrected for colour dependence (Riello
+            et al., 2021A&A...649A...3R, Cat. J/A+A/649/A3)
+        gmag_abs:
+          name: gmag_abs
+          dtype: Float64
+          unit: mag
+          description: Absolute G magnitude
+        bp_rp:
+          name: bp_rp
+          dtype: Float64
+          unit: mag
+          description: BP-RP colour
+        bp_g:
+          name: bp_g
+          dtype: Float64
+          unit: mag
+          description: BP-G colour
+        g_rp:
+          name: g_rp
+          dtype: Float64
+          unit: mag
+          description: G-RP colour
+        rv:
+          name: rv
+          dtype: Float64
+          unit: ''
+          description: dr2_radial_velocity (not used)
+        e_rv:
+          name: e_rv
+          dtype: Float64
+          unit: ''
+          description: dr2_radial_velocity_error (not used)
+        o_rv:
+          name: o_rv
+          dtype: Float64
+          unit: ''
+          description: dr2_rv_nb_transits (not used)
+        teff:
+          name: teff
+          dtype: Float64
+          unit: ''
+          description: dr2_rv_template_teff (not used)
+        logg:
+          name: logg
+          dtype: Float64
+          unit: ''
+          description: dr2_rv_template_logg (not used)
+        fe_h:
+          name: fe_h
+          dtype: Float64
+          unit: ''
+          description: dr2_rv_template_fe_h (not used)
+        glon:
+          name: glon
+          dtype: Float64
+          unit: deg
+          description: Galactic longitude
+        glat:
+          name: glat
+          dtype: Float64
+          unit: deg
+          description: Galactic latitude
+        elon:
+          name: elon
+          dtype: Float64
+          unit: deg
+          description: Ecliptic longitude
+        elat:
+          name: elat
+          dtype: Float64
+          unit: deg
+          description: Ecliptic latitude
+        exfluxerr:
+          name: exfluxerr
+          dtype: Float64
+          unit: ''
+          description: Metric for source photometric variability
+        brnflag:
+          name: brnflag
+          dtype: Int64
+          unit: ''
+          description: If 1 it indicates the presence of a source 5 mag brighter than
+            the target in the G-band within 5"
+        meanav:
+          name: meanav
+          dtype: Float64
+          unit: mag
+          description: Mean extinction value derived from 3D reddening maps
+        minav:
+          name: minav
+          dtype: Float64
+          unit: mag
+          description: Extinction value derived from 3D reddening maps using -1sigma
+            EDR3 distance
+        maxav:
+          name: maxav
+          dtype: Float64
+          unit: mag
+          description: Extinction value derived from 3D reddening maps using +1sigma
+            EDR3 distance
+        flagext:
+          name: flagext
+          dtype: Int64
+          unit: ''
+          description: Flag
+        teffh:
+          name: teffh
+          dtype: Float64
+          unit: K
+          description: Effective temperature from fitting the dereddened G, BP, and
+            RP absolute fluxes with pure-H model atmospheres
+        e_teffh:
+          name: e_teffh
+          dtype: Float64
+          unit: K
+          description: Uncertainty on teff_H
+        loggh:
+          name: loggh
+          dtype: Float64
+          unit: cm/s2
+          description: Log of surface gravity from fitting the dereddened G, BP, and
+            RP absolute fluxes with pure-H model atmospheres
+        e_loggh:
+          name: e_loggh
+          dtype: Float64
+          unit: cm/s2
+          description: Uncertainty on logg_H
+        massh:
+          name: massh
+          dtype: Float64
+          unit: Msun
+          description: Stellar mass resulting from the adopted mass-radius relation
+            and best fit parameters
+        e_massh:
+          name: e_massh
+          dtype: Float64
+          unit: Msun
+          description: Uncertainty on mass_H
+        chisqh:
+          name: chisqh
+          dtype: Float64
+          unit: ''
+          description: chi square value of the fit (pure-H)
+        teffhe:
+          name: teffhe
+          dtype: Float64
+          unit: K
+          description: Effective temperature from fitting the dereddened G, BP, and
+            RP absolute fluxes with pure-He model atmospheres
+        e_teffhe:
+          name: e_teffhe
+          dtype: Float64
+          unit: K
+          description: Uncertainty on teff_He
+        logghe:
+          name: logghe
+          dtype: Float64
+          unit: cm/s2
+          description: Log of surface gravity from fitting the dereddened G, BP, and
+            RP absolute fluxes with pure-He model atmospheres
+        e_logghe:
+          name: e_logghe
+          dtype: Float64
+          unit: cm/s2
+          description: Uncertainty on logg_He
+        masshe:
+          name: masshe
+          dtype: Float64
+          unit: Msun
+          description: Stellar mass resulting from the adopted mass-radius relation
+            and best fit parameters
+        e_masshe:
+          name: e_masshe
+          dtype: Float64
+          unit: Msun
+          description: Uncertainty on mass_He
+        chisqhe:
+          name: chisqhe
+          dtype: Float64
+          unit: ''
+          description: chi square value of the fit (pure-He)
+        teffmix:
+          name: teffmix
+          dtype: Float64
+          unit: K
+          description: Effective temperature from fitting the dereddened G, BP, and
+            RP absolute fluxes with mixed H-He model atmospheres
+        e_teffmix:
+          name: e_teffmix
+          dtype: Float64
+          unit: K
+          description: Uncertainty on teff_mixed
+        loggmix:
+          name: loggmix
+          dtype: Float64
+          unit: cm/s2
+          description: Log of surface gravity from fitting the dereddened G, BP, and
+            RP absolute fluxes with mixed H-He model atmospheres
+        e_loggmix:
+          name: e_loggmix
+          dtype: Float64
+          unit: cm/s2
+          description: Uncertainty on logg_mixed
+        massmix:
+          name: massmix
+          dtype: Float64
+          unit: Msun
+          description: Stellar mass resulting from the adopted mass-radius relation
+            and best fit parameters
+        e_massmix:
+          name: e_massmix
+          dtype: Float64
+          unit: Msun
+          description: Uncertainty on mass_mixed
+        chisqmix:
+          name: chisqmix
+          dtype: Float64
+          unit: ''
+          description: chi square value of the fit (mixed H-He)
+        rgeo:
+          name: rgeo
+          dtype: Float64
+          unit: pc
+          description: Median of the geometric distance posterior (Bailer-Jones et
+            al., 2021AJ....161..147B, Cat. I/352)
+        b_rgeo1:
+          name: b_rgeo1
+          dtype: Float64
+          unit: pc
+          description: 16th percentile of the geometric distance posterior (Bailer-Jones
+            et al., 2021AJ....161..147B, Cat. I/352)
+        b_rgeo2:
+          name: b_rgeo2
+          dtype: Float64
+          unit: pc
+          description: 84th percentile of the geometric distance posterior (Bailer-Jones
+            et al., 2021AJ....161..147B, Cat. I/352)
+        rpgeo:
+          name: rpgeo
+          dtype: Float64
+          unit: pc
+          description: Median of the photogeometric distance posterior (Bailer-Jones
+            et al., 2021AJ....161..147B, Cat. I/352)
+        b_rpgeo1:
+          name: b_rpgeo1
+          dtype: Float64
+          unit: pc
+          description: 16th percentile of the photogeometric distance posterior (Bailer-Jones
+            et al., 2021AJ....161..147B, Cat. I/352)
+        b_rpgeo2:
+          name: b_rpgeo2
+          dtype: Float64
+          unit: pc
+          description: 84th percentile of the photogeometric distance posterior (Bailer-Jones
+            et al., 2021AJ....161..147B, Cat. I/352)
+        fidel_v1:
+          name: fidel_v1
+          dtype: Float64
+          unit: ''
+          description: Astrometric fidelity metric from Rybizki et al., (2021, arXiv:2101.11641)
+        sdss12:
+          name: sdss12
+          dtype: String
+          unit: ''
+          description: SDSS object name if available (SDSS + J2000 coordinates)
+        sdssclean:
+          name: sdssclean
+          dtype: Int64
+          unit: ''
+          description: If 1 the SDSS photometry for this object is considered clean
+        umag_sdss:
+          name: umag_sdss
+          dtype: Float64
+          unit: mag
+          description: SDSS u band magnitude
+        e_umag_sdss:
+          name: e_umag_sdss
+          dtype: Float64
+          unit: mag
+          description: SDSS u band magnitude uncertainty
+        gmag_sdss:
+          name: gmag_sdss
+          dtype: Float64
+          unit: mag
+          description: SDSS g band magnitude
+        e_gmag_sdss:
+          name: e_gmag_sdss
+          dtype: Float64
+          unit: mag
+          description: SDSS g band magnitude uncertainty
+        rmag_sdss:
+          name: rmag_sdss
+          dtype: Float64
+          unit: mag
+          description: SDSS r band magnitude
+        e_rmag_sdsss:
+          name: e_rmag_sdsss
+          dtype: Float64
+          unit: mag
+          description: SDSS r band magnitude uncertainty
+        imag_sdss:
+          name: imag_sdss
+          dtype: Float64
+          unit: mag
+          description: SDSS i band magnitude
+        e_imag_sdss:
+          name: e_imag_sdss
+          dtype: Float64
+          unit: mag
+          description: SDSS i band magnitude uncertainty
+        zmag_sdss:
+          name: zmag_sdss
+          dtype: Float64
+          unit: mag
+          description: SDSS z band magnitude
+        e_zmag_sdss:
+          name: e_zmag_sdss
+          dtype: Float64
+          unit: mag
+          description: SDSS z band magnitude uncertainty
+        sdsssep:
+          name: sdsssep
+          dtype: Float64
+          unit: arcsec
+          description: Angular separation between the Gaia source and its associated
+            SDSS object, after coordinate propagation
+        sdssspec:
+          name: sdssspec
+          dtype: Int64
+          unit: ''
+          description: Number of SDSS spectra available for this object
+      metadata: {}
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

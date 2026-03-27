@@ -16,10 +16,10 @@ MOS Target Table: carton
 The table contains the list of cartons along with the target selection plan that generated them.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_carton-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_carton.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR18, DR19
+DR18, DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
  - DR19
    - from: DR18
    - note: No changes
@@ -74,7 +77,7 @@ Key | Value | Comment | |
 MOS Target Table: carton
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  18 KB
+#### HDU Size:  46 KB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -82,8 +85,8 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 77 | length of dimension 1 |
-| NAXIS2 | 242 | length of dimension 2 |
+| NAXIS1 | 90 | length of dimension 1 |
+| NAXIS2 | 530 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 7 | number of table fields |
@@ -95,11 +98,11 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | carton | char[41] |  | The name of the carton. |
+ | carton | char[54] |  | The name of the carton. |
  | carton_pk | int32 |  | The primary key. A sequential identifier. |
- | mapper_pk | int32 |  | The primary key of the mapper leading this carton. See mos_target_mapper. |
- | category_pk | int32 |  | The primary key of the category in the mos_target_category table. |
- | version_pk | int32 |  | The primary key of the version in the dr19_version table. |
+ | mapper_pk | int32 |  | The primary key of the mapper leading this carton. See ddr20_mapper. |
+ | category_pk | int32 |  | The primary key of the category in the ddr20_category table. |
+ | version_pk | int32 |  | The primary key of the version in the ddr20_version table. |
  | program | char[14] |  | The program name. |
  | target_selection_plan | char[6] |  | The target selection plan version for which this carton was run. |
 

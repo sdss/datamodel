@@ -1,0 +1,1434 @@
+{
+  "general": {
+    "name": "mos_target_sdss_dr16_specobj_parquet",
+    "short": "MOS Target Table: sdss_dr16_specobj",
+    "description": "This table contains the list of all SDSS optical spectra for a given data release, with associated parameters from the 2D and 1D pipelines for each.\n\nThe table contains both the BOSS and SDSS spectrograph data. The database representation is derived from the flat file information described here: <a href=\"<a href=\"https://data.sdss.org/datamodel/files/SPECTRO_REDUX/specObj.html\">https://data.sdss.org/datamodel/files/SPECTRO_REDUX/specObj.html</a>\">https://data.sdss.org/datamodel/files/SPECTRO_REDUX/specObj.html\">https://data.sdss.org/datamodel/files/SPECTRO_REDUX/specObj.html</a></a> Note: the order of the columns in this documentation may not match the order of the columns in the database table.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "1 GB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdss_dr16_specobj.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdss_dr16_specobj.[FTYPE]",
+      "example": "2.0.0/parquet/mos_sdss_dr16_specobj.parquet",
+      "location": "{v_targ}/{ftype}/mos_sdss_dr16_specobj.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_sdss_dr16_specobj",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_sdss_dr16_specobj@mos_target_num|.{ftype}",
+        "path_kwargs": [
+          "num",
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_sdss_dr16_specobj = $MOS_TARGET/{v_targ}/{ftype}/mos_sdss_dr16_specobj.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "specobjid": {
+            "name": "specobjid",
+            "description": "Unique database ID based on PLATE, MJD, FIBERID, RUN2D (same as SkyServer version)",
+            "unit": "",
+            "dtype": "Extension('arrow.opaque', String, '{\"type_name\": \"numeric\", \"vendor_name\": \"PostgreSQL\"}')",
+            "value": null
+          },
+          "bestobjid": {
+            "name": "bestobjid",
+            "description": "Unique database ID of (recommended) position-based photometric match based on RUN, RERUN, CAMCOl, FIELD, ID (same as SkyServer version)",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "fluxobjid": {
+            "name": "fluxobjid",
+            "description": "Unique database ID of flux-based photometric match based on RUN, RERUN, CAMCOl, FIELD, ID (same as SkyServer version)",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "targetobjid": {
+            "name": "targetobjid",
+            "description": "Unique database ID of targeting object based on RUN, RERUN, CAMCOl, FIELD, ID (same as SkyServer version)",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "plateid": {
+            "name": "plateid",
+            "description": "Unique database ID of plate based on PLATE, MJD, RUN2D (same as SkyServer version)",
+            "unit": "",
+            "dtype": "Extension('arrow.opaque', String, '{\"type_name\": \"numeric\", \"vendor_name\": \"PostgreSQL\"}')",
+            "value": null
+          },
+          "scienceprimary": {
+            "name": "scienceprimary",
+            "description": "Set to 1 for primary observation of object, 0 otherwise",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "sdssprimary": {
+            "name": "sdssprimary",
+            "description": "Set to 1 for primary SDSS spectrograph observation of object, 0 otherwise",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "legacyprimary": {
+            "name": "legacyprimary",
+            "description": "Set to 1 for primary SDSS Legacy program observation of object, 0 otherwise",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "segueprimary": {
+            "name": "segueprimary",
+            "description": "Set to 1 for primary SDSS SEGUE program observation of object (including SEGUE-1 and SEGUE-2), 0 otherwise",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "segue1primary": {
+            "name": "segue1primary",
+            "description": "Set to 1 for primary SDSS SEGUE-1 program observation of object, 0 otherwise",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "segue2primary": {
+            "name": "segue2primary",
+            "description": "Set to 1 for primary SDSS SEGUE-2 program observation of object, 0 otherwise",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "bossprimary": {
+            "name": "bossprimary",
+            "description": "Set to 1 for primary BOSS spectrograph observation of object, 0 otherwise",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "bossspecobjid": {
+            "name": "bossspecobjid",
+            "description": "Identification number internal to BOSS for SPECBOSS=1 objects",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "firstrelease": {
+            "name": "firstrelease",
+            "description": "Name of first release this PLATE, MJD, FIBERID, RUN2D was associated with",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "survey": {
+            "name": "survey",
+            "description": "Survey that this object is part of",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "instrument": {
+            "name": "instrument",
+            "description": "Instrument that this spectrum was observed with (SDSS or BOSS)",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "programname": {
+            "name": "programname",
+            "description": "Program within each survey that the plate was part of",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "chunk": {
+            "name": "chunk",
+            "description": "Name of tiling chunk that this spectrum was tiled in (boss1, boss2, etc), important for tracking large-scale structure samples",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "platerun": {
+            "name": "platerun",
+            "description": "Drilling run that this plate was drilled in",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "mjd": {
+            "name": "mjd",
+            "description": "Modified Julian Day of observation",
+            "unit": "day",
+            "dtype": "Int32",
+            "value": null
+          },
+          "plate": {
+            "name": "plate",
+            "description": "Plate number (each plate corresponds to an actual plug plate)",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "fiberid": {
+            "name": "fiberid",
+            "description": "Fiber number",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "run1d": {
+            "name": "run1d",
+            "description": "Spectroscopic 1D reduction (redshift and classification) name",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "run2d": {
+            "name": "run2d",
+            "description": "Spectroscopic 2D reduction (extraction of spectra) name",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "tile": {
+            "name": "tile",
+            "description": "Tile number (each tile can have several plates drilled for it)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "designid": {
+            "name": "designid",
+            "description": "Design identification number for plate",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "legacy_target1": {
+            "name": "legacy_target1",
+            "description": "Primary (science) target flags for SDSS-I and SDSS-II Legacy survey",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "legacy_target2": {
+            "name": "legacy_target2",
+            "description": "Secondary (calibration) target flags for SDSS-I and SDSS-II Legacy survey",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "special_target1": {
+            "name": "special_target1",
+            "description": "Primary (science) target flags for SDSS-I and SDSS-II special program targets",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "special_target2": {
+            "name": "special_target2",
+            "description": "Secondary (calibration) target flags for SDSS-I and SDSS-II special program targets",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "segue1_target1": {
+            "name": "segue1_target1",
+            "description": "Primary (science) target flags for SEGUE-1 targets",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "segue1_target2": {
+            "name": "segue1_target2",
+            "description": "Secondary (calibration) target flags for SEGUE-1 targets",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "segue2_target1": {
+            "name": "segue2_target1",
+            "description": "Primary (science) target flags for SEGUE-2 targets",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "segue2_target2": {
+            "name": "segue2_target2",
+            "description": "Secondary (calibration) target flags for SEGUE-2 targets",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "boss_target1": {
+            "name": "boss_target1",
+            "description": "Primary (science) target flags for BOSS targets",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "eboss_target0": {
+            "name": "eboss_target0",
+            "description": "SEQUELS, TDSS and SPIDERS target selection flags",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "eboss_target1": {
+            "name": "eboss_target1",
+            "description": "eBOSS, TDSS and SPIDERS target selection flags for main eBOSS survey",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "eboss_target2": {
+            "name": "eboss_target2",
+            "description": "eBOSS, TDSS and SPIDERS target selection flags for main eBOSS survey",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "eboss_target_id": {
+            "name": "eboss_target_id",
+            "description": "eBOSS unique target identifier for every spectroscopic target",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "ancillary_target1": {
+            "name": "ancillary_target1",
+            "description": "Target flags for BOSS ancillary targets",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "ancillary_target2": {
+            "name": "ancillary_target2",
+            "description": "More target flags for BOSS ancillary targets",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "thing_id_targeting": {
+            "name": "thing_id_targeting",
+            "description": "Resolve THING_ID in SDSS imaging for targeted object",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "thing_id": {
+            "name": "thing_id",
+            "description": "Resolve THING_ID in SDSS imaging for best positional match",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "primtarget": {
+            "name": "primtarget",
+            "description": "Deprecated version of primary (science) target flags (meanings highly overloaded)",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "sectarget": {
+            "name": "sectarget",
+            "description": "Deprecated version of secondary (calibration) target flags (meanings highly overloaded)",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "spectrographid": {
+            "name": "spectrographid",
+            "description": "Which spectrograph (1 or 2)",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "sourcetype": {
+            "name": "sourcetype",
+            "description": "String expressing type of source (similar to OBJTYPE in DR8 and earlier)",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "targettype": {
+            "name": "targettype",
+            "description": "General type of target (\"SCIENCE\", \"STANDARD\" or \"SKY\")",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "ra": {
+            "name": "ra",
+            "description": "Right ascension of hole (J2000)",
+            "unit": "degrees",
+            "dtype": "Float64",
+            "value": null
+          },
+          "dec": {
+            "name": "dec",
+            "description": "Declination of hole (J2000)",
+            "unit": "degrees",
+            "dtype": "Float64",
+            "value": null
+          },
+          "cx": {
+            "name": "cx",
+            "description": "Position of object on J2000 unit sphere",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "cy": {
+            "name": "cy",
+            "description": "Position of object on J2000 unit sphere",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "cz": {
+            "name": "cz",
+            "description": "Position of object on J2000 unit sphere",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "xfocal": {
+            "name": "xfocal",
+            "description": "Hole position on plate (+X = +RA)",
+            "unit": "mm",
+            "dtype": "Float32",
+            "value": null
+          },
+          "yfocal": {
+            "name": "yfocal",
+            "description": "Hole position on plate (+Y = +DEC)",
+            "unit": "mm",
+            "dtype": "Float32",
+            "value": null
+          },
+          "lambdaeff": {
+            "name": "lambdaeff",
+            "description": "Effective wavelength drilling position was optimized for",
+            "unit": "Angstroms",
+            "dtype": "Float32",
+            "value": null
+          },
+          "bluefiber": {
+            "name": "bluefiber",
+            "description": "Set to 1 if this was requested to be a \"blue fiber\" target, 0 if it was a \"red fiber\" (in BOSS high redshift LRGs are requested to be on red fibers)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "zoffset": {
+            "name": "zoffset",
+            "description": "Washer thickness used (for backstopping BOSS quasar targets, so they are closer to 4000 Angstrom focal plan)",
+            "unit": "microns",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z": {
+            "name": "z",
+            "description": "Best redshift",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "zerr": {
+            "name": "zerr",
+            "description": "Error in best redshift",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "zwarning": {
+            "name": "zwarning",
+            "description": "Bitmask of spectroscopic warning values; 0 means everything is OK",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "class": {
+            "name": "class",
+            "description": "Best spectroscopic classification (\"STAR\", \"GALAXY\" or \"QSO\")",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "subclass": {
+            "name": "subclass",
+            "description": "Best spectroscopic subclassification",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "rchi2": {
+            "name": "rchi2",
+            "description": "Reduced chi-squared of best fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "dof": {
+            "name": "dof",
+            "description": "Number of degrees of freedom in best fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "rchi2diff": {
+            "name": "rchi2diff",
+            "description": "Difference in reduced chi-squared between best and second best fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_noqso": {
+            "name": "z_noqso",
+            "description": "Best redshift when ignoring QSO fits, recommended for BOSS CMASS and LOWZ targets; calculated only for survey='boss' spectra, not for any SDSS spectrograph data",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "zerr_noqso": {
+            "name": "zerr_noqso",
+            "description": "Error in Z_NOQSO redshift",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "zwarning_noqso": {
+            "name": "zwarning_noqso",
+            "description": "For Z_NOQSO redshift, the bitmask of spectroscopic warning values; 0 means everything is OK",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "class_noqso": {
+            "name": "class_noqso",
+            "description": "Spectroscopic classification for Z_NOQSO redshift",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "subclass_noqso": {
+            "name": "subclass_noqso",
+            "description": "Spectroscopic subclassification for Z_NOQSO redshift",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "rchi2diff_noqso": {
+            "name": "rchi2diff_noqso",
+            "description": "Difference in reduced chi-squared between best and second best fit for Z_NOQSO redshift",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_person": {
+            "name": "z_person",
+            "description": "Visual-inspection redshift",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "class_person": {
+            "name": "class_person",
+            "description": "Visual-inspection classification (0=not inspected or unknown, 1=star, 2=narrow emission-line galaxy, 3=QSO, 4=galaxy)",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "comments_person": {
+            "name": "comments_person",
+            "description": "Visual-inspection comments",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "tfile": {
+            "name": "tfile",
+            "description": "File that best fit template comes from in idlspec1d product",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "tcolumn_0": {
+            "name": "tcolumn_0",
+            "description": "Which column of the template file corresponds to template #0",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "tcolumn_1": {
+            "name": "tcolumn_1",
+            "description": "Which column of the template file corresponds to template #1",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "tcolumn_2": {
+            "name": "tcolumn_2",
+            "description": "Which column of the template file corresponds to template #2",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "tcolumn_3": {
+            "name": "tcolumn_3",
+            "description": "Which column of the template file corresponds to template #3",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "tcolumn_4": {
+            "name": "tcolumn_4",
+            "description": "Which column of the template file corresponds to template #4",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "tcolumn_5": {
+            "name": "tcolumn_5",
+            "description": "Which column of the template file corresponds to template #5",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "tcolumn_6": {
+            "name": "tcolumn_6",
+            "description": "Which column of the template file corresponds to template #6",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "tcolumn_7": {
+            "name": "tcolumn_7",
+            "description": "Which column of the template file corresponds to template #7",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "tcolumn_8": {
+            "name": "tcolumn_8",
+            "description": "Which column of the template file corresponds to template #8",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "tcolumn_9": {
+            "name": "tcolumn_9",
+            "description": "Which column of the template file corresponds to template #9",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "npoly": {
+            "name": "npoly",
+            "description": "Number of polynomial terms in fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "theta_0": {
+            "name": "theta_0",
+            "description": "Template coefficients of best fit (polynomial term #0)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "theta_1": {
+            "name": "theta_1",
+            "description": "Template coefficients of best fit (polynomial term #1)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "theta_2": {
+            "name": "theta_2",
+            "description": "Template coefficients of best fit (polynomial term #2)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "theta_3": {
+            "name": "theta_3",
+            "description": "Template coefficients of best fit (polynomial term #3)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "theta_4": {
+            "name": "theta_4",
+            "description": "Template coefficients of best fit (polynomial term #4)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "theta_5": {
+            "name": "theta_5",
+            "description": "Template coefficients of best fit (polynomial term #5)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "theta_6": {
+            "name": "theta_6",
+            "description": "Template coefficients of best fit (polynomial term #6)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "theta_7": {
+            "name": "theta_7",
+            "description": "Template coefficients of best fit (polynomial term #7)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "theta_8": {
+            "name": "theta_8",
+            "description": "Template coefficients of best fit (polynomial term #8)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "theta_9": {
+            "name": "theta_9",
+            "description": "Template coefficients of best fit (polynomial term #9)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "veldisp": {
+            "name": "veldisp",
+            "description": "Velocity dispersion",
+            "unit": "km/s",
+            "dtype": "Float32",
+            "value": null
+          },
+          "veldisperr": {
+            "name": "veldisperr",
+            "description": "Error in velocity dispersion",
+            "unit": "km/s",
+            "dtype": "Float32",
+            "value": null
+          },
+          "veldispz": {
+            "name": "veldispz",
+            "description": "Redshift associated with best-fit velocity dispersion",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "veldispzerr": {
+            "name": "veldispzerr",
+            "description": "Error in redshift associated with best-fit velocity dispersion",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "veldispchi2": {
+            "name": "veldispchi2",
+            "description": "Chi-squared for best-fit velocity dispersion",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "veldispnpix": {
+            "name": "veldispnpix",
+            "description": "Number of pixels overlapping the templates used in the velocity dispersion fit",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "veldispdof": {
+            "name": "veldispdof",
+            "description": "Number of degrees of freedom in velocity dispersion fit",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "wavemin": {
+            "name": "wavemin",
+            "description": "Minimum observed (vacuum) wavelength",
+            "unit": "Angstroms",
+            "dtype": "Float32",
+            "value": null
+          },
+          "wavemax": {
+            "name": "wavemax",
+            "description": "Maximum observed (vacuum) wavelength",
+            "unit": "Angstroms",
+            "dtype": "Float32",
+            "value": null
+          },
+          "wcoverage": {
+            "name": "wcoverage",
+            "description": "Coverage in wavelength, in units of log10 wavelength",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "snmedian_u": {
+            "name": "snmedian_u",
+            "description": "Median signal-to-noise per pixel within the u bandpass",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "snmedian_g": {
+            "name": "snmedian_g",
+            "description": "Median signal-to-noise per pixel within the g bandpass",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "snmedian_r": {
+            "name": "snmedian_r",
+            "description": "Median signal-to-noise per pixel within the r bandpass",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "snmedian_i": {
+            "name": "snmedian_i",
+            "description": "Median signal-to-noise per pixel within the i bandpass",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "snmedian_z": {
+            "name": "snmedian_z",
+            "description": "Median signal-to-noise per pixel within the z bandpass",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "snmedian": {
+            "name": "snmedian",
+            "description": "Median signal-to-noise per pixel across full spectrum (aka SN_MEDIAN_ALL)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "chi68p": {
+            "name": "chi68p",
+            "description": "68-th percentile value of abs(chi) of the best-fit synthetic spectrum to the actual spectrum (around 1.0 for a good fit)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsigma_1": {
+            "name": "fracnsigma_1",
+            "description": "Fraction of pixels deviant by more than 1 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsigma_2": {
+            "name": "fracnsigma_2",
+            "description": "Fraction of pixels deviant by more than 2 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsigma_3": {
+            "name": "fracnsigma_3",
+            "description": "Fraction of pixels deviant by more than 3 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsigma_4": {
+            "name": "fracnsigma_4",
+            "description": "Fraction of pixels deviant by more than 4 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsigma_5": {
+            "name": "fracnsigma_5",
+            "description": "Fraction of pixels deviant by more than 5 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsigma_6": {
+            "name": "fracnsigma_6",
+            "description": "Fraction of pixels deviant by more than 6 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsigma_7": {
+            "name": "fracnsigma_7",
+            "description": "Fraction of pixels deviant by more than 7 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsigma_8": {
+            "name": "fracnsigma_8",
+            "description": "Fraction of pixels deviant by more than 8 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsigma_9": {
+            "name": "fracnsigma_9",
+            "description": "Fraction of pixels deviant by more than 9 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsigma_10": {
+            "name": "fracnsigma_10",
+            "description": "Fraction of pixels deviant by more than 10 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsighi_1": {
+            "name": "fracnsighi_1",
+            "description": "Fraction of pixels high by more than 1 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsighi_2": {
+            "name": "fracnsighi_2",
+            "description": "Fraction of pixels high by more than 2 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsighi_3": {
+            "name": "fracnsighi_3",
+            "description": "Fraction of pixels high by more than 3 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsighi_4": {
+            "name": "fracnsighi_4",
+            "description": "Fraction of pixels high by more than 4 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsighi_5": {
+            "name": "fracnsighi_5",
+            "description": "Fraction of pixels high by more than 5 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsighi_6": {
+            "name": "fracnsighi_6",
+            "description": "Fraction of pixels high by more than 6 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsighi_7": {
+            "name": "fracnsighi_7",
+            "description": "Fraction of pixels high by more than 7 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsighi_8": {
+            "name": "fracnsighi_8",
+            "description": "Fraction of pixels high by more than 8 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsighi_9": {
+            "name": "fracnsighi_9",
+            "description": "Fraction of pixels high by more than 9 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsighi_10": {
+            "name": "fracnsighi_10",
+            "description": "Fraction of pixels high by more than 10 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsiglo_1": {
+            "name": "fracnsiglo_1",
+            "description": "Fraction of pixels low by more than 1 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsiglo_2": {
+            "name": "fracnsiglo_2",
+            "description": "Fraction of pixels low by more than 2 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsiglo_3": {
+            "name": "fracnsiglo_3",
+            "description": "Fraction of pixels low by more than 3 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsiglo_4": {
+            "name": "fracnsiglo_4",
+            "description": "Fraction of pixels low by more than 4 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsiglo_5": {
+            "name": "fracnsiglo_5",
+            "description": "Fraction of pixels low by more than 5 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsiglo_6": {
+            "name": "fracnsiglo_6",
+            "description": "Fraction of pixels low by more than 6 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsiglo_7": {
+            "name": "fracnsiglo_7",
+            "description": "Fraction of pixels low by more than 7 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsiglo_8": {
+            "name": "fracnsiglo_8",
+            "description": "Fraction of pixels low by more than 8 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsiglo_9": {
+            "name": "fracnsiglo_9",
+            "description": "Fraction of pixels low by more than 9 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fracnsiglo_10": {
+            "name": "fracnsiglo_10",
+            "description": "Fraction of pixels low by more than 10 sigma relative to best-fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectroflux_u": {
+            "name": "spectroflux_u",
+            "description": "Spectral flux within u filter bandpass",
+            "unit": "nanomaggies",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectroflux_g": {
+            "name": "spectroflux_g",
+            "description": "Spectral flux within g filter bandpass",
+            "unit": "nanomaggies",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectroflux_r": {
+            "name": "spectroflux_r",
+            "description": "Spectral flux within r filter bandpass",
+            "unit": "nanomaggies",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectroflux_i": {
+            "name": "spectroflux_i",
+            "description": "Spectral flux within i filter bandpass",
+            "unit": "nanomaggies",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectroflux_z": {
+            "name": "spectroflux_z",
+            "description": "Spectral flux within z filter bandpass",
+            "unit": "nanomaggies",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectrosynflux_u": {
+            "name": "spectrosynflux_u",
+            "description": "Spectral flux of best-fit template spectrum within u filter bandpass",
+            "unit": "nanomaggies",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectrosynflux_g": {
+            "name": "spectrosynflux_g",
+            "description": "Spectral flux of best-fit template spectrum within g filter bandpass",
+            "unit": "nanomaggies",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectrosynflux_r": {
+            "name": "spectrosynflux_r",
+            "description": "Spectral flux of best-fit template spectrum within r filter bandpass",
+            "unit": "nanomaggies",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectrosynflux_i": {
+            "name": "spectrosynflux_i",
+            "description": "Spectral flux of best-fit template spectrum within i filter bandpass",
+            "unit": "nanomaggies",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectrosynflux_z": {
+            "name": "spectrosynflux_z",
+            "description": "Spectral flux of best-fit template spectrum within z filter bandpass",
+            "unit": "nanomaggies",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectrofluxivar_u": {
+            "name": "spectrofluxivar_u",
+            "description": "Inverse variance of spectral flux within u filter bandpass",
+            "unit": "nanomaggies^-2",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectrofluxivar_g": {
+            "name": "spectrofluxivar_g",
+            "description": "Inverse variance of spectral flux within g filter bandpass",
+            "unit": "nanomaggies^-2",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectrofluxivar_r": {
+            "name": "spectrofluxivar_r",
+            "description": "Inverse variance of spectral flux within r filter bandpass",
+            "unit": "nanomaggies^-2",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectrofluxivar_i": {
+            "name": "spectrofluxivar_i",
+            "description": "Inverse variance of spectral flux within i filter bandpass",
+            "unit": "nanomaggies^-2",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectrofluxivar_z": {
+            "name": "spectrofluxivar_z",
+            "description": "Inverse variance of spectral flux within z filter bandpass",
+            "unit": "nanomaggies^-2",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectrosynfluxivar_u": {
+            "name": "spectrosynfluxivar_u",
+            "description": "Inverse variance of spectral flux of best-fit template spectrum within u filter bandpass",
+            "unit": "nanomaggies^-2",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectrosynfluxivar_g": {
+            "name": "spectrosynfluxivar_g",
+            "description": "Inverse variance of spectral flux of best-fit template spectrum within g filter bandpass",
+            "unit": "nanomaggies^-2",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectrosynfluxivar_r": {
+            "name": "spectrosynfluxivar_r",
+            "description": "Inverse variance of spectral flux of best-fit template spectrum within r filter bandpass",
+            "unit": "nanomaggies^-2",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectrosynfluxivar_i": {
+            "name": "spectrosynfluxivar_i",
+            "description": "Inverse variance of spectral flux of best-fit template spectrum within i filter bandpass",
+            "unit": "nanomaggies^-2",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectrosynfluxivar_z": {
+            "name": "spectrosynfluxivar_z",
+            "description": "Inverse variance of spectral flux of best-fit template spectrum within z filter bandpass",
+            "unit": "nanomaggies^-2",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectroskyflux_u": {
+            "name": "spectroskyflux_u",
+            "description": "Sky flux in the u filter bandpass",
+            "unit": "nanomaggies",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectroskyflux_g": {
+            "name": "spectroskyflux_g",
+            "description": "Sky flux in the g filter bandpass",
+            "unit": "nanomaggies",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectroskyflux_r": {
+            "name": "spectroskyflux_r",
+            "description": "Sky flux in the r filter bandpass",
+            "unit": "nanomaggies",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectroskyflux_i": {
+            "name": "spectroskyflux_i",
+            "description": "Sky flux in the i filter bandpass",
+            "unit": "nanomaggies",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectroskyflux_z": {
+            "name": "spectroskyflux_z",
+            "description": "Sky flux in the z filter bandpass",
+            "unit": "nanomaggies",
+            "dtype": "Float32",
+            "value": null
+          },
+          "anyandmask": {
+            "name": "anyandmask",
+            "description": "For each bit, records whether any pixel in the spectrum has that bit set in its ANDMASK",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "anyormask": {
+            "name": "anyormask",
+            "description": "For each bit, records whether any pixel in the spectrum has that bit set in its ORMASK",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "platesn2": {
+            "name": "platesn2",
+            "description": "Overall signal-to-noise-squared measure for plate (only for SDSS spectrograph plates)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "deredsn2": {
+            "name": "deredsn2",
+            "description": "Dereddened overall signal-to-noise-squared measure for plate (only for BOSS spectrograph plates)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "snturnoff": {
+            "name": "snturnoff",
+            "description": "Signal to noise measure for MS turnoff stars on plate (-9999 if not appropriate)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "sn1_g": {
+            "name": "sn1_g",
+            "description": "Signal-to-noise squared for spectrograph #1, at fiducial (psf)magnitude g=20.20 for SDSS spectrograph spectra, g=21.20 for BOSS spectrograph spectra",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "sn1_r": {
+            "name": "sn1_r",
+            "description": "Signal-to-noise squared for spectrograph #1, at fiducial (psf)magnitude r=20.25 for SDSS spectrograph spectra, r=20.20 for BOSS spectrograph spectra",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "sn1_i": {
+            "name": "sn1_i",
+            "description": "Signal-to-noise squared for spectrograph #1, at fiducial (psf)magnitude i=19.90 for SDSS spectrograph spectra, i=20.20 for BOSS spectrograph spectra",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "sn2_g": {
+            "name": "sn2_g",
+            "description": "Signal-to-noise squared for spectrograph #2, at fiducial (psf)magnitude g=20.20 for SDSS spectrograph spectra, g=21.20 for BOSS spectrograph spectra",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "sn2_r": {
+            "name": "sn2_r",
+            "description": "Signal-to-noise squared for spectrograph #2, at fiducial (psf)magnitude r=20.25 for SDSS spectrograph spectra, r=20.20 for BOSS spectrograph spectra",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "sn2_i": {
+            "name": "sn2_i",
+            "description": "Signal-to-noise squared for spectrograph #2, at fiducial (psf)magnitude i=19.90 for SDSS spectrograph spectra, i=20.20 for BOSS spectrograph spectra",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "elodiefilename": {
+            "name": "elodiefilename",
+            "description": "File name for best-fit ELODIE star",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "elodieobject": {
+            "name": "elodieobject",
+            "description": "Star name for ELODIE star",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "elodiesptype": {
+            "name": "elodiesptype",
+            "description": "ELODIE star spectral type",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "elodiebv": {
+            "name": "elodiebv",
+            "description": "(B-V) color index for ELODIE star",
+            "unit": "mag",
+            "dtype": "Float32",
+            "value": null
+          },
+          "elodieteff": {
+            "name": "elodieteff",
+            "description": "Effective temperature of ELODIE star",
+            "unit": "Kelvin",
+            "dtype": "Float32",
+            "value": null
+          },
+          "elodielogg": {
+            "name": "elodielogg",
+            "description": "log10(gravity) of ELODIE star",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "elodiefeh": {
+            "name": "elodiefeh",
+            "description": "Metallicity of ELODIE star log10(Fe/H)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "elodiez": {
+            "name": "elodiez",
+            "description": "Redshift fit to ELODIE star",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "elodiezerr": {
+            "name": "elodiezerr",
+            "description": "Error in redshift fit to ELODIE star",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "elodiezmodelerr": {
+            "name": "elodiezmodelerr",
+            "description": "Standard deviation in redshift among the 12 best-fit ELODIE stars",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "elodierchi2": {
+            "name": "elodierchi2",
+            "description": "Reduced chi-squared of fit to best ELODIE star",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "elodiedof": {
+            "name": "elodiedof",
+            "description": "Degrees of freedom in fit to best ELODIE star",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "htmid": {
+            "name": "htmid",
+            "description": "20 deep Hierarchical Triangular Mesh ID",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "loadversion": {
+            "name": "loadversion",
+            "description": "Load Version",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

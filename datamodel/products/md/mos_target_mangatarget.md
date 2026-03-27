@@ -16,10 +16,10 @@ MOS Target table: mos_target_mangatarget
 MaNGA Target Catalog
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_mangatarget.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_mangatarget.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,7 +71,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_mangatarget
+MOS Target Table: mangatarget
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  31 MB
@@ -304,7 +307,7 @@ Name | Type | Unit | Description |
  | manga_target3 | int64 |  | Targeting bitmask for the ancillary samples |
  | priorityanc | int32 |  | The ancillary program's priority for this object |
  | unalloc | int16 |  | Set to 1 if an ancillary target has been allocated an IFU the was not allocated to a main sample galaxy, otherwise 0 |
- | specobjid | char[22] |  | The associated specObjID from the dr19_sdss_dr17_specobj table |
+ | specobjid | char[22] |  | The associated specObjID from the dr20_sdss_dr17_specobj table |
 
 
 

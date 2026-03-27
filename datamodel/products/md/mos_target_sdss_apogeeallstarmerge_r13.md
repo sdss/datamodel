@@ -16,10 +16,10 @@ MOS Target Table: sdss_apogeeallstarmerge_r13
 List of APOGEE DR16 stars for RV followup
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_sdss_apogeeallstarmerge_r13-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdss_apogeeallstarmerge_r13.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR18, DR19
+DR18, DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
  - DR19
    - from: DR18
    - note: No changes
@@ -103,11 +106,11 @@ Name | Type | Unit | Description |
  | pmra | float64 | mas/yr | proper motion in RA |
  | pmdec | float64 | mas/yr | proper motion in DEC |
  | pm_src | char[4] |  | source of proper motion (e.g. gaia) |
- | j | float32 | bad=99] [mag | 2MASS J mag |
+ | j | float32 | mag | 2MASS J mag [bad=99] |
  | j_err | float32 | mag | Uncertainty in 2MASS J mag |
- | h | float32 | bad=99] [mag | 2MASS H mag |
+ | h | float32 | mag | 2MASS H mag [bad=99] |
  | h_err | float32 | mag | Uncertainty in 2MASS H mag |
- | k | float32 | bad=99] [mag | 2MASS Ks mag |
+ | k | float32 | mag | 2MASS Ks mag [bad=99] |
  | k_err | float32 | mag | Uncertainty in 2MASS Ks mag |
  | ak | float32 | mag | K-band extinction adopted for targetting |
  | vhelio_avg | float32 | km/s | Average radial velocity, weighted by S/N, rederived to reflect all entries |
@@ -134,7 +137,7 @@ Name | Type | Unit | Description |
  | startype | char[3] |  | Best guess of star's evolutionary state based on stellar parameters or external catalogs (RC=red clump, RG=red giant, SG = subgiant, MS=dwarf, PMS=pre-main sequence) |
  | vjitter | float32 | km/s | Atmospheric RV jitter derived from log g using the relationship derived in Hekker, et. al 2008. |
  | dist | float32 | pc | Derived or given distance to the star |
- | dist_err | float32 | pc | uncertainy of the distance |
+ | dist_err | float32 | pc | Uncertainty of the distance |
  | dist_src | char[9] |  | Source of the star's distance measurement (e.g. gaia=derived from gaia parallax) |
  | mstar | float32 |  | Derived or given stellar mass (Solar Mass) |
  | mstar_err | float32 | Solar Mass | Uncertainty of the Derived stellar mass |

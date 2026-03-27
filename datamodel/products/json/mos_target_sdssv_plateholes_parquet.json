@@ -1,0 +1,1118 @@
+{
+  "general": {
+    "name": "mos_target_sdssv_plateholes_parquet",
+    "short": "MOS Target Table: sdssv_plateholes",
+    "description": "The combination of the dr20_sdssv_plateholes and dr20_sdssv_plateholes_meta tables are a database representation of the SDSS-V platelist data product (<a href=\"https://svn.sdss.org/public/data/sdss/platelist/trunk/)\">https://svn.sdss.org/public/data/sdss/platelist/trunk/)</a>.\n\nThese tables were used within early iterations of FPS target_selection as a way to communicate information about which targets had been included in SDSS-V plates. This information was used to e.g. de-prioritise targets that were expected to have a good quality spectroscopic measurement by the end of the SDSS-V plate observations.\n\nThe dr20_sdssv_plateholes_meta table contains meta-data for each SDSS-V plate (one record per plate), whereas the dr20_sdssv_plateholes table has one entry for each drilled hole in each SDSS-V plate. The dr20_sdssv_plateholes and dr20_sdssv_plateholes_meta tables should be joined via the yanny_uid field.\n\nMostly derived from: <a href=\"https://data.sdss.org/datamodel/files/PLATELIST_DIR/designs/DESIGNID6XX/DESIGNID6/plateDesign.html\">https://data.sdss.org/datamodel/files/PLATELIST_DIR/designs/DESIGNID6XX/DESIGNID6/plateDesign.html</a>",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "20 MB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdssv_plateholes.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdssv_plateholes.[FTYPE]",
+      "example": "2.0.0/parquet/mos_sdssv_plateholes.parquet",
+      "location": "{v_targ}/{ftype}/mos_sdssv_plateholes.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_sdssv_plateholes",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_sdssv_plateholes.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_sdssv_plateholes = $MOS_TARGET/{v_targ}/{ftype}/mos_sdssv_plateholes.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "holetype": {
+            "name": "holetype",
+            "description": "type of hole to be drilled; one of SDSS, BOSS, MARVELS, APOGEE, GUIDE, CENTER, TRAP, or ALIGNMENT; this really refers to the instrument to be used, so for example SEGUE targets should be either SDSS or BOSS",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "targettype": {
+            "name": "targettype",
+            "description": "type of target; one of SCIENCE, STANDARD, or SKY (if holetype is BOSS, SDSS, MARVELS or APOGEE); NA if not holetype is not one of the instruments (GUIDE, CENTER, TRAP, ALIGNMENT)",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "sourcetype": {
+            "name": "sourcetype",
+            "description": "indicate the nature of the source, one of STAR, QSO, GALAXY, or NA (if targettype is NA)",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "target_ra": {
+            "name": "target_ra",
+            "description": "right ascension, in J2000 deg",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "target_dec": {
+            "name": "target_dec",
+            "description": "declination, in J2000 deg",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "iplateinput": {
+            "name": "iplateinput",
+            "description": "integer indicating which plateInput file from the list in the plateDefinition file this came from (1-indexed); -1 or 0 if the hole wasn't from a plateInput file.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "pointing": {
+            "name": "pointing",
+            "description": "which pointing (1-indexed) this target is associated with; note this means which pointing among the ones that this plate is designed for, so if this a single pointing plate but uses the B-side MARVELS fibers, this will be \"1\", not \"2\"",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "offset_integer": {
+            "name": "offset_integer",
+            "description": "which offset this target is associated with; 0 means it is not associated with an offset, it is associated with the primary pointing",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "fiberid": {
+            "name": "fiberid",
+            "description": "what fiber on the appropriate instrument (as listed in holetype) is assigned to this target (-9999 for none)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "block": {
+            "name": "block",
+            "description": "which fiber block that fiber is associated with (-9999 for none)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "iguide": {
+            "name": "iguide",
+            "description": "for guide holes, which guide fiber it is assigned to (from 1 to 11) (-9999 for non guide holes)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "xf_default": {
+            "name": "xf_default",
+            "description": "X position of hole in focal plane, given a default set of observing parameters (hour angle of zero, temperature of 5 deg C), in units of mm; for position angle of zero (which we always use), +X is +RA",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "yf_default": {
+            "name": "yf_default",
+            "description": "Y position of hole in focal plane, given a default set of observing parameters (hour angle of zero, temperature of 5 deg C), in units of mm; for position angle of zero (which we always use), +Y is +Dec",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "lambda_eff": {
+            "name": "lambda_eff",
+            "description": "wavelength to optimize hole location for, in Angstroms (platedesign will default to 5400 if not set)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "zoffset": {
+            "name": "zoffset",
+            "description": "backstopping offset distance, in microns (platedesign will default to 0 if not set)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "bluefiber": {
+            "name": "bluefiber",
+            "description": "1 if the BOSS instrument is meant to assign this target a \"blue\" fiber; 0 otherwise",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "chunk": {
+            "name": "chunk",
+            "description": "BOSS chunk number (0 if not appropriate)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "ifinal": {
+            "name": "ifinal",
+            "description": "0-indexed position in BOSS final tiling file (-1 if not appropriate)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "origfile": {
+            "name": "origfile",
+            "description": "for BOSS targets, name of file that target originated within (for BOSS targets, one of the bosstarget files, for ancillary targets, a file within the directory.",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "fileindx": {
+            "name": "fileindx",
+            "description": "for BOSS targets, 0-indexed position within ORIGFILE (-1 if not appropriate)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "diameter": {
+            "name": "diameter",
+            "description": "diameter of hole to be drilled, in mm",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "buffer": {
+            "name": "buffer",
+            "description": "buffer to leave around hole edge for conflicts in mm",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "priority": {
+            "name": "priority",
+            "description": "priority number assigned by the plateInput file; lower numbers indicate higher priority",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "assigned": {
+            "name": "assigned",
+            "description": "1 if this was a target assigned to a fiber, 0 otherwise; clearly for all targets this will be 1 for plateDesign files, but this will not be the case for plateInput-output files, which also have this same format.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "conflicted": {
+            "name": "conflicted",
+            "description": "1 if this was a target not assigned because of a collision, 0 otherwise; clearly for all targets this will be 0 for plateDesign files, but this will not be the case for plateInput-output files, which also have this same format.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "ranout": {
+            "name": "ranout",
+            "description": "1 if this was a target not assigned because we ran out of fibers, 0 otherwise; clearly for all targets this will be 0 for plateDesign files, but this will not be the case for plateInput-output files, which also have this same format.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "outside": {
+            "name": "outside",
+            "description": "1 if this was a target not assigned because it was too fare from the plate center, 0 otherwise; clearly for all targets this will be 0 for plateDesign files, but this will not be the case for plateInput-output files, which also have this same format.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "mangaid": {
+            "name": "mangaid",
+            "description": "MaNGA identifier",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "ifudesign": {
+            "name": "ifudesign",
+            "description": "intended IFU identified for this object",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "ifudesignsize": {
+            "name": "ifudesignsize",
+            "description": "number of fibers in intended IFU identified for this object",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "bundle_size": {
+            "name": "bundle_size",
+            "description": "obsolete; used for number of fibers in bundle for MaNGA prototype cartridge, December 2012",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "fiber_size": {
+            "name": "fiber_size",
+            "description": "obsolete; used for fiber size (in arcsec) for MaNGA prototype cartridge, December 2012",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "tmass_j": {
+            "name": "tmass_j",
+            "description": "2MASS Point Source Catalog J-band magnitude; Vega-relative; not Galactic extinction corrected; if available",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "tmass_h": {
+            "name": "tmass_h",
+            "description": "2MASS Point Source Catalog H-band magnitude; Vega-relative; not Galactic extinction corrected, if available",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "tmass_k": {
+            "name": "tmass_k",
+            "description": "2MASS Point Source Catalog K-band magnitude; Vega-relative; not Galactic extinction corrected, if available",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "gsc_vmag": {
+            "name": "gsc_vmag",
+            "description": "V mag from GSC if available",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "tyc_bmag": {
+            "name": "tyc_bmag",
+            "description": "B mag from Tycho2 if available",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "tyc_vmag": {
+            "name": "tyc_vmag",
+            "description": "V mag from Tycho2 if available",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "mfd_mag_u": {
+            "name": "mfd_mag_u",
+            "description": "MARVELS magnitudes for stars in the PRE_SELECTION plates; VT, BT, V, J, H, K",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "mfd_mag_g": {
+            "name": "mfd_mag_g",
+            "description": "MARVELS magnitudes for stars in the PRE_SELECTION plates; VT, BT, V, J, H, K",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "mfd_mag_r": {
+            "name": "mfd_mag_r",
+            "description": "MARVELS magnitudes for stars in the PRE_SELECTION plates; VT, BT, V, J, H, K",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "mfd_mag_i": {
+            "name": "mfd_mag_i",
+            "description": "MARVELS magnitudes for stars in the PRE_SELECTION plates; VT, BT, V, J, H, K",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "mfd_mag_z": {
+            "name": "mfd_mag_z",
+            "description": "MARVELS magnitudes for stars in the PRE_SELECTION plates; VT, BT, V, J, H, K",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "usnob_mag_u": {
+            "name": "usnob_mag_u",
+            "description": "USNO-B magnitudes if available",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "usnob_mag_g": {
+            "name": "usnob_mag_g",
+            "description": "USNO-B magnitudes if available",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "usnob_mag_r": {
+            "name": "usnob_mag_r",
+            "description": "USNO-B magnitudes if available",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "usnob_mag_i": {
+            "name": "usnob_mag_i",
+            "description": "USNO-B magnitudes if available",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "usnob_mag_z": {
+            "name": "usnob_mag_z",
+            "description": "USNO-B magnitudes if available",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "source_id": {
+            "name": "source_id",
+            "description": "Gaia source_id, if available",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "phot_g_mean_mag": {
+            "name": "phot_g_mean_mag",
+            "description": "Gaia G mag if available",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "sp_param_source": {
+            "name": "sp_param_source",
+            "description": "source for stellar parameters for MARVELS stars",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "marvels_target1": {
+            "name": "marvels_target1",
+            "description": "bitmask for MARVELS targeting flags (see the MARVELS target flag descriptions.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "marvels_target2": {
+            "name": "marvels_target2",
+            "description": "bitmask for MARVELS targeting flags (see the MARVELS target flag descriptions.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "boss_target1": {
+            "name": "boss_target1",
+            "description": "bitmask for BOSS targeting flags (see the BOSS target flag descriptions.",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "boss_target2": {
+            "name": "boss_target2",
+            "description": "Always set to zero (placeholder for BOSS target flags never used).",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "ancillary_target1": {
+            "name": "ancillary_target1",
+            "description": "bitmask for BOSS ancillary targeting flags (see the BOSS target flag descriptions.",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "ancillary_target2": {
+            "name": "ancillary_target2",
+            "description": "bitmask for BOSS ancillary targeting flags (see the BOSS target flag descriptions.",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "segue2_target1": {
+            "name": "segue2_target1",
+            "description": "bitmask for SEGUE-2 targeting flags (see the SEGUE-2 target flag descriptions.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "segue2_target2": {
+            "name": "segue2_target2",
+            "description": "bitmask for SEGUE-2 targeting flags (see the SEGUE-2 target flag descriptions.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "segueb_target1": {
+            "name": "segueb_target1",
+            "description": "bitmask for SEGUE-bright targeting flags (see the SEGUE-bright target flag descriptions.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "segueb_target2": {
+            "name": "segueb_target2",
+            "description": "bitmask for SEGUE-bright targeting flags (see the SEGUE-bright target flag descriptions.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "apogee_target1": {
+            "name": "apogee_target1",
+            "description": "bitmask for APOGEE targeting flags (see the APOGEE target flag descriptions.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "apogee_target2": {
+            "name": "apogee_target2",
+            "description": "bitmask for APOGEE targeting flags (see the APOGEE target flag descriptions.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "manga_target1": {
+            "name": "manga_target1",
+            "description": "bitmask for MaNGA targeting flags. Used for galaxy targets.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "manga_target2": {
+            "name": "manga_target2",
+            "description": "bitmask for MaNGA targeting flags. Used for stars and sky positions.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "manga_target3": {
+            "name": "manga_target3",
+            "description": "bitmask for MaNGA targeting flags. Used for ancillary targets.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "eboss_target0": {
+            "name": "eboss_target0",
+            "description": "bitmask for SEQUels targeting",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "eboss_target1": {
+            "name": "eboss_target1",
+            "description": "bitmask for eBOSS targeting",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "eboss_target2": {
+            "name": "eboss_target2",
+            "description": "bitmask for eBOSS targeting",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "eboss_target_id": {
+            "name": "eboss_target_id",
+            "description": "n/a ignore",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "thing_id_targeting": {
+            "name": "thing_id_targeting",
+            "description": "n/a ignore",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "objid_targeting": {
+            "name": "objid_targeting",
+            "description": "n/a ignore",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "apogee2_target1": {
+            "name": "apogee2_target1",
+            "description": "bitmask for APOGEE2 targeting flags (see the APOGEE2 target flag descriptions.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "apogee2_target2": {
+            "name": "apogee2_target2",
+            "description": "bitmask for APOGEE2 targeting flags (see the APOGEE2 target flag descriptions.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "apogee2_target3": {
+            "name": "apogee2_target3",
+            "description": "bitmask for APOGEE2 targeting flags (see the APOGEE2 target flag descriptions.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "run": {
+            "name": "run",
+            "description": "SDSS imaging run, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "rerun": {
+            "name": "rerun",
+            "description": "SDSS imaging rerun, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "camcol": {
+            "name": "camcol",
+            "description": "SDSS imaging camcol, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "field": {
+            "name": "field",
+            "description": "SDSS imaging field, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "id": {
+            "name": "id",
+            "description": "SDSS imaging id, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "psfflux_u": {
+            "name": "psfflux_u",
+            "description": "PSF flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "psfflux_g": {
+            "name": "psfflux_g",
+            "description": "PSF flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "psfflux_r": {
+            "name": "psfflux_r",
+            "description": "PSF flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "psfflux_i": {
+            "name": "psfflux_i",
+            "description": "PSF flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "psfflux_z": {
+            "name": "psfflux_z",
+            "description": "PSF flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "psfflux_ivar_u": {
+            "name": "psfflux_ivar_u",
+            "description": "inverse variance of PSF flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "psfflux_ivar_g": {
+            "name": "psfflux_ivar_g",
+            "description": "inverse variance of PSF flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "psfflux_ivar_r": {
+            "name": "psfflux_ivar_r",
+            "description": "inverse variance of PSF flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "psfflux_ivar_i": {
+            "name": "psfflux_ivar_i",
+            "description": "inverse variance of PSF flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "psfflux_ivar_z": {
+            "name": "psfflux_ivar_z",
+            "description": "inverse variance of PSF flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiberflux_u": {
+            "name": "fiberflux_u",
+            "description": "3 arcsec fiber flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiberflux_g": {
+            "name": "fiberflux_g",
+            "description": "3 arcsec fiber flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiberflux_r": {
+            "name": "fiberflux_r",
+            "description": "3 arcsec fiber flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiberflux_i": {
+            "name": "fiberflux_i",
+            "description": "3 arcsec fiber flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiberflux_z": {
+            "name": "fiberflux_z",
+            "description": "3 arcsec fiber flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiberflux_ivar_u": {
+            "name": "fiberflux_ivar_u",
+            "description": "inverse variance of 3 arcsec fiber flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiberflux_ivar_g": {
+            "name": "fiberflux_ivar_g",
+            "description": "inverse variance of 3 arcsec fiber flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiberflux_ivar_r": {
+            "name": "fiberflux_ivar_r",
+            "description": "inverse variance of 3 arcsec fiber flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiberflux_ivar_i": {
+            "name": "fiberflux_ivar_i",
+            "description": "inverse variance of 3 arcsec fiber flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiberflux_ivar_z": {
+            "name": "fiberflux_ivar_z",
+            "description": "inverse variance of 3 arcsec fiber flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiber2flux_u": {
+            "name": "fiber2flux_u",
+            "description": "2 arcsec fiber flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiber2flux_g": {
+            "name": "fiber2flux_g",
+            "description": "2 arcsec fiber flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiber2flux_r": {
+            "name": "fiber2flux_r",
+            "description": "2 arcsec fiber flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiber2flux_i": {
+            "name": "fiber2flux_i",
+            "description": "2 arcsec fiber flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiber2flux_z": {
+            "name": "fiber2flux_z",
+            "description": "2 arcsec fiber flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiber2flux_ivar_u": {
+            "name": "fiber2flux_ivar_u",
+            "description": "inverse variance of 2 arcsec fiber flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiber2flux_ivar_g": {
+            "name": "fiber2flux_ivar_g",
+            "description": "inverse variance of 2 arcsec fiber flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiber2flux_ivar_r": {
+            "name": "fiber2flux_ivar_r",
+            "description": "inverse variance of 2 arcsec fiber flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiber2flux_ivar_i": {
+            "name": "fiber2flux_ivar_i",
+            "description": "inverse variance of 2 arcsec fiber flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiber2flux_ivar_z": {
+            "name": "fiber2flux_ivar_z",
+            "description": "inverse variance of 2 arcsec fiber flux in nanomaggies, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "psfmag_u": {
+            "name": "psfmag_u",
+            "description": "PSF magnitude, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "psfmag_g": {
+            "name": "psfmag_g",
+            "description": "PSF magnitude, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "psfmag_r": {
+            "name": "psfmag_r",
+            "description": "PSF magnitude, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "psfmag_i": {
+            "name": "psfmag_i",
+            "description": "PSF magnitude, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "psfmag_z": {
+            "name": "psfmag_z",
+            "description": "PSF magnitude, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fibermag_u": {
+            "name": "fibermag_u",
+            "description": "3 arcsec fiber magnitude, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fibermag_g": {
+            "name": "fibermag_g",
+            "description": "3 arcsec fiber magnitude, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fibermag_r": {
+            "name": "fibermag_r",
+            "description": "3 arcsec fiber magnitude, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fibermag_i": {
+            "name": "fibermag_i",
+            "description": "3 arcsec fiber magnitude, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fibermag_z": {
+            "name": "fibermag_z",
+            "description": "3 arcsec fiber magnitude, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiber2mag_u": {
+            "name": "fiber2mag_u",
+            "description": "2 arcsec fiber magnitude, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiber2mag_g": {
+            "name": "fiber2mag_g",
+            "description": "2 arcsec fiber magnitude, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiber2mag_r": {
+            "name": "fiber2mag_r",
+            "description": "2 arcsec fiber magnitude, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiber2mag_i": {
+            "name": "fiber2mag_i",
+            "description": "2 arcsec fiber magnitude, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "fiber2mag_z": {
+            "name": "fiber2mag_z",
+            "description": "2 arcsec fiber magnitude, for SDSS imaging based targets",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "mag_u": {
+            "name": "mag_u",
+            "description": "magnitude to use for the SOS software as the best known fiber magnitude for the object",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "mag_g": {
+            "name": "mag_g",
+            "description": "magnitude to use for the SOS software as the best known fiber magnitude for the object",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "mag_r": {
+            "name": "mag_r",
+            "description": "magnitude to use for the SOS software as the best known fiber magnitude for the object",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "mag_i": {
+            "name": "mag_i",
+            "description": "magnitude to use for the SOS software as the best known fiber magnitude for the object",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "mag_z": {
+            "name": "mag_z",
+            "description": "magnitude to use for the SOS software as the best known fiber magnitude for the object",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "epoch": {
+            "name": "epoch",
+            "description": "epoch for which RA and DEC are most appropriate in years AD (default 2011)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "pmra": {
+            "name": "pmra",
+            "description": "proper motion in RA direction in milliarcsec/yr",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "pmdec": {
+            "name": "pmdec",
+            "description": "proper motion in Dec direction in milliarcsec/yr",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "targetids": {
+            "name": "targetids",
+            "description": "free-form, white-space separated list of identifiers",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "ifuid": {
+            "name": "ifuid",
+            "description": "n/a ignore",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "catalogid": {
+            "name": "catalogid",
+            "description": "SDSS-V catalogid associated with this target",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "gaia_bp": {
+            "name": "gaia_bp",
+            "description": "Gaia BP magnitude (Vega), if available",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "gaia_rp": {
+            "name": "gaia_rp",
+            "description": "Gaia RP magnitude (Vega), if available",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "gaia_g": {
+            "name": "gaia_g",
+            "description": "Gaia G magnitude (Vega), if available",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "tmass_id": {
+            "name": "tmass_id",
+            "description": "2MASS identification, if available",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "sdssv_apogee_target0": {
+            "name": "sdssv_apogee_target0",
+            "description": "bitmask for SDSS-V plate-era APOGEE targeting",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "sdssv_boss_target0": {
+            "name": "sdssv_boss_target0",
+            "description": "bitmask for SDSS-V plate-era BOSS targeting",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "gri_gaia_transform": {
+            "name": "gri_gaia_transform",
+            "description": "n/a ignore",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "firstcarton": {
+            "name": "firstcarton",
+            "description": "name of the SDSS-V carton which was the primary reason this target was assigned a fiber",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "xfocal": {
+            "name": "xfocal",
+            "description": "final X position in the focal plane of the hole, in mm; for position angle of zero (which we always use), +X is +RA",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "yfocal": {
+            "name": "yfocal",
+            "description": "final Y position in the focal plane of the hole, in mm; for position angle of zero (which we always use), +Y is +Dec",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "yanny_uid": {
+            "name": "yanny_uid",
+            "description": "internal integer identifier for the platelist file from which this inforation was extracted",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "yanny_filename": {
+            "name": "yanny_filename",
+            "description": "filename from which this information was extracted",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "pkey": {
+            "name": "pkey",
+            "description": "primary key for this table entry",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

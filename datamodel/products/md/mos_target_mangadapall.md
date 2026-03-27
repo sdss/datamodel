@@ -16,10 +16,10 @@ MOS Target table: mos_target_mangadapall
 Final summary file of the MaNGA Data Analysis Pipeline (DAP).
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_mangadapall.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_mangadapall.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,7 +71,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_mangadapall
+MOS Target Table: mangadapall
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  136 MB
@@ -169,7 +172,7 @@ Name | Type | Unit | Description |
  | stellar_vel_lo_clip | float32 | km/s | Stellar velocity at 2.5% growth after iteratively clipping 3-sigma outliers. |
  | stellar_vel_hi_clip | float32 | km/s | Stellar velocity at 97.5% growth after iteratively clipping 3-sigma outliers. |
  | stellar_sigma_1re | float32 | km/s | Flux-weighted mean stellar velocity dispersion of all spaxels within 1 R_{e}. |
- | stellar_rchi2_1re | float32 |  | Median reduced chi^{2} of the stellar-continuum fit within 1 R_{e}. |
+ | stellar_rchi2_1re | float32 |  | Median reduced chi^{2} of the stellar-continuum fit within 1 R_{e}. [ |
  | ha_z | float32 |  | Flux-weighted mean redshift of the Ha line within a 2.5 arcsec aperture at the galaxy center. |
  | ha_gvel_lo | float32 | km/s | Gaussian-fitted velocity of the H-alpha line at 2.5% growth of all valid spaxels. |
  | ha_gvel_hi | float32 | km/s | Gaussian-fitted velocity of the H-alpha line at 97.5% growth of all valid spaxels. |
@@ -899,8 +902,8 @@ Name | Type | Unit | Description |
  | specindex_1re_d4000 | float32 |  | Median spectral index within 1 effective radius. Measurements specifically for D4000. |
  | specindex_1re_dn4000 | float32 |  | Median spectral index within 1 effective radius. Measurements specifically for Dn4000. |
  | specindex_1re_tiocvd | float32 |  | Median spectral index within 1 effective radius. Measurements specifically for TiOCvD. |
- | sfr_1re | float32 | 2012, ARAA, 50, 531], citing Murphy et al. [2011, ApJ, 737, 67] and Hao et al. [2011, ApJ, 741, 124]; Kroupa IMF), where L_{Ha} = 4-Ç EML_FLUX_1RE (LDIST_Z)^{2} and ''no'' attentuation correction has been applied. [h^{-2} M_{sun}/yr | Simple estimate of the star-formation rate within 1 effective radius based on the Gaussian-fitted Ha flux; log(SFR) = log L_{Ha} - 41.27 (Kennicutt &amp; Evans |
- | sfr_tot | float32 | 2012, ARAA, 50, 531], citing Murphy et al. [2011, ApJ, 737, 67] and Hao et al. [2011, ApJ, 741, 124]; Kroupa IMF), where L_{Ha} = 4-Ç EML_FLUX_TOT (LDIST_Z)^{2} and ''no'' attentuation correction has been applied. [h^{-2} M_{sun}/yr | Simple estimate of the star-formation rate within the IFU field-of-view based on the Gaussian-fitted Ha flux; log(SFR) = log L_{Ha} - 41.27 (Kennicutt &amp; Evans |
+ | sfr_1re | float32 | h^{-2} M_{sun}/yr | Simple estimate of the star-formation rate within 1 effective radius based on the Gaussian-fitted Ha flux; log(SFR) = log L_{Ha} - 41.27 (Kennicutt &amp; Evans [2012, ARAA, 50, 531], citing Murphy et al. [2011, ApJ, 737, 67] and Hao et al. [2011, ApJ, 741, 124]; Kroupa IMF), where L_{Ha} = 4-Ç EML_FLUX_1RE (LDIST_Z)^{2} and ''no'' attentuation correction has been applied. |
+ | sfr_tot | float32 | h^{-2} M_{sun}/yr | Simple estimate of the star-formation rate within the IFU field-of-view based on the Gaussian-fitted Ha flux; log(SFR) = log L_{Ha} - 41.27 (Kennicutt &amp; Evans [2012, ARAA, 50, 531], citing Murphy et al. [2011, ApJ, 737, 67] and Hao et al. [2011, ApJ, 741, 124]; Kroupa IMF), where L_{Ha} = 4-Ç EML_FLUX_TOT (LDIST_Z)^{2} and ''no'' attentuation correction has been applied. |
  | htmid | int64 |  | 20-level deep Hierarchical Triangular Mesh ID |
  | pk | int64 |  | Primary key, a sequential unique identifier |
 

@@ -16,10 +16,10 @@ MOS Target table: mos_target_sdssv_boss_conflist
 The dr19_sdssv_boss_conflist table is a database representation of an early version of the SDSS-V BOSS fieldlist data product.  The dr19_sdssv_boss_conflist table was used within early iterations of FPS target_selection as a way to communicate information about which SDSS-V plates had been observed by the time of target selection. This information was used to e.g. de-prioritise targets that were expected to have a good quality spectroscopic measurement before the start of SDSS-V FPS operations.  Caution. The dr19_sdssv_boss_conflist table should only be used in order to recreate the target_selection selection function.  Column descriptions are mainly derived from: https://data.sdss.org/datamodel/files/BOSS_SPECTRO_REDUX/RUN2D/platelist.html
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_sdssv_boss_conflist.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdssv_boss_conflist.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,7 +71,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_sdssv_boss_conflist
+MOS Target Table: sdssv_boss_conflist
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  202 KB

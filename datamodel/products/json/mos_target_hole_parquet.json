@@ -1,0 +1,110 @@
+{
+  "general": {
+    "name": "mos_target_hole_parquet",
+    "short": "MOS Target Table: hole",
+    "description": "The holes in which the positioners sit for the FPS at each observatory.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "6 KB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_hole.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_hole.[FTYPE]",
+      "example": "2.0.0/parquet/mos_hole.parquet",
+      "location": "{v_targ}/{ftype}/mos_hole.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_hole",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_hole.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_hole = $MOS_TARGET/{v_targ}/{ftype}/mos_hole.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "pk": {
+            "name": "pk",
+            "description": "The primary key. A sequential identifier.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "row_num": {
+            "name": "row_num",
+            "description": "The row of the hole in which the positioner is sitting.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "column_num": {
+            "name": "column_num",
+            "description": "The column of the hole in which the positioner is sitting.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "holeid": {
+            "name": "holeid",
+            "description": "The identifier for the hole in which the positioner is sitting.",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "observatory_pk": {
+            "name": "observatory_pk",
+            "description": "The primary key of the observatory in the dr20_observatory table.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

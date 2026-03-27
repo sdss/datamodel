@@ -16,10 +16,10 @@ MOS Target table: mos_target_assignment
 This table stores the assignment of a given target in a carton to a fiber of a given instrument. A collection of assignments are included within a design, which is one configuartion of the robots for an exposure.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_assignment.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_assignment-[NUM].[FTYPE] with FTYPE='fits', V_TARG='2.0.0', and NUM=1..155 for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,7 +71,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_assignment
+MOS Target Table: assignment
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  45 MB
@@ -94,10 +97,10 @@ Key | Value | Comment | |
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | pk | int32 |  | The primary key. A sequential identifier. |
- | carton_to_target_pk | int64 |  | The primary key of the carton_to_target in the dr19_carton_to_target table. |
- | hole_pk | int32 |  | The primary key of the hole in the dr19_hole table. |
- | instrument_pk | int32 |  | The primary key of the instrument in the dr19_instrument table. |
- | design_id | int32 |  | The primary key of the design in the dr19_design table. |
+ | carton_to_target_pk | int64 |  | The primary key of the carton_to_target in the dr20_carton_to_target table. |
+ | hole_pk | int32 |  | The primary key of the hole in the dr20_hole table. |
+ | instrument_pk | int32 |  | The primary key of the instrument in the dr20_instrument table. |
+ | design_id | int32 |  | The primary key of the design in the dr20_design table. |
 
 
 

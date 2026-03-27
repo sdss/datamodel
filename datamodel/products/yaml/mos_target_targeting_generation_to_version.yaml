@@ -15,14 +15,15 @@ general:
   filesize: 8 KB
   releases:
   - DR19
+  - DR20
   environments:
   - MOS_TARGET
   surveys:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_targeting_generation_to_version.fits,
-    where V_TARG=1.0.2 for DR19
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_targeting_generation_to_version.[FTYPE]
+    with FTYPE='fits' and V_TARG='2.0.0' for DR20.
   generated_by: sdss5db> targetdb, operations database server
   data_level: 2.3.3
   design: false
@@ -31,7 +32,10 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR20:
+      from: DR19
+      note: No changes
 releases:
   DR19:
     template: $MOS_TARGET/[V_TARG]/mos_targeting_generation_to_version.fits
@@ -116,6 +120,96 @@ releases:
             type: int32
             unit: ''
             description: primary key of an entry in the dr19_targetdb_version table,
+              which lists the robostrategy run version ('plan' and 'tag')
+          pk:
+            name: pk
+            type: int32
+            unit: ''
+            description: primary key for this table entry
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_targeting_generation_to_version.[FTYPE]
+    example: 2.0.0/fits/mos_targeting_generation_to_version.fits
+    location: '{v_targ}/{ftype}/mos_targeting_generation_to_version.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_targeting_generation_to_version
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_targeting_generation_to_version.{ftype}
+      path_kwargs:
+      - ftype
+      - v_targ
+      access_string: mos_target_targeting_generation_to_version = $MOS_TARGET/{v_targ}/{ftype}/mos_targeting_generation_to_version.{ftype}
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: targeting_generation_to_version'
+        is_image: false
+        size: 156 bytes
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 12
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 13
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 3
+          comment: number of table fields
+        - key: TNULL1
+          value: -2147483648
+          comment: ''
+        - key: TNULL2
+          value: -2147483648
+          comment: ''
+        - key: TNULL3
+          value: -2147483648
+          comment: ''
+        columns:
+          generation_pk:
+            name: generation_pk
+            type: int32
+            unit: ''
+            description: primary key of an entry in the dr20_targeting_generation
+              table
+          version_pk:
+            name: version_pk
+            type: int32
+            unit: ''
+            description: primary key of an entry in the dr20_targetdb_version table,
               which lists the robostrategy run version ('plan' and 'tag')
           pk:
             name: pk

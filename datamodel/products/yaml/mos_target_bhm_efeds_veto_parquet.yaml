@@ -1,0 +1,247 @@
+general:
+  name: mos_target_bhm_efeds_veto_parquet
+  short: 'MOS Target Table: bhm_efeds_veto'
+  description: 'The BHM-SPIDERS eFEDS veto catalogue.
+
+
+    A minimalist catalogue of 6300 science targets in the SPIDERS eFEDS field that
+    received SDSS-IV spectroscopy during the March2020 SPIDERS observing run (and
+    hence are not in SDSS-SpecObj-DR16). Many of these spectra have very low SNR and
+    so we will want to observe them again, but we will take account of this in the
+    Carton code. This is a subset (in both rows and columns) of the spAll-v5_13_1.fits
+    idlspec2d pipeline product. The original data model for that file is here: <a
+    href="https://data.sdss.org/datamodel/files/BOSS_SPECTRO_REDUX/RUN2D/spAll.html">https://data.sdss.org/datamodel/files/BOSS_SPECTRO_REDUX/RUN2D/spAll.html</a>'
+  datatype: PARQUET
+  filesize: 445 KB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_bhm_efeds_veto.[FTYPE] with
+    FTYPE='parquet' and V_TARG='2.0.0' for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_bhm_efeds_veto.[FTYPE]
+    example: 2.0.0/parquet/mos_bhm_efeds_veto.parquet
+    location: '{v_targ}/{ftype}/mos_bhm_efeds_veto.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_bhm_efeds_veto
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_bhm_efeds_veto.{ftype}
+      path_kwargs:
+      - ftype
+      - v_targ
+      access_string: mos_target_bhm_efeds_veto = $MOS_TARGET/{v_targ}/{ftype}/mos_bhm_efeds_veto.{ftype}
+    survey: SDSS
+    dataframe:
+      columns:
+        programname:
+          name: programname
+          dtype: String
+          unit: ''
+          description: program name within a given survey
+        chunk:
+          name: chunk
+          dtype: String
+          unit: ''
+          description: Name of tiling chunk
+        platesn2:
+          name: platesn2
+          dtype: Float32
+          unit: ''
+          description: Overall (S/N)^2 measure for plate; minimum of all 4 cameras
+        plate:
+          name: plate
+          dtype: Int32
+          unit: ''
+          description: Plate ID
+        tile:
+          name: tile
+          dtype: Int32
+          unit: ''
+          description: Tile ID
+        mjd:
+          name: mjd
+          dtype: Int32
+          unit: days
+          description: MJD of (last) observation
+        fiberid:
+          name: fiberid
+          dtype: Int32
+          unit: ''
+          description: Fiber ID (1-1000)
+        run2d:
+          name: run2d
+          dtype: String
+          unit: ''
+          description: idlspec 2D reduction version
+        run1d:
+          name: run1d
+          dtype: String
+          unit: ''
+          description: idlspec 1D reduction version
+        plug_ra:
+          name: plug_ra
+          dtype: Float64
+          unit: deg
+          description: Object RA (drilled fiber position at expected epoch of observation)
+        plug_dec:
+          name: plug_dec
+          dtype: Float64
+          unit: deg
+          description: Object Dec (drilled fiber position at expected epoch of observation)
+        z_err:
+          name: z_err
+          dtype: Float32
+          unit: ''
+          description: Redshift error based upon fit to chi^2 minimum; negative for
+            invalid fit
+        rchi2:
+          name: rchi2
+          dtype: Float32
+          unit: ''
+          description: Reduced chi^2 for best fit
+        dof:
+          name: dof
+          dtype: Int32
+          unit: ''
+          description: Degrees of freedom for best fit
+        rchi2diff:
+          name: rchi2diff
+          dtype: Float32
+          unit: ''
+          description: Difference in reduced chi^2 of best solution to 2nd best solution
+        wavemin:
+          name: wavemin
+          dtype: Float32
+          unit: Angstroms
+          description: Minimum observed (vacuum) wavelength for this object
+        wavemax:
+          name: wavemax
+          dtype: Float32
+          unit: Angstroms
+          description: Maximum observed (vacuum) wavelength for this object
+        wcoverage:
+          name: wcoverage
+          dtype: Float32
+          unit: ''
+          description: Amount of wavelength coverage in log-10(Angstroms)
+        zwarning:
+          name: zwarning
+          dtype: Int32
+          unit: ''
+          description: A flag bitmask set for bad data or redshift fits
+        sn_median_u:
+          name: sn_median_u
+          dtype: Float32
+          unit: ''
+          description: Median S/N for all good pixels in u filter
+        sn_median_g:
+          name: sn_median_g
+          dtype: Float32
+          unit: ''
+          description: Median S/N for all good pixels in g filter
+        sn_median_r:
+          name: sn_median_r
+          dtype: Float32
+          unit: ''
+          description: Median S/N for all good pixels in r filter
+        sn_median_i:
+          name: sn_median_i
+          dtype: Float32
+          unit: ''
+          description: Median S/N for all good pixels in i filter
+        sn_median_z:
+          name: sn_median_z
+          dtype: Float32
+          unit: ''
+          description: Median S/N for all good pixels in z filter
+        sn_median_all:
+          name: sn_median_all
+          dtype: Float32
+          unit: ''
+          description: Median S/N for all good pixels in all filters
+        spectroflux_u:
+          name: spectroflux_u
+          dtype: Float32
+          unit: nanomaggies
+          description: Spectroflux in u filter
+        spectroflux_g:
+          name: spectroflux_g
+          dtype: Float32
+          unit: nanomaggies
+          description: Spectroflux in g filter
+        spectroflux_r:
+          name: spectroflux_r
+          dtype: Float32
+          unit: nanomaggies
+          description: Spectroflux in r filter
+        spectroflux_i:
+          name: spectroflux_i
+          dtype: Float32
+          unit: nanomaggies
+          description: Spectroflux in i filter
+        spectroflux_z:
+          name: spectroflux_z
+          dtype: Float32
+          unit: nanomaggies
+          description: Spectroflux in z filter
+        spectroflux_ivar_u:
+          name: spectroflux_ivar_u
+          dtype: Float32
+          unit: nanomaggies^-2
+          description: Inverse variance of spectroflux in u filter
+        spectroflux_ivar_g:
+          name: spectroflux_ivar_g
+          dtype: Float32
+          unit: nanomaggies^-2
+          description: Inverse variance of spectroflux in g filter
+        spectroflux_ivar_r:
+          name: spectroflux_ivar_r
+          dtype: Float32
+          unit: nanomaggies^-2
+          description: Inverse variance of spectroflux in r filter
+        spectroflux_ivar_i:
+          name: spectroflux_ivar_i
+          dtype: Float32
+          unit: nanomaggies^-2
+          description: Inverse variance of spectroflux in i filter
+        spectroflux_ivar_z:
+          name: spectroflux_ivar_z
+          dtype: Float32
+          unit: nanomaggies^-2
+          description: Inverse variance of spectroflux in z filter
+        anyandmask:
+          name: anyandmask
+          dtype: Int32
+          unit: ''
+          description: Mask bits which are set if any pixels for an object's ANDMASK
+            have that bit set
+        anyormask:
+          name: anyormask
+          dtype: Int32
+          unit: ''
+          description: Mask bits which are set if any pixels for an object's ORMASK
+            have that bit set
+        pk:
+          name: pk
+          dtype: Int64
+          unit: ''
+          description: primary key in the database table
+      metadata: {}
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

@@ -16,10 +16,10 @@ MOS Target Table: bhm_efeds_veto
 The BHM-SPIDERS eFEDS veto catalogue.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_bhm_efeds_veto-[NUM].fits, where V_TARG=1.0.1 for DR18; and NUM = 1..1 to partition the file into parts
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_bhm_efeds_veto.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR18, DR19
+DR18, DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
  - DR19
    - from: DR18
    - note: No changes
@@ -74,7 +77,7 @@ Key | Value | Comment | |
 MOS Target Table: bhm_efeds_veto
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  418 KB
+#### HDU Size:  1 MB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -82,20 +85,20 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 114 | length of dimension 1 |
-| NAXIS2 | 3756 | length of dimension 2 |
+| NAXIS1 | 174 | length of dimension 1 |
+| NAXIS2 | 6300 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 23 | number of table fields |
+| TFIELDS | 38 | number of table fields |
 | TNULL4 | -2147483648 |  |
 | TNULL5 | -2147483648 |  |
 | TNULL6 | -2147483648 |  |
 | TNULL7 | -2147483648 |  |
 | TNULL14 | -2147483648 |  |
 | TNULL19 | -2147483648 |  |
-| TNULL21 | -2147483648 |  |
-| TNULL22 | -2147483648 |  |
-| TNULL23 | -9223372036854775808 |  |
+| TNULL36 | -2147483648 |  |
+| TNULL37 | -2147483648 |  |
+| TNULL38 | -9223372036854775808 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
@@ -119,7 +122,22 @@ Name | Type | Unit | Description |
  | wavemax | float32 | Angstroms | Maximum observed (vacuum) wavelength for this object |
  | wcoverage | float32 |  | Amount of wavelength coverage in log-10(Angstroms) |
  | zwarning | int32 |  | A flag bitmask set for bad data or redshift fits |
+ | sn_median_u | float32 |  | Median S/N for all good pixels in u filter |
+ | sn_median_g | float32 |  | Median S/N for all good pixels in g filter |
+ | sn_median_r | float32 |  | Median S/N for all good pixels in r filter |
+ | sn_median_i | float32 |  | Median S/N for all good pixels in i filter |
+ | sn_median_z | float32 |  | Median S/N for all good pixels in z filter |
  | sn_median_all | float32 |  | Median S/N for all good pixels in all filters |
+ | spectroflux_u | float32 | nanomaggies | Spectroflux in u filter |
+ | spectroflux_g | float32 | nanomaggies | Spectroflux in g filter |
+ | spectroflux_r | float32 | nanomaggies | Spectroflux in r filter |
+ | spectroflux_i | float32 | nanomaggies | Spectroflux in i filter |
+ | spectroflux_z | float32 | nanomaggies | Spectroflux in z filter |
+ | spectroflux_ivar_u | float32 | nanomaggies^-2 | Inverse variance of spectroflux in u filter |
+ | spectroflux_ivar_g | float32 | nanomaggies^-2 | Inverse variance of spectroflux in g filter |
+ | spectroflux_ivar_r | float32 | nanomaggies^-2 | Inverse variance of spectroflux in r filter |
+ | spectroflux_ivar_i | float32 | nanomaggies^-2 | Inverse variance of spectroflux in i filter |
+ | spectroflux_ivar_z | float32 | nanomaggies^-2 | Inverse variance of spectroflux in z filter |
  | anyandmask | int32 |  | Mask bits which are set if any pixels for an object's ANDMASK have that bit set |
  | anyormask | int32 |  | Mask bits which are set if any pixels for an object's ORMASK have that bit set |
  | pk | int64 |  | primary key in the database table |

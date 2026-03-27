@@ -1,0 +1,84 @@
+general:
+  name: mos_target_geometric_distances_gaia_dr2_parquet
+  short: 'MOS Target Table: geometric_distances_gaia_dr2'
+  description: 'Bayesian distances from Gaia DR2 parameters from Bailer-Jones et al.
+    2018.
+
+
+    For complete details, see the original paper: <a href="https://iopscience.iop.org/article/10.3847/1538-3881/aacb21/pdf">https://iopscience.iop.org/article/10.3847/1538-3881/aacb21/pdf</a>'
+  datatype: PARQUET
+  filesize: 1 GB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_geometric_distances_gaia_dr2.[FTYPE]
+    with FTYPE='parquet' and V_TARG='2.0.0' for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_geometric_distances_gaia_dr2.[FTYPE]
+    example: 2.0.0/parquet/mos_geometric_distances_gaia_dr2.parquet
+    location: '{v_targ}/{ftype}/mos_geometric_distances_gaia_dr2.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_geometric_distances_gaia_dr2
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_geometric_distances_gaia_dr2@mos_target_num2|.{ftype}
+      path_kwargs:
+      - ftype
+      - v_targ
+      access_string: mos_target_geometric_distances_gaia_dr2 = $MOS_TARGET/{v_targ}/{ftype}/mos_geometric_distances_gaia_dr2.{ftype}
+    survey: SDSS
+    dataframe:
+      columns:
+        source_id:
+          name: source_id
+          dtype: Int64
+          unit: ''
+          description: Unique Gaia DR2 source identifier
+        r_est:
+          name: r_est
+          dtype: Float32
+          unit: pc
+          description: Estimated distance
+        r_lo:
+          name: r_lo
+          dtype: Float32
+          unit: pc
+          description: Lower bound on the confidence interval of the estimated distance
+        r_hi:
+          name: r_hi
+          dtype: Float32
+          unit: pc
+          description: Upper bound on the confidence interval of the estimated distance
+        r_len:
+          name: r_len
+          dtype: Float32
+          unit: pc
+          description: Length scale used in the prior for the distance estimation
+        result_flag:
+          name: result_flag
+          dtype: String
+          unit: ''
+          description: Result flag
+        modality_flag:
+          name: modality_flag
+          dtype: Int16
+          unit: ''
+          description: Number of modes in the posterior
+      metadata: {}
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

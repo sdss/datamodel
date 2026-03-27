@@ -1,0 +1,314 @@
+{
+  "general": {
+    "name": "mos_target_sdss_dr19p_speclite_parquet",
+    "short": "MOS Target Table: sdss_dr19p_speclite",
+    "description": "[INCOMPLETE]: Tom to provide a summary and check the column descriptions.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "266 MB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdss_dr19p_speclite.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdss_dr19p_speclite.[FTYPE]",
+      "example": "2.0.0/parquet/mos_sdss_dr19p_speclite.parquet",
+      "location": "{v_targ}/{ftype}/mos_sdss_dr19p_speclite.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_sdss_dr19p_speclite",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_sdss_dr19p_speclite@mos_target_num|.{ftype}",
+        "path_kwargs": [
+          "num",
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_sdss_dr19p_speclite = $MOS_TARGET/{v_targ}/{ftype}/mos_sdss_dr19p_speclite.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "plate": {
+            "name": "plate",
+            "description": "Plate number (each plate corresponds to an actual plug plate)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "mjd": {
+            "name": "mjd",
+            "description": "Modified Julian Day of observation",
+            "unit": "day",
+            "dtype": "Int32",
+            "value": null
+          },
+          "fiberid": {
+            "name": "fiberid",
+            "description": "Fiber number",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "field": {
+            "name": "field",
+            "description": "Field identifier",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "catalogid": {
+            "name": "catalogid",
+            "description": "The associated ID in the dr20_catalog table",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "bestobjid": {
+            "name": "bestobjid",
+            "description": "Unique database ID of (recommended) position-based photometric match based on RUN, RERUN, CAMCOl, FIELD, ID (same as SkyServer version)",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "targetobjid": {
+            "name": "targetobjid",
+            "description": "Unique database ID of targeting object based on RUN, RERUN, CAMCOl, FIELD, ID (same as SkyServer version)",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "run2d": {
+            "name": "run2d",
+            "description": "Spectroscopic 2D reduction (extraction of spectra) name",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "run1d": {
+            "name": "run1d",
+            "description": "Spectroscopic 1D reduction (redshift and classification) name",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "firstrelease": {
+            "name": "firstrelease",
+            "description": "Name of first release this PLATE, MJD, FIBERID, RUN2D was associated with",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plug_ra": {
+            "name": "plug_ra",
+            "description": "Right ascension of hole (J2000)",
+            "unit": "degrees",
+            "dtype": "Float64",
+            "value": null
+          },
+          "plug_dec": {
+            "name": "plug_dec",
+            "description": "Declination of hole (J2000)",
+            "unit": "degrees",
+            "dtype": "Float64",
+            "value": null
+          },
+          "sourcetype": {
+            "name": "sourcetype",
+            "description": "String expressing type of source (similar to OBJTYPE in DR8 and earlier)",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "objtype": {
+            "name": "objtype",
+            "description": "Why this object was targeted. Note that if this field says QSO, it could be the case that this object would have been targetted as a GALAXY or any number of other categories as well. The PRIMTARGET and SECTARGET flags in the plug-map structure (in the spField file) gives this full information.",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "targettype": {
+            "name": "targettype",
+            "description": "General type of target (\"SCIENCE\", \"STANDARD\" or \"SKY\")",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "lambda_eff": {
+            "name": "lambda_eff",
+            "description": "Effective wavelength drilling position was optimized for",
+            "unit": "Angstroms",
+            "dtype": "Float32",
+            "value": null
+          },
+          "sn_median_all": {
+            "name": "sn_median_all",
+            "description": "Median signal-to-noise per pixel across full spectrum (aka SN_MEDIAN_ALL)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "sn_median_u": {
+            "name": "sn_median_u",
+            "description": "Median signal-to-noise per pixel within the u bandpass",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "sn_median_g": {
+            "name": "sn_median_g",
+            "description": "Median signal-to-noise per pixel within the g bandpass",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "sn_median_r": {
+            "name": "sn_median_r",
+            "description": "Median signal-to-noise per pixel within the r bandpass",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "sn_median_i": {
+            "name": "sn_median_i",
+            "description": "Median signal-to-noise per pixel within the i bandpass",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "sn_median_z": {
+            "name": "sn_median_z",
+            "description": "Median signal-to-noise per pixel within the z bandpass",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "platesn2": {
+            "name": "platesn2",
+            "description": "Overall signal-to-noise-squared measure for plate (only for SDSS spectrograph plates)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "platequality": {
+            "name": "platequality",
+            "description": "Characterization of plate quality.",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "z": {
+            "name": "z",
+            "description": "Best redshift",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "z_err": {
+            "name": "z_err",
+            "description": "Error in best redshift",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "zwarning": {
+            "name": "zwarning",
+            "description": "Bitmask of spectroscopic warning values; 0 means everything is OK",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "zwarning_noqso": {
+            "name": "zwarning_noqso",
+            "description": "Best redshift when ignoring QSO fits, recommended for BOSS CMASS and LOWZ targets; calculated only for survey='boss' spectra, not for any SDSS spectrograph data",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "class": {
+            "name": "class",
+            "description": "Best spectroscopic classification (\"STAR\", \"GALAXY\" or \"QSO\")",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "subclass": {
+            "name": "subclass",
+            "description": "Best spectroscopic subclassification",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "tfile": {
+            "name": "tfile",
+            "description": "File that best fit template comes from in idlspec1d product",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "specprimary": {
+            "name": "specprimary",
+            "description": "Objects observed multiple times will have this set to 1 for one observation only. This is usually the 'best' observation.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "nspecobs": {
+            "name": "nspecobs",
+            "description": "Number of spectral observations.",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "pk": {
+            "name": "pk",
+            "description": "A unique identifier for this table row.",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

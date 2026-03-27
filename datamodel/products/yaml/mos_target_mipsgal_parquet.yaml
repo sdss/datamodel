@@ -1,0 +1,364 @@
+general:
+  name: mos_target_mipsgal_parquet
+  short: 'MOS Target Table: mipsgal'
+  description: "This table contains target from a 24\xB5m catalog based point source\
+    \ catalog derived from the image data of the MIPSGAL 24\xB5m Galactic Plane Survey\
+    \ and the corresponding data products."
+  datatype: PARQUET
+  filesize: 136 MB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_mipsgal.[FTYPE] with FTYPE='parquet'
+    and V_TARG='2.0.0' for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_mipsgal.[FTYPE]
+    example: 2.0.0/parquet/mos_mipsgal.parquet
+    location: '{v_targ}/{ftype}/mos_mipsgal.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_mipsgal
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_mipsgal.{ftype}
+      path_kwargs:
+      - ftype
+      - v_targ
+      access_string: mos_target_mipsgal = $MOS_TARGET/{v_targ}/{ftype}/mos_mipsgal.{ftype}
+    survey: SDSS
+    dataframe:
+      columns:
+        mipsgal:
+          name: mipsgal
+          dtype: String
+          unit: ''
+          description: MIPSGAL name
+        glon:
+          name: glon
+          dtype: Float64
+          unit: deg
+          description: Galactic longitude
+        glat:
+          name: glat
+          dtype: Float64
+          unit: deg
+          description: Galactic latitude
+        radeg:
+          name: radeg
+          dtype: Float64
+          unit: deg
+          description: Right Ascension, in decimal degrees (J2000)
+        dedeg:
+          name: dedeg
+          dtype: Float64
+          unit: deg
+          description: Declination, in decimal degrees (J2000)
+        s24:
+          name: s24
+          dtype: Float64
+          unit: mJy
+          description: "24\xB5m flux density"
+        e_s24:
+          name: e_s24
+          dtype: Float64
+          unit: mJy
+          description: "1\u03C3 uncertainty in S24"
+        mag_24:
+          name: mag_24
+          dtype: Float64
+          unit: mag
+          description: "24\xB5m magnitude (Vega)"
+        e_mag_24:
+          name: e_mag_24
+          dtype: Float64
+          unit: mag
+          description: "1\u03C3 uncertainty in [24]"
+        twomass_name:
+          name: twomass_name
+          dtype: String
+          unit: ''
+          description: 2MASS name (HHMMSSss+DDMMSSs, Cat. II/246)
+        sj:
+          name: sj
+          dtype: Float64
+          unit: mJy
+          description: 2MASS J-band flux density
+        e_sj:
+          name: e_sj
+          dtype: Float64
+          unit: mJy
+          description: "1\u03C3 uncertainty in SJ"
+        sh:
+          name: sh
+          dtype: Float64
+          unit: mJy
+          description: 2MASS H-band flux density
+        e_sh:
+          name: e_sh
+          dtype: Float64
+          unit: mJy
+          description: "1\u03C3 uncertainty in SH"
+        sk:
+          name: sk
+          dtype: Float64
+          unit: mJy
+          description: 2MASS Ks-band flux density
+        e_sk:
+          name: e_sk
+          dtype: Float64
+          unit: mJy
+          description: "1\u03C3 uncertainty in SK"
+        glimpse:
+          name: glimpse
+          dtype: String
+          unit: ''
+          description: GLIMPSE name (GLLL.llll+BB.bbbb, Cat. II/293)
+        s3_6:
+          name: s3_6
+          dtype: Float64
+          unit: mJy
+          description: "Spitzer/IRAC 3.6\xB5m flux density"
+        e_s3_6:
+          name: e_s3_6
+          dtype: Float64
+          unit: mJy
+          description: "1\u03C3 uncertainty in S3.6"
+        s4_5:
+          name: s4_5
+          dtype: Float64
+          unit: mJy
+          description: "Spitzer/IRAC 4.5\xB5m flux density"
+        e_s4_5:
+          name: e_s4_5
+          dtype: Float64
+          unit: mJy
+          description: "1\u03C3 uncertainty in S4.5"
+        s5_8:
+          name: s5_8
+          dtype: Float64
+          unit: mJy
+          description: "Spitzer/IRAC 5.8\xB5m flux density"
+        e_s5_8:
+          name: e_s5_8
+          dtype: Float64
+          unit: mJy
+          description: "1\u03C3 uncertainty in S5.8"
+        s8_0:
+          name: s8_0
+          dtype: Float64
+          unit: mJy
+          description: "Spitzer/IRAC 8.0\xB5m flux density"
+        wise:
+          name: wise
+          dtype: String
+          unit: ''
+          description: WISE name (JHHMMSS.ss+DDMMSS.s, Cat. I/311)
+        s3_4:
+          name: s3_4
+          dtype: Float64
+          unit: mJy
+          description: "WISE/W1 (3.35\xB5m) flux density"
+        e_s3_4:
+          name: e_s3_4
+          dtype: Float64
+          unit: mJy
+          description: "1\u03C3 uncertainty in S3.4"
+        s4_6:
+          name: s4_6
+          dtype: Float64
+          unit: mJy
+          description: "WISE/W2 (4.6\xB5m) flux density"
+        e_s4_6:
+          name: e_s4_6
+          dtype: Float64
+          unit: mJy
+          description: "1\u03C3 uncertainty in S4.6"
+        s12:
+          name: s12
+          dtype: Float64
+          unit: mJy
+          description: "WISE/W3 (11.6\xB5m) flux density"
+        e_s12:
+          name: e_s12
+          dtype: Float64
+          unit: mJy
+          description: "1\u03C3 uncertainty in S12"
+        s22:
+          name: s22
+          dtype: Float64
+          unit: mJy
+          description: "WISE/W4 (22.1\xB5m) flux density"
+        e_s22:
+          name: e_s22
+          dtype: Float64
+          unit: mJy
+          description: "1\u03C3 uncertainty in S22"
+        jmag:
+          name: jmag
+          dtype: Float64
+          unit: mag
+          description: 2MASS J-band magnitude (Vega)
+        e_jmag:
+          name: e_jmag
+          dtype: Float64
+          unit: mag
+          description: "1\u03C3 uncertainty in Jmag (Vega)"
+        hmag:
+          name: hmag
+          dtype: Float64
+          unit: mag
+          description: 2MASS H band magnitude (Vega)
+        e_hmag:
+          name: e_hmag
+          dtype: Float64
+          unit: mag
+          description: "1\u03C3 uncertainty in Hmag (Vega)"
+        kmag:
+          name: kmag
+          dtype: Float64
+          unit: mag
+          description: 2MASS Ks band magnitude (Vega)
+        e_kmag:
+          name: e_kmag
+          dtype: Float64
+          unit: mag
+          description: "1\u03C3 uncertainty in Kmag (Vega)"
+        mag_3_6:
+          name: mag_3_6
+          dtype: Float64
+          unit: mag
+          description: "Spitzer/IRAC 3.6\xB5m magnitude (Vega)"
+        e_mag_3_6:
+          name: e_mag_3_6
+          dtype: Float64
+          unit: mag
+          description: "1\u03C3 uncertainty in [3.6]"
+        mag_4_5:
+          name: mag_4_5
+          dtype: Float64
+          unit: mag
+          description: "Spitzer/IRAC 4.5\xB5m magnitude (Vega)"
+        e_mag_4_5:
+          name: e_mag_4_5
+          dtype: Float64
+          unit: mag
+          description: "1\u03C3 uncertainty in [4.5]"
+        mag_5_8:
+          name: mag_5_8
+          dtype: Float64
+          unit: mag
+          description: "Spitzer/IRAC 5.8\xB5m magnitude (Vega)"
+        e_mag_5_8:
+          name: e_mag_5_8
+          dtype: Float64
+          unit: mag
+          description: "1\u03C3 uncertainty in [5.8]"
+        mag_8_0:
+          name: mag_8_0
+          dtype: Float64
+          unit: mag
+          description: "Spitzer/IRAC 8.0\xB5m magnitude (Vega)"
+        e_mag_8_0:
+          name: e_mag_8_0
+          dtype: Float64
+          unit: mag
+          description: "1\u03C3 uncertainty in [8.0]"
+        w1mag:
+          name: w1mag
+          dtype: Float64
+          unit: mag
+          description: WISE/W1 (3.35um) magnitude (Vega)
+        e_w1mag:
+          name: e_w1mag
+          dtype: Float64
+          unit: mag
+          description: "1\u03C3 uncertainty in W1mag (Vega)"
+        w2mag:
+          name: w2mag
+          dtype: Float64
+          unit: mag
+          description: "WISE/W2 (4.6\xB5m) magnitude (Vega)"
+        e_w2mag:
+          name: e_w2mag
+          dtype: Float64
+          unit: mag
+          description: "1\u03C3 uncertainty in W2mag (Vega)"
+        w3mag:
+          name: w3mag
+          dtype: Float64
+          unit: mag
+          description: WISE/W3 (11.6um) magnitude (Vega)
+        e_w3mag:
+          name: e_w3mag
+          dtype: Float64
+          unit: mag
+          description: "1\u03C3 uncertainty in W3mag (Vega)"
+        w4mag:
+          name: w4mag
+          dtype: Float64
+          unit: mag
+          description: WISE/W4 (22.1um) magnitude (Vega)
+        e_w4mag:
+          name: e_w4mag
+          dtype: Float64
+          unit: mag
+          description: "1\u03C3 uncertainty in W4mag (Vega)"
+        dnn:
+          name: dnn
+          dtype: Float64
+          unit: arcsec
+          description: Nearest neighbor distance
+        ng:
+          name: ng
+          dtype: Int32
+          unit: ''
+          description: Number of GLIMPSE sources within 6.35" aperture
+        n2m:
+          name: n2m
+          dtype: Int32
+          unit: ''
+          description: Number of 2MASS sources within 6.35" aperture
+        nw:
+          name: nw
+          dtype: Int32
+          unit: ''
+          description: Number of WISE sources within 6.35" aperture
+        fwhm:
+          name: fwhm
+          dtype: Float64
+          unit: arcsec
+          description: Empirically measured Full Width at Half Maximum of the MIPSGAL
+            source
+        sky:
+          name: sky
+          dtype: Float64
+          unit: MJy
+          description: Background flux density measured in the sky annulus
+        lim1:
+          name: lim1
+          dtype: Float64
+          unit: mJy
+          description: 90% differential completeness limit (in mJy)
+        lim2:
+          name: lim2
+          dtype: Float64
+          unit: mag
+          description: 90% differential completeness limit, VEGAMAG (magnitude at
+            which 90% of the sources are successfully recovered)
+      metadata: {}
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

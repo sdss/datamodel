@@ -16,10 +16,10 @@ MOS Target table: mos_target_sdss_id_to_catalog
 This table contains the best matched associations between SDSS identifiers (sdss_id, catalogid) and the unique identifiers in the parent catalogues used for SDSS cross-matches. The format of the parent catalogue columns is <table_name>__<column_name>, where <column_name> is the primary key/unique identifier column to which to join in the dr19_<table_name> table.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_sdss_id_to_catalog.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdss_id_to_catalog-[NUM].[FTYPE] with FTYPE='fits', V_TARG='2.0.0', and NUM=1..140 for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,10 +71,10 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_sdss_id_to_catalog
+MOS Target Table: sdss_id_to_catalog
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  764 MB
+#### HDU Size:  730 MB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -79,7 +82,7 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 401 | length of dimension 1 |
+| NAXIS1 | 383 | length of dimension 1 |
 | NAXIS2 | 2000000 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
@@ -112,7 +115,7 @@ Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | pk | int64 |  | The primary key. A sequential identifier for this table. |
  | sdss_id | int64 |  | The SDSS identifier for a unique object. |
- | catalogid | int64 |  | The associated catalogid for this target. An sdss_id may be associated with multiple catalogids (see dr19_sdss_id_flat). |
+ | catalogid | int64 |  | The associated catalogid for this target. An sdss_id may be associated with multiple catalogids (see dr20_sdss_id_flat). |
  | version_id | int32 |  | The version of the cross-match associated with the catalogid. |
  | lead | char[26] |  | The parent catalog, in the cross-match sequence, that first added this target. |
  | allstar_dr17_synspec_rev1__apstar_id | char[58] |  | The associated primary key (apstar_id) in the allstar_dr17_synspec_rev1 table. |
@@ -134,7 +137,7 @@ Name | Type | Unit | Description |
  | panstarrs1__catid_objid | int64 |  | The associated primary key (catid_objid) in the panstarrs1 table. |
  | ps1_g18__objid | int64 |  | The associated primary key (objid) in the ps1_g18 table. |
  | sdss_dr13_photoobj__objid | int64 |  | The associated primary key (objid) in the sdss_dr13_photoobj table. |
- | sdss_dr17_specobj__specobjid | char[22] |  | The associated primary key (specobjid) in the sdss_dr17_specobj table. |
+ | sdss_dr17_specobj__specobjid | float32 |  | The associated primary key (specobjid) in the sdss_dr17_specobj table. |
  | skymapper_dr1_1__object_id | int64 |  | The associated primary key (object_id) in the skymapper_dr1_1 table. |
  | skymapper_dr2__object_id | int64 |  | The associated primary key (object_id) in the skymapper_dr2 table. |
  | supercosmos__objid | int64 |  | The associated primary key (objid) in the supercosmos table. |

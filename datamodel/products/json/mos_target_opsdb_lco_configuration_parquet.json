@@ -1,0 +1,117 @@
+{
+  "general": {
+    "name": "mos_target_opsdb_lco_configuration_parquet",
+    "short": "MOS Target Table: opsdb_lco_configuration",
+    "description": "This table contains basic information about a configuration of robots loaded at the telescope. LCO version.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "112 KB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_opsdb_lco_configuration.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_opsdb_lco_configuration.[FTYPE]",
+      "example": "2.0.0/parquet/mos_opsdb_lco_configuration.parquet",
+      "location": "{v_targ}/{ftype}/mos_opsdb_lco_configuration.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_opsdb_lco_configuration",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_opsdb_lco_configuration.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_opsdb_lco_configuration = $MOS_TARGET/{v_targ}/{ftype}/mos_opsdb_lco_configuration.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "configuration_id": {
+            "name": "configuration_id",
+            "description": "Unique identifier",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "design_id": {
+            "name": "design_id",
+            "description": "Unique identifier of the design loaded",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "comment": {
+            "name": "comment",
+            "description": "An optional comment",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "temperature": {
+            "name": "temperature",
+            "description": "The ambient temperature when the design was loaded",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "epoch": {
+            "name": "epoch",
+            "description": "The Julian Date (JD) when the design was loaded",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "calibration_version": {
+            "name": "calibration_version",
+            "description": "The version of fps_calibration used, https://github.com/sdss/fps_calibrations/tags",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

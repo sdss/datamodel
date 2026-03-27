@@ -16,10 +16,10 @@ MOS Target table: mos_target_design_to_field
 Connects a design to a given field within a version of the survey. Sets the placement of the design in the overall exposure sequence for that field.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_design_to_field.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_design_to_field.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,10 +71,10 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_design_to_field
+MOS Target Table: design_to_field
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  5 MB
+#### HDU Size:  20 MB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -80,7 +83,7 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
 | NAXIS1 | 28 | length of dimension 1 |
-| NAXIS2 | 218694 | length of dimension 2 |
+| NAXIS2 | 781197 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 5 | number of table fields |
@@ -94,8 +97,8 @@ Key | Value | Comment | |
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | pk | int32 |  | The primary key. A sequential identifier. |
- | design_id | int32 |  | The primary key of the design in the dr19_design table. |
- | field_pk | int32 |  | The primary key of the field in the dr19_field table. |
+ | design_id | int32 |  | The primary key of the design in the dr20_design table. |
+ | field_pk | int32 |  | The primary key of the field in the dr20_field table. |
  | exposure | int64 |  | The 0-indexed exposure number in the lunation sequence for the field. |
  | field_exposure | int64 |  | The 0-indexed overall exposure number in the sequence for the field. |
 

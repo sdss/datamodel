@@ -1,0 +1,152 @@
+{
+  "general": {
+    "name": "mos_target_cadence_epoch_parquet",
+    "short": "MOS Target Table: cadence_epoch",
+    "description": "Constraints for a single epoch within a cadence.",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "222 KB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_cadence_epoch.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_cadence_epoch.[FTYPE]",
+      "example": "2.0.0/parquet/mos_cadence_epoch.parquet",
+      "location": "{v_targ}/{ftype}/mos_cadence_epoch.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_cadence_epoch",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_cadence_epoch.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_cadence_epoch = $MOS_TARGET/{v_targ}/{ftype}/mos_cadence_epoch.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "label": {
+            "name": "label",
+            "description": "Descriptive name for the cadence with a version",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "nepochs": {
+            "name": "nepochs",
+            "description": "Number of epochs in the cadence",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "cadence_pk": {
+            "name": "cadence_pk",
+            "description": "Primary key of the cadence this epoch belongs to",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          },
+          "epoch": {
+            "name": "epoch",
+            "description": "Which epoch is this in the cadence (0-indexed)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "delta": {
+            "name": "delta",
+            "description": "Nominal (goal) time since previous epoch",
+            "unit": "days",
+            "dtype": "Float64",
+            "value": null
+          },
+          "skybrightness": {
+            "name": "skybrightness",
+            "description": "Maximum allowed skybrightness, i.e. moon illumination (0.0 to 1.0)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "delta_max": {
+            "name": "delta_max",
+            "description": "Maximum allowed time since previous epoch",
+            "unit": "days",
+            "dtype": "Float32",
+            "value": null
+          },
+          "delta_min": {
+            "name": "delta_min",
+            "description": "Minimum allowed time since previous epoch",
+            "unit": "days",
+            "dtype": "Float32",
+            "value": null
+          },
+          "nexp": {
+            "name": "nexp",
+            "description": "Number of exposures in this epoch",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "max_length": {
+            "name": "max_length",
+            "description": "Maximum allowed length of epoch, i.e. time between first and last exposure",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "obsmode_pk": {
+            "name": "obsmode_pk",
+            "description": "Reference to the observing parameters (airmass, moon seperation, etc.)",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

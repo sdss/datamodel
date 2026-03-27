@@ -11,18 +11,22 @@
 # Modified By: Brian Cherinka
 
 
-from __future__ import print_function, division, absolute_import
+from __future__ import absolute_import, division, print_function
 
-import pytest
 import os
 import re
 
 import deepdiff
+import pytest
 from datamodel.generate import DataModel
-from datamodel.generate.filetypes import ParFile, FitsFile, HdfFile
+from datamodel.generate.filetypes import FitsFile, HdfFile, ParFile, ParquetFileType
 
-
-suffix_map = {'fits': FitsFile, 'par': ParFile, 'h5': HdfFile}
+suffix_map = {
+    "fits": FitsFile,
+    "par": ParFile,
+    "h5": HdfFile,
+    "parquet": ParquetFileType,
+}
 
 
 @pytest.fixture

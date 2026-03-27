@@ -1,0 +1,338 @@
+general:
+  name: mos_target_lamost_dr6
+  short: 'MOS Target Table: lamost_dr6'
+  description: 'Cross-match between the LAMOST DR6 low resolution spectral survey
+    and Gaia eDR3. For more details on the LAMOS LRS survey, refer to <a href="https://dr6.lamost.org/doc/lr-data-production-description">https://dr6.lamost.org/doc/lr-data-production-description</a>.
+
+
+    [INCOMPLETE] Missing column descriptions for what I think is the cross-match with
+    eDR3.'
+  datatype: FITS
+  filesize: 555 MB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_lamost_dr6-[NUM].[FTYPE] with
+    FTYPE='fits', V_TARG='2.0.0', and NUM=1..5 for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_lamost_dr6-[NUM].[FTYPE]
+    example: 2.0.0/fits/mos_lamost_dr6-01.fits
+    location: '{v_targ}/{ftype}/mos_lamost_dr6-{num}.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_lamost_dr6
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_lamost_dr6@mos_target_num2|.{ftype}
+      path_kwargs:
+      - ftype
+      - v_targ
+      access_string: mos_target_lamost_dr6 = $MOS_TARGET/{v_targ}/{ftype}/mos_lamost_dr6-{num}.{ftype}
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: lamost_dr6'
+        is_image: false
+        size: 555 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 291
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 2000000
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 43
+          comment: number of table fields
+        - key: TNULL1
+          value: -2147483648
+          comment: ''
+        - key: TNULL4
+          value: -2147483648
+          comment: ''
+        - key: TNULL5
+          value: -2147483648
+          comment: ''
+        - key: TNULL7
+          value: -32768
+          comment: ''
+        - key: TNULL8
+          value: -32768
+          comment: ''
+        - key: TNULL33
+          value: -32768
+          comment: ''
+        - key: TNULL37
+          value: -32768
+          comment: ''
+        - key: TNULL43
+          value: -9223372036854775808
+          comment: ''
+        columns:
+          obsid:
+            name: obsid
+            type: int32
+            unit: ''
+            description: Unique Spectra ID
+          designation:
+            name: designation
+            type: char[19]
+            unit: ''
+            description: Target Designation
+          obsdate:
+            name: obsdate
+            type: char[10]
+            unit: ''
+            description: Target Observation Date
+          lmjd:
+            name: lmjd
+            type: int32
+            unit: ''
+            description: Local Modified Julian Day
+          mjd:
+            name: mjd
+            type: int32
+            unit: ''
+            description: Modified Julian Day
+          planid:
+            name: planid
+            type: char[20]
+            unit: ''
+            description: Plan Name
+          spid:
+            name: spid
+            type: int16
+            unit: ''
+            description: Spectrograph ID
+          fiberid:
+            name: fiberid
+            type: int16
+            unit: ''
+            description: Fiber ID
+          ra_obs:
+            name: ra_obs
+            type: float64
+            unit: degrees
+            description: Fiber Pointing Right Ascension
+          dec_obs:
+            name: dec_obs
+            type: float64
+            unit: degrees
+            description: Fiber Pointing Declination
+          snru:
+            name: snru
+            type: float32
+            unit: ''
+            description: S/N of u filter
+          snrg:
+            name: snrg
+            type: float32
+            unit: ''
+            description: S/N of g filter
+          snrr:
+            name: snrr
+            type: float32
+            unit: ''
+            description: S/N of r filter
+          snri:
+            name: snri
+            type: float32
+            unit: ''
+            description: S/N of i filter
+          snrz:
+            name: snrz
+            type: float32
+            unit: ''
+            description: S/N of z filter
+          objtype:
+            name: objtype
+            type: char[10]
+            unit: ''
+            description: Object Type
+          class:
+            name: class
+            type: char[7]
+            unit: ''
+            description: Spectra Type
+          subclass:
+            name: subclass
+            type: char[10]
+            unit: ''
+            description: Stellar Sub-Class
+          z:
+            name: z
+            type: float32
+            unit: ''
+            description: Redshift
+          z_err:
+            name: z_err
+            type: float32
+            unit: ''
+            description: Redshift Uncertainty
+          magtype:
+            name: magtype
+            type: char[10]
+            unit: ''
+            description: Target Magnitude Type
+          mag1:
+            name: mag1
+            type: float32
+            unit: mag
+            description: Associated Magnitude 1
+          mag2:
+            name: mag2
+            type: float32
+            unit: mag
+            description: Associated Magnitude 2
+          mag3:
+            name: mag3
+            type: float32
+            unit: mag
+            description: Associated Magnitude 3
+          mag4:
+            name: mag4
+            type: float32
+            unit: mag
+            description: Associated Magnitude 4
+          mag5:
+            name: mag5
+            type: float32
+            unit: mag
+            description: Associated Magnitude 5
+          mag6:
+            name: mag6
+            type: float32
+            unit: mag
+            description: Associated Magnitude 6
+          mag7:
+            name: mag7
+            type: float32
+            unit: mag
+            description: Associated Magnitude 7
+          tsource:
+            name: tsource
+            type: char[10]
+            unit: ''
+            description: Organization or person who submit input catalog
+          fibertype:
+            name: fibertype
+            type: char[5]
+            unit: Obj, Sky, F-std, Unused, PosErr, Dead
+            description: Fiber Type of target
+          tfrom:
+            name: tfrom
+            type: char[9]
+            unit: ''
+            description: Input catalog submitted by an organization or a person determined
+              by the tsource
+          tcomment:
+            name: tcomment
+            type: char[33]
+            unit: ''
+            description: Target ID from SDSS, UCAC4, PANSTAR and other catalogues
+          offsets:
+            name: offsets
+            type: int16
+            unit: ''
+            description: Whether there is a fiber offset during observation
+          offsets_v:
+            name: offsets_v
+            type: float32
+            unit: arcsec
+            description: If the offsets field is true, offsets_v gives the offset
+              distance from the target's coordinator in input catalog
+          ra:
+            name: ra
+            type: float64
+            unit: degrees
+            description: Right Ascension from input catalog
+          dec:
+            name: dec
+            type: float64
+            unit: degrees
+            description: Declination from input catalog
+          fibermask:
+            name: fibermask
+            type: int16
+            unit: ''
+            description: Possible fiber problems
+          ra_x:
+            name: ra_x
+            type: float64
+            unit: ''
+            description: ''
+          dec_x:
+            name: dec_x
+            type: float64
+            unit: ''
+            description: ''
+          errhalfmaj:
+            name: errhalfmaj
+            type: float32
+            unit: ''
+            description: ''
+          errhalfmin:
+            name: errhalfmin
+            type: float32
+            unit: ''
+            description: ''
+          errposang:
+            name: errposang
+            type: float32
+            unit: ''
+            description: ''
+          source_id:
+            name: source_id
+            type: int64
+            unit: ''
+            description: ''
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

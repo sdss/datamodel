@@ -16,10 +16,10 @@ MOS Target table: mos_target_catalog_to_bhm_rm_v0
 The table contains the cross-match between the dr19_catalog targets and the dr19_rm_v0 table. Note. This table is identical to dr19_catalog_to_bhm_rm_v0_2.
 
 ### Naming Convention
-$MOS_TARGET/[V_TARG]/mos_catalog_to_bhm_rm_v0.fits, where V_TARG=1.0.2 for DR19
+$MOS_TARGET/[V_TARG]/[FTYPE]/mos_catalog_to_bhm_rm_v0.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MOS_TARGET
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -68,10 +71,10 @@ Key | Value | Comment | |
 
 
 ### HDU1: 
-MOS Target table: mos_target_catalog_to_bhm_rm_v0
+MOS Target Table: catalog_to_bhm_rm_v0
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  3 MB
+#### HDU Size:  7 MB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -80,7 +83,7 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
 | NAXIS1 | 27 | length of dimension 1 |
-| NAXIS2 | 147768 | length of dimension 2 |
+| NAXIS2 | 280387 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 5 | number of table fields |
@@ -91,11 +94,11 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | catalogid | int64 |  | The catalogid identifier in the dr19_catalog table. |
- | target_id | int64 |  | The primary key identifier in the dr19_rm_v0 table. |
+ | catalogid | int64 |  | The catalogid identifier in the dr20_catalog table. |
+ | target_id | int64 |  | The primary key identifier in the dr20_rm_v0 table. |
  | version_id | int16 |  | The internal version for the cross-match. |
  | distance | float64 | deg | The distance between the catalog and target coordinates if best=F. |
- | best | bool |  | Whether this is considered the best match between the catalog entry and dr19_rm_v0. |
+ | best | bool |  | Whether this is considered the best match between the catalog entry and dr20_rm_v0. |
 
 
 

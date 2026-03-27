@@ -1,0 +1,577 @@
+general:
+  name: mos_target_skymapper_dr2_parquet
+  short: 'MOS Target Table: skymapper_dr2'
+  description: 'Skymapper Data Release 2 photometry.
+
+
+    For detailed descriptions, please see the SkyMapper documentation: <a href="https://skymapper.anu.edu.au/table-browser/">https://skymapper.anu.edu.au/table-browser/</a>'
+  datatype: PARQUET
+  filesize: 4 GB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_skymapper_dr2.[FTYPE] with FTYPE='parquet'
+    and V_TARG='2.0.0' for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_skymapper_dr2.[FTYPE]
+    example: 2.0.0/parquet/mos_skymapper_dr2.parquet
+    location: '{v_targ}/{ftype}/mos_skymapper_dr2.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_skymapper_dr2
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_skymapper_dr2@mos_target_num2|.{ftype}
+      path_kwargs:
+      - ftype
+      - v_targ
+      access_string: mos_target_skymapper_dr2 = $MOS_TARGET/{v_targ}/{ftype}/mos_skymapper_dr2.{ftype}
+    survey: SDSS
+    dataframe:
+      columns:
+        object_id:
+          name: object_id
+          dtype: Int64
+          unit: ''
+          description: Global unique SkyMapper object ID in the master table
+        raj2000:
+          name: raj2000
+          dtype: Float64
+          unit: degrees
+          description: Mean ICRS Right Ascension of the object
+        dej2000:
+          name: dej2000
+          dtype: Float64
+          unit: degrees
+          description: Mean ICRS Declination of the object
+        e_raj2000:
+          name: e_raj2000
+          dtype: Int32
+          unit: mas
+          description: RMS variation around the mean Right Ascension
+        e_dej2000:
+          name: e_dej2000
+          dtype: Int32
+          unit: mas
+          description: RMS variation around the mean Declination
+        smss_j:
+          name: smss_j
+          dtype: String
+          unit: ''
+          description: SkyMapper Southern Survey designation of the form SMSS Jhhmmss.ss+/-ddmmss.s
+        mean_epoch:
+          name: mean_epoch
+          dtype: Float64
+          unit: days
+          description: Mean MJD epoch of the observations
+        rms_epoch:
+          name: rms_epoch
+          dtype: Float32
+          unit: days
+          description: RMS variation around the mean epoch
+        glon:
+          name: glon
+          dtype: Float32
+          unit: degrees
+          description: Galactic longitude derived from ICRS coordinate
+        glat:
+          name: glat
+          dtype: Float32
+          unit: degrees
+          description: Galactic latitude derived from ICRS coordinate
+        flags:
+          name: flags
+          dtype: Int16
+          unit: ''
+          description: Bitwise OR of Source Extractor flags across all observations
+        nimaflags:
+          name: nimaflags
+          dtype: Int32
+          unit: ''
+          description: Total number of flagged pixels from bad, saturated, and crosstalk
+            pixel masks across all observations
+        ngood:
+          name: ngood
+          dtype: Int16
+          unit: ''
+          description: Number of observations used across all filters
+        ngood_min:
+          name: ngood_min
+          dtype: Int16
+          unit: ''
+          description: Minimum number of observations used in any filter
+        nch_max:
+          name: nch_max
+          dtype: Int16
+          unit: ''
+          description: Maximum number of child sources combined into this global object_id
+            in any filter
+        density:
+          name: density
+          dtype: Float32
+          unit: ''
+          description: Number of DR2 sources within 15 arcsec (including this source)
+        u_flags:
+          name: u_flags
+          dtype: Int16
+          unit: ''
+          description: Bitwise OR of Source Extractor flags from u-band measurements
+            in photometry table
+        u_nimaflags:
+          name: u_nimaflags
+          dtype: Int32
+          unit: ''
+          description: Number of flagged pixels from bad, saturated, and crosstalk
+            pixel masks from u-band measurements in photometry table
+        u_ngood:
+          name: u_ngood
+          dtype: Int16
+          unit: ''
+          description: Number of u-band observations used
+        u_nch:
+          name: u_nch
+          dtype: Int16
+          unit: ''
+          description: Number of u-band child sources combined into this object_id
+        u_nclip:
+          name: u_nclip
+          dtype: Int16
+          unit: ''
+          description: Number of u-band observations with magnitudes clipped from
+            the final PSF magnitude estimate
+        v_flags:
+          name: v_flags
+          dtype: Int16
+          unit: ''
+          description: Bitwise OR of Source Extractor flags from v-band measurements
+            in photometry table
+        v_nimaflags:
+          name: v_nimaflags
+          dtype: Int32
+          unit: ''
+          description: Number of flagged pixels from bad, saturated, and crosstalk
+            pixel masks from u-band measurements in photometry table
+        v_ngood:
+          name: v_ngood
+          dtype: Int16
+          unit: ''
+          description: Number of v-band observations used
+        v_nch:
+          name: v_nch
+          dtype: Int16
+          unit: ''
+          description: Number of v-band child sources combined into this object_id
+        v_nclip:
+          name: v_nclip
+          dtype: Int16
+          unit: ''
+          description: Number of v-band observations with magnitudes clipped from
+            the final PSF magnitude estimate
+        g_flags:
+          name: g_flags
+          dtype: Int16
+          unit: ''
+          description: Bitwise OR of Source Extractor flags from g-band measurements
+            in photometry table
+        g_nimaflags:
+          name: g_nimaflags
+          dtype: Int32
+          unit: ''
+          description: Number of flagged pixels from bad, saturated, and crosstalk
+            pixel masks from g-band measurements in photometry table
+        g_ngood:
+          name: g_ngood
+          dtype: Int16
+          unit: ''
+          description: Number of g-band observations used
+        g_nch:
+          name: g_nch
+          dtype: Int16
+          unit: ''
+          description: Number of g-band child sources combined into this object_id
+        g_nclip:
+          name: g_nclip
+          dtype: Int16
+          unit: ''
+          description: Number of g-band observations with magnitudes clipped from
+            the final PSF magnitude estimate
+        r_flags:
+          name: r_flags
+          dtype: Int16
+          unit: ''
+          description: Bitwise OR of Source Extractor flags from r-band measurements
+            in photometry table
+        r_nimaflags:
+          name: r_nimaflags
+          dtype: Int32
+          unit: ''
+          description: Number of flagged pixels from bad, saturated, and crosstalk
+            pixel masks from r-band measurements in photometry table
+        r_ngood:
+          name: r_ngood
+          dtype: Int16
+          unit: ''
+          description: Number of r-band observations used
+        r_nch:
+          name: r_nch
+          dtype: Int16
+          unit: ''
+          description: Number of r-band child sources combined into this object_id
+        r_nclip:
+          name: r_nclip
+          dtype: Int16
+          unit: ''
+          description: Number of r-band observations with magnitudes clipped from
+            the final PSF magnitude estimate
+        i_flags:
+          name: i_flags
+          dtype: Int16
+          unit: ''
+          description: Bitwise OR of Source Extractor flags from i-band measurements
+            in photometry table
+        i_nimaflags:
+          name: i_nimaflags
+          dtype: Int32
+          unit: ''
+          description: Number of flagged pixels from bad, saturated, and crosstalk
+            pixel masks from i-band measurements in photometry table
+        i_ngood:
+          name: i_ngood
+          dtype: Int16
+          unit: ''
+          description: Number of i-band observations used
+        i_nch:
+          name: i_nch
+          dtype: Int16
+          unit: ''
+          description: Number of i-band child sources combined into this object_id
+        i_nclip:
+          name: i_nclip
+          dtype: Int16
+          unit: ''
+          description: Number of i-band observations with magnitudes clipped from
+            the final PSF magnitude estimate
+        z_flags:
+          name: z_flags
+          dtype: Int16
+          unit: ''
+          description: Bitwise OR of Source Extractor flags from z-band measurements
+            in photometry table
+        z_nimaflags:
+          name: z_nimaflags
+          dtype: Int32
+          unit: ''
+          description: Number of flagged pixels from bad, saturated, and crosstalk
+            pixel masks from z-band measurements in photometry table
+        z_ngood:
+          name: z_ngood
+          dtype: Int16
+          unit: ''
+          description: Number of z-band observations used
+        z_nch:
+          name: z_nch
+          dtype: Int16
+          unit: ''
+          description: Number of z-band child sources combined into this object_id
+        z_nclip:
+          name: z_nclip
+          dtype: Int16
+          unit: ''
+          description: Number of a-band observations with magnitudes clipped from
+            the final PSF magnitude estimate
+        class_star:
+          name: class_star
+          dtype: Float32
+          unit: ''
+          description: Maximum stellarity index from photometry table (between 0=no
+            star and 1=star)
+        flags_psf:
+          name: flags_psf
+          dtype: Int32
+          unit: ''
+          description: Bitmask indicating whether photometry is likely biased by neighbours
+            at greater than 1%
+        radius_petro:
+          name: radius_petro
+          dtype: Float32
+          unit: pix
+          description: Mean r-band Petrosian radius
+        u_psf:
+          name: u_psf
+          dtype: Float32
+          unit: mag
+          description: Mean u-band PSF magnitude
+        e_u_psf:
+          name: e_u_psf
+          dtype: Float32
+          unit: mag
+          description: Error in u-band PSF magnitude
+        u_rchi2var:
+          name: u_rchi2var
+          dtype: Float32
+          unit: ''
+          description: Reduced chi-squared for a constant-magnitude model of the u-band
+            PSF magnitude, including clipped sources
+        u_petro:
+          name: u_petro
+          dtype: Float32
+          unit: mag
+          description: Mean u-band Petrosian magnitude
+        e_u_petro:
+          name: e_u_petro
+          dtype: Float32
+          unit: mag
+          description: Error in u-band Petrosian magnitude
+        v_psf:
+          name: v_psf
+          dtype: Float32
+          unit: mag
+          description: Mean v-band PSF magnitude
+        e_v_psf:
+          name: e_v_psf
+          dtype: Float32
+          unit: mag
+          description: Error in v-band PSF magnitude
+        v_rchi2var:
+          name: v_rchi2var
+          dtype: Float32
+          unit: ''
+          description: Reduced chi-squared for a constant-magnitude model of the v-band
+            PSF magnitude, including clipped sources
+        v_petro:
+          name: v_petro
+          dtype: Float32
+          unit: mag
+          description: Mean v-band Petrosian magnitude
+        e_v_petro:
+          name: e_v_petro
+          dtype: Float32
+          unit: mag
+          description: Error in v-band Petrosian magnitude
+        g_psf:
+          name: g_psf
+          dtype: Float32
+          unit: mag
+          description: Mean g-band PSF magnitude
+        e_g_psf:
+          name: e_g_psf
+          dtype: Float32
+          unit: mag
+          description: Error in g-band PSF magnitude
+        g_rchi2var:
+          name: g_rchi2var
+          dtype: Float32
+          unit: ''
+          description: Reduced chi-squared for a constant-magnitude model of the g-band
+            PSF magnitude, including clipped sources
+        g_petro:
+          name: g_petro
+          dtype: Float32
+          unit: mag
+          description: Mean g-band Petrosian magnitude
+        e_g_petro:
+          name: e_g_petro
+          dtype: Float32
+          unit: mag
+          description: Error in g-band Petrosian magnitude
+        r_psf:
+          name: r_psf
+          dtype: Float32
+          unit: mag
+          description: Mean r-band PSF magnitude
+        e_r_psf:
+          name: e_r_psf
+          dtype: Float32
+          unit: mag
+          description: Error in r-band PSF magnitude
+        r_rchi2var:
+          name: r_rchi2var
+          dtype: Float32
+          unit: ''
+          description: Reduced chi-squared for a constant-magnitude model of the r-band
+            PSF magnitude, including clipped sources
+        r_petro:
+          name: r_petro
+          dtype: Float32
+          unit: mag
+          description: Mean r-band Petrosian magnitude
+        e_r_petro:
+          name: e_r_petro
+          dtype: Float32
+          unit: mag
+          description: Error in r-band Petrosian magnitude
+        i_psf:
+          name: i_psf
+          dtype: Float32
+          unit: mag
+          description: Mean i-band PSF magnitude
+        e_i_psf:
+          name: e_i_psf
+          dtype: Float32
+          unit: mag
+          description: Error in i-band PSF magnitude
+        i_rchi2var:
+          name: i_rchi2var
+          dtype: Float32
+          unit: ''
+          description: Reduced chi-squared for a constant-magnitude model of the i-band
+            PSF magnitude, including clipped sources
+        i_petro:
+          name: i_petro
+          dtype: Float32
+          unit: mag
+          description: Mean i-band Petrosian magnitude
+        e_i_petro:
+          name: e_i_petro
+          dtype: Float32
+          unit: mag
+          description: Error in i-band Petrosian magnitude
+        z_psf:
+          name: z_psf
+          dtype: Float32
+          unit: mag
+          description: Mean z-band PSF magnitude
+        e_z_psf:
+          name: e_z_psf
+          dtype: Float32
+          unit: mag
+          description: Error in z-band PSF magnitude
+        z_rchi2var:
+          name: z_rchi2var
+          dtype: Float32
+          unit: ''
+          description: Reduced chi-squared for a constant-magnitude model of the z-band
+            PSF magnitude, including clipped sources
+        z_petro:
+          name: z_petro
+          dtype: Float32
+          unit: mag
+          description: Mean z-band Petrosian magnitude
+        e_z_petro:
+          name: e_z_petro
+          dtype: Float32
+          unit: mag
+          description: Error in z-band Petrosian magnitude
+        ebmv_sfd:
+          name: ebmv_sfd
+          dtype: Float32
+          unit: mag
+          description: E(B-V) from Schlegel+1998 extinction maps at the ICRS coordinates
+        prox:
+          name: prox
+          dtype: Float32
+          unit: arcsec
+          description: Distance to next-closest DR2 source
+        prox_id:
+          name: prox_id
+          dtype: Int64
+          unit: ''
+          description: object_id of next-closest DR2 source
+        dr1_id:
+          name: dr1_id
+          dtype: Int64
+          unit: ''
+          description: object_id of closest SkyMapper Data Release 1 source
+        dr1_dist:
+          name: dr1_dist
+          dtype: Float32
+          unit: arcsec
+          description: Distance to closest SkyMapper Data Release 1 source
+        twomass_key:
+          name: twomass_key
+          dtype: Int64
+          unit: ''
+          description: Unique identifier (pts_key) of closest 2MASS PSC source
+        twomass_dist:
+          name: twomass_dist
+          dtype: Float32
+          unit: arcsec
+          description: Distance on sky to closest 2MASS PSC source
+        allwise_cntr:
+          name: allwise_cntr
+          dtype: Int64
+          unit: ''
+          description: Unique identifier (cntr) of closest AllWISE source
+        allwise_dist:
+          name: allwise_dist
+          dtype: Float32
+          unit: arcsec
+          description: Distance on sky to closest AllWISE source
+        ucac4_mpos:
+          name: ucac4_mpos
+          dtype: Int64
+          unit: ''
+          description: Unique identifier (mpos) of closest UCAC4 source
+        ucac4_dist:
+          name: ucac4_dist
+          dtype: Float32
+          unit: arcsec
+          description: Distance on sky to closest UCAC4 source
+        refcat2_id:
+          name: refcat2_id
+          dtype: Int64
+          unit: ''
+          description: Unique identifier (objid) of closest ATLAS Refcat2 source
+        refcat2_dist:
+          name: refcat2_dist
+          dtype: Float32
+          unit: arcsec
+          description: Distance on sky to closest ATLAS Refcat2 source
+        ps1_dr1_id:
+          name: ps1_dr1_id
+          dtype: Int64
+          unit: ''
+          description: Unique identifier (objID) of closest Pan-STARRS1 DR1 source
+        ps1_dr1_dist:
+          name: ps1_dr1_dist
+          dtype: Float32
+          unit: arcsec
+          description: Distance on sky to closest Pan-STARRS1 DR1 source
+        galex_guv_id:
+          name: galex_guv_id
+          dtype: Int64
+          unit: ''
+          description: Unique identifier (objid) of closest GALEX GUVcat AIS source
+            (Bianchi et al. 2017)
+        galex_guv_dist:
+          name: galex_guv_dist
+          dtype: Float32
+          unit: arcsec
+          description: Distance on sky to closest GALEX GUVcat AIS source
+        gaia_dr2_id1:
+          name: gaia_dr2_id1
+          dtype: Int64
+          unit: ''
+          description: Unique identifier (source_id) of closest Gaia DR2 source
+        gaia_dr2_dist1:
+          name: gaia_dr2_dist1
+          dtype: Float32
+          unit: arcsec
+          description: Distance on sky to closest Gaia DR2 source
+        gaia_dr2_id2:
+          name: gaia_dr2_id2
+          dtype: Int64
+          unit: ''
+          description: Unique identifier (source_id) of second-closest Gaia DR2 source
+        gaia_dr2_dist2:
+          name: gaia_dr2_dist2
+          dtype: Float32
+          unit: arcsec
+          description: Distance on sky to second-closest Gaia DR2 source
+      metadata: {}
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

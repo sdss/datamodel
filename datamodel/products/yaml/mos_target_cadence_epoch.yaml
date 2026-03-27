@@ -7,14 +7,15 @@ general:
   releases:
   - DR18
   - DR19
+  - DR20
   environments:
   - MOS_TARGET
   surveys:
   - BHM
   - MWM
   - SDSS
-  naming_convention: $MOS_TARGET/[V_TARG]/mos_cadence_epoch-[NUM].fits, where V_TARG=1.0.1
-    for DR18; and NUM = 1..1 to partition the file into parts
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_cadence_epoch.[FTYPE] with FTYPE='fits'
+    and V_TARG='2.0.0' for DR20.
   generated_by: sdss5db> targetdb, operations database server
   design: false
   vac: false
@@ -24,6 +25,9 @@ changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
   releases:
+    DR20:
+      from: DR19
+      note: No changes
     DR19:
       from: DR18
       note: No changes
@@ -254,6 +258,140 @@ releases:
           obsmode_pk:
             name: obsmode_pk
             type: char[14]
+            unit: ''
+            description: Reference to the observing parameters (airmass, moon seperation,
+              etc.)
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_cadence_epoch.[FTYPE]
+    example: 2.0.0/fits/mos_cadence_epoch.fits
+    location: '{v_targ}/{ftype}/mos_cadence_epoch.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_cadence_epoch
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_cadence_epoch.{ftype}
+      path_kwargs:
+      - ftype
+      - v_targ
+      access_string: mos_target_cadence_epoch = $MOS_TARGET/{v_targ}/{ftype}/mos_cadence_epoch.{ftype}
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Primary header
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: 'MOS Target Table: cadence_epoch'
+        is_image: false
+        size: 26 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 117
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 235519
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 11
+          comment: number of table fields
+        - key: TNULL2
+          value: -2147483648
+          comment: ''
+        - key: TNULL3
+          value: -9223372036854775808
+          comment: ''
+        - key: TNULL4
+          value: -2147483648
+          comment: ''
+        - key: TNULL9
+          value: -2147483648
+          comment: ''
+        columns:
+          label:
+            name: label
+            type: char[42]
+            unit: ''
+            description: Descriptive name for the cadence with a version
+          nepochs:
+            name: nepochs
+            type: int32
+            unit: ''
+            description: Number of epochs in the cadence
+          cadence_pk:
+            name: cadence_pk
+            type: int64
+            unit: ''
+            description: Primary key of the cadence this epoch belongs to
+          epoch:
+            name: epoch
+            type: int32
+            unit: ''
+            description: Which epoch is this in the cadence (0-indexed)
+          delta:
+            name: delta
+            type: float64
+            unit: days
+            description: Nominal (goal) time since previous epoch
+          skybrightness:
+            name: skybrightness
+            type: float32
+            unit: ''
+            description: Maximum allowed skybrightness, i.e. moon illumination (0.0
+              to 1.0)
+          delta_max:
+            name: delta_max
+            type: float32
+            unit: days
+            description: Maximum allowed time since previous epoch
+          delta_min:
+            name: delta_min
+            type: float32
+            unit: days
+            description: Minimum allowed time since previous epoch
+          nexp:
+            name: nexp
+            type: int32
+            unit: ''
+            description: Number of exposures in this epoch
+          max_length:
+            name: max_length
+            type: float32
+            unit: ''
+            description: Maximum allowed length of epoch, i.e. time between first
+              and last exposure
+          obsmode_pk:
+            name: obsmode_pk
+            type: char[31]
             unit: ''
             description: Reference to the observing parameters (airmass, moon seperation,
               etc.)

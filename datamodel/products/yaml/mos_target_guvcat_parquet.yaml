@@ -1,0 +1,533 @@
+general:
+  name: mos_target_guvcat_parquet
+  short: 'MOS Target Table: guvcat'
+  description: 'GALEX unique source catalog from Bianchi et al. 2017 (<a href="https://iopscience.iop.org/article/10.3847/1538-4365/aa7053/pdf)">https://iopscience.iop.org/article/10.3847/1538-4365/aa7053/pdf)</a>.
+
+
+    For more details on the column descriptions see <a href="https://archive.stsci.edu/hlsp/guvcat/guvcat-column-description">https://archive.stsci.edu/hlsp/guvcat/guvcat-column-description</a>'
+  datatype: PARQUET
+  filesize: 1 GB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_guvcat.[FTYPE] with FTYPE='parquet'
+    and V_TARG='2.0.0' for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_guvcat.[FTYPE]
+    example: 2.0.0/parquet/mos_guvcat.parquet
+    location: '{v_targ}/{ftype}/mos_guvcat.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_guvcat
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_guvcat@mos_target_num|.{ftype}
+      path_kwargs:
+      - num
+      - ftype
+      - v_targ
+      access_string: mos_target_guvcat = $MOS_TARGET/{v_targ}/{ftype}/mos_guvcat.{ftype}
+    survey: SDSS
+    dataframe:
+      columns:
+        objid:
+          name: objid
+          dtype: Int64
+          unit: ''
+          description: GALEX identifier for the source
+        photoextractid:
+          name: photoextractid
+          dtype: Int64
+          unit: ''
+          description: Pointer to GALEX photoExtract Table (identifier of original
+            observation)
+        mpstype:
+          name: mpstype
+          dtype: String
+          unit: ''
+          description: Survey type ("AIS")
+        avaspra:
+          name: avaspra
+          dtype: Float64
+          unit: degrees
+          description: R.A. of center of field where object was measured
+        avaspdec:
+          name: avaspdec
+          dtype: Float64
+          unit: degrees
+          description: Declination of center of field where object was measured
+        fexptime:
+          name: fexptime
+          dtype: Float32
+          unit: seconds
+          description: FUV exposure time
+        nexptime:
+          name: nexptime
+          dtype: Float32
+          unit: seconds
+          description: NUV exposure time
+        ra:
+          name: ra
+          dtype: Float64
+          unit: degrees
+          description: Source's right ascension
+        dec:
+          name: dec
+          dtype: Float64
+          unit: degrees
+          description: Source's declination
+        glon:
+          name: glon
+          dtype: Float64
+          unit: degrees
+          description: Source's Galactic longitude
+        glat:
+          name: glat
+          dtype: Float64
+          unit: degrees
+          description: Source's Galactic latitude
+        tilenum:
+          name: tilenum
+          dtype: Int32
+          unit: ''
+          description: '"Tile" number'
+        img:
+          name: img
+          dtype: Int32
+          unit: ''
+          description: Image number
+        subvisit:
+          name: subvisit
+          dtype: Int32
+          unit: ''
+          description: Number of subvisit if exposure was divided
+        fov_radius:
+          name: fov_radius
+          dtype: Float32
+          unit: ''
+          description: Distance of source from center of the field in which it was
+            measured
+        type:
+          name: type
+          dtype: Int32
+          unit: ''
+          description: Obs. type (0=single, 1=multi)
+        band:
+          name: band
+          dtype: Int32
+          unit: ''
+          description: Band number (1=NUV, 2=FUV, 3=both)
+        e_bv:
+          name: e_bv
+          dtype: Float32
+          unit: mag
+          description: E(B-V) Galactic reddening from Schlegel et al. 1998 maps)
+        istherespectrum:
+          name: istherespectrum
+          dtype: Int16
+          unit: ''
+          description: Does this object have a GALEX spectrum?
+        chkobj_type:
+          name: chkobj_type
+          dtype: Int16
+          unit: ''
+          description: Astrometry check type
+        fuv_mag:
+          name: fuv_mag
+          dtype: Float32
+          unit: mag
+          description: FUV calibrated magnitude
+        fuv_magerr:
+          name: fuv_magerr
+          dtype: Float32
+          unit: mag
+          description: FUV calibrated magnitude error
+        nuv_mag:
+          name: nuv_mag
+          dtype: Float32
+          unit: mag
+          description: NUV calibrated magnitude
+        nuv_magerr:
+          name: nuv_magerr
+          dtype: Float32
+          unit: mag
+          description: NUV calibrated magnitude error
+        fuv_mag_auto:
+          name: fuv_mag_auto
+          dtype: Float32
+          unit: mag
+          description: FUV Kron-like elliptical aperture magnitude
+        fuv_magerr_auto:
+          name: fuv_magerr_auto
+          dtype: Float32
+          unit: mag
+          description: FUV rms error for AUTO magnitude
+        nuv_mag_auto:
+          name: nuv_mag_auto
+          dtype: Float32
+          unit: mag
+          description: NUV Kron-like elliptical aperture magnitude
+        nuv_magerr_auto:
+          name: nuv_magerr_auto
+          dtype: Float32
+          unit: mag
+          description: NUV rms error for AUTO magnitude
+        fuv_mag_aper_4:
+          name: fuv_mag_aper_4
+          dtype: Float32
+          unit: mag
+          description: FUV magnitude aperture (8 pixel)
+        fuv_magerr_aper_4:
+          name: fuv_magerr_aper_4
+          dtype: Float32
+          unit: mag
+          description: FUV magnitude error aperture (8 pixel)
+        nuv_mag_aper_4:
+          name: nuv_mag_aper_4
+          dtype: Float32
+          unit: mag
+          description: NUV magnitude aperture (8 pixel)
+        nuv_magerr_aper_4:
+          name: nuv_magerr_aper_4
+          dtype: Float32
+          unit: mag
+          description: NUV magnitude error aperture (8 pixel)
+        fuv_mag_aper_6:
+          name: fuv_mag_aper_6
+          dtype: Float32
+          unit: mag
+          description: FUV magnitude aperture (17 pixel)
+        fuv_magerr_aper_6:
+          name: fuv_magerr_aper_6
+          dtype: Float32
+          unit: mag
+          description: FUV magnitude error aperture (17 pixel)
+        nuv_mag_aper_6:
+          name: nuv_mag_aper_6
+          dtype: Float32
+          unit: mag
+          description: NUV magnitude aperture (17 pixel)
+        nuv_magerr_aper_6:
+          name: nuv_magerr_aper_6
+          dtype: Float32
+          unit: mag
+          description: NUV magnitude error aperture (17 pixel)
+        fuv_artifact:
+          name: fuv_artifact
+          dtype: Int16
+          unit: ''
+          description: FUV artifact flag
+        nuv_artifact:
+          name: nuv_artifact
+          dtype: Int16
+          unit: ''
+          description: NUV artifact flag
+        fuv_flags:
+          name: fuv_flags
+          dtype: Int16
+          unit: ''
+          description: FUV extraction flags
+        nuv_flags:
+          name: nuv_flags
+          dtype: Int16
+          unit: ''
+          description: NUV extraction flags
+        fuv_flux:
+          name: fuv_flux
+          dtype: Float32
+          unit: mJy
+          description: FUV calibrated flux
+        fuv_fluxerr:
+          name: fuv_fluxerr
+          dtype: Float32
+          unit: mJy
+          description: FUV calibrated flux error
+        nuv_flux:
+          name: nuv_flux
+          dtype: Float32
+          unit: mJy
+          description: NUV calibrated flux
+        nuv_fluxerr:
+          name: nuv_fluxerr
+          dtype: Float32
+          unit: mJy
+          description: NUV calibrated flux error
+        fuv_x_image:
+          name: fuv_x_image
+          dtype: Float32
+          unit: ''
+          description: FUV object position along x
+        fuv_y_image:
+          name: fuv_y_image
+          dtype: Float32
+          unit: ''
+          description: FUV object position along y
+        nuv_x_image:
+          name: nuv_x_image
+          dtype: Float32
+          unit: ''
+          description: NUV object position along x
+        nuv_y_image:
+          name: nuv_y_image
+          dtype: Float32
+          unit: ''
+          description: NUV object position along y
+        fuv_fwhm_image:
+          name: fuv_fwhm_image
+          dtype: Float32
+          unit: ''
+          description: FUV FWHM assuming a Gaussian core
+        nuv_fwhm_image:
+          name: nuv_fwhm_image
+          dtype: Float32
+          unit: ''
+          description: NUV FWHM assuming a Gaussian core
+        fuv_fwhm_world:
+          name: fuv_fwhm_world
+          dtype: Float32
+          unit: ''
+          description: FUV FWHM assuming a Gaussian core (WORLD units)
+        nuv_fwhm_world:
+          name: nuv_fwhm_world
+          dtype: Float32
+          unit: ''
+          description: NUV FWHM assuming a Gaussian core (WORLD units)
+        nuv_class_star:
+          name: nuv_class_star
+          dtype: Float32
+          unit: ''
+          description: NUV Star/Galaxy classifier
+        fuv_class_star:
+          name: fuv_class_star
+          dtype: Float32
+          unit: ''
+          description: FUV Star/Galaxy classifier
+        nuv_ellipticity:
+          name: nuv_ellipticity
+          dtype: Float32
+          unit: ''
+          description: NUV (1. - B_IMAGE/A_IMAGE)
+        fuv_ellipticity:
+          name: fuv_ellipticity
+          dtype: Float32
+          unit: ''
+          description: FUV (1. - B_IMAGE/A_IMAGE)
+        nuv_theta_j2000:
+          name: nuv_theta_j2000
+          dtype: Float32
+          unit: degrees
+          description: NUV position angle (east of north) (J2000)
+        nuv_errtheta_j2000:
+          name: nuv_errtheta_j2000
+          dtype: Float32
+          unit: degrees
+          description: NUV position angle error (east of north) (J2000)
+        fuv_theta_j2000:
+          name: fuv_theta_j2000
+          dtype: Float32
+          unit: degrees
+          description: FUV position angle (east of north) (J2000)
+        fuv_errtheta_j2000:
+          name: fuv_errtheta_j2000
+          dtype: Float32
+          unit: degrees
+          description: FUV position angle error (east of north) (J2000)
+        fuv_ncat_fwhm_image:
+          name: fuv_ncat_fwhm_image
+          dtype: Float32
+          unit: pixels
+          description: FUV FWHM_IMAGE value from -fd-ncat.fits
+        fuv_ncat_flux_radius_3:
+          name: fuv_ncat_flux_radius_3
+          dtype: Float32
+          unit: ''
+          description: FUV FLUX_RADIUS using Aperture
+        nuv_kron_radius:
+          name: nuv_kron_radius
+          dtype: Float32
+          unit: ''
+          description: NUV Kron apertures in units of A or B
+        nuv_a_world:
+          name: nuv_a_world
+          dtype: Float32
+          unit: ''
+          description: NUV profile rms along major axis (world units)
+        nuv_b_world:
+          name: nuv_b_world
+          dtype: Float32
+          unit: ''
+          description: NUV profile rms along minor axis (world units)
+        fuv_kron_radius:
+          name: fuv_kron_radius
+          dtype: Float32
+          unit: ''
+          description: FUV Kron apertures in units of A or B
+        fuv_a_world:
+          name: fuv_a_world
+          dtype: Float32
+          unit: ''
+          description: FUV profile rms along major axis (world units)
+        fuv_b_world:
+          name: fuv_b_world
+          dtype: Float32
+          unit: ''
+          description: FUV profile rms along minor axis (world units)
+        nuv_weight:
+          name: nuv_weight
+          dtype: Float32
+          unit: seconds
+          description: NUV effective exposure (flat-field response value) at the source
+            position
+        fuv_weight:
+          name: fuv_weight
+          dtype: Float32
+          unit: seconds
+          description: FUV effective exposure (flat-field response value) at the source
+            position
+        prob:
+          name: prob
+          dtype: Float32
+          unit: ''
+          description: Probability of the FUV-NUV cross-match
+        sep:
+          name: sep
+          dtype: Float32
+          unit: ''
+          description: Separation between the FUV and NUV position of the source in
+            the same observation
+        nuv_poserr:
+          name: nuv_poserr
+          dtype: Float32
+          unit: arcsec
+          description: Position error of the source in the NUV image
+        fuv_poserr:
+          name: fuv_poserr
+          dtype: Float32
+          unit: arcsec
+          description: Position error of the source in the FUV image
+        ib_poserr:
+          name: ib_poserr
+          dtype: Float32
+          unit: arcsec
+          description: Inter-band position error
+        nuv_pperr:
+          name: nuv_pperr
+          dtype: Float32
+          unit: ''
+          description: NUV Poisson position error
+        fuv_pperr:
+          name: fuv_pperr
+          dtype: Float32
+          unit: ''
+          description: FUV Poisson position error
+        corv:
+          name: corv
+          dtype: String
+          unit: ''
+          description: Whether the source comes from a coadd or visit
+        grank:
+          name: grank
+          dtype: Int16
+          unit: ''
+          description: rank of source with 2.5 arcsec of primary
+        ngrank:
+          name: ngrank
+          dtype: Int16
+          unit: ''
+          description: If this is a primary, the number of sources within 2.5 arcsec
+        primgid:
+          name: primgid
+          dtype: Int64
+          unit: ''
+          description: OBJID of the primary
+        groupgid:
+          name: groupgid
+          dtype: String
+          unit: ''
+          description: OBJID's of all AIS sources within 2.5 arcseconds concatenated
+            by a "+"
+        grankdist:
+          name: grankdist
+          dtype: Int16
+          unit: ''
+          description: Same for GRANK, but based on distance criterion
+        ngrankdist:
+          name: ngrankdist
+          dtype: Int64
+          unit: ''
+          description: Same for NGRANK, but based on distance criterion
+        primgiddist:
+          name: primgiddist
+          dtype: Int64
+          unit: ''
+          description: Same for PRIMGID, but based on distance criterion
+        groupgiddist:
+          name: groupgiddist
+          dtype: String
+          unit: ''
+          description: Same for GROUPGID, but based on distance criterion
+        groupgidtot:
+          name: groupgidtot
+          dtype: String
+          unit: ''
+          description: OBJID's of all sources within 2.5 arcseconds
+        difffuv:
+          name: difffuv
+          dtype: Float32
+          unit: mag
+          description: FUV magnitude difference between primary and secondary
+        diffnuv:
+          name: diffnuv
+          dtype: Float32
+          unit: mag
+          description: NUV magnitude difference between primary and secondary
+        difffuvdist:
+          name: difffuvdist
+          dtype: Float32
+          unit: mag
+          description: FUV magnitude difference between primary and secondary, but
+            based on distance criterion
+        diffnuvdist:
+          name: diffnuvdist
+          dtype: Float32
+          unit: mag
+          description: NUV magnitude difference between primary and secondary, but
+            based on distance criterion
+        sepas:
+          name: sepas
+          dtype: Float32
+          unit: arcsec
+          description: Separation between primary and secondary
+        sepasdist:
+          name: sepasdist
+          dtype: Float32
+          unit: arcsec
+          description: Separation between primary and secondary, but based on distance
+            criterion
+        inlargeobj:
+          name: inlargeobj
+          dtype: String
+          unit: ''
+          description: Is source in the footprint of an extended object?
+        largeobjsize:
+          name: largeobjsize
+          dtype: Float32
+          unit: ''
+          description: Size of the extended object
+      metadata: {}
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

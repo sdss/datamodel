@@ -11,35 +11,40 @@
 # Modified By: Brian Cherinka
 
 
-from __future__ import print_function, division, absolute_import
+from __future__ import absolute_import, division, print_function
 
 import os
-import re
 import pathlib
-
-from typing import TypeVar, Type, Union, List
-
-from .parse import get_abstract_path, get_abstract_key, get_file_spec, find_kwargs
-from ..io.loaders import read_yaml, get_yaml_files
-from datamodel import log
+import re
+from typing import Dict, List, Type, TypeVar, Union
 
 from astropy.io import fits
-from datamodel.generate.stub import stub_iterator
-from datamodel.generate.filetypes import get_filetype, get_filesize, get_supported_filetypes
-from tree import Tree
-from sdss_access.path import Path
 from pydantic import ValidationError
+from sdss_access.path import Path
+from tree import Tree
 
-from ..gitio import Git
-from .stub import BaseStub
+from datamodel import log
+from datamodel.generate.filetypes import (
+    get_filesize,
+    get_filetype,
+    get_supported_filetypes,
+)
+from datamodel.generate.stub import stub_iterator
 from datamodel.models import surveys, vacs
 
+from ..gitio import Git
+from ..io.loaders import get_yaml_files, read_yaml
+from .parse import find_kwargs, get_abstract_key, get_abstract_path, get_file_spec
+from .stub import BaseStub
+
 # Create a generic variable that can be 'DataModel', or any subclass.
-D = TypeVar('D', bound='DataModel')
+D = TypeVar("D", bound="DataModel")
 
 
-def prompt_for_access(filename: str, path_name: str = None, config: str = None) -> tuple:
-    """ Prompt the user to verify or define information
+def prompt_for_access(
+    filename: str, path_name: str = None, config: str = None
+) -> tuple:
+    """Prompt the user to verify or define information
 
     Takes the user through a variety of input prompts in order to verify any existing
     entry in sdss_access, or to define a new file species, symbolic path location, and
@@ -62,55 +67,72 @@ def prompt_for_access(filename: str, path_name: str = None, config: str = None) 
 
     # prompt for sdss_access entry
     if not path_name:
-        in_sdss = input('Does this file have an existing sdss_access definition? (y/n): ')
+        in_sdss = input(
+            "Does this file have an existing sdss_access definition? (y/n): "
+        )
     else:
-        in_sdss = 'y'
+        in_sdss = "y"
 
     # resolve path_name, path_template, and path_keys
-    if in_sdss in ['y', "Y"]:
+    if in_sdss in ["y", "Y"]:
         # look up path name and template in sdss_access
         path = Path(release=config)
         if not path_name:
-            path_name = input('What is the sdss_access path_name?: ')
-        path_template = path.templates.get(path_name, path.templates.get(path_name.lower(), None))
+            path_name = input("What is the sdss_access path_name?: ")
+        path_template = path.templates.get(
+            path_name, path.templates.get(path_name.lower(), None)
+        )
         if not path_template:
-            log.warning(f'No path_template could be found for path_name {path_name}.  Check syntax.')
+            log.warning(
+                f"No path_template could be found for path_name {path_name}.  Check syntax."
+            )
             return
 
         # strip template of $envvar
-        path_template = path_template[1:] if path_template.startswith('$') else path_template
+        path_template = (
+            path_template[1:] if path_template.startswith("$") else path_template
+        )
 
         # attempt to extract the proper name=value mappings from the filename and path_name
         keys = path.lookup_keys(path_name)
         keymaps = path.extract(path_name, filename)
         if not keymaps:
-            path_keys = input(f'Could not extract a value mapping for keys: {keys}\n'
-                              'Please define a list of name=value key mappings for variable substitution. \n'
-                              'e.g. drpver=v2_4_3, plate=8485, ifu=1901, wave=LOG\n:')
-            path_keys = path_keys.replace(' ','').split(',')
+            path_keys = input(
+                f"Could not extract a value mapping for keys: {keys}\n"
+                "Please define a list of name=value key mappings for variable substitution. \n"
+                "e.g. drpver=v2_4_3, plate=8485, ifu=1901, wave=LOG\n:"
+            )
+            path_keys = path_keys.replace(" ", "").split(",")
         else:
-            path_keys = [f'{k}={v}' for k,v in keymaps.items()]
-    elif in_sdss in ['n', 'N']:
+            path_keys = [f"{k}={v}" for k, v in keymaps.items()]
+    elif in_sdss in ["n", "N"]:
         # prompt for new path definitions
-        path_name = input('Define a new path_name / file_species, e.g. mangaRss: ')
-        path_template = input('Define a new path template, starting with an environment '
-                              'variable label.\nUse jinja {} templating to define variable name used for substitution.\n'
-                              'e.g. "MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz"\n: ')
-        path_keys = input('Define a list of name=value key mappings for variable substitution. \n'
-                          'e.g. drpver=v2_4_3, plate=8485, ifu=1901, wave=LOG\n: ')
-        path_keys = path_keys.replace(' ','').split(',')
+        path_name = input("Define a new path_name / file_species, e.g. mangaRss: ")
+        path_template = input(
+            "Define a new path template, starting with an environment "
+            "variable label.\nUse jinja {} templating to define variable name used for substitution.\n"
+            'e.g. "MANGA_SPECTRO_REDUX/{drpver}/{plate}/stack/manga-{plate}-{ifu}-{wave}RSS.fits.gz"\n: '
+        )
+        path_keys = input(
+            "Define a list of name=value key mappings for variable substitution. \n"
+            "e.g. drpver=v2_4_3, plate=8485, ifu=1901, wave=LOG\n: "
+        )
+        path_keys = path_keys.replace(" ", "").split(",")
 
     # confirm the choices
-    msg = (f"\nConfirm the following: (y/n): \n file = {filename} \n path_name = {path_name}\n "
-           f"path_template = {path_template}\n path_keys = {path_keys}\n ")
+    msg = (
+        f"\nConfirm the following: (y/n): \n file = {filename} \n path_name = {path_name}\n "
+        f"path_template = {path_template}\n path_keys = {path_keys}\n "
+    )
     confirm = input(msg)
-    if confirm not in ['y', 'Y']:
+    if confirm not in ["y", "Y"]:
         return None, None, None
 
     return path_name, path_template, path_keys
 
+
 class DataModel(object):
-    """ Class to enable datamodel file generation for a given product
+    """Class to enable datamodel file generation for a given product
 
     This class is used to generate valid SDSS datamodel files for a given
     data product.
@@ -149,13 +171,25 @@ class DataModel(object):
     ValueError
         when no path template keywords are specified
     """
+
     supported_filetypes = get_supported_filetypes()
 
-    def __init__(self, tree_ver: str = None, file_spec: str = None, path: str = None,
-                 keywords: list = [], env_label: str = None, location: str = None,
-                 verbose: bool = None, release: str = None, filename: str = None,
-                 access_path_name: str = None, design: bool = False,
-                 science_product: bool = None) -> None:
+    def __init__(
+        self,
+        tree_ver: str = None,
+        file_spec: str = None,
+        path: str = None,
+        keywords: list = [],
+        env_label: str = None,
+        location: str = None,
+        verbose: bool = None,
+        release: str = None,
+        filename: str = None,
+        access_path_name: str = None,
+        design: bool = False,
+        science_product: bool = None,
+        suffixes: Union[list[str], None] = None,
+    ) -> None:
 
         # environment options
         self.tree_ver = tree_ver
@@ -190,19 +224,23 @@ class DataModel(object):
 
         # check for a real filename
         if self.filename:
-            self.file_species, self.path, self.keywords = prompt_for_access(self.filename,
-                                                                            self.file_species,
-                                                                            self.tree_ver or self.release)
+            self.file_species, self.path, self.keywords = prompt_for_access(
+                self.filename, self.file_species, self.tree_ver or self.release
+            )
 
         # set path, locations, and file_species
         if not self.path and not (self.env_label and self.location):
-            raise ValueError('Either a path or an env_label + location must be specified.')
+            raise ValueError(
+                "Either a path or an env_label + location must be specified."
+            )
 
         # check if keywords are expected
         path = self.path or self.location
-        if re.search(r'{(.*?)}', path) and not self.keywords and not self.design:
-            raise ValueError('A set of keywords must be provided along with a either a '
-                             'path or location.')
+        if re.search(r"{(.*?)}", path) and not self.keywords and not self.design:
+            raise ValueError(
+                "A set of keywords must be provided along with a either a "
+                "path or location."
+            )
         self._construct_path()
 
         # set the file species from the location
@@ -217,9 +255,11 @@ class DataModel(object):
             self._set_real_and_abstract_location()
 
         # check for valid file support
-        self.suffixes = pathlib.Path(self.location).suffixes
+        self.suffixes = suffixes or pathlib.Path(self.location).suffixes
         if set(self.suffixes).isdisjoint(set(self.supported_filetypes)):
-            raise ValueError(f'File type {self.suffixes[0]} is not currently supported by sdss-datamodel.')
+            raise ValueError(
+                f"File type {self.suffixes[0]} is not currently supported by sdss-datamodel."
+            )
 
         # set the fully realized filename and access paths
         self._set_file()
@@ -229,13 +269,20 @@ class DataModel(object):
         self._git = Git(verbose=verbose)
 
     def __repr__(self) -> str:
-        """ Repr for DataModel """
-        return f"<DataModel(file_species='{self.file_species}', release='{self.release}')>"
+        """Repr for DataModel"""
+        return (
+            f"<DataModel(file_species='{self.file_species}', release='{self.release}')>"
+        )
 
     @classmethod
-    def from_file(cls: Type[D], filename: str, path_name: str = None, tree_ver: str = None,
-                  verbose: bool = None) -> D:
-        """ class method to create a datamodel from an absolute filepath
+    def from_file(
+        cls: Type[D],
+        filename: str,
+        path_name: str = None,
+        tree_ver: str = None,
+        verbose: bool = None,
+    ) -> D:
+        """class method to create a datamodel from an absolute filepath
 
         Creates a DataModel for a given full path to a file.  Prompts the user to
         verify any existing entry in sdss_access for the input file, or to define
@@ -261,12 +308,23 @@ class DataModel(object):
         file_species, path, keys = prompt_for_access(filename, path_name, tree_ver)
         if not file_species:
             return None
-        return cls(file_spec=file_species, path=path, keywords=keys, verbose=verbose, tree_ver=tree_ver)
+        return cls(
+            file_spec=file_species,
+            path=path,
+            keywords=keys,
+            verbose=verbose,
+            tree_ver=tree_ver,
+        )
 
     @classmethod
-    def from_yaml(cls: Type[D], species: str, release: str = None, verbose: bool = None,
-                  tree_ver: str = None) -> D:
-        """ class method to create a datamodel from a YAML file species name
+    def from_yaml(
+        cls: Type[D],
+        species: str,
+        release: str = None,
+        verbose: bool = None,
+        tree_ver: str = None,
+    ) -> D:
+        """class method to create a datamodel from a YAML file species name
 
         Creates a DataModel for a given file species name, from an existing
         YAML datamodel file.  Extracts the abstract path and keyword arguments
@@ -306,17 +364,17 @@ class DataModel(object):
             when no path keyword arguments can be extracted
         """
         # get the file species YAML datamodel
-        yfile = get_yaml_files(f'{species}.yaml')
+        yfile = get_yaml_files(f"{species}.yaml")
         if not yfile:
-            raise ValueError(f'No yaml file found for file species {species}')
+            raise ValueError(f"No yaml file found for file species {species}")
         data = read_yaml(yfile)
 
         # get a release from the datamodel
         if not release:
-            release = next(iter(data['releases']))
-        reldata = data['releases'].get(release, {})
+            release = next(iter(data["releases"]))
+        reldata = data["releases"].get(release, {})
         if not reldata:
-            raise ValueError(f'No data found for release {release}')
+            raise ValueError(f"No data found for release {release}")
 
         # construct the datamodel path using the access_string
         path = reldata["access"]["access_string"].split(" = ")[-1][1:]
@@ -325,25 +383,34 @@ class DataModel(object):
         access_name = reldata["access"].get("path_name", None)
 
         # raise error
-        if not reldata['location'] or not reldata['example']:
-            raise ValueError('No location or example found in YAML datamodel.')
+        if not reldata["location"] or not reldata["example"]:
+            raise ValueError("No location or example found in YAML datamodel.")
 
         # attempt to extract the keyword arguments using the datamodel location and example fields
         needs_kwargs = "{" in path and "}" in path
         kwargs = find_kwargs(reldata["location"], reldata["example"])
         if not kwargs and needs_kwargs:
-            raise ValueError(f'No keyword arguments extracted from datamodel location/example for species {species}, release {release}.')
+            raise ValueError(
+                f"No keyword arguments extracted from datamodel location/example for species {species}, release {release}."
+            )
         joined_kwargs = ["=".join(i) for i in kwargs.items()]
 
         # tree_ver and release is set, use the tree_ver as precedence and set release to None
         if tree_ver and release:
-            release=None
+            release = None
 
-        return cls(file_spec=species, path=path, keywords=joined_kwargs, verbose=verbose,
-                   release=release, tree_ver=tree_ver, access_path_name=access_name)
+        return cls(
+            file_spec=species,
+            path=path,
+            keywords=joined_kwargs,
+            verbose=verbose,
+            release=release,
+            tree_ver=tree_ver,
+            access_path_name=access_name,
+        )
 
     def _construct_path(self) -> None:
-        """ Construct a path, template path, or env_label and location """
+        """Construct a path, template path, or env_label and location"""
         if not self.path:
             self.path = os.path.join(self.env_label, self.location)
         else:
@@ -352,16 +419,16 @@ class DataModel(object):
             except ValueError:
                 pass
 
-        self.template = f'${get_abstract_path(self.path, add_brackets=True)}'
+        self.template = f"${get_abstract_path(self.path, add_brackets=True)}"
 
     def _set_file_spec_from_location(self) -> None:
-        """ Extract file species name from file location """
+        """Extract file species name from file location"""
 
         namesplit = re.split("[-.]", os.path.basename(self.location))
         self.file_species = get_file_spec(namesplit[0]) if len(namesplit) > 1 else None
 
     def _set_tree(self) -> None:
-        """ Setup the SDSS Tree
+        """Setup the SDSS Tree
 
         Sets a valid Tree from an input tree_ver (config name) or valid release.  If a release is
         specified on input, attempts to convert it to a valid tree configuration.  If no release
@@ -370,7 +437,9 @@ class DataModel(object):
 
         """
         if self.tree_ver and self.release:
-            raise AttributeError('Both tree_ver and release cannot be set.  Only specify one or the other.')
+            raise AttributeError(
+                "Both tree_ver and release cannot be set.  Only specify one or the other."
+            )
 
         # if not TREE_VER and a release, attempt to get valid tree_ver
         if self.tree_ver is None and self.release:
@@ -381,11 +450,11 @@ class DataModel(object):
 
         # attempt to get the TREE_VER
         if self.tree_ver is None:
-            self.tree_ver = os.getenv('TREE_VER', None)
+            self.tree_ver = os.getenv("TREE_VER", None)
 
         # set the default WORK release to Tree sdss5.cfg for SDSS-V
-        if self.tree_ver == 'work':
-            self.tree_ver = 'sdsswork'
+        if self.tree_ver == "work":
+            self.tree_ver = "sdsswork"
 
         # add the tree and config_name
         self.tree = Tree(config=self.tree_ver)
@@ -396,28 +465,28 @@ class DataModel(object):
         self.release = self._get_tree_release()
 
     def _get_tree_release(self) -> str:
-        """ Get a tree release in a backwards compatible way """
+        """Get a tree release in a backwards compatible way"""
 
         # if the tree has release attribute, use it
-        if hasattr(self.tree, 'release'):
+        if hasattr(self.tree, "release"):
             return self.tree.release
 
         # convert the tree config name into a release name
         release = self.tree.config_name.upper()
-        if 'work' in self.tree.config_name or self.tree.config_name == 'sdss5':
-            release = 'WORK'
+        if "work" in self.tree.config_name or self.tree.config_name == "sdss5":
+            release = "WORK"
         return release
 
     def _set_design_location(self) -> None:
-        """ Sets the abstract file location for the design """
-        design_keys = re.findall(r'{(.*?)}', self.location)
+        """Sets the abstract file location for the design"""
+        design_keys = re.findall(r"{(.*?)}", self.location)
         abstract = {key: get_abstract_key(key=key) for key in design_keys}
         self.abstract_location = self.location.format(**abstract)
         if self.verbose:
-            log.info(f'Designing abstract location {self.abstract_location}')
+            log.info(f"Designing abstract location {self.abstract_location}")
 
     def _set_real_and_abstract_location(self) -> None:
-        """ Create a real location from path keywords
+        """Create a real location from path keywords
 
         Substitute the path keywords into the template location
         to form a real location.  Create an abstract location using
@@ -439,16 +508,18 @@ class DataModel(object):
             self.real_location = self.location.format(**real)
             self.abstract_location = self.location.format(**abstract)
         except Exception as e:
-            log.error(f"GENERATE {e}> key {key} is missing from location={self.location}")
+            log.error(
+                f"GENERATE {e}> key {key} is missing from location={self.location}"
+            )
 
     def _set_file(self) -> None:
-        """ Set the input (real) filepath and check for existence """
+        """Set the input (real) filepath and check for existence"""
 
         # get the environment
         self._set_env()
 
         if not self.env or "path" not in self.env:
-            log.error('No datamodel environment found!')
+            log.error("No datamodel environment found!")
             return
 
         if not os.path.exists(self.env["path"]):
@@ -460,7 +531,7 @@ class DataModel(object):
             return
 
         if not self.real_location:
-            log.error('Cannot build file path. No real location identified.')
+            log.error("Cannot build file path. No real location identified.")
             return
 
         self.file = os.path.join(self.env["path"], self.real_location)
@@ -469,15 +540,15 @@ class DataModel(object):
             log.error(f"Nonexistent file at {self.file}")
 
         if self.verbose:
-            log.info(f'Using real file: {self.file}')
+            log.info(f"Using real file: {self.file}")
 
     @property
     def file_exists(self):
-        """ Checks for file existence on disk """
+        """Checks for file existence on disk"""
         return os.path.isfile(self.file) if self.file else False
 
     def _set_env(self) -> None:
-        """ Create an environment dictionary
+        """Create an environment dictionary
 
         Create a dictionary containing the env_label and its path definition
         from tree[env_label].
@@ -494,9 +565,8 @@ class DataModel(object):
 
             # check if path is a PRODUCT_ROOT
             if path.startswith("$PRODUCT_ROOT"):
-
                 if self.verbose:
-                    log.info(f'{self.env_label} path is a PRODUCT_ROOT')
+                    log.info(f"{self.env_label} path is a PRODUCT_ROOT")
 
                 # check for existing label in enironemnt
                 if self.env_label in orig_env:
@@ -510,7 +580,7 @@ class DataModel(object):
                         product_root = self.tree.get_product_root()
                         # fail if PRODUCT_ROOT is not set
                         if not product_root:
-                            msg = 'No PRODUCT_ROOT found in your environment!  Please set your root directory for all git or svn products.'
+                            msg = "No PRODUCT_ROOT found in your environment!  Please set your root directory for all git or svn products."
                             log.error(msg)
                             raise ValueError(msg)
 
@@ -526,13 +596,15 @@ class DataModel(object):
 
         # issue error or info log messages
         if not self.env:
-            log.error(f"Please add this environment={self.env_label} to the tree "
-                      "product, and try again.")
+            log.error(
+                f"Please add this environment={self.env_label} to the tree "
+                "product, and try again."
+            )
         elif self.verbose:
             log.info(f"Using environment {self.env['label']}={self.env['path']}.")
 
     def _set_access(self) -> None:
-        """ Sets the access path dictionary
+        """Sets the access path dictionary
 
         Sets a dictionary containing access parameters for the current
         datamodel release.  Access parameters are path name and
@@ -548,16 +620,22 @@ class DataModel(object):
         self.access_string = f"{aname} = ${self.path}"
 
         # create the dictionary for the current release
-        self.access[self.release] = {'release': self.release, 'tree_ver': self.tree_ver,
-                                     'access': self.access_string, 'in_sdss_access': None,
-                                     'path_name': None, 'path_template': None,
-                                     'path_kwargs': None}
+        self.access[self.release] = {
+            "release": self.release,
+            "tree_ver": self.tree_ver,
+            "access": self.access_string,
+            "in_sdss_access": None,
+            "path_name": None,
+            "path_template": None,
+            "path_kwargs": None,
+        }
 
         # check if the file species already exists in sdss_access
         path_keys = self.tree.paths.keys()
-        self.in_sdss_access = aname in path_keys or \
-            aname.lower() in [i.lower() for i in path_keys]
-        self.access[self.release]['in_sdss_access'] = self.in_sdss_access
+        self.in_sdss_access = aname in path_keys or aname.lower() in [
+            i.lower() for i in path_keys
+        ]
+        self.access[self.release]["in_sdss_access"] = self.in_sdss_access
 
         if self.in_sdss_access:
             path = Path(release=self.tree_ver)
@@ -571,12 +649,12 @@ class DataModel(object):
             else:
                 name = None
             # lookup the sdss_access information
-            self.access[self.release]['path_name'] = name
-            self.access[self.release]['path_template'] = self.tree.paths[name]
-            self.access[self.release]['path_kwargs'] = list(set(path.lookup_keys(name)))
+            self.access[self.release]["path_name"] = name
+            self.access[self.release]["path_template"] = self.tree.paths[name]
+            self.access[self.release]["path_kwargs"] = list(set(path.lookup_keys(name)))
 
-    def get_stub(self, format: str = 'yaml') -> BaseStub:
-        """ Get a datamodel Stub
+    def get_stub(self, format: str = "yaml") -> BaseStub:
+        """Get a datamodel Stub
 
         Return a datamodel Stub for a given format.
 
@@ -593,9 +671,16 @@ class DataModel(object):
         stub = list(stub_iterator(format=format))
         return stub[0](self) if stub else None
 
-    def write_stubs(self, format: str = None, force: bool = None, use_cache_release: str = None,
-                    full_cache: bool = None, group: str = 'WORK', force_release: str = None) -> None:
-        """ Write out the stub files
+    def write_stubs(
+        self,
+        format: str = None,
+        force: bool = None,
+        use_cache_release: str = None,
+        full_cache: bool = None,
+        group: str = "WORK",
+        force_release: str = None,
+    ) -> None:
+        """Write out the stub files
 
         Write out all stubs or a stub of a given format.
 
@@ -616,17 +701,22 @@ class DataModel(object):
             Can be "DR", or "IPL".
         """
         if self.verbose:
-            log.info(f'Preparing datamodel: {self}.')
+            log.info(f"Preparing datamodel: {self}.")
 
         for stub in stub_iterator(format=format):
             ss = stub(self)
             if self.verbose:
-                log.info(f'Creating stub: {ss}')
-            ss.write(force=force, use_cache_release=use_cache_release, full_cache=full_cache,
-                     group=group, force_release=force_release)
+                log.info(f"Creating stub: {ss}")
+            ss.write(
+                force=force,
+                use_cache_release=use_cache_release,
+                full_cache=full_cache,
+                group=group,
+                force_release=force_release,
+            )
 
     def remove_stubs(self, format: str = None, git: bool = None) -> None:
-        """ Remove the stub files
+        """Remove the stub files
 
         Remove all stubs or a stub of a given format.
 
@@ -640,20 +730,22 @@ class DataModel(object):
         for stub in stub_iterator(format=format):
             ss = stub(self)
             if self.verbose:
-                log.info(f'Removing stub: {ss}')
+                log.info(f"Removing stub: {ss}")
 
             # either remove locally or from git
             if git:
                 try:
                     ss.remove_from_git()
                 except RuntimeError:
-                    log.info("Could not perform git remove.  Falling back to local remove.")
+                    log.info(
+                        "Could not perform git remove.  Falling back to local remove."
+                    )
                     ss.remove_output()
             else:
                 ss.remove_output()
 
     def commit_stubs(self, format: str = None) -> None:
-        """ Commit the stub files into git
+        """Commit the stub files into git
 
         Commit stub files into git.  Performs a git pull, commits all
         stubs into the repo, and attempts a git push.  Optionally specify
@@ -674,16 +766,23 @@ class DataModel(object):
         for stub in stub_iterator(format=format):
             ss = stub(self)
             if self.verbose:
-                log.info(f'Committing stub: {ss}')
+                log.info(f"Committing stub: {ss}")
             ss.commit_to_git()
 
         # attempt a git push
         self._git.push()
 
-    def design_hdu(self, ext: str = 'primary', extno: int = None, name: str = 'EXAMPLE',
-                   description: str = None, header: Union[list, dict, fits.Header] = None,
-                   columns: List[Union[list, dict, fits.Column]] = None, **kwargs):
-        """ Wrapper to _design_content, to design a new HDU
+    def design_hdu(
+        self,
+        ext: str = "primary",
+        extno: int = None,
+        name: str = "EXAMPLE",
+        description: str = None,
+        header: Union[list, dict, fits.Header] = None,
+        columns: List[Union[list, dict, fits.Column]] = None,
+        **kwargs,
+    ):
+        """Wrapper to _design_content, to design a new HDU
 
         Design a new astropy HDU for the given datamodel.  Specify the extension type ``ext``
         to indicate a PRIMARY, IMAGE, or BINTABLE HDU extension.  Each new HDU is added to the
@@ -729,12 +828,25 @@ class DataModel(object):
             when the table columns input is not a list
         """
 
-        self._design_content(ext=ext, extno=extno, name=name, description=description,
-                            header=header, columns=columns, **kwargs)
+        self._design_content(
+            ext=ext,
+            extno=extno,
+            name=name,
+            description=description,
+            header=header,
+            columns=columns,
+            **kwargs,
+        )
 
-    def design_par(self, comments: str = None, header: Union[list, dict] = None,
-                       name: str = None, description: str = None, columns: list = None):
-        r""" Wrapper to _design_content, to design a new Yanny par section
+    def design_par(
+        self,
+        comments: str = None,
+        header: Union[list, dict] = None,
+        name: str = None,
+        description: str = None,
+        columns: list = None,
+    ):
+        r"""Wrapper to _design_content, to design a new Yanny par section
 
         Design a new Yanny par for the given datamodel.  Specify Yanny comments, a header section,
         or a table definition.  Each new table is added to the YAML structure.  Use
@@ -765,12 +877,24 @@ class DataModel(object):
         columns : list, optional
             A set of Yanny table column definitions
         """
-        self._design_content(comments=comments, header=header, name=name,
-                             description=description, columns=columns)
+        self._design_content(
+            comments=comments,
+            header=header,
+            name=name,
+            description=description,
+            columns=columns,
+        )
 
-    def design_hdf(self, name: str = '/', description: str = None, hdftype: str = 'group', attrs=None,
-                             ds_shape: tuple = None, ds_dtype: str = None):
-        r""" Wrapper to _design_content, to design a new HDF5 section
+    def design_hdf(
+        self,
+        name: str = "/",
+        description: str = None,
+        hdftype: str = "group",
+        attrs=None,
+        ds_shape: tuple = None,
+        ds_dtype: str = None,
+    ):
+        r"""Wrapper to _design_content, to design a new HDF5 section
 
         Design a new HDF entry for the given datamodel.  Specify h5py groups or dataset definitions,
         with optional list of attributes.  Each new entry is added to the members entry in the
@@ -810,16 +934,46 @@ class DataModel(object):
             when an invalid hdftype is specified
         """
 
-        self._design_content(name=name, description=description, hdftype=hdftype, attrs=attrs,
-                             ds_shape=ds_shape, ds_dtype=ds_dtype)
+        self._design_content(
+            name=name,
+            description=description,
+            hdftype=hdftype,
+            attrs=attrs,
+            ds_shape=ds_shape,
+            ds_dtype=ds_dtype,
+        )
+
+    def design_parquet(
+        self,
+        dataframe=None,
+        columns: Dict = {},
+    ):
+        """Wrapper to _design_content, to design a new Parquet section
+
+        Parameters
+        ----------
+        dataframe: DataFrame, optional
+            A Polars DataFrame to use as the design for the Parquet file product. If
+            not provided, the design will be based on the provided columns dictionary.
+        columns: Dict[str, Any], optional
+            A dictionary of column information to use for the design of the Parquet file
+            product. The keys should be column names. Values can be either a tuple
+            of data type and example value, or just the date type, in which case
+            the row value will be set to null.
+
+        """
+
+        self._design_content(dataframe=dataframe, columns=columns)
 
     def _design_content(self, *args, **kwargs):
         if not self.design:
-            log.warning('Cannot design new content when not in the datamodel design phase.')
+            log.warning(
+                "Cannot design new content when not in the datamodel design phase."
+            )
             return
 
         # get the stub and update from disk
-        ss = self.get_stub(format='yaml')
+        ss = self.get_stub(format="yaml")
         ss.update_cache()
 
         # design the new content
@@ -829,7 +983,7 @@ class DataModel(object):
         ss.write()
 
     def generate_designed_file(self, redesign: bool = None, **kwargs):
-        """ Generate a file from a designed datamodel
+        """Generate a file from a designed datamodel
 
         Generates a real file on disk from a designed datamodel. If there are any
         path template keywords, they must be specified here as input keyword arguments
@@ -856,52 +1010,58 @@ class DataModel(object):
             self.design = True
 
         if not self.design:
-            log.warning('Cannot generate a file when not in the datamodel design phase.')
+            log.warning(
+                "Cannot generate a file when not in the datamodel design phase."
+            )
             return
 
-        if self.design and self.release != 'WORK':
-            raise AttributeError(f'The release {self.release} must be "WORK" when in '
-                                 'the datamodel design phase.')
+        if self.design and self.release != "WORK":
+            raise AttributeError(
+                f'The release {self.release} must be "WORK" when in '
+                "the datamodel design phase."
+            )
 
         # create a real location and filepath
         try:
             self.real_location = self.location.format(**kwargs)
         except KeyError as e:
-            raise KeyError(f'Must specify path keywords to generate a real file: {e}') from e
+            raise KeyError(
+                f"Must specify path keywords to generate a real file: {e}"
+            ) from e
         else:
             self.file = os.path.join(self.env["path"], self.real_location)
 
         # generate the designed HDUList
-        ss = self.get_stub(format='yaml')
+        ss = self.get_stub(format="yaml")
         ss.update_cache()
         try:
-            design_obj = ss.selected_file.create_from_cache(release='WORK')
-        except ValidationError as e:
-            log.error('Failed to create a valid design object')
+            design_obj = ss.selected_file.create_from_cache(release="WORK")
+        except ValidationError:
+            log.error("Failed to create a valid design object")
             raise
 
         # exit if for any reason the designed object doesn't exist
         if design_obj is None:
-            log.error('No designed object to write out.')
-            raise AttributeError('No designed object to write out.')
+            log.error("No designed object to write out.")
+            raise AttributeError("No designed object to write out.")
 
         # create directories if needed
         path = pathlib.Path(self.file)
         if not path.parent.exists():
-            log.info(f'Creating directory: {path.parent}')
+            log.info(f"Creating directory: {path.parent}")
             path.parent.mkdir(parents=True)
 
         # write out the designed file
         ss.selected_file.write_design(self.file, overwrite=True)
 
         if self.verbose:
-            log.info(f'Writing designed filepath: {self.file}')
+            log.info(f"Writing designed filepath: {self.file}")
             log.info("Setting datamodel design mode to False")
 
         # set design to False
         # updates the YAML cache with the file and real locations
         self.design = False if not redesign else self.design
-        ss = self.get_stub(format='yaml')
+        ss = self.get_stub(format="yaml")
 
         # update the datatype and filesize
         ss.update_cache()
@@ -911,34 +1071,37 @@ class DataModel(object):
         ss.write()
 
     def determine_survey(self, name_only: bool = False):
-        """ Attempt to determine the SDSS survey for this datamodel """
+        """Attempt to determine the SDSS survey for this datamodel"""
 
         ini_sec = self.tree.identify_section(self.env_label, guess=True)
         if not ini_sec:
-            log.warning(f'No tree config section found for environment {self.env_label}. '
-                        'Defaulting to general survey SDSS.')
-            ini_sec = 'SDSS'
+            log.warning(
+                f"No tree config section found for environment {self.env_label}. "
+                "Defaulting to general survey SDSS."
+            )
+            ini_sec = "SDSS"
 
         # get the SDSS survey
         ini_sec = ini_sec.lower()
         dmsurvey = [s for s in surveys if ini_sec == s.id or ini_sec in s.id]
-        output = dmsurvey[0] if dmsurvey else surveys['SDSS']
+        output = dmsurvey[0] if dmsurvey else surveys["SDSS"]
         return output.name if name_only else output
 
     @property
     def survey(self) -> str:
-        """ Get the SDSS survey for this datamodel """
+        """Get the SDSS survey for this datamodel"""
         return self.determine_survey(name_only=True)
 
     @property
     def vac(self) -> bool:
-        """ Checks if the datamodel product is a vac by its envvar label"""
+        """Checks if the datamodel product is a vac by its envvar label"""
         return self.env_label in vacs
 
     @property
     def recommended_science_product(self) -> bool:
-        """ Checks if the datamodel product is a recommended science product """
+        """Checks if the datamodel product is a recommended science product"""
         return bool(self.vac or self._science_product)
+
 
 #
 # code to create a markdown table

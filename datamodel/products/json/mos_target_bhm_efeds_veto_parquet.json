@@ -1,0 +1,341 @@
+{
+  "general": {
+    "name": "mos_target_bhm_efeds_veto_parquet",
+    "short": "MOS Target Table: bhm_efeds_veto",
+    "description": "The BHM-SPIDERS eFEDS veto catalogue.\n\nA minimalist catalogue of 6300 science targets in the SPIDERS eFEDS field that received SDSS-IV spectroscopy during the March2020 SPIDERS observing run (and hence are not in SDSS-SpecObj-DR16). Many of these spectra have very low SNR and so we will want to observe them again, but we will take account of this in the Carton code. This is a subset (in both rows and columns) of the spAll-v5_13_1.fits idlspec2d pipeline product. The original data model for that file is here: <a href=\"https://data.sdss.org/datamodel/files/BOSS_SPECTRO_REDUX/RUN2D/spAll.html\">https://data.sdss.org/datamodel/files/BOSS_SPECTRO_REDUX/RUN2D/spAll.html</a>",
+    "environments": [
+      "MOS_TARGET"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "445 KB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
+      }
+    ],
+    "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_bhm_efeds_veto.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.",
+    "generated_by": "sdss5db targeting database.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_bhm_efeds_veto.[FTYPE]",
+      "example": "2.0.0/parquet/mos_bhm_efeds_veto.parquet",
+      "location": "{v_targ}/{ftype}/mos_bhm_efeds_veto.{ftype}",
+      "environment": "MOS_TARGET",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mos_target_bhm_efeds_veto",
+        "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_bhm_efeds_veto.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_targ"
+        ],
+        "access_string": "mos_target_bhm_efeds_veto = $MOS_TARGET/{v_targ}/{ftype}/mos_bhm_efeds_veto.{ftype}"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "programname": {
+            "name": "programname",
+            "description": "program name within a given survey",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "chunk": {
+            "name": "chunk",
+            "description": "Name of tiling chunk",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "platesn2": {
+            "name": "platesn2",
+            "description": "Overall (S/N)^2 measure for plate; minimum of all 4 cameras",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "plate": {
+            "name": "plate",
+            "description": "Plate ID",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "tile": {
+            "name": "tile",
+            "description": "Tile ID",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "mjd": {
+            "name": "mjd",
+            "description": "MJD of (last) observation",
+            "unit": "days",
+            "dtype": "Int32",
+            "value": null
+          },
+          "fiberid": {
+            "name": "fiberid",
+            "description": "Fiber ID (1-1000)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "run2d": {
+            "name": "run2d",
+            "description": "idlspec 2D reduction version",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "run1d": {
+            "name": "run1d",
+            "description": "idlspec 1D reduction version",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plug_ra": {
+            "name": "plug_ra",
+            "description": "Object RA (drilled fiber position at expected epoch of observation)",
+            "unit": "deg",
+            "dtype": "Float64",
+            "value": null
+          },
+          "plug_dec": {
+            "name": "plug_dec",
+            "description": "Object Dec (drilled fiber position at expected epoch of observation)",
+            "unit": "deg",
+            "dtype": "Float64",
+            "value": null
+          },
+          "z_err": {
+            "name": "z_err",
+            "description": "Redshift error based upon fit to chi^2 minimum; negative for invalid fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "rchi2": {
+            "name": "rchi2",
+            "description": "Reduced chi^2 for best fit",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "dof": {
+            "name": "dof",
+            "description": "Degrees of freedom for best fit",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "rchi2diff": {
+            "name": "rchi2diff",
+            "description": "Difference in reduced chi^2 of best solution to 2nd best solution",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "wavemin": {
+            "name": "wavemin",
+            "description": "Minimum observed (vacuum) wavelength for this object",
+            "unit": "Angstroms",
+            "dtype": "Float32",
+            "value": null
+          },
+          "wavemax": {
+            "name": "wavemax",
+            "description": "Maximum observed (vacuum) wavelength for this object",
+            "unit": "Angstroms",
+            "dtype": "Float32",
+            "value": null
+          },
+          "wcoverage": {
+            "name": "wcoverage",
+            "description": "Amount of wavelength coverage in log-10(Angstroms)",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "zwarning": {
+            "name": "zwarning",
+            "description": "A flag bitmask set for bad data or redshift fits",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "sn_median_u": {
+            "name": "sn_median_u",
+            "description": "Median S/N for all good pixels in u filter",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "sn_median_g": {
+            "name": "sn_median_g",
+            "description": "Median S/N for all good pixels in g filter",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "sn_median_r": {
+            "name": "sn_median_r",
+            "description": "Median S/N for all good pixels in r filter",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "sn_median_i": {
+            "name": "sn_median_i",
+            "description": "Median S/N for all good pixels in i filter",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "sn_median_z": {
+            "name": "sn_median_z",
+            "description": "Median S/N for all good pixels in z filter",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "sn_median_all": {
+            "name": "sn_median_all",
+            "description": "Median S/N for all good pixels in all filters",
+            "unit": "",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectroflux_u": {
+            "name": "spectroflux_u",
+            "description": "Spectroflux in u filter",
+            "unit": "nanomaggies",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectroflux_g": {
+            "name": "spectroflux_g",
+            "description": "Spectroflux in g filter",
+            "unit": "nanomaggies",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectroflux_r": {
+            "name": "spectroflux_r",
+            "description": "Spectroflux in r filter",
+            "unit": "nanomaggies",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectroflux_i": {
+            "name": "spectroflux_i",
+            "description": "Spectroflux in i filter",
+            "unit": "nanomaggies",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectroflux_z": {
+            "name": "spectroflux_z",
+            "description": "Spectroflux in z filter",
+            "unit": "nanomaggies",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectroflux_ivar_u": {
+            "name": "spectroflux_ivar_u",
+            "description": "Inverse variance of spectroflux in u filter",
+            "unit": "nanomaggies^-2",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectroflux_ivar_g": {
+            "name": "spectroflux_ivar_g",
+            "description": "Inverse variance of spectroflux in g filter",
+            "unit": "nanomaggies^-2",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectroflux_ivar_r": {
+            "name": "spectroflux_ivar_r",
+            "description": "Inverse variance of spectroflux in r filter",
+            "unit": "nanomaggies^-2",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectroflux_ivar_i": {
+            "name": "spectroflux_ivar_i",
+            "description": "Inverse variance of spectroflux in i filter",
+            "unit": "nanomaggies^-2",
+            "dtype": "Float32",
+            "value": null
+          },
+          "spectroflux_ivar_z": {
+            "name": "spectroflux_ivar_z",
+            "description": "Inverse variance of spectroflux in z filter",
+            "unit": "nanomaggies^-2",
+            "dtype": "Float32",
+            "value": null
+          },
+          "anyandmask": {
+            "name": "anyandmask",
+            "description": "Mask bits which are set if any pixels for an object's ANDMASK have that bit set",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "anyormask": {
+            "name": "anyormask",
+            "description": "Mask bits which are set if any pixels for an object's ORMASK have that bit set",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "pk": {
+            "name": "pk",
+            "description": "primary key in the database table",
+            "unit": "",
+            "dtype": "Int64",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

@@ -1,0 +1,532 @@
+general:
+  name: mos_target_sdssv_boss_conflist_parquet
+  short: 'MOS Target Table: sdssv_boss_conflist'
+  description: 'The dr20_sdssv_boss_conflist table is a database representation of
+    an
+
+    early version of the SDSS-V BOSS fieldlist data product.
+
+
+    The dr20_sdssv_boss_conflist table was used within early iterations of FPS target_selection
+    as a way to communicate information about which SDSS-V plates had been observed
+    by the time of target selection. This information was used to e.g. de-prioritise
+    targets that were expected to have a good quality spectroscopic measurement before
+    the start of SDSS-V FPS operations.
+
+
+    Caution. The dr20_sdssv_boss_conflist table should only be used in order to recreate
+    the target_selection selection function.
+
+
+    Column descriptions are mainly derived from: <a href="https://data.sdss.org/datamodel/files/BOSS_SPECTRO_REDUX/RUN2D/platelist.html">https://data.sdss.org/datamodel/files/BOSS_SPECTRO_REDUX/RUN2D/platelist.html</a>'
+  datatype: PARQUET
+  filesize: 113 KB
+  releases:
+  - DR20
+  environments:
+  - MOS_TARGET
+  surveys:
+  - SDSS
+  naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdssv_boss_conflist.[FTYPE]
+    with FTYPE='parquet' and V_TARG='2.0.0' for DR20.
+  generated_by: sdss5db targeting database.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdssv_boss_conflist.[FTYPE]
+    example: 2.0.0/parquet/mos_sdssv_boss_conflist.parquet
+    location: '{v_targ}/{ftype}/mos_sdssv_boss_conflist.{ftype}'
+    environment: MOS_TARGET
+    access:
+      in_sdss_access: true
+      path_name: mos_target_sdssv_boss_conflist
+      path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_sdssv_boss_conflist.{ftype}
+      path_kwargs:
+      - ftype
+      - v_targ
+      access_string: mos_target_sdssv_boss_conflist = $MOS_TARGET/{v_targ}/{ftype}/mos_sdssv_boss_conflist.{ftype}
+    survey: SDSS
+    dataframe:
+      columns:
+        plate:
+          name: plate
+          dtype: Int32
+          unit: ''
+          description: Plate ID number
+        designid:
+          name: designid
+          dtype: Int32
+          unit: ''
+          description: Design ID number
+        mjd:
+          name: mjd
+          dtype: Int32
+          unit: ''
+          description: Modified Julian date of combined Spectra
+        run2d:
+          name: run2d
+          dtype: String
+          unit: ''
+          description: Spectro-2D reduction name
+        run1d:
+          name: run1d
+          dtype: String
+          unit: ''
+          description: Spectro-1D reduction name
+        racen:
+          name: racen
+          dtype: Float32
+          unit: deg
+          description: RA of the telescope pointing
+        deccen:
+          name: deccen
+          dtype: Float32
+          unit: deg
+          description: DEC of the telescope pointing
+        epoch:
+          name: epoch
+          dtype: Float32
+          unit: ''
+          description: Epoch of the RACEN/DECCEN
+        cartid:
+          name: cartid
+          dtype: Int32
+          unit: ''
+          description: The currently loaded cartridge/instrument
+        tai:
+          name: tai
+          dtype: Float64
+          unit: s
+          description: Mean MJD(TAI) seconds of integration
+        tai_beg:
+          name: tai_beg
+          dtype: Float64
+          unit: s
+          description: MJD(TAI) seconds at start of integration
+        tai_end:
+          name: tai_end
+          dtype: Float64
+          unit: s
+          description: MJD(TAI) seconds at end of integration
+        airmass:
+          name: airmass
+          dtype: Float32
+          unit: ''
+          description: Mean Airmass
+        exptime:
+          name: exptime
+          dtype: Float32
+          unit: s
+          description: Total Exposure time
+        mapname:
+          name: mapname
+          dtype: String
+          unit: ''
+          description: ID of plate mapping file
+        survey:
+          name: survey
+          dtype: String
+          unit: ''
+          description: Survey that plate is part of
+        programname:
+          name: programname
+          dtype: String
+          unit: ''
+          description: Program name within a given survey
+        chunk:
+          name: chunk
+          dtype: String
+          unit: from platelist product
+          description: Name of tiling chunk
+        platequality:
+          name: platequality
+          dtype: String
+          unit: ''
+          description: Characterization of plate quality
+        platesn2:
+          name: platesn2
+          dtype: Float32
+          unit: ''
+          description: Overall (S/N)^2 measure for plate
+        deredsn2:
+          name: deredsn2
+          dtype: Float32
+          unit: ''
+          description: Overall Dereddened (S/N)^2 for plate
+        qsurvey:
+          name: qsurvey
+          dtype: Int32
+          unit: ''
+          description: 1 for an survey quality plate, 0 otherwise
+        mjdlist:
+          name: mjdlist
+          dtype: String
+          unit: ''
+          description: List of MJD for each included exposure
+        tailist:
+          name: tailist
+          dtype: String
+          unit: ''
+          description: List of TAI for each included exposure
+        nexp:
+          name: nexp
+          dtype: Int32
+          unit: ''
+          description: Number of Included Exposures
+        nexp_b1:
+          name: nexp_b1
+          dtype: Int32
+          unit: ''
+          description: Number of Included Exposures from b1
+        nexp_r1:
+          name: nexp_r1
+          dtype: Int32
+          unit: ''
+          description: Number of Included Exposures from r1
+        expt_b1:
+          name: expt_b1
+          dtype: Float32
+          unit: s
+          description: Total Exposure Time of b1
+        expt_r1:
+          name: expt_r1
+          dtype: Float32
+          unit: s
+          description: Total Exposure Time of r1
+        sn2_g1:
+          name: sn2_g1
+          dtype: Float32
+          unit: ''
+          description: 'Fit (S/N)^2 at g=20.20 for spectrograph #1'
+        sn2_r1:
+          name: sn2_r1
+          dtype: Float32
+          unit: ''
+          description: 'Fit (S/N)^2 at r=20.25 for spectrograph #1'
+        sn2_i1:
+          name: sn2_i1
+          dtype: Float32
+          unit: ''
+          description: 'Fit (S/N)^2 at i=19.90 for spectrograph #1'
+        dered_sn2_g1:
+          name: dered_sn2_g1
+          dtype: Float32
+          unit: ''
+          description: Extinction corrected (S/N)^2 for sp1 g-band
+        dered_sn2_r1:
+          name: dered_sn2_r1
+          dtype: Float32
+          unit: ''
+          description: Extinction corrected (S/N)^2 for sp1 r-band
+        dered_sn2_i1:
+          name: dered_sn2_i1
+          dtype: Float32
+          unit: ''
+          description: Extinction corrected (S/N)^2 for sp1 i-band
+        goffstd:
+          name: goffstd
+          dtype: Float32
+          unit: ''
+          description: Mean g mag difference (spectro-photo) for STDs
+        grmsstd:
+          name: grmsstd
+          dtype: Float32
+          unit: ''
+          description: Stddev g mag diff (spectro-photo) for STDs
+        roffstd:
+          name: roffstd
+          dtype: Float32
+          unit: ''
+          description: Mean r mag difference (spectro-photo) for STDs
+        rrmsstd:
+          name: rrmsstd
+          dtype: Float32
+          unit: ''
+          description: Stddev r mag diff (spectro-photo) for STDs
+        ioffstd:
+          name: ioffstd
+          dtype: Float32
+          unit: ''
+          description: Mean i mag difference (spectro-photo) for STDs
+        irmsstd:
+          name: irmsstd
+          dtype: Float32
+          unit: ''
+          description: Stddev i mag diff (spectro-photo) for STDs
+        groffstd:
+          name: groffstd
+          dtype: Float32
+          unit: ''
+          description: Spectrophoto offset for G-R in standards
+        grrmsstd:
+          name: grrmsstd
+          dtype: Float32
+          unit: ''
+          description: Spectrophoto RMS for G-R in standards
+        rioffstd:
+          name: rioffstd
+          dtype: Float32
+          unit: ''
+          description: Spectrophoto offset for R-I in standards
+        rirmsstd:
+          name: rirmsstd
+          dtype: Float32
+          unit: ''
+          description: Spectrophoto RMS for R-I in standards
+        goffgal:
+          name: goffgal
+          dtype: Float32
+          unit: ''
+          description: Mean g mag diff (spectro-photo) for galaxies
+        grmsgal:
+          name: grmsgal
+          dtype: Float32
+          unit: ''
+          description: Stddev g mag diff (spectro-photo) for galaxies
+        roffgal:
+          name: roffgal
+          dtype: Float32
+          unit: ''
+          description: Mean r mag diff (spectro-photo) for galaxies
+        rrmsgal:
+          name: rrmsgal
+          dtype: Float32
+          unit: ''
+          description: Stddev r mag diff (spectro-photo) for galaxies
+        ioffgal:
+          name: ioffgal
+          dtype: Float32
+          unit: ''
+          description: Mean i mag diff (spectro-photo) for galaxies
+        irmsgal:
+          name: irmsgal
+          dtype: Float32
+          unit: ''
+          description: Stddev i mag diff (spectro-photo) for galaxies
+        groffgal:
+          name: groffgal
+          dtype: Float32
+          unit: ''
+          description: Spectrophoto offset for G-R in galaxies
+        grrmsgal:
+          name: grrmsgal
+          dtype: Float32
+          unit: ''
+          description: Spectrophoto RMS for G-R in galaxies
+        rioffgal:
+          name: rioffgal
+          dtype: Float32
+          unit: ''
+          description: Spectrophoto offset for R-I in galaxies
+        rirmsgal:
+          name: rirmsgal
+          dtype: Float32
+          unit: ''
+          description: Spectrophoto RMS for R-I in galaxies
+        nguide:
+          name: nguide
+          dtype: Int32
+          unit: ''
+          description: Number of guider frames during the exposures
+        seeing20:
+          name: seeing20
+          dtype: Float32
+          unit: arcsec
+          description: Mean 20% seeing during exposures
+        seeing50:
+          name: seeing50
+          dtype: Float32
+          unit: arcsec
+          description: Mean 50% seeing during exposures
+        seeing80:
+          name: seeing80
+          dtype: Float32
+          unit: arcsec
+          description: Mean 80% seeing during exposures
+        rmsoff20:
+          name: rmsoff20
+          dtype: Float32
+          unit: arcsec
+          description: 20% of RMS offset of guide fibers
+        rmsoff50:
+          name: rmsoff50
+          dtype: Float32
+          unit: arcsec
+          description: 50% of RMS offset of guide fibers
+        rmsoff80:
+          name: rmsoff80
+          dtype: Float32
+          unit: arcsec
+          description: 80% of RMS offset of guide fibers
+        airtemp:
+          name: airtemp
+          dtype: Float32
+          unit: dec
+          description: Air temperature in the dome
+        xsigma:
+          name: xsigma
+          dtype: Float32
+          unit: ''
+          description: Mean of median trace extraction profile width
+        xsigmin:
+          name: xsigmin
+          dtype: Float32
+          unit: ''
+          description: Min of median trace extraction profile width
+        xsigmax:
+          name: xsigmax
+          dtype: Float32
+          unit: ''
+          description: Max of median trace extraction profile width
+        wsigma:
+          name: wsigma
+          dtype: Float32
+          unit: ''
+          description: Mean of median Arc Lines wavelength (Y) width
+        wsigmin:
+          name: wsigmin
+          dtype: Float32
+          unit: ''
+          description: Min of median Arc Lines wavelength (Y) width
+        wsigmax:
+          name: wsigmax
+          dtype: Float32
+          unit: ''
+          description: Max of median Arc Lines wavelength (Y) width
+        xchi2:
+          name: xchi2
+          dtype: Float32
+          unit: ''
+          description: Mean of XCHI2 (reduced chi^2 of row-by-row)
+        xchi2min:
+          name: xchi2min
+          dtype: Float32
+          unit: ''
+          description: Minimum of XCHI2 (reduced chi^2 of row-by-row)
+        xchi2max:
+          name: xchi2max
+          dtype: Float32
+          unit: ''
+          description: Maximum of XCHI2 (reduced chi^2 of row-by-row)
+        skychi2:
+          name: skychi2
+          dtype: Float32
+          unit: ''
+          description: Average chi^2 from sky subtraction
+        schi2min:
+          name: schi2min
+          dtype: Float32
+          unit: ''
+          description: Minimum skyChi2 over all exposures
+        schi2max:
+          name: schi2max
+          dtype: Float32
+          unit: ''
+          description: Maximum skyChi2 over all exposures
+        fbadpix:
+          name: fbadpix
+          dtype: Float32
+          unit: ''
+          description: Fraction of bad pixels
+        fbadpix1:
+          name: fbadpix1
+          dtype: Float32
+          unit: ''
+          description: 'Fraction of bad pixels from spectrograph #1'
+        fbadpix2:
+          name: fbadpix2
+          dtype: Float32
+          unit: ''
+          description: 'Fraction of bad pixels from spectrograph #2'
+        n_total:
+          name: n_total
+          dtype: Int32
+          unit: ''
+          description: Number of Sources
+        n_galaxy:
+          name: n_galaxy
+          dtype: Int32
+          unit: ''
+          description: Number of Galaxies
+        n_qso:
+          name: n_qso
+          dtype: Int32
+          unit: ''
+          description: Number of QSOs
+        n_star:
+          name: n_star
+          dtype: Int32
+          unit: ''
+          description: Number of Stars
+        n_unknown:
+          name: n_unknown
+          dtype: Int32
+          unit: ''
+          description: Number of Unknown Sources
+        n_sky:
+          name: n_sky
+          dtype: Int32
+          unit: ''
+          description: Number of Skys
+        n_std:
+          name: n_std
+          dtype: Int32
+          unit: ''
+          description: Number of Standards
+        n_target_qso:
+          name: n_target_qso
+          dtype: Int32
+          unit: ''
+          description: Number of QSO Targeted
+        success_qso:
+          name: success_qso
+          dtype: Float32
+          unit: ''
+          description: Success rate of QSOs
+        status2d:
+          name: status2d
+          dtype: String
+          unit: ''
+          description: Status of 2d extraction
+        statuscombine:
+          name: statuscombine
+          dtype: String
+          unit: ''
+          description: Status of 1d combine
+        status1d:
+          name: status1d
+          dtype: String
+          unit: ''
+          description: Status of 1d analysis
+        public:
+          name: public
+          dtype: String
+          unit: ''
+          description: Is this Plate Public
+        qualcomments:
+          name: qualcomments
+          dtype: String
+          unit: ''
+          description: Comments on Plate Quality
+        moon_frac:
+          name: moon_frac
+          dtype: Float32
+          unit: ''
+          description: Mean Moon phase of the Coadded Spectra
+        pkey:
+          name: pkey
+          dtype: Int64
+          unit: ''
+          description: primary key for table entry
+      metadata: {}
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

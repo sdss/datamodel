@@ -14,6 +14,7 @@ Currently the datamodel product supports generating datamodels for the following
 - FITS: a common astronomy data format
 - `"Yanny" parameter files <https://www.sdss.org/dr17/software/par/>`_: human- and machine-readable ASCII parameter (.par) files
 - HDF5: Hierarchical Data Format (.h5) files
+- Parquet: a common columnar data format (.parquet) for tabular data
 
 The basic procedure for generating datamodels is the same, regardless of filetype.  All of the following code
 examples below are for generating datamodels for FITS files.  The same procedure can be used for generating
@@ -1072,3 +1073,106 @@ sub-``group`` also contains a ``dataset``.
           nbytes: 800
           is_virtual: false
           is_empty: false
+
+.. _parquet:
+
+Parquet Files
+-------------
+
+Apache Parquet files have become a widely used standard for storing tabular data in an efficient columnar format. The structure stored in a Parquet file (one per file) is referred to as a "dataframe". Libraries like `Polars <https://www.pola.rs/>`_ and `Pandas <https://pandas.pydata.org/>`_ can be used to read and write Parquet files, and the datamodel product uses Polars to extract the relevant metadata content for the YAML datamodel.
+
+Example Parquet YAML
+^^^^^^^^^^^^^^^^^^^^
+
+The YAML datamodel for a Parquet file includes a ``dataframe`` section with a list of the columns in the Parquet table, including their name, description, units, and the data type. To generate a stub from a Parquet file we can do
+
+.. code-block:: python
+
+    dm = DataModel(file_spec='lvmAgcamCoaddFrames', path='AGCAM_DATA_S/{mjd}/lvm.{tel}.guider_{expnum:0>8}.parquet', keywords=["mjd=61103", "tel=spec", "expnum=00003767"], release="WORK")
+    dm.write_stubs()
+
+The output datamodel file, ``lvmAgcamCoaddFrames.yaml`` has the following contents:
+
+.. tab:: Parquet Yaml
+
+    Example yaml datamodel for a Parquet file, shortened for brevity
+
+    .. code-block:: yaml
+
+      general:
+        name: lvmAgcamCoaddFrames
+        short: replace me - with a short one sentence summary of file
+        description: replace me - with a longer description of the data product
+        datatype: PARQUET
+        filesize: 31 KB
+        releases:
+        - WORK
+        environments:
+        - AGCAM_DATA_S
+        surveys:
+        - SDSS
+        naming_convention: replace me - with $AGCAM_DATA_S/[MJD]/lvm.[TEL].guider_[EXPNUM8].parquet
+          or lvm.spec.guider_00003767.parquet but with regex pattern matches
+        generated_by: replace me - with the name(s) of any git or svn product(s) that produces
+          this product.
+        data_level: 2.3.3
+        design: false
+        vac: false
+        recommended_science_product: false
+      changelog:
+        description: Describes changes to the datamodel product and/or file structure from
+          one release to another
+        releases: {}
+      releases:
+        WORK:
+          template: $AGCAM_DATA_S/[MJD]/lvm.[TEL].guider_[EXPNUM8].parquet
+          example: 61103/lvm.spec.guider_00003767.parquet
+          location: '{mjd}/lvm.{tel}.guider_{expnum:0>8}.parquet'
+          environment: AGCAM_DATA_S
+          access:
+            in_sdss_access: true
+            path_name: lvm_agcam_coadd_frames
+            path_template: $AGCAM_DATA_S/{mjd}/coadds/lvm.{tel}.coadd_s{specframe:0>8}_frames.parquet
+            path_kwargs:
+            - mjd
+            - tel
+            - specframe
+            access_string: lvm_agcam_coadd_frames = $AGCAM_DATA_S/{mjd}/lvm.{tel}.guider_{expnum:0>8}.parquet
+          survey: SDSS
+          dataframe:
+            columns:
+              thresh:
+                name: thresh
+                dtype: Float64
+                unit: replace me - with content
+                description: replace me - with content
+              npix:
+                name: npix
+                dtype: Int32
+                unit: replace me - with content
+                description: replace me - with content
+              tnpix:
+                name: tnpix
+                dtype: Int32
+                unit: replace me - with content
+                description: replace me - with content
+              xmin:
+                name: xmin
+                dtype: Int32
+                unit: replace me - with content
+                description: replace me - with content
+              ...
+            metadata: {}
+
+
+The mapping of columns in a dataframe have the following format:
+
+- **name**: the name of the column in the Parquet dataframe.
+- **dtype**: the Polars data type of the column, e.g. Int32, Float64, Utf8, etc.
+- **unit**: the unit of the column, if applicable.
+- **description**: a description of the content of the column.
+
+While not widely used, Parquet supports including a mapping of keyword-value in the file metadata section (values must be strings). The section ``metadata`` is a dictionary of metadata keys found in the sample file, with the format:
+
+- **key**: the name of the metadata keyword.
+- **description**: a description of the content of the metadata keyword.

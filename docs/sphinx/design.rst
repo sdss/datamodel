@@ -13,6 +13,7 @@ To jump to individual sections:
 - FITS: see :ref:`designhdu`
 - Yanny: see :ref:`designpar`
 - HDF5: see :ref:`designhdf`
+- Parquet: see :ref:`designparquet`
 
 .. _designstub:
 
@@ -926,6 +927,164 @@ Let's manually add our new header keys, new columns, and new tables.
           dtype: S5
           ndim: 1
 
+
+.. _designparquet:
+
+Designing a Parquet File
+------------------------
+
+Let's assume we want to create an initial datamodel for a target of opportunity Parquet file, with file_species name of "tooTargets".  We can create the initial stub with:
+
+.. code-block:: python
+
+  dm = DataModel(file_spec="tooTargets", path="SDSSCORE_DIR/{obs}/too_targets/too_targets_{mjd}.parquet", verbose=True, design=True)
+  dm.write_stubs()
+
+The initial file, `datamodel/products/yaml/tooTargets.yaml`, will look like this:
+
+.. code-block:: yaml
+
+  general:
+    name: tooTargets
+    short: replace me - with a short one sentence summary of file
+    description: replace me - with a longer description of the data product
+    datatype: null
+    filesize: null
+    releases:
+    - WORK
+    environments:
+    - SDSSCORE_DIR
+    surveys:
+    - SDSS
+    naming_convention: replace me - with $SDSSCORE_DIR/[OBS]/too_targets/too_targets_[MJD].parquet
+      or  but with regex pattern matches
+    generated_by: replace me - with the name(s) of any git or svn product(s) that produces
+      this product.
+    data_level: 2.3.3
+    design: true
+    vac: false
+    recommended_science_product: false
+  changelog:
+    description: Describes changes to the datamodel product and/or file structure from
+      one release to another
+    releases: {}
+  releases:
+    WORK:
+      template: $SDSSCORE_DIR/[OBS]/too_targets/too_targets_[MJD].parquet
+      example: null
+      location: '{obs}/too_targets/too_targets_{mjd}.parquet'
+      environment: SDSSCORE_DIR
+      access:
+        in_sdss_access: false
+        path_name: null
+        path_template: null
+        path_kwargs: null
+        access_string: tooTargets = $SDSSCORE_DIR/{obs}/too_targets/too_targets_{mjd}.parquet
+      survey: SDSS
+      dataframe:
+        columns: {}
+        metadata: {}
+  notes: |-
+    None
+  regrets: |-
+    I  have no regrets!
+
+Adding Content in Python
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+To add columns to the Parquet datamodel, use the `~datamodel.generate.datamodel.DataModel.design_parquet` method.  The ``columns`` keyword accepts a mapping of column name to column information, including the column name, description, unit, and data type.  The data type should be a string representation of a valid Parquet data type, e.g. "Int64", "Float64", "String".
+
+.. code-block:: python
+
+    # add an attribute at the root level
+    dm.design_parquet(columns={
+      "source_id": {"name": "source_id", "description": "The Gaia DR3 source ID", "unit": "", "dtype": "Int64"},
+      "fiber_type": {"name": "fiber_type", "description": "The fiber type, APOGEE or BOSS", "unit": "", "dtype": "Utf8"},
+      "ra": {"name": "ra", "description": "The right ascension of the target", "unit": "deg", "dtype": "Float64"},
+      "dec": {"name": "dec", "description": "The declination of the target", "unit": "deg", "dtype": "Float64"}})
+
+The resulting, modified file would be:
+
+.. code-block:: yaml
+
+  general:
+    name: tooTargets
+    short: replace me - with a short one sentence summary of file
+    description: replace me - with a longer description of the data product
+    datatype: null
+    filesize: null
+    releases:
+    - WORK
+    environments:
+    - SDSSCORE_DIR
+    surveys:
+    - SDSS
+    naming_convention: replace me - with $SDSSCORE_DIR/[OBS]/too_targets/too_targets_[MJD].parquet
+      or  but with regex pattern matches
+    generated_by: replace me - with the name(s) of any git or svn product(s) that produces
+      this product.
+    data_level: 2.3.3
+    design: true
+    vac: false
+    recommended_science_product: false
+  changelog:
+    description: Describes changes to the datamodel product and/or file structure from
+      one release to another
+    releases: {}
+  releases:
+    WORK:
+      template: $SDSSCORE_DIR/[OBS]/too_targets/too_targets_[MJD].parquet
+      example: null
+      location: '{obs}/too_targets/too_targets_{mjd}.parquet'
+      environment: SDSSCORE_DIR
+      access:
+        in_sdss_access: false
+        path_name: null
+        path_template: null
+        path_kwargs: null
+        access_string: tooTargets = $SDSSCORE_DIR/{obs}/too_targets/too_targets_{mjd}.parquet
+      survey: SDSS
+      dataframe:
+        columns:
+          source_id:
+            name: source_id
+            dtype: Int64
+            unit: ''
+            description: The Gaia DR3 source ID
+          fiber_type:
+            name: fiber_type
+            dtype: Utf8
+            unit: ''
+            description: The fiber type, APOGEE or BOSS
+          ra:
+            name: ra
+            dtype: Float64
+            unit: deg
+            description: The right ascension of the target
+          dec:
+            name: dec
+            dtype: Float64
+            unit: deg
+            description: The declination of the target
+        metadata: {}
+  notes: |-
+    None
+  regrets: |-
+    I  have no regrets!
+
+Adding Content in YAML
+^^^^^^^^^^^^^^^^^^^^^^
+
+Alternatively you can add column data directly in the YAML file itself.  This is done by adding individual column entries to the ``dataframe.columns`` dictionary of the ``WORK`` release.  Each column entry should have the following syntax:
+
+.. code-block:: yaml
+
+  columns:
+    [NAME]:
+      name: the name of the column
+      description: a description of the column
+      unit: a unit for the column, can be empty
+      dtype: a string representation of a valid Parquet data type, e.g. "Int64", "Float64", "String"
 
 .. _createfile:
 
