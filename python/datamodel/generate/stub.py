@@ -222,7 +222,10 @@ class BaseStub(abc.ABC):
             force = None
 
         # only cache-able format is yaml - load that content
-        cached_file = self.output.replace(self.format, 'yaml')
+        # cached_file = self.output.replace(self.format, 'yaml')  # caused replacement issue if file name contains file formate name (i.e. mdwarf in file name causes issue with .md filetype)
+        base = os.path.splitext(self.output)[0]
+        yaml_dir = os.path.dirname(base).replace(f'/{self.format}', '/yaml')
+        cached_file = os.path.join(yaml_dir, os.path.basename(base) + '.yaml')
 
         if os.path.exists(cached_file) and (not force or (force and force_release)):
             # read existing cache
