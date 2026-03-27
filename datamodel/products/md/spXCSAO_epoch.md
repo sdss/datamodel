@@ -9,17 +9,17 @@ pyXCSAO output for field epoch coadd
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 Contains the output of the pyXCSAO package, a Python replication of IRAF XCSAO (https://github.com/mkounkel/pyxcsao, for the field epoch coadd. It contains the radial velocity measurements determined cross-correlating a spectrum with a grid of PHOENIX stellar models. The measurements are only valid for stars despite being produced for all fibers.
 
 ### Naming Convention
-$BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/epoch/[RUN1D]/spXCSAO-[FIELD]-[MJD].fits
+$BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/epoch/[RUN1D]/spXCSAO-[FIELD]-[MJD].fits
 
 ### Releases
-IPL3, DR19
+IPL3, DR19, IPL4
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,14 +36,20 @@ idlspec2d - run_pyXCSAO.py
 ### Is a VAC
 False
 
+### Data Level
+1.3
+
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: ](#hdu1-)
+  - [HDU1](#hdu1)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - IPL4
+   - from: DR19
+   - added_hdus: ['PYXCSAO']
  - DR19
    - from: IPL3
    - note: No changes
@@ -118,9 +124,9 @@ Name | Type | Unit | Description |
  | gaia_G | float64 | Mag | Gaia G band photmetry |
  | BP | float64 | Mag | Gaia BP band photmetry |
  | RP | float64 | Mag | Gaia RP band photmetry |
- | J | float64 | Mag | Gaia J band photmetry |
- | H | float64 | Mag | Gaia H band photmetry |
- | K | float64 | Mag | Gaia K band photmetry |
+ | J | float64 | Mag | 2MASS J band photmetry |
+ | H | float64 | Mag | 2MASS H band photmetry |
+ | K | float64 | Mag | 2MASS K band photmetry |
  | r | float64 |  | Cross correlation strength, as defined in Tonry+79 |
  | rv | float64 | km/s | Radial velocity measured with XCSAO |
  | erv | float64 | km/s | Uncertainty in rv |
@@ -141,3 +147,7 @@ Name | Type | Unit | Description |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

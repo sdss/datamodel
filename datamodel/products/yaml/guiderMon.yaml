@@ -1,0 +1,299 @@
+general:
+  name: guiderMon
+  short: SDSS Plate Guider Monitoring Summary File for a given MJD
+  description: This file contains information from the proc-gimg raw guider image
+    files in the form of structures for SDSS Plate observations. For days where there
+    are no observations this file is still created with the header and the structure
+    definition only.
+  datatype: PAR
+  filesize: 940 bytes
+  releases:
+  - IPL4
+  environments:
+  - SPECLOG_DIR
+  surveys:
+  - SDSS
+  naming_convention: $SPECLOG_DIR/[MJD]/guiderMon-[MJD].par
+  generated_by: idlspec2d - guidermonfile.pro
+  data_level: 0.3.1
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  IPL4:
+    template: $SPECLOG_DIR/[MJD]/guiderMon-[MJD].par
+    example: 59383/guiderMon-59383.par
+    location: '{mjd}/guiderMon-{mjd}.par'
+    environment: SPECLOG_DIR
+    access:
+      in_sdss_access: true
+      path_name: guidermon
+      path_template: $SPECLOG_DIR/{mjd}/guiderMon-{mjd}.par
+      path_kwargs:
+      - mjd
+      access_string: guiderMon = $SPECLOG_DIR/{mjd}/guiderMon-{mjd}.par
+    survey: SDSS
+    par:
+      comments: ""
+      header:
+      - key: mjd
+        value: '59383'
+        comment: Modified Julian Date of observation
+      tables:
+        GUIDEOBJ:
+          name: GUIDEOBJ
+          description: Table of guide Exposure metdata and properties
+          n_rows: 1
+          structure:
+          - name: timestamp
+            type: long
+            description: Timestamp of the start of the guider exposure (Tai)
+            unit: s
+            is_array: false
+            is_enum: false
+            example: 5130700604
+          - name: exists
+            type: char[2]
+            description: Does this probe exist?
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: T
+          - name: enabled
+            type: char[2]
+            description: Was this probe enabled for guiding for this image?
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: T
+          - name: gprobebits
+            type: short
+            description: guide probe status bits
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 16
+          - name: xfocal
+            type: float
+            description: X focal position of guide star on plug plate (plate frame)
+            unit: mm
+            is_array: false
+            is_enum: false
+            example: -262.57000732421875
+          - name: yfocal
+            type: float
+            description: Y focal position of guide star on plug plate (plate frame)
+            unit: mm
+            is_array: false
+            is_enum: false
+            example: -21.79199981689453
+          - name: radius
+            type: float
+            description: Radius of guide probe active area on image (binned guidercam
+              frame)
+            unit: pixels
+            is_array: false
+            is_enum: false
+            example: 8.5
+          - name: xferruleoffset
+            type: float
+            description: X offset of guide probe active area w.r.t the ferrule
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: -4.5
+          - name: yferruleoffset
+            type: float
+            description: Y Offset of guide probe active area w.r.t the ferrule
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 3.200000047683716
+          - name: rotation
+            type: float
+            description: Intrinsic rotation of guide probe measured counter clockwise
+              from the guider x axis to the guide probe alignment pin direction.
+            unit: degrees
+            is_array: false
+            is_enum: false
+            example: 150.0
+          - name: rotstar2sky
+            type: float
+            description: Rotation of a guide fiber image on the guide camera (measured
+              counter clockwise from the guider x axis North). Rotation of the guide
+              fiber image by -rotStar2Sky produces a North up image
+            unit: degrees
+            is_array: false
+            is_enum: false
+            example: 7.796000003814697
+          - name: focusoffset
+            type: float
+            description: Focus offset of guide probe; + is further from the secondary
+              (shorter ferrule)
+            unit: microns
+            is_array: false
+            is_enum: false
+            example: 400.0
+          - name: fiber_type
+            type: char[8]
+            description: Type of guide probe - one of (ACQUIRE|GUIDE|TRITIUM)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: GUIDE
+          - name: ugriz
+            type: float[5]
+            description: 5-band SDSS imaging magnitudes for this star
+            unit: mag
+            is_array: true
+            is_enum: false
+            example:
+            - 0.0
+            - 0.0
+            - 0.0
+            - 0.0
+            - 0.0
+          - name: ref_mag
+            type: float
+            description: Synthetic expected total magnitude, computed from ugriz;
+              compare with mag
+            unit: mag
+            is_array: false
+            is_enum: false
+            example: 0.6705300211906433
+          - name: fiberid
+            type: int
+            description: guide fiber number; starting from 1
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 1
+          - name: xcenter
+            type: float
+            description: Centroid of guide probe on image (guidercam frame)
+            unit: pixels
+            is_array: false
+            is_enum: false
+            example: 213.52000427246094
+          - name: ycenter
+            type: float
+            description: Centroid of guide probe on image (guidercam frame)
+            unit: pixels
+            is_array: false
+            is_enum: false
+            example: 437.44000244140625
+          - name: xstar
+            type: float
+            description: Centroid of star on image (guidercam frame)
+            unit: pixels
+            is_array: false
+            is_enum: false
+            example: 219.92999267578125
+          - name: ystar
+            type: float
+            description: Centroid of star on image (guidercam frame)
+            unit: pixels
+            is_array: false
+            is_enum: false
+            example: 434.82000732421875
+          - name: dx
+            type: float
+            description: Centroid of star - center of guide probe on image (guidercam
+              frame)
+            unit: mm
+            is_array: false
+            is_enum: false
+            example: 0.16226999461650848
+          - name: dy
+            type: float
+            description: Centroid of star - center of guide probe on image (guidercam
+              frame)
+            unit: mm
+            is_array: false
+            is_enum: false
+            example: -0.0650160014629364
+          - name: dra
+            type: float
+            description: Centroid of star - center of guide probe along RA (plate
+              frame)
+            unit: mm
+            is_array: false
+            is_enum: false
+            example: 0.15195000171661377
+          - name: ddec
+            type: float
+            description: Centroid of star - center of guide probe along Dec (plate
+              frame)
+            unit: mm
+            is_array: false
+            is_enum: false
+            example: 0.08642599731683731
+          - name: fwhm
+            type: float
+            description: FWHM of star
+            unit: arcseconds
+            is_array: false
+            is_enum: false
+            example: 2.194000005722046
+          - name: flux
+            type: float
+            description: flux of star
+            unit: total DN
+            is_array: false
+            is_enum: false
+            example: 967.739990234375
+          - name: mag
+            type: float
+            description: measured magnitude of star; compare with ref_mag
+            unit: mag
+            is_array: false
+            is_enum: false
+            example: 17.482999801635742
+          - name: sky
+            type: float
+            description: sky flux in this fiber
+            unit: DN/pixel
+            is_array: false
+            is_enum: false
+            example: 14630.0
+          - name: skymag
+            type: float
+            description: Sky magnitude in this fiber
+            unit: mag/arcsec^2
+            is_array: false
+            is_enum: false
+            example: .nan
+          - name: poserr
+            type: float
+            description: Estimate of the centroiding error of star (binnded guidercam
+              frame)
+            unit: pixels
+            is_array: false
+            is_enum: false
+            example: 0.7846099734306335
+          - name: stampsize
+            type: int
+            description: Index of postage stamp HDU - 1=HDU4 (small), 2=HDU4 (large),
+              0=none (Tritium source)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 1
+          - name: stampidx
+            type: int
+            description: Index of postage stamp - 0 for the postage stamp starting
+              at x=0, -1 if no postage stamp (e.g. Tritium source or unavailable guide
+              probe).
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 0
+notes: "Some of these files may not be readable by pydl.yanny tools, and can only\
+  \ be read in idl using idlutils. The issue comes from missing brackets \naround\
+  \ array definitions in the yanny tables. "
+regrets: |-
+  I  have no regrets!

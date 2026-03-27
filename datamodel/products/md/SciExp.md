@@ -9,17 +9,17 @@ Metadata of all Science Exposure for Field/Plate
 - [Changelog](#changelog)
 - [Example PAR List](#example-par-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 Metadata of all Science Exposure for Field/Plate used for building the spPlancombepoch files
 
 ### Naming Convention
-$BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/SciExp-[FIELD].par
+$BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/SciExp-[FIELD].par
 
 ### Releases
-IPL3, DR19
+IPL3, DR19, IPL4
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,6 +36,9 @@ idlspec2d - spplan_epoch.py
 ### Is a VAC
 False
 
+### Data Level
+1.1
+
 ### PAR List for release DR19
   - [SPEXP](#SPEXP)
 
@@ -43,6 +46,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - IPL4
+   - from: DR19
+   - tables: {'SPEXP': {'delta_nrows': 86}}
  - DR19
    - from: IPL3
    - tables: {'SPEXP': {'delta_nrows': 245}}
@@ -90,3 +96,7 @@ Name | Type | Unit | Description | Is Array | Example |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

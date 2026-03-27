@@ -9,17 +9,17 @@ BOSS Field Summary File
 - [Changelog](#changelog)
 - [Example HDUS List](#example-hdus-list)
 - [Notes](#notes)
-
+- [Regrets](#regrets)
 ---
 
 ## Basic Information
 This file contains the list of reduced BOSS plates and FPS Fields, with associated meta-data gathered from the design/configuration files and the reductions.
 
 ### Naming Convention
-$BOSS_SPECTRO_REDUX/[RUN2D]/fieldlist-[RUN2D].fits
+$BOSS_SPECTRO_REDUX/[RUN2D]/summary/daily/fieldlist-[RUN2D].fits
 
 ### Releases
-IPL3, DR19
+IPL3, DR19, IPL4
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -36,6 +36,9 @@ idlspec2d
 ### Is a VAC
 False
 
+### Data Level
+2.3.2
+
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: FIELDLIST](#hdu1-fieldlist)
@@ -44,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - IPL4
+   - from: DR19
+   - note: No changes
  - DR19
    - from: IPL3
    - note: No changes
@@ -227,3 +233,7 @@ Name | Type | Unit | Description |
 ---
 ## Notes
 None
+
+---
+## Regrets
+I have no regrets!

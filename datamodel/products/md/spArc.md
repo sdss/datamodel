@@ -16,10 +16,10 @@ Extacted Arc Frame and wavelength solution
 This file contains information about flux density, wavelength solution, fibermask and line width obtained from extracted arc calibration frames.
 
 ### Naming Convention
-$BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spArc-[BR][ID]-[FRAME].fits.gz
+$BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/spArc-[BR][ID]-[FRAME].fits.gz
 
 ### Releases
-DR17, DR18, IPL3, DR19
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19, IPL4
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -37,7 +37,7 @@ idlspec2d - spCalib.pro
 False
 
 ### Data Level
-0.0.0
+1.2.2
 
 ### HDUS List for release DR19
   - [HDU0: flux](#hdu0-flux)
@@ -53,19 +53,51 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - IPL4
+   - from: DR19
+   - added_hdus: ['FIBERMASK', 'RESLSET', 'DISPSET', 'LAMBDA', 'WSET', 'REJLINE', 'FLUX']
+   - removed_hdus: ['flux', 'rejline']
+   - primary_delta_nkeys: 1
+   - added_primary_header_kwargs: ['M2FF', 'FFSPOS']
+   - removed_primary_header_kwargs: ['NAXIS1']
  - DR19
    - from: IPL3
-   - added_hdus: ['rejline', 'XDIF_TSET']
+   - added_hdus: ['XDIF_TSET', 'rejline']
  - IPL3
    - from: DR18
    - primary_delta_nkeys: 79
-   - added_primary_header_kwargs: ['VJAEGER', 'MEDREX0', 'MCTBCT', 'OFFDEC', 'CCDSUM', 'SPEC', 'MCHUMCO', 'T_TRUSS', 'MEDREX3', 'MECHORIZ', 'NMATCH', 'MEDWIDT3', 'CCDTYPE', 'OFFRA', 'R2CAMT', 'FIELDID', 'OFFPA', 'MCTBCB', 'MEDWIDT1', 'BOSSVER', 'T_FLOOR', 'DAQVER', 'SPECMT', 'EQUINOX', 'GSEEING', 'SLITID', 'V_ARCHON', 'DESIGNID', 'ARCHTEMP', 'ARCNAME', 'B2CAMT', 'MCTEMDN', 'BUFFER', 'VCALIBS', 'FLATNAME', 'CCDID', 'ARCHBVER', 'TSEP', 'CCD', 'T_CELL', 'MCTHT', 'T_OUT', 'COLLH', 'ARCHBACK', 'MCHUMHT', 'B2CAMH', 'MECHORIY', 'COLLT', 'T_PRIM', 'ARCHACF', 'R2CAMH', 'HA', 'TAI', 'VCOORDIO', 'T_IN', 'MEDREX1', 'HEAR', 'AIRMASS', 'MCTRCB', 'CONFID', 'VERS2D', 'MEDWIDT2', 'MECHORIX', 'EXTNAME', 'INTSTART', 'VKAIJU', 'MEDREX2', 'INTEND', 'MCTRCT', 'MEDWIDT0', 'OBSERVAT']
-   - removed_primary_header_kwargs: ['AUTHOR', 'MC1TEMDN', 'TWOPHASE', 'CAMCOL', 'SLITID1', 'MGDPOS', 'MC1HUMCO', 'CAMROW', 'MGDDEC', 'MC1TBCT', 'MC1TRCB', 'MC1HUMHT', 'MC1THT', 'MC1TBCB', 'MC1TRCT', 'MGDRA']
+   - added_primary_header_kwargs: ['VERS2D', 'OBSERVAT', 'OFFDEC', 'MECHORIX', 'SLITID', 'TAI', 'T_FLOOR', 'ARCHBVER', 'MCHUMHT', 'VJAEGER', 'INTSTART', 'CONFID', 'EQUINOX', 'BOSSVER', 'VCALIBS', 'MECHORIY', 'CCDID', 'MCTBCT', 'INTEND', 'B2CAMH', 'T_PRIM', 'MCTRCB', 'MCTBCB', 'MEDREX0', 'MEDWIDT2', 'HA', 'SPEC', 'MCHUMCO', 'NMATCH', 'MEDWIDT3', 'MECHORIZ', 'T_CELL', 'HEAR', 'CCDTYPE', 'DAQVER', 'VCOORDIO', 'MCTRCT', 'COLLT', 'VKAIJU', 'T_TRUSS', 'ARCHACF', 'OFFRA', 'R2CAMH', 'T_OUT', 'FLATNAME', 'EXTNAME', 'MEDWIDT1', 'V_ARCHON', 'DESIGNID', 'CCDSUM', 'FIELDID', 'MEDWIDT0', 'ARCHBACK', 'MEDREX1', 'BUFFER', 'B2CAMT', 'T_IN', 'CCD', 'OFFPA', 'COLLH', 'R2CAMT', 'AIRMASS', 'ARCNAME', 'MCTEMDN', 'GSEEING', 'SPECMT', 'TSEP', 'MEDREX2', 'MEDREX3', 'ARCHTEMP', 'MCTHT']
+   - removed_primary_header_kwargs: ['CAMCOL', 'MC1TRCT', 'MGDDEC', 'MC1TBCB', 'CAMROW', 'MC1TBCT', 'MC1TEMDN', 'TWOPHASE', 'SLITID1', 'MGDPOS', 'MC1HUMHT', 'MGDRA', 'MC1THT', 'MC1TRCB', 'MC1HUMCO', 'AUTHOR']
  - DR18
    - from: DR17
    - primary_delta_nkeys: 38
-   - added_primary_header_kwargs: ['SHOPETIM', 'DIDFLUSH', 'WINDS25M', 'REQTIME', 'LN2TEMP', 'MC1HUMCO', 'M2ZROT', 'MC1HUMHT', 'MC1THT', 'MGDDEC', 'GUSTD', 'V_SOP', 'MC1TEMDN', 'AIRTEMP', 'M1ZROT', 'PRESSURE', 'MGDPOS', 'MC1TBCT', 'V_GUIDER', 'V_BOSS', 'V_APO', 'SHCLOTIM', 'IONPUMP', 'TRUSTEMP', 'DEWPOINT', 'DUSTA', 'GUSTS', 'WINDD', 'SUBFRAME', 'MC1TRCT', 'DUSTB', 'PFERR', 'DARKTIME', 'WINDS', 'SLITID1', 'CCDTEMP', 'HUMIDITY', 'PLATETYP', 'MC1TRCB', 'SRVYMODE', 'MC1TBCB', 'WINDD25M', 'MGDRA']
-   - removed_primary_header_kwargs: ['OBJOFFY', 'OBJOFFX', 'BOSSVER', 'DAQVER', 'PIXBIAS']
+   - added_primary_header_kwargs: ['HUMIDITY', 'LN2TEMP', 'DUSTB', 'WINDS', 'DUSTA', 'PRESSURE', 'M1ZROT', 'WINDS25M', 'IONPUMP', 'REQTIME', 'MC1HUMCO', 'V_APO', 'TRUSTEMP', 'MC1TRCT', 'MC1TBCT', 'GUSTS', 'MC1TEMDN', 'MC1HUMHT', 'V_SOP', 'WINDD25M', 'M2ZROT', 'V_BOSS', 'MC1TRCB', 'PLATETYP', 'SRVYMODE', 'PFERR', 'SUBFRAME', 'MGDDEC', 'WINDD', 'MGDRA', 'SHCLOTIM', 'AIRTEMP', 'MC1THT', 'DIDFLUSH', 'SHOPETIM', 'SLITID1', 'MC1TBCB', 'DEWPOINT', 'MGDPOS', 'CCDTEMP', 'DARKTIME', 'V_GUIDER', 'GUSTD']
+   - removed_primary_header_kwargs: ['DAQVER', 'PIXBIAS', 'OBJOFFY', 'BOSSVER', 'OBJOFFX']
+ - DR17
+   - from: DR16
+   - added_hdus: ['flux']
+   - removed_hdus: ['PRIMARY']
+ - DR16
+   - from: DR15
+   - note: No changes
+ - DR15
+   - from: DR14
+   - note: No changes
+ - DR14
+   - from: DR13
+   - note: No changes
+ - DR13
+   - from: DR11
+   - note: No changes
+ - DR11
+   - from: DR12
+   - note: No changes
+ - DR12
+   - from: DR10
+   - note: No changes
+ - DR10
+   - from: DR9
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -369,7 +401,7 @@ Key | Value | Comment | |
 
 
 ### HDU4: 
-rThe data attribute of HDU 4 gives the line width (in the dispersion axis) for each fiber. This Gaussian sigma is in units of pixels. The Y-positions on the CCD, which is the independent variable and the corresponding line width, which is the dependent variable are fitted to a functional form and the resulting coefficients are stored in a binary table. For instructions on how to use these tracesets, see HDU2 description of this file.
+The data attribute of HDU 4 gives the line width (in the dispersion axis) for each fiber. This Gaussian sigma is in units of pixels. The Y-positions on the CCD, which is the independent variable and the corresponding line width, which is the dependent variable are fitted to a functional form and the resulting coefficients are stored in a binary table. For instructions on how to use these tracesets, see HDU2 description of this file.
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  15 KB
@@ -489,12 +521,7 @@ Key | Value | Comment | |
 
 ---
 ## Notes
-How to use these coefficients - Let x be the pixel number of a given trace. We define mu = 2*(x-XMID)/(XMAX-XMIN) and the solution for the wavelength is FUNC(mu) where FUNC is the function stored in the FUNC column in this binary table (it is usually a Legendre polynomials). If XJUMPLO or XJUMPHI are present in the table, the following formulas need to be applied to correct x due to two-phase read-out of CCDs.
-  t = (x-XJUMPLO)/(XJUMPHI-XJUMPLO)
-  jump = 0 * (t<0) + t * (0<t<1) + 1 * (t>1) 
-  x = x + jump * XJUMPVAL
-  mu = 2*(x-XMID)/(XMAX-XMIN)
-  loglam = FUNC(mu)
+In DR19, DR20, IPL3, and IPL4 REJLINE (HDU6) is sometimes missing. \ \ If it is missing, it can be assumed that if it is missing, that all lines are used.\ \ \ \ How to use these coefficients - Let x be the pixel number of a given trace.\ \ We define mu = 2*(x-XMID)/(XMAX-XMIN) and the solution for the wavelength is FUNC(mu)\ \ where FUNC is the function stored in the FUNC column in this binary table (it\ \ is usually a Legendre polynomials). If XJUMPLO or XJUMPHI are present in the table,\ \ the following formulas need to be applied to correct x due to two-phase read-out\ \ of CCDs.\n  t = (x-XJUMPLO)/(XJUMPHI-XJUMPLO)\n  jump = 0 * (t<0) + t * (0<t<1)\ \ + 1 * (t>1) \n  x = x + jump * XJUMPVAL\n  mu = 2*(x-XMID)/(XMAX-XMIN)\n  loglam\ \ = FUNC(mu)"
 
 ---
 ## Regrets

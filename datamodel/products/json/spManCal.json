@@ -1,0 +1,132 @@
+{
+  "general": {
+    "name": "spManCal",
+    "short": "A parameter file for manual calibration frames assignments",
+    "description": "A parameter file containing field-MJD-exposureID combinations for manual calibration frames for SDSS-V FPS observations. Allows users to specify which calibration frames should be used for each field-MJD combination in situations where automatic association is insufficient.",
+    "environments": [
+      "SDSSCORE_DIR"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PAR",
+    "filesize": "550 bytes",
+    "releases": [
+      {
+        "name": "IPL4",
+        "description": "SDSS internal product launch 4",
+        "public": false,
+        "release_date": "2025-07-15"
+      }
+    ],
+    "naming_convention": "$SDSSCORE_DIR/[OBS]/sdHdrfix/spManCal.par",
+    "generated_by": "idlspec2d",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": false,
+    "data_level": "0.3.0"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "IPL4": {
+      "template": "$SDSSCORE_DIR/[OBS]/sdHdrfix/spManCal.par",
+      "example": "lco/sdHdrfix/spManCal.par",
+      "location": "{obs}/sdHdrfix/spManCal.par",
+      "environment": "SDSSCORE_DIR",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "spManCal",
+        "path_template": "$SDSSCORE_DIR/{obs}/sdHdrfix/spManCal.par",
+        "path_kwargs": [
+          "obs"
+        ],
+        "access_string": "spManCal = $SDSSCORE_DIR/{obs}/sdHdrfix/spManCal.par"
+      },
+      "hdus": null,
+      "par": {
+        "comments": "#%yanny\n#\n# spManCal.par\n#\n# Created by pydl.pydlutils.yanny.yanny\n#\n# 2025-03-13 14:57:10 UTC\n#",
+        "header": [
+          {
+            "key": "MJD",
+            "value": "60747",
+            "comment": "Modified Julian Date of latest edit"
+          },
+          {
+            "key": "OBS",
+            "value": "lco",
+            "comment": "Observatory"
+          }
+        ],
+        "tables": {
+          "OPMANCAL": {
+            "name": "OPMANCAL",
+            "description": "Field-MJD-ExposureID combinations for manual calibration frames",
+            "n_rows": 9,
+            "structure": [
+              {
+                "name": "type",
+                "type": "char[4]",
+                "description": "calibration type (arc, flat)",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": "arc"
+              },
+              {
+                "name": "field",
+                "type": "char[7]",
+                "description": "SDSS-V FieldID of observation",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": "027633"
+              },
+              {
+                "name": "mjd",
+                "type": "long",
+                "description": "Modified Julian Date of observation",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": 60131
+              },
+              {
+                "name": "expid",
+                "type": "long",
+                "description": "Exposure ID of calibration exposure (??? for allowing any non-associated calibration frame)",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": -999
+              }
+            ]
+          }
+        }
+      },
+      "hdfs": null
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

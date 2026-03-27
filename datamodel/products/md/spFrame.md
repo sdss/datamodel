@@ -16,10 +16,10 @@ non-calibrated spectra extracted CCD exposure
 spFrame contains the non-calibrated spectra from the red- or blue-half of a single exposure.
 
 ### Naming Convention
-$BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/spFrame-[BR][ID]-[FRAME].fits.gz
+$BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/spFrame-[BR][ID]-[FRAME].fits.g
 
 ### Releases
-DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19, IPL4
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -37,7 +37,7 @@ idlspec2d
 False
 
 ### Data Level
-0.0.0
+1.2.3
 
 ### HDUS List for release DR19
   - [HDU0: PRIMARY](#hdu0-primary)
@@ -56,19 +56,25 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - IPL4
+   - from: DR19
+   - added_hdus: ['SUPERFLAT', 'WSET', 'PLUGMAP', 'RESID', 'RESLSET', 'MASK', 'X', 'SKY', 'INVVAR', 'DISPSET', 'FLUX']
+   - removed_hdus: ['PRIMARY']
+   - primary_delta_nkeys: 4
+   - added_primary_header_kwargs: ['EXTNAME', 'M2FF', 'FFSPOS', 'SFLATMIN']
  - DR19
    - from: IPL3
    - note: No changes
  - IPL3
    - from: DR18
    - primary_delta_nkeys: 63
-   - added_primary_header_kwargs: ['VCALIBS', 'FIELDID', 'ARCHBACK', 'MCTRCB', 'ARCHBVER', 'MECHORIZ', 'SIGBS0', 'SPEC', 'CCDTYPE', 'OFFPA', 'SLITID', 'STDBS0', 'MCHUMCO', 'B2CAMT', 'OFFRA', 'CCDSUM', 'GSEEING', 'MCTRCT', 'MCTHT', 'MCTBCB', 'MCTEMDN', 'CONFID', 'CCDID', 'CENBS0', 'ARCHACF', 'VJAEGER', 'STDAS0', 'T_FLOOR', 'ARCHTEMP', 'SPECMT', 'VCOORDIO', 'AVGBS0', 'T_TRUSS', 'DESIGNID', 'OBSERVAT', 'MECHORIX', 'MCTBCT', 'CCD', 'MCHUMHT', 'R2CAMT', 'V_RAD', 'HA', 'VKAIJU', 'R2CAMH', 'T_CELL', 'V_ARCHON', 'DAQVER', 'T_OUT', 'BOSSVER', 'HEAR', 'COLLT', 'INTEND', 'T_IN', 'B2CAMH', 'COLLH', 'T_PRIM', 'INTSTART', 'OFFDEC', 'AVGAS0', 'BUFFER', 'MECHORIY', 'CONFSFIL', 'OBSMODE']
-   - removed_primary_header_kwargs: ['TWOPHASE', 'TILEID', 'STDBSH0', 'MC1HUMCO', 'AVGBSH0', 'AUTHOR', 'SLITID1', 'MC1TRCT', 'AVGASH0', 'MGDDEC', 'MC1TBCB', 'MC1THT', 'MC1TEMDN', 'PLUGFILE', 'CAMROW', 'CAMCOL', 'SIGBSH0', 'STDASH0', 'CENBSH0', 'MC1TBCT', 'MC1TRCB', 'MGDPOS', 'MGDRA', 'MC1HUMHT']
+   - added_primary_header_kwargs: ['OBSERVAT', 'OFFDEC', 'SIGBS0', 'MECHORIX', 'SLITID', 'T_FLOOR', 'ARCHBVER', 'MCHUMHT', 'VJAEGER', 'INTSTART', 'CONFID', 'DAQVER', 'BOSSVER', 'VCALIBS', 'MECHORIY', 'CCDID', 'MCTBCT', 'INTEND', 'B2CAMH', 'T_PRIM', 'MCTRCB', 'MCTBCB', 'HA', 'SPEC', 'MCHUMCO', 'AVGAS0', 'MECHORIZ', 'T_CELL', 'HEAR', 'CCDTYPE', 'CONFSFIL', 'CENBS0', 'VCOORDIO', 'MCTRCT', 'COLLT', 'VKAIJU', 'ARCHACF', 'T_TRUSS', 'R2CAMH', 'OFFRA', 'T_OUT', 'AVGBS0', 'V_ARCHON', 'DESIGNID', 'FIELDID', 'OBSMODE', 'ARCHBACK', 'BUFFER', 'B2CAMT', 'T_IN', 'CCD', 'OFFPA', 'STDAS0', 'COLLH', 'R2CAMT', 'V_RAD', 'MCTEMDN', 'STDBS0', 'GSEEING', 'SPECMT', 'CCDSUM', 'ARCHTEMP', 'MCTHT']
+   - removed_primary_header_kwargs: ['AUTHOR', 'MC1HUMCO', 'MC1TRCT', 'MC1TBCT', 'MC1TEMDN', 'SIGBSH0', 'MC1HUMHT', 'AVGBSH0', 'PLUGFILE', 'MC1TRCB', 'CENBSH0', 'MGDDEC', 'CAMCOL', 'CAMROW', 'TWOPHASE', 'MGDRA', 'TILEID', 'MC1THT', 'AVGASH0', 'MC1TBCB', 'SLITID1', 'MGDPOS', 'STDBSH0', 'STDASH0']
  - DR18
    - from: DR17
    - primary_delta_nkeys: 45
-   - added_primary_header_kwargs: ['V_APO', 'IONPUMP', 'GUSTD', 'WINDS', 'WINDD25M', 'DUSTB', 'STDBSH0', 'PFERR', 'MC1HUMCO', 'WINDS25M', 'GUSTS', 'AVGBSH0', 'WDISPR', 'SLITID1', 'WINDD', 'MC1TRCT', 'REQTIME', 'PLATETYP', 'SRVYMODE', 'DEWPOINT', 'AVGASH0', 'MC1TBCB', 'MGDDEC', 'V_BOSS', 'TRUSTEMP', 'MC1THT', 'V_GUIDER', 'V_SOP', 'DARKTIME', 'MC1TEMDN', 'M1ZROT', 'STDASH0', 'SIGBSH0', 'LN2TEMP', 'M2ZROT', 'CENBSH0', 'MC1TBCT', 'MC1TRCB', 'SHOPETIM', 'MGDPOS', 'SUBFRAME', 'CCDTEMP', 'PRESSURE', 'SHCLOTIM', 'DIDFLUSH', 'HUMIDITY', 'AIRTEMP', 'DUSTA', 'MGDRA', 'MC1HUMHT']
-   - removed_primary_header_kwargs: ['OBJOFFX', 'OBJOFFY', 'PIXBIAS', 'DAQVER', 'BOSSVER']
+   - added_primary_header_kwargs: ['HUMIDITY', 'LN2TEMP', 'DUSTB', 'WINDS', 'DUSTA', 'PRESSURE', 'M1ZROT', 'WINDS25M', 'IONPUMP', 'REQTIME', 'WDISPR', 'V_APO', 'MC1HUMCO', 'TRUSTEMP', 'MC1TRCT', 'MC1TBCT', 'GUSTS', 'MC1TEMDN', 'SIGBSH0', 'MC1HUMHT', 'V_SOP', 'AVGBSH0', 'WINDD25M', 'M2ZROT', 'V_BOSS', 'MC1TRCB', 'PLATETYP', 'SRVYMODE', 'PFERR', 'CENBSH0', 'SUBFRAME', 'MGDDEC', 'WINDD', 'MGDRA', 'SHCLOTIM', 'AIRTEMP', 'MC1THT', 'DIDFLUSH', 'SHOPETIM', 'AVGASH0', 'MC1TBCB', 'SLITID1', 'DEWPOINT', 'MGDPOS', 'CCDTEMP', 'DARKTIME', 'STDBSH0', 'V_GUIDER', 'GUSTD', 'STDASH0']
+   - removed_primary_header_kwargs: ['DAQVER', 'PIXBIAS', 'OBJOFFY', 'BOSSVER', 'OBJOFFX']
  - DR17
    - from: DR16
    - note: No changes
