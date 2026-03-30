@@ -1,7 +1,7 @@
 general:
   name: yso_ob_kin
-  short: Catalogue of ~50,000 OB stars studying Milky Way disc kinematics.
-  description: 'This is a catalogue of ~50,000 OB stars accompanying the paper "The large-scale kinematics of young stars in the Milky Way disc: first results from SDSS-V (<a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...703A.303Z/abstract">Zari et al., 2025</a>). The catalogue is described in detail in Section 2.2. of <a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...703A.303Z/abstract">Zari et al., 2025</a>. It contains Galactocentric cartesian coordinates and radial velocities and age estimates of the sample used in the paper.'
+  short: Catalogue of ~45,000 OB stars used to study the Milky Way disc kinematics.
+  description: 'This is a catalogue of ~45,000 OB stars accompanying the paper "The large-scale kinematics of young stars in the Milky Way disc: first results from SDSS-V (<a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...703A.303Z/abstract">Zari et al., 2025</a>). The catalogue is described in detail in Section 2.2. of <a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...703A.303Z/abstract">Zari et al., 2025</a>. It contains Galactocentric cartesian coordinates and radial velocities and age estimates of the sample used in the paper.'
   datatype: FITS
   filesize: 8 MB
   releases:
@@ -11,8 +11,7 @@ general:
   surveys:
   - SDSS
   naming_convention: $MWM_YSO/ob-kin/ob_vac-[V_VAC].fits, where V_VAC=1.0.0 in DR20
-  generated_by: replace me - with the name(s) of any git or svn product(s) that
-    produces this product.
+  generated_by: |- 
   data_level: 3.3.0
   design: false
   vac: false
@@ -38,7 +37,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: primary hdu
         is_image: true
         size: 4 KB
         header:
@@ -92,7 +91,7 @@ releases:
           comment: Number of following BINTABLE HDUs
       hdu1:
         name: Joined
-        description: replace me description
+        description: catalogue data
         is_image: false
         size: 8 MB
         header:
@@ -290,132 +289,132 @@ releases:
             name: gaia_dr3_source_id
             type: int64
             unit: ''
-            description: label for column 1
+            description: Gaia DR3 Unique Source Identifier
           ra:
             name: ra
             type: float64
             unit: deg
-            description: label for column 2
+            description: right ascension
           dec:
             name: dec
             type: float64
             unit: deg
-            description: label for column 3
+            description: declination
           distance:
             name: distance
             type: float64
             unit: kpc
-            description: label for column 4
+            description: 50th percentile of photogeometric distance (Bailer-Jones+21)
           pm_ra_cosdec:
             name: pm_ra_cosdec
             type: float64
             unit: mas yr-1
-            description: label for column 5
+            description: Proper motion in RA
           pm_dec:
             name: pm_dec
             type: float64
             unit: mas yr-1
-            description: label for column 6
+            description: Proper motion in Dec
           radial_velocity:
             name: radial_velocity
             type: float64
             unit: km s-1
-            description: label for column 7
+            description: Radial velocity (computed as described in Sec. 2.3 of Zari+25)
           e_distance:
             name: e_distance
             type: float64
             unit: kpc
-            description: label for column 8
+            description: Error on photogeometric distance
           e_pmra:
             name: e_pmra
             type: float64
             unit: mas yr-1
-            description: label for column 9
+            description: Error on proper motion in RA
           e_pmdec:
             name: e_pmdec
             type: float64
             unit: mas yr-1
-            description: label for column 10
+            description: Error on proper motion in Dec
           e_rv:
             name: e_rv
             type: float64
             unit: km s-1
-            description: label for column 11
+            description: Error on radial velocity
           xg:
             name: xg
             type: float64
             unit: kpc
-            description: label for column 12
+            description: Galactocentric cartesian x position component
           yg:
             name: yg
             type: float64
             unit: kpc
-            description: label for column 13
+            description: Galactocentric cartesian y position component
           zg:
             name: zg
             type: float64
             unit: kpc
-            description: label for column 14
+            description: Galactocentric cartesian z position component
           R:
             name: R
             type: float64
             unit: kpc
-            description: label for column 15
+            description: Galactocentric distance
           vR:
             name: vR
             type: float64
             unit: km s-1
-            description: label for column 16
+            description: Galactocentric radial velocity
           e_vR:
             name: e_vR
             type: float64
             unit: km s-1
-            description: label for column 17
+            description: Error on Galactocentric radial velocity
           teff:
             name: teff
             type: float64
             unit: K
-            description: label for column 18
+            description: BossNet Effective temperature
           e_teff:
             name: e_teff
             type: float64
             unit: K
-            description: label for column 19
+            description: Error on BossNet effective temperature 
           logg:
             name: logg
             type: float64
             unit: dex
-            description: label for column 20
+            description: BossNet surface gravity
           e_logg:
             name: e_logg
             type: float64
             unit: dex
-            description: label for column 21
+            description: Error on BossNet surface gravity
           feh:
             name: feh
             type: float64
             unit: dex
-            description: label for column 22
+            description: BossNet iron abundance
           e_feh:
             name: e_feh
             type: float64
             unit: dex
-            description: label for column 23
+            description: Error on BossNet iron abundance
           median_log_age:
             name: median_log_age
             type: float32
             unit: log(yr)
-            description: label for column 24
+            description: 50th percentile of log-age (computed as described in Sec. 3.2 of Zari+25)
           lo_median_age:
             name: lo_median_age
             type: float32
             unit: log(yr)
-            description: label for column 25
+            description: 16th percentile of log-age
           hi_median_age:
             name: hi_median_age
             type: float32
             unit: log(yr)
-            description: label for column 26
+            description: 84th percentile of log-age
 notes: |-
   None
 regrets: |-
