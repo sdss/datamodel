@@ -1,7 +1,7 @@
 general:
   name: lvm_drpall
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: Summary table of observational, instrumental, and processing metadata for each LVM DR20 science exposure.
+  description: The drpall-{drpver}.fits  file is a summary table produced by the LVM Data Reduction Pipeline (DRP) that compiles observational, instrumental, and processing metadata for each science exposure included in DR20; each row corresponds to an individual exposure (identified by tileid, mjd, and expnum) and contains detailed information on telescope pointing, observing conditions, and instrument configuration for the science field (SCI) and associated sky fields (SKYE and SKYW), including astrometry, airmass, altitude, focus metrics, and angular separations from the Moon, as well as lunar and solar conditions at the time of observation; in addition, it records pipeline-related information such as reduction stage, processing status, quality flags, DRP version, calibration references, and file locations, thereby providing a comprehensive master catalog to track data provenance, assess data quality, and enable the selection and filtering of LVM DR20 observations for scientific analysis.
   datatype: FITS
   filesize: 132 KB
   releases:
@@ -10,17 +10,14 @@ general:
   - LVM_SPECTRO_REDUX
   surveys:
   - SDSS
-  naming_convention: replace me - with $LVM_SPECTRO_REDUX/[DRPVER]/drpall-[DRPVER].fits
-    or drpall-1.2.0.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $LVM_SPECTRO_REDUX/[DRPVER]/drpall-[DRPVER].fits
+  generated_by: lvmdrp
   data_level: 2.3.3
   design: false
   vac: false
   recommended_science_product: false
 changelog:
-  description: Describes changes to the datamodel product and/or file structure from
-    one release to another
+  description: Describes changes to the datamodel product and/or file structure from one release to another
   releases: {}
 releases:
   DR20:
@@ -38,7 +35,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary HDU containing header metadata for the DRPALL DR20 summary table.
         is_image: true
         size: 0 bytes
         header:
@@ -65,7 +62,7 @@ releases:
           comment: ''
       hdu1:
         name: DRPALL_DR20
-        description: replace me description
+        description: Binary table containing observational, instrumental, astrometric, and quality metadata for each LVM DR20 science exposure.
         is_image: false
         size: 115 KB
         header:
@@ -124,308 +121,308 @@ releases:
           tilegrp:
             name: tilegrp
             type: char[6]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Tile group identifier
           tileid:
             name: tileid
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Unique tile identifier
           mjd:
             name: mjd
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Modified Julian Date of the observation
           expnum:
             name: expnum
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Exposure number within the observing sequence
           exptime:
             name: exptime
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: seconds
+            description: Exposure time
           stage:
             name: stage
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Reduction stage identifier
           status:
             name: status
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Processing status flag
           drpqual:
             name: drpqual
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: DRP quality flag
           drpver:
             name: drpver
             type: char[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Version of the DRP used
           dpos:
             name: dpos
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Dither position index
           object:
             name: object
             type: char[59]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Object or field name
           obstime:
             name: obstime
             type: char[23]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Observation timestamp
           sci_ra:
             name: sci_ra
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: Right Ascension of science pointing
           sci_dec:
             name: sci_dec
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: Declination of science pointing
           sci_pa:
             name: sci_pa
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: Position angle of science field
           sci_amass:
             name: sci_amass
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Airmass of science exposure
           sci_kmpos:
             name: sci_kmpos
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: KM mirror position
           sci_focpos:
             name: sci_focpos
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Focus position
           sci_alt:
             name: sci_alt
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: Altitude of science pointing
           sci_sh_hght:
             name: sci_sh_hght
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Shack-Hartmann height or focus metric
           sci_moon_sep:
             name: sci_moon_sep
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: Angular separation to the Moon
           skye_ra:
             name: skye_ra
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: RA of eastern sky field
           skye_dec:
             name: skye_dec
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: DEC of eastern sky field
           skye_pa:
             name: skye_pa
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: Position angle of sky field
           skye_amass:
             name: skye_amass
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Airmass of sky field
           skye_kmpos:
             name: skye_kmpos
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: KM mirror position for sky
           skye_focpos:
             name: skye_focpos
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Focus position for sky
           skye_name:
             name: skye_name
             type: char[13]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Identifier of sky field
           skye_alt:
             name: skye_alt
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: Altitude of sky field
           sci_skye_sep:
             name: sci_skye_sep
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: Separation SCI–SKYE
           skye_sh_hght:
             name: skye_sh_hght
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Focus metric for sky field
           skye_moon_sep:
             name: skye_moon_sep
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: Separation sky–Moon
           skyw_ra:
             name: skyw_ra
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: RA of western sky field
           skyw_dec:
             name: skyw_dec
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: DEC of western sky field
           skyw_pa:
             name: skyw_pa
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: Position angle of sky field
           skyw_amass:
             name: skyw_amass
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Airmass of sky field
           skyw_kmpos:
             name: skyw_kmpos
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: KM mirror position for sky
           skyw_focpos:
             name: skyw_focpos
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Focus position for sky
           skyw_name:
             name: skyw_name
             type: char[13]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Identifier of sky field
           skyw_alt:
             name: skyw_alt
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: Altitude of sky field
           sci_skyw_sep:
             name: sci_skyw_sep
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: Separation SCI–SKYW
           skyw_sh_hght:
             name: skyw_sh_hght
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Focus metric for sky field
           skyw_moon_sep:
             name: skyw_moon_sep
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: Separation sky–Moon
           moon_ra:
             name: moon_ra
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: RA of the Moon
           moon_dec:
             name: moon_dec
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: DEC of the Moon
           moon_phase:
             name: moon_phase
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Moon phase (fraction illuminated)
           moon_fli:
             name: moon_fli
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Fractional lunar illumination
           sun_alt:
             name: sun_alt
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: Altitude of the Sun
           moon_alt:
             name: moon_alt
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: Altitude of the Moon
           filename:
             name: filename
             type: char[23]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Name of the reduced file
           location:
             name: location
             type: char[77]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: File system location
           agcam_location:
             name: agcam_location
             type: char[65]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Acquisition camera data location
           calib_mjd:
             name: calib_mjd
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Calibration MJD used
           ra:
             name: ra
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: Reference RA of the target
           dec:
             name: dec
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: Reference DEC of the target
           pa:
             name: pa
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: Reference position angle
           NGCname:
             name: NGCname
             type: char[7]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: NGC identifier if available
           ra_icrs:
             name: ra_icrs
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: RA in ICRS frame
           dec_icrs:
             name: dec_icrs
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: DEC in ICRS frame
           ra_g:
             name: ra_g
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: Galactic longitude
           dec_g:
             name: dec_g
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: degree
+            description: Galactic latitude
 notes: |-
   None
 regrets: |-
