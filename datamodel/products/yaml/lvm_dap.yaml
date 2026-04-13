@@ -26,6 +26,7 @@ general:
   - LVM_SPECTRO_ANALYSIS
   surveys:
   - LVM
+  - SDSS
   naming_convention: $LVM_SPECTRO_ANALYSIS/[DRPVER]/[DAPVER]/[TILEGRP]/[TILEID]/[MJD]/[EXPNUM]/dap-[RSPID]-[SNLEVEL]-[EXPNUM]\.[DAPTYPE]\.fits$
   generated_by: lvmdap
   data_level: 2.3.3
@@ -43,12 +44,19 @@ releases:
     location: '{drpver}/{dapver}/{tilegrp}/{tileid}/{mjd}/{expnum}/dap-{rspid}-{snlevel}-{expnum}.{daptype}.fits'
     environment: LVM_SPECTRO_ANALYSIS
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: lvm_dap
+      path_template: $LVM_SPECTRO_ANALYSIS/{drpver}/{tileid}/{mjd}/{expnum:0>8}/dap-{rspid}-{snlevel}-{expnum:0>8}.{daptype}.fits
+      path_kwargs:
+      - snlevel
+      - rspid
+      - daptype
+      - drpver
+      - tileid
+      - mjd
+      - expnum
       access_string: lvm_dap = $LVM_SPECTRO_ANALYSIS/{drpver}/{dapver}/{tilegrp}/{tileid}/{mjd}/{expnum}/dap-{rspid}-{snlevel}-{expnum}.{daptype}.fits
-    survey: LVM
+    survey: SDSS
     hdus:
       hdu0:
         name: PRIMARY
