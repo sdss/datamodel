@@ -1,7 +1,20 @@
 general:
   name: lvm_drpall
-  short: Summary table of observational, instrumental, and processing metadata for each LVM DR20 science exposure.
-  description: The drpall-{drpver}.fits  file is a summary table produced by the LVM Data Reduction Pipeline (DRP) that compiles observational, instrumental, and processing metadata for each science exposure included in DR20; each row corresponds to an individual exposure (identified by tileid, mjd, and expnum) and contains detailed information on telescope pointing, observing conditions, and instrument configuration for the science field (SCI) and associated sky fields (SKYE and SKYW), including astrometry, airmass, altitude, focus metrics, and angular separations from the Moon, as well as lunar and solar conditions at the time of observation; in addition, it records pipeline-related information such as reduction stage, processing status, quality flags, DRP version, calibration references, and file locations, thereby providing a comprehensive master catalog to track data provenance, assess data quality, and enable the selection and filtering of LVM DR20 observations for scientific analysis.
+  short: Summary table of observational, instrumental, and processing metadata for
+    each LVM DR20 science exposure.
+  description: The drpall-{drpver}.fits  file is a summary table produced by the LVM
+    Data Reduction Pipeline (DRP) that compiles observational, instrumental, and processing
+    metadata for each science exposure included in DR20; each row corresponds to an
+    individual exposure (identified by tileid, mjd, and expnum) and contains detailed
+    information on telescope pointing, observing conditions, and instrument configuration
+    for the science field (SCI) and associated sky fields (SKYE and SKYW), including
+    astrometry, airmass, altitude, focus metrics, and angular separations from the
+    Moon, as well as lunar and solar conditions at the time of observation; in addition,
+    it records pipeline-related information such as reduction stage, processing status,
+    quality flags, DRP version, calibration references, and file locations, thereby
+    providing a comprehensive master catalog to track data provenance, assess data
+    quality, and enable the selection and filtering of LVM DR20 observations for scientific
+    analysis.
   datatype: FITS
   filesize: 132 KB
   releases:
@@ -9,15 +22,16 @@ general:
   environments:
   - LVM_SPECTRO_REDUX
   surveys:
-  - SDSS
+  - LVM
   naming_convention: $LVM_SPECTRO_REDUX/[DRPVER]/drpall-[DRPVER].fits
   generated_by: lvmdrp
   data_level: 2.3.3
   design: false
   vac: false
-  recommended_science_product: false
+  recommended_science_product: true
 changelog:
-  description: Describes changes to the datamodel product and/or file structure from one release to another
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
   releases: {}
 releases:
   DR20:
@@ -31,11 +45,12 @@ releases:
       path_template: null
       path_kwargs: null
       access_string: lvm_drpall = $LVM_SPECTRO_REDUX/{drpver}/drpall-{drpver}.fits
-    survey: SDSS
+    survey: LVM
     hdus:
       hdu0:
         name: PRIMARY
-        description: Primary HDU containing header metadata for the DRPALL DR20 summary table.
+        description: Primary HDU containing header metadata for the DRPALL DR20 summary
+          table.
         is_image: true
         size: 0 bytes
         header:
@@ -62,7 +77,8 @@ releases:
           comment: ''
       hdu1:
         name: DRPALL_DR20
-        description: Binary table containing observational, instrumental, astrometric, and quality metadata for each LVM DR20 science exposure.
+        description: Binary table containing observational, instrumental, astrometric,
+          and quality metadata for each LVM DR20 science exposure.
         is_image: false
         size: 115 KB
         header:
@@ -267,7 +283,7 @@ releases:
             name: sci_skye_sep
             type: float64
             unit: degree
-            description: Separation SCI–SKYE
+            description: "Separation SCI\u2013SKYE"
           skye_sh_hght:
             name: skye_sh_hght
             type: float64
@@ -277,7 +293,7 @@ releases:
             name: skye_moon_sep
             type: float64
             unit: degree
-            description: Separation sky–Moon
+            description: "Separation sky\u2013Moon"
           skyw_ra:
             name: skyw_ra
             type: float64
@@ -322,7 +338,7 @@ releases:
             name: sci_skyw_sep
             type: float64
             unit: degree
-            description: Separation SCI–SKYW
+            description: "Separation SCI\u2013SKYW"
           skyw_sh_hght:
             name: skyw_sh_hght
             type: float64
@@ -332,7 +348,7 @@ releases:
             name: skyw_moon_sep
             type: float64
             unit: degree
-            description: Separation sky–Moon
+            description: "Separation sky\u2013Moon"
           moon_ra:
             name: moon_ra
             type: float64

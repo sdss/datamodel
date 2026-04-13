@@ -1,0 +1,533 @@
+{
+  "general": {
+    "name": "lvm_dapall",
+    "short": "Summary table of LVM DR20 DAP products and exposure-averaged spectral properties.",
+    "description": "The file `dapall-{drpver}-{dapver}.fits` is a summary of the dataproducts produced by the LVM DAP analysis for the delivered exposures included in SDSS-V DR20. It comprises a binary table in which each row corresponds to an individual exposure identified by `tileid`, `mjd`, and `expnum`, together with the corresponding DAP file, and contains observational and physical properties derived from stellar-continuum fitting and emission-line measurements of the observed spectra. Fluxes listed in this file are average values within the field of view of the science IFU and are reported in units of 10^-16 erg/s/cm^2 measured in one fiber area, where each fiber area corresponds to 0.2718 arcmin^2. The table combines basic observational metadata with stellar population parameters and flux measurements of key emission lines across the optical and near-infrared range, including Balmer lines, [O II], [O III], [N II], [S II], and [S III].",
+    "environments": [
+      "LVM_SPECTRO_ANALYSIS"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "98 KB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-30"
+      }
+    ],
+    "naming_convention": "$LVM_SPECTRO_ANALYSIS/[DRPVER]/[DAPVER]/dapall-[DRPVER]-[DAPVER]\\.fits$",
+    "generated_by": "lvmdap",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": true,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$LVM_SPECTRO_ANALYSIS/[DRPVER]/[DAPVER]/dapall-[DRPVER]-[DAPVER].fits",
+      "example": "1.2.0/1.2.0.251218/dapall-1.2.0-1.2.0.251218.fits",
+      "location": "{drpver}/{dapver}/dapall-{drpver}-{dapver}.fits",
+      "environment": "LVM_SPECTRO_ANALYSIS",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": false,
+        "path_name": null,
+        "path_template": null,
+        "path_kwargs": null,
+        "access_string": "lvm_dapall = $LVM_SPECTRO_ANALYSIS/{drpver}/{dapver}/dapall-{drpver}-{dapver}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary HDU containing no data array and header keywords describing the DRP and DAP versions, release tag, and file creation date.",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            },
+            {
+              "key": "DRPVER",
+              "value": "1.2.0",
+              "comment": ""
+            },
+            {
+              "key": "DAPVER",
+              "value": "1.2.0.251218",
+              "comment": ""
+            },
+            {
+              "key": "DR",
+              "value": "DR20",
+              "comment": ""
+            },
+            {
+              "key": "DRPDATE",
+              "value": "2026-04-08T06:09:50.794516",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "DAPALL_DR20",
+          "is_image": false,
+          "description": "Binary table containing one row per delivered DR20 exposure with identifiers, exposure metadata, exposure-averaged stellar-continuum parameters, fit-quality metrics, and parametric emission-line fluxes with uncertainties. Fluxes are average values within the field of view of the science IFU and are reported in units of 10^-16 erg/s/cm^2 measured in one fiber area, where each fiber area corresponds to 0.2718 arcmin^2.",
+          "size": "83 KB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "503",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "169",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "60",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "DAPALL_DR20",
+              "comment": "extension name"
+            }
+          ],
+          "columns": {
+            "tilegrp": {
+              "name": "tilegrp",
+              "description": "Tile group identifier",
+              "type": "char[6]",
+              "unit": ""
+            },
+            "tileid": {
+              "name": "tileid",
+              "description": "Unique tile identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "mjd": {
+              "name": "mjd",
+              "description": "Modified Julian Date of the observation",
+              "type": "int64",
+              "unit": ""
+            },
+            "expnum": {
+              "name": "expnum",
+              "description": "Exposure number",
+              "type": "int64",
+              "unit": ""
+            },
+            "exptime": {
+              "name": "exptime",
+              "description": "Exposure time",
+              "type": "float64",
+              "unit": "seconds"
+            },
+            "dapfile": {
+              "name": "dapfile",
+              "description": "Name of the associated DAP output file",
+              "type": "char[33]",
+              "unit": ""
+            },
+            "ra": {
+              "name": "ra",
+              "description": "Right Ascension of the target",
+              "type": "float64",
+              "unit": "degree"
+            },
+            "dec": {
+              "name": "dec",
+              "description": "Declination of the target",
+              "type": "float64",
+              "unit": "degree"
+            },
+            "Teff": {
+              "name": "Teff",
+              "description": "Effective temperature",
+              "type": "float64",
+              "unit": ""
+            },
+            "e_Teff": {
+              "name": "e_Teff",
+              "description": "Uncertainty in effective temperature",
+              "type": "float64",
+              "unit": ""
+            },
+            "Log_g": {
+              "name": "Log_g",
+              "description": "Surface gravity (log g)",
+              "type": "float64",
+              "unit": ""
+            },
+            "e_Log_g": {
+              "name": "e_Log_g",
+              "description": "Uncertainty in surface gravity",
+              "type": "float64",
+              "unit": ""
+            },
+            "Fe": {
+              "name": "Fe",
+              "description": "Stellar metallicity ([Fe/H])",
+              "type": "float64",
+              "unit": ""
+            },
+            "e_Fe": {
+              "name": "e_Fe",
+              "description": "Uncertainty in metallicity",
+              "type": "float64",
+              "unit": ""
+            },
+            "alpha": {
+              "name": "alpha",
+              "description": "Alpha-element enhancement ([alpha/Fe])",
+              "type": "float64",
+              "unit": ""
+            },
+            "e_alpha": {
+              "name": "e_alpha",
+              "description": "Uncertainty in alpha enhancement",
+              "type": "float64",
+              "unit": ""
+            },
+            "Av_st": {
+              "name": "Av_st",
+              "description": "Stellar extinction",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "e_Av_st": {
+              "name": "e_Av_st",
+              "description": "Uncertainty in stellar extinction",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "z_st": {
+              "name": "z_st",
+              "description": "Stellar redshift",
+              "type": "float64",
+              "unit": ""
+            },
+            "e_z_st": {
+              "name": "e_z_st",
+              "description": "Uncertainty in stellar redshift",
+              "type": "float64",
+              "unit": ""
+            },
+            "disp_st": {
+              "name": "disp_st",
+              "description": "Stellar velocity dispersion",
+              "type": "float64",
+              "unit": "km/s"
+            },
+            "e_disp_st": {
+              "name": "e_disp_st",
+              "description": "Uncertainty in velocity dispersion",
+              "type": "float64",
+              "unit": "km/s"
+            },
+            "flux_st": {
+              "name": "flux_st",
+              "description": "Average stellar flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "redshift_st": {
+              "name": "redshift_st",
+              "description": "Adopted stellar redshift",
+              "type": "float64",
+              "unit": ""
+            },
+            "med_flux_st": {
+              "name": "med_flux_st",
+              "description": "Median stellar flux at the V-band within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "e_med_flux_st": {
+              "name": "e_med_flux_st",
+              "description": "Uncertainty in the median stellar flux at the V-band within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "vel_st": {
+              "name": "vel_st",
+              "description": "Stellar velocity",
+              "type": "float64",
+              "unit": "km/s"
+            },
+            "X_sq_st": {
+              "name": "X_sq_st",
+              "description": "Chi-square of stellar fit",
+              "type": "float64",
+              "unit": ""
+            },
+            "X_sq_st_np": {
+              "name": "X_sq_st_np",
+              "description": "Chi-square (non-parametric fit)",
+              "type": "float64",
+              "unit": ""
+            },
+            "X_sq_st_pek": {
+              "name": "X_sq_st_pek",
+              "description": "Chi-square for emission-line masked fit",
+              "type": "float64",
+              "unit": ""
+            },
+            "flux_pek_3726.03": {
+              "name": "flux_pek_3726.03",
+              "description": "Average [OII] 3726 flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "e_flux_pek_3726.03": {
+              "name": "e_flux_pek_3726.03",
+              "description": "Uncertainty in the average [OII] 3726 flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "flux_pek_3728.82": {
+              "name": "flux_pek_3728.82",
+              "description": "Average [OII] 3729 flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "e_flux_pek_3728.82": {
+              "name": "e_flux_pek_3728.82",
+              "description": "Uncertainty in the average [OII] 3729 flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "flux_pek_4101.77": {
+              "name": "flux_pek_4101.77",
+              "description": "Average Hδ flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "e_flux_pek_4101.77": {
+              "name": "e_flux_pek_4101.77",
+              "description": "Uncertainty in the average Hδ flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "flux_pek_4340.49": {
+              "name": "flux_pek_4340.49",
+              "description": "Average Hγ flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "e_flux_pek_4340.49": {
+              "name": "e_flux_pek_4340.49",
+              "description": "Uncertainty in the average Hγ flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "flux_pek_4861.36": {
+              "name": "flux_pek_4861.36",
+              "description": "Average Hβ flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "e_flux_pek_4861.36": {
+              "name": "e_flux_pek_4861.36",
+              "description": "Uncertainty in the average Hβ flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "flux_pek_4958.91": {
+              "name": "flux_pek_4958.91",
+              "description": "Average [OIII] 4959 flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "e_flux_pek_4958.91": {
+              "name": "e_flux_pek_4958.91",
+              "description": "Uncertainty in the average [OIII] 4959 flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "flux_pek_5006.84": {
+              "name": "flux_pek_5006.84",
+              "description": "Average [OIII] 5007 flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "e_flux_pek_5006.84": {
+              "name": "e_flux_pek_5006.84",
+              "description": "Uncertainty in the average [OIII] 5007 flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "flux_pek_6300.3": {
+              "name": "flux_pek_6300.3",
+              "description": "Average [OI] 6300 flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "e_flux_pek_6300.3": {
+              "name": "e_flux_pek_6300.3",
+              "description": "Uncertainty in the average [OI] 6300 flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "flux_pek_6548.05": {
+              "name": "flux_pek_6548.05",
+              "description": "Average [NII] 6548 flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "e_flux_pek_6548.05": {
+              "name": "e_flux_pek_6548.05",
+              "description": "Uncertainty in the average [NII] 6548 flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "flux_pek_6562.85": {
+              "name": "flux_pek_6562.85",
+              "description": "Average Hα flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "e_flux_pek_6562.85": {
+              "name": "e_flux_pek_6562.85",
+              "description": "Uncertainty in the average Hα flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "flux_pek_6583.45": {
+              "name": "flux_pek_6583.45",
+              "description": "Average [NII] 6583 flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "e_flux_pek_6583.45": {
+              "name": "e_flux_pek_6583.45",
+              "description": "Uncertainty in the average [NII] 6583 flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "flux_pek_6716.44": {
+              "name": "flux_pek_6716.44",
+              "description": "Average [SII] 6716 flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "e_flux_pek_6716.44": {
+              "name": "e_flux_pek_6716.44",
+              "description": "Uncertainty in the average [SII] 6716 flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "flux_pek_6730.82": {
+              "name": "flux_pek_6730.82",
+              "description": "Average [SII] 6731 flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "e_flux_pek_6730.82": {
+              "name": "e_flux_pek_6730.82",
+              "description": "Uncertainty in the average [SII] 6731 flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "flux_pek_9069.0": {
+              "name": "flux_pek_9069.0",
+              "description": "Average [SIII] 9069 flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "e_flux_pek_9069.0": {
+              "name": "e_flux_pek_9069.0",
+              "description": "Uncertainty in the average [SIII] 9069 flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "flux_pek_9531.1": {
+              "name": "flux_pek_9531.1",
+              "description": "Average [SIII] 9531 flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            },
+            "e_flux_pek_9531.1": {
+              "name": "e_flux_pek_9531.1",
+              "description": "Uncertainty in the average [SIII] 9531 flux within the field of view of the science IFU, reported in units measured in one fiber area.",
+              "type": "float64",
+              "unit": "10^-16 erg/s/cm^2"
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null,
+      "dataframe": null
+    }
+  },
+  "notes": "None",
+  "regrets": "I have no regrets!"
+}
