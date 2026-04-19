@@ -1,16 +1,24 @@
 general:
   name: mos_target_sdssv_plateholes
-  short: 'MOS Target table: mos_target_sdssv_plateholes'
-  description: 'The combination of the dr19_sdssv_plateholes and dr19_sdssv_plateholes_meta
-    tables are a database representation of the SDSS-V platelist data product (https://svn.sdss.org/public/data/sdss/platelist/trunk/).
+  short: 'MOS Target Table: sdssv_plateholes'
+  description: 'The combination of the dr20_sdssv_plateholes and dr20_sdssv_plateholes_meta
+    tables are a database representation of the SDSS-V platelist data product (<a
+    href="https://svn.sdss.org/public/data/sdss/platelist/trunk/)">https://svn.sdss.org/public/data/sdss/platelist/trunk/)</a>.
+
+
     These tables were used within early iterations of FPS target_selection as a way
     to communicate information about which targets had been included in SDSS-V plates.
     This information was used to e.g. de-prioritise targets that were expected to
     have a good quality spectroscopic measurement by the end of the SDSS-V plate observations.
-    The dr19_sdssv_plateholes_meta table contains meta-data for each SDSS-V plate
-    (one record per plate), whereas the dr19_sdssv_plateholes table has one entry
-    for each drilled hole in each SDSS-V plate. The dr19_sdssv_plateholes and dr19_sdssv_plateholes_meta
-    tables should be joined via the yanny_uid field.  Mostly derived from: https://data.sdss.org/datamodel/files/PLATELIST_DIR/designs/DESIGNID6XX/DESIGNID6/plateDesign.html'
+
+
+    The dr20_sdssv_plateholes_meta table contains meta-data for each SDSS-V plate
+    (one record per plate), whereas the dr20_sdssv_plateholes table has one entry
+    for each drilled hole in each SDSS-V plate. The dr20_sdssv_plateholes and dr20_sdssv_plateholes_meta
+    tables should be joined via the yanny_uid field.
+
+
+    Mostly derived from: <a href="https://data.sdss.org/datamodel/files/PLATELIST_DIR/designs/DESIGNID6XX/DESIGNID6/plateDesign.html">https://data.sdss.org/datamodel/files/PLATELIST_DIR/designs/DESIGNID6XX/DESIGNID6/plateDesign.html</a>'
   datatype: FITS
   filesize: 254 MB
   releases:
@@ -24,7 +32,7 @@ general:
   - SDSS
   naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdssv_plateholes.[FTYPE] with
     FTYPE='fits' and V_TARG='2.0.0' for DR20.
-  generated_by: sdss5db> targetdb, operations database server
+  generated_by: sdss5db targeting database.
   data_level: 2.3.3
   design: false
   vac: false
@@ -1117,8 +1125,8 @@ releases:
       path_name: mos_target_sdssv_plateholes
       path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_sdssv_plateholes.{ftype}
       path_kwargs:
-      - ftype
       - v_targ
+      - ftype
       access_string: mos_target_sdssv_plateholes = $MOS_TARGET/{v_targ}/{ftype}/mos_sdssv_plateholes.{ftype}
     survey: SDSS
     hdus:

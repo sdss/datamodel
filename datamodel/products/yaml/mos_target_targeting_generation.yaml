@@ -1,8 +1,37 @@
 general:
   name: mos_target_targeting_generation
   short: 'MOS Target Table: targeting_generation'
-  description: A targeting_generation describes a collection of versioned cartons,
-    together with their robostrategy control parameters.
+  description: 'List of SDSS-V targeting generations.
+
+
+    A ''targeting_generation'' describes a collection of versioned cartons, together
+    with their robostrategy control parameters. This is a convenient way to describe
+    the specific set of carton-versions that were used (and the way that they were
+    treated) within any particular run of robostrategy.
+
+
+    The dr20_targeting_generation table contains all targeting_generations that were
+    considered for observations in the timespan covered by the dr20 data release.
+    In addition, we include the ''v0.5.3'' targeting_generation since this was the
+    version released as part of dr20.
+
+
+    During the initial plate operations phase of SDSS-V, we did not use the robostrategy
+    code to assign fibers to targets. However, for completeness, the ''v0.plates''
+    pseudo-targeting_generation has been reverse engineered in order to describe the
+    set of carton-versions that were considered during that phase.
+
+
+    The dr20_targeting_generation table can be joined to the dr20_carton table via
+    the dr20_targeting_generation_to_carton table. To associate a targeting_generation
+    with a robostrategy plan, join dr20_targeting_generation to dr20_targetdb_version
+    via the dr20_targeting_generation_to_version table.
+
+
+    Taken together, the dr20_targeting_generation, dr20_targeting_generation_to_carton
+    and dr20_targeting_generation_to_version tables duplicate, in a database form,
+    the robostrategy carton configuration information available via the rsconfig product
+    (<a href="https://github.com/sdss/rsconfig)">https://github.com/sdss/rsconfig)</a>.'
   datatype: FITS
   filesize: 8 KB
   releases:
@@ -15,7 +44,7 @@ general:
   - SDSS
   naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_targeting_generation.[FTYPE]
     with FTYPE='fits' and V_TARG='2.0.0' for DR20.
-  generated_by: sdss5db> targetdb, operations database server
+  generated_by: sdss5db targeting database.
   data_level: 2.3.3
   design: false
   vac: false
@@ -198,8 +227,8 @@ releases:
       path_name: mos_target_targeting_generation
       path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_targeting_generation.{ftype}
       path_kwargs:
-      - ftype
       - v_targ
+      - ftype
       access_string: mos_target_targeting_generation = $MOS_TARGET/{v_targ}/{ftype}/mos_targeting_generation.{ftype}
     survey: SDSS
     hdus:

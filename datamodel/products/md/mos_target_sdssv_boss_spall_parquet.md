@@ -1030,8 +1030,8 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### elodie_feh
 
 - Column Name: elodie_feh
-- Description: N/A
-- Unit: Fe/H
+- Description: [Fe/H]
+- Unit: N/A
 - Data Type: Float32
 
 

@@ -18,8 +18,6 @@ X-ray sources identified via various methods.
 
 These tables contain a superset of potential targets from which the SDSS-V spectroscopic targets were drawn. The dr20_erosita_superset_v1_clusters table includes counterparts to both extended and point-like X-ray sources, selected via algorithms optimised to find clusters of galaxies.  Each row corresponds to one possible match between an X-ray source and a potential optical/IR counterpart.  The X-ray columns (ero_*) record the eROSITA information known at the time of target selection and may differ from publicly available eROSITA catalogs. The dr20_erosita_superset_v1* tables are derived from a combination of eROSITA's first 6-month survey of of the West Galactic hemisphere ('eRASS1'), and from the eROSITA observations of the eROSITA Final Equatorial Depth performance verification field ('eFEDS').
 
-[INCOMPLE]: Tom to check summary and missing column descriptions.
-
 ### Naming Convention
 $MOS_TARGET/[V_TARG]/[FTYPE]/mos_erosita_superset_v1_clusters.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.
 
@@ -102,12 +100,12 @@ Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | ero_version | char[10] |  | Identifier giving the eROSITA dataset and processing version e.g. 'eFEDS_c940', 'em01_c946_201008_poscorr' etc |
  | ero_detuid | char[15] |  | The standard official eROSITA unique detection identifier, e.g. 'em01_123456_020_ML12345_001_c946' etc |
- | ero_flux | float32 | erg/cm2/s | X-ray flux, usually in the main eROSITA detection band (0.2-2.3keV) |
- | ero_flux_type | char[1] |  |  |
- | ero_mjd | char[1] |  |  |
- | ero_morph | char[1] |  |  |
- | ero_flags | int64 |  |  |
- | ero_det_like | float32 |  |  |
+ | ero_flux | float32 | erg/cm2/s | X-ray flux |
+ | ero_flux_type | char[1] |  | Flux range used to compute ero_flux, e.g. '0.2-2.3keV', '0.5-2keV', '0.5-8keV' etc |
+ | ero_mjd | char[1] |  | This column is empty |
+ | ero_morph | char[1] |  | Morphological classification of X-ray source, e.g. 'pointlike', 'extended', 'unknown', ... |
+ | ero_flags | int64 |  | Flags indicating properties of the X-ray detection |
+ | ero_det_like | float32 | % | Detection likelihood of X-ray source |
  | ero_ra | float64 | deg | Best determination of X-ray position (J2000) |
  | ero_dec | float64 | deg | Best determination of X-ray position (J2000) |
  | ero_radec_err | float32 | arcsec | Best estimate of X-ray position uncertainty |
@@ -127,8 +125,8 @@ Name | Type | Unit | Description |
  | opt_pmra | float32 | mas/yr | Proper motion of optical/IR counterpart, included for validity checks only |
  | opt_pmdec | float32 | mas/yr | Proper motion of optical/IR counterpart, included for validity checks only |
  | opt_epoch | float32 | decimal year | Epoch of opt_ra,opt_dec |
- | eromapper_lambda | float32 |  |  |
- | eromapper_z_lambda | float32 |  |  |
+ | eromapper_lambda | float32 |  | Cluster richness from eROSITA source catalogues |
+ | eromapper_z_lambda | float32 |  | Photometric redshift from eROSITA source catalogues |
  | pkey | int64 |  | primary key of table entry |
 
 

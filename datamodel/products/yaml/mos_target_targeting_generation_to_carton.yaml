@@ -1,17 +1,25 @@
 general:
   name: mos_target_targeting_generation_to_carton
-  short: 'MOS Target table: mos_target_targeting_generation_to_carton'
-  description: A 'targeting_generation' describes a collection of versioned cartons,
-    together with their robostrategy control parameters. This is a convenient way
-    to describe the specific set of carton-versions that were used (and the way that
-    they were treated) within any particular run of robostrategy.  The dr19_targeting_generation_to_carton
-    table describes a many-to-many relationship, connecting each targeting_generation
-    to a set of entries in the dr19_carton table, as well as recording how those carton-versions
-    were treated in the robostrategy code (i.e. the rs_stage and rs_active parameters).  Taken
-    together, the dr19_targeting_generation, dr19_targeting_generation_to_carton and
-    dr19_targeting_generation_to_version tables duplicate, in a database form, the
-    robostrategy carton configuration information available via the rsconfig product
-    (https://github.com/sdss/rsconfig).
+  short: 'MOS Target Table: targeting_generation_to_carton'
+  description: 'Mapping of SDSS-V targeting generations to cartons.
+
+
+    A ''targeting_generation'' describes a collection of versioned cartons, together
+    with their robostrategy control parameters. This is a convenient way to describe
+    the specific set of carton-versions that were used (and the way that they were
+    treated) within any particular run of robostrategy.
+
+
+    The dr20_targeting_generation_to_carton table describes a many-to-many relationship,
+    connecting each targeting_generation to a set of entries in the dr20_carton table,
+    as well as recording how those carton-versions were treated in the robostrategy
+    code (i.e. the rs_stage and rs_active parameters).
+
+
+    Taken together, the dr20_targeting_generation, dr20_targeting_generation_to_carton
+    and dr20_targeting_generation_to_version tables duplicate, in a database form,
+    the robostrategy carton configuration information available via the rsconfig product
+    (<a href="https://github.com/sdss/rsconfig)">https://github.com/sdss/rsconfig)</a>.'
   datatype: FITS
   filesize: 19 KB
   releases:
@@ -25,7 +33,7 @@ general:
   - SDSS
   naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_targeting_generation_to_carton.[FTYPE]
     with FTYPE='fits' and V_TARG='2.0.0' for DR20.
-  generated_by: sdss5db> targetdb, operations database server
+  generated_by: sdss5db targeting database.
   data_level: 2.3.3
   design: false
   vac: false
@@ -151,8 +159,8 @@ releases:
       path_name: mos_target_targeting_generation_to_carton
       path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_targeting_generation_to_carton.{ftype}
       path_kwargs:
-      - ftype
       - v_targ
+      - ftype
       access_string: mos_target_targeting_generation_to_carton = $MOS_TARGET/{v_targ}/{ftype}/mos_targeting_generation_to_carton.{ftype}
     survey: SDSS
     hdus:

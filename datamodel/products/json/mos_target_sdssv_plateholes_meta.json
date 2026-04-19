@@ -1,8 +1,8 @@
 {
   "general": {
     "name": "mos_target_sdssv_plateholes_meta",
-    "short": "MOS Target table: mos_target_sdssv_plateholes_meta",
-    "description": "The combination of the dr19_sdssv_plateholes and dr19_sdssv_plateholes_meta tables are a database representation of the SDSS-V platelist data product (https://svn.sdss.org/public/data/sdss/platelist/trunk/). These tables were used within early iterations of FPS target_selection as a way to communicate information about which targets had been included in SDSS-V plates. This information was used to e.g. de-prioritise targets that were expected to have a good quality spectroscopic measurement by the end of the SDSS-V plate observations. The dr19_sdssv_plateholes_meta table contains meta-data for each SDSS-V plate (one record per plate), whereas the dr19_sdssv_plateholes table has one entry for each drilled hole in each SDSS-V plate. The dr19_sdssv_plateholes and dr19_sdssv_plateholes_meta tables should be joined via the yanny_uid field.  Mostly derived from: https://data.sdss.org/datamodel/files/PLATELIST_DIR/plates/PLATEID6XX/PLATEID6/plateHoles.html",
+    "short": "MOS Target Table: sdssv_plateholes_meta",
+    "description": "The combination of the dr20_sdssv_plateholes and dr20_sdssv_plateholes_meta\ntables are a database representation of the SDSS-V platelist data\nproduct (<a href=\"https://svn.sdss.org/public/data/sdss/platelist/trunk/)\">https://svn.sdss.org/public/data/sdss/platelist/trunk/)</a>.\n\nThese tables were used within early iterations of FPS target_selection as a way to communicate information about which targets had been included in SDSS-V plates. This information was used to e.g. de-prioritise targets that were expected to have a good quality spectroscopic measurement by the end of the SDSS-V plate observations.\n\nThe dr20_sdssv_plateholes_meta table contains meta-data for each SDSS-V plate (one record per plate), whereas the dr20_sdssv_plateholes table has one entry for each drilled hole in each SDSS-V plate. The dr20_sdssv_plateholes and dr20_sdssv_plateholes_meta tables should be joined via the yanny_uid field.\n\nMostly derived from: <a href=\"https://data.sdss.org/datamodel/files/PLATELIST_DIR/plates/PLATEID6XX/PLATEID6/plateHoles.html\">https://data.sdss.org/datamodel/files/PLATELIST_DIR/plates/PLATEID6XX/PLATEID6/plateHoles.html</a>",
     "environments": [
       "MOS_TARGET"
     ],
@@ -67,7 +67,7 @@
       }
     ],
     "naming_convention": "$MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdssv_plateholes_meta.[FTYPE] with FTYPE='fits' and V_TARG='2.0.0' for DR20.",
-    "generated_by": "sdss5db> targetdb, operations database server",
+    "generated_by": "sdss5db targeting database.",
     "design": false,
     "vac": false,
     "recommended_science_product": false,
@@ -102,7 +102,10 @@
         "members": null,
         "delta_ncolumns": 0,
         "added_columns": [],
-        "removed_columns": []
+        "removed_columns": [],
+        "delta_nmetadata": 0,
+        "added_metadata": [],
+        "removed_metadata": []
       }
     }
   },
@@ -996,8 +999,8 @@
         "path_name": "mos_target_sdssv_plateholes_meta",
         "path_template": "$MOS_TARGET/{v_targ}/{ftype}/mos_sdssv_plateholes_meta.{ftype}",
         "path_kwargs": [
-          "ftype",
-          "v_targ"
+          "v_targ",
+          "ftype"
         ],
         "access_string": "mos_target_sdssv_plateholes_meta = $MOS_TARGET/{v_targ}/{ftype}/mos_sdssv_plateholes_meta.{ftype}"
       },
