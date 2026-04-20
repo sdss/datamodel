@@ -1,7 +1,9 @@
 general:
   name: gyro_age_dwarf
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: Gyrochronology ages for dwarf stars in MWM
+  description: Gyrochronology ages (rotation based ages) for dwarf stars determined
+    using GPgyro (Lu. et al. 2024) and gyro-interp (Bouma et al. 2023). GPgyro is
+    suitable for stars > 1.5 Gyr, and gyrointerp is suitable for stars < 4 Gyr.
   datatype: FITS
   filesize: 641 KB
   releases:
@@ -10,13 +12,13 @@ general:
   - MWM_STELLAR_AGE
   surveys:
   - SDSS
-  naming_convention: $MWM_STELLAR_AGE/gyro_age/gyro_age_dwarf-[V_VAC].fits
-    where V_VAC = 1.0.0 for DR20.
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
+  naming_convention: $MWM_STELLAR_AGE/gyro_age/gyro_age_dwarf-[V_VAC].fits where V_VAC
+    = 1.0.0 for DR20.
+  generated_by: https://github.com/lyx12311/GPgyro, https://github.com/lgbouma/gyro-interp
     this product.
   data_level: 3.3.0
   design: false
-  vac: true
+  vac: false
   recommended_science_product: true
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
@@ -39,7 +41,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Description of dimension
         is_image: true
         size: 0 bytes
         header:
@@ -57,7 +59,7 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: Main data entry
         is_image: false
         size: 633 KB
         header:
@@ -92,63 +94,65 @@ releases:
           source_id:
             name: source_id
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: NA
+            description: Gaia DR3 source ID
           sdss_id:
             name: sdss_id
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: NA
+            description: SDSS-V star ID
           Prot:
             name: Prot
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Days
+            description: Rotation period measurements
           Prot_survey:
             name: Prot_survey
             type: char[6]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: NA
+            description: Survey that provided the rotation period
           gyrointerp_age:
             name: gyrointerp_age
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Gyr
+            description: Gyrochronology age output from gyro-interp
           gyrointerp_age_p:
             name: gyrointerp_age_p
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Gyr
+            description: +1 sigma from gyro-interp
           gyrointerp_age_m:
             name: gyrointerp_age_m
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Gyr
+            description: -1 sigma from gyro-interp
           gyrointerp_flag:
             name: gyrointerp_flag
             type: char[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: NA
+            description: outside of the application limit for gyro-interp (> 4 Gyr)
+              if flag is set
           GPgyro_age:
             name: GPgyro_age
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Gyr
+            description: Gyrochronology age output from GPgyro
           GPgyro_age_p:
             name: GPgyro_age_p
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Gyr
+            description: +1 sigma from GPgyro
           GPgyro_age_m:
             name: GPgyro_age_m
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Gyr
+            description: -1 sigma from GPgyro
           GPgyro_flag:
             name: GPgyro_flag
             type: char[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: NA
+            description: outside of the application limit for GPgyro (< 1.5 Gyr) if
+              flag is set
 notes: |-
   None
 regrets: |-
