@@ -19,7 +19,7 @@ Results and best-fit models from the ThePayne astra pipeline for a single star
 $MWM_ASTRA/0.6.0/results/star/49/97/astraStarThePayne-0.6.0-115034997.fits
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MWM_ASTRA
@@ -36,7 +36,10 @@ astra
 ### Is a VAC
 False
 
-### HDUS List for release DR19
+### Data Level
+0.0.0
+
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: BOSS/APO](#hdu1-boss/apo)
   - [HDU2: BOSS/LCO](#hdu2-boss/lco)
@@ -47,6 +50,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - primary_delta_nkeys: 33
 
 ---
 ## Example HDUS List
@@ -64,62 +70,86 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 0 | number of array dimensions |
 | EXTEND | True |  |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-08-08 19:58:32 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| SDSS_ID | 115034997 | SDSS-5 unique identifier |
-| APOGEEID | 2M03491230+2313421 | SDSS-4 DR17 APOGEE identifier |
-| GAIA2_ID | 64922283267331968 | Gaia DR2 source identifier |
-| GAIA3_ID | 64922283267331968 | Gaia DR3 source identifier |
-| TIC_ID | 440691461 | TESS Input Catalog (v8) identifier |
-| HEALPIX | 59217 | HEALPix (128 side) |
+| CREATED | 24-08-12 04:53:39 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+| SDSS_ID | 103020000 | SDSS-5 unique identifier |
+| APOGEEID | 2M12283021-6635525 | SDSS-4 DR17 APOGEE identifier |
+| GAIA2_ID | 5860080419780127104 | Gaia DR2 source identifier |
+| GAIA3_ID | 5860080419780127104 | Gaia DR3 source identifier |
+| TIC_ID | 287113985 | TESS Input Catalog (v8) identifier |
+| HEALPIX | 188421 | HEALPix (128 side) |
+|  |  |  |
+|  | Targeting Provenance |  |
+|  |  |  |
 | LEAD | gaia_dr3_source | Lead catalog used for cross-match |
 | VER_ID | 31 | SDSS catalog version for targeting |
-| CAT_ID | 63050396553023228 | Catalog identifier used to target the source |
-| CAT_ID21 | 4505982604 | Catalog identifier (v21; v0.0) |
-| CAT_ID25 | 27021598063719041 | Catalog identifier (v25; v0.5) |
-| CAT_ID31 | 63050396553023228 | Catalog identifier (v31; v1.0) |
+| CAT_ID | 63050396092955182 | Catalog identifier used to target the source |
+| CAT_ID21 | 5696405012 | Catalog identifier (v21; v0.0) |
+| CAT_ID25 | 27021599252394686 | Catalog identifier (v25; v0.5) |
+| CAT_ID31 | 63050396092955182 | Catalog identifier (v31; v1.0) |
 | N_ASSOC | 1 | SDSS_IDs associated with this CATALOGID |
 | N_NEIGH | 0 | Sources within 3" and G_MAG < G_MAG_source + 5 |
-| RA | 57.301376 | Right ascension [deg] |
-| DEC | 23.22814 | Declination [deg] |
-| L | 167.6333476492844 | Galactic longitude [deg] |
-| B | -23.83310760174779 | Galactic latitude [deg] |
-| PLX | 7.4509916 | Parallax [mas] |
-| E_PLX | 0.018298406 | Error on parallax [mas] |
-| PMRA | 19.729431 | Proper motion in RA [mas/yr] |
-| E_PMRA | 0.020170998 | Error on proper motion in RA [mas/yr] |
-| PMDE | -46.045143 | Proper motion in DEC [mas/yr] |
-| E_PMDE | 0.014120278 | Error on proper motion in DEC [mas/yr] |
-| V_RAD | 7.589561 | Gaia radial velocity [km/s] |
-| E_V_RAD | 2.6501663 | Error on Gaia radial velocity [km/s] |
-| G_MAG | 13.63343 | Gaia DR3 mean G band magnitude [mag] |
-| BP_MAG | 14.518898 | Gaia DR3 mean BP band magnitude [mag] |
-| RP_MAG | 12.701284 | Gaia DR3 mean RP band magnitude [mag] |
-| J_MAG | 11.505 | 2MASS J band magnitude [mag] |
-| E_J_MAG | 0.016 | Error on 2MASS J band magnitude [mag] |
-| H_MAG | 10.804 | 2MASS H band magnitude [mag] |
-| E_H_MAG | 0.021 | Error on 2MASS H band magnitude [mag] |
-| K_MAG | 10.664 | 2MASS K band magnitude [mag] |
-| E_K_MAG | 0.015 | Error on 2MASS K band magnitude [mag] |
+|  |  |  |
+|  | Astrometry |  |
+|  |  |  |
+| RA | 187.12584 | Right ascension [deg] |
+| DEC | -66.59794 | Declination [deg] |
+| L | 300.652748900112 | Galactic longitude [deg] |
+| B | -3.8277382984462562 | Galactic latitude [deg] |
+| PLX | 0.11437972 | Parallax [mas] |
+| E_PLX | 0.014047999 | Error on parallax [mas] |
+| PMRA | -5.4344354 | Proper motion in RA [mas/yr] |
+| E_PMRA | 0.013754413 | Error on proper motion in RA [mas/yr] |
+| PMDE | -0.81458503 | Proper motion in DEC [mas/yr] |
+| E_PMDE | 0.0150277065 | Error on proper motion in DEC [mas/yr] |
+| V_RAD | -12.226325 | Gaia radial velocity [km/s] |
+| E_V_RAD | 1.1914438 | Error on Gaia radial velocity [km/s] |
+|  |  |  |
+|  | Gaia Photometry |  |
+|  |  |  |
+| G_MAG | 13.685833 | Gaia DR3 mean G band magnitude [mag] |
+| BP_MAG | 14.812113 | Gaia DR3 mean BP band magnitude [mag] |
+| RP_MAG | 12.64375 | Gaia DR3 mean RP band magnitude [mag] |
+|  |  |  |
+|  | 2MASS Photometry |  |
+|  |  |  |
+| J_MAG | 11.01 | 2MASS J band magnitude [mag] |
+| E_J_MAG | 0.029 | Error on 2MASS J band magnitude [mag] |
+| H_MAG | 10.107 | 2MASS H band magnitude [mag] |
+| E_H_MAG | 0.026 | Error on 2MASS H band magnitude [mag] |
+| K_MAG | 9.835 | 2MASS K band magnitude [mag] |
+| E_K_MAG | 0.022 | Error on 2MASS K band magnitude [mag] |
 | PH_QUAL | AAA | 2MASS photometric quality flag |
 | BL_FLG | 111 | Number of components fit per band (JHK) |
 | CC_FLG | 000 | Contamination and confusion flag |
 | COMMENT | See https://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html |  |
-| W1_MAG | 10.58881971145089 | W1 magnitude |
-| E_W1_MAG | 0.000738303097134866 | Error on W1 magnitude |
-| W1_FLUX | 57925.81 | W1 flux [Vega nMgy] |
-| W1_DFLUX | 39.389683 | Error on W1 flux [Vega nMgy] |
-| W1_FRAC | 0.997979 | Fraction of W1 flux from this object |
-| W2_MAG | 10.581561686923738 | W2 magnitude [Vega] |
-| E_W2_MAG | 0.001617968649103707 | Error on W2 magnitude |
-| W2_FLUX | 56829.695 | W2 flux [Vega nMgy] |
-| W2_DFLUX | 84.68785 | Error on W2 flux [Vega nMgy] |
-| W2_FRAC | 0.9970417 | Fraction of W2 flux from this object |
+|  |  |  |
+|  | unWISE Photometry |  |
+|  |  |  |
+| W1_MAG | 9.726259696127704 | W1 magnitude |
+| E_W1_MAG | 0.000501968665409678 | Error on W1 magnitude |
+| W1_FLUX | 128202.39 | W1 flux [Vega nMgy] |
+| W1_DFLUX | 59.27184 | Error on W1 flux [Vega nMgy] |
+| W1_FRAC | 0.9410669 | Fraction of W1 flux from this object |
+| W2_MAG | 9.83106761054271 | W2 magnitude [Vega] |
+| E_W2_MAG | 0.001100526259777875 | Error on W2 magnitude |
+| W2_FLUX | 113441.76 | W2 flux [Vega nMgy] |
+| W2_DFLUX | 114.98708 | Error on W2 flux [Vega nMgy] |
+| W2_FRAC | 0.9334011 | Fraction of W2 flux from this object |
 | W1UFLAGS | 0 | unWISE flags for W1 |
 | W2UFLAGS | 0 | unWISE flags for W2 |
 | W1AFLAGS | 0 | Additional flags for W1 |
 | W2AFLAGS | 0 | Additional flags for W2 |
 | COMMENT | See https://catalog.unwise.me/catalogs.html |  |
+|  |  |  |
+|  | GLIMPSE Photometry |  |
+|  |  |  |
 | MAG4_5 | None | IRAC band 4.5 micron magnitude [mag] |
 | D4_5M | None | Error on IRAC band 4.5 micron magnitude [mag] |
 | RMS_F4_5 | None | RMS deviations from final flux [mJy] |
@@ -127,14 +157,23 @@ Key | Value | Comment | |
 | MF4_5 | 0 | Flux calculation method flag |
 | CSF | 0 | Close source flag |
 | COMMENT | See https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/gator_docs/ |  |
+|  |  |  |
+|  | Observations Summary |  |
+|  |  |  |
 | N_BOSS | 0 | Number of BOSS visits |
 | B_MINMJD | None | Minimum MJD of BOSS visits |
 | N_MAXMJD | None | Maximum MJD of BOSS visits |
-| N_APOGEE | 5 | Number of APOGEE visits |
-| A_MINMJD | 57408 | Minimum MJD of APOGEE visits |
-| A_MAXMJD | 58881 | Maximum MJD of APOGEE visits |
-| CHECKSUM | MhIYMfFVMfFVMfFV | HDU checksum updated 2024-08-08T13:58:32 |
-| DATASUM | 0 | data unit checksum updated 2024-08-08T13:58:32 |
+| N_APOGEE | 3 | Number of APOGEE visits |
+| A_MINMJD | 58150 | Minimum MJD of APOGEE visits |
+| A_MAXMJD | 58178 | Maximum MJD of APOGEE visits |
+|  |  |  |
+|  | Data Integrity |  |
+|  |  |  |
+| CHECKSUM | TRVLWRVJTRVJTRVJ | HDU checksum updated 2024-08-11T22:53:39 |
+| DATASUM | 0 | data unit checksum updated 2024-08-11T22:53:39 |
+|  |  |  |
+|  | HDU Descriptions |  |
+|  |  |  |
 | COMMENT | HDU 0: Summary information only |  |
 | COMMENT | HDU 1: BOSS results from Apache Point Observatory |  |
 | COMMENT | HDU 2: BOSS results from Las Campanas Observatory |  |
@@ -160,18 +199,66 @@ Key | Value | Comment | |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 450 | number of table fields |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | EXTNAME | BOSS/APO | Extension name |
 | OBSRVTRY | APO | Observatory |
 | INSTRMNT | BOSS | Instrument |
 | V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-08-08 19:58:32 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| CREATED | 24-08-12 04:53:39 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Exposure Information |  |
+|  |  |  |
+|  |  |  |
+|  | Field/Plate Information |  |
+|  |  |  |
+|  |  |  |
+|  | BOSS Data Reduction Pipeline |  |
+|  |  |  |
+|  |  |  |
+|  | Observing Conditions |  |
+|  |  |  |
 | TDIM48 | (0) |  |
 | TDIM49 | (0) |  |
+|  |  |  |
+|  | Metadata Flags |  |
+|  |  |  |
+|  |  |  |
+|  | XCSAO |  |
+|  |  |  |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Astra Metadata |  |
+|  |  |  |
+|  |  |  |
+|  | Stellar Labels |  |
+|  |  |  |
+|  |  |  |
+|  | Summary Statistics |  |
+|  |  |  |
+|  |  |  |
+|  | Formal uncertainties |  |
+|  |  |  |
+|  |  |  |
+|  | Correlation Coefficients |  |
+|  |  |  |
+|  |  |  |
+|  | Spectral data |  |
+|  |  |  |
 | TDIM448 | (0) |  |
 | TDIM449 | (0) |  |
 | TDIM450 | (0) |  |
-| CHECKSUM | WUhAXTe2WTe9WTe9 | HDU checksum updated 2024-08-08T13:58:32 |
-| DATASUM | 0 | data unit checksum updated 2024-08-08T13:58:32 |
+|  |  |  |
+|  | DATA INTEGRITY |  |
+|  |  |  |
+| CHECKSUM | XWjAXVi6XViAXVi5 | HDU checksum updated 2024-08-11T22:53:40 |
+| DATASUM | 0 | data unit checksum updated 2024-08-11T22:53:40 |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
@@ -646,18 +733,66 @@ Key | Value | Comment | |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 450 | number of table fields |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | EXTNAME | BOSS/LCO | Extension name |
 | OBSRVTRY | LCO | Observatory |
 | INSTRMNT | BOSS | Instrument |
 | V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-08-08 19:58:32 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| CREATED | 24-08-12 04:53:40 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Exposure Information |  |
+|  |  |  |
+|  |  |  |
+|  | Field/Plate Information |  |
+|  |  |  |
+|  |  |  |
+|  | BOSS Data Reduction Pipeline |  |
+|  |  |  |
+|  |  |  |
+|  | Observing Conditions |  |
+|  |  |  |
 | TDIM48 | (0) |  |
 | TDIM49 | (0) |  |
+|  |  |  |
+|  | Metadata Flags |  |
+|  |  |  |
+|  |  |  |
+|  | XCSAO |  |
+|  |  |  |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Astra Metadata |  |
+|  |  |  |
+|  |  |  |
+|  | Stellar Labels |  |
+|  |  |  |
+|  |  |  |
+|  | Summary Statistics |  |
+|  |  |  |
+|  |  |  |
+|  | Formal uncertainties |  |
+|  |  |  |
+|  |  |  |
+|  | Correlation Coefficients |  |
+|  |  |  |
+|  |  |  |
+|  | Spectral data |  |
+|  |  |  |
 | TDIM448 | (0) |  |
 | TDIM449 | (0) |  |
 | TDIM450 | (0) |  |
-| CHECKSUM | TVi9VTi9TTi9TTi9 | HDU checksum updated 2024-08-08T13:58:33 |
-| DATASUM | 0 | data unit checksum updated 2024-08-08T13:58:33 |
+|  |  |  |
+|  | DATA INTEGRITY |  |
+|  |  |  |
+| CHECKSUM | WYnAYVl5WVlAWVl5 | HDU checksum updated 2024-08-11T22:53:40 |
+| DATASUM | 0 | data unit checksum updated 2024-08-11T22:53:40 |
 
 ##### Binary Table Caption for HDU2
 Name | Type | Unit | Description |
@@ -1119,470 +1254,9 @@ Name | Type | Unit | Description |
 {data_type} from APOGEE north
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  204 KB
-
-##### Header Table Caption for HDU3
-Key | Value | Comment | |
-| --- | --- | --- | --- |
-| XTENSION | BINTABLE | binary table extension |
-| BITPIX | 8 | array data type |
-| NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 104669 | length of dimension 1 |
-| NAXIS2 | 2 | length of dimension 2 |
-| PCOUNT | 0 | number of group parameters |
-| GCOUNT | 1 | number of groups |
-| TFIELDS | 427 | number of table fields |
-| EXTNAME | APOGEE/APO | Extension name |
-| OBSRVTRY | APO | Observatory |
-| INSTRMNT | APOGEE | Instrument |
-| V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-08-08 19:58:33 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| TDIM425 | (8575) |  |
-| TDIM426 | (8575) |  |
-| TDIM427 | (8575) |  |
-| CHECKSUM | nCYYoAWVnAWVnAWV | HDU checksum updated 2024-08-08T13:58:33 |
-| DATASUM | 2410274300 | data unit checksum updated 2024-08-08T13:58:33 |
-
-##### Binary Table Caption for HDU3
-Name | Type | Unit | Description |
-| --- | --- | --- | --- |
- | star_pk | int64 |  | APOGEE DRP `star` primary key |
- | release | char[4] |  | SDSS release |
- | filetype | char[6] |  | SDSS file type that stores this spectrum |
- | apred | char[4] |  | APOGEE reduction pipeline |
- | apstar | char[5] |  | Unused DR17 apStar keyword (default: stars) |
- | obj | char[18] |  | Object name |
- | telescope | char[6] |  | Short telescope name |
- | healpix | int32 |  | HEALPix (128 side) |
- | field | char[16] |  | Field identifier |
- | prefix | char[2] |  | Prefix used to separate SDSS 4 north/south |
- | min_mjd | int32 |  | Minimum MJD of visits |
- | max_mjd | int32 |  | Maximum MJD of visits |
- | n_entries | int32 |  | apStar entries for this SDSS4_APOGEE_ID |
- | n_visits | int32 |  | Number of APOGEE visits |
- | n_good_visits | int32 |  | Number of 'good' APOGEE visits |
- | n_good_rvs | int32 |  | Number of 'good' APOGEE radial velocities |
- | snr | float32 |  | Signal-to-noise ratio |
- | mean_fiber | float32 |  | S/N-weighted mean visit fiber number |
- | std_fiber | float32 |  | Standard deviation of visit fiber numbers |
- | spectrum_flags | int64 |  | Data reduction pipeline flags for this spectrum |
- | v_rad | float32 | km/s | Barycentric rest frame radial velocity  |
- | e_v_rad | float32 | km/s | Error on radial velocity  |
- | std_v_rad | float32 | km/s | Standard deviation of visit V_RAD  |
- | median_e_v_rad | float32 | km/s | Median error in radial velocity  |
- | doppler_teff | float32 | K | Stellar effective temperature  |
- | doppler_e_teff | float32 | K | Error on stellar effective temperature  |
- | doppler_logg | float32 | log10(cm/s^2) | Surface gravity  |
- | doppler_e_logg | float32 | log10(cm/s^2) | Error on surface gravity  |
- | doppler_fe_h | float32 | dex | [Fe/H]  |
- | doppler_e_fe_h | float32 | dex | Error on [Fe/H]  |
- | doppler_rchi2 | float32 |  | Reduced chi-square value of DOPPLER fit |
- | doppler_flags | int64 |  | DOPPLER flags |
- | xcorr_v_rad | float32 | km/s | Barycentric rest frame radial velocity  |
- | xcorr_v_rel | float32 | km/s | Relative velocity  |
- | xcorr_e_v_rel | float32 | km/s | Error on relative velocity  |
- | ccfwhm | float32 |  | Cross-correlation function FWHM |
- | autofwhm | float32 |  | Auto-correlation function FWHM |
- | n_components | int32 |  | Number of components in CCF |
- | spectrum_pk_id | int64 |  | Unique spectrum primary key |
- | task_pk | int64 |  | Task model primary key |
- | v_astra | char[5] |  | Astra version |
- | created | char[26] |  | Datetime when task record was created |
- | t_elapsed | float32 | s | Core-time elapsed on this analysis  |
- | t_overhead | float32 | s | Estimated core-time spent in overhads  |
- | tag | char[1] |  | Experiment tag for this result |
- | v_rel | float32 |  |  |
- | teff | float32 |  |  |
- | e_teff | float32 |  |  |
- | logg | float32 |  |  |
- | e_logg | float32 |  |  |
- | v_turb | float32 |  |  |
- | e_v_turb | float32 |  |  |
- | c_h | float32 |  |  |
- | e_c_h | float32 |  |  |
- | n_h | float32 |  |  |
- | e_n_h | float32 |  |  |
- | o_h | float32 |  |  |
- | e_o_h | float32 |  |  |
- | na_h | float32 |  |  |
- | e_na_h | float32 |  |  |
- | mg_h | float32 |  |  |
- | e_mg_h | float32 |  |  |
- | al_h | float32 |  |  |
- | e_al_h | float32 |  |  |
- | si_h | float32 |  |  |
- | e_si_h | float32 |  |  |
- | p_h | float32 |  |  |
- | e_p_h | float32 |  |  |
- | s_h | float32 |  |  |
- | e_s_h | float32 |  |  |
- | k_h | float32 |  |  |
- | e_k_h | float32 |  |  |
- | ca_h | float32 |  |  |
- | e_ca_h | float32 |  |  |
- | ti_h | float32 |  |  |
- | e_ti_h | float32 |  |  |
- | v_h | float32 |  |  |
- | e_v_h | float32 |  |  |
- | cr_h | float32 |  |  |
- | e_cr_h | float32 |  |  |
- | mn_h | float32 |  |  |
- | e_mn_h | float32 |  |  |
- | fe_h | float32 |  |  |
- | e_fe_h | float32 |  |  |
- | co_h | float32 |  |  |
- | e_co_h | float32 |  |  |
- | ni_h | float32 |  |  |
- | e_ni_h | float32 |  |  |
- | cu_h | float32 |  |  |
- | e_cu_h | float32 |  |  |
- | ge_h | float32 |  |  |
- | e_ge_h | float32 |  |  |
- | c12_c13 | float32 |  |  |
- | e_c12_c13 | float32 |  |  |
- | v_macro | float32 |  |  |
- | e_v_macro | float32 |  |  |
- | chi2 | float32 |  |  |
- | reduced_chi2 | float32 |  |  |
- | result_flags | int64 |  |  |
- | raw_e_teff | float32 |  |  |
- | raw_e_logg | float32 |  |  |
- | raw_e_v_turb | float32 |  |  |
- | raw_e_c_h | float32 |  |  |
- | raw_e_n_h | float32 |  |  |
- | raw_e_o_h | float32 |  |  |
- | raw_e_na_h | float32 |  |  |
- | raw_e_mg_h | float32 |  |  |
- | raw_e_al_h | float32 |  |  |
- | raw_e_si_h | float32 |  |  |
- | raw_e_p_h | float32 |  |  |
- | raw_e_s_h | float32 |  |  |
- | raw_e_k_h | float32 |  |  |
- | raw_e_ca_h | float32 |  |  |
- | raw_e_ti_h | float32 |  |  |
- | raw_e_v_h | float32 |  |  |
- | raw_e_cr_h | float32 |  |  |
- | raw_e_mn_h | float32 |  |  |
- | raw_e_fe_h | float32 |  |  |
- | raw_e_co_h | float32 |  |  |
- | raw_e_ni_h | float32 |  |  |
- | raw_e_cu_h | float32 |  |  |
- | raw_e_ge_h | float32 |  |  |
- | raw_e_c12_c13 | float32 |  |  |
- | raw_e_v_macro | float32 |  |  |
- | rho_teff_logg | float32 |  |  |
- | rho_teff_v_turb | float32 |  |  |
- | rho_teff_c_h | float32 |  |  |
- | rho_teff_n_h | float32 |  |  |
- | rho_teff_o_h | float32 |  |  |
- | rho_teff_na_h | float32 |  |  |
- | rho_teff_mg_h | float32 |  |  |
- | rho_teff_al_h | float32 |  |  |
- | rho_teff_si_h | float32 |  |  |
- | rho_teff_p_h | float32 |  |  |
- | rho_teff_s_h | float32 |  |  |
- | rho_teff_k_h | float32 |  |  |
- | rho_teff_ca_h | float32 |  |  |
- | rho_teff_ti_h | float32 |  |  |
- | rho_teff_v_h | float32 |  |  |
- | rho_teff_cr_h | float32 |  |  |
- | rho_teff_mn_h | float32 |  |  |
- | rho_teff_fe_h | float32 |  |  |
- | rho_teff_co_h | float32 |  |  |
- | rho_teff_ni_h | float32 |  |  |
- | rho_teff_cu_h | float32 |  |  |
- | rho_teff_ge_h | float32 |  |  |
- | rho_teff_c12_c13 | float32 |  |  |
- | rho_teff_v_macro | float32 |  |  |
- | rho_logg_v_turb | float32 |  |  |
- | rho_logg_c_h | float32 |  |  |
- | rho_logg_n_h | float32 |  |  |
- | rho_logg_o_h | float32 |  |  |
- | rho_logg_na_h | float32 |  |  |
- | rho_logg_mg_h | float32 |  |  |
- | rho_logg_al_h | float32 |  |  |
- | rho_logg_si_h | float32 |  |  |
- | rho_logg_p_h | float32 |  |  |
- | rho_logg_s_h | float32 |  |  |
- | rho_logg_k_h | float32 |  |  |
- | rho_logg_ca_h | float32 |  |  |
- | rho_logg_ti_h | float32 |  |  |
- | rho_logg_v_h | float32 |  |  |
- | rho_logg_cr_h | float32 |  |  |
- | rho_logg_mn_h | float32 |  |  |
- | rho_logg_fe_h | float32 |  |  |
- | rho_logg_co_h | float32 |  |  |
- | rho_logg_ni_h | float32 |  |  |
- | rho_logg_cu_h | float32 |  |  |
- | rho_logg_ge_h | float32 |  |  |
- | rho_logg_c12_c13 | float32 |  |  |
- | rho_logg_v_macro | float32 |  |  |
- | rho_v_turb_c_h | float32 |  |  |
- | rho_v_turb_n_h | float32 |  |  |
- | rho_v_turb_o_h | float32 |  |  |
- | rho_v_turb_na_h | float32 |  |  |
- | rho_v_turb_mg_h | float32 |  |  |
- | rho_v_turb_al_h | float32 |  |  |
- | rho_v_turb_si_h | float32 |  |  |
- | rho_v_turb_p_h | float32 |  |  |
- | rho_v_turb_s_h | float32 |  |  |
- | rho_v_turb_k_h | float32 |  |  |
- | rho_v_turb_ca_h | float32 |  |  |
- | rho_v_turb_ti_h | float32 |  |  |
- | rho_v_turb_v_h | float32 |  |  |
- | rho_v_turb_cr_h | float32 |  |  |
- | rho_v_turb_mn_h | float32 |  |  |
- | rho_v_turb_fe_h | float32 |  |  |
- | rho_v_turb_co_h | float32 |  |  |
- | rho_v_turb_ni_h | float32 |  |  |
- | rho_v_turb_cu_h | float32 |  |  |
- | rho_v_turb_ge_h | float32 |  |  |
- | rho_v_turb_c12_c13 | float32 |  |  |
- | rho_v_turb_v_macro | float32 |  |  |
- | rho_c_h_n_h | float32 |  |  |
- | rho_c_h_o_h | float32 |  |  |
- | rho_c_h_na_h | float32 |  |  |
- | rho_c_h_mg_h | float32 |  |  |
- | rho_c_h_al_h | float32 |  |  |
- | rho_c_h_si_h | float32 |  |  |
- | rho_c_h_p_h | float32 |  |  |
- | rho_c_h_s_h | float32 |  |  |
- | rho_c_h_k_h | float32 |  |  |
- | rho_c_h_ca_h | float32 |  |  |
- | rho_c_h_ti_h | float32 |  |  |
- | rho_c_h_v_h | float32 |  |  |
- | rho_c_h_cr_h | float32 |  |  |
- | rho_c_h_mn_h | float32 |  |  |
- | rho_c_h_fe_h | float32 |  |  |
- | rho_c_h_co_h | float32 |  |  |
- | rho_c_h_ni_h | float32 |  |  |
- | rho_c_h_cu_h | float32 |  |  |
- | rho_c_h_ge_h | float32 |  |  |
- | rho_c_h_c12_c13 | float32 |  |  |
- | rho_c_h_v_macro | float32 |  |  |
- | rho_n_h_o_h | float32 |  |  |
- | rho_n_h_na_h | float32 |  |  |
- | rho_n_h_mg_h | float32 |  |  |
- | rho_n_h_al_h | float32 |  |  |
- | rho_n_h_si_h | float32 |  |  |
- | rho_n_h_p_h | float32 |  |  |
- | rho_n_h_s_h | float32 |  |  |
- | rho_n_h_k_h | float32 |  |  |
- | rho_n_h_ca_h | float32 |  |  |
- | rho_n_h_ti_h | float32 |  |  |
- | rho_n_h_v_h | float32 |  |  |
- | rho_n_h_cr_h | float32 |  |  |
- | rho_n_h_mn_h | float32 |  |  |
- | rho_n_h_fe_h | float32 |  |  |
- | rho_n_h_co_h | float32 |  |  |
- | rho_n_h_ni_h | float32 |  |  |
- | rho_n_h_cu_h | float32 |  |  |
- | rho_n_h_ge_h | float32 |  |  |
- | rho_n_h_c12_c13 | float32 |  |  |
- | rho_n_h_v_macro | float32 |  |  |
- | rho_o_h_na_h | float32 |  |  |
- | rho_o_h_mg_h | float32 |  |  |
- | rho_o_h_al_h | float32 |  |  |
- | rho_o_h_si_h | float32 |  |  |
- | rho_o_h_p_h | float32 |  |  |
- | rho_o_h_s_h | float32 |  |  |
- | rho_o_h_k_h | float32 |  |  |
- | rho_o_h_ca_h | float32 |  |  |
- | rho_o_h_ti_h | float32 |  |  |
- | rho_o_h_v_h | float32 |  |  |
- | rho_o_h_cr_h | float32 |  |  |
- | rho_o_h_mn_h | float32 |  |  |
- | rho_o_h_fe_h | float32 |  |  |
- | rho_o_h_co_h | float32 |  |  |
- | rho_o_h_ni_h | float32 |  |  |
- | rho_o_h_cu_h | float32 |  |  |
- | rho_o_h_ge_h | float32 |  |  |
- | rho_o_h_c12_c13 | float32 |  |  |
- | rho_o_h_v_macro | float32 |  |  |
- | rho_na_h_mg_h | float32 |  |  |
- | rho_na_h_al_h | float32 |  |  |
- | rho_na_h_si_h | float32 |  |  |
- | rho_na_h_p_h | float32 |  |  |
- | rho_na_h_s_h | float32 |  |  |
- | rho_na_h_k_h | float32 |  |  |
- | rho_na_h_ca_h | float32 |  |  |
- | rho_na_h_ti_h | float32 |  |  |
- | rho_na_h_v_h | float32 |  |  |
- | rho_na_h_cr_h | float32 |  |  |
- | rho_na_h_mn_h | float32 |  |  |
- | rho_na_h_fe_h | float32 |  |  |
- | rho_na_h_co_h | float32 |  |  |
- | rho_na_h_ni_h | float32 |  |  |
- | rho_na_h_cu_h | float32 |  |  |
- | rho_na_h_ge_h | float32 |  |  |
- | rho_na_h_c12_c13 | float32 |  |  |
- | rho_na_h_v_macro | float32 |  |  |
- | rho_mg_h_al_h | float32 |  |  |
- | rho_mg_h_si_h | float32 |  |  |
- | rho_mg_h_p_h | float32 |  |  |
- | rho_mg_h_s_h | float32 |  |  |
- | rho_mg_h_k_h | float32 |  |  |
- | rho_mg_h_ca_h | float32 |  |  |
- | rho_mg_h_ti_h | float32 |  |  |
- | rho_mg_h_v_h | float32 |  |  |
- | rho_mg_h_cr_h | float32 |  |  |
- | rho_mg_h_mn_h | float32 |  |  |
- | rho_mg_h_fe_h | float32 |  |  |
- | rho_mg_h_co_h | float32 |  |  |
- | rho_mg_h_ni_h | float32 |  |  |
- | rho_mg_h_cu_h | float32 |  |  |
- | rho_mg_h_ge_h | float32 |  |  |
- | rho_mg_h_c12_c13 | float32 |  |  |
- | rho_mg_h_v_macro | float32 |  |  |
- | rho_al_h_si_h | float32 |  |  |
- | rho_al_h_p_h | float32 |  |  |
- | rho_al_h_s_h | float32 |  |  |
- | rho_al_h_k_h | float32 |  |  |
- | rho_al_h_ca_h | float32 |  |  |
- | rho_al_h_ti_h | float32 |  |  |
- | rho_al_h_v_h | float32 |  |  |
- | rho_al_h_cr_h | float32 |  |  |
- | rho_al_h_mn_h | float32 |  |  |
- | rho_al_h_fe_h | float32 |  |  |
- | rho_al_h_co_h | float32 |  |  |
- | rho_al_h_ni_h | float32 |  |  |
- | rho_al_h_cu_h | float32 |  |  |
- | rho_al_h_ge_h | float32 |  |  |
- | rho_al_h_c12_c13 | float32 |  |  |
- | rho_al_h_v_macro | float32 |  |  |
- | rho_si_h_p_h | float32 |  |  |
- | rho_si_h_s_h | float32 |  |  |
- | rho_si_h_k_h | float32 |  |  |
- | rho_si_h_ca_h | float32 |  |  |
- | rho_si_h_ti_h | float32 |  |  |
- | rho_si_h_v_h | float32 |  |  |
- | rho_si_h_cr_h | float32 |  |  |
- | rho_si_h_mn_h | float32 |  |  |
- | rho_si_h_fe_h | float32 |  |  |
- | rho_si_h_co_h | float32 |  |  |
- | rho_si_h_ni_h | float32 |  |  |
- | rho_si_h_cu_h | float32 |  |  |
- | rho_si_h_ge_h | float32 |  |  |
- | rho_si_h_c12_c13 | float32 |  |  |
- | rho_si_h_v_macro | float32 |  |  |
- | rho_p_h_s_h | float32 |  |  |
- | rho_p_h_k_h | float32 |  |  |
- | rho_p_h_ca_h | float32 |  |  |
- | rho_p_h_ti_h | float32 |  |  |
- | rho_p_h_v_h | float32 |  |  |
- | rho_p_h_cr_h | float32 |  |  |
- | rho_p_h_mn_h | float32 |  |  |
- | rho_p_h_fe_h | float32 |  |  |
- | rho_p_h_co_h | float32 |  |  |
- | rho_p_h_ni_h | float32 |  |  |
- | rho_p_h_cu_h | float32 |  |  |
- | rho_p_h_ge_h | float32 |  |  |
- | rho_p_h_c12_c13 | float32 |  |  |
- | rho_p_h_v_macro | float32 |  |  |
- | rho_s_h_k_h | float32 |  |  |
- | rho_s_h_ca_h | float32 |  |  |
- | rho_s_h_ti_h | float32 |  |  |
- | rho_s_h_v_h | float32 |  |  |
- | rho_s_h_cr_h | float32 |  |  |
- | rho_s_h_mn_h | float32 |  |  |
- | rho_s_h_fe_h | float32 |  |  |
- | rho_s_h_co_h | float32 |  |  |
- | rho_s_h_ni_h | float32 |  |  |
- | rho_s_h_cu_h | float32 |  |  |
- | rho_s_h_ge_h | float32 |  |  |
- | rho_s_h_c12_c13 | float32 |  |  |
- | rho_s_h_v_macro | float32 |  |  |
- | rho_k_h_ca_h | float32 |  |  |
- | rho_k_h_ti_h | float32 |  |  |
- | rho_k_h_v_h | float32 |  |  |
- | rho_k_h_cr_h | float32 |  |  |
- | rho_k_h_mn_h | float32 |  |  |
- | rho_k_h_fe_h | float32 |  |  |
- | rho_k_h_co_h | float32 |  |  |
- | rho_k_h_ni_h | float32 |  |  |
- | rho_k_h_cu_h | float32 |  |  |
- | rho_k_h_ge_h | float32 |  |  |
- | rho_k_h_c12_c13 | float32 |  |  |
- | rho_k_h_v_macro | float32 |  |  |
- | rho_ca_h_ti_h | float32 |  |  |
- | rho_ca_h_v_h | float32 |  |  |
- | rho_ca_h_cr_h | float32 |  |  |
- | rho_ca_h_mn_h | float32 |  |  |
- | rho_ca_h_fe_h | float32 |  |  |
- | rho_ca_h_co_h | float32 |  |  |
- | rho_ca_h_ni_h | float32 |  |  |
- | rho_ca_h_cu_h | float32 |  |  |
- | rho_ca_h_ge_h | float32 |  |  |
- | rho_ca_h_c12_c13 | float32 |  |  |
- | rho_ca_h_v_macro | float32 |  |  |
- | rho_ti_h_v_h | float32 |  |  |
- | rho_ti_h_cr_h | float32 |  |  |
- | rho_ti_h_mn_h | float32 |  |  |
- | rho_ti_h_fe_h | float32 |  |  |
- | rho_ti_h_co_h | float32 |  |  |
- | rho_ti_h_ni_h | float32 |  |  |
- | rho_ti_h_cu_h | float32 |  |  |
- | rho_ti_h_ge_h | float32 |  |  |
- | rho_ti_h_c12_c13 | float32 |  |  |
- | rho_ti_h_v_macro | float32 |  |  |
- | rho_v_h_cr_h | float32 |  |  |
- | rho_v_h_mn_h | float32 |  |  |
- | rho_v_h_fe_h | float32 |  |  |
- | rho_v_h_co_h | float32 |  |  |
- | rho_v_h_ni_h | float32 |  |  |
- | rho_v_h_cu_h | float32 |  |  |
- | rho_v_h_ge_h | float32 |  |  |
- | rho_v_h_c12_c13 | float32 |  |  |
- | rho_v_h_v_macro | float32 |  |  |
- | rho_cr_h_mn_h | float32 |  |  |
- | rho_cr_h_fe_h | float32 |  |  |
- | rho_cr_h_co_h | float32 |  |  |
- | rho_cr_h_ni_h | float32 |  |  |
- | rho_cr_h_cu_h | float32 |  |  |
- | rho_cr_h_ge_h | float32 |  |  |
- | rho_cr_h_c12_c13 | float32 |  |  |
- | rho_cr_h_v_macro | float32 |  |  |
- | rho_mn_h_fe_h | float32 |  |  |
- | rho_mn_h_co_h | float32 |  |  |
- | rho_mn_h_ni_h | float32 |  |  |
- | rho_mn_h_cu_h | float32 |  |  |
- | rho_mn_h_ge_h | float32 |  |  |
- | rho_mn_h_c12_c13 | float32 |  |  |
- | rho_mn_h_v_macro | float32 |  |  |
- | rho_fe_h_co_h | float32 |  |  |
- | rho_fe_h_ni_h | float32 |  |  |
- | rho_fe_h_cu_h | float32 |  |  |
- | rho_fe_h_ge_h | float32 |  |  |
- | rho_fe_h_c12_c13 | float32 |  |  |
- | rho_fe_h_v_macro | float32 |  |  |
- | rho_co_h_ni_h | float32 |  |  |
- | rho_co_h_cu_h | float32 |  |  |
- | rho_co_h_ge_h | float32 |  |  |
- | rho_co_h_c12_c13 | float32 |  |  |
- | rho_co_h_v_macro | float32 |  |  |
- | rho_ni_h_cu_h | float32 |  |  |
- | rho_ni_h_ge_h | float32 |  |  |
- | rho_ni_h_c12_c13 | float32 |  |  |
- | rho_ni_h_v_macro | float32 |  |  |
- | rho_cu_h_ge_h | float32 |  |  |
- | rho_cu_h_c12_c13 | float32 |  |  |
- | rho_cu_h_v_macro | float32 |  |  |
- | rho_ge_h_c12_c13 | float32 |  |  |
- | rho_ge_h_v_macro | float32 |  |  |
- | rho_c12_c13_v_macro | float32 |  |  |
- | wavelength | float32[8575] | Angstrom | Wavelength (vacuum)  |
- | model_flux | float32[8575] |  | Best-fit model flux |
- | continuum | float32[8575] |  | Best-fit continuum flux |
-
-
-
-### HDU4: APOGEE/LCO
-{data_type} from APOGEE south
-
-#### HDU Type: BINARY TABLE
 #### HDU Size:  0 bytes
 
-##### Header Table Caption for HDU4
+##### Header Table Caption for HDU3
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | BINTABLE | binary table extension |
@@ -1593,18 +1267,63 @@ Key | Value | Comment | |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 427 | number of table fields |
-| EXTNAME | APOGEE/LCO | Extension name |
-| OBSRVTRY | LCO | Observatory |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
+| EXTNAME | APOGEE/APO | Extension name |
+| OBSRVTRY | APO | Observatory |
 | INSTRMNT | APOGEE | Instrument |
 | V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-08-08 19:58:33 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| CREATED | 24-08-12 04:53:40 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Observing Span |  |
+|  |  |  |
+|  |  |  |
+|  | Number and Quality of Visits |  |
+|  |  |  |
+|  |  |  |
+|  | Summary Statistics |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (Doppler) |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (X-Correlation) |  |
+|  |  |  |
+|  |  |  |
+|  | Astra Metadata |  |
+|  |  |  |
+|  |  |  |
+|  | Stellar Labels |  |
+|  |  |  |
+|  |  |  |
+|  | Summary Statistics |  |
+|  |  |  |
+|  |  |  |
+|  | Formal uncertainties |  |
+|  |  |  |
+|  |  |  |
+|  | Correlation Coefficients |  |
+|  |  |  |
+|  |  |  |
+|  | Spectral Data |  |
+|  |  |  |
 | TDIM425 | (0) |  |
 | TDIM426 | (0) |  |
 | TDIM427 | (0) |  |
-| CHECKSUM | lAD6o296l8C6l896 | HDU checksum updated 2024-08-08T13:58:34 |
-| DATASUM | 0 | data unit checksum updated 2024-08-08T13:58:34 |
+|  |  |  |
+|  | DATA INTEGRITY |  |
+|  |  |  |
+| CHECKSUM | oADAq0A6o7AAo7A3 | HDU checksum updated 2024-08-11T22:53:41 |
+| DATASUM | 0 | data unit checksum updated 2024-08-11T22:53:41 |
 
-##### Binary Table Caption for HDU4
+##### Binary Table Caption for HDU3
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | star_pk | int64 |  | APOGEE DRP `star` primary key |
@@ -2034,6 +1753,512 @@ Name | Type | Unit | Description |
  | wavelength | float32[0] | Angstrom | Wavelength (vacuum)  |
  | model_flux | float32[0] |  | Best-fit model flux |
  | continuum | float32[0] |  | Best-fit continuum flux |
+
+
+
+### HDU4: APOGEE/LCO
+{data_type} from APOGEE south
+
+#### HDU Type: BINARY TABLE
+#### HDU Size:  102 KB
+
+##### Header Table Caption for HDU4
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 104659 | length of dimension 1 |
+| NAXIS2 | 1 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 427 | number of table fields |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
+| EXTNAME | APOGEE/LCO | Extension name |
+| OBSRVTRY | LCO | Observatory |
+| INSTRMNT | APOGEE | Instrument |
+| V_ASTRA | 0.6.0 | Astra version |
+| CREATED | 24-08-12 04:53:41 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Observing Span |  |
+|  |  |  |
+|  |  |  |
+|  | Number and Quality of Visits |  |
+|  |  |  |
+|  |  |  |
+|  | Summary Statistics |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (Doppler) |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (X-Correlation) |  |
+|  |  |  |
+|  |  |  |
+|  | Astra Metadata |  |
+|  |  |  |
+|  |  |  |
+|  | Stellar Labels |  |
+|  |  |  |
+|  |  |  |
+|  | Summary Statistics |  |
+|  |  |  |
+|  |  |  |
+|  | Formal uncertainties |  |
+|  |  |  |
+|  |  |  |
+|  | Correlation Coefficients |  |
+|  |  |  |
+|  |  |  |
+|  | Spectral Data |  |
+|  |  |  |
+| TDIM425 | (8575) |  |
+| TDIM426 | (8575) |  |
+| TDIM427 | (8575) |  |
+|  |  |  |
+|  | DATA INTEGRITY |  |
+|  |  |  |
+| CHECKSUM | jhYXmgXWjgXWjgXW | HDU checksum updated 2024-08-11T22:53:42 |
+| DATASUM | 4258188556 | data unit checksum updated 2024-08-11T22:53:42 |
+
+##### Binary Table Caption for HDU4
+Name | Type | Unit | Description |
+| --- | --- | --- | --- |
+ | star_pk | int64 |  | APOGEE DRP `star` primary key |
+ | release | char[4] |  | SDSS release |
+ | filetype | char[6] |  | SDSS file type that stores this spectrum |
+ | apred | char[4] |  | APOGEE reduction pipeline |
+ | apstar | char[5] |  | Unused DR17 apStar keyword (default: stars) |
+ | obj | char[18] |  | Object name |
+ | telescope | char[6] |  | Short telescope name |
+ | healpix | int32 |  | HEALPix (128 side) |
+ | field | char[6] |  | Field identifier |
+ | prefix | char[2] |  | Prefix used to separate SDSS 4 north/south |
+ | min_mjd | int32 |  | Minimum MJD of visits |
+ | max_mjd | int32 |  | Maximum MJD of visits |
+ | n_entries | int32 |  | apStar entries for this SDSS4_APOGEE_ID |
+ | n_visits | int32 |  | Number of APOGEE visits |
+ | n_good_visits | int32 |  | Number of 'good' APOGEE visits |
+ | n_good_rvs | int32 |  | Number of 'good' APOGEE radial velocities |
+ | snr | float32 |  | Signal-to-noise ratio |
+ | mean_fiber | float32 |  | S/N-weighted mean visit fiber number |
+ | std_fiber | float32 |  | Standard deviation of visit fiber numbers |
+ | spectrum_flags | int64 |  | Data reduction pipeline flags for this spectrum |
+ | v_rad | float32 | km/s | Barycentric rest frame radial velocity  |
+ | e_v_rad | float32 | km/s | Error on radial velocity  |
+ | std_v_rad | float32 | km/s | Standard deviation of visit V_RAD  |
+ | median_e_v_rad | float32 | km/s | Median error in radial velocity  |
+ | doppler_teff | float32 | K | Stellar effective temperature  |
+ | doppler_e_teff | float32 | K | Error on stellar effective temperature  |
+ | doppler_logg | float32 | log10(cm/s^2) | Surface gravity  |
+ | doppler_e_logg | float32 | log10(cm/s^2) | Error on surface gravity  |
+ | doppler_fe_h | float32 | dex | [Fe/H]  |
+ | doppler_e_fe_h | float32 | dex | Error on [Fe/H]  |
+ | doppler_rchi2 | float32 |  | Reduced chi-square value of DOPPLER fit |
+ | doppler_flags | int64 |  | DOPPLER flags |
+ | xcorr_v_rad | float32 | km/s | Barycentric rest frame radial velocity  |
+ | xcorr_v_rel | float32 | km/s | Relative velocity  |
+ | xcorr_e_v_rel | float32 | km/s | Error on relative velocity  |
+ | ccfwhm | float32 |  | Cross-correlation function FWHM |
+ | autofwhm | float32 |  | Auto-correlation function FWHM |
+ | n_components | int32 |  | Number of components in CCF |
+ | spectrum_pk_id | int64 |  | Unique spectrum primary key |
+ | task_pk | int64 |  | Task model primary key |
+ | v_astra | char[5] |  | Astra version |
+ | created | char[26] |  | Datetime when task record was created |
+ | t_elapsed | float32 | s | Core-time elapsed on this analysis  |
+ | t_overhead | float32 | s | Estimated core-time spent in overhads  |
+ | tag | char[1] |  | Experiment tag for this result |
+ | v_rel | float32 |  |  |
+ | teff | float32 |  |  |
+ | e_teff | float32 |  |  |
+ | logg | float32 |  |  |
+ | e_logg | float32 |  |  |
+ | v_turb | float32 |  |  |
+ | e_v_turb | float32 |  |  |
+ | c_h | float32 |  |  |
+ | e_c_h | float32 |  |  |
+ | n_h | float32 |  |  |
+ | e_n_h | float32 |  |  |
+ | o_h | float32 |  |  |
+ | e_o_h | float32 |  |  |
+ | na_h | float32 |  |  |
+ | e_na_h | float32 |  |  |
+ | mg_h | float32 |  |  |
+ | e_mg_h | float32 |  |  |
+ | al_h | float32 |  |  |
+ | e_al_h | float32 |  |  |
+ | si_h | float32 |  |  |
+ | e_si_h | float32 |  |  |
+ | p_h | float32 |  |  |
+ | e_p_h | float32 |  |  |
+ | s_h | float32 |  |  |
+ | e_s_h | float32 |  |  |
+ | k_h | float32 |  |  |
+ | e_k_h | float32 |  |  |
+ | ca_h | float32 |  |  |
+ | e_ca_h | float32 |  |  |
+ | ti_h | float32 |  |  |
+ | e_ti_h | float32 |  |  |
+ | v_h | float32 |  |  |
+ | e_v_h | float32 |  |  |
+ | cr_h | float32 |  |  |
+ | e_cr_h | float32 |  |  |
+ | mn_h | float32 |  |  |
+ | e_mn_h | float32 |  |  |
+ | fe_h | float32 |  |  |
+ | e_fe_h | float32 |  |  |
+ | co_h | float32 |  |  |
+ | e_co_h | float32 |  |  |
+ | ni_h | float32 |  |  |
+ | e_ni_h | float32 |  |  |
+ | cu_h | float32 |  |  |
+ | e_cu_h | float32 |  |  |
+ | ge_h | float32 |  |  |
+ | e_ge_h | float32 |  |  |
+ | c12_c13 | float32 |  |  |
+ | e_c12_c13 | float32 |  |  |
+ | v_macro | float32 |  |  |
+ | e_v_macro | float32 |  |  |
+ | chi2 | float32 |  |  |
+ | reduced_chi2 | float32 |  |  |
+ | result_flags | int64 |  |  |
+ | raw_e_teff | float32 |  |  |
+ | raw_e_logg | float32 |  |  |
+ | raw_e_v_turb | float32 |  |  |
+ | raw_e_c_h | float32 |  |  |
+ | raw_e_n_h | float32 |  |  |
+ | raw_e_o_h | float32 |  |  |
+ | raw_e_na_h | float32 |  |  |
+ | raw_e_mg_h | float32 |  |  |
+ | raw_e_al_h | float32 |  |  |
+ | raw_e_si_h | float32 |  |  |
+ | raw_e_p_h | float32 |  |  |
+ | raw_e_s_h | float32 |  |  |
+ | raw_e_k_h | float32 |  |  |
+ | raw_e_ca_h | float32 |  |  |
+ | raw_e_ti_h | float32 |  |  |
+ | raw_e_v_h | float32 |  |  |
+ | raw_e_cr_h | float32 |  |  |
+ | raw_e_mn_h | float32 |  |  |
+ | raw_e_fe_h | float32 |  |  |
+ | raw_e_co_h | float32 |  |  |
+ | raw_e_ni_h | float32 |  |  |
+ | raw_e_cu_h | float32 |  |  |
+ | raw_e_ge_h | float32 |  |  |
+ | raw_e_c12_c13 | float32 |  |  |
+ | raw_e_v_macro | float32 |  |  |
+ | rho_teff_logg | float32 |  |  |
+ | rho_teff_v_turb | float32 |  |  |
+ | rho_teff_c_h | float32 |  |  |
+ | rho_teff_n_h | float32 |  |  |
+ | rho_teff_o_h | float32 |  |  |
+ | rho_teff_na_h | float32 |  |  |
+ | rho_teff_mg_h | float32 |  |  |
+ | rho_teff_al_h | float32 |  |  |
+ | rho_teff_si_h | float32 |  |  |
+ | rho_teff_p_h | float32 |  |  |
+ | rho_teff_s_h | float32 |  |  |
+ | rho_teff_k_h | float32 |  |  |
+ | rho_teff_ca_h | float32 |  |  |
+ | rho_teff_ti_h | float32 |  |  |
+ | rho_teff_v_h | float32 |  |  |
+ | rho_teff_cr_h | float32 |  |  |
+ | rho_teff_mn_h | float32 |  |  |
+ | rho_teff_fe_h | float32 |  |  |
+ | rho_teff_co_h | float32 |  |  |
+ | rho_teff_ni_h | float32 |  |  |
+ | rho_teff_cu_h | float32 |  |  |
+ | rho_teff_ge_h | float32 |  |  |
+ | rho_teff_c12_c13 | float32 |  |  |
+ | rho_teff_v_macro | float32 |  |  |
+ | rho_logg_v_turb | float32 |  |  |
+ | rho_logg_c_h | float32 |  |  |
+ | rho_logg_n_h | float32 |  |  |
+ | rho_logg_o_h | float32 |  |  |
+ | rho_logg_na_h | float32 |  |  |
+ | rho_logg_mg_h | float32 |  |  |
+ | rho_logg_al_h | float32 |  |  |
+ | rho_logg_si_h | float32 |  |  |
+ | rho_logg_p_h | float32 |  |  |
+ | rho_logg_s_h | float32 |  |  |
+ | rho_logg_k_h | float32 |  |  |
+ | rho_logg_ca_h | float32 |  |  |
+ | rho_logg_ti_h | float32 |  |  |
+ | rho_logg_v_h | float32 |  |  |
+ | rho_logg_cr_h | float32 |  |  |
+ | rho_logg_mn_h | float32 |  |  |
+ | rho_logg_fe_h | float32 |  |  |
+ | rho_logg_co_h | float32 |  |  |
+ | rho_logg_ni_h | float32 |  |  |
+ | rho_logg_cu_h | float32 |  |  |
+ | rho_logg_ge_h | float32 |  |  |
+ | rho_logg_c12_c13 | float32 |  |  |
+ | rho_logg_v_macro | float32 |  |  |
+ | rho_v_turb_c_h | float32 |  |  |
+ | rho_v_turb_n_h | float32 |  |  |
+ | rho_v_turb_o_h | float32 |  |  |
+ | rho_v_turb_na_h | float32 |  |  |
+ | rho_v_turb_mg_h | float32 |  |  |
+ | rho_v_turb_al_h | float32 |  |  |
+ | rho_v_turb_si_h | float32 |  |  |
+ | rho_v_turb_p_h | float32 |  |  |
+ | rho_v_turb_s_h | float32 |  |  |
+ | rho_v_turb_k_h | float32 |  |  |
+ | rho_v_turb_ca_h | float32 |  |  |
+ | rho_v_turb_ti_h | float32 |  |  |
+ | rho_v_turb_v_h | float32 |  |  |
+ | rho_v_turb_cr_h | float32 |  |  |
+ | rho_v_turb_mn_h | float32 |  |  |
+ | rho_v_turb_fe_h | float32 |  |  |
+ | rho_v_turb_co_h | float32 |  |  |
+ | rho_v_turb_ni_h | float32 |  |  |
+ | rho_v_turb_cu_h | float32 |  |  |
+ | rho_v_turb_ge_h | float32 |  |  |
+ | rho_v_turb_c12_c13 | float32 |  |  |
+ | rho_v_turb_v_macro | float32 |  |  |
+ | rho_c_h_n_h | float32 |  |  |
+ | rho_c_h_o_h | float32 |  |  |
+ | rho_c_h_na_h | float32 |  |  |
+ | rho_c_h_mg_h | float32 |  |  |
+ | rho_c_h_al_h | float32 |  |  |
+ | rho_c_h_si_h | float32 |  |  |
+ | rho_c_h_p_h | float32 |  |  |
+ | rho_c_h_s_h | float32 |  |  |
+ | rho_c_h_k_h | float32 |  |  |
+ | rho_c_h_ca_h | float32 |  |  |
+ | rho_c_h_ti_h | float32 |  |  |
+ | rho_c_h_v_h | float32 |  |  |
+ | rho_c_h_cr_h | float32 |  |  |
+ | rho_c_h_mn_h | float32 |  |  |
+ | rho_c_h_fe_h | float32 |  |  |
+ | rho_c_h_co_h | float32 |  |  |
+ | rho_c_h_ni_h | float32 |  |  |
+ | rho_c_h_cu_h | float32 |  |  |
+ | rho_c_h_ge_h | float32 |  |  |
+ | rho_c_h_c12_c13 | float32 |  |  |
+ | rho_c_h_v_macro | float32 |  |  |
+ | rho_n_h_o_h | float32 |  |  |
+ | rho_n_h_na_h | float32 |  |  |
+ | rho_n_h_mg_h | float32 |  |  |
+ | rho_n_h_al_h | float32 |  |  |
+ | rho_n_h_si_h | float32 |  |  |
+ | rho_n_h_p_h | float32 |  |  |
+ | rho_n_h_s_h | float32 |  |  |
+ | rho_n_h_k_h | float32 |  |  |
+ | rho_n_h_ca_h | float32 |  |  |
+ | rho_n_h_ti_h | float32 |  |  |
+ | rho_n_h_v_h | float32 |  |  |
+ | rho_n_h_cr_h | float32 |  |  |
+ | rho_n_h_mn_h | float32 |  |  |
+ | rho_n_h_fe_h | float32 |  |  |
+ | rho_n_h_co_h | float32 |  |  |
+ | rho_n_h_ni_h | float32 |  |  |
+ | rho_n_h_cu_h | float32 |  |  |
+ | rho_n_h_ge_h | float32 |  |  |
+ | rho_n_h_c12_c13 | float32 |  |  |
+ | rho_n_h_v_macro | float32 |  |  |
+ | rho_o_h_na_h | float32 |  |  |
+ | rho_o_h_mg_h | float32 |  |  |
+ | rho_o_h_al_h | float32 |  |  |
+ | rho_o_h_si_h | float32 |  |  |
+ | rho_o_h_p_h | float32 |  |  |
+ | rho_o_h_s_h | float32 |  |  |
+ | rho_o_h_k_h | float32 |  |  |
+ | rho_o_h_ca_h | float32 |  |  |
+ | rho_o_h_ti_h | float32 |  |  |
+ | rho_o_h_v_h | float32 |  |  |
+ | rho_o_h_cr_h | float32 |  |  |
+ | rho_o_h_mn_h | float32 |  |  |
+ | rho_o_h_fe_h | float32 |  |  |
+ | rho_o_h_co_h | float32 |  |  |
+ | rho_o_h_ni_h | float32 |  |  |
+ | rho_o_h_cu_h | float32 |  |  |
+ | rho_o_h_ge_h | float32 |  |  |
+ | rho_o_h_c12_c13 | float32 |  |  |
+ | rho_o_h_v_macro | float32 |  |  |
+ | rho_na_h_mg_h | float32 |  |  |
+ | rho_na_h_al_h | float32 |  |  |
+ | rho_na_h_si_h | float32 |  |  |
+ | rho_na_h_p_h | float32 |  |  |
+ | rho_na_h_s_h | float32 |  |  |
+ | rho_na_h_k_h | float32 |  |  |
+ | rho_na_h_ca_h | float32 |  |  |
+ | rho_na_h_ti_h | float32 |  |  |
+ | rho_na_h_v_h | float32 |  |  |
+ | rho_na_h_cr_h | float32 |  |  |
+ | rho_na_h_mn_h | float32 |  |  |
+ | rho_na_h_fe_h | float32 |  |  |
+ | rho_na_h_co_h | float32 |  |  |
+ | rho_na_h_ni_h | float32 |  |  |
+ | rho_na_h_cu_h | float32 |  |  |
+ | rho_na_h_ge_h | float32 |  |  |
+ | rho_na_h_c12_c13 | float32 |  |  |
+ | rho_na_h_v_macro | float32 |  |  |
+ | rho_mg_h_al_h | float32 |  |  |
+ | rho_mg_h_si_h | float32 |  |  |
+ | rho_mg_h_p_h | float32 |  |  |
+ | rho_mg_h_s_h | float32 |  |  |
+ | rho_mg_h_k_h | float32 |  |  |
+ | rho_mg_h_ca_h | float32 |  |  |
+ | rho_mg_h_ti_h | float32 |  |  |
+ | rho_mg_h_v_h | float32 |  |  |
+ | rho_mg_h_cr_h | float32 |  |  |
+ | rho_mg_h_mn_h | float32 |  |  |
+ | rho_mg_h_fe_h | float32 |  |  |
+ | rho_mg_h_co_h | float32 |  |  |
+ | rho_mg_h_ni_h | float32 |  |  |
+ | rho_mg_h_cu_h | float32 |  |  |
+ | rho_mg_h_ge_h | float32 |  |  |
+ | rho_mg_h_c12_c13 | float32 |  |  |
+ | rho_mg_h_v_macro | float32 |  |  |
+ | rho_al_h_si_h | float32 |  |  |
+ | rho_al_h_p_h | float32 |  |  |
+ | rho_al_h_s_h | float32 |  |  |
+ | rho_al_h_k_h | float32 |  |  |
+ | rho_al_h_ca_h | float32 |  |  |
+ | rho_al_h_ti_h | float32 |  |  |
+ | rho_al_h_v_h | float32 |  |  |
+ | rho_al_h_cr_h | float32 |  |  |
+ | rho_al_h_mn_h | float32 |  |  |
+ | rho_al_h_fe_h | float32 |  |  |
+ | rho_al_h_co_h | float32 |  |  |
+ | rho_al_h_ni_h | float32 |  |  |
+ | rho_al_h_cu_h | float32 |  |  |
+ | rho_al_h_ge_h | float32 |  |  |
+ | rho_al_h_c12_c13 | float32 |  |  |
+ | rho_al_h_v_macro | float32 |  |  |
+ | rho_si_h_p_h | float32 |  |  |
+ | rho_si_h_s_h | float32 |  |  |
+ | rho_si_h_k_h | float32 |  |  |
+ | rho_si_h_ca_h | float32 |  |  |
+ | rho_si_h_ti_h | float32 |  |  |
+ | rho_si_h_v_h | float32 |  |  |
+ | rho_si_h_cr_h | float32 |  |  |
+ | rho_si_h_mn_h | float32 |  |  |
+ | rho_si_h_fe_h | float32 |  |  |
+ | rho_si_h_co_h | float32 |  |  |
+ | rho_si_h_ni_h | float32 |  |  |
+ | rho_si_h_cu_h | float32 |  |  |
+ | rho_si_h_ge_h | float32 |  |  |
+ | rho_si_h_c12_c13 | float32 |  |  |
+ | rho_si_h_v_macro | float32 |  |  |
+ | rho_p_h_s_h | float32 |  |  |
+ | rho_p_h_k_h | float32 |  |  |
+ | rho_p_h_ca_h | float32 |  |  |
+ | rho_p_h_ti_h | float32 |  |  |
+ | rho_p_h_v_h | float32 |  |  |
+ | rho_p_h_cr_h | float32 |  |  |
+ | rho_p_h_mn_h | float32 |  |  |
+ | rho_p_h_fe_h | float32 |  |  |
+ | rho_p_h_co_h | float32 |  |  |
+ | rho_p_h_ni_h | float32 |  |  |
+ | rho_p_h_cu_h | float32 |  |  |
+ | rho_p_h_ge_h | float32 |  |  |
+ | rho_p_h_c12_c13 | float32 |  |  |
+ | rho_p_h_v_macro | float32 |  |  |
+ | rho_s_h_k_h | float32 |  |  |
+ | rho_s_h_ca_h | float32 |  |  |
+ | rho_s_h_ti_h | float32 |  |  |
+ | rho_s_h_v_h | float32 |  |  |
+ | rho_s_h_cr_h | float32 |  |  |
+ | rho_s_h_mn_h | float32 |  |  |
+ | rho_s_h_fe_h | float32 |  |  |
+ | rho_s_h_co_h | float32 |  |  |
+ | rho_s_h_ni_h | float32 |  |  |
+ | rho_s_h_cu_h | float32 |  |  |
+ | rho_s_h_ge_h | float32 |  |  |
+ | rho_s_h_c12_c13 | float32 |  |  |
+ | rho_s_h_v_macro | float32 |  |  |
+ | rho_k_h_ca_h | float32 |  |  |
+ | rho_k_h_ti_h | float32 |  |  |
+ | rho_k_h_v_h | float32 |  |  |
+ | rho_k_h_cr_h | float32 |  |  |
+ | rho_k_h_mn_h | float32 |  |  |
+ | rho_k_h_fe_h | float32 |  |  |
+ | rho_k_h_co_h | float32 |  |  |
+ | rho_k_h_ni_h | float32 |  |  |
+ | rho_k_h_cu_h | float32 |  |  |
+ | rho_k_h_ge_h | float32 |  |  |
+ | rho_k_h_c12_c13 | float32 |  |  |
+ | rho_k_h_v_macro | float32 |  |  |
+ | rho_ca_h_ti_h | float32 |  |  |
+ | rho_ca_h_v_h | float32 |  |  |
+ | rho_ca_h_cr_h | float32 |  |  |
+ | rho_ca_h_mn_h | float32 |  |  |
+ | rho_ca_h_fe_h | float32 |  |  |
+ | rho_ca_h_co_h | float32 |  |  |
+ | rho_ca_h_ni_h | float32 |  |  |
+ | rho_ca_h_cu_h | float32 |  |  |
+ | rho_ca_h_ge_h | float32 |  |  |
+ | rho_ca_h_c12_c13 | float32 |  |  |
+ | rho_ca_h_v_macro | float32 |  |  |
+ | rho_ti_h_v_h | float32 |  |  |
+ | rho_ti_h_cr_h | float32 |  |  |
+ | rho_ti_h_mn_h | float32 |  |  |
+ | rho_ti_h_fe_h | float32 |  |  |
+ | rho_ti_h_co_h | float32 |  |  |
+ | rho_ti_h_ni_h | float32 |  |  |
+ | rho_ti_h_cu_h | float32 |  |  |
+ | rho_ti_h_ge_h | float32 |  |  |
+ | rho_ti_h_c12_c13 | float32 |  |  |
+ | rho_ti_h_v_macro | float32 |  |  |
+ | rho_v_h_cr_h | float32 |  |  |
+ | rho_v_h_mn_h | float32 |  |  |
+ | rho_v_h_fe_h | float32 |  |  |
+ | rho_v_h_co_h | float32 |  |  |
+ | rho_v_h_ni_h | float32 |  |  |
+ | rho_v_h_cu_h | float32 |  |  |
+ | rho_v_h_ge_h | float32 |  |  |
+ | rho_v_h_c12_c13 | float32 |  |  |
+ | rho_v_h_v_macro | float32 |  |  |
+ | rho_cr_h_mn_h | float32 |  |  |
+ | rho_cr_h_fe_h | float32 |  |  |
+ | rho_cr_h_co_h | float32 |  |  |
+ | rho_cr_h_ni_h | float32 |  |  |
+ | rho_cr_h_cu_h | float32 |  |  |
+ | rho_cr_h_ge_h | float32 |  |  |
+ | rho_cr_h_c12_c13 | float32 |  |  |
+ | rho_cr_h_v_macro | float32 |  |  |
+ | rho_mn_h_fe_h | float32 |  |  |
+ | rho_mn_h_co_h | float32 |  |  |
+ | rho_mn_h_ni_h | float32 |  |  |
+ | rho_mn_h_cu_h | float32 |  |  |
+ | rho_mn_h_ge_h | float32 |  |  |
+ | rho_mn_h_c12_c13 | float32 |  |  |
+ | rho_mn_h_v_macro | float32 |  |  |
+ | rho_fe_h_co_h | float32 |  |  |
+ | rho_fe_h_ni_h | float32 |  |  |
+ | rho_fe_h_cu_h | float32 |  |  |
+ | rho_fe_h_ge_h | float32 |  |  |
+ | rho_fe_h_c12_c13 | float32 |  |  |
+ | rho_fe_h_v_macro | float32 |  |  |
+ | rho_co_h_ni_h | float32 |  |  |
+ | rho_co_h_cu_h | float32 |  |  |
+ | rho_co_h_ge_h | float32 |  |  |
+ | rho_co_h_c12_c13 | float32 |  |  |
+ | rho_co_h_v_macro | float32 |  |  |
+ | rho_ni_h_cu_h | float32 |  |  |
+ | rho_ni_h_ge_h | float32 |  |  |
+ | rho_ni_h_c12_c13 | float32 |  |  |
+ | rho_ni_h_v_macro | float32 |  |  |
+ | rho_cu_h_ge_h | float32 |  |  |
+ | rho_cu_h_c12_c13 | float32 |  |  |
+ | rho_cu_h_v_macro | float32 |  |  |
+ | rho_ge_h_c12_c13 | float32 |  |  |
+ | rho_ge_h_v_macro | float32 |  |  |
+ | rho_c12_c13_v_macro | float32 |  |  |
+ | wavelength | float32[8575] | Angstrom | Wavelength (vacuum)  |
+ | model_flux | float32[8575] |  | Best-fit model flux |
+ | continuum | float32[8575] |  | Best-fit continuum flux |
 
 
 
