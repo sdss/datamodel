@@ -19,7 +19,7 @@ Results from the MDwarfType astra pipeline for each star.
 $MWM_ASTRA/0.6.0/summary/astraAllStarMDwarfType-0.6.0.fits.gz
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MWM_ASTRA
@@ -36,7 +36,10 @@ astra
 ### Is a VAC
 False
 
-### HDUS List for release DR19
+### Data Level
+0.0.0
+
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
   - [HDU2](#hdu2)
@@ -45,6 +48,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - primary_delta_nkeys: 6
 
 ---
 ## Example HDUS List
@@ -62,12 +68,18 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 0 | number of array dimensions |
 | EXTEND | True |  |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | PIPELINE | MDwarfType | Pipeline name |
-| V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-09-13 15:22:14 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| V_ASTRA | 0.8.1 | Astra version |
+| CREATED | 26-04-21 11:18:12 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | HDU Descriptions |  |
+|  |  |  |
 | COMMENT | HDU 0: Summary information only |  |
-| COMMENT | HDU 1: BOSS spectra |  |
-| COMMENT | HDU 2: APOGEE spectra |  |
+| COMMENT | HDU 1: BOSS results |  |
+| COMMENT | HDU 2: APOGEE results |  |
 
 
 
@@ -75,7 +87,7 @@ Key | Value | Comment | |
 MDwarfType results for each star from BOSS
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  448 MB
+#### HDU Size:  1 GB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -83,21 +95,262 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 932 | length of dimension 1 |
-| NAXIS2 | 504182 | length of dimension 2 |
+| NAXIS1 | 980 | length of dimension 1 |
+| NAXIS2 | 1802746 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 173 | number of table fields |
+| TFIELDS | 175 | number of table fields |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | INSTRMNT | BOSS | Instrument |
 | PIPELINE | MDwarfType | Pipeline name |
-| V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-09-13 15:22:14 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| TDIM15 | (57) |  |
+| V_ASTRA | 0.8.1 | Astra version |
+| CREATED | 26-04-21 11:18:12 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Targeting Provenance |  |
+|  |  |  |
+| TDIM16 | (71) |  |
+|  |  |  |
+|  | Astrometry |  |
+|  |  |  |
+|  |  |  |
+|  | Gaia Photometry |  |
+|  |  |  |
+|  |  |  |
+|  | 2MASS Photometry |  |
+|  |  |  |
 | COMMENT | See https://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html |  |
+|  |  |  |
+|  | unWISE Photometry |  |
+|  |  |  |
 | COMMENT | See https://catalog.unwise.me/catalogs.html |  |
+|  |  |  |
+|  | GLIMPSE Photometry |  |
+|  |  |  |
 | COMMENT | See https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/gator_docs/ |  |
-| CHECKSUM | 7bAI7Z297a9G7Y99 | HDU checksum updated 2024-09-13T09:23:44 |
-| DATASUM | 3118367401 | data unit checksum updated 2024-09-13T09:23:44 |
+|  |  |  |
+|  | Gaia XP Stellar Parameters (Zhang, Green & Rix 2023) |  |
+|  |  |  |
+|  |  |  |
+|  | Bailer-Jones Distance Estimates (EDR3; 2021) |  |
+|  |  |  |
+|  |  |  |
+|  | Reddening |  |
+|  |  |  |
+|  |  |  |
+|  | Synthetic Photometry from Gaia XP Spectra |  |
+|  |  |  |
+|  |  |  |
+|  | Observations Summary |  |
+|  |  |  |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Related Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Observing Span |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (XCSAO) |  |
+|  |  |  |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
+|  |  |  |
+|  | M Dwarf Type |  |
+|  |  |  |
+|  |  |  |
+|  | NMF Continuum Model |  |
+|  |  |  |
+| TCOMM1 | SDSS-5 unique identifier |  |
+| TCOMM2 | SDSS-4 DR17 APOGEE identifier |  |
+| TCOMM3 | Gaia DR2 source identifier |  |
+| TCOMM4 | Gaia DR3 source identifier |  |
+| TCOMM5 | TESS Input Catalog (v8) identifier |  |
+| TCOMM6 | HEALPix (128 side) |  |
+| TCOMM7 | Lead catalog used for cross-match |  |
+| TCOMM8 | SDSS catalog version for targeting |  |
+| TCOMM9 | SDSS input catalog identifier |  |
+| TCOMM10 | Catalog identifier (v21; v0.0) |  |
+| TCOMM11 | Catalog identifier (v25; v0.5) |  |
+| TCOMM12 | Catalog identifier (v31; v1.0) |  |
+| TCOMM13 | SDSS_IDs associated with this CATALOGID |  |
+| TCOMM14 | Sources within 3" and G_MAG < G_MAG_source + 5 |  |
+| TCOMM15 | None |  |
+| TCOMM16 | SDSS-5 targeting flags |  |
+| TCOMM17 | SDSS4 APOGEE1 targeting flags (1/2) |  |
+| TCOMM18 | SDSS4 APOGEE1 targeting flags (2/2) |  |
+| TCOMM19 | SDSS4 APOGEE2 targeting flags (1/3) |  |
+| TCOMM20 | SDSS4 APOGEE2 targeting flags (2/3) |  |
+| TCOMM21 | SDSS4 APOGEE2 targeting flags (3/3) |  |
+| TCOMM22 | SDSS4 likely cluster/galaxy member flags |  |
+| TCOMM23 | SDSS4 target info (aka EXTRATARG) |  |
+| TCOMM24 | Right ascension [deg] |  |
+| TCOMM25 | Declination [deg] |  |
+| TCOMM26 | Galactic longitude [deg] |  |
+| TCOMM27 | Galactic latitude [deg] |  |
+| TCOMM28 | Parallax [mas] |  |
+| TCOMM29 | Error on parallax [mas] |  |
+| TCOMM30 | Proper motion in RA [mas/yr] |  |
+| TCOMM31 | Error on proper motion in RA [mas/yr] |  |
+| TCOMM32 | Proper motion in DEC [mas/yr] |  |
+| TCOMM33 | Error on proper motion in DEC [mas/yr] |  |
+| TCOMM34 | Gaia radial velocity [km/s] |  |
+| TCOMM35 | Error on Gaia radial velocity [km/s] |  |
+| TCOMM36 | Gaia DR3 mean G band magnitude [mag] |  |
+| TCOMM37 | Gaia DR3 mean BP band magnitude [mag] |  |
+| TCOMM38 | Gaia DR3 mean RP band magnitude [mag] |  |
+| TCOMM39 | 2MASS J band magnitude [mag] |  |
+| TCOMM40 | Error on 2MASS J band magnitude [mag] |  |
+| TCOMM41 | 2MASS H band magnitude [mag] |  |
+| TCOMM42 | Error on 2MASS H band magnitude [mag] |  |
+| TCOMM43 | 2MASS K band magnitude [mag] |  |
+| TCOMM44 | Error on 2MASS K band magnitude [mag] |  |
+| TCOMM45 | 2MASS photometric quality flag |  |
+| TCOMM46 | Number of components fit per band (JHK) |  |
+| TCOMM47 | Contamination and confusion flag |  |
+| TCOMM48 | W1 magnitude |  |
+| TCOMM49 | Error on W1 magnitude |  |
+| TCOMM50 | W1 flux [Vega nMgy] |  |
+| TCOMM51 | Error on W1 flux [Vega nMgy] |  |
+| TCOMM52 | Fraction of W1 flux from this object |  |
+| TCOMM53 | W2 magnitude [Vega] |  |
+| TCOMM54 | Error on W2 magnitude |  |
+| TCOMM55 | W2 flux [Vega nMgy] |  |
+| TCOMM56 | Error on W2 flux [Vega nMgy] |  |
+| TCOMM57 | Fraction of W2 flux from this object |  |
+| TCOMM58 | unWISE flags for W1 |  |
+| TCOMM59 | unWISE flags for W2 |  |
+| TCOMM60 | Additional flags for W1 |  |
+| TCOMM61 | Additional flags for W2 |  |
+| TCOMM62 | IRAC band 4.5 micron magnitude [mag] |  |
+| TCOMM63 | Error on IRAC band 4.5 micron magnitude [mag] |  |
+| TCOMM64 | RMS deviations from final flux [mJy] |  |
+| TCOMM65 | Source quality flag for IRAC band 4.5 micron |  |
+| TCOMM66 | Flux calculation method flag |  |
+| TCOMM67 | Close source flag |  |
+| TCOMM68 | Stellar effective temperature [K] |  |
+| TCOMM69 | Error on stellar effective temperature [K] |  |
+| TCOMM70 | Surface gravity [log10(cm/s^2)] |  |
+| TCOMM71 | Error on surface gravity [log10(cm/s^2)] |  |
+| TCOMM72 | [Fe/H] [dex] |  |
+| TCOMM73 | Error on [Fe/H] [dex] |  |
+| TCOMM74 | Extinction [mag] |  |
+| TCOMM75 | Error on extinction [mag] |  |
+| TCOMM76 | Parallax [mas] (Gaia DR3) |  |
+| TCOMM77 | Error on parallax [mas] (Gaia DR3) |  |
+| TCOMM78 | Confidence estimate in TEFF |  |
+| TCOMM79 | Confidence estimate in LOGG |  |
+| TCOMM80 | Confidence estimate in FE_H |  |
+| TCOMM81 | Log prior probability |  |
+| TCOMM82 | Chi-square value |  |
+| TCOMM83 | Quality flags |  |
+| TCOMM84 | Median geometric distance [pc] |  |
+| TCOMM85 | 16th percentile of geometric distance [pc] |  |
+| TCOMM86 | 84th percentile of geometric distance [pc] |  |
+| TCOMM87 | 50th percentile of photogeometric distance [pc] |  |
+| TCOMM88 | 16th percentile of photogeometric distance [pc] |  |
+| TCOMM89 | 84th percentile of photogeometric distance [pc] |  |
+| TCOMM90 | Bailer-Jones quality flags |  |
+| TCOMM91 | E(B-V) [mag] |  |
+| TCOMM92 | Error on E(B-V) [mag] |  |
+| TCOMM93 | Flags indicating the source of E(B-V) |  |
+| TCOMM94 | E(B-V) from Zhang et al. (2023) [mag] |  |
+| TCOMM95 | Error on E(B-V) from Zhang et al. (2023) [mag] |  |
+| TCOMM96 | E(B-V) from SFD [mag] |  |
+| TCOMM97 | Error on E(B-V) from SFD [mag] |  |
+| TCOMM98 | E(B-V) from RJCE GLIMPSE [mag] |  |
+| TCOMM99 | Error on RJCE GLIMPSE E(B-V) [mag] |  |
+| TCOMM100 | E(B-V) from RJCE AllWISE [mag] |  |
+| TCOMM101 | Error on RJCE AllWISE E(B-V)[mag] |  |
+| TCOMM102 | E(B-V) from Bayestar 2019 [mag] |  |
+| TCOMM103 | Error on Bayestar 2019 E(B-V) [mag] |  |
+| TCOMM104 | E(B-V) from Edenhofer et al. (2023) [mag] |  |
+| TCOMM105 | Error on Edenhofer et al. (2023) E(B-V) [mag] |  |
+| TCOMM106 | Quality parameter (see Riello et al. 2021) |  |
+| TCOMM107 | Gaia XP synthetic U-band (JKC) [mag] |  |
+| TCOMM108 | U-band (JKC) is within valid range |  |
+| TCOMM109 | Gaia XP synthetic B-band (JKC) [mag] |  |
+| TCOMM110 | B-band (JKC) is within valid range |  |
+| TCOMM111 | Gaia XP synthetic V-band (JKC) [mag] |  |
+| TCOMM112 | V-band (JKC) is within valid range |  |
+| TCOMM113 | Gaia XP synthetic R-band (JKC) [mag] |  |
+| TCOMM114 | R-band (JKC) is within valid range |  |
+| TCOMM115 | Gaia XP synthetic I-band (JKC) [mag] |  |
+| TCOMM116 | I-band (JKC) is within valid range |  |
+| TCOMM117 | Gaia XP synthetic u-band (SDSS) [mag] |  |
+| TCOMM118 | u-band (SDSS) is within valid range |  |
+| TCOMM119 | Gaia XP synthetic g-band (SDSS) [mag] |  |
+| TCOMM120 | g-band (SDSS) is within valid range |  |
+| TCOMM121 | Gaia XP synthetic r-band (SDSS) [mag] |  |
+| TCOMM122 | r-band (SDSS) is within valid range |  |
+| TCOMM123 | Gaia XP synthetic i-band (SDSS) [mag] |  |
+| TCOMM124 | i-band (SDSS) is within valid range |  |
+| TCOMM125 | Gaia XP synthetic z-band (SDSS) [mag] |  |
+| TCOMM126 | z-band (SDSS) is within valid range |  |
+| TCOMM127 | Gaia XP synthetic Y-band (PS1) [mag] |  |
+| TCOMM128 | Y-band (PS1) is within valid range |  |
+| TCOMM129 | Number of BOSS visits |  |
+| TCOMM130 | Minimum MJD of BOSS visits |  |
+| TCOMM131 | Maximum MJD of BOSS visits |  |
+| TCOMM132 | Number of APOGEE visits |  |
+| TCOMM133 | Minimum MJD of APOGEE visits |  |
+| TCOMM134 | Maximum MJD of APOGEE visits |  |
+| TCOMM135 | Datetime when task record was created |  |
+| TCOMM136 | None |  |
+| TCOMM137 | Unique spectrum primary key |  |
+| TCOMM138 | Unique source primary key |  |
+| TCOMM139 | SDSS release |  |
+| TCOMM140 | SDSS file type that stores this spectrum |  |
+| TCOMM141 | Astra version |  |
+| TCOMM142 | BOSS data reduction pipeline version |  |
+| TCOMM143 | Short telescope name |  |
+| TCOMM144 | Minimum MJD of visits |  |
+| TCOMM145 | Maximum MJD of visits |  |
+| TCOMM146 | Number of BOSS visits |  |
+| TCOMM147 | Number of 'good' BOSS visits |  |
+| TCOMM148 | Number of 'good' BOSS radial velocities |  |
+| TCOMM149 | Barycentric rest frame radial velocity [km/s] |  |
+| TCOMM150 | Error on radial velocity [km/s] |  |
+| TCOMM151 | Standard deviation of visit V_RAD [km/s] |  |
+| TCOMM152 | Median error in radial velocity [km/s] |  |
+| TCOMM153 | Effective temperature [K] |  |
+| TCOMM154 | Error on effective temperature [K] |  |
+| TCOMM155 | Surface gravity [dex] |  |
+| TCOMM156 | Error on surface gravity [dex] |  |
+| TCOMM157 | Iron abundance [dex] |  |
+| TCOMM158 | Error on iron abundance [dex] |  |
+| TCOMM159 | Cross-correlation R-value (1979AJ.....84.1511T) |  |
+| TCOMM160 | Signal-to-noise ratio |  |
+| TCOMM161 | Flags for provenance of ugriz photometry |  |
+| TCOMM162 | BOSS DRP warning flags |  |
+| TCOMM163 | Reduced chi-square value of NMF continuum fit |  |
+| TCOMM164 | NMF Continuum method flags |  |
+| TCOMM165 | Task model primary key |  |
+| TCOMM166 | Spectral type |  |
+| TCOMM167 | Spectral sub-type |  |
+| TCOMM168 | Reduced chi-square value |  |
+| TCOMM169 | Best-fit continuum flux |  |
+| TCOMM170 | Flags describing the results |  |
+| TCOMM171 | Bad flag for results |  |
+| TCOMM172 | None |  |
+| TCOMM173 | Core-time elapsed on this analysis [s] |  |
+| TCOMM174 | Estimated core-time spent in overhads [s] |  |
+| TCOMM175 | Experiment tag for this result |  |
+|  |  |  |
+|  | DATA INTEGRITY |  |
+|  |  |  |
+| CHECKSUM | 1IAe2F3e1F9e1F9e | HDU checksum updated 2026-04-21T05:23:15 |
+| DATASUM | 995710491 | data unit checksum updated 2026-04-21T05:23:15 |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
@@ -116,7 +369,8 @@ Name | Type | Unit | Description |
  | catalogid31 | int64 |  | Catalog identifier (v31; v1.0) |
  | n_associated | int32 |  | SDSS_IDs associated with this CATALOGID |
  | n_neighborhood | int32 |  | Sources within 3" and G_MAG < G_MAG_source + 5 |
- | sdss5_target_flags | bool[57] |  | SDSS-5 targeting flags |
+ | crossmatch_flags | int64 |  | Astra internal crossmatch flag system |
+ | sdss5_target_flags | bool[71] |  | SDSS-5 targeting flags |
  | sdss4_apogee_target1_flags | int64 |  | SDSS4 APOGEE1 targeting flags (1/2) |
  | sdss4_apogee_target2_flags | int64 |  | SDSS4 APOGEE1 targeting flags (2/2) |
  | sdss4_apogee2_target1_flags | int64 |  | SDSS4 APOGEE2 targeting flags (1/3) |
@@ -235,6 +489,8 @@ Name | Type | Unit | Description |
  | n_apogee_visits | int32 |  | Number of APOGEE visits |
  | apogee_min_mjd | int32 |  | Minimum MJD of APOGEE visits |
  | apogee_max_mjd | int32 |  | Maximum MJD of APOGEE visits |
+ | created | char[26] |  | Datetime when task record was created |
+ | modified | char[26] | Datetime when task record was modified |  |
  | spectrum_pk | int64 |  | Unique spectrum primary key |
  | source | int64 |  | Unique source primary key |
  | release | char[5] |  | SDSS release |
@@ -264,17 +520,16 @@ Name | Type | Unit | Description |
  | nmf_rchi2 | float32 |  | Reduced chi-square value of NMF continuum fit |
  | nmf_flags | int64 |  | NMF Continuum method flags |
  | task_pk | int64 |  | Task model primary key |
- | source_pk | int64 |  | Unique source primary key |
- | created | char[26] |  | Datetime when task record was created |
- | t_elapsed | float32 | s | Core-time elapsed on this analysis  |
- | t_overhead | float32 | s | Estimated core-time spent in overhads  |
- | tag | char[1] |  | Experiment tag for this result |
  | spectral_type | char[4] |  | Spectral type |
  | sub_type | float32 |  | Spectral sub-type |
  | rchi2 | float32 |  | Reduced chi-square value |
  | continuum | float32 |  | Scalar continuum value used |
  | result_flags | int64 |  | Flags describing the results |
  | flag_bad | bool |  | Bad flag for results |
+ | source_pk | int64 |  | Unique source primary key |
+ | t_elapsed | float32 | s | Core-time elapsed on this analysis  |
+ | t_overhead | float32 | s | Estimated core-time spent in overhads  |
+ | tag | char[1] |  | Experiment tag for this result |
 
 
 
@@ -290,21 +545,275 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 833 | length of dimension 1 |
+| NAXIS1 | 874 | length of dimension 1 |
 | NAXIS2 | 0 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 185 | number of table fields |
+| TFIELDS | 188 | number of table fields |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | INSTRMNT | APOGEE | Instrument |
 | PIPELINE | MDwarfType | Pipeline name |
-| V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-09-13 15:23:47 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| TDIM15 | (1) |  |
+| V_ASTRA | 0.8.1 | Astra version |
+| CREATED | 26-04-21 11:23:30 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Targeting Provenance |  |
+|  |  |  |
+| TDIM16 | (1) |  |
+|  |  |  |
+|  | Astrometry |  |
+|  |  |  |
+|  |  |  |
+|  | Gaia Photometry |  |
+|  |  |  |
+|  |  |  |
+|  | 2MASS Photometry |  |
+|  |  |  |
 | COMMENT | See https://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html |  |
+|  |  |  |
+|  | unWISE Photometry |  |
+|  |  |  |
 | COMMENT | See https://catalog.unwise.me/catalogs.html |  |
+|  |  |  |
+|  | GLIMPSE Photometry |  |
+|  |  |  |
 | COMMENT | See https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/gator_docs/ |  |
-| CHECKSUM | NMAaNL9YNLAaNL9Y | HDU checksum updated 2024-09-13T09:23:49 |
-| DATASUM | 0 | data unit checksum updated 2024-09-13T09:23:49 |
+|  |  |  |
+|  | Gaia XP Stellar Parameters (Zhang, Green & Rix 2023) |  |
+|  |  |  |
+|  |  |  |
+|  | Bailer-Jones Distance Estimates (EDR3; 2021) |  |
+|  |  |  |
+|  |  |  |
+|  | Reddening |  |
+|  |  |  |
+|  |  |  |
+|  | Synthetic Photometry from Gaia XP Spectra |  |
+|  |  |  |
+|  |  |  |
+|  | Observations Summary |  |
+|  |  |  |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Observing Span |  |
+|  |  |  |
+|  |  |  |
+|  | Number and Quality of Visits |  |
+|  |  |  |
+|  |  |  |
+|  | Summary Statistics |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (Doppler) |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (X-Correlation) |  |
+|  |  |  |
+|  |  |  |
+|  | M Dwarf Type |  |
+|  |  |  |
+| TCOMM1 | SDSS-5 unique identifier |  |
+| TCOMM2 | SDSS-4 DR17 APOGEE identifier |  |
+| TCOMM3 | Gaia DR2 source identifier |  |
+| TCOMM4 | Gaia DR3 source identifier |  |
+| TCOMM5 | TESS Input Catalog (v8) identifier |  |
+| TCOMM6 | HEALPix (128 side) |  |
+| TCOMM7 | Lead catalog used for cross-match |  |
+| TCOMM8 | SDSS catalog version for targeting |  |
+| TCOMM9 | SDSS input catalog identifier |  |
+| TCOMM10 | Catalog identifier (v21; v0.0) |  |
+| TCOMM11 | Catalog identifier (v25; v0.5) |  |
+| TCOMM12 | Catalog identifier (v31; v1.0) |  |
+| TCOMM13 | SDSS_IDs associated with this CATALOGID |  |
+| TCOMM14 | Sources within 3" and G_MAG < G_MAG_source + 5 |  |
+| TCOMM15 | None |  |
+| TCOMM16 | SDSS-5 targeting flags |  |
+| TCOMM17 | SDSS4 APOGEE1 targeting flags (1/2) |  |
+| TCOMM18 | SDSS4 APOGEE1 targeting flags (2/2) |  |
+| TCOMM19 | SDSS4 APOGEE2 targeting flags (1/3) |  |
+| TCOMM20 | SDSS4 APOGEE2 targeting flags (2/3) |  |
+| TCOMM21 | SDSS4 APOGEE2 targeting flags (3/3) |  |
+| TCOMM22 | SDSS4 likely cluster/galaxy member flags |  |
+| TCOMM23 | SDSS4 target info (aka EXTRATARG) |  |
+| TCOMM24 | Right ascension [deg] |  |
+| TCOMM25 | Declination [deg] |  |
+| TCOMM26 | Galactic longitude [deg] |  |
+| TCOMM27 | Galactic latitude [deg] |  |
+| TCOMM28 | Parallax [mas] |  |
+| TCOMM29 | Error on parallax [mas] |  |
+| TCOMM30 | Proper motion in RA [mas/yr] |  |
+| TCOMM31 | Error on proper motion in RA [mas/yr] |  |
+| TCOMM32 | Proper motion in DEC [mas/yr] |  |
+| TCOMM33 | Error on proper motion in DEC [mas/yr] |  |
+| TCOMM34 | Gaia radial velocity [km/s] |  |
+| TCOMM35 | Error on Gaia radial velocity [km/s] |  |
+| TCOMM36 | Gaia DR3 mean G band magnitude [mag] |  |
+| TCOMM37 | Gaia DR3 mean BP band magnitude [mag] |  |
+| TCOMM38 | Gaia DR3 mean RP band magnitude [mag] |  |
+| TCOMM39 | 2MASS J band magnitude [mag] |  |
+| TCOMM40 | Error on 2MASS J band magnitude [mag] |  |
+| TCOMM41 | 2MASS H band magnitude [mag] |  |
+| TCOMM42 | Error on 2MASS H band magnitude [mag] |  |
+| TCOMM43 | 2MASS K band magnitude [mag] |  |
+| TCOMM44 | Error on 2MASS K band magnitude [mag] |  |
+| TCOMM45 | 2MASS photometric quality flag |  |
+| TCOMM46 | Number of components fit per band (JHK) |  |
+| TCOMM47 | Contamination and confusion flag |  |
+| TCOMM48 | W1 magnitude |  |
+| TCOMM49 | Error on W1 magnitude |  |
+| TCOMM50 | W1 flux [Vega nMgy] |  |
+| TCOMM51 | Error on W1 flux [Vega nMgy] |  |
+| TCOMM52 | Fraction of W1 flux from this object |  |
+| TCOMM53 | W2 magnitude [Vega] |  |
+| TCOMM54 | Error on W2 magnitude |  |
+| TCOMM55 | W2 flux [Vega nMgy] |  |
+| TCOMM56 | Error on W2 flux [Vega nMgy] |  |
+| TCOMM57 | Fraction of W2 flux from this object |  |
+| TCOMM58 | unWISE flags for W1 |  |
+| TCOMM59 | unWISE flags for W2 |  |
+| TCOMM60 | Additional flags for W1 |  |
+| TCOMM61 | Additional flags for W2 |  |
+| TCOMM62 | IRAC band 4.5 micron magnitude [mag] |  |
+| TCOMM63 | Error on IRAC band 4.5 micron magnitude [mag] |  |
+| TCOMM64 | RMS deviations from final flux [mJy] |  |
+| TCOMM65 | Source quality flag for IRAC band 4.5 micron |  |
+| TCOMM66 | Flux calculation method flag |  |
+| TCOMM67 | Close source flag |  |
+| TCOMM68 | Stellar effective temperature [K] |  |
+| TCOMM69 | Error on stellar effective temperature [K] |  |
+| TCOMM70 | Surface gravity [log10(cm/s^2)] |  |
+| TCOMM71 | Error on surface gravity [log10(cm/s^2)] |  |
+| TCOMM72 | [Fe/H] [dex] |  |
+| TCOMM73 | Error on [Fe/H] [dex] |  |
+| TCOMM74 | Extinction [mag] |  |
+| TCOMM75 | Error on extinction [mag] |  |
+| TCOMM76 | Parallax [mas] (Gaia DR3) |  |
+| TCOMM77 | Error on parallax [mas] (Gaia DR3) |  |
+| TCOMM78 | Confidence estimate in TEFF |  |
+| TCOMM79 | Confidence estimate in LOGG |  |
+| TCOMM80 | Confidence estimate in FE_H |  |
+| TCOMM81 | Log prior probability |  |
+| TCOMM82 | Chi-square value |  |
+| TCOMM83 | Quality flags |  |
+| TCOMM84 | Median geometric distance [pc] |  |
+| TCOMM85 | 16th percentile of geometric distance [pc] |  |
+| TCOMM86 | 84th percentile of geometric distance [pc] |  |
+| TCOMM87 | 50th percentile of photogeometric distance [pc] |  |
+| TCOMM88 | 16th percentile of photogeometric distance [pc] |  |
+| TCOMM89 | 84th percentile of photogeometric distance [pc] |  |
+| TCOMM90 | Bailer-Jones quality flags |  |
+| TCOMM91 | E(B-V) [mag] |  |
+| TCOMM92 | Error on E(B-V) [mag] |  |
+| TCOMM93 | Flags indicating the source of E(B-V) |  |
+| TCOMM94 | E(B-V) from Zhang et al. (2023) [mag] |  |
+| TCOMM95 | Error on E(B-V) from Zhang et al. (2023) [mag] |  |
+| TCOMM96 | E(B-V) from SFD [mag] |  |
+| TCOMM97 | Error on E(B-V) from SFD [mag] |  |
+| TCOMM98 | E(B-V) from RJCE GLIMPSE [mag] |  |
+| TCOMM99 | Error on RJCE GLIMPSE E(B-V) [mag] |  |
+| TCOMM100 | E(B-V) from RJCE AllWISE [mag] |  |
+| TCOMM101 | Error on RJCE AllWISE E(B-V)[mag] |  |
+| TCOMM102 | E(B-V) from Bayestar 2019 [mag] |  |
+| TCOMM103 | Error on Bayestar 2019 E(B-V) [mag] |  |
+| TCOMM104 | E(B-V) from Edenhofer et al. (2023) [mag] |  |
+| TCOMM105 | Error on Edenhofer et al. (2023) E(B-V) [mag] |  |
+| TCOMM106 | Quality parameter (see Riello et al. 2021) |  |
+| TCOMM107 | Gaia XP synthetic U-band (JKC) [mag] |  |
+| TCOMM108 | U-band (JKC) is within valid range |  |
+| TCOMM109 | Gaia XP synthetic B-band (JKC) [mag] |  |
+| TCOMM110 | B-band (JKC) is within valid range |  |
+| TCOMM111 | Gaia XP synthetic V-band (JKC) [mag] |  |
+| TCOMM112 | V-band (JKC) is within valid range |  |
+| TCOMM113 | Gaia XP synthetic R-band (JKC) [mag] |  |
+| TCOMM114 | R-band (JKC) is within valid range |  |
+| TCOMM115 | Gaia XP synthetic I-band (JKC) [mag] |  |
+| TCOMM116 | I-band (JKC) is within valid range |  |
+| TCOMM117 | Gaia XP synthetic u-band (SDSS) [mag] |  |
+| TCOMM118 | u-band (SDSS) is within valid range |  |
+| TCOMM119 | Gaia XP synthetic g-band (SDSS) [mag] |  |
+| TCOMM120 | g-band (SDSS) is within valid range |  |
+| TCOMM121 | Gaia XP synthetic r-band (SDSS) [mag] |  |
+| TCOMM122 | r-band (SDSS) is within valid range |  |
+| TCOMM123 | Gaia XP synthetic i-band (SDSS) [mag] |  |
+| TCOMM124 | i-band (SDSS) is within valid range |  |
+| TCOMM125 | Gaia XP synthetic z-band (SDSS) [mag] |  |
+| TCOMM126 | z-band (SDSS) is within valid range |  |
+| TCOMM127 | Gaia XP synthetic Y-band (PS1) [mag] |  |
+| TCOMM128 | Y-band (PS1) is within valid range |  |
+| TCOMM129 | Number of BOSS visits |  |
+| TCOMM130 | Minimum MJD of BOSS visits |  |
+| TCOMM131 | Maximum MJD of BOSS visits |  |
+| TCOMM132 | Number of APOGEE visits |  |
+| TCOMM133 | Minimum MJD of APOGEE visits |  |
+| TCOMM134 | Maximum MJD of APOGEE visits |  |
+| TCOMM135 | Datetime when task record was created |  |
+| TCOMM136 | None |  |
+| TCOMM137 | None |  |
+| TCOMM138 | APOGEE DRP `star` primary key |  |
+| TCOMM139 | None |  |
+| TCOMM140 | SDSS release |  |
+| TCOMM141 | SDSS file type that stores this spectrum |  |
+| TCOMM142 | APOGEE reduction pipeline |  |
+| TCOMM143 | Unused DR17 apStar keyword (default: stars) |  |
+| TCOMM144 | Object name |  |
+| TCOMM145 | Short telescope name |  |
+| TCOMM146 | Field identifier |  |
+| TCOMM147 | Prefix used to separate SDSS 4 north/south |  |
+| TCOMM148 | Minimum MJD of visits |  |
+| TCOMM149 | Maximum MJD of visits |  |
+| TCOMM150 | None |  |
+| TCOMM151 | apStar entries for this SDSS4_APOGEE_ID |  |
+| TCOMM152 | Number of APOGEE visits |  |
+| TCOMM153 | Number of 'good' APOGEE visits |  |
+| TCOMM154 | Number of 'good' APOGEE radial velocities |  |
+| TCOMM155 | Signal-to-noise ratio |  |
+| TCOMM156 | S/N-weighted mean visit fiber number |  |
+| TCOMM157 | Standard deviation of visit fiber numbers |  |
+| TCOMM158 | Data reduction pipeline flags for this spectrum |  |
+| TCOMM159 | Barycentric rest frame radial velocity [km/s] |  |
+| TCOMM160 | Error on radial velocity [km/s] |  |
+| TCOMM161 | Standard deviation of visit V_RAD [km/s] |  |
+| TCOMM162 | Median error in radial velocity [km/s] |  |
+| TCOMM163 | Stellar effective temperature [K] |  |
+| TCOMM164 | Error on stellar effective temperature [K] |  |
+| TCOMM165 | Surface gravity [log10(cm/s^2)] |  |
+| TCOMM166 | Error on surface gravity [log10(cm/s^2)] |  |
+| TCOMM167 | [Fe/H] [dex] |  |
+| TCOMM168 | Error on [Fe/H] [dex] |  |
+| TCOMM169 | Reduced chi-square value of DOPPLER fit |  |
+| TCOMM170 | DOPPLER flags |  |
+| TCOMM171 | Barycentric rest frame radial velocity [km/s] |  |
+| TCOMM172 | Relative velocity [km/s] |  |
+| TCOMM173 | Error on relative velocity [km/s] |  |
+| TCOMM174 | Cross-correlation function FWHM |  |
+| TCOMM175 | Auto-correlation function FWHM |  |
+| TCOMM176 | Number of components in CCF |  |
+| TCOMM177 | Task model primary key |  |
+| TCOMM178 | Spectral type |  |
+| TCOMM179 | Spectral sub-type |  |
+| TCOMM180 | Reduced chi-square value |  |
+| TCOMM181 | Best-fit continuum flux |  |
+| TCOMM182 | Flags describing the results |  |
+| TCOMM183 | Bad flag for results |  |
+| TCOMM184 | None |  |
+| TCOMM185 | Astra version |  |
+| TCOMM186 | Core-time elapsed on this analysis [s] |  |
+| TCOMM187 | Estimated core-time spent in overhads [s] |  |
+| TCOMM188 | Experiment tag for this result |  |
+|  |  |  |
+|  | DATA INTEGRITY |  |
+|  |  |  |
+| CHECKSUM | X23PX21PX21PX21P | HDU checksum updated 2026-04-21T05:23:30 |
+| DATASUM | 0 | data unit checksum updated 2026-04-21T05:23:30 |
 
 ##### Binary Table Caption for HDU2
 Name | Type | Unit | Description |
@@ -323,6 +832,7 @@ Name | Type | Unit | Description |
  | catalogid31 | int64 |  | Catalog identifier (v31; v1.0) |
  | n_associated | int32 |  | SDSS_IDs associated with this CATALOGID |
  | n_neighborhood | int32 |  | Sources within 3" and G_MAG < G_MAG_source + 5 |
+ | crossmatch_flags | int64 |  | Astra internal crossmatch flag system |
  | sdss5_target_flags | bool[1] |  | SDSS-5 targeting flags |
  | sdss4_apogee_target1_flags | int64 |  | SDSS4 APOGEE1 targeting flags (1/2) |
  | sdss4_apogee_target2_flags | int64 |  | SDSS4 APOGEE1 targeting flags (2/2) |
@@ -442,6 +952,8 @@ Name | Type | Unit | Description |
  | n_apogee_visits | int32 |  | Number of APOGEE visits |
  | apogee_min_mjd | int32 |  | Minimum MJD of APOGEE visits |
  | apogee_max_mjd | int32 |  | Maximum MJD of APOGEE visits |
+ | created | char[26] |  | Datetime when task record was created |
+ | modified | char[26] |  | Datetime when task record was modified |
  | source | int64 |  | Unique source primary key |
  | star_pk | int64 |  | APOGEE DRP `star` primary key |
  | spectrum_pk | int64 |  | Unique spectrum primary key |
@@ -455,6 +967,7 @@ Name | Type | Unit | Description |
  | prefix | char[1] |  | Prefix used to separate SDSS 4 north/south |
  | min_mjd | int32 |  | Minimum MJD of visits |
  | max_mjd | int32 |  | Maximum MJD of visits |
+ | starver | int32 |  | Maximum MJD of the APOGEE coadded spectrum |
  | n_entries | int32 |  | apStar entries for this SDSS4_APOGEE_ID |
  | n_visits | int32 |  | Number of APOGEE visits |
  | n_good_visits | int32 |  | Number of 'good' APOGEE visits |
@@ -482,18 +995,17 @@ Name | Type | Unit | Description |
  | autofwhm | float32 |  | Auto-correlation function FWHM |
  | n_components | int32 |  | Number of components in CCF |
  | task_pk | int64 |  | Task model primary key |
- | source_pk | int64 |  | Unique source primary key |
- | v_astra | char[1] |  | Astra version |
- | created | char[26] |  | Datetime when task record was created |
- | t_elapsed | float32 | s | Core-time elapsed on this analysis  |
- | t_overhead | float32 | s | Estimated core-time spent in overhads  |
- | tag | char[1] |  | Experiment tag for this result |
  | spectral_type | char[1] |  | Spectral type |
  | sub_type | float32 |  | Spectral sub-type |
  | rchi2 | float32 |  | Reduced chi-square value |
  | continuum | float32 |  | Scalar continuum value used |
  | result_flags | int64 |  | Flags describing the results |
  | flag_bad | bool |  | Bad flag for results |
+ | source_pk | int64 |  | Unique source primary key |
+ | v_astra | int32 |  | Astra version |
+ | t_elapsed | float32 | s | Core-time elapsed on this analysis  |
+ | t_overhead | float32 | s | Estimated core-time spent in overhads  |
+ | tag | char[1] |  | Experiment tag for this result |
 
 
 
