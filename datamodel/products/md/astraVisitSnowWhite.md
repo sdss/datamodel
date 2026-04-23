@@ -19,7 +19,7 @@ Results and best-fit models from the SnowWhite astra pipeline for each visit of 
 $MWM_ASTRA/0.6.0/results/visit/55/69/astraVisitSnowWhite-0.6.0-62955569.fits
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MWM_ASTRA
@@ -36,7 +36,10 @@ astra
 ### Is a VAC
 False
 
-### HDUS List for release DR19
+### Data Level
+0.0.0
+
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: BOSS/APO](#hdu1-boss/apo)
   - [HDU2: BOSS/LCO](#hdu2-boss/lco)
@@ -47,6 +50,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - primary_delta_nkeys: 31
 
 ---
 ## Example HDUS List
@@ -64,14 +70,23 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 0 | number of array dimensions |
 | EXTEND | True |  |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-08-01 14:54:26 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| CREATED | 25-03-31 04:40:27 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
 | SDSS_ID | 62955569 | SDSS-5 unique identifier |
 | APOGEEID | None | SDSS-4 DR17 APOGEE identifier |
 | GAIA2_ID | 1736538668859737856 | Gaia DR2 source identifier |
 | GAIA3_ID | 1736538668859737856 | Gaia DR3 source identifier |
 | TIC_ID | 1935488117 | TESS Input Catalog (v8) identifier |
 | HEALPIX | 87743 | HEALPix (128 side) |
+|  |  |  |
+|  | Targeting Provenance |  |
+|  |  |  |
 | LEAD | tic_v8 | Lead catalog used for cross-match |
 | VER_ID | 25 | SDSS catalog version for targeting |
 | CAT_ID | 27021598875809380 | Catalog identifier used to target the source |
@@ -80,6 +95,9 @@ Key | Value | Comment | |
 | CAT_ID31 | 63050394856270368 | Catalog identifier (v31; v1.0) |
 | N_ASSOC | 1 | SDSS_IDs associated with this CATALOGID |
 | N_NEIGH | 0 | Sources within 3" and G_MAG < G_MAG_source + 5 |
+|  |  |  |
+|  | Astrometry |  |
+|  |  |  |
 | RA | 314.4527 | Right ascension [deg] |
 | DEC | 6.288516 | Declination [deg] |
 | L | 54.515123956977824 | Galactic longitude [deg] |
@@ -92,9 +110,15 @@ Key | Value | Comment | |
 | E_PMDE | 0.33466512 | Error on proper motion in DEC [mas/yr] |
 | V_RAD | NaN | Gaia radial velocity [km/s] |
 | E_V_RAD | NaN | Error on Gaia radial velocity [km/s] |
+|  |  |  |
+|  | Gaia Photometry |  |
+|  |  |  |
 | G_MAG | 19.704193 | Gaia DR3 mean G band magnitude [mag] |
 | BP_MAG | 19.672758 | Gaia DR3 mean BP band magnitude [mag] |
 | RP_MAG | 19.86803 | Gaia DR3 mean RP band magnitude [mag] |
+|  |  |  |
+|  | 2MASS Photometry |  |
+|  |  |  |
 | J_MAG | None | 2MASS J band magnitude [mag] |
 | E_J_MAG | None | Error on 2MASS J band magnitude [mag] |
 | H_MAG | None | 2MASS H band magnitude [mag] |
@@ -105,6 +129,9 @@ Key | Value | Comment | |
 | BL_FLG | None | Number of components fit per band (JHK) |
 | CC_FLG | None | Contamination and confusion flag |
 | COMMENT | See https://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html |  |
+|  |  |  |
+|  | unWISE Photometry |  |
+|  |  |  |
 | W1_MAG | None | W1 magnitude |
 | E_W1_MAG | None | Error on W1 magnitude |
 | W1_FLUX | None | W1 flux [Vega nMgy] |
@@ -120,6 +147,9 @@ Key | Value | Comment | |
 | W1AFLAGS | 0 | Additional flags for W1 |
 | W2AFLAGS | 0 | Additional flags for W2 |
 | COMMENT | See https://catalog.unwise.me/catalogs.html |  |
+|  |  |  |
+|  | GLIMPSE Photometry |  |
+|  |  |  |
 | MAG4_5 | None | IRAC band 4.5 micron magnitude [mag] |
 | D4_5M | None | Error on IRAC band 4.5 micron magnitude [mag] |
 | RMS_F4_5 | None | RMS deviations from final flux [mJy] |
@@ -127,19 +157,26 @@ Key | Value | Comment | |
 | MF4_5 | 0 | Flux calculation method flag |
 | CSF | 0 | Close source flag |
 | COMMENT | See https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/gator_docs/ |  |
+|  |  |  |
+|  | Observations Summary |  |
+|  |  |  |
 | N_BOSS | 1 | Number of BOSS visits |
 | B_MINMJD | 60115 | Minimum MJD of BOSS visits |
 | N_MAXMJD | 60115 | Maximum MJD of BOSS visits |
 | N_APOGEE | 0 | Number of APOGEE visits |
 | A_MINMJD | None | Minimum MJD of APOGEE visits |
 | A_MAXMJD | None | Maximum MJD of APOGEE visits |
-| CHECKSUM | 9aXCDUUC9aUCCUUC | HDU checksum updated 2024-08-01T08:54:26 |
-| DATASUM | 0 | data unit checksum updated 2024-08-01T08:54:26 |
+|  |  |  |
+|  | Data Integrity |  |
+|  |  |  |
+| CHECKSUM | mDAjpC1hmC8hmC8h | HDU checksum updated 2025-03-30T22:40:27 |
+| DATASUM | 0 | data unit checksum updated 2025-03-30T22:40:27 |
+|  |  |  |
+|  | HDU Descriptions |  |
+|  |  |  |
 | COMMENT | HDU 0: Summary information only |  |
-| COMMENT | HDU 1: BOSS results from Apache Point Observatory |  |
-| COMMENT | HDU 2: BOSS results from Las Campanas Observatory |  |
-| COMMENT | HDU 3: APOGEE results from Apache Point Observatory |  |
-| COMMENT | HDU 4: APOGEE results from Las Campanas Observatory |  |
+| COMMENT | HDU 1: BOSS results |  |
+| COMMENT | HDU 2: APOGEE results |  |
 
 
 
@@ -147,7 +184,7 @@ Key | Value | Comment | |
 {data_type} from BOSS north
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  0 bytes
+#### HDU Size:  18 KB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -155,16 +192,22 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 438 | length of dimension 1 |
-| NAXIS2 | 0 | length of dimension 2 |
+| NAXIS1 | 19064 | length of dimension 1 |
+| NAXIS2 | 1 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 105 | number of table fields |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | EXTNAME | BOSS/APO | Extension name |
 | OBSRVTRY | APO | Observatory |
 | INSTRMNT | BOSS | Instrument |
 | V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-08-01 14:54:26 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| CREATED | 25-03-31 04:40:27 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Wavelength Information (Vacuum) |  |
+|  |  |  |
 | CRVAL | 3.5523 | Reference vacuum wavelength [Angstrom] |
 | CDELT | 0.0001 | Vacuum wavelength step [Angstrom] |
 | CTYPE | LOG-LINEAR | Wavelength axis type |
@@ -172,18 +215,60 @@ Key | Value | Comment | |
 | CRPIX | 1 | Reference pixel (1-indexed) |
 | DC-FLAG | 1 | Linear wavelength axis (0) or logarithmic |
 | NPIXELS | 4648 | Number of pixels in the spectrum |
-| TDIM48 | (0) |  |
-| TDIM49 | (0) |  |
-| TDIM105 | (0) |  |
-| CHECKSUM | PeCgRe9ZPeCdPe9Z | HDU checksum updated 2024-08-01T08:54:27 |
-| DATASUM | 0 | data unit checksum updated 2024-08-01T08:54:27 |
+|  |  |  |
+|  | Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Exposure Information |  |
+|  |  |  |
+|  |  |  |
+|  | Field/Plate Information |  |
+|  |  |  |
+|  |  |  |
+|  | BOSS Data Reduction Pipeline |  |
+|  |  |  |
+|  |  |  |
+|  | Observing Conditions |  |
+|  |  |  |
+| TDIM48 | (1) |  |
+| TDIM49 | (1) |  |
+|  |  |  |
+|  | Metadata Flags |  |
+|  |  |  |
+|  |  |  |
+|  | XCSAO |  |
+|  |  |  |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Astra Metadata |  |
+|  |  |  |
+|  |  |  |
+|  | Classification Probabilities |  |
+|  |  |  |
+|  |  |  |
+|  | Stellar Parameters |  |
+|  |  |  |
+|  |  |  |
+|  | Formal uncertainties |  |
+|  |  |  |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
+| TDIM105 | (4648) |  |
+|  |  |  |
+|  | DATA INTEGRITY |  |
+|  |  |  |
+| CHECKSUM | oi1aoh0Zoh0aoh0Y | HDU checksum updated 2025-03-30T22:40:27 |
+| DATASUM | 3201936139 | data unit checksum updated 2025-03-30T22:40:27 |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | release | char[1] |  | SDSS release |
- | filetype | char[1] |  | SDSS file type that stores this spectrum |
- | run2d | char[1] |  | BOSS data reduction pipeline version |
+ | release | char[5] |  | SDSS release |
+ | filetype | char[8] |  | SDSS file type that stores this spectrum |
+ | run2d | char[6] |  | BOSS data reduction pipeline version |
  | mjd | int32 |  | Modified Julian date of observation |
  | fieldid | int32 |  | Field identifier |
  | catalogid | int64 |  | Catalog identifier used to target the source |
@@ -208,7 +293,7 @@ Name | Type | Unit | Description |
  | schi2max | float32 |  | Maximum \chi^2 of sky subtraction |
  | alt | float32 | deg | Telescope altitude  |
  | az | float32 | deg | Telescope azimuth  |
- | telescope | char[1] |  | Short telescope name |
+ | telescope | char[6] |  | Short telescope name |
  | seeing | float32 | arcsecond | Median seeing conditions  |
  | airmass | float32 |  | Mean airmass |
  | airtemp | float32 | C | Air temperature  |
@@ -228,8 +313,8 @@ Name | Type | Unit | Description |
  | tai_end | int64 | s | MJD (TAI) at end of integrations  |
  | fiber_offset | bool |  | Position offset applied during observations |
  | f_night_time | float32 |  | Mid obs time as fraction from sunset to sunrise |
- | delta_ra | float32[0] | arcsecond | Offset in right ascension  |
- | delta_dec | float32[0] | arcsecond | Offset in declination  |
+ | delta_ra | float32[1] | arcsecond | Offset in right ascension  |
+ | delta_dec | float32[1] | arcsecond | Offset in declination  |
  | snr | float32 |  | Signal-to-noise ratio |
  | gri_gaia_transform_flags | int64 |  | Flags for provenance of ugriz photometry |
  | zwarning_flags | int64 |  | BOSS DRP warning flags |
@@ -244,12 +329,12 @@ Name | Type | Unit | Description |
  | xcsao_rxc | float32 |  | Cross-correlation R-value (1979AJ.....84.1511T) |
  | spectrum_pk_id | int64 |  | Unique spectrum primary key |
  | task_pk | int64 |  | Task model primary key |
- | v_astra | char[1] |  | Astra version |
+ | v_astra | char[5] |  | Astra version |
  | created | char[26] |  | Datetime when task record was created |
  | t_elapsed | float32 | s | Core-time elapsed on this analysis  |
  | t_overhead | float32 | s | Estimated core-time spent in overhads  |
  | tag | char[1] |  | Experiment tag for this result |
- | classification | char[1] |  | Classification |
+ | classification | char[2] |  | Classification |
  | p_cv | float32 |  | Cataclysmic variable probability |
  | p_da | float32 |  | DA-type white dwarf probability |
  | p_dab | float32 |  | DAB-type white dwarf probability |
@@ -285,7 +370,7 @@ Name | Type | Unit | Description |
  | raw_e_teff | float32 | K | Raw error on stellar effective temperature  |
  | raw_e_logg | float32 | log10(cm/s^2) | Raw error on surface gravity  |
  | result_flags | int64 |  | Result flags |
- | model_flux | float32[0] |  | Best-fit model flux |
+ | model_flux | float32[4648] |  | Best-fit model flux |
 
 
 
@@ -306,11 +391,17 @@ Key | Value | Comment | |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 105 | number of table fields |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | EXTNAME | BOSS/LCO | Extension name |
 | OBSRVTRY | LCO | Observatory |
 | INSTRMNT | BOSS | Instrument |
 | V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-08-01 14:54:27 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| CREATED | 25-03-31 04:40:27 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Wavelength Information (Vacuum) |  |
+|  |  |  |
 | CRVAL | 3.5523 | Reference vacuum wavelength [Angstrom] |
 | CDELT | 0.0001 | Vacuum wavelength step [Angstrom] |
 | CTYPE | LOG-LINEAR | Wavelength axis type |
@@ -318,11 +409,53 @@ Key | Value | Comment | |
 | CRPIX | 1 | Reference pixel (1-indexed) |
 | DC-FLAG | 1 | Linear wavelength axis (0) or logarithmic |
 | NPIXELS | 4648 | Number of pixels in the spectrum |
+|  |  |  |
+|  | Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Exposure Information |  |
+|  |  |  |
+|  |  |  |
+|  | Field/Plate Information |  |
+|  |  |  |
+|  |  |  |
+|  | BOSS Data Reduction Pipeline |  |
+|  |  |  |
+|  |  |  |
+|  | Observing Conditions |  |
+|  |  |  |
 | TDIM48 | (0) |  |
 | TDIM49 | (0) |  |
+|  |  |  |
+|  | Metadata Flags |  |
+|  |  |  |
+|  |  |  |
+|  | XCSAO |  |
+|  |  |  |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Astra Metadata |  |
+|  |  |  |
+|  |  |  |
+|  | Classification Probabilities |  |
+|  |  |  |
+|  |  |  |
+|  | Stellar Parameters |  |
+|  |  |  |
+|  |  |  |
+|  | Formal uncertainties |  |
+|  |  |  |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | TDIM105 | (0) |  |
-| CHECKSUM | MgBgOeAZMeAdMeAZ | HDU checksum updated 2024-08-01T08:54:27 |
-| DATASUM | 0 | data unit checksum updated 2024-08-01T08:54:27 |
+|  |  |  |
+|  | DATA INTEGRITY |  |
+|  |  |  |
+| CHECKSUM | OkAbQhAbOhAbOhAb | HDU checksum updated 2025-03-30T22:40:27 |
+| DATASUM | 0 | data unit checksum updated 2025-03-30T22:40:27 |
 
 ##### Binary Table Caption for HDU2
 Name | Type | Unit | Description |
@@ -452,11 +585,17 @@ Key | Value | Comment | |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 58 | number of table fields |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | EXTNAME | APOGEE/APO | Extension name |
 | OBSRVTRY | APO | Observatory |
 | INSTRMNT | APOGEE | Instrument |
 | V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-08-01 14:54:27 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| CREATED | 25-03-31 04:40:27 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Wavelength Information (Vacuum) |  |
+|  |  |  |
 | CRVAL | 4.179 | Reference vacuum wavelength [Angstrom] |
 | CDELT | 6e-06 | Vacuum wavelength step [Angstrom] |
 | CTYPE | LOG-LINEAR | Wavelength axis type |
@@ -464,9 +603,33 @@ Key | Value | Comment | |
 | CRPIX | 1 | Reference pixel (1-indexed) |
 | DC-FLAG | 1 | Linear wavelength axis (0) or logarithmic |
 | NPIXELS | 8575 | Number of pixels in the spectrum |
+|  |  |  |
+|  | Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Spectrum Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Astra Metadata |  |
+|  |  |  |
+|  |  |  |
+|  | Classification Probabilities |  |
+|  |  |  |
+|  |  |  |
+|  | Stellar Parameters |  |
+|  |  |  |
+|  |  |  |
+|  | Formal uncertainties |  |
+|  |  |  |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | TDIM58 | (0) |  |
-| CHECKSUM | EFKAFEI5EEIAEEI3 | HDU checksum updated 2024-08-01T08:54:27 |
-| DATASUM | 0 | data unit checksum updated 2024-08-01T08:54:27 |
+|  |  |  |
+|  | DATA INTEGRITY |  |
+|  |  |  |
+| CHECKSUM | GJJBHHI9GHIAGHI7 | HDU checksum updated 2025-03-30T22:40:27 |
+| DATASUM | 0 | data unit checksum updated 2025-03-30T22:40:27 |
 
 ##### Binary Table Caption for HDU3
 Name | Type | Unit | Description |
@@ -549,11 +712,17 @@ Key | Value | Comment | |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 58 | number of table fields |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | EXTNAME | APOGEE/LCO | Extension name |
 | OBSRVTRY | LCO | Observatory |
 | INSTRMNT | APOGEE | Instrument |
 | V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-08-01 14:54:27 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| CREATED | 25-03-31 04:40:27 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Wavelength Information (Vacuum) |  |
+|  |  |  |
 | CRVAL | 4.179 | Reference vacuum wavelength [Angstrom] |
 | CDELT | 6e-06 | Vacuum wavelength step [Angstrom] |
 | CTYPE | LOG-LINEAR | Wavelength axis type |
@@ -561,9 +730,33 @@ Key | Value | Comment | |
 | CRPIX | 1 | Reference pixel (1-indexed) |
 | DC-FLAG | 1 | Linear wavelength axis (0) or logarithmic |
 | NPIXELS | 8575 | Number of pixels in the spectrum |
+|  |  |  |
+|  | Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Spectrum Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Astra Metadata |  |
+|  |  |  |
+|  |  |  |
+|  | Classification Probabilities |  |
+|  |  |  |
+|  |  |  |
+|  | Stellar Parameters |  |
+|  |  |  |
+|  |  |  |
+|  | Formal uncertainties |  |
+|  |  |  |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | TDIM58 | (0) |  |
-| CHECKSUM | EJKAHHI0EHI7EHI7 | HDU checksum updated 2024-08-01T08:54:27 |
-| DATASUM | 0 | data unit checksum updated 2024-08-01T08:54:27 |
+|  |  |  |
+|  | DATA INTEGRITY |  |
+|  |  |  |
+| CHECKSUM | GNJAJKI3GKIAGKI3 | HDU checksum updated 2025-03-30T22:40:27 |
+| DATASUM | 0 | data unit checksum updated 2025-03-30T22:40:27 |
 
 ##### Binary Table Caption for HDU4
 Name | Type | Unit | Description |
