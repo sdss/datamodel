@@ -19,7 +19,7 @@ BOSS and/or APOGEE spectra for a single star. These are the data produced before
 $MWM_ASTRA/0.6.0/spectra/star/00/00/mwmStar-0.6.0-103020000.fits
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MWM_ASTRA
@@ -36,7 +36,10 @@ astra
 ### Is a VAC
 False
 
-### HDUS List for release DR19
+### Data Level
+0.0.0
+
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: BOSS/APO](#hdu1-boss/apo)
   - [HDU2: BOSS/LCO](#hdu2-boss/lco)
@@ -47,6 +50,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - primary_delta_nkeys: 33
 
 ---
 ## Example HDUS List
@@ -64,62 +70,86 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 0 | number of array dimensions |
 | EXTEND | True |  |
-| V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-07-17 21:22:40 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| SDSS_ID | 103020000 | SDSS-5 unique identifier |
-| APOGEEID | 2M12283021-6635525 | SDSS-4 DR17 APOGEE identifier |
-| GAIA2_ID | 5860080419780127104 | Gaia DR2 source identifier |
-| GAIA3_ID | 5860080419780127104 | Gaia DR3 source identifier |
-| TIC_ID | 287113985 | TESS Input Catalog (v8) identifier |
-| HEALPIX | 188421 | HEALPix (128 side) |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
+| V_ASTRA | 0.8.1 | Astra version |
+| CREATED | 26-01-24 07:09:45 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+| SDSS_ID | 99560000 | SDSS-5 unique identifier |
+| APOGEEID | None | SDSS-4 DR17 APOGEE identifier |
+| GAIA2_ID | 5593130580092485504 | Gaia DR2 source identifier |
+| GAIA3_ID | 5593130580092485504 | Gaia DR3 source identifier |
+| TIC_ID | 113289122 | TESS Input Catalog (v8) identifier |
+| HEALPIX | 149408 | HEALPix (128 side) |
+|  |  |  |
+|  | Targeting Provenance |  |
+|  |  |  |
 | LEAD | gaia_dr3_source | Lead catalog used for cross-match |
 | VER_ID | 31 | SDSS catalog version for targeting |
-| CAT_ID | 63050396092955182 | Catalog identifier used to target the source |
-| CAT_ID21 | 5696405012 | Catalog identifier (v21; v0.0) |
-| CAT_ID25 | 27021599252394686 | Catalog identifier (v25; v0.5) |
-| CAT_ID31 | 63050396092955182 | Catalog identifier (v31; v1.0) |
+| CAT_ID | 63050395967613090 | SDSS input catalog identifier |
+| CAT_ID21 | 4427305451 | Catalog identifier (v21; v0.0) |
+| CAT_ID25 | 27021597985353039 | Catalog identifier (v25; v0.5) |
+| CAT_ID31 | 63050395967613090 | Catalog identifier (v31; v1.0) |
 | N_ASSOC | 1 | SDSS_IDs associated with this CATALOGID |
-| N_NEIGH | 0 | Sources within 3" and G_MAG < G_MAG_source + 5 |
-| RA | 187.12584 | Right ascension [deg] |
-| DEC | -66.59794 | Declination [deg] |
-| L | 300.652748900112 | Galactic longitude [deg] |
-| B | -3.8277382984462562 | Galactic latitude [deg] |
-| PLX | 0.11437972 | Parallax [mas] |
-| E_PLX | 0.014047999 | Error on parallax [mas] |
-| PMRA | -5.4344354 | Proper motion in RA [mas/yr] |
-| E_PMRA | 0.013754413 | Error on proper motion in RA [mas/yr] |
-| PMDE | -0.81458503 | Proper motion in DEC [mas/yr] |
-| E_PMDE | 0.0150277065 | Error on proper motion in DEC [mas/yr] |
-| V_RAD | -12.226325 | Gaia radial velocity [km/s] |
-| E_V_RAD | 1.1914438 | Error on Gaia radial velocity [km/s] |
-| G_MAG | 13.685833 | Gaia DR3 mean G band magnitude [mag] |
-| BP_MAG | 14.812113 | Gaia DR3 mean BP band magnitude [mag] |
-| RP_MAG | 12.64375 | Gaia DR3 mean RP band magnitude [mag] |
-| J_MAG | 11.01 | 2MASS J band magnitude [mag] |
-| E_J_MAG | 0.029 | Error on 2MASS J band magnitude [mag] |
-| H_MAG | 10.107 | 2MASS H band magnitude [mag] |
+| N_NEIGH | -1 | Sources within 3" and G_MAG < G_MAG_source + 5 |
+|  |  |  |
+|  | Astrometry |  |
+|  |  |  |
+| RA | 113.17667 | Right ascension [deg] |
+| DEC | -31.404102 | Declination [deg] |
+| L | 61.27163 | Galactic longitude [deg] |
+| B | -5.82869 | Galactic latitude [deg] |
+| PLX | 0.08577916 | Parallax [mas] |
+| E_PLX | 0.010296768 | Error on parallax [mas] |
+| PMRA | -0.46985888 | Proper motion in RA [mas/yr] |
+| E_PMRA | 0.00933496 | Error on proper motion in RA [mas/yr] |
+| PMDE | 1.6926992 | Proper motion in DEC [mas/yr] |
+| E_PMDE | 0.010777928 | Error on proper motion in DEC [mas/yr] |
+| V_RAD | 115.68624 | Gaia radial velocity [km/s] |
+| E_V_RAD | 2.59485 | Error on Gaia radial velocity [km/s] |
+|  |  |  |
+|  | Gaia Photometry |  |
+|  |  |  |
+| G_MAG | 13.107358 | Gaia DR3 mean G band magnitude [mag] |
+| BP_MAG | 13.558252 | Gaia DR3 mean BP band magnitude [mag] |
+| RP_MAG | 12.472394 | Gaia DR3 mean RP band magnitude [mag] |
+|  |  |  |
+|  | 2MASS Photometry |  |
+|  |  |  |
+| J_MAG | 11.599 | 2MASS J band magnitude [mag] |
+| E_J_MAG | 0.02 | Error on 2MASS J band magnitude [mag] |
+| H_MAG | 11.296 | 2MASS H band magnitude [mag] |
 | E_H_MAG | 0.026 | Error on 2MASS H band magnitude [mag] |
-| K_MAG | 9.835 | 2MASS K band magnitude [mag] |
-| E_K_MAG | 0.022 | Error on 2MASS K band magnitude [mag] |
+| K_MAG | 11.147 | 2MASS K band magnitude [mag] |
+| E_K_MAG | 0.021 | Error on 2MASS K band magnitude [mag] |
 | PH_QUAL | AAA | 2MASS photometric quality flag |
 | BL_FLG | 111 | Number of components fit per band (JHK) |
 | CC_FLG | 000 | Contamination and confusion flag |
 | COMMENT | See https://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html |  |
-| W1_MAG | 9.726259696127704 | W1 magnitude |
-| E_W1_MAG | 0.000501968665409678 | Error on W1 magnitude |
-| W1_FLUX | 128202.39 | W1 flux [Vega nMgy] |
-| W1_DFLUX | 59.27184 | Error on W1 flux [Vega nMgy] |
-| W1_FRAC | 0.9410669 | Fraction of W1 flux from this object |
-| W2_MAG | 9.83106761054271 | W2 magnitude [Vega] |
-| E_W2_MAG | 0.001100526259777875 | Error on W2 magnitude |
-| W2_FLUX | 113441.76 | W2 flux [Vega nMgy] |
-| W2_DFLUX | 114.98708 | Error on W2 flux [Vega nMgy] |
-| W2_FRAC | 0.9334011 | Fraction of W2 flux from this object |
+|  |  |  |
+|  | unWISE Photometry |  |
+|  |  |  |
+| W1_MAG | 11.056189 | W1 magnitude |
+| E_W1_MAG | 0.0009226576 | Error on W1 magnitude |
+| W1_FLUX | 37663.832 | W1 flux [Vega nMgy] |
+| W1_DFLUX | 32.00669 | Error on W1 flux [Vega nMgy] |
+| W1_FRAC | 0.99495804 | Fraction of W1 flux from this object |
+| W2_MAG | 11.029041 | W2 magnitude [Vega] |
+| E_W2_MAG | 0.0019889828 | Error on W2 magnitude |
+| W2_FLUX | 37634.273 | W2 flux [Vega nMgy] |
+| W2_DFLUX | 68.94301 | Error on W2 flux [Vega nMgy] |
+| W2_FRAC | 0.99413913 | Fraction of W2 flux from this object |
 | W1UFLAGS | 0 | unWISE flags for W1 |
 | W2UFLAGS | 0 | unWISE flags for W2 |
 | W1AFLAGS | 0 | Additional flags for W1 |
 | W2AFLAGS | 0 | Additional flags for W2 |
 | COMMENT | See https://catalog.unwise.me/catalogs.html |  |
+|  |  |  |
+|  | GLIMPSE Photometry |  |
+|  |  |  |
 | MAG4_5 | None | IRAC band 4.5 micron magnitude [mag] |
 | D4_5M | None | Error on IRAC band 4.5 micron magnitude [mag] |
 | RMS_F4_5 | None | RMS deviations from final flux [mJy] |
@@ -127,14 +157,23 @@ Key | Value | Comment | |
 | MF4_5 | 0 | Flux calculation method flag |
 | CSF | 0 | Close source flag |
 | COMMENT | See https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/gator_docs/ |  |
-| N_BOSS | 0 | Number of BOSS visits |
-| B_MINMJD | None | Minimum MJD of BOSS visits |
-| N_MAXMJD | None | Maximum MJD of BOSS visits |
-| N_APOGEE | 3 | Number of APOGEE visits |
-| A_MINMJD | 58150 | Minimum MJD of APOGEE visits |
-| A_MAXMJD | 58178 | Maximum MJD of APOGEE visits |
-| CHECKSUM | UdZWaZZVVdZVaZZV | HDU checksum updated 2024-07-17T15:22:43 |
-| DATASUM | 0 | data unit checksum updated 2024-07-17T15:22:43 |
+|  |  |  |
+|  | Observations Summary |  |
+|  |  |  |
+| N_BOSS | 1 | Number of BOSS visits |
+| B_MINMJD | 60681 | Minimum MJD of BOSS visits |
+| N_MAXMJD | 60681 | Maximum MJD of BOSS visits |
+| N_APOGEE | None | Number of APOGEE visits |
+| A_MINMJD | None | Minimum MJD of APOGEE visits |
+| A_MAXMJD | None | Maximum MJD of APOGEE visits |
+|  |  |  |
+|  | Data Integrity |  |
+|  |  |  |
+| CHECKSUM | 5iAj8Z3i5fAi5Z3i | HDU checksum updated 2026-01-24T00:09:46 |
+| DATASUM | 0 | data unit checksum updated 2026-01-24T00:09:46 |
+|  |  |  |
+|  | HDU Descriptions |  |
+|  |  |  |
 | COMMENT | HDU 0: Summary information only |  |
 | COMMENT | HDU 1: BOSS spectra from Apache Point Observatory |  |
 | COMMENT | HDU 2: BOSS spectra from Las Campanas Observatory |  |
@@ -160,11 +199,17 @@ Key | Value | Comment | |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 35 | number of table fields |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | EXTNAME | BOSS/APO | Extension name |
 | OBSRVTRY | APO | Observatory |
 | INSTRMNT | BOSS | Instrument |
-| V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-07-17 21:22:43 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| V_ASTRA | 0.8.1 | Astra version |
+| CREATED | 26-01-24 07:09:46 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Wavelength Information (Vacuum) |  |
+|  |  |  |
 | CRVAL | 3.5523 | Reference vacuum wavelength [Angstrom] |
 | CDELT | 0.0001 | Vacuum wavelength step [Angstrom] |
 | CTYPE | LOG-LINEAR | Wavelength axis type |
@@ -172,14 +217,41 @@ Key | Value | Comment | |
 | CRPIX | 1 | Reference pixel (1-indexed) |
 | DC-FLAG | 1 | Linear wavelength axis (0) or logarithmic |
 | NPIXELS | 4648 | Number of pixels in the spectrum |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Related Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Observing Span |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (XCSAO) |  |
+|  |  |  |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
+|  |  |  |
+|  | Spectral Data |  |
+|  |  |  |
 | TDIM28 | (0) |  |
 | TDIM29 | (0) |  |
 | TDIM30 | (0) |  |
 | TDIM31 | (0) |  |
+|  |  |  |
+|  | NMF Continuum Model |  |
+|  |  |  |
 | TDIM32 | (0) |  |
 | TDIM33 | (0) |  |
-| CHECKSUM | 9IHaCGFU9GFaCGFU | HDU checksum updated 2024-07-17T15:22:44 |
-| DATASUM | 0 | data unit checksum updated 2024-07-17T15:22:44 |
+|  |  |  |
+|  | DATA INTEGRITY |  |
+|  |  |  |
+| CHECKSUM | SPFHTP99SPEGSP99 | HDU checksum updated 2026-01-24T00:09:46 |
+| DATASUM | 0 | data unit checksum updated 2026-01-24T00:09:46 |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
@@ -226,7 +298,7 @@ Name | Type | Unit | Description |
 {data_type} from BOSS south
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  0 bytes
+#### HDU Size:  109 KB
 
 ##### Header Table Caption for HDU2
 Key | Value | Comment | |
@@ -234,16 +306,22 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 121 | length of dimension 1 |
-| NAXIS2 | 0 | length of dimension 2 |
+| NAXIS1 | 111697 | length of dimension 1 |
+| NAXIS2 | 1 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 35 | number of table fields |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | EXTNAME | BOSS/LCO | Extension name |
 | OBSRVTRY | LCO | Observatory |
 | INSTRMNT | BOSS | Instrument |
-| V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-07-17 21:22:49 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| V_ASTRA | 0.8.1 | Astra version |
+| CREATED | 26-01-24 07:10:09 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Wavelength Information (Vacuum) |  |
+|  |  |  |
 | CRVAL | 3.5523 | Reference vacuum wavelength [Angstrom] |
 | CDELT | 0.0001 | Vacuum wavelength step [Angstrom] |
 | CTYPE | LOG-LINEAR | Wavelength axis type |
@@ -251,26 +329,53 @@ Key | Value | Comment | |
 | CRPIX | 1 | Reference pixel (1-indexed) |
 | DC-FLAG | 1 | Linear wavelength axis (0) or logarithmic |
 | NPIXELS | 4648 | Number of pixels in the spectrum |
-| TDIM28 | (0) |  |
-| TDIM29 | (0) |  |
-| TDIM30 | (0) |  |
-| TDIM31 | (0) |  |
-| TDIM32 | (0) |  |
-| TDIM33 | (0) |  |
-| CHECKSUM | 9IKaAIIW3IIa9IIW | HDU checksum updated 2024-07-17T15:22:50 |
-| DATASUM | 0 | data unit checksum updated 2024-07-17T15:22:50 |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Related Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Observing Span |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (XCSAO) |  |
+|  |  |  |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
+|  |  |  |
+|  | Spectral Data |  |
+|  |  |  |
+| TDIM28 | (4648) |  |
+| TDIM29 | (4648) |  |
+| TDIM30 | (4648) |  |
+| TDIM31 | (4648) |  |
+|  |  |  |
+|  | NMF Continuum Model |  |
+|  |  |  |
+| TDIM32 | (4648) |  |
+| TDIM33 | (4648) |  |
+|  |  |  |
+|  | DATA INTEGRITY |  |
+|  |  |  |
+| CHECKSUM | QATdR4ScQAScQ3Sc | HDU checksum updated 2026-01-24T00:10:09 |
+| DATASUM | 633221947 | data unit checksum updated 2026-01-24T00:10:09 |
 
 ##### Binary Table Caption for HDU2
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | spectrum_pk_id | int64 |  | Unique spectrum primary key |
- | release | char[1] |  | SDSS release |
- | filetype | char[1] |  | SDSS file type that stores this spectrum |
- | v_astra | char[1] |  | Astra version |
+ | release | char[5] |  | SDSS release |
+ | filetype | char[7] |  | SDSS file type that stores this spectrum |
+ | v_astra | char[5] |  | Astra version |
  | healpix | int32 |  | HEALPix (128 side) |
  | sdss_id | int64 |  | SDSS-5 unique identifier |
- | run2d | char[1] |  | BOSS data reduction pipeline version |
- | telescope | char[1] |  | Short telescope name |
+ | run2d | char[6] |  | BOSS data reduction pipeline version |
+ | telescope | char[6] |  | Short telescope name |
  | min_mjd | int32 |  | Minimum MJD of visits |
  | max_mjd | int32 |  | Maximum MJD of visits |
  | n_visits | int32 |  | Number of BOSS visits |
@@ -290,12 +395,12 @@ Name | Type | Unit | Description |
  | snr | float32 |  | Signal-to-noise ratio |
  | gri_gaia_transform_flags | int64 |  | Flags for provenance of ugriz photometry |
  | zwarning_flags | int64 |  | BOSS DRP warning flags |
- | wavelength | float32[0] |  | Wavelength (vacuum)  |
- | flux | float32[0] |  | Flux  |
- | ivar | float32[0] |  | Inverse variance of flux values |
- | pixel_flags | float32[0] |  | Pixel-level quality flags (see documentation) |
- | continuum | float32[0] |  | Best-fit continuum flux |
- | nmf_rectified_model_flux | float32[0] |  | Rectified NMF model flux |
+ | wavelength | float32[4648] |  | Wavelength (vacuum)  |
+ | flux | float32[4648] |  | Flux  |
+ | ivar | float32[4648] |  | Inverse variance of flux values |
+ | pixel_flags | float32[4648] |  | Pixel-level quality flags (see documentation) |
+ | continuum | float32[4648] |  | Best-fit continuum flux |
+ | nmf_rectified_model_flux | float32[4648] |  | Rectified NMF model flux |
  | nmf_rchi2 | float32 |  | Reduced chi-square value of NMF continuum fit |
  | nmf_flags | int64 |  | NMF Continuum method flags |
 
@@ -318,11 +423,17 @@ Key | Value | Comment | |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 45 | number of table fields |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | EXTNAME | APOGEE/APO | Extension name |
 | OBSRVTRY | APO | Observatory |
 | INSTRMNT | APOGEE | Instrument |
-| V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-07-17 21:22:47 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| V_ASTRA | 0.8.1 | Astra version |
+| CREATED | 26-01-24 07:09:46 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Wavelength Information (Vacuum) |  |
+|  |  |  |
 | CRVAL | 4.179 | Reference vacuum wavelength [Angstrom] |
 | CDELT | 6e-06 | Vacuum wavelength step [Angstrom] |
 | CTYPE | LOG-LINEAR | Wavelength axis type |
@@ -330,19 +441,52 @@ Key | Value | Comment | |
 | CRPIX | 1 | Reference pixel (1-indexed) |
 | DC-FLAG | 1 | Linear wavelength axis (0) or logarithmic |
 | NPIXELS | 8575 | Number of pixels in the spectrum |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Related Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Observing Span |  |
+|  |  |  |
+|  |  |  |
+|  | Number and Quality of Visits |  |
+|  |  |  |
+|  |  |  |
+|  | Summary Statistics |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (Doppler) |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (X-Correlation) |  |
+|  |  |  |
+|  |  |  |
+|  | Spectral Data |  |
+|  |  |  |
 | TDIM38 | (0) |  |
 | TDIM39 | (0) |  |
 | TDIM40 | (0) |  |
 | TDIM41 | (0) |  |
+|  |  |  |
+|  | NMF Continuum Model |  |
+|  |  |  |
 | TDIM42 | (0) |  |
 | TDIM43 | (0) |  |
-| CHECKSUM | UgQ7agO4XgO4agO4 | HDU checksum updated 2024-07-17T15:22:47 |
-| DATASUM | 0 | data unit checksum updated 2024-07-17T15:22:47 |
+|  |  |  |
+|  | DATA INTEGRITY |  |
+|  |  |  |
+| CHECKSUM | DBLiFAIiDAIiDAIi | HDU checksum updated 2026-01-24T00:09:46 |
+| DATASUM | 0 | data unit checksum updated 2026-01-24T00:09:46 |
 
 ##### Binary Table Caption for HDU3
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | spectrum_pk_id | int64 |  | Unique spectrum primary key |
+ | spectrum_pk | int64 |  | Unique spectrum primary key |
  | release | char[1] |  | SDSS release |
  | filetype | char[1] |  | SDSS file type that stores this spectrum |
  | v_astra | char[1] |  | Astra version |
@@ -394,7 +538,7 @@ Name | Type | Unit | Description |
 {data_type} from APOGEE south
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  201 KB
+#### HDU Size:  0 bytes
 
 ##### Header Table Caption for HDU4
 Key | Value | Comment | |
@@ -402,16 +546,22 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 205995 | length of dimension 1 |
-| NAXIS2 | 1 | length of dimension 2 |
+| NAXIS1 | 158 | length of dimension 1 |
+| NAXIS2 | 0 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 45 | number of table fields |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | EXTNAME | APOGEE/LCO | Extension name |
 | OBSRVTRY | LCO | Observatory |
 | INSTRMNT | APOGEE | Instrument |
-| V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-07-17 21:23:06 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| V_ASTRA | 0.8.1 | Astra version |
+| CREATED | 26-01-24 07:10:09 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Wavelength Information (Vacuum) |  |
+|  |  |  |
 | CRVAL | 4.179 | Reference vacuum wavelength [Angstrom] |
 | CDELT | 6e-06 | Vacuum wavelength step [Angstrom] |
 | CTYPE | LOG-LINEAR | Wavelength axis type |
@@ -419,27 +569,60 @@ Key | Value | Comment | |
 | CRPIX | 1 | Reference pixel (1-indexed) |
 | DC-FLAG | 1 | Linear wavelength axis (0) or logarithmic |
 | NPIXELS | 8575 | Number of pixels in the spectrum |
-| TDIM38 | (8575) |  |
-| TDIM39 | (8575) |  |
-| TDIM40 | (8575) |  |
-| TDIM41 | (8575) |  |
-| TDIM42 | (8575) |  |
-| TDIM43 | (8575) |  |
-| CHECKSUM | cEAqc98ncEAnc95n | HDU checksum updated 2024-07-17T15:23:06 |
-| DATASUM | 1494599713 | data unit checksum updated 2024-07-17T15:23:06 |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Related Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Observing Span |  |
+|  |  |  |
+|  |  |  |
+|  | Number and Quality of Visits |  |
+|  |  |  |
+|  |  |  |
+|  | Summary Statistics |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (Doppler) |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (X-Correlation) |  |
+|  |  |  |
+|  |  |  |
+|  | Spectral Data |  |
+|  |  |  |
+| TDIM38 | (0) |  |
+| TDIM39 | (0) |  |
+| TDIM40 | (0) |  |
+| TDIM41 | (0) |  |
+|  |  |  |
+|  | NMF Continuum Model |  |
+|  |  |  |
+| TDIM42 | (0) |  |
+| TDIM43 | (0) |  |
+|  |  |  |
+|  | DATA INTEGRITY |  |
+|  |  |  |
+| CHECKSUM | GHMgHEMfGEMfGEMf | HDU checksum updated 2026-01-24T00:10:09 |
+| DATASUM | 0 | data unit checksum updated 2026-01-24T00:10:09 |
 
 ##### Binary Table Caption for HDU4
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | spectrum_pk_id | int64 |  | Unique spectrum primary key |
- | release | char[4] |  | SDSS release |
- | filetype | char[6] |  | SDSS file type that stores this spectrum |
- | v_astra | char[5] |  | Astra version |
+ | spectrum_pk | int64 |  | Unique spectrum primary key |
+ | release | char[1] |  | SDSS release |
+ | filetype | char[1] |  | SDSS file type that stores this spectrum |
+ | v_astra | char[1] |  | Astra version |
  | healpix | int32 |  | HEALPix (128 side) |
  | sdss_id | int64 |  | SDSS-5 unique identifier |
- | apred | char[4] |  | APOGEE reduction pipeline |
- | obj | char[18] |  | Object name |
- | telescope | char[6] |  | Short telescope name |
+ | apred | char[1] |  | APOGEE reduction pipeline |
+ | obj | char[1] |  | Object name |
+ | telescope | char[1] |  | Short telescope name |
  | min_mjd | int32 |  | Minimum MJD of visits |
  | max_mjd | int32 |  | Maximum MJD of visits |
  | n_entries | int32 |  | apStar entries for this SDSS4_APOGEE_ID |
@@ -468,12 +651,12 @@ Name | Type | Unit | Description |
  | ccfwhm | float32 |  | Cross-correlation function FWHM |
  | autofwhm | float32 |  | Auto-correlation function FWHM |
  | n_components | int32 |  | Number of components in CCF |
- | wavelength | float32[8575] |  | Wavelength (vacuum)  |
- | flux | float32[8575] |  | Flux  |
- | ivar | float32[8575] |  | Inverse variance of flux values |
- | pixel_flags | float32[8575] |  | Pixel-level quality flags (see documentation) |
- | continuum | float32[8575] |  | Best-fit continuum flux |
- | nmf_rectified_model_flux | float32[8575] |  | Rectified NMF model flux |
+ | wavelength | float32[0] |  | Wavelength (vacuum)  |
+ | flux | float32[0] |  | Flux  |
+ | ivar | float32[0] |  | Inverse variance of flux values |
+ | pixel_flags | float32[0] |  | Pixel-level quality flags (see documentation) |
+ | continuum | float32[0] |  | Best-fit continuum flux |
+ | nmf_rectified_model_flux | float32[0] |  | Rectified NMF model flux |
  | nmf_rchi2 | float32 |  | Reduced chi-square value of NMF continuum fit |
  | nmf_flags | int64 |  | NMF Continuum method flags |
 
