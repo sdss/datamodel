@@ -37,7 +37,7 @@ astra
 False
 
 ### Data Level
-0.0.0
+2.2.0
 
 ### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
