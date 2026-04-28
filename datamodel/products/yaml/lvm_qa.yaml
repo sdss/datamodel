@@ -1,0 +1,267 @@
+general:
+  name: lvm_qa
+  short: replace me - with a short one sentence summary of file
+  description: replace me - with a longer description of the data product
+  datatype: FITS
+  filesize: 50 KB
+  releases:
+  - DR20
+  environments:
+  - LVM_SPECTRO_ANALYSIS
+  surveys:
+  - SDSS
+  naming_convention: replace me - with $LVM_SPECTRO_ANALYSIS/[DRPVER]/[DAPVER]/qa_bitmasks-[DRPVER]-[DAPVER].fits
+    or qa_bitmasks-1.2.0-1.2.0.251218.fits but with regex pattern matches
+  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
+    this product.
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: true
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $LVM_SPECTRO_ANALYSIS/[DRPVER]/[DAPVER]/qa_bitmasks-[DRPVER]-[DAPVER].fits
+    example: 1.2.0/1.2.0.251218/qa_bitmasks-1.2.0-1.2.0.251218.fits
+    location: '{drpver}/{dapver}/qa_bitmasks-{drpver}-{dapver}.fits'
+    environment: LVM_SPECTRO_ANALYSIS
+    access:
+      in_sdss_access: true
+      path_name: lvm_qa
+      path_template: $LVM_SPECTRO_ANALYSIS/{drpver}/{dapver}/qa_bitmasks-{drpver}-{dapver}.fits
+      path_kwargs:
+      - drpver
+      - dapver
+      access_string: lvm_qa = $LVM_SPECTRO_ANALYSIS/{drpver}/{dapver}/qa_bitmasks-{drpver}-{dapver}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: replace me description
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: QA
+        description: replace me description
+        is_image: false
+        size: 32 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 195
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 169
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 20
+          comment: number of table fields
+        - key: TARG_TYP
+          value: 'Target types: MW=0, MCs=1, Extragalactic=2'
+          comment: ''
+        - key: QA_ENC
+          value: 2-bit GOOD=00 WARNING=01 MAJOR_ISSUE=10 UNDEFINED=11
+          comment: ''
+        - key: QA_BITS
+          value: '2-bit fields packed LSB-first in this order (see DESC extension):
+            bright stars, sky brightness, absflux, relflux br, relflux rz, wavecal
+            b, wavecal r, wavecal z, flatfield, sky contsub, sky linesub, dap npfit,
+            dap pmfit, visual drp, visual dap'
+          comment: ''
+        - key: EXTNAME
+          value: QA
+          comment: extension name
+        columns:
+          expnum:
+            name: expnum
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          mjd:
+            name: mjd
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          tileid:
+            name: tileid
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          target_type:
+            name: target_type
+            type: int64
+            unit: replace me - with content
+            description: replace me - with content
+          qa_bitmask:
+            name: qa_bitmask
+            type: char[10]
+            unit: replace me - with content
+            description: replace me - with content
+          qa_brightstars:
+            name: qa_brightstars
+            type: char[11]
+            unit: replace me - with content
+            description: replace me - with content
+          qa_sky_brt:
+            name: qa_sky_brt
+            type: char[11]
+            unit: replace me - with content
+            description: replace me - with content
+          qa_absflux:
+            name: qa_absflux
+            type: char[11]
+            unit: replace me - with content
+            description: replace me - with content
+          qa_relflux_br:
+            name: qa_relflux_br
+            type: char[11]
+            unit: replace me - with content
+            description: replace me - with content
+          qa_relflux_rz:
+            name: qa_relflux_rz
+            type: char[11]
+            unit: replace me - with content
+            description: replace me - with content
+          qa_wavecal_b:
+            name: qa_wavecal_b
+            type: char[9]
+            unit: replace me - with content
+            description: replace me - with content
+          qa_wavecal_r:
+            name: qa_wavecal_r
+            type: char[9]
+            unit: replace me - with content
+            description: replace me - with content
+          qa_wavecal_z:
+            name: qa_wavecal_z
+            type: char[9]
+            unit: replace me - with content
+            description: replace me - with content
+          qa_flatfield:
+            name: qa_flatfield
+            type: char[9]
+            unit: replace me - with content
+            description: replace me - with content
+          qa_skycont_sub:
+            name: qa_skycont_sub
+            type: char[11]
+            unit: replace me - with content
+            description: replace me - with content
+          qa_skyline_sub:
+            name: qa_skyline_sub
+            type: char[11]
+            unit: replace me - with content
+            description: replace me - with content
+          qa_dap_npfit:
+            name: qa_dap_npfit
+            type: char[9]
+            unit: replace me - with content
+            description: replace me - with content
+          qa_dap_pmfit:
+            name: qa_dap_pmfit
+            type: char[9]
+            unit: replace me - with content
+            description: replace me - with content
+          qa_visual_drp:
+            name: qa_visual_drp
+            type: char[11]
+            unit: replace me - with content
+            description: replace me - with content
+          qa_visual_dap:
+            name: qa_visual_dap
+            type: char[11]
+            unit: replace me - with content
+            description: replace me - with content
+      hdu2:
+        name: DESC
+        description: replace me description
+        is_image: false
+        size: 4 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 327
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 15
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 5
+          comment: number of table fields
+        - key: EXTNAME
+          value: DESC
+          comment: extension name
+        columns:
+          Metric:
+            name: Metric
+            type: char[14]
+            unit: replace me - with content
+            description: replace me - with content
+          Bits:
+            name: Bits
+            type: char[5]
+            unit: replace me - with content
+            description: replace me - with content
+          Description:
+            name: Description
+            type: char[67]
+            unit: replace me - with content
+            description: replace me - with content
+          WARNING:
+            name: WARNING
+            type: char[105]
+            unit: replace me - with content
+            description: replace me - with content
+          MAJOR ISSUE:
+            name: MAJOR ISSUE
+            type: char[136]
+            unit: replace me - with content
+            description: replace me - with content
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!
