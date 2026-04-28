@@ -1,7 +1,7 @@
 general:
   name: lvm_qa
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: Summary quality-assessment table for LVM DR20 exposures.
+  description: Summary QA/QC FITS data product for LVM DR20 exposures, containing one row per exposure with target identifiers, a packed QA bitmask, and decoded per-metric QA flags for DRP and DAP quality assessment. The metrics summarize automated and visual checks discussed for the DR20 QA process, including sky brightness, flux calibration, wavelength calibration, flat-fielding, sky subtraction, DAP fitting quality, and visual inspection flags.
   datatype: FITS
   filesize: 50 KB
   releases:
@@ -10,17 +10,14 @@ general:
   - LVM_SPECTRO_ANALYSIS
   surveys:
   - SDSS
-  naming_convention: replace me - with $LVM_SPECTRO_ANALYSIS/[DRPVER]/[DAPVER]/qa_bitmasks-[DRPVER]-[DAPVER].fits
-    or qa_bitmasks-1.2.0-1.2.0.251218.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $LVM_SPECTRO_ANALYSIS/[DRPVER]/[DAPVER]/qa_bitmasks-[DRPVER]-[DAPVER].fits
+  generated_by: LVM QA workflow and lvmqa scripts used for DR20 DRP/DAP quality assessment.
   data_level: 2.3.3
   design: false
   vac: false
   recommended_science_product: true
 changelog:
-  description: Describes changes to the datamodel product and/or file structure from
-    one release to another
+  description: Describes changes to the datamodel product and/or file structure from one release to another
   releases: {}
 releases:
   DR20:
@@ -40,7 +37,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Primary HDU with no data array; included for FITS compliance and global file metadata.
         is_image: true
         size: 0 bytes
         header:
@@ -58,7 +55,7 @@ releases:
           comment: ''
       hdu1:
         name: QA
-        description: replace me description
+        description: Binary table containing one row per DR20 exposure with exposure identifiers, target type, a packed QA bitmask, and decoded QA flags for the DR20 DRP and DAP quality-control metrics.
         is_image: false
         size: 32 KB
         header:
@@ -93,10 +90,7 @@ releases:
           value: 2-bit GOOD=00 WARNING=01 MAJOR_ISSUE=10 UNDEFINED=11
           comment: ''
         - key: QA_BITS
-          value: '2-bit fields packed LSB-first in this order (see DESC extension):
-            bright stars, sky brightness, absflux, relflux br, relflux rz, wavecal
-            b, wavecal r, wavecal z, flatfield, sky contsub, sky linesub, dap npfit,
-            dap pmfit, visual drp, visual dap'
+          value: '2-bit fields packed LSB-first in this order (see DESC extension): bright stars, sky brightness, absflux, relflux br, relflux rz, wavecal b, wavecal r, wavecal z, flatfield, sky contsub, sky linesub, dap npfit, dap pmfit, visual drp, visual dap'
           comment: ''
         - key: EXTNAME
           value: QA
@@ -105,106 +99,106 @@ releases:
           expnum:
             name: expnum
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: dimensionless
+            description: Unique exposure number identifying the observation; provided by the DRP summary table used for the DR20 QA workflow.
           mjd:
             name: mjd
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: day
+            description: Modified Julian Date of the observation.
           tileid:
             name: tileid
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: dimensionless
+            description: Identifier of the LVM tile associated with the exposure.
           target_type:
             name: target_type
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: integer code
+            description: Target-type code indicating if the exposure is of a target in the Milky Way (0), Malleganic Clouds (1), or a Local Volume galaxy (2).
           qa_bitmask:
             name: qa_bitmask
             type: char[10]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: packed hexadecimal bitmask
+            description: Packed QA bitmask using 2-bit fields stored least-significant-bit first in the metric order documented in the QA header and DESC extension; encoding is GOOD=00, WARNING=01, MAJOR ISSUE=10, UNDEFINED=11.
           qa_brightstars:
             name: qa_brightstars
             type: char[11]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
+            description: Decoded QA flag for contamination or quality impact from bright stars in the field; detailed WARNING and MAJOR ISSUE thresholds are not defined in the supplied PDF/XLSX.
           qa_sky_brt:
             name: qa_sky_brt
             type: char[11]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
+            description: Decoded QA flag for sky brightness conditions during the exposure, related to quantities such as lunar fractional illumination, Moon altitude, Moon separation, sky background, and airmass.
           qa_absflux:
             name: qa_absflux
             type: char[11]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
+            description: Decoded QA flag for absolute flux-calibration quality based on comparisons with external photometric datasets such as Gaia or Pan-STARRS, as discussed in the DR20 QA process.
           qa_relflux_br:
             name: qa_relflux_br
             type: char[11]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
+            description: Decoded QA flag for relative flux calibration between the blue and red spectrograph arms, used to assess spectrophotometric stability and possible continuum jumps between arms.
           qa_relflux_rz:
             name: qa_relflux_rz
             type: char[11]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
+            description: Decoded QA flag for relative flux calibration between the red and infrared/z spectrograph arms, used to assess spectrophotometric stability and possible continuum jumps between arms.
           qa_wavecal_b:
             name: qa_wavecal_b
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
+            description: Decoded QA flag for wavelength-calibration quality in the blue channel, assessed using prominent night-sky lines or related DRP QA metrics when available.
           qa_wavecal_r:
             name: qa_wavecal_r
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
+            description: Decoded QA flag for wavelength-calibration quality in the red channel, assessed using prominent night-sky lines or related DRP QA metrics when available.
           qa_wavecal_z:
             name: qa_wavecal_z
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
+            description: Decoded QA flag for wavelength-calibration quality in the infrared/z channel, assessed using prominent night-sky lines or related DRP QA metrics when available.
           qa_flatfield:
             name: qa_flatfield
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
+            description: Decoded QA flag for flat-fielding quality, associated with calibration consistency and tests based on sky-line or fiber-to-fiber behavior; detailed thresholds are not defined in the supplied PDF/XLSX.
           qa_skycont_sub:
             name: qa_skycont_sub
             type: char[11]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
+            description: Decoded QA flag for sky-continuum subtraction quality, based on residual continuum levels after sky subtraction in selected continuum regions such as airglow pseudo-continuum and B, R, and Z channel continuum bands.
           qa_skyline_sub:
             name: qa_skyline_sub
             type: char[11]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
+            description: Decoded QA flag for sky-emission-line subtraction quality, based on residual-to-sky metrics for selected sky lines or regions such as [OI]5577, [OI]6300, [OH]6865, [Na]5891, and O2.
           qa_dap_npfit:
             name: qa_dap_npfit
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
+            description: Decoded QA flag for the quality of DAP non-parametric emission-line measurements, including checks related to residuals, reported errors, and parametric versus non-parametric consistency.
           qa_dap_pmfit:
             name: qa_dap_pmfit
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
+            description: Decoded QA flag for the quality of DAP parametric emission-line fitting, including checks related to residuals, reported errors, and consistency with non-parametric measurements.
           qa_visual_drp:
             name: qa_visual_drp
             type: char[11]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
+            description: Decoded QA flag from visual inspection of DRP products, including SFrame-level artifacts and data-quality issues identified during the DR20 inspection process.
           qa_visual_dap:
             name: qa_visual_dap
             type: char[11]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
+            description: Decoded QA flag from visual inspection of DAP products, including maps, fits, residuals, and other DAP-level artifacts identified during the DR20 inspection process.
       hdu2:
         name: DESC
-        description: replace me description
+        description: Binary table documenting the QA metrics encoded in the QA extension, including the bit positions, metric descriptions, and available criteria for WARNING and MAJOR ISSUE flags.
         is_image: false
         size: 4 KB
         header:
@@ -239,28 +233,28 @@ releases:
           Metric:
             name: Metric
             type: char[14]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: dimensionless
+            description: Name of the QA metric corresponding to one decoded QA flag and one packed 2-bit field in qa_bitmask.
           Bits:
             name: Bits
             type: char[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: bit index
+            description: Bit positions assigned to the metric within the packed qa_bitmask.
           Description:
             name: Description
             type: char[67]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: dimensionless
+            description: Text description of the QA metric and the data-quality aspect it summarizes.
           WARNING:
             name: WARNING
             type: char[105]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: dimensionless
+            description: Criterion or explanatory text for assigning the WARNING state to the metric; exact quantitative thresholds may be provided in the DR20 webpages.
           MAJOR ISSUE:
             name: MAJOR ISSUE
             type: char[136]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: dimensionless
+            description: Criterion or explanatory text for assigning the MAJOR ISSUE state to the metric; exact quantitative thresholds may be provided in the DR20 webpages.
 notes: |-
   None
 regrets: |-
