@@ -19,7 +19,7 @@ Results from the LineForest astra pipeline for each visit.
 $MWM_ASTRA/0.6.0/summary/astraAllVisitLineForest-0.6.0.fits.gz
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MWM_ASTRA
@@ -36,7 +36,10 @@ astra
 ### Is a VAC
 False
 
-### HDUS List for release DR19
+### Data Level
+2.3.0
+
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
   - [HDU2](#hdu2)
@@ -45,6 +48,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - primary_delta_nkeys: 8
 
 ---
 ## Example HDUS List
@@ -62,12 +68,20 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 0 | number of array dimensions |
 | EXTEND | True |  |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | PIPELINE | LineForest | Pipeline name |
-| V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-09-13 15:46:28 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| V_ASTRA | 0.8.1 | Astra version |
+| CREATED | 26-02-12 12:00:34 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | HDU Descriptions |  |
+|  |  |  |
 | COMMENT | HDU 0: Summary information only |  |
-| COMMENT | HDU 1: BOSS spectra |  |
-| COMMENT | HDU 2: APOGEE spectra |  |
+| COMMENT | HDU 1: BOSS spectra taken at Apache Point Observatory |  |
+| COMMENT | HDU 2: BOSS spectra taken at Las Campanas Observatory |  |
+| COMMENT | HDU 3: APOGEE spectra taken at Apache Point Observatory |  |
+| COMMENT | HDU 4: APOGEE spectra taken at Las Campanas Observatory |  |
 
 
 
@@ -75,7 +89,7 @@ Key | Value | Comment | |
 LineForest results for each visit from BOSS
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  285 MB
+#### HDU Size:  16 GB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -83,127 +97,866 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 3252 | length of dimension 1 |
-| NAXIS2 | 92008 | length of dimension 2 |
+| NAXIS1 | 3350 | length of dimension 1 |
+| NAXIS2 | 5357038 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 513 | number of table fields |
+| TFIELDS | 517 | number of table fields |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | INSTRMNT | BOSS | Instrument |
 | PIPELINE | LineForest | Pipeline name |
-| V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-09-13 15:46:28 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| TDIM15 | (57) |  |
+| V_ASTRA | 0.8.1 | Astra version |
+| CREATED | 26-02-12 12:00:34 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Targeting Provenance |  |
+|  |  |  |
+| TDIM16 | (71) |  |
+|  |  |  |
+|  | Astrometry |  |
+|  |  |  |
+|  |  |  |
+|  | Gaia Photometry |  |
+|  |  |  |
+|  |  |  |
+|  | 2MASS Photometry |  |
+|  |  |  |
 | COMMENT | See https://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html |  |
+|  |  |  |
+|  | unWISE Photometry |  |
+|  |  |  |
 | COMMENT | See https://catalog.unwise.me/catalogs.html |  |
+|  |  |  |
+|  | GLIMPSE Photometry |  |
+|  |  |  |
 | COMMENT | See https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/gator_docs/ |  |
-| TDIM181 | (18) |  |
-| TDIM182 | (18) |  |
+|  |  |  |
+|  | Gaia XP Stellar Parameters (Zhang, Green & Rix 2023) |  |
+|  |  |  |
+|  |  |  |
+|  | Bailer-Jones Distance Estimates (EDR3; 2021) |  |
+|  |  |  |
+|  |  |  |
+|  | Reddening |  |
+|  |  |  |
+|  |  |  |
+|  | Synthetic Photometry from Gaia XP Spectra |  |
+|  |  |  |
+|  |  |  |
+|  | Observations Summary |  |
+|  |  |  |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Exposure Information |  |
+|  |  |  |
+|  |  |  |
+|  | Field/Plate Information |  |
+|  |  |  |
+|  |  |  |
+|  | BOSS Data Reduction Pipeline |  |
+|  |  |  |
+|  |  |  |
+|  | Observing Conditions |  |
+|  |  |  |
+| TDIM186 | (18) |  |
+| TDIM187 | (18) |  |
+|  |  |  |
+|  | Metadata Flags |  |
+|  |  |  |
+|  |  |  |
+|  | XCSAO |  |
+|  |  |  |
+|  |  |  |
+|  | H-alpha (6562.8 +/- 200A) |  |
+|  |  |  |
+| TDIM205 | (3) |  |
 | TDIM206 | (3) |  |
-| TDIM207 | (3) |  |
+|  |  |  |
+|  | H-beta (4861.3 +/- 200 A) |  |
+|  |  |  |
+| TDIM211 | (3) |  |
 | TDIM212 | (3) |  |
-| TDIM213 | (3) |  |
+|  |  |  |
+|  | H-gamma (4340.5 +/- 200 A) |  |
+|  |  |  |
+| TDIM217 | (3) |  |
 | TDIM218 | (3) |  |
-| TDIM219 | (3) |  |
+|  |  |  |
+|  | H-delta (4101.7 +/- 200 A) |  |
+|  |  |  |
+| TDIM223 | (3) |  |
 | TDIM224 | (3) |  |
-| TDIM225 | (3) |  |
+|  |  |  |
+|  | H-epsilon (3970.1 +/- 200 A) |  |
+|  |  |  |
+| TDIM229 | (3) |  |
 | TDIM230 | (3) |  |
-| TDIM231 | (3) |  |
+|  |  |  |
+|  | H-8 (3889.064 +/- 200 A) |  |
+|  |  |  |
+| TDIM235 | (3) |  |
 | TDIM236 | (3) |  |
-| TDIM237 | (3) |  |
+|  |  |  |
+|  | H-9 (3835.391 +/- 200 A) |  |
+|  |  |  |
+| TDIM241 | (3) |  |
 | TDIM242 | (3) |  |
-| TDIM243 | (3) |  |
+|  |  |  |
+|  | H-10 (3797.904 +/- 200 A) |  |
+|  |  |  |
+| TDIM247 | (3) |  |
 | TDIM248 | (3) |  |
-| TDIM249 | (3) |  |
+|  |  |  |
+|  | H-11 (3770.637 +/- 200 A) |  |
+|  |  |  |
+| TDIM253 | (3) |  |
 | TDIM254 | (3) |  |
-| TDIM255 | (3) |  |
+|  |  |  |
+|  | H-12 (3750.158 +/- 50 A) |  |
+|  |  |  |
+| TDIM259 | (3) |  |
 | TDIM260 | (3) |  |
-| TDIM261 | (3) |  |
+|  |  |  |
+|  | H-13 (3734.369 +/- 50 A) |  |
+|  |  |  |
+| TDIM265 | (3) |  |
 | TDIM266 | (3) |  |
-| TDIM267 | (3) |  |
+|  |  |  |
+|  | H-14 (3721.945 +/- 50 A) |  |
+|  |  |  |
+| TDIM271 | (3) |  |
 | TDIM272 | (3) |  |
-| TDIM273 | (3) |  |
+|  |  |  |
+|  | H-15 (3711.977 +/- 50 A) |  |
+|  |  |  |
+| TDIM277 | (3) |  |
 | TDIM278 | (3) |  |
-| TDIM279 | (3) |  |
+|  |  |  |
+|  | H-16 (3703.859 +/- 50 A) |  |
+|  |  |  |
+| TDIM283 | (3) |  |
 | TDIM284 | (3) |  |
-| TDIM285 | (3) |  |
+|  |  |  |
+|  | H-17 (3697.157 +/- 50 A) |  |
+|  |  |  |
+| TDIM289 | (3) |  |
 | TDIM290 | (3) |  |
-| TDIM291 | (3) |  |
+|  |  |  |
+|  | Pa-7 (10049.4889 +/- 200 A) |  |
+|  |  |  |
+| TDIM295 | (3) |  |
 | TDIM296 | (3) |  |
-| TDIM297 | (3) |  |
+|  |  |  |
+|  | Pa-8 (9546.0808 +/- 200 A) |  |
+|  |  |  |
+| TDIM301 | (3) |  |
 | TDIM302 | (3) |  |
-| TDIM303 | (3) |  |
+|  |  |  |
+|  | Pa-9 (9229.12 +/- 200 A) |  |
+|  |  |  |
+| TDIM307 | (3) |  |
 | TDIM308 | (3) |  |
-| TDIM309 | (3) |  |
+|  |  |  |
+|  | Pa-10 (9014.909 +/- 200 A) |  |
+|  |  |  |
+| TDIM313 | (3) |  |
 | TDIM314 | (3) |  |
-| TDIM315 | (3) |  |
+|  |  |  |
+|  | Pa-11 (8862.782 +/- 200 A) |  |
+|  |  |  |
+| TDIM319 | (3) |  |
 | TDIM320 | (3) |  |
-| TDIM321 | (3) |  |
+|  |  |  |
+|  | Pa-12 (8750.472 +/- 200 A) |  |
+|  |  |  |
+| TDIM325 | (3) |  |
 | TDIM326 | (3) |  |
-| TDIM327 | (3) |  |
+|  |  |  |
+|  | Pa-13 (8665.019 +/- 200 A) |  |
+|  |  |  |
+| TDIM331 | (3) |  |
 | TDIM332 | (3) |  |
-| TDIM333 | (3) |  |
+|  |  |  |
+|  | Pa-14 (8598.392 +/- 200 A) |  |
+|  |  |  |
+| TDIM337 | (3) |  |
 | TDIM338 | (3) |  |
-| TDIM339 | (3) |  |
+|  |  |  |
+|  | Pa-15 (8545.383 +/- 200 A) |  |
+|  |  |  |
+| TDIM343 | (3) |  |
 | TDIM344 | (3) |  |
-| TDIM345 | (3) |  |
+|  |  |  |
+|  | Pa-16 (8502.483 +/- 200 A) |  |
+|  |  |  |
+| TDIM349 | (3) |  |
 | TDIM350 | (3) |  |
-| TDIM351 | (3) |  |
+|  |  |  |
+|  | Pa-17 (8467.254 +/- 200 A) |  |
+|  |  |  |
+| TDIM355 | (3) |  |
 | TDIM356 | (3) |  |
-| TDIM357 | (3) |  |
+|  |  |  |
+|  | Ca II (8662.14 +/- 50 A) |  |
+|  |  |  |
+| TDIM361 | (3) |  |
 | TDIM362 | (3) |  |
-| TDIM363 | (3) |  |
+|  |  |  |
+|  | Ca II (8542.089 +/- 50 A) |  |
+|  |  |  |
+| TDIM367 | (3) |  |
 | TDIM368 | (3) |  |
-| TDIM369 | (3) |  |
+|  |  |  |
+|  | Ca II (8498.018 +/- 50 A) |  |
+|  |  |  |
+| TDIM373 | (3) |  |
 | TDIM374 | (3) |  |
-| TDIM375 | (3) |  |
+|  |  |  |
+|  | Ca K (3933.6614 +/- 200 A) |  |
+|  |  |  |
+| TDIM379 | (3) |  |
 | TDIM380 | (3) |  |
-| TDIM381 | (3) |  |
+|  |  |  |
+|  | Ca H (3968.4673 +/- 200 A) |  |
+|  |  |  |
+| TDIM385 | (3) |  |
 | TDIM386 | (3) |  |
-| TDIM387 | (3) |  |
+|  |  |  |
+|  | He I (6678.151 +/- 50 A) |  |
+|  |  |  |
+| TDIM391 | (3) |  |
 | TDIM392 | (3) |  |
-| TDIM393 | (3) |  |
+|  |  |  |
+|  | He I (5875.621 +/- 50 A) |  |
+|  |  |  |
+| TDIM397 | (3) |  |
 | TDIM398 | (3) |  |
-| TDIM399 | (3) |  |
+|  |  |  |
+|  | He I (5015.678 +/- 50 A) |  |
+|  |  |  |
+| TDIM403 | (3) |  |
 | TDIM404 | (3) |  |
-| TDIM405 | (3) |  |
+|  |  |  |
+|  | He I (4471.479 +/- 50 A) |  |
+|  |  |  |
+| TDIM409 | (3) |  |
 | TDIM410 | (3) |  |
-| TDIM411 | (3) |  |
+|  |  |  |
+|  | He II (4685.7 +/- 50 A) |  |
+|  |  |  |
+| TDIM415 | (3) |  |
 | TDIM416 | (3) |  |
-| TDIM417 | (3) |  |
+|  |  |  |
+|  | N II (6583.45 +/- 50 A) |  |
+|  |  |  |
+| TDIM421 | (3) |  |
 | TDIM422 | (3) |  |
-| TDIM423 | (3) |  |
+|  |  |  |
+|  | N II (6548.05 +/- 50 A) |  |
+|  |  |  |
+| TDIM427 | (3) |  |
 | TDIM428 | (3) |  |
-| TDIM429 | (3) |  |
+|  |  |  |
+|  | S II (6716.44 +/- 50 A) |  |
+|  |  |  |
+| TDIM433 | (3) |  |
 | TDIM434 | (3) |  |
-| TDIM435 | (3) |  |
+|  |  |  |
+|  | S II (6730.816 +/- 50 A) |  |
+|  |  |  |
+| TDIM439 | (3) |  |
 | TDIM440 | (3) |  |
-| TDIM441 | (3) |  |
+|  |  |  |
+|  | Fe II (5018.434 +/- 50 A) |  |
+|  |  |  |
+| TDIM445 | (3) |  |
 | TDIM446 | (3) |  |
-| TDIM447 | (3) |  |
+|  |  |  |
+|  | Fe II (5169.03 +/- 50 A) |  |
+|  |  |  |
+| TDIM451 | (3) |  |
 | TDIM452 | (3) |  |
-| TDIM453 | (3) |  |
+|  |  |  |
+|  | Fe II (5197.577 +/- 50 A) |  |
+|  |  |  |
+| TDIM457 | (3) |  |
 | TDIM458 | (3) |  |
-| TDIM459 | (3) |  |
+|  |  |  |
+|  | Fe II (6432.68 +/- 50 A) |  |
+|  |  |  |
+| TDIM463 | (3) |  |
 | TDIM464 | (3) |  |
-| TDIM465 | (3) |  |
+|  |  |  |
+|  | O I (5577.339 +/- 50 A) |  |
+|  |  |  |
+| TDIM469 | (3) |  |
 | TDIM470 | (3) |  |
-| TDIM471 | (3) |  |
+|  |  |  |
+|  | O I (6300.304 +/- 50 A) |  |
+|  |  |  |
+| TDIM475 | (3) |  |
 | TDIM476 | (3) |  |
-| TDIM477 | (3) |  |
+|  |  |  |
+|  | O I (6363.777 +/- 50 A) |  |
+|  |  |  |
+| TDIM481 | (3) |  |
 | TDIM482 | (3) |  |
-| TDIM483 | (3) |  |
+|  |  |  |
+|  | O II (3727.42 +/- 50 A) |  |
+|  |  |  |
+| TDIM487 | (3) |  |
 | TDIM488 | (3) |  |
-| TDIM489 | (3) |  |
+|  |  |  |
+|  | O III (4958.911 +/- 50 A) |  |
+|  |  |  |
+| TDIM493 | (3) |  |
 | TDIM494 | (3) |  |
-| TDIM495 | (3) |  |
+|  |  |  |
+|  | O III (5006.843 +/- 50 A) |  |
+|  |  |  |
+| TDIM499 | (3) |  |
 | TDIM500 | (3) |  |
-| TDIM501 | (3) |  |
+|  |  |  |
+|  | O III (4363.85 +/- 50 A) |  |
+|  |  |  |
+| TDIM505 | (3) |  |
 | TDIM506 | (3) |  |
-| TDIM507 | (3) |  |
+|  |  |  |
+|  | Li I (6707.76 +/- 50 A) |  |
+|  |  |  |
+| TDIM511 | (3) |  |
 | TDIM512 | (3) |  |
-| TDIM513 | (3) |  |
-| CHECKSUM | OHZIQFYGOFYGOFYG | HDU checksum updated 2024-09-13T09:47:13 |
-| DATASUM | 1170881036 | data unit checksum updated 2024-09-13T09:47:13 |
+| TCOMM1 | SDSS-5 unique identifier |  |
+| TCOMM2 | SDSS-4 DR17 APOGEE identifier |  |
+| TCOMM3 | Gaia DR2 source identifier |  |
+| TCOMM4 | Gaia DR3 source identifier |  |
+| TCOMM5 | TESS Input Catalog (v8) identifier |  |
+| TCOMM6 | HEALPix (128 side) |  |
+| TCOMM7 | Lead catalog used for cross-match |  |
+| TCOMM8 | SDSS catalog version for targeting |  |
+| TCOMM9 | SDSS input catalog identifier |  |
+| TCOMM10 | Catalog identifier (v21; v0.0) |  |
+| TCOMM11 | Catalog identifier (v25; v0.5) |  |
+| TCOMM12 | Catalog identifier (v31; v1.0) |  |
+| TCOMM13 | SDSS_IDs associated with this CATALOGID |  |
+| TCOMM14 | Sources within 3" and G_MAG < G_MAG_source + 5 |  |
+| TCOMM15 | None |  |
+| TCOMM16 | SDSS-5 targeting flags |  |
+| TCOMM17 | SDSS4 APOGEE1 targeting flags (1/2) |  |
+| TCOMM18 | SDSS4 APOGEE1 targeting flags (2/2) |  |
+| TCOMM19 | SDSS4 APOGEE2 targeting flags (1/3) |  |
+| TCOMM20 | SDSS4 APOGEE2 targeting flags (2/3) |  |
+| TCOMM21 | SDSS4 APOGEE2 targeting flags (3/3) |  |
+| TCOMM22 | SDSS4 likely cluster/galaxy member flags |  |
+| TCOMM23 | SDSS4 target info (aka EXTRATARG) |  |
+| TCOMM24 | None |  |
+| TCOMM25 | Right ascension [deg] |  |
+| TCOMM26 | Declination [deg] |  |
+| TCOMM27 | Galactic longitude [deg] |  |
+| TCOMM28 | Galactic latitude [deg] |  |
+| TCOMM29 | Parallax [mas] |  |
+| TCOMM30 | Error on parallax [mas] |  |
+| TCOMM31 | Proper motion in RA [mas/yr] |  |
+| TCOMM32 | Error on proper motion in RA [mas/yr] |  |
+| TCOMM33 | Proper motion in DEC [mas/yr] |  |
+| TCOMM34 | Error on proper motion in DEC [mas/yr] |  |
+| TCOMM35 | Gaia radial velocity [km/s] |  |
+| TCOMM36 | Error on Gaia radial velocity [km/s] |  |
+| TCOMM37 | Gaia DR3 mean G band magnitude [mag] |  |
+| TCOMM38 | Gaia DR3 mean BP band magnitude [mag] |  |
+| TCOMM39 | Gaia DR3 mean RP band magnitude [mag] |  |
+| TCOMM40 | 2MASS J band magnitude [mag] |  |
+| TCOMM41 | Error on 2MASS J band magnitude [mag] |  |
+| TCOMM42 | 2MASS H band magnitude [mag] |  |
+| TCOMM43 | Error on 2MASS H band magnitude [mag] |  |
+| TCOMM44 | 2MASS K band magnitude [mag] |  |
+| TCOMM45 | Error on 2MASS K band magnitude [mag] |  |
+| TCOMM46 | 2MASS photometric quality flag |  |
+| TCOMM47 | Number of components fit per band (JHK) |  |
+| TCOMM48 | Contamination and confusion flag |  |
+| TCOMM49 | W1 magnitude |  |
+| TCOMM50 | Error on W1 magnitude |  |
+| TCOMM51 | W1 flux [Vega nMgy] |  |
+| TCOMM52 | Error on W1 flux [Vega nMgy] |  |
+| TCOMM53 | Fraction of W1 flux from this object |  |
+| TCOMM54 | W2 magnitude [Vega] |  |
+| TCOMM55 | Error on W2 magnitude |  |
+| TCOMM56 | W2 flux [Vega nMgy] |  |
+| TCOMM57 | Error on W2 flux [Vega nMgy] |  |
+| TCOMM58 | Fraction of W2 flux from this object |  |
+| TCOMM59 | unWISE flags for W1 |  |
+| TCOMM60 | unWISE flags for W2 |  |
+| TCOMM61 | Additional flags for W1 |  |
+| TCOMM62 | Additional flags for W2 |  |
+| TCOMM63 | IRAC band 4.5 micron magnitude [mag] |  |
+| TCOMM64 | Error on IRAC band 4.5 micron magnitude [mag] |  |
+| TCOMM65 | RMS deviations from final flux [mJy] |  |
+| TCOMM66 | Source quality flag for IRAC band 4.5 micron |  |
+| TCOMM67 | Flux calculation method flag |  |
+| TCOMM68 | Close source flag |  |
+| TCOMM69 | Stellar effective temperature [K] |  |
+| TCOMM70 | Error on stellar effective temperature [K] |  |
+| TCOMM71 | Surface gravity [log10(cm/s^2)] |  |
+| TCOMM72 | Error on surface gravity [log10(cm/s^2)] |  |
+| TCOMM73 | [Fe/H] [dex] |  |
+| TCOMM74 | Error on [Fe/H] [dex] |  |
+| TCOMM75 | Extinction [mag] |  |
+| TCOMM76 | Error on extinction [mag] |  |
+| TCOMM77 | Parallax [mas] (Gaia DR3) |  |
+| TCOMM78 | Error on parallax [mas] (Gaia DR3) |  |
+| TCOMM79 | Confidence estimate in TEFF |  |
+| TCOMM80 | Confidence estimate in LOGG |  |
+| TCOMM81 | Confidence estimate in FE_H |  |
+| TCOMM82 | Log prior probability |  |
+| TCOMM83 | Chi-square value |  |
+| TCOMM84 | Quality flags |  |
+| TCOMM85 | Median geometric distance [pc] |  |
+| TCOMM86 | 16th percentile of geometric distance [pc] |  |
+| TCOMM87 | 84th percentile of geometric distance [pc] |  |
+| TCOMM88 | 50th percentile of photogeometric distance [pc] |  |
+| TCOMM89 | 16th percentile of photogeometric distance [pc] |  |
+| TCOMM90 | 84th percentile of photogeometric distance [pc] |  |
+| TCOMM91 | Bailer-Jones quality flags |  |
+| TCOMM92 | E(B-V) [mag] |  |
+| TCOMM93 | Error on E(B-V) [mag] |  |
+| TCOMM94 | Flags indicating the source of E(B-V) |  |
+| TCOMM95 | E(B-V) from Zhang et al. (2023) [mag] |  |
+| TCOMM96 | Error on E(B-V) from Zhang et al. (2023) [mag] |  |
+| TCOMM97 | E(B-V) from SFD [mag] |  |
+| TCOMM98 | Error on E(B-V) from SFD [mag] |  |
+| TCOMM99 | E(B-V) from RJCE GLIMPSE [mag] |  |
+| TCOMM100 | Error on RJCE GLIMPSE E(B-V) [mag] |  |
+| TCOMM101 | E(B-V) from RJCE AllWISE [mag] |  |
+| TCOMM102 | Error on RJCE AllWISE E(B-V)[mag] |  |
+| TCOMM103 | E(B-V) from Bayestar 2019 [mag] |  |
+| TCOMM104 | Error on Bayestar 2019 E(B-V) [mag] |  |
+| TCOMM105 | E(B-V) from Edenhofer et al. (2023) [mag] |  |
+| TCOMM106 | Error on Edenhofer et al. (2023) E(B-V) [mag] |  |
+| TCOMM107 | Quality parameter (see Riello et al. 2021) |  |
+| TCOMM108 | Gaia XP synthetic U-band (JKC) [mag] |  |
+| TCOMM109 | U-band (JKC) is within valid range |  |
+| TCOMM110 | Gaia XP synthetic B-band (JKC) [mag] |  |
+| TCOMM111 | B-band (JKC) is within valid range |  |
+| TCOMM112 | Gaia XP synthetic V-band (JKC) [mag] |  |
+| TCOMM113 | V-band (JKC) is within valid range |  |
+| TCOMM114 | Gaia XP synthetic R-band (JKC) [mag] |  |
+| TCOMM115 | R-band (JKC) is within valid range |  |
+| TCOMM116 | Gaia XP synthetic I-band (JKC) [mag] |  |
+| TCOMM117 | I-band (JKC) is within valid range |  |
+| TCOMM118 | Gaia XP synthetic u-band (SDSS) [mag] |  |
+| TCOMM119 | u-band (SDSS) is within valid range |  |
+| TCOMM120 | Gaia XP synthetic g-band (SDSS) [mag] |  |
+| TCOMM121 | g-band (SDSS) is within valid range |  |
+| TCOMM122 | Gaia XP synthetic r-band (SDSS) [mag] |  |
+| TCOMM123 | r-band (SDSS) is within valid range |  |
+| TCOMM124 | Gaia XP synthetic i-band (SDSS) [mag] |  |
+| TCOMM125 | i-band (SDSS) is within valid range |  |
+| TCOMM126 | Gaia XP synthetic z-band (SDSS) [mag] |  |
+| TCOMM127 | z-band (SDSS) is within valid range |  |
+| TCOMM128 | Gaia XP synthetic Y-band (PS1) [mag] |  |
+| TCOMM129 | Y-band (PS1) is within valid range |  |
+| TCOMM130 | Number of BOSS visits |  |
+| TCOMM131 | Minimum MJD of BOSS visits |  |
+| TCOMM132 | Maximum MJD of BOSS visits |  |
+| TCOMM133 | Number of APOGEE visits |  |
+| TCOMM134 | Minimum MJD of APOGEE visits |  |
+| TCOMM135 | Maximum MJD of APOGEE visits |  |
+| TCOMM136 | Datetime when task record was created |  |
+| TCOMM137 | None |  |
+| TCOMM138 | None |  |
+| TCOMM139 | None |  |
+| TCOMM140 | SDSS release |  |
+| TCOMM141 | SDSS file type that stores this spectrum |  |
+| TCOMM142 | BOSS data reduction pipeline version |  |
+| TCOMM143 | Modified Julian date of observation |  |
+| TCOMM144 | Field identifier |  |
+| TCOMM145 | BOSS specFull basename |  |
+| TCOMM146 | Number of co-added exposures |  |
+| TCOMM147 | Exposure time [s] |  |
+| TCOMM148 | Plate identifier |  |
+| TCOMM149 | Cartridge identifier |  |
+| TCOMM150 | Mapping version of the loaded plate |  |
+| TCOMM151 | Slit identifier |  |
+| TCOMM152 | Order of PSF sky subtraction |  |
+| TCOMM153 | Profile area rejection threshold |  |
+| TCOMM154 | Number of (good) standard stars |  |
+| TCOMM155 | Number of (good) galaxies in field |  |
+| TCOMM156 | Extraction: low rejection |  |
+| TCOMM157 | Extraction: high rejection |  |
+| TCOMM158 | Extraction: Order of scattered light polynomial |  |
+| TCOMM159 | Extraction profile: 1=Gaussian |  |
+| TCOMM160 | Extraction: Number of profile parameters |  |
+| TCOMM161 | Mean chi^2 of sky subtraction |  |
+| TCOMM162 | Minimum chi^2 of sky subtraction |  |
+| TCOMM163 | Maximum chi^2 of sky subtraction |  |
+| TCOMM164 | Telescope altitude [deg] |  |
+| TCOMM165 | Telescope azimuth [deg] |  |
+| TCOMM166 | Short telescope name |  |
+| TCOMM167 | Median seeing conditions [arcsecond] |  |
+| TCOMM168 | Mean airmass |  |
+| TCOMM169 | Air temperature [C] |  |
+| TCOMM170 | Dew point temperature [C] |  |
+| TCOMM171 | Humidity [%] |  |
+| TCOMM172 | Air pressure [millibar] |  |
+| TCOMM173 | 0.3mu-sized dust count [particles m^-3 s^-1] |  |
+| TCOMM174 | 1.0mu-sized dust count [particles m^-3 s^-1] |  |
+| TCOMM175 | Wind gust direction [deg] |  |
+| TCOMM176 | Wind gust speed [km/s] |  |
+| TCOMM177 | Wind direction [deg] |  |
+| TCOMM178 | Wind speed [km/s] |  |
+| TCOMM179 | Mean sky distance to the moon [deg] |  |
+| TCOMM180 | Mean phase of the moon |  |
+| TCOMM181 | Number of guider frames during integration |  |
+| TCOMM182 | MJD (TAI) at start of integrations [s] |  |
+| TCOMM183 | MJD (TAI) at end of integrations [s] |  |
+| TCOMM184 | Position offset applied during observations |  |
+| TCOMM185 | Mid obs time as fraction from sunset to sunrise |  |
+| TCOMM186 | Offset in right ascension [arcsecond] |  |
+| TCOMM187 | Offset in declination [arcsecond] |  |
+| TCOMM188 | Signal-to-noise ratio |  |
+| TCOMM189 | Flags for provenance of ugriz photometry |  |
+| TCOMM190 | BOSS DRP warning flags |  |
+| TCOMM191 | Barycentric rest frame radial velocity [km/s] |  |
+| TCOMM192 | Error on radial velocity [km/s] |  |
+| TCOMM193 | Effective temperature [K] |  |
+| TCOMM194 | Error on effective temperature [K] |  |
+| TCOMM195 | Surface gravity [dex] |  |
+| TCOMM196 | Error on surface gravity [dex] |  |
+| TCOMM197 | Iron abundance [dex] |  |
+| TCOMM198 | Error on iron abundance [dex] |  |
+| TCOMM199 | Cross-correlation R-value (1979AJ.....84.1511T) |  |
+| TCOMM200 | Task model primary key |  |
+| TCOMM201 | Equivalent width of H-alpha [A] |  |
+| TCOMM202 | None |  |
+| TCOMM203 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM204 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM205 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM206 | None |  |
+| TCOMM207 | Equivalent width of H-beta [A] |  |
+| TCOMM208 | None |  |
+| TCOMM209 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM210 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM211 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM212 | None |  |
+| TCOMM213 | Equivalent width of H-gamma [A] |  |
+| TCOMM214 | None |  |
+| TCOMM215 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM216 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM217 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM218 | None |  |
+| TCOMM219 | Equivalent width of H-delta [A] |  |
+| TCOMM220 | None |  |
+| TCOMM221 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM222 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM223 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM224 | None |  |
+| TCOMM225 | Equivalent width of H-epsilon [A] |  |
+| TCOMM226 | None |  |
+| TCOMM227 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM228 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM229 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM230 | None |  |
+| TCOMM231 | Equivalent width of H-8 [A] |  |
+| TCOMM232 | None |  |
+| TCOMM233 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM234 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM235 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM236 | None |  |
+| TCOMM237 | Equivalent width of H-9 [A] |  |
+| TCOMM238 | None |  |
+| TCOMM239 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM240 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM241 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM242 | None |  |
+| TCOMM243 | Equivalent width of H-10 [A] |  |
+| TCOMM244 | None |  |
+| TCOMM245 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM246 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM247 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM248 | None |  |
+| TCOMM249 | Equivalent width of H-11 [A] |  |
+| TCOMM250 | None |  |
+| TCOMM251 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM252 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM253 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM254 | None |  |
+| TCOMM255 | Equivalent width of H-12 [A] |  |
+| TCOMM256 | None |  |
+| TCOMM257 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM258 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM259 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM260 | None |  |
+| TCOMM261 | Equivalent width of H-13 [A] |  |
+| TCOMM262 | None |  |
+| TCOMM263 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM264 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM265 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM266 | None |  |
+| TCOMM267 | Equivalent width of H-14 [A] |  |
+| TCOMM268 | None |  |
+| TCOMM269 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM270 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM271 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM272 | None |  |
+| TCOMM273 | Equivalent width of H-15 [A] |  |
+| TCOMM274 | None |  |
+| TCOMM275 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM276 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM277 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM278 | None |  |
+| TCOMM279 | Equivalent width of H-16 [A] |  |
+| TCOMM280 | None |  |
+| TCOMM281 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM282 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM283 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM284 | None |  |
+| TCOMM285 | Equivalent width of H-17 [A] |  |
+| TCOMM286 | None |  |
+| TCOMM287 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM288 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM289 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM290 | None |  |
+| TCOMM291 | Equivalent width of Pa-7 [A] |  |
+| TCOMM292 | None |  |
+| TCOMM293 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM294 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM295 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM296 | None |  |
+| TCOMM297 | Equivalent width of Pa-8 [A] |  |
+| TCOMM298 | None |  |
+| TCOMM299 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM300 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM301 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM302 | None |  |
+| TCOMM303 | Equivalent width of Pa-9 [A] |  |
+| TCOMM304 | None |  |
+| TCOMM305 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM306 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM307 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM308 | None |  |
+| TCOMM309 | Equivalent width of Pa-10 [A] |  |
+| TCOMM310 | None |  |
+| TCOMM311 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM312 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM313 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM314 | None |  |
+| TCOMM315 | Equivalent width of Pa-11 [A] |  |
+| TCOMM316 | None |  |
+| TCOMM317 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM318 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM319 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM320 | None |  |
+| TCOMM321 | Equivalent width of Pa-12 [A] |  |
+| TCOMM322 | None |  |
+| TCOMM323 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM324 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM325 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM326 | None |  |
+| TCOMM327 | Equivalent width of Pa-13 [A] |  |
+| TCOMM328 | None |  |
+| TCOMM329 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM330 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM331 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM332 | None |  |
+| TCOMM333 | Equivalent width of Pa-14 [A] |  |
+| TCOMM334 | None |  |
+| TCOMM335 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM336 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM337 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM338 | None |  |
+| TCOMM339 | Equivalent width of Pa-15 [A] |  |
+| TCOMM340 | None |  |
+| TCOMM341 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM342 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM343 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM344 | None |  |
+| TCOMM345 | Equivalent width of Pa-16 [A] |  |
+| TCOMM346 | None |  |
+| TCOMM347 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM348 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM349 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM350 | None |  |
+| TCOMM351 | Equivalent width of Pa-17 [A] |  |
+| TCOMM352 | None |  |
+| TCOMM353 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM354 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM355 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM356 | None |  |
+| TCOMM357 | Equivalent width of Ca II at 8662 A [A] |  |
+| TCOMM358 | None |  |
+| TCOMM359 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM360 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM361 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM362 | None |  |
+| TCOMM363 | Equivalent width of Ca II at 8542 A [A] |  |
+| TCOMM364 | None |  |
+| TCOMM365 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM366 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM367 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM368 | None |  |
+| TCOMM369 | Equivalent width of Ca II at 8498 A [A] |  |
+| TCOMM370 | None |  |
+| TCOMM371 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM372 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM373 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM374 | None |  |
+| TCOMM375 | Equivalent width of Ca K at 3933 A [A] |  |
+| TCOMM376 | None |  |
+| TCOMM377 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM378 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM379 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM380 | None |  |
+| TCOMM381 | Equivalent width of Ca H at 3968 A [A] |  |
+| TCOMM382 | None |  |
+| TCOMM383 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM384 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM385 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM386 | None |  |
+| TCOMM387 | Equivalent width of He I at 6678 A [A] |  |
+| TCOMM388 | None |  |
+| TCOMM389 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM390 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM391 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM392 | None |  |
+| TCOMM393 | Equivalent width of He I at 5875 A [A] |  |
+| TCOMM394 | None |  |
+| TCOMM395 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM396 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM397 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM398 | None |  |
+| TCOMM399 | Equivalent width of He I at 5015 A [A] |  |
+| TCOMM400 | None |  |
+| TCOMM401 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM402 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM403 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM404 | None |  |
+| TCOMM405 | Equivalent width of He I at 4471 A [A] |  |
+| TCOMM406 | None |  |
+| TCOMM407 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM408 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM409 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM410 | None |  |
+| TCOMM411 | Equivalent width of He II at 4685 A [A] |  |
+| TCOMM412 | None |  |
+| TCOMM413 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM414 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM415 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM416 | None |  |
+| TCOMM417 | Equivalent width of N II at 6583 A [A] |  |
+| TCOMM418 | None |  |
+| TCOMM419 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM420 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM421 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM422 | None |  |
+| TCOMM423 | Equivalent width of N II at 6548 A [A] |  |
+| TCOMM424 | None |  |
+| TCOMM425 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM426 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM427 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM428 | None |  |
+| TCOMM429 | Equivalent width of S II at 6716 A [A] |  |
+| TCOMM430 | None |  |
+| TCOMM431 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM432 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM433 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM434 | None |  |
+| TCOMM435 | Equivalent width of S II at 6730 A [A] |  |
+| TCOMM436 | None |  |
+| TCOMM437 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM438 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM439 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM440 | None |  |
+| TCOMM441 | Equivalent width of Fe II at 5018 A [A] |  |
+| TCOMM442 | None |  |
+| TCOMM443 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM444 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM445 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM446 | None |  |
+| TCOMM447 | Equivalent width of Fe II at 5169 A [A] |  |
+| TCOMM448 | None |  |
+| TCOMM449 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM450 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM451 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM452 | None |  |
+| TCOMM453 | Equivalent width of Fe II at 5197 A [A] |  |
+| TCOMM454 | None |  |
+| TCOMM455 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM456 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM457 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM458 | None |  |
+| TCOMM459 | Equivalent width of Fe II at 6432 A [A] |  |
+| TCOMM460 | None |  |
+| TCOMM461 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM462 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM463 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM464 | None |  |
+| TCOMM465 | Equivalent width of O I at 5577 A[A] |  |
+| TCOMM466 | None |  |
+| TCOMM467 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM468 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM469 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM470 | None |  |
+| TCOMM471 | Equivalent width of O I at 6300 A [A] |  |
+| TCOMM472 | None |  |
+| TCOMM473 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM474 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM475 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM476 | None |  |
+| TCOMM477 | Equivalent width of O I at 6363 A[A] |  |
+| TCOMM478 | None |  |
+| TCOMM479 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM480 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM481 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM482 | None |  |
+| TCOMM483 | Equivalent width of O II at 3727 A [A] |  |
+| TCOMM484 | None |  |
+| TCOMM485 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM486 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM487 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM488 | None |  |
+| TCOMM489 | Equivalent width of O III at 4959 A [A] |  |
+| TCOMM490 | None |  |
+| TCOMM491 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM492 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM493 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM494 | None |  |
+| TCOMM495 | Equivalent width of O III at 5006 A [A] |  |
+| TCOMM496 | None |  |
+| TCOMM497 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM498 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM499 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM500 | None |  |
+| TCOMM501 | Equivalent width of O III at 4363 A [A] |  |
+| TCOMM502 | None |  |
+| TCOMM503 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM504 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM505 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM506 | None |  |
+| TCOMM507 | Equivalent width of Li I at 6707 A [A] |  |
+| TCOMM508 | None |  |
+| TCOMM509 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM510 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM511 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM512 | None |  |
+| TCOMM513 | None |  |
+| TCOMM514 | Astra version |  |
+| TCOMM515 | Core-time elapsed on this analysis [s] |  |
+| TCOMM516 | Estimated core-time spent in overhads [s] |  |
+| TCOMM517 | Experiment tag for this result |  |
+|  |  |  |
+|  | DATA INTEGRITY |  |
+|  |  |  |
+| CHECKSUM | 4GI06EF04EF04EF0 | HDU checksum updated 2026-02-12T06:06:06 |
+| DATASUM | 2904684548 | data unit checksum updated 2026-02-12T06:06:06 |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
@@ -214,7 +967,7 @@ Name | Type | Unit | Description |
  | gaia_dr3_source_id | int64 |  | Gaia DR3 source identifier |
  | tic_v8_id | int64 |  | TESS Input Catalog (v8) identifier |
  | healpix | int32 |  | HEALPix (128 side) |
- | lead | char[17] |  | Lead catalog used for cross-match |
+ | lead | char[26] |  | Lead catalog used for cross-match |
  | version_id | int32 |  | SDSS catalog version for targeting |
  | catalogid | int64 |  | Catalog identifier used to target the source |
  | catalogid21 | int64 |  | Catalog identifier (v21; v0.0) |
@@ -222,7 +975,8 @@ Name | Type | Unit | Description |
  | catalogid31 | int64 |  | Catalog identifier (v31; v1.0) |
  | n_associated | int32 |  | SDSS_IDs associated with this CATALOGID |
  | n_neighborhood | int32 |  | Sources within 3" and G_MAG < G_MAG_source + 5 |
- | sdss5_target_flags | bool[57] |  | SDSS-5 targeting flags |
+ | crossmatch_flags | int64 |  | Astra internal crossmatch flag system |
+ | sdss5_target_flags | bool[71] |  | SDSS-5 targeting flags |
  | sdss4_apogee_target1_flags | int64 |  | SDSS4 APOGEE1 targeting flags (1/2) |
  | sdss4_apogee_target2_flags | int64 |  | SDSS4 APOGEE1 targeting flags (2/2) |
  | sdss4_apogee2_target1_flags | int64 |  | SDSS4 APOGEE2 targeting flags (1/3) |
@@ -230,6 +984,7 @@ Name | Type | Unit | Description |
  | sdss4_apogee2_target3_flags | int64 |  | SDSS4 APOGEE2 targeting flags (3/3) |
  | sdss4_apogee_member_flags | int64 |  | SDSS4 likely cluster/galaxy member flags |
  | sdss4_apogee_extra_target_flags | int64 |  | SDSS4 target info (aka EXTRATARG) |
+ | sdss5_dr19_apogee_flag | bool |  | If entry has APOGEE spectrum in DR19 |
  | ra | float32 | deg | Right ascension  |
  | dec | float32 | deg | Declination  |
  | l | float32 | deg | Galactic longitude  |
@@ -341,6 +1096,8 @@ Name | Type | Unit | Description |
  | n_apogee_visits | int32 |  | Number of APOGEE visits |
  | apogee_min_mjd | int32 |  | Minimum MJD of APOGEE visits |
  | apogee_max_mjd | int32 |  | Maximum MJD of APOGEE visits |
+ | created | char[26] |  | Datetime when task record was created |
+ | modified | char[26] |  | Datetime when task record was modified |
  | spectrum_pk | int64 |  | Unique spectrum primary key |
  | source | int64 |  | Unique source primary key |
  | release | char[5] |  | SDSS release |
@@ -348,6 +1105,7 @@ Name | Type | Unit | Description |
  | run2d | char[6] |  | BOSS data reduction pipeline version |
  | mjd | int32 |  | Modified Julian date of observation |
  | fieldid | int32 |  | Field identifier |
+ | spec_file | char[41] |  | BOSS specFull basename |
  | n_exp | int32 |  | Number of co-added exposures |
  | exptime | float32 | s | Exposure time  |
  | plateid | int32 |  | Plate identifier |
@@ -403,12 +1161,6 @@ Name | Type | Unit | Description |
  | xcsao_e_fe_h | float32 | dex | Error on [Fe/H]  |
  | xcsao_rxc | float32 |  | Cross-correlation R-value (1979AJ.....84.1511T) |
  | task_pk | int64 |  | Task model primary key |
- | source_pk | int64 |  |  |
- | v_astra | char[5] |  | Astra version |
- | created | char[26] |  | Datetime when task record was created |
- | t_elapsed | float32 | s | Core-time elapsed on this analysis  |
- | t_overhead | float32 | s | Estimated core-time spent in overhads  |
- | tag | char[1] |  | Experiment tag for this result |
  | eqw_h_alpha | float32 | A | Equivalent width of H-alpha  |
  | abs_h_alpha | float32 |  |  |
  | detection_stat_h_alpha | float32 |  | Detection probability (+1: absorption; 0: u |
@@ -721,6 +1473,11 @@ Name | Type | Unit | Description |
  | detection_raw_li_i | float32 |  | Probability that feature is not noise (0: noise |
  | eqw_percentiles_li_i | float32[3] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_li_i | float32[3] |  |  |
+ | source_pk | int64 |  |  |
+ | v_astra | int32 |  | Astra version |
+ | t_elapsed | float32 | s | Core-time elapsed on this analysis  |
+ | t_overhead | float32 | s | Estimated core-time spent in overhads  |
+ | tag | char[1] |  | Experiment tag for this result |
 
 
 
@@ -736,125 +1493,849 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 1709 | length of dimension 1 |
+| NAXIS1 | 1747 | length of dimension 1 |
 | NAXIS2 | 0 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 502 | number of table fields |
+| TFIELDS | 505 | number of table fields |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | INSTRMNT | APOGEE | Instrument |
 | PIPELINE | LineForest | Pipeline name |
-| V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-09-13 15:47:13 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| TDIM15 | (1) |  |
+| V_ASTRA | 0.8.1 | Astra version |
+| CREATED | 26-02-12 13:07:18 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Targeting Provenance |  |
+|  |  |  |
+| TDIM16 | (1) |  |
+|  |  |  |
+|  | Astrometry |  |
+|  |  |  |
+|  |  |  |
+|  | Gaia Photometry |  |
+|  |  |  |
+|  |  |  |
+|  | 2MASS Photometry |  |
+|  |  |  |
 | COMMENT | See https://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html |  |
+|  |  |  |
+|  | unWISE Photometry |  |
+|  |  |  |
 | COMMENT | See https://catalog.unwise.me/catalogs.html |  |
+|  |  |  |
+|  | GLIMPSE Photometry |  |
+|  |  |  |
 | COMMENT | See https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/gator_docs/ |  |
-| TDIM195 | (0) |  |
-| TDIM196 | (0) |  |
-| TDIM201 | (0) |  |
-| TDIM202 | (0) |  |
-| TDIM207 | (0) |  |
-| TDIM208 | (0) |  |
-| TDIM213 | (0) |  |
-| TDIM214 | (0) |  |
-| TDIM219 | (0) |  |
-| TDIM220 | (0) |  |
-| TDIM225 | (0) |  |
-| TDIM226 | (0) |  |
-| TDIM231 | (0) |  |
-| TDIM232 | (0) |  |
-| TDIM237 | (0) |  |
-| TDIM238 | (0) |  |
-| TDIM243 | (0) |  |
-| TDIM244 | (0) |  |
-| TDIM249 | (0) |  |
-| TDIM250 | (0) |  |
-| TDIM255 | (0) |  |
-| TDIM256 | (0) |  |
-| TDIM261 | (0) |  |
-| TDIM262 | (0) |  |
-| TDIM267 | (0) |  |
-| TDIM268 | (0) |  |
-| TDIM273 | (0) |  |
-| TDIM274 | (0) |  |
-| TDIM279 | (0) |  |
-| TDIM280 | (0) |  |
-| TDIM285 | (0) |  |
-| TDIM286 | (0) |  |
-| TDIM291 | (0) |  |
-| TDIM292 | (0) |  |
-| TDIM297 | (0) |  |
-| TDIM298 | (0) |  |
-| TDIM303 | (0) |  |
-| TDIM304 | (0) |  |
-| TDIM309 | (0) |  |
-| TDIM310 | (0) |  |
-| TDIM315 | (0) |  |
-| TDIM316 | (0) |  |
-| TDIM321 | (0) |  |
-| TDIM322 | (0) |  |
-| TDIM327 | (0) |  |
-| TDIM328 | (0) |  |
-| TDIM333 | (0) |  |
-| TDIM334 | (0) |  |
-| TDIM339 | (0) |  |
-| TDIM340 | (0) |  |
-| TDIM345 | (0) |  |
-| TDIM346 | (0) |  |
-| TDIM351 | (0) |  |
-| TDIM352 | (0) |  |
-| TDIM357 | (0) |  |
-| TDIM358 | (0) |  |
-| TDIM363 | (0) |  |
-| TDIM364 | (0) |  |
-| TDIM369 | (0) |  |
-| TDIM370 | (0) |  |
-| TDIM375 | (0) |  |
-| TDIM376 | (0) |  |
-| TDIM381 | (0) |  |
-| TDIM382 | (0) |  |
-| TDIM387 | (0) |  |
-| TDIM388 | (0) |  |
-| TDIM393 | (0) |  |
-| TDIM394 | (0) |  |
-| TDIM399 | (0) |  |
-| TDIM400 | (0) |  |
-| TDIM405 | (0) |  |
-| TDIM406 | (0) |  |
-| TDIM411 | (0) |  |
-| TDIM412 | (0) |  |
-| TDIM417 | (0) |  |
-| TDIM418 | (0) |  |
-| TDIM423 | (0) |  |
-| TDIM424 | (0) |  |
-| TDIM429 | (0) |  |
-| TDIM430 | (0) |  |
-| TDIM435 | (0) |  |
-| TDIM436 | (0) |  |
-| TDIM441 | (0) |  |
-| TDIM442 | (0) |  |
-| TDIM447 | (0) |  |
-| TDIM448 | (0) |  |
-| TDIM453 | (0) |  |
-| TDIM454 | (0) |  |
-| TDIM459 | (0) |  |
-| TDIM460 | (0) |  |
-| TDIM465 | (0) |  |
-| TDIM466 | (0) |  |
-| TDIM471 | (0) |  |
-| TDIM472 | (0) |  |
-| TDIM477 | (0) |  |
-| TDIM478 | (0) |  |
-| TDIM483 | (0) |  |
-| TDIM484 | (0) |  |
-| TDIM489 | (0) |  |
-| TDIM490 | (0) |  |
-| TDIM495 | (0) |  |
-| TDIM496 | (0) |  |
-| TDIM501 | (0) |  |
-| TDIM502 | (0) |  |
-| CHECKSUM | ZomfdlmZZlmdblmZ | HDU checksum updated 2024-09-13T09:47:21 |
-| DATASUM | 0 | data unit checksum updated 2024-09-13T09:47:21 |
+|  |  |  |
+|  | Gaia XP Stellar Parameters (Zhang, Green & Rix 2023) |  |
+|  |  |  |
+|  |  |  |
+|  | Bailer-Jones Distance Estimates (EDR3; 2021) |  |
+|  |  |  |
+|  |  |  |
+|  | Reddening |  |
+|  |  |  |
+|  |  |  |
+|  | Synthetic Photometry from Gaia XP Spectra |  |
+|  |  |  |
+|  |  |  |
+|  | Observations Summary |  |
+|  |  |  |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Observing Conditions |  |
+|  |  |  |
+|  |  |  |
+|  | Telescope Pointing |  |
+|  |  |  |
+|  |  |  |
+|  | Statistics and Spectrum Quality |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (Doppler) |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (X-Correlation) |  |
+|  |  |  |
+|  |  |  |
+|  | H-alpha (6562.8 +/- 200A) |  |
+|  |  |  |
+| TDIM193 | (0) |  |
+| TDIM194 | (0) |  |
+|  |  |  |
+|  | H-beta (4861.3 +/- 200 A) |  |
+|  |  |  |
+| TDIM199 | (0) |  |
+| TDIM200 | (0) |  |
+|  |  |  |
+|  | H-gamma (4340.5 +/- 200 A) |  |
+|  |  |  |
+| TDIM205 | (0) |  |
+| TDIM206 | (0) |  |
+|  |  |  |
+|  | H-delta (4101.7 +/- 200 A) |  |
+|  |  |  |
+| TDIM211 | (0) |  |
+| TDIM212 | (0) |  |
+|  |  |  |
+|  | H-epsilon (3970.1 +/- 200 A) |  |
+|  |  |  |
+| TDIM217 | (0) |  |
+| TDIM218 | (0) |  |
+|  |  |  |
+|  | H-8 (3889.064 +/- 200 A) |  |
+|  |  |  |
+| TDIM223 | (0) |  |
+| TDIM224 | (0) |  |
+|  |  |  |
+|  | H-9 (3835.391 +/- 200 A) |  |
+|  |  |  |
+| TDIM229 | (0) |  |
+| TDIM230 | (0) |  |
+|  |  |  |
+|  | H-10 (3797.904 +/- 200 A) |  |
+|  |  |  |
+| TDIM235 | (0) |  |
+| TDIM236 | (0) |  |
+|  |  |  |
+|  | H-11 (3770.637 +/- 200 A) |  |
+|  |  |  |
+| TDIM241 | (0) |  |
+| TDIM242 | (0) |  |
+|  |  |  |
+|  | H-12 (3750.158 +/- 50 A) |  |
+|  |  |  |
+| TDIM247 | (0) |  |
+| TDIM248 | (0) |  |
+|  |  |  |
+|  | H-13 (3734.369 +/- 50 A) |  |
+|  |  |  |
+| TDIM253 | (0) |  |
+| TDIM254 | (0) |  |
+|  |  |  |
+|  | H-14 (3721.945 +/- 50 A) |  |
+|  |  |  |
+| TDIM259 | (0) |  |
+| TDIM260 | (0) |  |
+|  |  |  |
+|  | H-15 (3711.977 +/- 50 A) |  |
+|  |  |  |
+| TDIM265 | (0) |  |
+| TDIM266 | (0) |  |
+|  |  |  |
+|  | H-16 (3703.859 +/- 50 A) |  |
+|  |  |  |
+| TDIM271 | (0) |  |
+| TDIM272 | (0) |  |
+|  |  |  |
+|  | H-17 (3697.157 +/- 50 A) |  |
+|  |  |  |
+| TDIM277 | (0) |  |
+| TDIM278 | (0) |  |
+|  |  |  |
+|  | Pa-7 (10049.4889 +/- 200 A) |  |
+|  |  |  |
+| TDIM283 | (0) |  |
+| TDIM284 | (0) |  |
+|  |  |  |
+|  | Pa-8 (9546.0808 +/- 200 A) |  |
+|  |  |  |
+| TDIM289 | (0) |  |
+| TDIM290 | (0) |  |
+|  |  |  |
+|  | Pa-9 (9229.12 +/- 200 A) |  |
+|  |  |  |
+| TDIM295 | (0) |  |
+| TDIM296 | (0) |  |
+|  |  |  |
+|  | Pa-10 (9014.909 +/- 200 A) |  |
+|  |  |  |
+| TDIM301 | (0) |  |
+| TDIM302 | (0) |  |
+|  |  |  |
+|  | Pa-11 (8862.782 +/- 200 A) |  |
+|  |  |  |
+| TDIM307 | (0) |  |
+| TDIM308 | (0) |  |
+|  |  |  |
+|  | Pa-12 (8750.472 +/- 200 A) |  |
+|  |  |  |
+| TDIM313 | (0) |  |
+| TDIM314 | (0) |  |
+|  |  |  |
+|  | Pa-13 (8665.019 +/- 200 A) |  |
+|  |  |  |
+| TDIM319 | (0) |  |
+| TDIM320 | (0) |  |
+|  |  |  |
+|  | Pa-14 (8598.392 +/- 200 A) |  |
+|  |  |  |
+| TDIM325 | (0) |  |
+| TDIM326 | (0) |  |
+|  |  |  |
+|  | Pa-15 (8545.383 +/- 200 A) |  |
+|  |  |  |
+| TDIM331 | (0) |  |
+| TDIM332 | (0) |  |
+|  |  |  |
+|  | Pa-16 (8502.483 +/- 200 A) |  |
+|  |  |  |
+| TDIM337 | (0) |  |
+| TDIM338 | (0) |  |
+|  |  |  |
+|  | Pa-17 (8467.254 +/- 200 A) |  |
+|  |  |  |
+| TDIM343 | (0) |  |
+| TDIM344 | (0) |  |
+|  |  |  |
+|  | Ca II (8662.14 +/- 50 A) |  |
+|  |  |  |
+| TDIM349 | (0) |  |
+| TDIM350 | (0) |  |
+|  |  |  |
+|  | Ca II (8542.089 +/- 50 A) |  |
+|  |  |  |
+| TDIM355 | (0) |  |
+| TDIM356 | (0) |  |
+|  |  |  |
+|  | Ca II (8498.018 +/- 50 A) |  |
+|  |  |  |
+| TDIM361 | (0) |  |
+| TDIM362 | (0) |  |
+|  |  |  |
+|  | Ca K (3933.6614 +/- 200 A) |  |
+|  |  |  |
+| TDIM367 | (0) |  |
+| TDIM368 | (0) |  |
+|  |  |  |
+|  | Ca H (3968.4673 +/- 200 A) |  |
+|  |  |  |
+| TDIM373 | (0) |  |
+| TDIM374 | (0) |  |
+|  |  |  |
+|  | He I (6678.151 +/- 50 A) |  |
+|  |  |  |
+| TDIM379 | (0) |  |
+| TDIM380 | (0) |  |
+|  |  |  |
+|  | He I (5875.621 +/- 50 A) |  |
+|  |  |  |
+| TDIM385 | (0) |  |
+| TDIM386 | (0) |  |
+|  |  |  |
+|  | He I (5015.678 +/- 50 A) |  |
+|  |  |  |
+| TDIM391 | (0) |  |
+| TDIM392 | (0) |  |
+|  |  |  |
+|  | He I (4471.479 +/- 50 A) |  |
+|  |  |  |
+| TDIM397 | (0) |  |
+| TDIM398 | (0) |  |
+|  |  |  |
+|  | He II (4685.7 +/- 50 A) |  |
+|  |  |  |
+| TDIM403 | (0) |  |
+| TDIM404 | (0) |  |
+|  |  |  |
+|  | N II (6583.45 +/- 50 A) |  |
+|  |  |  |
+| TDIM409 | (0) |  |
+| TDIM410 | (0) |  |
+|  |  |  |
+|  | N II (6548.05 +/- 50 A) |  |
+|  |  |  |
+| TDIM415 | (0) |  |
+| TDIM416 | (0) |  |
+|  |  |  |
+|  | S II (6716.44 +/- 50 A) |  |
+|  |  |  |
+| TDIM421 | (0) |  |
+| TDIM422 | (0) |  |
+|  |  |  |
+|  | S II (6730.816 +/- 50 A) |  |
+|  |  |  |
+| TDIM427 | (0) |  |
+| TDIM428 | (0) |  |
+|  |  |  |
+|  | Fe II (5018.434 +/- 50 A) |  |
+|  |  |  |
+| TDIM433 | (0) |  |
+| TDIM434 | (0) |  |
+|  |  |  |
+|  | Fe II (5169.03 +/- 50 A) |  |
+|  |  |  |
+| TDIM439 | (0) |  |
+| TDIM440 | (0) |  |
+|  |  |  |
+|  | Fe II (5197.577 +/- 50 A) |  |
+|  |  |  |
+| TDIM445 | (0) |  |
+| TDIM446 | (0) |  |
+|  |  |  |
+|  | Fe II (6432.68 +/- 50 A) |  |
+|  |  |  |
+| TDIM451 | (0) |  |
+| TDIM452 | (0) |  |
+|  |  |  |
+|  | O I (5577.339 +/- 50 A) |  |
+|  |  |  |
+| TDIM457 | (0) |  |
+| TDIM458 | (0) |  |
+|  |  |  |
+|  | O I (6300.304 +/- 50 A) |  |
+|  |  |  |
+| TDIM463 | (0) |  |
+| TDIM464 | (0) |  |
+|  |  |  |
+|  | O I (6363.777 +/- 50 A) |  |
+|  |  |  |
+| TDIM469 | (0) |  |
+| TDIM470 | (0) |  |
+|  |  |  |
+|  | O II (3727.42 +/- 50 A) |  |
+|  |  |  |
+| TDIM475 | (0) |  |
+| TDIM476 | (0) |  |
+|  |  |  |
+|  | O III (4958.911 +/- 50 A) |  |
+|  |  |  |
+| TDIM481 | (0) |  |
+| TDIM482 | (0) |  |
+|  |  |  |
+|  | O III (5006.843 +/- 50 A) |  |
+|  |  |  |
+| TDIM487 | (0) |  |
+| TDIM488 | (0) |  |
+|  |  |  |
+|  | O III (4363.85 +/- 50 A) |  |
+|  |  |  |
+| TDIM493 | (0) |  |
+| TDIM494 | (0) |  |
+|  |  |  |
+|  | Li I (6707.76 +/- 50 A) |  |
+|  |  |  |
+| TDIM499 | (0) |  |
+| TDIM500 | (0) |  |
+| TCOMM1 | SDSS-5 unique identifier |  |
+| TCOMM2 | SDSS-4 DR17 APOGEE identifier |  |
+| TCOMM3 | Gaia DR2 source identifier |  |
+| TCOMM4 | Gaia DR3 source identifier |  |
+| TCOMM5 | TESS Input Catalog (v8) identifier |  |
+| TCOMM6 | HEALPix (128 side) |  |
+| TCOMM7 | Lead catalog used for cross-match |  |
+| TCOMM8 | SDSS catalog version for targeting |  |
+| TCOMM9 | SDSS input catalog identifier |  |
+| TCOMM10 | Catalog identifier (v21; v0.0) |  |
+| TCOMM11 | Catalog identifier (v25; v0.5) |  |
+| TCOMM12 | Catalog identifier (v31; v1.0) |  |
+| TCOMM13 | SDSS_IDs associated with this CATALOGID |  |
+| TCOMM14 | Sources within 3" and G_MAG < G_MAG_source + 5 |  |
+| TCOMM15 | None |  |
+| TCOMM16 | SDSS-5 targeting flags |  |
+| TCOMM17 | SDSS4 APOGEE1 targeting flags (1/2) |  |
+| TCOMM18 | SDSS4 APOGEE1 targeting flags (2/2) |  |
+| TCOMM19 | SDSS4 APOGEE2 targeting flags (1/3) |  |
+| TCOMM20 | SDSS4 APOGEE2 targeting flags (2/3) |  |
+| TCOMM21 | SDSS4 APOGEE2 targeting flags (3/3) |  |
+| TCOMM22 | SDSS4 likely cluster/galaxy member flags |  |
+| TCOMM23 | SDSS4 target info (aka EXTRATARG) |  |
+| TCOMM24 | None |  |
+| TCOMM25 | Right ascension [deg] |  |
+| TCOMM26 | Declination [deg] |  |
+| TCOMM27 | Galactic longitude [deg] |  |
+| TCOMM28 | Galactic latitude [deg] |  |
+| TCOMM29 | Parallax [mas] |  |
+| TCOMM30 | Error on parallax [mas] |  |
+| TCOMM31 | Proper motion in RA [mas/yr] |  |
+| TCOMM32 | Error on proper motion in RA [mas/yr] |  |
+| TCOMM33 | Proper motion in DEC [mas/yr] |  |
+| TCOMM34 | Error on proper motion in DEC [mas/yr] |  |
+| TCOMM35 | Gaia radial velocity [km/s] |  |
+| TCOMM36 | Error on Gaia radial velocity [km/s] |  |
+| TCOMM37 | Gaia DR3 mean G band magnitude [mag] |  |
+| TCOMM38 | Gaia DR3 mean BP band magnitude [mag] |  |
+| TCOMM39 | Gaia DR3 mean RP band magnitude [mag] |  |
+| TCOMM40 | 2MASS J band magnitude [mag] |  |
+| TCOMM41 | Error on 2MASS J band magnitude [mag] |  |
+| TCOMM42 | 2MASS H band magnitude [mag] |  |
+| TCOMM43 | Error on 2MASS H band magnitude [mag] |  |
+| TCOMM44 | 2MASS K band magnitude [mag] |  |
+| TCOMM45 | Error on 2MASS K band magnitude [mag] |  |
+| TCOMM46 | 2MASS photometric quality flag |  |
+| TCOMM47 | Number of components fit per band (JHK) |  |
+| TCOMM48 | Contamination and confusion flag |  |
+| TCOMM49 | W1 magnitude |  |
+| TCOMM50 | Error on W1 magnitude |  |
+| TCOMM51 | W1 flux [Vega nMgy] |  |
+| TCOMM52 | Error on W1 flux [Vega nMgy] |  |
+| TCOMM53 | Fraction of W1 flux from this object |  |
+| TCOMM54 | W2 magnitude [Vega] |  |
+| TCOMM55 | Error on W2 magnitude |  |
+| TCOMM56 | W2 flux [Vega nMgy] |  |
+| TCOMM57 | Error on W2 flux [Vega nMgy] |  |
+| TCOMM58 | Fraction of W2 flux from this object |  |
+| TCOMM59 | unWISE flags for W1 |  |
+| TCOMM60 | unWISE flags for W2 |  |
+| TCOMM61 | Additional flags for W1 |  |
+| TCOMM62 | Additional flags for W2 |  |
+| TCOMM63 | IRAC band 4.5 micron magnitude [mag] |  |
+| TCOMM64 | Error on IRAC band 4.5 micron magnitude [mag] |  |
+| TCOMM65 | RMS deviations from final flux [mJy] |  |
+| TCOMM66 | Source quality flag for IRAC band 4.5 micron |  |
+| TCOMM67 | Flux calculation method flag |  |
+| TCOMM68 | Close source flag |  |
+| TCOMM69 | Stellar effective temperature [K] |  |
+| TCOMM70 | Error on stellar effective temperature [K] |  |
+| TCOMM71 | Surface gravity [log10(cm/s^2)] |  |
+| TCOMM72 | Error on surface gravity [log10(cm/s^2)] |  |
+| TCOMM73 | [Fe/H] [dex] |  |
+| TCOMM74 | Error on [Fe/H] [dex] |  |
+| TCOMM75 | Extinction [mag] |  |
+| TCOMM76 | Error on extinction [mag] |  |
+| TCOMM77 | Parallax [mas] (Gaia DR3) |  |
+| TCOMM78 | Error on parallax [mas] (Gaia DR3) |  |
+| TCOMM79 | Confidence estimate in TEFF |  |
+| TCOMM80 | Confidence estimate in LOGG |  |
+| TCOMM81 | Confidence estimate in FE_H |  |
+| TCOMM82 | Log prior probability |  |
+| TCOMM83 | Chi-square value |  |
+| TCOMM84 | Quality flags |  |
+| TCOMM85 | Median geometric distance [pc] |  |
+| TCOMM86 | 16th percentile of geometric distance [pc] |  |
+| TCOMM87 | 84th percentile of geometric distance [pc] |  |
+| TCOMM88 | 50th percentile of photogeometric distance [pc] |  |
+| TCOMM89 | 16th percentile of photogeometric distance [pc] |  |
+| TCOMM90 | 84th percentile of photogeometric distance [pc] |  |
+| TCOMM91 | Bailer-Jones quality flags |  |
+| TCOMM92 | E(B-V) [mag] |  |
+| TCOMM93 | Error on E(B-V) [mag] |  |
+| TCOMM94 | Flags indicating the source of E(B-V) |  |
+| TCOMM95 | E(B-V) from Zhang et al. (2023) [mag] |  |
+| TCOMM96 | Error on E(B-V) from Zhang et al. (2023) [mag] |  |
+| TCOMM97 | E(B-V) from SFD [mag] |  |
+| TCOMM98 | Error on E(B-V) from SFD [mag] |  |
+| TCOMM99 | E(B-V) from RJCE GLIMPSE [mag] |  |
+| TCOMM100 | Error on RJCE GLIMPSE E(B-V) [mag] |  |
+| TCOMM101 | E(B-V) from RJCE AllWISE [mag] |  |
+| TCOMM102 | Error on RJCE AllWISE E(B-V)[mag] |  |
+| TCOMM103 | E(B-V) from Bayestar 2019 [mag] |  |
+| TCOMM104 | Error on Bayestar 2019 E(B-V) [mag] |  |
+| TCOMM105 | E(B-V) from Edenhofer et al. (2023) [mag] |  |
+| TCOMM106 | Error on Edenhofer et al. (2023) E(B-V) [mag] |  |
+| TCOMM107 | Quality parameter (see Riello et al. 2021) |  |
+| TCOMM108 | Gaia XP synthetic U-band (JKC) [mag] |  |
+| TCOMM109 | U-band (JKC) is within valid range |  |
+| TCOMM110 | Gaia XP synthetic B-band (JKC) [mag] |  |
+| TCOMM111 | B-band (JKC) is within valid range |  |
+| TCOMM112 | Gaia XP synthetic V-band (JKC) [mag] |  |
+| TCOMM113 | V-band (JKC) is within valid range |  |
+| TCOMM114 | Gaia XP synthetic R-band (JKC) [mag] |  |
+| TCOMM115 | R-band (JKC) is within valid range |  |
+| TCOMM116 | Gaia XP synthetic I-band (JKC) [mag] |  |
+| TCOMM117 | I-band (JKC) is within valid range |  |
+| TCOMM118 | Gaia XP synthetic u-band (SDSS) [mag] |  |
+| TCOMM119 | u-band (SDSS) is within valid range |  |
+| TCOMM120 | Gaia XP synthetic g-band (SDSS) [mag] |  |
+| TCOMM121 | g-band (SDSS) is within valid range |  |
+| TCOMM122 | Gaia XP synthetic r-band (SDSS) [mag] |  |
+| TCOMM123 | r-band (SDSS) is within valid range |  |
+| TCOMM124 | Gaia XP synthetic i-band (SDSS) [mag] |  |
+| TCOMM125 | i-band (SDSS) is within valid range |  |
+| TCOMM126 | Gaia XP synthetic z-band (SDSS) [mag] |  |
+| TCOMM127 | z-band (SDSS) is within valid range |  |
+| TCOMM128 | Gaia XP synthetic Y-band (PS1) [mag] |  |
+| TCOMM129 | Y-band (PS1) is within valid range |  |
+| TCOMM130 | Number of BOSS visits |  |
+| TCOMM131 | Minimum MJD of BOSS visits |  |
+| TCOMM132 | Maximum MJD of BOSS visits |  |
+| TCOMM133 | Number of APOGEE visits |  |
+| TCOMM134 | Minimum MJD of APOGEE visits |  |
+| TCOMM135 | Maximum MJD of APOGEE visits |  |
+| TCOMM136 | Datetime when task record was created |  |
+| TCOMM137 | None |  |
+| TCOMM138 | None |  |
+| TCOMM139 | None |  |
+| TCOMM140 | APOGEE DRP `star` primary key |  |
+| TCOMM141 | APOGEE DRP `visit` primary key |  |
+| TCOMM142 | APOGEE DRP `rv_visit` primary key |  |
+| TCOMM143 | SDSS release |  |
+| TCOMM144 | SDSS file type that stores this spectrum |  |
+| TCOMM145 | APOGEE reduction pipeline |  |
+| TCOMM146 | Plate identifier |  |
+| TCOMM147 | Short telescope name |  |
+| TCOMM148 | Fiber number |  |
+| TCOMM149 | Modified Julian date of observation |  |
+| TCOMM150 | Field identifier |  |
+| TCOMM151 | Prefix used to separate SDSS 4 north/south |  |
+| TCOMM152 | An `obj`-like keyword used for apo1m spectra |  |
+| TCOMM153 | Object name |  |
+| TCOMM154 | Observation date (UTC) |  |
+| TCOMM155 | Julian date at mid-point of visit |  |
+| TCOMM156 | Exposure time [s] |  |
+| TCOMM157 | Fraction of visits that were dithered |  |
+| TCOMM158 | Mid obs time as fraction from sunset to sunrise |  |
+| TCOMM159 | Input right ascension [deg] |  |
+| TCOMM160 | Input declination [deg] |  |
+| TCOMM161 | Number of frames combined |  |
+| TCOMM162 | FPS target assigned |  |
+| TCOMM163 | FPS fiber on target |  |
+| TCOMM164 | Valid FPS target |  |
+| TCOMM165 | Fibre positioner used to acquire this data? |  |
+| TCOMM166 | Signal-to-noise ratio |  |
+| TCOMM167 | Data reduction pipeline flags for this spectrum |  |
+| TCOMM168 | Barycentric rest frame radial velocity [km/s] |  |
+| TCOMM169 | Relative velocity [km/s] |  |
+| TCOMM170 | Error on relative velocity [km/s] |  |
+| TCOMM171 | Barycentric velocity correction applied [km/s] |  |
+| TCOMM172 | Stellar effective temperature [K] |  |
+| TCOMM173 | Error on stellar effective temperature [K] |  |
+| TCOMM174 | Surface gravity [log10(cm/s^2)] |  |
+| TCOMM175 | Error on surface gravity [log10(cm/s^2)] |  |
+| TCOMM176 | [Fe/H] [dex] |  |
+| TCOMM177 | Error on [Fe/H] [dex] |  |
+| TCOMM178 | Reduced chi-square value of DOPPLER fit |  |
+| TCOMM179 | DOPPLER flags |  |
+| TCOMM180 | Barycentric rest frame radial velocity [km/s] |  |
+| TCOMM181 | Relative velocity [km/s] |  |
+| TCOMM182 | Error on relative velocity [km/s] |  |
+| TCOMM183 | Cross-correlation function FWHM |  |
+| TCOMM184 | Auto-correlation function FWHM |  |
+| TCOMM185 | Number of components in CCF |  |
+| TCOMM186 | None |  |
+| TCOMM187 | Unused DR17 apStar keyword (default: stars) |  |
+| TCOMM188 | Task model primary key |  |
+| TCOMM189 | Equivalent width of H-alpha [A] |  |
+| TCOMM190 | None |  |
+| TCOMM191 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM192 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM193 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM194 | None |  |
+| TCOMM195 | Equivalent width of H-beta [A] |  |
+| TCOMM196 | None |  |
+| TCOMM197 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM198 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM199 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM200 | None |  |
+| TCOMM201 | Equivalent width of H-gamma [A] |  |
+| TCOMM202 | None |  |
+| TCOMM203 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM204 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM205 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM206 | None |  |
+| TCOMM207 | Equivalent width of H-delta [A] |  |
+| TCOMM208 | None |  |
+| TCOMM209 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM210 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM211 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM212 | None |  |
+| TCOMM213 | Equivalent width of H-epsilon [A] |  |
+| TCOMM214 | None |  |
+| TCOMM215 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM216 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM217 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM218 | None |  |
+| TCOMM219 | Equivalent width of H-8 [A] |  |
+| TCOMM220 | None |  |
+| TCOMM221 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM222 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM223 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM224 | None |  |
+| TCOMM225 | Equivalent width of H-9 [A] |  |
+| TCOMM226 | None |  |
+| TCOMM227 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM228 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM229 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM230 | None |  |
+| TCOMM231 | Equivalent width of H-10 [A] |  |
+| TCOMM232 | None |  |
+| TCOMM233 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM234 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM235 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM236 | None |  |
+| TCOMM237 | Equivalent width of H-11 [A] |  |
+| TCOMM238 | None |  |
+| TCOMM239 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM240 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM241 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM242 | None |  |
+| TCOMM243 | Equivalent width of H-12 [A] |  |
+| TCOMM244 | None |  |
+| TCOMM245 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM246 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM247 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM248 | None |  |
+| TCOMM249 | Equivalent width of H-13 [A] |  |
+| TCOMM250 | None |  |
+| TCOMM251 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM252 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM253 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM254 | None |  |
+| TCOMM255 | Equivalent width of H-14 [A] |  |
+| TCOMM256 | None |  |
+| TCOMM257 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM258 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM259 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM260 | None |  |
+| TCOMM261 | Equivalent width of H-15 [A] |  |
+| TCOMM262 | None |  |
+| TCOMM263 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM264 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM265 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM266 | None |  |
+| TCOMM267 | Equivalent width of H-16 [A] |  |
+| TCOMM268 | None |  |
+| TCOMM269 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM270 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM271 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM272 | None |  |
+| TCOMM273 | Equivalent width of H-17 [A] |  |
+| TCOMM274 | None |  |
+| TCOMM275 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM276 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM277 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM278 | None |  |
+| TCOMM279 | Equivalent width of Pa-7 [A] |  |
+| TCOMM280 | None |  |
+| TCOMM281 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM282 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM283 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM284 | None |  |
+| TCOMM285 | Equivalent width of Pa-8 [A] |  |
+| TCOMM286 | None |  |
+| TCOMM287 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM288 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM289 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM290 | None |  |
+| TCOMM291 | Equivalent width of Pa-9 [A] |  |
+| TCOMM292 | None |  |
+| TCOMM293 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM294 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM295 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM296 | None |  |
+| TCOMM297 | Equivalent width of Pa-10 [A] |  |
+| TCOMM298 | None |  |
+| TCOMM299 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM300 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM301 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM302 | None |  |
+| TCOMM303 | Equivalent width of Pa-11 [A] |  |
+| TCOMM304 | None |  |
+| TCOMM305 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM306 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM307 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM308 | None |  |
+| TCOMM309 | Equivalent width of Pa-12 [A] |  |
+| TCOMM310 | None |  |
+| TCOMM311 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM312 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM313 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM314 | None |  |
+| TCOMM315 | Equivalent width of Pa-13 [A] |  |
+| TCOMM316 | None |  |
+| TCOMM317 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM318 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM319 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM320 | None |  |
+| TCOMM321 | Equivalent width of Pa-14 [A] |  |
+| TCOMM322 | None |  |
+| TCOMM323 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM324 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM325 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM326 | None |  |
+| TCOMM327 | Equivalent width of Pa-15 [A] |  |
+| TCOMM328 | None |  |
+| TCOMM329 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM330 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM331 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM332 | None |  |
+| TCOMM333 | Equivalent width of Pa-16 [A] |  |
+| TCOMM334 | None |  |
+| TCOMM335 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM336 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM337 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM338 | None |  |
+| TCOMM339 | Equivalent width of Pa-17 [A] |  |
+| TCOMM340 | None |  |
+| TCOMM341 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM342 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM343 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM344 | None |  |
+| TCOMM345 | Equivalent width of Ca II at 8662 A [A] |  |
+| TCOMM346 | None |  |
+| TCOMM347 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM348 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM349 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM350 | None |  |
+| TCOMM351 | Equivalent width of Ca II at 8542 A [A] |  |
+| TCOMM352 | None |  |
+| TCOMM353 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM354 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM355 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM356 | None |  |
+| TCOMM357 | Equivalent width of Ca II at 8498 A [A] |  |
+| TCOMM358 | None |  |
+| TCOMM359 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM360 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM361 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM362 | None |  |
+| TCOMM363 | Equivalent width of Ca K at 3933 A [A] |  |
+| TCOMM364 | None |  |
+| TCOMM365 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM366 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM367 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM368 | None |  |
+| TCOMM369 | Equivalent width of Ca H at 3968 A [A] |  |
+| TCOMM370 | None |  |
+| TCOMM371 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM372 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM373 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM374 | None |  |
+| TCOMM375 | Equivalent width of He I at 6678 A [A] |  |
+| TCOMM376 | None |  |
+| TCOMM377 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM378 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM379 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM380 | None |  |
+| TCOMM381 | Equivalent width of He I at 5875 A [A] |  |
+| TCOMM382 | None |  |
+| TCOMM383 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM384 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM385 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM386 | None |  |
+| TCOMM387 | Equivalent width of He I at 5015 A [A] |  |
+| TCOMM388 | None |  |
+| TCOMM389 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM390 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM391 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM392 | None |  |
+| TCOMM393 | Equivalent width of He I at 4471 A [A] |  |
+| TCOMM394 | None |  |
+| TCOMM395 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM396 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM397 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM398 | None |  |
+| TCOMM399 | Equivalent width of He II at 4685 A [A] |  |
+| TCOMM400 | None |  |
+| TCOMM401 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM402 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM403 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM404 | None |  |
+| TCOMM405 | Equivalent width of N II at 6583 A [A] |  |
+| TCOMM406 | None |  |
+| TCOMM407 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM408 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM409 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM410 | None |  |
+| TCOMM411 | Equivalent width of N II at 6548 A [A] |  |
+| TCOMM412 | None |  |
+| TCOMM413 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM414 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM415 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM416 | None |  |
+| TCOMM417 | Equivalent width of S II at 6716 A [A] |  |
+| TCOMM418 | None |  |
+| TCOMM419 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM420 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM421 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM422 | None |  |
+| TCOMM423 | Equivalent width of S II at 6730 A [A] |  |
+| TCOMM424 | None |  |
+| TCOMM425 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM426 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM427 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM428 | None |  |
+| TCOMM429 | Equivalent width of Fe II at 5018 A [A] |  |
+| TCOMM430 | None |  |
+| TCOMM431 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM432 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM433 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM434 | None |  |
+| TCOMM435 | Equivalent width of Fe II at 5169 A [A] |  |
+| TCOMM436 | None |  |
+| TCOMM437 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM438 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM439 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM440 | None |  |
+| TCOMM441 | Equivalent width of Fe II at 5197 A [A] |  |
+| TCOMM442 | None |  |
+| TCOMM443 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM444 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM445 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM446 | None |  |
+| TCOMM447 | Equivalent width of Fe II at 6432 A [A] |  |
+| TCOMM448 | None |  |
+| TCOMM449 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM450 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM451 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM452 | None |  |
+| TCOMM453 | Equivalent width of O I at 5577 A[A] |  |
+| TCOMM454 | None |  |
+| TCOMM455 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM456 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM457 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM458 | None |  |
+| TCOMM459 | Equivalent width of O I at 6300 A [A] |  |
+| TCOMM460 | None |  |
+| TCOMM461 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM462 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM463 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM464 | None |  |
+| TCOMM465 | Equivalent width of O I at 6363 A[A] |  |
+| TCOMM466 | None |  |
+| TCOMM467 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM468 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM469 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM470 | None |  |
+| TCOMM471 | Equivalent width of O II at 3727 A [A] |  |
+| TCOMM472 | None |  |
+| TCOMM473 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM474 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM475 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM476 | None |  |
+| TCOMM477 | Equivalent width of O III at 4959 A [A] |  |
+| TCOMM478 | None |  |
+| TCOMM479 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM480 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM481 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM482 | None |  |
+| TCOMM483 | Equivalent width of O III at 5006 A [A] |  |
+| TCOMM484 | None |  |
+| TCOMM485 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM486 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM487 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM488 | None |  |
+| TCOMM489 | Equivalent width of O III at 4363 A [A] |  |
+| TCOMM490 | None |  |
+| TCOMM491 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM492 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM493 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM494 | None |  |
+| TCOMM495 | Equivalent width of Li I at 6707 A [A] |  |
+| TCOMM496 | None |  |
+| TCOMM497 | Detection probability (+1: absorption; 0: undetected; -1: emission) |  |
+| TCOMM498 | Probability that feature is not noise (0: noise, 1: confident) |  |
+| TCOMM499 | (16, 50, 84)th percentiles of EW [mA] |  |
+| TCOMM500 | None |  |
+| TCOMM501 | None |  |
+| TCOMM502 | Astra version |  |
+| TCOMM503 | Core-time elapsed on this analysis [s] |  |
+| TCOMM504 | Estimated core-time spent in overhads [s] |  |
+| TCOMM505 | Experiment tag for this result |  |
+|  |  |  |
+|  | DATA INTEGRITY |  |
+|  |  |  |
+| CHECKSUM | 9FdHHEZF9EbFGEZF | HDU checksum updated 2026-02-12T06:07:19 |
+| DATASUM | 0 | data unit checksum updated 2026-02-12T06:07:19 |
 
 ##### Binary Table Caption for HDU2
 Name | Type | Unit | Description |
@@ -873,6 +2354,7 @@ Name | Type | Unit | Description |
  | catalogid31 | int64 |  | Catalog identifier (v31; v1.0) |
  | n_associated | int32 |  | SDSS_IDs associated with this CATALOGID |
  | n_neighborhood | int32 |  | Sources within 3" and G_MAG < G_MAG_source + 5 |
+ | crossmatch_flags | int64 |  | Astra internal crossmatch flag system |
  | sdss5_target_flags | bool[1] |  | SDSS-5 targeting flags |
  | sdss4_apogee_target1_flags | int64 |  | SDSS4 APOGEE1 targeting flags (1/2) |
  | sdss4_apogee_target2_flags | int64 |  | SDSS4 APOGEE1 targeting flags (2/2) |
@@ -881,6 +2363,7 @@ Name | Type | Unit | Description |
  | sdss4_apogee2_target3_flags | int64 |  | SDSS4 APOGEE2 targeting flags (3/3) |
  | sdss4_apogee_member_flags | int64 |  | SDSS4 likely cluster/galaxy member flags |
  | sdss4_apogee_extra_target_flags | int64 |  | SDSS4 target info (aka EXTRATARG) |
+ | sdss5_dr19_apogee_flag | bool |  | If entry has APOGEE spectrum in DR19 |
  | ra | float32 | deg | Right ascension  |
  | dec | float32 | deg | Declination  |
  | l | float32 | deg | Galactic longitude  |
@@ -992,6 +2475,8 @@ Name | Type | Unit | Description |
  | n_apogee_visits | int32 |  | Number of APOGEE visits |
  | apogee_min_mjd | int32 |  | Minimum MJD of APOGEE visits |
  | apogee_max_mjd | int32 |  | Maximum MJD of APOGEE visits |
+ | created | char[26] |  | Datetime when task record was created |
+ | modified | char[26] |  | Datetime when task record was modified |
  | spectrum_pk | int64 |  | Unique spectrum primary key |
  | source | int64 |  | Unique source primary key |
  | star_pk | int64 |  | APOGEE DRP `star` primary key |
@@ -1043,12 +2528,6 @@ Name | Type | Unit | Description |
  | drp_spectrum_pk | int64 |  | Data Reduction Pipeline spectrum primary key |
  | apstar | char[1] |  | Unused DR17 apStar keyword (default: stars) |
  | task_pk | int64 |  | Task model primary key |
- | source_pk | int64 |  |  |
- | v_astra | char[1] |  | Astra version |
- | created | char[26] |  | Datetime when task record was created |
- | t_elapsed | float32 | s | Core-time elapsed on this analysis  |
- | t_overhead | float32 | s | Estimated core-time spent in overhads  |
- | tag | char[1] |  | Experiment tag for this result |
  | eqw_h_alpha | float32 | A | Equivalent width of H-alpha  |
  | abs_h_alpha | float32 |  |  |
  | detection_stat_h_alpha | float32 |  | Detection probability (+1: absorption; 0: u |
@@ -1361,6 +2840,11 @@ Name | Type | Unit | Description |
  | detection_raw_li_i | float32 |  | Probability that feature is not noise (0: noise |
  | eqw_percentiles_li_i | float32[0] | mA | (16, 50, 84)th percentiles of EW  |
  | abs_percentiles_li_i | float32[0] |  |  |
+ | source_pk | int64 |  |  |
+ | v_astra | int32 |  | Astra version |
+ | t_elapsed | float32 | s | Core-time elapsed on this analysis  |
+ | t_overhead | float32 | s | Estimated core-time spent in overhads  |
+ | tag | char[1] |  | Experiment tag for this result |
 
 
 

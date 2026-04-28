@@ -13,13 +13,13 @@ Results and best-fit models from the ASPCAP astra pipeline for a single star
 ---
 
 ## Basic Information
-Results and best-fit models from the ASPCAP astra pipeline for a single star The ASPCAP flag bitmaps are documented at https://www.sdss.org/dr17/irspec/apogee-bitmasks#ParamBitMask
+Results and best-fit models from the ASPCAP astra pipeline for a single star The ASPCAP flag bitmaps are documented at https://www.sdss.org/dr17/irspec/apogee-bitmasks#ParamBitMask, and the weights used when computing each abundance are documented at https://data.sdss5.org/sas/sdssrelease, work/mwm/spectro/astra/component_data/aspcap/masks/
 
 ### Naming Convention
 $MWM_ASTRA/0.6.0/results/star/49/97/astraStarASPCAP-0.6.0-70344997.fits
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MWM_ASTRA
@@ -36,7 +36,10 @@ astra
 ### Is a VAC
 False
 
-### HDUS List for release DR19
+### Data Level
+2.2.0
+
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: BOSS/APO](#hdu1-boss/apo)
   - [HDU2: BOSS/LCO](#hdu2-boss/lco)
@@ -47,6 +50,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - primary_delta_nkeys: 33
 
 ---
 ## Example HDUS List
@@ -64,62 +70,86 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 0 | number of array dimensions |
 | EXTEND | True |  |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-07-17 17:04:33 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| SDSS_ID | 70344997 | SDSS-5 unique identifier |
-| APOGEEID | 2M00361914+0037303 | SDSS-4 DR17 APOGEE identifier |
-| GAIA2_ID | 2544018810002779136 | Gaia DR2 source identifier |
-| GAIA3_ID | 2544018810002779136 | Gaia DR3 source identifier |
-| TIC_ID | 272144868 | TESS Input Catalog (v8) identifier |
-| HEALPIX | 97036 | HEALPix (128 side) |
+| CREATED | 24-08-23 01:15:34 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+| SDSS_ID | 103020000 | SDSS-5 unique identifier |
+| APOGEEID | 2M12283021-6635525 | SDSS-4 DR17 APOGEE identifier |
+| GAIA2_ID | 5860080419780127104 | Gaia DR2 source identifier |
+| GAIA3_ID | 5860080419780127104 | Gaia DR3 source identifier |
+| TIC_ID | 287113985 | TESS Input Catalog (v8) identifier |
+| HEALPIX | 188421 | HEALPix (128 side) |
+|  |  |  |
+|  | Targeting Provenance |  |
+|  |  |  |
 | LEAD | gaia_dr3_source | Lead catalog used for cross-match |
 | VER_ID | 31 | SDSS catalog version for targeting |
-| CAT_ID | 63050395066921866 | Catalog identifier used to target the source |
-| CAT_ID21 | 4399282489 | Catalog identifier (v21; v0.0) |
-| CAT_ID25 | 27021597957655575 | Catalog identifier (v25; v0.5) |
-| CAT_ID31 | 63050395066921866 | Catalog identifier (v31; v1.0) |
+| CAT_ID | 63050396092955182 | Catalog identifier used to target the source |
+| CAT_ID21 | 5696405012 | Catalog identifier (v21; v0.0) |
+| CAT_ID25 | 27021599252394686 | Catalog identifier (v25; v0.5) |
+| CAT_ID31 | 63050396092955182 | Catalog identifier (v31; v1.0) |
 | N_ASSOC | 1 | SDSS_IDs associated with this CATALOGID |
 | N_NEIGH | 0 | Sources within 3" and G_MAG < G_MAG_source + 5 |
-| RA | 9.079748 | Right ascension [deg] |
-| DEC | 0.62509763 | Declination [deg] |
-| L | 114.85803196249127 | Galactic longitude [deg] |
-| B | -62.009408364213265 | Galactic latitude [deg] |
-| PLX | 1.9833634 | Parallax [mas] |
-| E_PLX | 0.01948644 | Error on parallax [mas] |
-| PMRA | -7.0884256 | Proper motion in RA [mas/yr] |
-| E_PMRA | 0.026043937 | Error on proper motion in RA [mas/yr] |
-| PMDE | -2.0468135 | Proper motion in DEC [mas/yr] |
-| E_PMDE | 0.015218849 | Error on proper motion in DEC [mas/yr] |
-| V_RAD | -2.5247457 | Gaia radial velocity [km/s] |
-| E_V_RAD | 1.5929866 | Error on Gaia radial velocity [km/s] |
-| G_MAG | 12.635382 | Gaia DR3 mean G band magnitude [mag] |
-| BP_MAG | 12.920135 | Gaia DR3 mean BP band magnitude [mag] |
-| RP_MAG | 12.193551 | Gaia DR3 mean RP band magnitude [mag] |
-| J_MAG | 11.732 | 2MASS J band magnitude [mag] |
-| E_J_MAG | 0.019 | Error on 2MASS J band magnitude [mag] |
-| H_MAG | 11.419 | 2MASS H band magnitude [mag] |
-| E_H_MAG | 0.02 | Error on 2MASS H band magnitude [mag] |
-| K_MAG | 11.38 | 2MASS K band magnitude [mag] |
-| E_K_MAG | 0.021 | Error on 2MASS K band magnitude [mag] |
+|  |  |  |
+|  | Astrometry |  |
+|  |  |  |
+| RA | 187.12584 | Right ascension [deg] |
+| DEC | -66.59794 | Declination [deg] |
+| L | 300.652748900112 | Galactic longitude [deg] |
+| B | -3.8277382984462562 | Galactic latitude [deg] |
+| PLX | 0.11437972 | Parallax [mas] |
+| E_PLX | 0.014047999 | Error on parallax [mas] |
+| PMRA | -5.4344354 | Proper motion in RA [mas/yr] |
+| E_PMRA | 0.013754413 | Error on proper motion in RA [mas/yr] |
+| PMDE | -0.81458503 | Proper motion in DEC [mas/yr] |
+| E_PMDE | 0.0150277065 | Error on proper motion in DEC [mas/yr] |
+| V_RAD | -12.226325 | Gaia radial velocity [km/s] |
+| E_V_RAD | 1.1914438 | Error on Gaia radial velocity [km/s] |
+|  |  |  |
+|  | Gaia Photometry |  |
+|  |  |  |
+| G_MAG | 13.685833 | Gaia DR3 mean G band magnitude [mag] |
+| BP_MAG | 14.812113 | Gaia DR3 mean BP band magnitude [mag] |
+| RP_MAG | 12.64375 | Gaia DR3 mean RP band magnitude [mag] |
+|  |  |  |
+|  | 2MASS Photometry |  |
+|  |  |  |
+| J_MAG | 11.01 | 2MASS J band magnitude [mag] |
+| E_J_MAG | 0.029 | Error on 2MASS J band magnitude [mag] |
+| H_MAG | 10.107 | 2MASS H band magnitude [mag] |
+| E_H_MAG | 0.026 | Error on 2MASS H band magnitude [mag] |
+| K_MAG | 9.835 | 2MASS K band magnitude [mag] |
+| E_K_MAG | 0.022 | Error on 2MASS K band magnitude [mag] |
 | PH_QUAL | AAA | 2MASS photometric quality flag |
 | BL_FLG | 111 | Number of components fit per band (JHK) |
 | CC_FLG | 000 | Contamination and confusion flag |
 | COMMENT | See https://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html |  |
-| W1_MAG | 11.368026077752223 | W1 magnitude |
-| E_W1_MAG | 0.001092398884808726 | Error on W1 magnitude |
-| W1_FLUX | 28261.133 | W1 flux [Vega nMgy] |
-| W1_DFLUX | 28.434559 | Error on W1 flux [Vega nMgy] |
-| W1_FRAC | 0.99991393 | Fraction of W1 flux from this object |
-| W2_MAG | 11.389488454778427 | W2 magnitude [Vega] |
-| E_W2_MAG | 0.002548079794842186 | Error on W2 magnitude |
-| W2_FLUX | 27002.54 | W2 flux [Vega nMgy] |
-| W2_DFLUX | 63.371403 | Error on W2 flux [Vega nMgy] |
-| W2_FRAC | 0.99990124 | Fraction of W2 flux from this object |
+|  |  |  |
+|  | unWISE Photometry |  |
+|  |  |  |
+| W1_MAG | 9.726259696127704 | W1 magnitude |
+| E_W1_MAG | 0.000501968665409678 | Error on W1 magnitude |
+| W1_FLUX | 128202.39 | W1 flux [Vega nMgy] |
+| W1_DFLUX | 59.27184 | Error on W1 flux [Vega nMgy] |
+| W1_FRAC | 0.9410669 | Fraction of W1 flux from this object |
+| W2_MAG | 9.83106761054271 | W2 magnitude [Vega] |
+| E_W2_MAG | 0.001100526259777875 | Error on W2 magnitude |
+| W2_FLUX | 113441.76 | W2 flux [Vega nMgy] |
+| W2_DFLUX | 114.98708 | Error on W2 flux [Vega nMgy] |
+| W2_FRAC | 0.9334011 | Fraction of W2 flux from this object |
 | W1UFLAGS | 0 | unWISE flags for W1 |
 | W2UFLAGS | 0 | unWISE flags for W2 |
 | W1AFLAGS | 0 | Additional flags for W1 |
 | W2AFLAGS | 0 | Additional flags for W2 |
 | COMMENT | See https://catalog.unwise.me/catalogs.html |  |
+|  |  |  |
+|  | GLIMPSE Photometry |  |
+|  |  |  |
 | MAG4_5 | None | IRAC band 4.5 micron magnitude [mag] |
 | D4_5M | None | Error on IRAC band 4.5 micron magnitude [mag] |
 | RMS_F4_5 | None | RMS deviations from final flux [mJy] |
@@ -127,14 +157,23 @@ Key | Value | Comment | |
 | MF4_5 | 0 | Flux calculation method flag |
 | CSF | 0 | Close source flag |
 | COMMENT | See https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/gator_docs/ |  |
+|  |  |  |
+|  | Observations Summary |  |
+|  |  |  |
 | N_BOSS | 0 | Number of BOSS visits |
 | B_MINMJD | None | Minimum MJD of BOSS visits |
 | N_MAXMJD | None | Maximum MJD of BOSS visits |
-| N_APOGEE | 8 | Number of APOGEE visits |
-| A_MINMJD | 57664 | Minimum MJD of APOGEE visits |
-| A_MAXMJD | 59193 | Maximum MJD of APOGEE visits |
-| CHECKSUM | ZrDTbo9TZoCTbo9T | HDU checksum updated 2024-07-17T11:04:33 |
-| DATASUM | 0 | data unit checksum updated 2024-07-17T11:04:33 |
+| N_APOGEE | 3 | Number of APOGEE visits |
+| A_MINMJD | 58150 | Minimum MJD of APOGEE visits |
+| A_MAXMJD | 58178 | Maximum MJD of APOGEE visits |
+|  |  |  |
+|  | Data Integrity |  |
+|  |  |  |
+| CHECKSUM | VTVLXQVJVQVJVQVJ | HDU checksum updated 2024-08-22T19:15:34 |
+| DATASUM | 0 | data unit checksum updated 2024-08-22T19:15:34 |
+|  |  |  |
+|  | HDU Descriptions |  |
+|  |  |  |
 | COMMENT | HDU 0: Summary information only |  |
 | COMMENT | HDU 1: BOSS results from Apache Point Observatory |  |
 | COMMENT | HDU 2: BOSS results from Las Campanas Observatory |  |
@@ -160,23 +199,49 @@ Key | Value | Comment | |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 310 | number of table fields |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | EXTNAME | BOSS/APO | Extension name |
 | OBSRVTRY | APO | Observatory |
 | INSTRMNT | BOSS | Instrument |
 | V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-07-17 17:04:33 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| CRVAL | 3.5523 | Reference vacuum wavelength [Angstrom] |
-| CDELT | 0.0001 | Vacuum wavelength step [Angstrom] |
-| CTYPE | LOG-LINEAR | Wavelength axis type |
-| CUNIT | Angstrom (Vacuum) | Wavelength axis unit |
-| CRPIX | 1 | Reference pixel (1-indexed) |
-| DC-FLAG | 1 | Linear wavelength axis (0) or logarithmic |
-| NPIXELS | 4648 | Number of pixels in the spectrum |
+| CREATED | 24-08-23 01:15:34 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Exposure Information |  |
+|  |  |  |
+|  |  |  |
+|  | Field/Plate Information |  |
+|  |  |  |
+|  |  |  |
+|  | BOSS Data Reduction Pipeline |  |
+|  |  |  |
+|  |  |  |
+|  | Observing Conditions |  |
+|  |  |  |
 | TDIM48 | (0) |  |
 | TDIM49 | (0) |  |
+|  |  |  |
+|  | XCSAO |  |
+|  |  |  |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Astra Metadata |  |
+|  |  |  |
+|  |  |  |
+|  | Spectral data |  |
+|  |  |  |
 | TDIM68 | (0) |  |
 | TDIM69 | (0) |  |
 | TDIM70 | (0) |  |
+|  |  |  |
+|  | Model Fluxes from Chemical Abundance Fits |  |
+|  |  |  |
 | TDIM71 | (0) |  |
 | TDIM72 | (0) |  |
 | TDIM73 | (0) |  |
@@ -201,8 +266,36 @@ Key | Value | Comment | |
 | TDIM92 | (0) |  |
 | TDIM93 | (0) |  |
 | TDIM94 | (0) |  |
-| CHECKSUM | GEAQGC8OGCAOGC5O | HDU checksum updated 2024-07-17T11:04:34 |
-| DATASUM | 0 | data unit checksum updated 2024-07-17T11:04:34 |
+|  |  |  |
+|  | IRFM Effective Temperatures from V-Ks (Gonzalez Hernandez and Bonifacio |  |
+|  | 2009) |  |
+|  |  |  |
+|  |  |  |
+|  | Stellar Parameters |  |
+|  |  |  |
+|  |  |  |
+|  | Chemical Abundances |  |
+|  |  |  |
+|  |  |  |
+|  | FERRE Settings |  |
+|  |  |  |
+|  |  |  |
+|  | Metadata Flags |  |
+|  |  |  |
+|  |  |  |
+|  | Task Primary Keys |  |
+|  |  |  |
+|  |  |  |
+|  | Calibration flags |  |
+|  |  |  |
+|  |  |  |
+|  | Raw (Uncalibrated) Quantities |  |
+|  |  |  |
+|  |  |  |
+|  | DATA INTEGRITY |  |
+|  |  |  |
+| CHECKSUM | ZTGLdTFKZTFKdTFK | HDU checksum updated 2024-08-22T19:15:35 |
+| DATASUM | 0 | data unit checksum updated 2024-08-22T19:15:35 |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
@@ -537,23 +630,49 @@ Key | Value | Comment | |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 310 | number of table fields |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | EXTNAME | BOSS/LCO | Extension name |
 | OBSRVTRY | LCO | Observatory |
 | INSTRMNT | BOSS | Instrument |
 | V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-07-17 17:04:34 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| CRVAL | 3.5523 | Reference vacuum wavelength [Angstrom] |
-| CDELT | 0.0001 | Vacuum wavelength step [Angstrom] |
-| CTYPE | LOG-LINEAR | Wavelength axis type |
-| CUNIT | Angstrom (Vacuum) | Wavelength axis unit |
-| CRPIX | 1 | Reference pixel (1-indexed) |
-| DC-FLAG | 1 | Linear wavelength axis (0) or logarithmic |
-| NPIXELS | 4648 | Number of pixels in the spectrum |
+| CREATED | 24-08-23 01:15:35 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Exposure Information |  |
+|  |  |  |
+|  |  |  |
+|  | Field/Plate Information |  |
+|  |  |  |
+|  |  |  |
+|  | BOSS Data Reduction Pipeline |  |
+|  |  |  |
+|  |  |  |
+|  | Observing Conditions |  |
+|  |  |  |
 | TDIM48 | (0) |  |
 | TDIM49 | (0) |  |
+|  |  |  |
+|  | XCSAO |  |
+|  |  |  |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Astra Metadata |  |
+|  |  |  |
+|  |  |  |
+|  | Spectral data |  |
+|  |  |  |
 | TDIM68 | (0) |  |
 | TDIM69 | (0) |  |
 | TDIM70 | (0) |  |
+|  |  |  |
+|  | Model Fluxes from Chemical Abundance Fits |  |
+|  |  |  |
 | TDIM71 | (0) |  |
 | TDIM72 | (0) |  |
 | TDIM73 | (0) |  |
@@ -578,8 +697,36 @@ Key | Value | Comment | |
 | TDIM92 | (0) |  |
 | TDIM93 | (0) |  |
 | TDIM94 | (0) |  |
-| CHECKSUM | DFEPDC9ODCEODC9O | HDU checksum updated 2024-07-17T11:04:35 |
-| DATASUM | 0 | data unit checksum updated 2024-07-17T11:04:35 |
+|  |  |  |
+|  | IRFM Effective Temperatures from V-Ks (Gonzalez Hernandez and Bonifacio |  |
+|  | 2009) |  |
+|  |  |  |
+|  |  |  |
+|  | Stellar Parameters |  |
+|  |  |  |
+|  |  |  |
+|  | Chemical Abundances |  |
+|  |  |  |
+|  |  |  |
+|  | FERRE Settings |  |
+|  |  |  |
+|  |  |  |
+|  | Metadata Flags |  |
+|  |  |  |
+|  |  |  |
+|  | Task Primary Keys |  |
+|  |  |  |
+|  |  |  |
+|  | Calibration flags |  |
+|  |  |  |
+|  |  |  |
+|  | Raw (Uncalibrated) Quantities |  |
+|  |  |  |
+|  |  |  |
+|  | DATA INTEGRITY |  |
+|  |  |  |
+| CHECKSUM | WVKLaTIKWTIKaTIK | HDU checksum updated 2024-08-22T19:15:35 |
+| DATASUM | 0 | data unit checksum updated 2024-08-22T19:15:35 |
 
 ##### Binary Table Caption for HDU2
 Name | Type | Unit | Description |
@@ -901,361 +1048,9 @@ Name | Type | Unit | Description |
 {data_type} from APOGEE north
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  1 MB
-
-##### Header Table Caption for HDU3
-Key | Value | Comment | |
-| --- | --- | --- | --- |
-| XTENSION | BINTABLE | binary table extension |
-| BITPIX | 8 | array data type |
-| NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 927412 | length of dimension 1 |
-| NAXIS2 | 2 | length of dimension 2 |
-| PCOUNT | 0 | number of group parameters |
-| GCOUNT | 1 | number of groups |
-| TFIELDS | 287 | number of table fields |
-| EXTNAME | APOGEE/APO | Extension name |
-| OBSRVTRY | APO | Observatory |
-| INSTRMNT | APOGEE | Instrument |
-| V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-07-17 17:04:35 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| CRVAL | 4.179 | Reference vacuum wavelength [Angstrom] |
-| CDELT | 6e-06 | Vacuum wavelength step [Angstrom] |
-| CTYPE | LOG-LINEAR | Wavelength axis type |
-| CUNIT | Angstrom (Vacuum) | Wavelength axis unit |
-| CRPIX | 1 | Reference pixel (1-indexed) |
-| DC-FLAG | 1 | Linear wavelength axis (0) or logarithmic |
-| NPIXELS | 8575 | Number of pixels in the spectrum |
-| TDIM45 | (8575) |  |
-| TDIM46 | (8575) |  |
-| TDIM47 | (8575) |  |
-| TDIM48 | (8575) |  |
-| TDIM49 | (8575) |  |
-| TDIM50 | (8575) |  |
-| TDIM51 | (8575) |  |
-| TDIM52 | (8575) |  |
-| TDIM53 | (8575) |  |
-| TDIM54 | (8575) |  |
-| TDIM55 | (8575) |  |
-| TDIM56 | (8575) |  |
-| TDIM57 | (8575) |  |
-| TDIM58 | (8575) |  |
-| TDIM59 | (8575) |  |
-| TDIM60 | (8575) |  |
-| TDIM61 | (8575) |  |
-| TDIM62 | (8575) |  |
-| TDIM63 | (8575) |  |
-| TDIM64 | (8575) |  |
-| TDIM65 | (8575) |  |
-| TDIM66 | (8575) |  |
-| TDIM67 | (8575) |  |
-| TDIM68 | (8575) |  |
-| TDIM69 | (8575) |  |
-| TDIM70 | (8575) |  |
-| TDIM71 | (8575) |  |
-| CHECKSUM | YjCMajCJYjCJajCJ | HDU checksum updated 2024-07-17T11:04:37 |
-| DATASUM | 834960428 | data unit checksum updated 2024-07-17T11:04:37 |
-
-##### Binary Table Caption for HDU3
-Name | Type | Unit | Description |
-| --- | --- | --- | --- |
- | star_pk | int64 |  | APOGEE DRP `star` primary key |
- | release | char[5] |  | SDSS release |
- | filetype | char[6] |  | SDSS file type that stores this spectrum |
- | apred | char[3] |  | APOGEE reduction pipeline |
- | apstar | char[5] |  | Unused DR17 apStar keyword (default: stars) |
- | obj | char[18] |  | Object name |
- | telescope | char[6] |  | Short telescope name |
- | healpix | int32 |  | HEALPix (128 side) |
- | field | char[1] |  | Field identifier |
- | prefix | char[1] |  | Prefix used to separate SDSS 4 north/south |
- | min_mjd | int32 |  | Minimum MJD of visits |
- | max_mjd | int32 |  | Maximum MJD of visits |
- | n_entries | int32 |  | apStar entries for this SDSS4_APOGEE_ID |
- | n_visits | int32 |  | Number of APOGEE visits |
- | n_good_visits | int32 |  | Number of 'good' APOGEE visits |
- | n_good_rvs | int32 |  | Number of 'good' APOGEE radial velocities |
- | mean_fiber | float32 |  | S/N-weighted mean visit fiber number |
- | std_fiber | float32 |  | Standard deviation of visit fiber numbers |
- | spectrum_flags | int64 |  | Data reduction pipeline flags for this spectrum |
- | v_rad | float32 | km/s | Barycentric rest frame radial velocity  |
- | e_v_rad | float32 | km/s | Error on radial velocity  |
- | std_v_rad | float32 | km/s | Standard deviation of visit V_RAD  |
- | median_e_v_rad | float32 | km/s | Median error in radial velocity  |
- | doppler_teff | float32 | K | Stellar effective temperature  |
- | doppler_e_teff | float32 | K | Error on stellar effective temperature  |
- | doppler_logg | float32 | log10(cm/s^2) | Surface gravity  |
- | doppler_e_logg | float32 | log10(cm/s^2) | Error on surface gravity  |
- | doppler_fe_h | float32 | dex | [Fe/H]  |
- | doppler_e_fe_h | float32 | dex | Error on [Fe/H]  |
- | doppler_rchi2 | float32 |  | Reduced chi-square value of DOPPLER fit |
- | doppler_flags | int64 |  | DOPPLER flags |
- | xcorr_v_rad | float32 | km/s | Barycentric rest frame radial velocity  |
- | xcorr_v_rel | float32 | km/s | Relative velocity  |
- | xcorr_e_v_rel | float32 | km/s | Error on relative velocity  |
- | ccfwhm | float32 |  | Cross-correlation function FWHM |
- | autofwhm | float32 |  | Auto-correlation function FWHM |
- | n_components | int32 |  | Number of components in CCF |
- | spectrum_pk_id | int64 |  | Unique spectrum primary key |
- | task_pk | int64 |  | Task model primary key |
- | v_astra | char[5] |  | Astra version |
- | created | char[26] |  | Datetime when task record was created |
- | t_elapsed | float32 | s | Core-time elapsed on this analysis  |
- | t_overhead | float32 | s | Estimated core-time spent in overhads  |
- | tag | char[1] |  | Experiment tag for this result |
- | wavelength | float32[8575] | Angstrom | Wavelength (vacuum)  |
- | model_flux | float32[8575] |  | Model flux at optimized stellar parameters |
- | continuum | float32[8575] |  | Continuum |
- | model_flux_al_h | float32[8575] |  | Model flux at optimized [Al/H] |
- | model_flux_c_12_13 | float32[8575] |  | Model flux at optimized C12/13 |
- | model_flux_ca_h | float32[8575] |  | Model flux at optimized [Ca/H] |
- | model_flux_ce_h | float32[8575] |  | Model flux at optimized [Ce/H] |
- | model_flux_c_1_h | float32[8575] |  | Model flux at optimized [C 1/H] |
- | model_flux_c_h | float32[8575] |  | Model flux at optimized [C/H] |
- | model_flux_co_h | float32[8575] |  | Model flux at optimized [Co/H] |
- | model_flux_cr_h | float32[8575] |  | Model flux at optimized [Cr/H] |
- | model_flux_cu_h | float32[8575] |  | Model flux at optimized [Cu/H] |
- | model_flux_fe_h | float32[8575] |  | Model flux at optimized [Fe/H] |
- | model_flux_k_h | float32[8575] |  | Model flux at optimized [K/H] |
- | model_flux_mg_h | float32[8575] |  | Model flux at optimized [Mg/H] |
- | model_flux_mn_h | float32[8575] |  | Model flux at optimized [Mn/H] |
- | model_flux_na_h | float32[8575] |  | Model flux at optimized [Na/H] |
- | model_flux_nd_h | float32[8575] |  | Model flux at optimized [Nd/H] |
- | model_flux_ni_h | float32[8575] |  | Model flux at optimized [Ni/H] |
- | model_flux_n_h | float32[8575] |  | Model flux at optimized [N/H] |
- | model_flux_o_h | float32[8575] |  | Model flux at optimized [O/H] |
- | model_flux_p_h | float32[8575] |  | Model flux at optimized [P/H] |
- | model_flux_si_h | float32[8575] |  | Model flux at optimized [Si/H] |
- | model_flux_s_h | float32[8575] |  | Model flux at optimized [S/H] |
- | model_flux_ti_h | float32[8575] |  | Model flux at optimized [Ti/H] |
- | model_flux_ti_2_h | float32[8575] |  | Model flux at optimized [Ti 2/H] |
- | model_flux_v_h | float32[8575] |  | Model flux at optimized [V/H] |
- | irfm_teff | float32 | K | Stellar effective temperature  |
- | irfm_teff_flags | int64 |  | IRFM temperature flags |
- | teff | float32 | K | Stellar effective temperature  |
- | e_teff | float32 | K | Error on stellar effective temperature  |
- | logg | float32 | log10(cm/s^2) | Surface gravity  |
- | e_logg | float32 | log10(cm/s^2) | Error on surface gravity  |
- | v_micro | float32 | km/s | Microturbulence  |
- | e_v_micro | float32 | km/s | Error on microturbulence  |
- | v_sini | float32 | km/s | Projected rotational velocity  |
- | e_v_sini | float32 | km/s | Error on projected rotational velocity  |
- | m_h_atm | float32 | dex | Metallicity  |
- | e_m_h_atm | float32 | dex | Error on metallicity  |
- | alpha_m_atm | float32 | dex | [alpha/M] abundance ratio  |
- | e_alpha_m_atm | float32 | dex | Error on [alpha/M] abundance ratio  |
- | c_m_atm | float32 | dex | Atmospheric carbon abundance  |
- | e_c_m_atm | float32 | dex | Error on atmospheric carbon abundance  |
- | n_m_atm | float32 | dex | Atmospheric nitrogen abundance  |
- | e_n_m_atm | float32 | dex | Error on atmospheric nitrogen abundance  |
- | al_h | float32 | dex | [Al/H]  |
- | e_al_h | float32 | dex | Error on [Al/H]  |
- | al_h_flags | int64 | dex | Flags for [Al/H]  |
- | al_h_rchi2 | float32 | dex | Reduced chi-square value for [Al/H]  |
- | c_12_13 | float32 |  | C12/C13 ratio |
- | e_c_12_13 | float32 |  | Error on c12/C13 ratio |
- | c_12_13_flags | int64 |  | Flags for c12/C13 ratio |
- | c_12_13_rchi2 | float32 |  | Reduced chi-square value for c12/C13 ratio |
- | ca_h | float32 | dex | [Ca/H]  |
- | e_ca_h | float32 | dex | Error on [Ca/H]  |
- | ca_h_flags | int64 | dex | Flags for [Ca/H]  |
- | ca_h_rchi2 | float32 | dex | Reduced chi-square value for [Ca/H]  |
- | ce_h | float32 | dex | [Ce/H]  |
- | e_ce_h | float32 | dex | Error on [Ce/H]  |
- | ce_h_flags | int64 | dex | Flags for [Ce/H]  |
- | ce_h_rchi2 | float32 | dex | Reduced chi-square value for [Ce/H]  |
- | c_1_h | float32 | dex | [C/H] from neutral C lines  |
- | e_c_1_h | float32 | dex | Error on [C/H] from neutral C lines  |
- | c_1_h_flags | int64 | dex | Flags for [C/H] from neutral C lines  |
- | c_1_h_rchi2 | float32 |  | Reduced chi-square value for [C/H] from neutral |
- | c_h | float32 | dex | [C/H]  |
- | e_c_h | float32 | dex | Error on [C/H]  |
- | c_h_flags | int64 | dex | Flags for [C/H]  |
- | c_h_rchi2 | float32 | dex | Reduced chi-square value for [C/H]  |
- | co_h | float32 | dex | [Co/H]  |
- | e_co_h | float32 | dex | Error on [Co/H]  |
- | co_h_flags | int64 | dex | Flags for [Co/H]  |
- | co_h_rchi2 | float32 | dex | Reduced chi-square value for [Co/H]  |
- | cr_h | float32 | dex | [Cr/H]  |
- | e_cr_h | float32 | dex | Error on [Cr/H]  |
- | cr_h_flags | int64 | dex | Flags for [Cr/H]  |
- | cr_h_rchi2 | float32 | dex | Reduced chi-square value for [Cr/H]  |
- | cu_h | float32 | dex | [Cu/H]  |
- | e_cu_h | float32 | dex | Error on [Cu/H]  |
- | cu_h_flags | int64 | dex | Flags for [Cu/H]  |
- | cu_h_rchi2 | float32 | dex | Reduced chi-square value for [Cu/H]  |
- | fe_h | float32 | dex | [Fe/H]  |
- | e_fe_h | float32 | dex | Error on [Fe/H]  |
- | fe_h_flags | int64 | dex | Flags for [Fe/H]  |
- | fe_h_rchi2 | float32 | dex | Reduced chi-square value for [Fe/H]  |
- | k_h | float32 | dex | [K/H]  |
- | e_k_h | float32 | dex | Error on [K/H]  |
- | k_h_flags | int64 | dex | Flags for [K/H]  |
- | k_h_rchi2 | float32 | dex | Reduced chi-square value for [K/H]  |
- | mg_h | float32 | dex | [Mg/H]  |
- | e_mg_h | float32 | dex | Error on [Mg/H]  |
- | mg_h_flags | int64 | dex | Flags for [Mg/H]  |
- | mg_h_rchi2 | float32 | dex | Reduced chi-square value for [Mg/H]  |
- | mn_h | float32 | dex | [Mn/H]  |
- | e_mn_h | float32 | dex | Error on [Mn/H]  |
- | mn_h_flags | int64 | dex | Flags for [Mn/H]  |
- | mn_h_rchi2 | float32 | dex | Reduced chi-square value for [Mn/H]  |
- | na_h | float32 | dex | [Na/H]  |
- | e_na_h | float32 | dex | Error on [Na/H]  |
- | na_h_flags | int64 | dex | Flags for [Na/H]  |
- | na_h_rchi2 | float32 | dex | Reduced chi-square value for [Na/H]  |
- | nd_h | float32 | dex | [Nd/H]  |
- | e_nd_h | float32 | dex | Error on [Nd/H]  |
- | nd_h_flags | int64 | dex | Flags for [Nd/H]  |
- | nd_h_rchi2 | float32 | dex | Reduced chi-square value for [Nd/H]  |
- | ni_h | float32 | dex | [Ni/H]  |
- | e_ni_h | float32 | dex | Error on [Ni/H]  |
- | ni_h_flags | int64 | dex | Flags for [Ni/H]  |
- | ni_h_rchi2 | float32 | dex | Reduced chi-square value for [Ni/H]  |
- | n_h | float32 | dex | [N/H]  |
- | e_n_h | float32 | dex | Error on [N/H]  |
- | n_h_flags | int64 | dex | Flags for [N/H]  |
- | n_h_rchi2 | float32 | dex | Reduced chi-square value for [N/H]  |
- | o_h | float32 | dex | [O/H]  |
- | e_o_h | float32 | dex | Error on [O/H]  |
- | o_h_flags | int64 | dex | Flags for [O/H]  |
- | o_h_rchi2 | float32 | dex | Reduced chi-square value for [O/H]  |
- | p_h | float32 | dex | [P/H]  |
- | e_p_h | float32 | dex | Error on [P/H]  |
- | p_h_flags | int64 | dex | Flags for [P/H]  |
- | p_h_rchi2 | float32 | dex | Reduced chi-square value for [P/H]  |
- | si_h | float32 | dex | [Si/H]  |
- | e_si_h | float32 | dex | Error on [Si/H]  |
- | si_h_flags | int64 | dex | Flags for [Si/H]  |
- | si_h_rchi2 | float32 | dex | Reduced chi-square value for [Si/H]  |
- | s_h | float32 | dex | [S/H]  |
- | e_s_h | float32 | dex | Error on [S/H]  |
- | s_h_flags | int64 | dex | Flags for [S/H]  |
- | s_h_rchi2 | float32 | dex | Reduced chi-square value for [S/H]  |
- | ti_h | float32 | dex | [Ti/H]  |
- | e_ti_h | float32 | dex | Error on [Ti/H]  |
- | ti_h_flags | int64 | dex | Flags for [Ti/H]  |
- | ti_h_rchi2 | float32 | dex | Reduced chi-square value for [Ti/H]  |
- | ti_2_h | float32 | dex | [Ti/H] from singly ionized Ti lines  |
- | e_ti_2_h | float32 |  | Error on [Ti/H] from singly ionized Ti lines [d |
- | ti_2_h_flags | int64 |  | Flags for [Ti/H] from singly ionized Ti lines [ |
- | ti_2_h_rchi2 | float32 |  | Reduced chi-square value for [Ti/H] from singly |
- | v_h | float32 | dex | [V/H]  |
- | e_v_h | float32 | dex | Error on [V/H]  |
- | v_h_flags | int64 | dex | Flags for [V/H]  |
- | v_h_rchi2 | float32 | dex | Reduced chi-square value for [V/H]  |
- | short_grid_name | char[11] |  | Short name describing the FERRE grid used |
- | continuum_order | int32 |  | Continuum order used in FERRE |
- | continuum_reject | float32 |  | Tolerance for FERRE to reject continuum points |
- | interpolation_order | int32 |  | Interpolation order used by FERRE |
- | initial_flags | int64 |  | Flags indicating source of initial guess |
- | snr | float32 |  | Signal-to-noise ratio |
- | rchi2 | float32 |  | Reduced chi-square value |
- | ferre_log_snr_sq | float32 |  | FERRE-reported log10(snr**2) |
- | ferre_time_elapsed | float32 | s | Total core-second use reported by FERRE  |
- | result_flags | int64 |  | Flags indicating FERRE issues |
- | stellar_parameters_task_pk_id | int64 |  | Task primary key for stellar paramet |
- | al_h_task_pk_id | int64 |  | Task primary key for [Al/H] |
- | c_12_13_task_pk_id | int64 |  | Task primary key for C12/C13 |
- | ca_h_task_pk_id | int64 |  | Task primary key for [Ca/H] |
- | ce_h_task_pk_id | int64 |  | Task primary key for [Ce/H] |
- | c_1_h_task_pk_id | int64 |  | Task primary key for [C 1/H] |
- | c_h_task_pk_id | int64 |  | Task primary key for [C/H] |
- | co_h_task_pk_id | int64 |  | Task primary key for [Co/H] |
- | cr_h_task_pk_id | int64 |  | Task primary key for [Cr/H] |
- | cu_h_task_pk_id | int64 |  | Task primary key for [Cu/H] |
- | fe_h_task_pk_id | int64 |  | Task primary key for [Fe/H] |
- | k_h_task_pk_id | int64 |  | Task primary key for [K/H] |
- | mg_h_task_pk_id | int64 |  | Task primary key for [Mg/H] |
- | mn_h_task_pk_id | int64 |  | Task primary key for [Mn/H] |
- | na_h_task_pk_id | int64 |  | Task primary key for [Na/H] |
- | nd_h_task_pk_id | int64 |  | Task primary key for [Nd/H] |
- | ni_h_task_pk_id | int64 |  | Task primary key for [Ni/H] |
- | n_h_task_pk_id | int64 |  | Task primary key for [N/H] |
- | o_h_task_pk_id | int64 |  | Task primary key for [O/H] |
- | p_h_task_pk_id | int64 |  | Task primary key for [P/H] |
- | si_h_task_pk_id | int64 |  | Task primary key for [Si/H] |
- | s_h_task_pk_id | int64 |  | Task primary key for [S/H] |
- | ti_h_task_pk_id | int64 |  | Task primary key for [Ti/H] |
- | ti_2_h_task_pk_id | int64 |  | Task primary key for [Ti 2/H] |
- | v_h_task_pk_id | int64 |  | Task primary key for [V/H] |
- | calibrated_flags | int64 |  | Calibration flags |
- | mass | float32 | M_sun | Mass inferred from isochrones  |
- | radius | float32 | R_sun | Radius inferred from isochrones  |
- | raw_teff | float32 | K | Raw stellar effective temperature  |
- | raw_e_teff | float32 | K | Raw error on stellar effective temperature  |
- | raw_logg | float32 | log10(cm/s^2) | Raw surface gravity  |
- | raw_e_logg | float32 | log10(cm/s^2) | Raw error on surface gravity  |
- | raw_v_micro | float32 | km/s | Raw microturbulence  |
- | raw_e_v_micro | float32 | km/s | Raw error on microturbulence  |
- | raw_v_sini | float32 | km/s | Raw projected rotational velocity  |
- | raw_e_v_sini | float32 |  | Raw error on projected rotational velocity [km/ |
- | raw_m_h_atm | float32 | dex | Raw metallicity  |
- | raw_e_m_h_atm | float32 | dex | Raw error on metallicity  |
- | raw_alpha_m_atm | float32 | dex | Raw [alpha/M] abundance ratio  |
- | raw_e_alpha_m_atm | float32 | dex | Raw error on [alpha/M] abundance ratio  |
- | raw_c_m_atm | float32 | dex | Raw atmospheric carbon abundance  |
- | raw_e_c_m_atm | float32 | dex | Raw error on atmospheric carbon abundance  |
- | raw_n_m_atm | float32 | dex | Raw atmospheric nitrogen abundance  |
- | raw_e_n_m_atm | float32 |  | Raw error on atmospheric nitrogen abundance [de |
- | raw_al_h | float32 | dex | Raw [Al/H]  |
- | raw_e_al_h | float32 | dex | Raw error on [Al/H]  |
- | raw_c_12_13 | float32 |  | Raw c12/C13 ratio |
- | raw_e_c_12_13 | float32 |  | Raw error on c12/C13 ratio |
- | raw_ca_h | float32 | dex | Raw [Ca/H]  |
- | raw_e_ca_h | float32 | dex | Raw error on [Ca/H]  |
- | raw_ce_h | float32 | dex | Raw [Ce/H]  |
- | raw_e_ce_h | float32 | dex | Raw error on [Ce/H]  |
- | raw_c_1_h | float32 | dex | Raw [C/H] from neutral C lines  |
- | raw_e_c_1_h | float32 | dex | Raw error on [C/H] from neutral C lines  |
- | raw_c_h | float32 | dex | Raw [C/H]  |
- | raw_e_c_h | float32 | dex | Raw error on [C/H]  |
- | raw_co_h | float32 | dex | Raw [Co/H]  |
- | raw_e_co_h | float32 | dex | Raw error on [Co/H]  |
- | raw_cr_h | float32 | dex | Raw [Cr/H]  |
- | raw_e_cr_h | float32 | dex | Raw error on [Cr/H]  |
- | raw_cu_h | float32 | dex | Raw [Cu/H]  |
- | raw_e_cu_h | float32 | dex | Raw error on [Cu/H]  |
- | raw_fe_h | float32 | dex | Raw [Fe/H]  |
- | raw_e_fe_h | float32 | dex | Raw error on [Fe/H]  |
- | raw_k_h | float32 | dex | Raw [K/H]  |
- | raw_e_k_h | float32 | dex | Raw error on [K/H]  |
- | raw_mg_h | float32 | dex | Raw [Mg/H]  |
- | raw_e_mg_h | float32 | dex | Raw error on [Mg/H]  |
- | raw_mn_h | float32 | dex | Raw [Mn/H]  |
- | raw_e_mn_h | float32 | dex | Raw error on [Mn/H]  |
- | raw_na_h | float32 | dex | Raw [Na/H]  |
- | raw_e_na_h | float32 | dex | Raw error on [Na/H]  |
- | raw_nd_h | float32 | dex | Raw [Nd/H]  |
- | raw_e_nd_h | float32 | dex | Raw error on [Nd/H]  |
- | raw_ni_h | float32 | dex | Raw [Ni/H]  |
- | raw_e_ni_h | float32 | dex | Raw error on [Ni/H]  |
- | raw_n_h | float32 | dex | Raw [N/H]  |
- | raw_e_n_h | float32 | dex | Raw error on [N/H]  |
- | raw_o_h | float32 | dex | Raw [O/H]  |
- | raw_e_o_h | float32 | dex | Raw error on [O/H]  |
- | raw_p_h | float32 | dex | Raw [P/H]  |
- | raw_e_p_h | float32 | dex | Raw error on [P/H]  |
- | raw_si_h | float32 | dex | Raw [Si/H]  |
- | raw_e_si_h | float32 | dex | Raw error on [Si/H]  |
- | raw_s_h | float32 | dex | Raw [S/H]  |
- | raw_e_s_h | float32 | dex | Raw error on [S/H]  |
- | raw_ti_h | float32 | dex | Raw [Ti/H]  |
- | raw_e_ti_h | float32 | dex | Raw error on [Ti/H]  |
- | raw_ti_2_h | float32 | dex | Raw [Ti/H] from singly ionized Ti lines  |
- | raw_e_ti_2_h | float32 |  | Raw error on [Ti/H] from singly ionized Ti line |
- | raw_v_h | float32 | dex | Raw [V/H]  |
- | raw_e_v_h | float32 | dex | Raw error on [V/H]  |
-
-
-
-### HDU4: APOGEE/LCO
-{data_type} from APOGEE south
-
-#### HDU Type: BINARY TABLE
 #### HDU Size:  0 bytes
 
-##### Header Table Caption for HDU4
+##### Header Table Caption for HDU3
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | BINTABLE | binary table extension |
@@ -1266,21 +1061,47 @@ Key | Value | Comment | |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 287 | number of table fields |
-| EXTNAME | APOGEE/LCO | Extension name |
-| OBSRVTRY | LCO | Observatory |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
+| EXTNAME | APOGEE/APO | Extension name |
+| OBSRVTRY | APO | Observatory |
 | INSTRMNT | APOGEE | Instrument |
 | V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-07-17 17:04:37 | File creation time (UTC %y-%m-%d %H:%M:%S) |
-| CRVAL | 4.179 | Reference vacuum wavelength [Angstrom] |
-| CDELT | 6e-06 | Vacuum wavelength step [Angstrom] |
-| CTYPE | LOG-LINEAR | Wavelength axis type |
-| CUNIT | Angstrom (Vacuum) | Wavelength axis unit |
-| CRPIX | 1 | Reference pixel (1-indexed) |
-| DC-FLAG | 1 | Linear wavelength axis (0) or logarithmic |
-| NPIXELS | 8575 | Number of pixels in the spectrum |
+| CREATED | 24-08-23 01:15:35 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Observing Span |  |
+|  |  |  |
+|  |  |  |
+|  | Number and Quality of Visits |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (Doppler) |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (X-Correlation) |  |
+|  |  |  |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Astra Metadata |  |
+|  |  |  |
+|  |  |  |
+|  | Spectral Data |  |
+|  |  |  |
 | TDIM45 | (0) |  |
 | TDIM46 | (0) |  |
 | TDIM47 | (0) |  |
+|  |  |  |
+|  | Model Fluxes from Chemical Abundance Fits |  |
+|  |  |  |
 | TDIM48 | (0) |  |
 | TDIM49 | (0) |  |
 | TDIM50 | (0) |  |
@@ -1305,10 +1126,38 @@ Key | Value | Comment | |
 | TDIM69 | (0) |  |
 | TDIM70 | (0) |  |
 | TDIM71 | (0) |  |
-| CHECKSUM | 8LBb8JAZ8JAb8JAZ | HDU checksum updated 2024-07-17T11:04:38 |
-| DATASUM | 0 | data unit checksum updated 2024-07-17T11:04:38 |
+|  |  |  |
+|  | IRFM Effective Temperatures from V-Ks (Gonzalez Hernandez and Bonifacio |  |
+|  | 2009) |  |
+|  |  |  |
+|  |  |  |
+|  | Stellar Parameters |  |
+|  |  |  |
+|  |  |  |
+|  | Chemical Abundances |  |
+|  |  |  |
+|  |  |  |
+|  | FERRE Settings |  |
+|  |  |  |
+|  |  |  |
+|  | Summary Statistics |  |
+|  |  |  |
+|  |  |  |
+|  | Task Primary Keys |  |
+|  |  |  |
+|  |  |  |
+|  | Calibration flags |  |
+|  |  |  |
+|  |  |  |
+|  | Raw (Uncalibrated) Quantities |  |
+|  |  |  |
+|  |  |  |
+|  | DATA INTEGRITY |  |
+|  |  |  |
+| CHECKSUM | djhAghh1dhh8dhh8 | HDU checksum updated 2024-08-22T19:15:35 |
+| DATASUM | 0 | data unit checksum updated 2024-08-22T19:15:35 |
 
-##### Binary Table Caption for HDU4
+##### Binary Table Caption for HDU3
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | star_pk | int64 |  | APOGEE DRP `star` primary key |
@@ -1497,6 +1346,412 @@ Name | Type | Unit | Description |
  | v_h_flags | int64 | dex | Flags for [V/H]  |
  | v_h_rchi2 | float32 | dex | Reduced chi-square value for [V/H]  |
  | short_grid_name | char[1] |  | Short name describing the FERRE grid used |
+ | continuum_order | int32 |  | Continuum order used in FERRE |
+ | continuum_reject | float32 |  | Tolerance for FERRE to reject continuum points |
+ | interpolation_order | int32 |  | Interpolation order used by FERRE |
+ | initial_flags | int64 |  | Flags indicating source of initial guess |
+ | snr | float32 |  | Signal-to-noise ratio |
+ | rchi2 | float32 |  | Reduced chi-square value |
+ | ferre_log_snr_sq | float32 |  | FERRE-reported log10(snr**2) |
+ | ferre_time_elapsed | float32 | s | Total core-second use reported by FERRE  |
+ | result_flags | int64 |  | Flags indicating FERRE issues |
+ | stellar_parameters_task_pk_id | int64 |  | Task primary key for stellar paramet |
+ | al_h_task_pk_id | int64 |  | Task primary key for [Al/H] |
+ | c_12_13_task_pk_id | int64 |  | Task primary key for C12/C13 |
+ | ca_h_task_pk_id | int64 |  | Task primary key for [Ca/H] |
+ | ce_h_task_pk_id | int64 |  | Task primary key for [Ce/H] |
+ | c_1_h_task_pk_id | int64 |  | Task primary key for [C 1/H] |
+ | c_h_task_pk_id | int64 |  | Task primary key for [C/H] |
+ | co_h_task_pk_id | int64 |  | Task primary key for [Co/H] |
+ | cr_h_task_pk_id | int64 |  | Task primary key for [Cr/H] |
+ | cu_h_task_pk_id | int64 |  | Task primary key for [Cu/H] |
+ | fe_h_task_pk_id | int64 |  | Task primary key for [Fe/H] |
+ | k_h_task_pk_id | int64 |  | Task primary key for [K/H] |
+ | mg_h_task_pk_id | int64 |  | Task primary key for [Mg/H] |
+ | mn_h_task_pk_id | int64 |  | Task primary key for [Mn/H] |
+ | na_h_task_pk_id | int64 |  | Task primary key for [Na/H] |
+ | nd_h_task_pk_id | int64 |  | Task primary key for [Nd/H] |
+ | ni_h_task_pk_id | int64 |  | Task primary key for [Ni/H] |
+ | n_h_task_pk_id | int64 |  | Task primary key for [N/H] |
+ | o_h_task_pk_id | int64 |  | Task primary key for [O/H] |
+ | p_h_task_pk_id | int64 |  | Task primary key for [P/H] |
+ | si_h_task_pk_id | int64 |  | Task primary key for [Si/H] |
+ | s_h_task_pk_id | int64 |  | Task primary key for [S/H] |
+ | ti_h_task_pk_id | int64 |  | Task primary key for [Ti/H] |
+ | ti_2_h_task_pk_id | int64 |  | Task primary key for [Ti 2/H] |
+ | v_h_task_pk_id | int64 |  | Task primary key for [V/H] |
+ | calibrated_flags | int64 |  | Calibration flags |
+ | mass | float32 | M_sun | Mass inferred from isochrones  |
+ | radius | float32 | R_sun | Radius inferred from isochrones  |
+ | raw_teff | float32 | K | Raw stellar effective temperature  |
+ | raw_e_teff | float32 | K | Raw error on stellar effective temperature  |
+ | raw_logg | float32 | log10(cm/s^2) | Raw surface gravity  |
+ | raw_e_logg | float32 | log10(cm/s^2) | Raw error on surface gravity  |
+ | raw_v_micro | float32 | km/s | Raw microturbulence  |
+ | raw_e_v_micro | float32 | km/s | Raw error on microturbulence  |
+ | raw_v_sini | float32 | km/s | Raw projected rotational velocity  |
+ | raw_e_v_sini | float32 |  | Raw error on projected rotational velocity [km/ |
+ | raw_m_h_atm | float32 | dex | Raw metallicity  |
+ | raw_e_m_h_atm | float32 | dex | Raw error on metallicity  |
+ | raw_alpha_m_atm | float32 | dex | Raw [alpha/M] abundance ratio  |
+ | raw_e_alpha_m_atm | float32 | dex | Raw error on [alpha/M] abundance ratio  |
+ | raw_c_m_atm | float32 | dex | Raw atmospheric carbon abundance  |
+ | raw_e_c_m_atm | float32 | dex | Raw error on atmospheric carbon abundance  |
+ | raw_n_m_atm | float32 | dex | Raw atmospheric nitrogen abundance  |
+ | raw_e_n_m_atm | float32 |  | Raw error on atmospheric nitrogen abundance [de |
+ | raw_al_h | float32 | dex | Raw [Al/H]  |
+ | raw_e_al_h | float32 | dex | Raw error on [Al/H]  |
+ | raw_c_12_13 | float32 |  | Raw c12/C13 ratio |
+ | raw_e_c_12_13 | float32 |  | Raw error on c12/C13 ratio |
+ | raw_ca_h | float32 | dex | Raw [Ca/H]  |
+ | raw_e_ca_h | float32 | dex | Raw error on [Ca/H]  |
+ | raw_ce_h | float32 | dex | Raw [Ce/H]  |
+ | raw_e_ce_h | float32 | dex | Raw error on [Ce/H]  |
+ | raw_c_1_h | float32 | dex | Raw [C/H] from neutral C lines  |
+ | raw_e_c_1_h | float32 | dex | Raw error on [C/H] from neutral C lines  |
+ | raw_c_h | float32 | dex | Raw [C/H]  |
+ | raw_e_c_h | float32 | dex | Raw error on [C/H]  |
+ | raw_co_h | float32 | dex | Raw [Co/H]  |
+ | raw_e_co_h | float32 | dex | Raw error on [Co/H]  |
+ | raw_cr_h | float32 | dex | Raw [Cr/H]  |
+ | raw_e_cr_h | float32 | dex | Raw error on [Cr/H]  |
+ | raw_cu_h | float32 | dex | Raw [Cu/H]  |
+ | raw_e_cu_h | float32 | dex | Raw error on [Cu/H]  |
+ | raw_fe_h | float32 | dex | Raw [Fe/H]  |
+ | raw_e_fe_h | float32 | dex | Raw error on [Fe/H]  |
+ | raw_k_h | float32 | dex | Raw [K/H]  |
+ | raw_e_k_h | float32 | dex | Raw error on [K/H]  |
+ | raw_mg_h | float32 | dex | Raw [Mg/H]  |
+ | raw_e_mg_h | float32 | dex | Raw error on [Mg/H]  |
+ | raw_mn_h | float32 | dex | Raw [Mn/H]  |
+ | raw_e_mn_h | float32 | dex | Raw error on [Mn/H]  |
+ | raw_na_h | float32 | dex | Raw [Na/H]  |
+ | raw_e_na_h | float32 | dex | Raw error on [Na/H]  |
+ | raw_nd_h | float32 | dex | Raw [Nd/H]  |
+ | raw_e_nd_h | float32 | dex | Raw error on [Nd/H]  |
+ | raw_ni_h | float32 | dex | Raw [Ni/H]  |
+ | raw_e_ni_h | float32 | dex | Raw error on [Ni/H]  |
+ | raw_n_h | float32 | dex | Raw [N/H]  |
+ | raw_e_n_h | float32 | dex | Raw error on [N/H]  |
+ | raw_o_h | float32 | dex | Raw [O/H]  |
+ | raw_e_o_h | float32 | dex | Raw error on [O/H]  |
+ | raw_p_h | float32 | dex | Raw [P/H]  |
+ | raw_e_p_h | float32 | dex | Raw error on [P/H]  |
+ | raw_si_h | float32 | dex | Raw [Si/H]  |
+ | raw_e_si_h | float32 | dex | Raw error on [Si/H]  |
+ | raw_s_h | float32 | dex | Raw [S/H]  |
+ | raw_e_s_h | float32 | dex | Raw error on [S/H]  |
+ | raw_ti_h | float32 | dex | Raw [Ti/H]  |
+ | raw_e_ti_h | float32 | dex | Raw error on [Ti/H]  |
+ | raw_ti_2_h | float32 | dex | Raw [Ti/H] from singly ionized Ti lines  |
+ | raw_e_ti_2_h | float32 |  | Raw error on [Ti/H] from singly ionized Ti line |
+ | raw_v_h | float32 | dex | Raw [V/H]  |
+ | raw_e_v_h | float32 | dex | Raw error on [V/H]  |
+
+
+
+### HDU4: APOGEE/LCO
+{data_type} from APOGEE south
+
+#### HDU Type: BINARY TABLE
+#### HDU Size:  905 KB
+
+##### Header Table Caption for HDU4
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 927418 | length of dimension 1 |
+| NAXIS2 | 1 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 287 | number of table fields |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
+| EXTNAME | APOGEE/LCO | Extension name |
+| OBSRVTRY | LCO | Observatory |
+| INSTRMNT | APOGEE | Instrument |
+| V_ASTRA | 0.6.0 | Astra version |
+| CREATED | 24-08-23 01:15:35 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Data Product Keywords |  |
+|  |  |  |
+|  |  |  |
+|  | Observing Span |  |
+|  |  |  |
+|  |  |  |
+|  | Number and Quality of Visits |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (Doppler) |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (X-Correlation) |  |
+|  |  |  |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Astra Metadata |  |
+|  |  |  |
+|  |  |  |
+|  | Spectral Data |  |
+|  |  |  |
+| TDIM45 | (8575) |  |
+| TDIM46 | (8575) |  |
+| TDIM47 | (8575) |  |
+|  |  |  |
+|  | Model Fluxes from Chemical Abundance Fits |  |
+|  |  |  |
+| TDIM48 | (8575) |  |
+| TDIM49 | (8575) |  |
+| TDIM50 | (8575) |  |
+| TDIM51 | (8575) |  |
+| TDIM52 | (8575) |  |
+| TDIM53 | (8575) |  |
+| TDIM54 | (8575) |  |
+| TDIM55 | (8575) |  |
+| TDIM56 | (8575) |  |
+| TDIM57 | (8575) |  |
+| TDIM58 | (8575) |  |
+| TDIM59 | (8575) |  |
+| TDIM60 | (8575) |  |
+| TDIM61 | (8575) |  |
+| TDIM62 | (8575) |  |
+| TDIM63 | (8575) |  |
+| TDIM64 | (8575) |  |
+| TDIM65 | (8575) |  |
+| TDIM66 | (8575) |  |
+| TDIM67 | (8575) |  |
+| TDIM68 | (8575) |  |
+| TDIM69 | (8575) |  |
+| TDIM70 | (8575) |  |
+| TDIM71 | (8575) |  |
+|  |  |  |
+|  | IRFM Effective Temperatures from V-Ks (Gonzalez Hernandez and Bonifacio |  |
+|  | 2009) |  |
+|  |  |  |
+|  |  |  |
+|  | Stellar Parameters |  |
+|  |  |  |
+|  |  |  |
+|  | Chemical Abundances |  |
+|  |  |  |
+|  |  |  |
+|  | FERRE Settings |  |
+|  |  |  |
+|  |  |  |
+|  | Summary Statistics |  |
+|  |  |  |
+|  |  |  |
+|  | Task Primary Keys |  |
+|  |  |  |
+|  |  |  |
+|  | Calibration flags |  |
+|  |  |  |
+|  |  |  |
+|  | Raw (Uncalibrated) Quantities |  |
+|  |  |  |
+|  |  |  |
+|  | DATA INTEGRITY |  |
+|  |  |  |
+| CHECKSUM | ErRJFoOHEoOHEoOH | HDU checksum updated 2024-08-22T19:15:55 |
+| DATASUM | 2484655939 | data unit checksum updated 2024-08-22T19:15:55 |
+
+##### Binary Table Caption for HDU4
+Name | Type | Unit | Description |
+| --- | --- | --- | --- |
+ | star_pk | int64 |  | APOGEE DRP `star` primary key |
+ | release | char[4] |  | SDSS release |
+ | filetype | char[6] |  | SDSS file type that stores this spectrum |
+ | apred | char[4] |  | APOGEE reduction pipeline |
+ | apstar | char[5] |  | Unused DR17 apStar keyword (default: stars) |
+ | obj | char[18] |  | Object name |
+ | telescope | char[6] |  | Short telescope name |
+ | healpix | int32 |  | HEALPix (128 side) |
+ | field | char[6] |  | Field identifier |
+ | prefix | char[2] |  | Prefix used to separate SDSS 4 north/south |
+ | min_mjd | int32 |  | Minimum MJD of visits |
+ | max_mjd | int32 |  | Maximum MJD of visits |
+ | n_entries | int32 |  | apStar entries for this SDSS4_APOGEE_ID |
+ | n_visits | int32 |  | Number of APOGEE visits |
+ | n_good_visits | int32 |  | Number of 'good' APOGEE visits |
+ | n_good_rvs | int32 |  | Number of 'good' APOGEE radial velocities |
+ | mean_fiber | float32 |  | S/N-weighted mean visit fiber number |
+ | std_fiber | float32 |  | Standard deviation of visit fiber numbers |
+ | spectrum_flags | int64 |  | Data reduction pipeline flags for this spectrum |
+ | v_rad | float32 | km/s | Barycentric rest frame radial velocity  |
+ | e_v_rad | float32 | km/s | Error on radial velocity  |
+ | std_v_rad | float32 | km/s | Standard deviation of visit V_RAD  |
+ | median_e_v_rad | float32 | km/s | Median error in radial velocity  |
+ | doppler_teff | float32 | K | Stellar effective temperature  |
+ | doppler_e_teff | float32 | K | Error on stellar effective temperature  |
+ | doppler_logg | float32 | log10(cm/s^2) | Surface gravity  |
+ | doppler_e_logg | float32 | log10(cm/s^2) | Error on surface gravity  |
+ | doppler_fe_h | float32 | dex | [Fe/H]  |
+ | doppler_e_fe_h | float32 | dex | Error on [Fe/H]  |
+ | doppler_rchi2 | float32 |  | Reduced chi-square value of DOPPLER fit |
+ | doppler_flags | int64 |  | DOPPLER flags |
+ | xcorr_v_rad | float32 | km/s | Barycentric rest frame radial velocity  |
+ | xcorr_v_rel | float32 | km/s | Relative velocity  |
+ | xcorr_e_v_rel | float32 | km/s | Error on relative velocity  |
+ | ccfwhm | float32 |  | Cross-correlation function FWHM |
+ | autofwhm | float32 |  | Auto-correlation function FWHM |
+ | n_components | int32 |  | Number of components in CCF |
+ | spectrum_pk_id | int64 |  | Unique spectrum primary key |
+ | task_pk | int64 |  | Task model primary key |
+ | v_astra | char[5] |  | Astra version |
+ | created | char[26] |  | Datetime when task record was created |
+ | t_elapsed | float32 | s | Core-time elapsed on this analysis  |
+ | t_overhead | float32 | s | Estimated core-time spent in overhads  |
+ | tag | char[1] |  | Experiment tag for this result |
+ | wavelength | float32[8575] | Angstrom | Wavelength (vacuum)  |
+ | model_flux | float32[8575] |  | Model flux at optimized stellar parameters |
+ | continuum | float32[8575] |  | Continuum |
+ | model_flux_al_h | float32[8575] |  | Model flux at optimized [Al/H] |
+ | model_flux_c_12_13 | float32[8575] |  | Model flux at optimized C12/13 |
+ | model_flux_ca_h | float32[8575] |  | Model flux at optimized [Ca/H] |
+ | model_flux_ce_h | float32[8575] |  | Model flux at optimized [Ce/H] |
+ | model_flux_c_1_h | float32[8575] |  | Model flux at optimized [C 1/H] |
+ | model_flux_c_h | float32[8575] |  | Model flux at optimized [C/H] |
+ | model_flux_co_h | float32[8575] |  | Model flux at optimized [Co/H] |
+ | model_flux_cr_h | float32[8575] |  | Model flux at optimized [Cr/H] |
+ | model_flux_cu_h | float32[8575] |  | Model flux at optimized [Cu/H] |
+ | model_flux_fe_h | float32[8575] |  | Model flux at optimized [Fe/H] |
+ | model_flux_k_h | float32[8575] |  | Model flux at optimized [K/H] |
+ | model_flux_mg_h | float32[8575] |  | Model flux at optimized [Mg/H] |
+ | model_flux_mn_h | float32[8575] |  | Model flux at optimized [Mn/H] |
+ | model_flux_na_h | float32[8575] |  | Model flux at optimized [Na/H] |
+ | model_flux_nd_h | float32[8575] |  | Model flux at optimized [Nd/H] |
+ | model_flux_ni_h | float32[8575] |  | Model flux at optimized [Ni/H] |
+ | model_flux_n_h | float32[8575] |  | Model flux at optimized [N/H] |
+ | model_flux_o_h | float32[8575] |  | Model flux at optimized [O/H] |
+ | model_flux_p_h | float32[8575] |  | Model flux at optimized [P/H] |
+ | model_flux_si_h | float32[8575] |  | Model flux at optimized [Si/H] |
+ | model_flux_s_h | float32[8575] |  | Model flux at optimized [S/H] |
+ | model_flux_ti_h | float32[8575] |  | Model flux at optimized [Ti/H] |
+ | model_flux_ti_2_h | float32[8575] |  | Model flux at optimized [Ti 2/H] |
+ | model_flux_v_h | float32[8575] |  | Model flux at optimized [V/H] |
+ | irfm_teff | float32 | K | Stellar effective temperature  |
+ | irfm_teff_flags | int64 |  | IRFM temperature flags |
+ | teff | float32 | K | Stellar effective temperature  |
+ | e_teff | float32 | K | Error on stellar effective temperature  |
+ | logg | float32 | log10(cm/s^2) | Surface gravity  |
+ | e_logg | float32 | log10(cm/s^2) | Error on surface gravity  |
+ | v_micro | float32 | km/s | Microturbulence  |
+ | e_v_micro | float32 | km/s | Error on microturbulence  |
+ | v_sini | float32 | km/s | Projected rotational velocity  |
+ | e_v_sini | float32 | km/s | Error on projected rotational velocity  |
+ | m_h_atm | float32 | dex | Metallicity  |
+ | e_m_h_atm | float32 | dex | Error on metallicity  |
+ | alpha_m_atm | float32 | dex | [alpha/M] abundance ratio  |
+ | e_alpha_m_atm | float32 | dex | Error on [alpha/M] abundance ratio  |
+ | c_m_atm | float32 | dex | Atmospheric carbon abundance  |
+ | e_c_m_atm | float32 | dex | Error on atmospheric carbon abundance  |
+ | n_m_atm | float32 | dex | Atmospheric nitrogen abundance  |
+ | e_n_m_atm | float32 | dex | Error on atmospheric nitrogen abundance  |
+ | al_h | float32 | dex | [Al/H]  |
+ | e_al_h | float32 | dex | Error on [Al/H]  |
+ | al_h_flags | int64 | dex | Flags for [Al/H]  |
+ | al_h_rchi2 | float32 | dex | Reduced chi-square value for [Al/H]  |
+ | c_12_13 | float32 |  | C12/C13 ratio |
+ | e_c_12_13 | float32 |  | Error on c12/C13 ratio |
+ | c_12_13_flags | int64 |  | Flags for c12/C13 ratio |
+ | c_12_13_rchi2 | float32 |  | Reduced chi-square value for c12/C13 ratio |
+ | ca_h | float32 | dex | [Ca/H]  |
+ | e_ca_h | float32 | dex | Error on [Ca/H]  |
+ | ca_h_flags | int64 | dex | Flags for [Ca/H]  |
+ | ca_h_rchi2 | float32 | dex | Reduced chi-square value for [Ca/H]  |
+ | ce_h | float32 | dex | [Ce/H]  |
+ | e_ce_h | float32 | dex | Error on [Ce/H]  |
+ | ce_h_flags | int64 | dex | Flags for [Ce/H]  |
+ | ce_h_rchi2 | float32 | dex | Reduced chi-square value for [Ce/H]  |
+ | c_1_h | float32 | dex | [C/H] from neutral C lines  |
+ | e_c_1_h | float32 | dex | Error on [C/H] from neutral C lines  |
+ | c_1_h_flags | int64 | dex | Flags for [C/H] from neutral C lines  |
+ | c_1_h_rchi2 | float32 |  | Reduced chi-square value for [C/H] from neutral |
+ | c_h | float32 | dex | [C/H]  |
+ | e_c_h | float32 | dex | Error on [C/H]  |
+ | c_h_flags | int64 | dex | Flags for [C/H]  |
+ | c_h_rchi2 | float32 | dex | Reduced chi-square value for [C/H]  |
+ | co_h | float32 | dex | [Co/H]  |
+ | e_co_h | float32 | dex | Error on [Co/H]  |
+ | co_h_flags | int64 | dex | Flags for [Co/H]  |
+ | co_h_rchi2 | float32 | dex | Reduced chi-square value for [Co/H]  |
+ | cr_h | float32 | dex | [Cr/H]  |
+ | e_cr_h | float32 | dex | Error on [Cr/H]  |
+ | cr_h_flags | int64 | dex | Flags for [Cr/H]  |
+ | cr_h_rchi2 | float32 | dex | Reduced chi-square value for [Cr/H]  |
+ | cu_h | float32 | dex | [Cu/H]  |
+ | e_cu_h | float32 | dex | Error on [Cu/H]  |
+ | cu_h_flags | int64 | dex | Flags for [Cu/H]  |
+ | cu_h_rchi2 | float32 | dex | Reduced chi-square value for [Cu/H]  |
+ | fe_h | float32 | dex | [Fe/H]  |
+ | e_fe_h | float32 | dex | Error on [Fe/H]  |
+ | fe_h_flags | int64 | dex | Flags for [Fe/H]  |
+ | fe_h_rchi2 | float32 | dex | Reduced chi-square value for [Fe/H]  |
+ | k_h | float32 | dex | [K/H]  |
+ | e_k_h | float32 | dex | Error on [K/H]  |
+ | k_h_flags | int64 | dex | Flags for [K/H]  |
+ | k_h_rchi2 | float32 | dex | Reduced chi-square value for [K/H]  |
+ | mg_h | float32 | dex | [Mg/H]  |
+ | e_mg_h | float32 | dex | Error on [Mg/H]  |
+ | mg_h_flags | int64 | dex | Flags for [Mg/H]  |
+ | mg_h_rchi2 | float32 | dex | Reduced chi-square value for [Mg/H]  |
+ | mn_h | float32 | dex | [Mn/H]  |
+ | e_mn_h | float32 | dex | Error on [Mn/H]  |
+ | mn_h_flags | int64 | dex | Flags for [Mn/H]  |
+ | mn_h_rchi2 | float32 | dex | Reduced chi-square value for [Mn/H]  |
+ | na_h | float32 | dex | [Na/H]  |
+ | e_na_h | float32 | dex | Error on [Na/H]  |
+ | na_h_flags | int64 | dex | Flags for [Na/H]  |
+ | na_h_rchi2 | float32 | dex | Reduced chi-square value for [Na/H]  |
+ | nd_h | float32 | dex | [Nd/H]  |
+ | e_nd_h | float32 | dex | Error on [Nd/H]  |
+ | nd_h_flags | int64 | dex | Flags for [Nd/H]  |
+ | nd_h_rchi2 | float32 | dex | Reduced chi-square value for [Nd/H]  |
+ | ni_h | float32 | dex | [Ni/H]  |
+ | e_ni_h | float32 | dex | Error on [Ni/H]  |
+ | ni_h_flags | int64 | dex | Flags for [Ni/H]  |
+ | ni_h_rchi2 | float32 | dex | Reduced chi-square value for [Ni/H]  |
+ | n_h | float32 | dex | [N/H]  |
+ | e_n_h | float32 | dex | Error on [N/H]  |
+ | n_h_flags | int64 | dex | Flags for [N/H]  |
+ | n_h_rchi2 | float32 | dex | Reduced chi-square value for [N/H]  |
+ | o_h | float32 | dex | [O/H]  |
+ | e_o_h | float32 | dex | Error on [O/H]  |
+ | o_h_flags | int64 | dex | Flags for [O/H]  |
+ | o_h_rchi2 | float32 | dex | Reduced chi-square value for [O/H]  |
+ | p_h | float32 | dex | [P/H]  |
+ | e_p_h | float32 | dex | Error on [P/H]  |
+ | p_h_flags | int64 | dex | Flags for [P/H]  |
+ | p_h_rchi2 | float32 | dex | Reduced chi-square value for [P/H]  |
+ | si_h | float32 | dex | [Si/H]  |
+ | e_si_h | float32 | dex | Error on [Si/H]  |
+ | si_h_flags | int64 | dex | Flags for [Si/H]  |
+ | si_h_rchi2 | float32 | dex | Reduced chi-square value for [Si/H]  |
+ | s_h | float32 | dex | [S/H]  |
+ | e_s_h | float32 | dex | Error on [S/H]  |
+ | s_h_flags | int64 | dex | Flags for [S/H]  |
+ | s_h_rchi2 | float32 | dex | Reduced chi-square value for [S/H]  |
+ | ti_h | float32 | dex | [Ti/H]  |
+ | e_ti_h | float32 | dex | Error on [Ti/H]  |
+ | ti_h_flags | int64 | dex | Flags for [Ti/H]  |
+ | ti_h_rchi2 | float32 | dex | Reduced chi-square value for [Ti/H]  |
+ | ti_2_h | float32 | dex | [Ti/H] from singly ionized Ti lines  |
+ | e_ti_2_h | float32 |  | Error on [Ti/H] from singly ionized Ti lines [d |
+ | ti_2_h_flags | int64 |  | Flags for [Ti/H] from singly ionized Ti lines [ |
+ | ti_2_h_rchi2 | float32 |  | Reduced chi-square value for [Ti/H] from singly |
+ | v_h | float32 | dex | [V/H]  |
+ | e_v_h | float32 | dex | Error on [V/H]  |
+ | v_h_flags | int64 | dex | Flags for [V/H]  |
+ | v_h_rchi2 | float32 | dex | Reduced chi-square value for [V/H]  |
+ | short_grid_name | char[11] |  | Short name describing the FERRE grid used |
  | continuum_order | int32 |  | Continuum order used in FERRE |
  | continuum_reject | float32 |  | Tolerance for FERRE to reject continuum points |
  | interpolation_order | int32 |  | Interpolation order used by FERRE |
