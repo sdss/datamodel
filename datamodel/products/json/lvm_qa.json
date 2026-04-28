@@ -1,0 +1,376 @@
+{
+  "general": {
+    "name": "lvm_qa",
+    "short": "Summary quality-assessment table for LVM DR20 exposures.",
+    "description": "Summary QA/QC FITS data product for LVM DR20 exposures, containing one row per exposure with target identifiers, a packed QA bitmask, and decoded per-metric QA flags for DRP and DAP quality assessment. The metrics summarize automated and visual checks discussed for the DR20 QA process, including sky brightness, flux calibration, wavelength calibration, flat-fielding, sky subtraction, DAP fitting quality, and visual inspection flags.",
+    "environments": [
+      "LVM_SPECTRO_ANALYSIS"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "50 KB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-30"
+      }
+    ],
+    "naming_convention": "$LVM_SPECTRO_ANALYSIS/[DRPVER]/[DAPVER]/qa_bitmasks-[DRPVER]-[DAPVER].fits",
+    "generated_by": "LVM QA workflow and lvmqa scripts used for DR20 DRP/DAP quality assessment.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": true,
+    "data_level": "2.3.3"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$LVM_SPECTRO_ANALYSIS/[DRPVER]/[DAPVER]/qa_bitmasks-[DRPVER]-[DAPVER].fits",
+      "example": "1.2.0/1.2.0.251218/qa_bitmasks-1.2.0-1.2.0.251218.fits",
+      "location": "{drpver}/{dapver}/qa_bitmasks-{drpver}-{dapver}.fits",
+      "environment": "LVM_SPECTRO_ANALYSIS",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "lvm_qa",
+        "path_template": "$LVM_SPECTRO_ANALYSIS/{drpver}/{dapver}/qa_bitmasks-{drpver}-{dapver}.fits",
+        "path_kwargs": [
+          "drpver",
+          "dapver"
+        ],
+        "access_string": "lvm_qa = $LVM_SPECTRO_ANALYSIS/{drpver}/{dapver}/qa_bitmasks-{drpver}-{dapver}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary HDU with no data array; included for FITS compliance and global file metadata.",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "QA",
+          "is_image": false,
+          "description": "Binary table containing one row per DR20 exposure with exposure identifiers, target type, a packed QA bitmask, and decoded QA flags for the DR20 DRP and DAP quality-control metrics.",
+          "size": "32 KB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "195",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "169",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "20",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TARG_TYP",
+              "value": "Target types: MW=0, MCs=1, Extragalactic=2",
+              "comment": ""
+            },
+            {
+              "key": "QA_ENC",
+              "value": "2-bit GOOD=00 WARNING=01 MAJOR_ISSUE=10 UNDEFINED=11",
+              "comment": ""
+            },
+            {
+              "key": "QA_BITS",
+              "value": "2-bit fields packed LSB-first in this order (see DESC extension): bright stars, sky brightness, absflux, relflux br, relflux rz, wavecal b, wavecal r, wavecal z, flatfield, sky contsub, sky linesub, dap npfit, dap pmfit, visual drp, visual dap",
+              "comment": ""
+            },
+            {
+              "key": "EXTNAME",
+              "value": "QA",
+              "comment": "extension name"
+            }
+          ],
+          "columns": {
+            "expnum": {
+              "name": "expnum",
+              "description": "Unique exposure number identifying the observation; provided by the DRP summary table used for the DR20 QA workflow.",
+              "type": "int64",
+              "unit": "dimensionless"
+            },
+            "mjd": {
+              "name": "mjd",
+              "description": "Modified Julian Date of the observation.",
+              "type": "int64",
+              "unit": "day"
+            },
+            "tileid": {
+              "name": "tileid",
+              "description": "Identifier of the LVM tile associated with the exposure.",
+              "type": "int64",
+              "unit": "dimensionless"
+            },
+            "target_type": {
+              "name": "target_type",
+              "description": "Target-type code indicating if the exposure is of a target in the Milky Way (0), Malleganic Clouds (1), or a Local Volume galaxy (2).",
+              "type": "int64",
+              "unit": "integer code"
+            },
+            "qa_bitmask": {
+              "name": "qa_bitmask",
+              "description": "Packed QA bitmask using 2-bit fields stored least-significant-bit first in the metric order documented in the QA header and DESC extension; encoding is GOOD=00, WARNING=01, MAJOR ISSUE=10, UNDEFINED=11.",
+              "type": "char[10]",
+              "unit": "packed hexadecimal bitmask"
+            },
+            "qa_brightstars": {
+              "name": "qa_brightstars",
+              "description": "Decoded QA flag for contamination or quality impact from bright stars in the field.",
+              "type": "char[11]",
+              "unit": "2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED"
+            },
+            "qa_sky_brt": {
+              "name": "qa_sky_brt",
+              "description": "Decoded QA flag for sky brightness conditions during the exposure, related to quantities such as lunar fractional illumination, Moon altitude, Moon separation, and twilight conditions.",
+              "type": "char[11]",
+              "unit": "2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED"
+            },
+            "qa_absflux": {
+              "name": "qa_absflux",
+              "description": "Decoded QA flag for absolute flux-calibration quality based on comparisons with external photometric datasets (Gaia stars in the field).",
+              "type": "char[11]",
+              "unit": "2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED"
+            },
+            "qa_relflux_br": {
+              "name": "qa_relflux_br",
+              "description": "Decoded QA flag for relative flux calibration between the blue and red spectrograph arms, used to assess spectrophotometric stability and possible continuum jumps between arms.",
+              "type": "char[11]",
+              "unit": "2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED"
+            },
+            "qa_relflux_rz": {
+              "name": "qa_relflux_rz",
+              "description": "Decoded QA flag for relative flux calibration between the red and infrared/z spectrograph arms, used to assess spectrophotometric stability and possible continuum jumps between arms.",
+              "type": "char[11]",
+              "unit": "2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED"
+            },
+            "qa_wavecal_b": {
+              "name": "qa_wavecal_b",
+              "description": "Decoded QA flag for wavelength-calibration quality in the blue channel, assessed using prominent night-sky lines.",
+              "type": "char[9]",
+              "unit": "2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED"
+            },
+            "qa_wavecal_r": {
+              "name": "qa_wavecal_r",
+              "description": "Decoded QA flag for wavelength-calibration quality in the red channel, assessed using prominent night-sky lines.",
+              "type": "char[9]",
+              "unit": "2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED"
+            },
+            "qa_wavecal_z": {
+              "name": "qa_wavecal_z",
+              "description": "Decoded QA flag for wavelength-calibration quality in the infrared/z channel, assessed using prominent night-sky lines.",
+              "type": "char[9]",
+              "unit": "2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED"
+            },
+            "qa_flatfield": {
+              "name": "qa_flatfield",
+              "description": "Decoded QA flag for flat-fielding quality, assessed using fiber-by-fiber behaviour of the prominent night-sky lines.",
+              "type": "char[9]",
+              "unit": "2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED"
+            },
+            "qa_skycont_sub": {
+              "name": "qa_skycont_sub",
+              "description": "Decoded QA flag for sky-continuum subtraction quality, based on residual continuum levels after sky subtraction.",
+              "type": "char[11]",
+              "unit": "2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED"
+            },
+            "qa_skyline_sub": {
+              "name": "qa_skyline_sub",
+              "description": "Decoded QA flag for sky-emission-line subtraction quality, based on residuals for selected sky lines or regions such as [OI]5577, [OH]6865, [Na]5891, and O2.",
+              "type": "char[11]",
+              "unit": "2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED"
+            },
+            "qa_dap_npfit": {
+              "name": "qa_dap_npfit",
+              "description": "Decoded QA flag for the consistency between the DAP parametric and non-parametric emission-line measurements.",
+              "type": "char[9]",
+              "unit": "2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED"
+            },
+            "qa_dap_pmfit": {
+              "name": "qa_dap_pmfit",
+              "description": "Decoded QA flag for the quality of DAP parametric emission-line fitting, based on the residuals after the Gaussian model subtraction for the bright emission lines.",
+              "type": "char[9]",
+              "unit": "2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED"
+            },
+            "qa_visual_drp": {
+              "name": "qa_visual_drp",
+              "description": "Decoded QA flag from visual inspection of DRP products, including SFrame-level artifacts and data-quality issues identified during the DR20 inspection process.",
+              "type": "char[11]",
+              "unit": "2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED"
+            },
+            "qa_visual_dap": {
+              "name": "qa_visual_dap",
+              "description": "Decoded QA flag from visual inspection of DAP products, including maps, fits, residuals, and other DAP-level artifacts identified during the DR20 inspection process.",
+              "type": "char[11]",
+              "unit": "2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED"
+            }
+          }
+        },
+        "hdu2": {
+          "name": "DESC",
+          "is_image": false,
+          "description": "Binary table documenting the QA metrics encoded in the QA extension, including the bit positions, metric descriptions, and criteria for WARNING and MAJOR ISSUE flags.",
+          "size": "4 KB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "327",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "15",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "5",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "DESC",
+              "comment": "extension name"
+            }
+          ],
+          "columns": {
+            "Metric": {
+              "name": "Metric",
+              "description": "Name of the QA metric corresponding to one decoded QA flag and one packed 2-bit field in qa_bitmask.",
+              "type": "char[14]",
+              "unit": "dimensionless"
+            },
+            "Bits": {
+              "name": "Bits",
+              "description": "Bit positions assigned to the metric within the packed qa_bitmask.",
+              "type": "char[5]",
+              "unit": "bit index"
+            },
+            "Description": {
+              "name": "Description",
+              "description": "Text description of the QA metric and the data-quality aspect it summarizes.",
+              "type": "char[67]",
+              "unit": "dimensionless"
+            },
+            "WARNING": {
+              "name": "WARNING",
+              "description": "Criterion or explanatory text for assigning the WARNING state to the metric; exact quantitative thresholds may be provided in the DR20 webpages.",
+              "type": "char[105]",
+              "unit": "dimensionless"
+            },
+            "MAJOR ISSUE": {
+              "name": "MAJOR ISSUE",
+              "description": "Criterion or explanatory text for assigning the MAJOR ISSUE state to the metric; exact quantitative thresholds may be provided in the DR20 webpages.",
+              "type": "char[136]",
+              "unit": "dimensionless"
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null,
+      "dataframe": null
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}
