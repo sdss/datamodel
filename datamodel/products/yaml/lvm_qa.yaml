@@ -125,17 +125,17 @@ releases:
             name: qa_brightstars
             type: char[11]
             unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
-            description: Decoded QA flag for contamination or quality impact from bright stars in the field; detailed WARNING and MAJOR ISSUE thresholds are not defined in the supplied PDF/XLSX.
+            description: Decoded QA flag for contamination or quality impact from bright stars in the field.
           qa_sky_brt:
             name: qa_sky_brt
             type: char[11]
             unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
-            description: Decoded QA flag for sky brightness conditions during the exposure, related to quantities such as lunar fractional illumination, Moon altitude, Moon separation, sky background, and airmass.
+            description: Decoded QA flag for sky brightness conditions during the exposure, related to quantities such as lunar fractional illumination, Moon altitude, Moon separation, and twilight conditions.
           qa_absflux:
             name: qa_absflux
             type: char[11]
             unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
-            description: Decoded QA flag for absolute flux-calibration quality based on comparisons with external photometric datasets such as Gaia or Pan-STARRS, as discussed in the DR20 QA process.
+            description: Decoded QA flag for absolute flux-calibration quality based on comparisons with external photometric datasets (Gaia stars in the field).
           qa_relflux_br:
             name: qa_relflux_br
             type: char[11]
@@ -150,42 +150,42 @@ releases:
             name: qa_wavecal_b
             type: char[9]
             unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
-            description: Decoded QA flag for wavelength-calibration quality in the blue channel, assessed using prominent night-sky lines or related DRP QA metrics when available.
+            description: Decoded QA flag for wavelength-calibration quality in the blue channel, assessed using prominent night-sky lines.
           qa_wavecal_r:
             name: qa_wavecal_r
             type: char[9]
             unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
-            description: Decoded QA flag for wavelength-calibration quality in the red channel, assessed using prominent night-sky lines or related DRP QA metrics when available.
+            description: Decoded QA flag for wavelength-calibration quality in the red channel, assessed using prominent night-sky lines.
           qa_wavecal_z:
             name: qa_wavecal_z
             type: char[9]
             unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
-            description: Decoded QA flag for wavelength-calibration quality in the infrared/z channel, assessed using prominent night-sky lines or related DRP QA metrics when available.
+            description: Decoded QA flag for wavelength-calibration quality in the infrared/z channel, assessed using prominent night-sky lines.
           qa_flatfield:
             name: qa_flatfield
             type: char[9]
             unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
-            description: Decoded QA flag for flat-fielding quality, associated with calibration consistency and tests based on sky-line or fiber-to-fiber behavior; detailed thresholds are not defined in the supplied PDF/XLSX.
+            description: Decoded QA flag for flat-fielding quality, assessed using fiber-by-fiber behaviour of the prominent night-sky lines.
           qa_skycont_sub:
             name: qa_skycont_sub
             type: char[11]
             unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
-            description: Decoded QA flag for sky-continuum subtraction quality, based on residual continuum levels after sky subtraction in selected continuum regions such as airglow pseudo-continuum and B, R, and Z channel continuum bands.
+            description: Decoded QA flag for sky-continuum subtraction quality, based on residual continuum levels after sky subtraction.
           qa_skyline_sub:
             name: qa_skyline_sub
             type: char[11]
             unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
-            description: Decoded QA flag for sky-emission-line subtraction quality, based on residual-to-sky metrics for selected sky lines or regions such as [OI]5577, [OI]6300, [OH]6865, [Na]5891, and O2.
+            description: Decoded QA flag for sky-emission-line subtraction quality, based on residuals for selected sky lines or regions such as [OI]5577, [OH]6865, [Na]5891, and O2.
           qa_dap_npfit:
             name: qa_dap_npfit
             type: char[9]
             unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
-            description: Decoded QA flag for the quality of DAP non-parametric emission-line measurements, including checks related to residuals, reported errors, and parametric versus non-parametric consistency.
+            description: Decoded QA flag for the consistency between the DAP parametric and non-parametric emission-line measurements.
           qa_dap_pmfit:
             name: qa_dap_pmfit
             type: char[9]
             unit: 2-bit QA flag encoded as GOOD, WARNING, MAJOR ISSUE, or UNDEFINED
-            description: Decoded QA flag for the quality of DAP parametric emission-line fitting, including checks related to residuals, reported errors, and consistency with non-parametric measurements.
+            description: Decoded QA flag for the quality of DAP parametric emission-line fitting, based on the residuals after the Gaussian model subtraction for the bright emission lines.
           qa_visual_drp:
             name: qa_visual_drp
             type: char[11]
@@ -198,7 +198,7 @@ releases:
             description: Decoded QA flag from visual inspection of DAP products, including maps, fits, residuals, and other DAP-level artifacts identified during the DR20 inspection process.
       hdu2:
         name: DESC
-        description: Binary table documenting the QA metrics encoded in the QA extension, including the bit positions, metric descriptions, and available criteria for WARNING and MAJOR ISSUE flags.
+        description: Binary table documenting the QA metrics encoded in the QA extension, including the bit positions, metric descriptions, and criteria for WARNING and MAJOR ISSUE flags.
         is_image: false
         size: 4 KB
         header:
