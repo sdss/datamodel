@@ -25,7 +25,7 @@ DR20
 BHM_QSO_HOST
 
 ### Approximate Size
-998 KB
+1 MB
 
 ### File Type
 FITS
@@ -72,7 +72,7 @@ Key | Value | Comment | |
 replace me description
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  680 KB
+#### HDU Size:  704 KB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -80,29 +80,30 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 226 | length of dimension 1 |
+| NAXIS1 | 234 | length of dimension 1 |
 | NAXIS2 | 3082 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 28 | number of table fields |
+| TFIELDS | 29 | number of table fields |
 | EXTNAME | N25_INDEXDIAGRAM | extension name |
 | TUNIT2 | deg |  |
 | TUNIT3 | deg |  |
-| TUNIT6 | mag |  |
-| TUNIT7 | 10**-17 cm-2 erg s-1 |  |
+| TNULL4 | 999999 |  |
+| TUNIT7 | mag |  |
 | TUNIT8 | 10**-17 cm-2 erg s-1 |  |
-| TUNIT10 | 10**-17 cm-2 erg s-1 |  |
-| TUNIT13 | Angstrom |  |
+| TUNIT9 | 10**-17 cm-2 erg s-1 |  |
+| TUNIT11 | 10**-17 cm-2 erg s-1 |  |
 | TUNIT14 | Angstrom |  |
-| TNULL16 | 999999 |  |
-| TUNIT18 | km s-1 |  |
-| TUNIT20 | solMass |  |
-| TUNIT22 | erg s-1 |  |
+| TUNIT15 | Angstrom |  |
+| TNULL17 | 999999 |  |
+| TUNIT19 | km s-1 |  |
+| TUNIT21 | solMass |  |
 | TUNIT23 | erg s-1 |  |
 | TUNIT24 | erg s-1 |  |
-| TUNIT26 | erg s-1 |  |
-| TUNIT27 | mag |  |
+| TUNIT25 | erg s-1 |  |
+| TUNIT27 | erg s-1 |  |
 | TUNIT28 | mag |  |
+| TUNIT29 | mag |  |
 | COMMENT | N25_IndexDiagram |  |
 
 ##### Binary Table Caption for HDU1
@@ -111,6 +112,7 @@ Name | Type | Unit | Description |
  | Object | char[16] |  | replace me - with content |
  | RA | float64 | deg | replace me - with content |
  | DEC | float64 | deg | replace me - with content |
+ | CATALOGID | int64 |  | replace me - with content |
  | z_TW | float64 |  | replace me - with content |
  | z | float64 |  | replace me - with content |
  | g_r | float64 | mag | replace me - with content |
@@ -143,7 +145,7 @@ Name | Type | Unit | Description |
 replace me description
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  301 KB
+#### HDU Size:  352 KB
 
 ##### Header Table Caption for HDU2
 Key | Value | Comment | |
@@ -151,16 +153,16 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 48 | length of dimension 1 |
+| NAXIS1 | 56 | length of dimension 1 |
 | NAXIS2 | 6439 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 5 | number of table fields |
+| TFIELDS | 6 | number of table fields |
 | EXTNAME | DR20_H_HB_INDICES | extension name |
 | TUNIT2 | deg |  |
 | TUNIT3 | deg |  |
-| TUNIT4 | Angstrom |  |
 | TUNIT5 | Angstrom |  |
+| TUNIT6 | Angstrom |  |
 | COMMENT | DR20_H_Hb_Indices |  |
 
 ##### Binary Table Caption for HDU2
@@ -169,6 +171,7 @@ Name | Type | Unit | Description |
  | Object | char[16] |  | replace me - with content |
  | RA | float64 | deg | replace me - with content |
  | DEC | float64 | deg | replace me - with content |
+ | CATALOGID | int64 |  | replace me - with content |
  | H_index | float64 | Angstrom | replace me - with content |
  | Hb_index | float64 | Angstrom | replace me - with content |
 
