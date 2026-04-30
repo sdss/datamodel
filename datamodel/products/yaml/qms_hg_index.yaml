@@ -5,36 +5,37 @@ general:
   datatype: FITS
   filesize: 998 KB
   releases:
-  - WORK
+  - DR20
   environments:
   - BHM_QSO_HOST
   surveys:
-  - BHM
-  naming_convention: replace me - with $BHM_QSO_HOST/qms_hg/qms_hg_index_diagram-[V_VAC].fits
-    or qms_hg_index_diagram-1.0.0.fits but with regex pattern matches
+  - SDSS
+  naming_convention: $BHM_QSO_HOST/qms_hg/qms_hg_index_diagram-[V_VAC].fits, where
+    V_VAC=1.0.0 for DR20.
   generated_by: replace me - with the name(s) of any git or svn product(s) that produces
     this product.
-  data_level: 2.3.3
+  data_level: 3.3.0
   design: false
-  vac: false
-  recommended_science_product: false
+  vac: true
+  recommended_science_product: true
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
   releases: {}
 releases:
-  WORK:
+  DR20:
     template: $BHM_QSO_HOST/qms_hg/qms_hg_index_diagram-[V_VAC].fits
     example: qms_hg/qms_hg_index_diagram-1.0.0.fits
     location: qms_hg/qms_hg_index_diagram-{v_vac}.fits
     environment: BHM_QSO_HOST
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
+      in_sdss_access: true
+      path_name: qms_hg_index
+      path_template: $BHM_QSO_HOST/qms_hg/qms_hg_index_diagram-{v_vac}.fits
+      path_kwargs:
+      - v_vac
       access_string: qms_hg_index = $BHM_QSO_HOST/qms_hg/qms_hg_index_diagram-{v_vac}.fits
-    survey: BHM
+    survey: SDSS
     hdus:
       hdu0:
         name: PRIMARY
