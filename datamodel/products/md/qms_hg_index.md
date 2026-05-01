@@ -13,7 +13,25 @@ The index diagram as a tool to disentangle the influence of the host galaxy in q
 ---
 
 ## Basic Information
-The FITS file consists of two tables. The first one includes the delivered catalog comprising 28 parameters for 3082 quasars, with a single row per object. Each object is easily identified using the RA and DEC coordinates. Details of the sample selection and performed analysis are described in <a href='https://ui.adsabs.harvard.edu/abs/2025MNRAS.543.4272N'>Negrete et al. 2025</a>. The second table contains the measurements of the CaII-H and Hb indices for a more comprehensive sample (6439 quasars), selected by having 0.01 < z < 0.8, SN_MEDIAN_ALL > 15, FIRSTCARTON containing 'bhm' in the label, and  CLASS = QSO.
+The FITS file consists of two tables. The first one includes the delivered
+catalog comprising 28 parameters for 3082 quasars, with a single row per object.
+Each object is easily identified using the RA and DEC coordinates. Details of
+the sample selection and performed analysis are described in <a href='https://ui.adsabs.harvard.edu/abs/2025MNRAS.543.4272N'>Negrete
+et al. 2025</a>.
+
+The spectral identifier (SI) of the first table is as follows:
+0.0  - No emission-line spectra; more likely a retired galaxy
+0.1  - Spectra showing strong sky-subtraction residuals
+0.2  - Sy2 objects, all at z < 0.5
+1.0  - Type-1 AGN showing both Ha and Hb BCs
+1.1  - Optical spectra with z correction
+1.9  - Sy 1.9 spectra without HbBC but with HaBC
+-1.0 - UV spectra with incorrectly assigned z
+
+The second table contains the measurements of the CaII-H and Hb indices for a 
+more comprehensive sample (6439 quasars), selected by having 0.01 < z < 0.8, 
+SN_MEDIAN_ALL > 15, FIRSTCARTON containing 'bhm' in the label, and CLASS = QSO.
+
 
 ### Naming Convention
 $BHM_QSO_HOST/qms_hg/qms_hg_index_diagram-[V_VAC].fits, where V_VAC=1.0.0 for DR20.
@@ -34,7 +52,7 @@ FITS
 replace me - with the name(s) of any git or svn product(s) that produces this product.
 
 ### Is a VAC
-True
+False
 
 ### Data Level
 3.3.0
