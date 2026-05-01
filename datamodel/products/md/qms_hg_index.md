@@ -52,7 +52,7 @@ FITS
 replace me - with the name(s) of any git or svn product(s) that produces this product.
 
 ### Is a VAC
-False
+True
 
 ### Data Level
 3.3.0
