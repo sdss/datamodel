@@ -16,7 +16,7 @@ MINESweeper parameters for halo stars from SDSS-V MWM
 Stellar parameters for distant and metal-poor halo stars from the SDSS-V Milky Way Mapper survey, fit using the Bayesian MINESweeper code. Stellar parameters are estimated via a simultaneous fit to the spectrum, photometry, and parallax, and solutions are constrained to lie on MIST isochrones. A full description of MINESweeper is presented in Cargile et al (2020).
 
 ### Naming Convention
-$MWM_MINESWEEPER/minesweeper_[VERS].fits where VERS="v1.0.0" for DR19
+$MWM_MINESWEEPER/minesweeper_[VERS].fits where VERS="v1.2.1" for DR20, and VERS="v1.0.0" for DR19
 
 ### Releases
 DR19, DR20
