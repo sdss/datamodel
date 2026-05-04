@@ -19,7 +19,7 @@ Stellar parameters for distant and metal-poor halo stars from the SDSS-V Milky W
 $MWM_MINESWEEPER/minesweeper_[VERS].fits where VERS="v1.0.0" for DR19
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MWM_MINESWEEPER
@@ -39,7 +39,7 @@ False
 ### Data Level
 3.3.0
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -71,7 +74,7 @@ Key | Value | Comment | |
 Astropy Table containing MINESweeper parameters
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  11 MB
+#### HDU Size:  75 MB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -79,27 +82,27 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 1342 | length of dimension 1 |
-| NAXIS2 | 8788 | length of dimension 2 |
+| NAXIS1 | 1358 | length of dimension 1 |
+| NAXIS2 | 58571 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 178 | number of table fields |
-| VACVER | 1.0.0 |  |
-| SDSSDR | DR19 |  |
+| TFIELDS | 181 | number of table fields |
+| VACVER | 1.2.1 |  |
+| SDSSDR | DR20 |  |
 | MAPPER | MWM |  |
-| DATECREAT | 2025-04-08 |  |
-| DATEMOD | 2025-04-08 |  |
+| DATECREAT | 2026-04-07 |  |
+| DATEMOD | 2026-04-07 |  |
 | TNULL1 | 999999 |  |
-| TNULL17 | 999999 |  |
 | TNULL18 | 999999 |  |
 | TNULL19 | 999999 |  |
 | TNULL20 | 999999 |  |
-| TNULL22 | 999999 |  |
+| TNULL21 | 999999 |  |
 | TNULL23 | 999999 |  |
-| TNULL25 | 999999 |  |
-| TNULL118 | 999999 |  |
-| TNULL120 | 999999 |  |
-| TNULL167 | 999999 |  |
+| TNULL24 | 999999 |  |
+| TNULL26 | 999999 |  |
+| TNULL119 | 999999 |  |
+| TNULL121 | 999999 |  |
+| TNULL168 | 999999 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
@@ -120,6 +123,7 @@ Name | Type | Unit | Description |
  | BP_RP | float32 | mag | Gaia DR3 BP-RP color index |
  | l | float64 | deg | Galactic longitude |
  | b | float64 | deg | Galactic latitude |
+ | circularity | float64 | replace me - with content | replace me - with content |
  | catalogid | int64 |  | SDSS catalog identification number |
  | sdssid | int64 |  | SDSS object identifier |
  | field | int64 |  | Field number for the observation |
@@ -181,10 +185,10 @@ Name | Type | Unit | Description |
  | aFe_lerr | float64 | dex | Lower error on alpha enhancement |
  | aFe_uerr | float64 | dex | Upper error on alpha enhancement |
  | aFe_err | float64 | dex | Uncertainty on alpha enhancement |
- | Vrad | float64 | km/s | Radial velocity in km/s |
- | Vrad_lerr | float64 | km/s | Lower error on radial velocity |
- | Vrad_uerr | float64 | km/s | Upper error on radial velocity |
- | Vrad_err | float64 | km/s | Uncertainty on radial velocity |
+ | Vrad_MS | float64 | replace me - with content | replace me - with content |
+ | Vrad_MS_lerr | float64 | replace me - with content | replace me - with content |
+ | Vrad_MS_uerr | float64 | replace me - with content | replace me - with content |
+ | Vrad_MS_err | float64 | replace me - with content | replace me - with content |
  | Vrot | float64 | km/s | Projected rotational velocity |
  | Vrot_lerr | float64 | km/s | Lower error on Vrot |
  | Vrot_uerr | float64 | km/s | Upper error on Vrot |
@@ -271,6 +275,8 @@ Name | Type | Unit | Description |
  | z_max_mw22 | float64 | kpc | Maximum vertical height reached in MW22 orbit integration |
  | z_max_mw22_err | float64 | kpc | Uncertainty on the maximum vertical height |
  | FLAG | int64 |  | Data quality flag from MINESweeper fit (FLAG==0 selects clean data) |
+ | Vrad | float32 | km/s | Radial velocity in km/s |
+ | Vrad_err | float32 | km/s | Uncertainty on radial velocity |
  | Sgr_l | float64 | deg | Sagittarius stream coordinate (longitude) |
  | Sgr_b | float64 | deg | Sagittarius stream coordinate (latitude) |
  | in_sgr_L | bool |  | Flag indicating association with the Sagittarius Stream based on angular momentum |
