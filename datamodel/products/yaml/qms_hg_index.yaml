@@ -1,0 +1,394 @@
+general:
+  name: qms_hg_index
+  short: The index diagram as a tool to disentangle the influence of the host galaxy
+    in quasar spectra
+  description: "The FITS file consists of two tables. The first one includes the delivered\n\
+    catalog comprising 28 parameters for 3082 quasars, with a single row per object.\n\
+    Each object is easily identified using the RA and DEC coordinates. Details of\n\
+    the sample selection and performed analysis are described in <a href='https://ui.adsabs.harvard.edu/abs/2025MNRAS.543.4272N'>Negrete\n\
+    et al. 2025</a>.\n\nThe spectral identifier (SI) of the first table is as follows:\n\
+    0.0  - No emission-line spectra; more likely a retired galaxy\n0.1  - Spectra\
+    \ showing strong sky-subtraction residuals\n0.2  - Sy2 objects, all at z < 0.5\n\
+    1.0  - Type-1 AGN showing both Ha and Hb BCs\n1.1  - Optical spectra with z correction\n\
+    1.9  - Sy 1.9 spectra without HbBC but with HaBC\n-1.0 - UV spectra with incorrectly\
+    \ assigned z.\n\nThe second table contains the measurements of the CaII-H and\
+    \ Hb indices for a \nmore comprehensive sample (6439 quasars), selected by having\
+    \ 0.01 < z < 0.8, \nSN_MEDIAN_ALL > 15, FIRSTCARTON containing 'bhm' in the label,\
+    \ and CLASS = QSO.\n"
+  datatype: FITS
+  filesize: 1 MB
+  releases:
+  - DR20
+  environments:
+  - BHM_QSO_HOST
+  surveys:
+  - SDSS
+  naming_convention: $BHM_QSO_HOST/qms_hg/qms_hg_index_diagram-[V_VAC].fits, where
+    V_VAC=1.0.0 for DR20.
+  generated_by: See <a href='https://ui.adsabs.harvard.edu/abs/2025MNRAS.543.4272N'>Negrete
+    et al. 2025</a>.
+  data_level: 3.3.0
+  design: false
+  vac: false
+  recommended_science_product: true
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $BHM_QSO_HOST/qms_hg/qms_hg_index_diagram-[V_VAC].fits
+    example: qms_hg/qms_hg_index_diagram-1.0.0.fits
+    location: qms_hg/qms_hg_index_diagram-{v_vac}.fits
+    environment: BHM_QSO_HOST
+    access:
+      in_sdss_access: true
+      path_name: qms_hg_index
+      path_template: $BHM_QSO_HOST/qms_hg/qms_hg_index_diagram-{v_vac}.fits
+      path_kwargs:
+      - v_vac
+      access_string: qms_hg_index = $BHM_QSO_HOST/qms_hg/qms_hg_index_diagram-{v_vac}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: This is an empty HDU.
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: N25_INDEXDIAGRAM
+        description: "This table contains the measurements and products derived for\
+          \ the data \nsample used in <a href='https://ui.adsabs.harvard.edu/abs/2025MNRAS.543.4272N'>Negrete\n\
+          et al. 2025</a>."
+        is_image: false
+        size: 704 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 234
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 3082
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 29
+          comment: number of table fields
+        - key: EXTNAME
+          value: N25_INDEXDIAGRAM
+          comment: extension name
+        - key: TUNIT2
+          value: deg
+          comment: ''
+        - key: TUNIT3
+          value: deg
+          comment: ''
+        - key: TNULL4
+          value: 999999
+          comment: ''
+        - key: TUNIT7
+          value: mag
+          comment: ''
+        - key: TUNIT8
+          value: 10^-17 cm-2 erg s-1
+          comment: ''
+        - key: TUNIT9
+          value: 10^-17 cm-2 erg s-1
+          comment: ''
+        - key: TUNIT11
+          value: 10^-17 cm-2 erg s-1
+          comment: ''
+        - key: TUNIT14
+          value: Angstrom
+          comment: ''
+        - key: TUNIT15
+          value: Angstrom
+          comment: ''
+        - key: TNULL17
+          value: 999999
+          comment: ''
+        - key: TUNIT19
+          value: km s-1
+          comment: ''
+        - key: TUNIT21
+          value: solMass
+          comment: ''
+        - key: TUNIT23
+          value: erg s-1
+          comment: ''
+        - key: TUNIT24
+          value: erg s-1
+          comment: ''
+        - key: TUNIT25
+          value: erg s-1
+          comment: ''
+        - key: TUNIT27
+          value: erg s-1
+          comment: ''
+        - key: TUNIT28
+          value: mag
+          comment: ''
+        - key: TUNIT29
+          value: mag
+          comment: ''
+        - key: COMMENT
+          value: N25_IndexDiagram
+          comment: ''
+        columns:
+          Object:
+            name: Object
+            type: char[16]
+            unit: ''
+            description: Object name
+          RA:
+            name: RA
+            type: float64
+            unit: deg
+            description: RA of the object
+          DEC:
+            name: DEC
+            type: float64
+            unit: deg
+            description: DEC of the object
+          CATALOGID:
+            name: CATALOGID
+            type: int64
+            unit: ''
+            description: SDSS Catalog ID of the object
+          z_TW:
+            name: z_TW
+            type: float64
+            unit: ''
+            description: Redshift used in This Work
+          z:
+            name: z
+            type: float64
+            unit: ''
+            description: Redshift extracted from the DR20
+          g_r:
+            name: g_r
+            type: float64
+            unit: mag
+            description: g - r color
+          fcont_5100:
+            name: fcont_5100
+            type: float64
+            unit: 10^-17 cm-2 erg s-1
+            description: Continuum flux at 5100 AA
+          fcont_5100_err:
+            name: fcont_5100_err
+            type: float64
+            unit: 10^-17 cm-2 erg s-1
+            description: Continuum flux at 5100 AA error
+          fhb_c4750:
+            name: fhb_c4750
+            type: float64
+            unit: ''
+            description: Flux ratio of the Hb blue band and the continuum at 4750
+              AA
+          fcont_6400:
+            name: fcont_6400
+            type: float64
+            unit: 10^-17 cm-2 erg s-1
+            description: Continuum flux at 6400 AA
+          fblue_fcont:
+            name: fblue_fcont
+            type: float64
+            unit: ''
+            description: Flux ratio of the Ha blue band and the continuum at 6400
+              AA
+          fred_fcont:
+            name: fred_fcont
+            type: float64
+            unit: ''
+            description: Flux ratio of the Ha red band and the continuum at 6400 AA
+          H_index:
+            name: H_index
+            type: float64
+            unit: Angstrom
+            description: CaII-H band index
+          Hb_index:
+            name: Hb_index
+            type: float64
+            unit: Angstrom
+            description: Hb Lick index
+          SI:
+            name: SI
+            type: float64
+            unit: ''
+            description: Spectral Identifier of the object type
+          Family:
+            name: Family
+            type: int64
+            unit: ''
+            description: Identifier of the AGN-HG dominance AGND=1 INT=2 and HGD=3
+          RFeII:
+            name: RFeII
+            type: float64
+            unit: ''
+            description: Flux ratio of FeII and Hb broad component
+          FWHM_1000:
+            name: FWHM_1000
+            type: float64
+            unit: km s-1
+            description: FWHM of Hb broad component / 1000
+          Pop:
+            name: Pop
+            type: char[2]
+            unit: ''
+            description: Population designation in the Quasar Main Sequence
+          logMBH:
+            name: logMBH
+            type: float64
+            unit: log(Msun)
+            description: Logarithm of the Black Hole Mass
+          REdd:
+            name: REdd
+            type: float64
+            unit: ''
+            description: Eddington ratio
+          L_bol:
+            name: L_bol
+            type: float64
+            unit: erg s-1
+            description: Bolometric luminosity
+          Lum_g:
+            name: Lum_g
+            type: float64
+            unit: erg s-1
+            description: Luminosity of the g band
+          Lum_20cm:
+            name: Lum_20cm
+            type: float64
+            unit: erg s-1
+            description: Luminosity of the emission at 20 cm
+          RK:
+            name: RK
+            type: float64
+            unit: ''
+            description: Modified Kellerman's ratio
+          Lum_W3:
+            name: Lum_W3
+            type: float64
+            unit: erg s-1
+            description: Luminosity of the wise W3 band
+          W1_W2:
+            name: W1_W2
+            type: float64
+            unit: mag
+            description: W1-W2 Wise color
+          W2_W3:
+            name: W2_W3
+            type: float64
+            unit: mag
+            description: W2-W3 Wise color
+      hdu2:
+        name: DR20_H_HB_INDICES
+        description: "This table contains the measurements of the CaII-H and Hb indices\
+          \ for an \nextended sample."
+        is_image: false
+        size: 352 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 56
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 6439
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 6
+          comment: number of table fields
+        - key: EXTNAME
+          value: DR20_H_HB_INDICES
+          comment: extension name
+        - key: TUNIT2
+          value: deg
+          comment: ''
+        - key: TUNIT3
+          value: deg
+          comment: ''
+        - key: TUNIT5
+          value: Angstrom
+          comment: ''
+        - key: TUNIT6
+          value: Angstrom
+          comment: ''
+        - key: COMMENT
+          value: DR20_H_Hb_Indices
+          comment: ''
+        columns:
+          Object:
+            name: Object
+            type: char[16]
+            unit: ''
+            description: Object name
+          RA:
+            name: RA
+            type: float64
+            unit: deg
+            description: RA of the object
+          DEC:
+            name: DEC
+            type: float64
+            unit: deg
+            description: DEC of the object
+          CATALOGID:
+            name: CATALOGID
+            type: int64
+            unit: ''
+            description: SDSS Catalog ID of the object
+          H_index:
+            name: H_index
+            type: float64
+            unit: Angstrom
+            description: CaII-H band index
+          Hb_index:
+            name: Hb_index
+            type: float64
+            unit: Angstrom
+            description: Hb Lick index
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!
