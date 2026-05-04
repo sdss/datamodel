@@ -19,7 +19,7 @@ This file contains a consolidated form of the fiber-to-target mapping from eithe
 $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/spfibermap-[FIELD]-[MJD].fits
 
 ### Releases
-IPL3, DR19, IPL4
+IPL3, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,18 +39,22 @@ False
 ### Data Level
 1.1
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: SUMMARY](#hdu1-summary)
-  - [HDU2: CONFSUMMARYF-8872.PAR](#hdu2-confsummaryf-8872.par)
-  - [HDU3: CONFSUMMARYF-8873.PAR](#hdu3-confsummaryf-8873.par)
-  - [HDU4: CONFSUMMARYF-8874.PAR](#hdu4-confsummaryf-8874.par)
-  - [HDU5: CONFSUMMARYF-8875.PAR](#hdu5-confsummaryf-8875.par)
+  - [HDU2: CONFSUMMARYF-8867.PAR](#hdu2-confsummaryf-8867.par)
+  - [HDU3: CONFSUMMARYF-8872.PAR](#hdu3-confsummaryf-8872.par)
+  - [HDU4: CONFSUMMARYF-8873.PAR](#hdu4-confsummaryf-8873.par)
+  - [HDU5: CONFSUMMARYF-8874.PAR](#hdu5-confsummaryf-8874.par)
+  - [HDU6: CONFSUMMARYF-8875.PAR](#hdu6-confsummaryf-8875.par)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
    - added_hdus: ['CONFSUMMARYF-8867.PAR']
@@ -81,8 +85,8 @@ Key | Value | Comment | |
 | FPS | True | Is this an FPS Field |
 | PLATE | False | Is this a SDSS-V Plate |
 | LEGACY | False | Is this a Pre-SDSS-V Plate |
-| CHECKSUM | eSHIgPH9ePHGePH9 | HDU checksum updated 2024-04-02T11:10:19 |
-| DATASUM | 0 | data unit checksum updated 2024-04-02T11:10:19 |
+| CHECKSUM | cRHAdQEAcQEAcQEA | HDU checksum updated 2025-04-01T06:28:31 |
+| DATASUM | 0 | data unit checksum updated 2025-04-01T06:28:31 |
 
 
 
@@ -90,7 +94,7 @@ Key | Value | Comment | |
 General Configuration/plugging Data
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  4 KB
+#### HDU Size:  5 KB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -98,20 +102,20 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 1152 | length of dimension 1 |
-| NAXIS2 | 4 | length of dimension 2 |
+| NAXIS1 | 1182 | length of dimension 1 |
+| NAXIS2 | 5 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 107 | number of table fields |
+| TFIELDS | 108 | number of table fields |
 | EXTNAME | SUMMARY | extension name |
-| CHECKSUM | ICJULCGSICGSICGS | HDU checksum updated 2024-04-02T11:10:19 |
-| DATASUM | 4292517477 | data unit checksum updated 2024-04-02T11:10:19 |
+| CHECKSUM | 4eoH5ZlE4blE4ZlE | HDU checksum updated 2025-04-01T06:28:31 |
+| DATASUM | 190495894 | data unit checksum updated 2025-04-01T06:28:31 |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | EXTNAME | char[21] |  | Name of extension for plugmap/confSummary |
- | PLUGDIR | char[107] |  | path to confSummary or plugmap file |
+ | PLUGDIR | char[102] |  | path to confSummary or plugmap file |
  | CONFIGURATION_ID | char[4] |  | FPS configuration ID |
  | ROBOSTRATEGY_RUN | char[6] |  | Run of Robostrategy for this FPS design |
  | FPS_CALIBRATIONS_VERSION | char[10] |  | Version of FPS calibrations used. |
@@ -119,18 +123,19 @@ Name | Type | Unit | Description |
  | COORDIO_VERSION | char[7] |  | Version of coordIO used for this configuration |
  | KAIJU_VERSION | char[13] |  | Version of Kaiju used for this configuration |
  | DESIGN_ID | char[6] |  | FPS design ID associated with configuration |
+ | DESIGN_MODE | char[11] |  | SDSS-V DesignMode Mode |
  | FIELD_ID | char[6] |  | The field ID that defines the pointing |
  | FOCAL_SCALE | char[18] |  | scale factor between xy focal and xy wok |
  | INSTRUMENTS | char[11] |  | Instruments used (always APOGEE and BOSS) |
  | EPOCH | char[18] |  | JD at which the configuration was generated |
- | OBSMODE | char[7] |  | SDSS-V Observation Mode |
+ | OBSMODE | char[11] |  | SDSS-V Observation Mode |
  | OBSTIME | char[24] | s | TAI date of the observation (matches epoch) |
  | MJD | char[5] |  | MJD of the observation in the SDSS style |
  | OBSERVATORY | char[3] |  | Observatory for this configuration |
  | TEMPERATURE | char[17] | deg | Temperature at the time of the FPS observation |
- | RACEN | char[9] | deg | FPS Field centre Right Ascension |
- | DECCEN | char[7] | deg | FPS Field centre Declination |
- | PA | char[4] | deg | FPS Field centre Position Angle |
+ | RACEN | char[15] | deg | FPS Field centre Right Ascension |
+ | DECCEN | char[16] | deg | FPS Field centre Declination |
+ | PA | char[9] | deg | FPS Field centre Position Angle |
  | IS_DITHERED | char[1] |  | Is this a dithered FPS configuration |
  | PARENT_CONFIGURATION | char[4] |  | parent configuration of the dither. |
  | DITHER_RADIUS | char[6] | mm | radius for uniform distribution around parent |
@@ -220,11 +225,11 @@ Name | Type | Unit | Description |
 
 
 
-### HDU2: CONFSUMMARYF-8872.PAR
+### HDU2: CONFSUMMARYF-8867.PAR
 Fiber-to-target mapping for plate plugging or FPS configuration
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  1 MB
+#### HDU Size:  2 MB
 
 ##### Header Table Caption for HDU2
 Key | Value | Comment | |
@@ -232,11 +237,11 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 1169 | length of dimension 1 |
+| NAXIS1 | 1407 | length of dimension 1 |
 | NAXIS2 | 1500 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 100 | number of table fields |
+| TFIELDS | 117 | number of table fields |
 | TNULL1 | -999 |  |
 | TNULL3 | -999 |  |
 | TNULL4 | -999 |  |
@@ -247,39 +252,44 @@ Key | Value | Comment | |
 | TNULL11 | -999 |  |
 | TNULL12 | -999 |  |
 | TNULL13 | -999 |  |
-| TNULL15 | -999 |  |
-| TNULL34 | -999 |  |
-| TNULL36 | -1 |  |
+| TNULL14 | -999 |  |
+| TNULL16 | -999 |  |
 | TNULL42 | -999 |  |
-| TNULL46 | -999 |  |
-| TNULL57 | -999 |  |
-| TNULL60 | -999 |  |
-| TNULL64 | -999 |  |
-| TNULL65 | 0 |  |
+| TNULL46 | -1 |  |
+| TNULL52 | -999 |  |
+| TNULL56 | -999 |  |
 | TNULL67 | -999 |  |
-| TNULL68 | -999 |  |
 | TNULL70 | -999 |  |
-| TDIM76 | (29) |  |
+| TNULL74 | -999 |  |
+| TNULL75 | 0 |  |
+| TNULL77 | -999 |  |
 | TNULL78 | -999 |  |
 | TNULL79 | -999 |  |
 | TNULL80 | -999 |  |
 | TNULL81 | -999 |  |
-| TNULL82 | -999 |  |
 | TNULL83 | -999 |  |
-| TNULL84 | -999 |  |
-| TNULL85 | -999 |  |
-| TNULL86 | -999 |  |
-| TNULL87 | -999 |  |
-| TNULL88 | -999 |  |
 | TNULL89 | -999 |  |
-| TNULL90 | -999 |  |
+| TDIM91 | (68) |  |
+| TNULL93 | -999 |  |
 | TNULL94 | -999 |  |
+| TNULL95 | -999 |  |
 | TNULL96 | -999 |  |
 | TNULL97 | -999 |  |
 | TNULL98 | -999 |  |
-| EXTNAME | CONFSUMMARYF-8872.PAR | extension name |
-| CHECKSUM | h7V3j5S2h5S2h5S2 | HDU checksum updated 2024-04-02T11:10:19 |
-| DATASUM | 101912842 | data unit checksum updated 2024-04-02T11:10:19 |
+| TNULL99 | -999 |  |
+| TNULL100 | -999 |  |
+| TNULL101 | -999 |  |
+| TNULL102 | -999 |  |
+| TNULL103 | -999 |  |
+| TNULL104 | -999 |  |
+| TNULL105 | -999 |  |
+| TNULL109 | -999 |  |
+| TNULL111 | -999 |  |
+| TNULL112 | -999 |  |
+| TNULL113 | -999 |  |
+| EXTNAME | CONFSUMMARYF-8867.PAR | extension name |
+| CHECKSUM | 7AmZ92lX79lX79lX | HDU checksum updated 2025-04-01T06:28:31 |
+| DATASUM | 4002658692 | data unit checksum updated 2025-04-01T06:28:31 |
 
 ##### Binary Table Caption for HDU2
 Name | Type | Unit | Description |
@@ -294,6 +304,7 @@ Name | Type | Unit | Description |
  | ON_TARGET | int64 |  | Whether this fibre is on target |
  | VALID | int64 |  | alpha and beta angles are valid |
  | DECOLLIDED | int64 |  | this positioner had to be moved to decollide it |
+ | TOO | int64 |  | the fiber is allocated to a TOO |
  | FIBERMASK | int64 |  | Fiber level bitmasks (maps to SPPIXMASK) |
  | BADSTDMASK | int64 |  | Standard rejected by magnitude range of design |
  | THROUGHPUT | int64 |  | Plate Fiber throughput (0-65535, 0=no light) |
@@ -303,7 +314,10 @@ Name | Type | Unit | Description |
  | BETA | float64 | deg | The beta angles of the positioner arms. |
  | XWOK | float64 | mm | The X value in the FPS WOK coordinates |
  | YWOK | float64 | mm | The Y value in the FPS WOK coordinates |
- | ZWOK | float64 | mm | The X value in the FPS WOK coordinates |
+ | ZWOK | float64 | mm | The Z value in the FPS WOK coordinates |
+ | XWOK_PRE | float64 | mm | The XWOK pre FVC Loop |
+ | YWOK_PRE | float64 | mm | The YWOK pre FVC Loop |
+ | ZWOK_PRE | float64 | mm | The ZWOK pre FVC Loop |
  | XFOCAL | float64 | mm | The X value in focal plane coordinates. |
  | YFOCAL | float64 | mm | The Y value in focal plane coordinates. |
  | ZOFFSET | float64 | micron | backstopping offset distance (from washers) |
@@ -317,10 +331,16 @@ Name | Type | Unit | Description |
  | DEC | float64 | deg | Calculated on sky fiber Dec including delta_DEC |
  | DELTA_RA | float64 | arcsec | The amount in RA this fiber has been offset |
  | DELTA_DEC | float64 | arcsec | The amount in Dec this fiber has been offset |
+ | RA_OBSERVED | float64 | deg | RA with correction for atmospheric refraction |
+ | DEC_OBSERVED | float64 | deg | dec with correction for atmospheric refraction |
+ | ALT_OBSERVED | float64 | deg | alt with correction for atmospheric refraction |
+ | AZ_OBSERVED | float64 | deg | Az with correction for atmospheric refraction |
  | FIBER_OFFSET | int64 |  | Flag identifying the fiber was offset by design |
+ | MEASUREDOFFSET | float64 | arcsec | Measured offset between Fiber & Catalog Coord |
+ | WOKOFFSET | float64 | mm | Measured offset in the Wok Coordinates |
  | LAMBDA_EFF | float64 | AA | Wavelength used for coordinate transformations |
  | SPECTROGRAPHID | int64 |  | Spectrograph to which the fibre is assigned. |
- | OPTICAL_PROV | char[11] |  | The source of the CATDB_MAG optical magnitudes |
+ | OPTICAL_PROV | char[23] |  | The source of the CATDB_MAG optical magnitudes |
  | MAG | float64[5] |  | [u, g, r, i, z] optical magnitudes |
  | PSFMAG | float64[5] |  | [u, g, r, i, z] optical PSF magnitudes |
  | FIBER2MAG | float64[5] |  | [u, g, r, i, z] optical Fiber2 magnitudes |
@@ -329,7 +349,7 @@ Name | Type | Unit | Description |
  | GAIA_G_MAG | float64 |  | Gaia G magnitude |
  | BP_MAG | float64 |  | Gaia BP magnitude |
  | RP_MAG | float64 |  | Gaia RP magnitude |
- | GAIA_ID | int64 |  | Gaia-DR2 ID |
+ | GAIA_ID | int64 |  | Gaia-DR3 ID |
  | H_MAG | float64 |  | 2MASS H magnitude |
  | WISE_MAG | float64[4] |  | WISE [W1, W2, W3, W4] band magnitudes |
  | TWOMASS_MAG | float64[3] |  | 2MASS [J, H, Ks] band magnitudes |
@@ -344,7 +364,7 @@ Name | Type | Unit | Description |
  | CALIBFLUX | float64[5] | nanomaggy | SDSS band [u,g,r,i,z] target calibration flux |
  | CALIBFLUX_IVAR | float64[5] | nanomaggy | target calibration flux inverse variance |
  | CALIB_STATUS | int64[5] |  | target calibration status flag |
- | CATEGORY | char[13] |  | Category for 'firstcarton' |
+ | CATEGORY | char[15] |  | Category for 'firstcarton' |
  | OBJTYPE | char[16] |  | Why object was targetted (QSO = Science Target) |
  | SOURCETYPE | char[10] |  | indicate the nature of the source |
  | OFFSETID | int64 |  | plate offset associated; 0 = primary pointing |
@@ -352,14 +372,19 @@ Name | Type | Unit | Description |
  | CATALOGID | char[20] |  | CatalogID or uHHMMSS.S+DDMMSS.S for unassigned |
  | ICATALOGID | int64 |  | Raw SDSS-V CatalogID |
  | SDSS_ID | int64 |  | SDSS_ID of Target |
- | CATVERSION | char[5] |  | Catalog Version of SDSS-V CatalogID |
+ | CATALOGID_V0 | int64 |  | V0 (Plate) Crossmatch CatalogID from SDSS_ID |
+ | CATALOGID_V0P5 | int64 |  | V0.5 (FPS) Crossmatch CatalogID from SDSS_ID |
+ | CATALOGID_V1 | int64 |  | V1 (FPS) Crossmatch CatalogID from SDSS_ID |
+ | CATVERSION | char[6] |  | Catalog Version of SDSS-V CatalogID |
  | CARTON_TO_TARGET_PK | int64 |  | SDSS-V Carton_to_Target primary key for SDSSDB |
- | FIRSTCARTON | char[17] |  | Main carton from which this carton was drawn |
- | CARTONNAME | char[17] |  | Main carton from which this carton was drawn |
- | PROGRAM | char[7] |  | Program for 'firstcarton' |
+ | FIRSTCARTON | char[30] |  | Main carton from which this carton was drawn |
+ | CARTONNAME | char[30] |  | Main carton from which this carton was drawn |
+ | PROGRAM | char[12] |  | Program for 'firstcarton' |
  | MAPPER | char[3] |  | SDSS-V Mapper for target |
- | SURVEY | char[3] |  | SDSS Survey for target |
- | SDSS5_TARGET_FLAGS | bool[29] |  | Targeting Flags for SSDSV Targeting |
+ | SURVEY | char[10] |  | SDSS Survey for target |
+ | TOO_ID | int64 |  | SDSS-V Target of Opportunity ID (if TOO=1) |
+ | TOO_PROGRAM | char[10] |  | SDSS-V Target of Opportunity Program (if TOO=1) |
+ | SDSS5_TARGET_FLAGS | bool[68] |  | Targeting Flags for SSDSV Targeting |
  | SDSSC2BV | char[1] |  | SDSS5_TARGET_FLAG Carton to Bit Version |
  | SDSSV_BOSS_TARGET0 | int64 |  | Targeting bitmask for SDSSV-BOSS |
  | SDSSV_APOGEE_TARGET0 | int64 |  | Targeting bitmask for SDSSV-APOGEE |
@@ -382,12 +407,14 @@ Name | Type | Unit | Description |
  | CAMCOL | int64 |  | SDSS imaging camcol, for SDSS imaging targets |
  | FIELD | int64 |  | SDSS imaging field, for SDSS imaging targets |
  | ID | int64 |  | SDSS imaging id, for SDSS imaging targets |
- | FIELDCADENCE | char[13] |  | SDSS-V FPS Field Cadence |
+ | FIELDCADENCE | char[20] |  | SDSS-V FPS Field Cadence |
  | CADENCE | char[10] |  | SDSS-V FPS target Cadence |
+ | DESIGN_VERS | char[6] |  | robostrategy Run or platedesign version |
+ | DESIGN_MODE | char[11] |  | SDSS-V DesignMode Mode |
 
 
 
-### HDU3: CONFSUMMARYF-8873.PAR
+### HDU3: CONFSUMMARYF-8872.PAR
 Fiber-to-target mapping for plate plugging or FPS configuration
 
 #### HDU Type: BINARY TABLE
@@ -399,11 +426,11 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 1169 | length of dimension 1 |
+| NAXIS1 | 1354 | length of dimension 1 |
 | NAXIS2 | 1500 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 100 | number of table fields |
+| TFIELDS | 117 | number of table fields |
 | TNULL1 | -999 |  |
 | TNULL3 | -999 |  |
 | TNULL4 | -999 |  |
@@ -414,39 +441,44 @@ Key | Value | Comment | |
 | TNULL11 | -999 |  |
 | TNULL12 | -999 |  |
 | TNULL13 | -999 |  |
-| TNULL15 | -999 |  |
-| TNULL34 | -999 |  |
-| TNULL36 | -1 |  |
+| TNULL14 | -999 |  |
+| TNULL16 | -999 |  |
 | TNULL42 | -999 |  |
-| TNULL46 | -999 |  |
-| TNULL57 | -999 |  |
-| TNULL60 | -999 |  |
-| TNULL64 | -999 |  |
-| TNULL65 | 0 |  |
+| TNULL46 | -1 |  |
+| TNULL52 | -999 |  |
+| TNULL56 | -999 |  |
 | TNULL67 | -999 |  |
-| TNULL68 | -999 |  |
 | TNULL70 | -999 |  |
-| TDIM76 | (29) |  |
+| TNULL74 | -999 |  |
+| TNULL75 | 0 |  |
+| TNULL77 | -999 |  |
 | TNULL78 | -999 |  |
 | TNULL79 | -999 |  |
 | TNULL80 | -999 |  |
 | TNULL81 | -999 |  |
-| TNULL82 | -999 |  |
 | TNULL83 | -999 |  |
-| TNULL84 | -999 |  |
-| TNULL85 | -999 |  |
-| TNULL86 | -999 |  |
-| TNULL87 | -999 |  |
-| TNULL88 | -999 |  |
 | TNULL89 | -999 |  |
-| TNULL90 | -999 |  |
+| TDIM91 | (69) |  |
+| TNULL93 | -999 |  |
 | TNULL94 | -999 |  |
+| TNULL95 | -999 |  |
 | TNULL96 | -999 |  |
 | TNULL97 | -999 |  |
 | TNULL98 | -999 |  |
-| EXTNAME | CONFSUMMARYF-8873.PAR | extension name |
-| CHECKSUM | KSK8LSH5KSH5KSH5 | HDU checksum updated 2024-04-02T11:10:19 |
-| DATASUM | 2134573942 | data unit checksum updated 2024-04-02T11:10:19 |
+| TNULL99 | -999 |  |
+| TNULL100 | -999 |  |
+| TNULL101 | -999 |  |
+| TNULL102 | -999 |  |
+| TNULL103 | -999 |  |
+| TNULL104 | -999 |  |
+| TNULL105 | -999 |  |
+| TNULL109 | -999 |  |
+| TNULL111 | -999 |  |
+| TNULL112 | -999 |  |
+| TNULL113 | -999 |  |
+| EXTNAME | CONFSUMMARYF-8872.PAR | extension name |
+| CHECKSUM | 9laMFiXK9iaKEiUK | HDU checksum updated 2025-04-01T06:28:31 |
+| DATASUM | 3812159341 | data unit checksum updated 2025-04-01T06:28:31 |
 
 ##### Binary Table Caption for HDU3
 Name | Type | Unit | Description |
@@ -461,6 +493,7 @@ Name | Type | Unit | Description |
  | ON_TARGET | int64 |  | Whether this fibre is on target |
  | VALID | int64 |  | alpha and beta angles are valid |
  | DECOLLIDED | int64 |  | this positioner had to be moved to decollide it |
+ | TOO | int64 |  | the fiber is allocated to a TOO |
  | FIBERMASK | int64 |  | Fiber level bitmasks (maps to SPPIXMASK) |
  | BADSTDMASK | int64 |  | Standard rejected by magnitude range of design |
  | THROUGHPUT | int64 |  | Plate Fiber throughput (0-65535, 0=no light) |
@@ -471,6 +504,9 @@ Name | Type | Unit | Description |
  | XWOK | float64 | mm | The X value in the FPS WOK coordinates |
  | YWOK | float64 | mm | The Y value in the FPS WOK coordinates |
  | ZWOK | float64 | mm | The X value in the FPS WOK coordinates |
+ | XWOK_PRE | float64 | mm | The XWOK pre FVC Loop |
+ | YWOK_PRE | float64 | mm | The YWOK pre FVC Loop |
+ | ZWOK_PRE | float64 | mm | The ZWOK pre FVC Loop |
  | XFOCAL | float64 | mm | The X value in focal plane coordinates. |
  | YFOCAL | float64 | mm | The Y value in focal plane coordinates. |
  | ZOFFSET | float64 | micron | backstopping offset distance (from washers) |
@@ -484,10 +520,16 @@ Name | Type | Unit | Description |
  | DEC | float64 | deg | Calculated on sky fiber Dec including delta_DEC |
  | DELTA_RA | float64 | arcsec | The amount in RA this fiber has been offset |
  | DELTA_DEC | float64 | arcsec | The amount in Dec this fiber has been offset |
+ | RA_OBSERVED | float64 | deg | RA with correction for atmospheric refraction |
+ | DEC_OBSERVED | float64 | deg | dec with correction for atmospheric refraction |
+ | ALT_OBSERVED | float64 | deg | alt with correction for atmospheric refraction |
+ | AZ_OBSERVED | float64 | deg | Az with correction for atmospheric refraction |
  | FIBER_OFFSET | int64 |  | Flag identifying the fiber was offset by design |
+ | MEASUREDOFFSET | float64 | arcsec | Measured offset between Fiber & Catalog Coord |
+ | WOKOFFSET | float64 | mm | Measured offset in the Wok Coordinates |
  | LAMBDA_EFF | float64 | AA | Wavelength used for coordinate transformations |
  | SPECTROGRAPHID | int64 |  | Spectrograph to which the fibre is assigned. |
- | OPTICAL_PROV | char[11] |  | The source of the CATDB_MAG optical magnitudes |
+ | OPTICAL_PROV | char[21] |  | The source of the CATDB_MAG optical magnitudes |
  | MAG | float64[5] |  | [u, g, r, i, z] optical magnitudes |
  | PSFMAG | float64[5] |  | [u, g, r, i, z] optical PSF magnitudes |
  | FIBER2MAG | float64[5] |  | [u, g, r, i, z] optical Fiber2 magnitudes |
@@ -496,7 +538,7 @@ Name | Type | Unit | Description |
  | GAIA_G_MAG | float64 |  | Gaia G magnitude |
  | BP_MAG | float64 |  | Gaia BP magnitude |
  | RP_MAG | float64 |  | Gaia RP magnitude |
- | GAIA_ID | int64 |  | Gaia-DR2 ID |
+ | GAIA_ID | int64 |  | Gaia-DR3 ID |
  | H_MAG | float64 |  | 2MASS H magnitude |
  | WISE_MAG | float64[4] |  | WISE [W1, W2, W3, W4] band magnitudes |
  | TWOMASS_MAG | float64[3] |  | 2MASS [J, H, Ks] band magnitudes |
@@ -519,6 +561,9 @@ Name | Type | Unit | Description |
  | CATALOGID | char[20] |  | CatalogID or uHHMMSS.S+DDMMSS.S for unassigned |
  | ICATALOGID | int64 |  | Raw SDSS-V CatalogID |
  | SDSS_ID | int64 |  | SDSS_ID of Target |
+ | CATALOGID_V0 | int64 |  | V0 (Plate) Crossmatch CatalogID from SDSS_ID |
+ | CATALOGID_V0P5 | int64 |  | V0.5 (FPS) Crossmatch CatalogID from SDSS_ID |
+ | CATALOGID_V1 | int64 |  | V1 (FPS) Crossmatch CatalogID from SDSS_ID |
  | CATVERSION | char[5] |  | Catalog Version of SDSS-V CatalogID |
  | CARTON_TO_TARGET_PK | int64 |  | SDSS-V Carton_to_Target primary key for SDSSDB |
  | FIRSTCARTON | char[17] |  | Main carton from which this carton was drawn |
@@ -526,7 +571,9 @@ Name | Type | Unit | Description |
  | PROGRAM | char[7] |  | Program for 'firstcarton' |
  | MAPPER | char[3] |  | SDSS-V Mapper for target |
  | SURVEY | char[3] |  | SDSS Survey for target |
- | SDSS5_TARGET_FLAGS | bool[29] |  | Targeting Flags for SSDSV Targeting |
+ | TOO_ID | int64 |  | SDSS-V Target of Opportunity ID (if TOO=1) |
+ | TOO_PROGRAM | char[10] |  | SDSS-V Target of Opportunity Program (if TOO=1) |
+ | SDSS5_TARGET_FLAGS | bool[69] |  | Targeting Flags for SSDSV Targeting |
  | SDSSC2BV | char[1] |  | SDSS5_TARGET_FLAG Carton to Bit Version |
  | SDSSV_BOSS_TARGET0 | int64 |  | Targeting bitmask for SDSSV-BOSS |
  | SDSSV_APOGEE_TARGET0 | int64 |  | Targeting bitmask for SDSSV-APOGEE |
@@ -551,10 +598,12 @@ Name | Type | Unit | Description |
  | ID | int64 |  | SDSS imaging id, for SDSS imaging targets |
  | FIELDCADENCE | char[13] |  | SDSS-V FPS Field Cadence |
  | CADENCE | char[10] |  | SDSS-V FPS target Cadence |
+ | DESIGN_VERS | char[6] |  | robostrategy Run or platedesign version |
+ | DESIGN_MODE | char[7] |  | SDSS-V DesignMode Mode |
 
 
 
-### HDU4: CONFSUMMARYF-8874.PAR
+### HDU4: CONFSUMMARYF-8873.PAR
 Fiber-to-target mapping for plate plugging or FPS configuration
 
 #### HDU Type: BINARY TABLE
@@ -566,11 +615,11 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 1169 | length of dimension 1 |
+| NAXIS1 | 1354 | length of dimension 1 |
 | NAXIS2 | 1500 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 100 | number of table fields |
+| TFIELDS | 117 | number of table fields |
 | TNULL1 | -999 |  |
 | TNULL3 | -999 |  |
 | TNULL4 | -999 |  |
@@ -581,39 +630,44 @@ Key | Value | Comment | |
 | TNULL11 | -999 |  |
 | TNULL12 | -999 |  |
 | TNULL13 | -999 |  |
-| TNULL15 | -999 |  |
-| TNULL34 | -999 |  |
-| TNULL36 | -1 |  |
+| TNULL14 | -999 |  |
+| TNULL16 | -999 |  |
 | TNULL42 | -999 |  |
-| TNULL46 | -999 |  |
-| TNULL57 | -999 |  |
-| TNULL60 | -999 |  |
-| TNULL64 | -999 |  |
-| TNULL65 | 0 |  |
+| TNULL46 | -1 |  |
+| TNULL52 | -999 |  |
+| TNULL56 | -999 |  |
 | TNULL67 | -999 |  |
-| TNULL68 | -999 |  |
 | TNULL70 | -999 |  |
-| TDIM76 | (29) |  |
+| TNULL74 | -999 |  |
+| TNULL75 | 0 |  |
+| TNULL77 | -999 |  |
 | TNULL78 | -999 |  |
 | TNULL79 | -999 |  |
 | TNULL80 | -999 |  |
 | TNULL81 | -999 |  |
-| TNULL82 | -999 |  |
 | TNULL83 | -999 |  |
-| TNULL84 | -999 |  |
-| TNULL85 | -999 |  |
-| TNULL86 | -999 |  |
-| TNULL87 | -999 |  |
-| TNULL88 | -999 |  |
 | TNULL89 | -999 |  |
-| TNULL90 | -999 |  |
+| TDIM91 | (69) |  |
+| TNULL93 | -999 |  |
 | TNULL94 | -999 |  |
+| TNULL95 | -999 |  |
 | TNULL96 | -999 |  |
 | TNULL97 | -999 |  |
 | TNULL98 | -999 |  |
-| EXTNAME | CONFSUMMARYF-8874.PAR | extension name |
-| CHECKSUM | 5aVmATUl7YUlAYUl | HDU checksum updated 2024-04-02T11:10:19 |
-| DATASUM | 1660958130 | data unit checksum updated 2024-04-02T11:10:19 |
+| TNULL99 | -999 |  |
+| TNULL100 | -999 |  |
+| TNULL101 | -999 |  |
+| TNULL102 | -999 |  |
+| TNULL103 | -999 |  |
+| TNULL104 | -999 |  |
+| TNULL105 | -999 |  |
+| TNULL109 | -999 |  |
+| TNULL111 | -999 |  |
+| TNULL112 | -999 |  |
+| TNULL113 | -999 |  |
+| EXTNAME | CONFSUMMARYF-8873.PAR | extension name |
+| CHECKSUM | 43fB41fB41fB41fB | HDU checksum updated 2025-04-01T06:28:32 |
+| DATASUM | 3339717526 | data unit checksum updated 2025-04-01T06:28:32 |
 
 ##### Binary Table Caption for HDU4
 Name | Type | Unit | Description |
@@ -628,6 +682,7 @@ Name | Type | Unit | Description |
  | ON_TARGET | int64 |  | Whether this fibre is on target |
  | VALID | int64 |  | alpha and beta angles are valid |
  | DECOLLIDED | int64 |  | this positioner had to be moved to decollide it |
+ | TOO | int64 |  | the fiber is allocated to a TOO |
  | FIBERMASK | int64 |  | Fiber level bitmasks (maps to SPPIXMASK) |
  | BADSTDMASK | int64 |  | Standard rejected by magnitude range of design |
  | THROUGHPUT | int64 |  | Plate Fiber throughput (0-65535, 0=no light) |
@@ -638,6 +693,9 @@ Name | Type | Unit | Description |
  | XWOK | float64 | mm | The X value in the FPS WOK coordinates |
  | YWOK | float64 | mm | The Y value in the FPS WOK coordinates |
  | ZWOK | float64 | mm | The X value in the FPS WOK coordinates |
+ | XWOK_PRE | float64 | mm | The XWOK pre FVC Loop |
+ | YWOK_PRE | float64 | mm | The YWOK pre FVC Loop |
+ | ZWOK_PRE | float64 | mm | The ZWOK pre FVC Loop |
  | XFOCAL | float64 | mm | The X value in focal plane coordinates. |
  | YFOCAL | float64 | mm | The Y value in focal plane coordinates. |
  | ZOFFSET | float64 | micron | backstopping offset distance (from washers) |
@@ -651,10 +709,16 @@ Name | Type | Unit | Description |
  | DEC | float64 | deg | Calculated on sky fiber Dec including delta_DEC |
  | DELTA_RA | float64 | arcsec | The amount in RA this fiber has been offset |
  | DELTA_DEC | float64 | arcsec | The amount in Dec this fiber has been offset |
+ | RA_OBSERVED | float64 | deg | RA with correction for atmospheric refraction |
+ | DEC_OBSERVED | float64 | deg | Dec with correction for atmospheric refraction |
+ | ALT_OBSERVED | float64 | deg | alt with correction for atmospheric refraction |
+ | AZ_OBSERVED | float64 | deg | Az with correction for atmospheric refraction |
  | FIBER_OFFSET | int64 |  | Flag identifying the fiber was offset by design |
- | LAMBDA_EFF | float64 | Ang | Wavelength used for coordinate transformations |
+ | MEASUREDOFFSET | float64 | arcsec | Measured offset between Fiber & Catalog Coord |
+ | WOKOFFSET | float64 | mm | Measured offset in the Wok Coordinates |
+ | LAMBDA_EFF | float64 | AA | Wavelength used for coordinate transformations |
  | SPECTROGRAPHID | int64 |  | Spectrograph to which the fibre is assigned. |
- | OPTICAL_PROV | char[11] |  | The source of the CATDB_MAG optical magnitudes |
+ | OPTICAL_PROV | char[21] |  | The source of the CATDB_MAG optical magnitudes |
  | MAG | float64[5] |  | [u, g, r, i, z] optical magnitudes |
  | PSFMAG | float64[5] |  | [u, g, r, i, z] optical PSF magnitudes |
  | FIBER2MAG | float64[5] |  | [u, g, r, i, z] optical Fiber2 magnitudes |
@@ -663,7 +727,7 @@ Name | Type | Unit | Description |
  | GAIA_G_MAG | float64 |  | Gaia G magnitude |
  | BP_MAG | float64 |  | Gaia BP magnitude |
  | RP_MAG | float64 |  | Gaia RP magnitude |
- | GAIA_ID | int64 |  | Gaia-DR2 ID |
+ | GAIA_ID | int64 |  | Gaia-DR3 ID |
  | H_MAG | float64 |  | 2MASS H magnitude |
  | WISE_MAG | float64[4] |  | WISE [W1, W2, W3, W4] band magnitudes |
  | TWOMASS_MAG | float64[3] |  | 2MASS [J, H, Ks] band magnitudes |
@@ -686,6 +750,9 @@ Name | Type | Unit | Description |
  | CATALOGID | char[20] |  | CatalogID or uHHMMSS.S+DDMMSS.S for unassigned |
  | ICATALOGID | int64 |  | Raw SDSS-V CatalogID |
  | SDSS_ID | int64 |  | SDSS_ID of Target |
+ | CATALOGID_V0 | int64 |  | V0 (Plate) Crossmatch CatalogID from SDSS_ID |
+ | CATALOGID_V0P5 | int64 |  | V0.5 (FPS) Crossmatch CatalogID from SDSS_ID |
+ | CATALOGID_V1 | int64 |  | V1 (FPS) Crossmatch CatalogID from SDSS_ID |
  | CATVERSION | char[5] |  | Catalog Version of SDSS-V CatalogID |
  | CARTON_TO_TARGET_PK | int64 |  | SDSS-V Carton_to_Target primary key for SDSSDB |
  | FIRSTCARTON | char[17] |  | Main carton from which this carton was drawn |
@@ -693,7 +760,9 @@ Name | Type | Unit | Description |
  | PROGRAM | char[7] |  | Program for 'firstcarton' |
  | MAPPER | char[3] |  | SDSS-V Mapper for target |
  | SURVEY | char[3] |  | SDSS Survey for target |
- | SDSS5_TARGET_FLAGS | bool[29] |  | Targeting Flags for SSDSV Targeting |
+ | TOO_ID | int64 |  | SDSS-V Target of Opportunity ID (if TOO=1) |
+ | TOO_PROGRAM | char[10] |  | SDSS-V Target of Opportunity Program (if TOO=1) |
+ | SDSS5_TARGET_FLAGS | bool[69] |  | Targeting Flags for SSDSV Targeting |
  | SDSSC2BV | char[1] |  | SDSS5_TARGET_FLAG Carton to Bit Version |
  | SDSSV_BOSS_TARGET0 | int64 |  | Targeting bitmask for SDSSV-BOSS |
  | SDSSV_APOGEE_TARGET0 | int64 |  | Targeting bitmask for SDSSV-APOGEE |
@@ -718,10 +787,12 @@ Name | Type | Unit | Description |
  | ID | int64 |  | SDSS imaging id, for SDSS imaging targets |
  | FIELDCADENCE | char[13] |  | SDSS-V FPS Field Cadence |
  | CADENCE | char[10] |  | SDSS-V FPS target Cadence |
+ | DESIGN_VERS | char[6] |  | robostrategy Run or platedesign version |
+ | DESIGN_MODE | char[7] |  | SDSS-V DesignMode Mode |
 
 
 
-### HDU5: CONFSUMMARYF-8875.PAR
+### HDU5: CONFSUMMARYF-8874.PAR
 Fiber-to-target mapping for plate plugging or FPS configuration
 
 #### HDU Type: BINARY TABLE
@@ -733,11 +804,11 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 1169 | length of dimension 1 |
+| NAXIS1 | 1354 | length of dimension 1 |
 | NAXIS2 | 1500 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 100 | number of table fields |
+| TFIELDS | 117 | number of table fields |
 | TNULL1 | -999 |  |
 | TNULL3 | -999 |  |
 | TNULL4 | -999 |  |
@@ -748,39 +819,44 @@ Key | Value | Comment | |
 | TNULL11 | -999 |  |
 | TNULL12 | -999 |  |
 | TNULL13 | -999 |  |
-| TNULL15 | -999 |  |
-| TNULL34 | -999 |  |
-| TNULL36 | -1 |  |
+| TNULL14 | -999 |  |
+| TNULL16 | -999 |  |
 | TNULL42 | -999 |  |
-| TNULL46 | -999 |  |
-| TNULL57 | -999 |  |
-| TNULL60 | -999 |  |
-| TNULL64 | -999 |  |
-| TNULL65 | 0 |  |
+| TNULL46 | -1 |  |
+| TNULL52 | -999 |  |
+| TNULL56 | -999 |  |
 | TNULL67 | -999 |  |
-| TNULL68 | -999 |  |
 | TNULL70 | -999 |  |
-| TDIM76 | (29) |  |
+| TNULL74 | -999 |  |
+| TNULL75 | 0 |  |
+| TNULL77 | -999 |  |
 | TNULL78 | -999 |  |
 | TNULL79 | -999 |  |
 | TNULL80 | -999 |  |
 | TNULL81 | -999 |  |
-| TNULL82 | -999 |  |
 | TNULL83 | -999 |  |
-| TNULL84 | -999 |  |
-| TNULL85 | -999 |  |
-| TNULL86 | -999 |  |
-| TNULL87 | -999 |  |
-| TNULL88 | -999 |  |
 | TNULL89 | -999 |  |
-| TNULL90 | -999 |  |
+| TDIM91 | (69) |  |
+| TNULL93 | -999 |  |
 | TNULL94 | -999 |  |
+| TNULL95 | -999 |  |
 | TNULL96 | -999 |  |
 | TNULL97 | -999 |  |
 | TNULL98 | -999 |  |
-| EXTNAME | CONFSUMMARYF-8875.PAR | extension name |
-| CHECKSUM | aSMQdSMQaSMQaSMQ | HDU checksum updated 2024-04-02T11:10:19 |
-| DATASUM | 1965069855 | data unit checksum updated 2024-04-02T11:10:19 |
+| TNULL99 | -999 |  |
+| TNULL100 | -999 |  |
+| TNULL101 | -999 |  |
+| TNULL102 | -999 |  |
+| TNULL103 | -999 |  |
+| TNULL104 | -999 |  |
+| TNULL105 | -999 |  |
+| TNULL109 | -999 |  |
+| TNULL111 | -999 |  |
+| TNULL112 | -999 |  |
+| TNULL113 | -999 |  |
+| EXTNAME | CONFSUMMARYF-8874.PAR | extension name |
+| CHECKSUM | F9ooF6mlF6mlF6ml | HDU checksum updated 2025-04-01T06:28:32 |
+| DATASUM | 3069008975 | data unit checksum updated 2025-04-01T06:28:32 |
 
 ##### Binary Table Caption for HDU5
 Name | Type | Unit | Description |
@@ -795,6 +871,7 @@ Name | Type | Unit | Description |
  | ON_TARGET | int64 |  | Whether this fibre is on target |
  | VALID | int64 |  | alpha and beta angles are valid |
  | DECOLLIDED | int64 |  | this positioner had to be moved to decollide it |
+ | TOO | int64 |  | the fiber is allocated to a TOO |
  | FIBERMASK | int64 |  | Fiber level bitmasks (maps to SPPIXMASK) |
  | BADSTDMASK | int64 |  | Standard rejected by magnitude range of design |
  | THROUGHPUT | int64 |  | Plate Fiber throughput (0-65535, 0=no light) |
@@ -805,6 +882,9 @@ Name | Type | Unit | Description |
  | XWOK | float64 | mm | The X value in the FPS WOK coordinates |
  | YWOK | float64 | mm | The Y value in the FPS WOK coordinates |
  | ZWOK | float64 | mm | The X value in the FPS WOK coordinates |
+ | XWOK_PRE | float64 | mm | The XWOK pre FVC Loop |
+ | YWOK_PRE | float64 | mm | The YWOK pre FVC Loop |
+ | ZWOK_PRE | float64 | mm | The ZWOK pre FVC Loop |
  | XFOCAL | float64 | mm | The X value in focal plane coordinates. |
  | YFOCAL | float64 | mm | The Y value in focal plane coordinates. |
  | ZOFFSET | float64 | micron | backstopping offset distance (from washers) |
@@ -818,10 +898,16 @@ Name | Type | Unit | Description |
  | DEC | float64 | deg | Calculated on sky fiber Dec including delta_DEC |
  | DELTA_RA | float64 | arcsec | The amount in RA this fiber has been offset |
  | DELTA_DEC | float64 | arcsec | The amount in Dec this fiber has been offset |
+ | RA_OBSERVED | float64 | deg | RA with correction for atmospheric refraction |
+ | DEC_OBSERVED | float64 | deg | dec with correction for atmospheric refraction |
+ | ALT_OBSERVED | float64 | deg | alt with correction for atmospheric refraction |
+ | AZ_OBSERVED | float64 | deg | Az with correction for atmospheric refraction |
  | FIBER_OFFSET | int64 |  | Flag identifying the fiber was offset by design |
+ | MEASUREDOFFSET | float64 | arcsec | Measured offset between Fiber & Catalog Coord |
+ | WOKOFFSET | float64 | mm | Measured offset in the Wok Coordinates |
  | LAMBDA_EFF | float64 | Ang | Wavelength used for coordinate transformations |
  | SPECTROGRAPHID | int64 |  | Spectrograph to which the fibre is assigned. |
- | OPTICAL_PROV | char[11] |  | The source of the CATDB_MAG optical magnitudes |
+ | OPTICAL_PROV | char[21] |  | The source of the CATDB_MAG optical magnitudes |
  | MAG | float64[5] |  | [u, g, r, i, z] optical magnitudes |
  | PSFMAG | float64[5] |  | [u, g, r, i, z] optical PSF magnitudes |
  | FIBER2MAG | float64[5] |  | [u, g, r, i, z] optical Fiber2 magnitudes |
@@ -830,7 +916,7 @@ Name | Type | Unit | Description |
  | GAIA_G_MAG | float64 |  | Gaia G magnitude |
  | BP_MAG | float64 |  | Gaia BP magnitude |
  | RP_MAG | float64 |  | Gaia RP magnitude |
- | GAIA_ID | int64 |  | Gaia-DR2 ID |
+ | GAIA_ID | int64 |  | Gaia-DR3 ID |
  | H_MAG | float64 |  | 2MASS H magnitude |
  | WISE_MAG | float64[4] |  | WISE [W1, W2, W3, W4] band magnitudes |
  | TWOMASS_MAG | float64[3] |  | 2MASS [J, H, Ks] band magnitudes |
@@ -853,6 +939,9 @@ Name | Type | Unit | Description |
  | CATALOGID | char[20] |  | CatalogID or uHHMMSS.S+DDMMSS.S for unassigned |
  | ICATALOGID | int64 |  | Raw SDSS-V CatalogID |
  | SDSS_ID | int64 |  | SDSS_ID of Target |
+ | CATALOGID_V0 | int64 |  | V0 (Plate) Crossmatch CatalogID from SDSS_ID |
+ | CATALOGID_V0P5 | int64 |  | V0.5 (FPS) Crossmatch CatalogID from SDSS_ID |
+ | CATALOGID_V1 | int64 |  | V1 (FPS) Crossmatch CatalogID from SDSS_ID |
  | CATVERSION | char[5] |  | Catalog Version of SDSS-V CatalogID |
  | CARTON_TO_TARGET_PK | int64 |  | SDSS-V Carton_to_Target primary key for SDSSDB |
  | FIRSTCARTON | char[17] |  | Main carton from which this carton was drawn |
@@ -860,7 +949,9 @@ Name | Type | Unit | Description |
  | PROGRAM | char[7] |  | Program for 'firstcarton' |
  | MAPPER | char[3] |  | SDSS-V Mapper for target |
  | SURVEY | char[3] |  | SDSS Survey for target |
- | SDSS5_TARGET_FLAGS | bool[29] |  | Targeting Flags for SSDSV Targeting |
+ | TOO_ID | int64 |  | SDSS-V Target of Opportunity ID (if TOO=1) |
+ | TOO_PROGRAM | char[10] |  | SDSS-V Target of Opportunity Program (if TOO=1) |
+ | SDSS5_TARGET_FLAGS | bool[69] |  | Targeting Flags for SSDSV Targeting |
  | SDSSC2BV | char[1] |  | SDSS5_TARGET_FLAG Carton to Bit Version |
  | SDSSV_BOSS_TARGET0 | int64 |  | Targeting bitmask for SDSSV-BOSS |
  | SDSSV_APOGEE_TARGET0 | int64 |  | Targeting bitmask for SDSSV-APOGEE |
@@ -885,6 +976,197 @@ Name | Type | Unit | Description |
  | ID | int64 |  | SDSS imaging id, for SDSS imaging targets |
  | FIELDCADENCE | char[13] |  | SDSS-V FPS Field Cadence |
  | CADENCE | char[10] |  | SDSS-V FPS target Cadence |
+ | DESIGN_VERS | char[6] |  | robostrategy Run or platedesign version |
+ | DESIGN_MODE | char[7] |  | SDSS-V DesignMode Mode |
+
+
+
+### HDU6: CONFSUMMARYF-8875.PAR
+Fiber-to-target mapping for plate plugging or FPS configuration
+
+#### HDU Type: BINARY TABLE
+#### HDU Size:  1 MB
+
+##### Header Table Caption for HDU6
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 1354 | length of dimension 1 |
+| NAXIS2 | 1500 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 117 | number of table fields |
+| TNULL1 | -999 |  |
+| TNULL3 | -999 |  |
+| TNULL4 | -999 |  |
+| TNULL7 | -999 |  |
+| TNULL8 | -999 |  |
+| TNULL9 | -999 |  |
+| TNULL10 | -999 |  |
+| TNULL11 | -999 |  |
+| TNULL12 | -999 |  |
+| TNULL13 | -999 |  |
+| TNULL14 | -999 |  |
+| TNULL16 | -999 |  |
+| TNULL42 | -999 |  |
+| TNULL46 | -1 |  |
+| TNULL52 | -999 |  |
+| TNULL56 | -999 |  |
+| TNULL67 | -999 |  |
+| TNULL70 | -999 |  |
+| TNULL74 | -999 |  |
+| TNULL75 | 0 |  |
+| TNULL77 | -999 |  |
+| TNULL78 | -999 |  |
+| TNULL79 | -999 |  |
+| TNULL80 | -999 |  |
+| TNULL81 | -999 |  |
+| TNULL83 | -999 |  |
+| TNULL89 | -999 |  |
+| TDIM91 | (69) |  |
+| TNULL93 | -999 |  |
+| TNULL94 | -999 |  |
+| TNULL95 | -999 |  |
+| TNULL96 | -999 |  |
+| TNULL97 | -999 |  |
+| TNULL98 | -999 |  |
+| TNULL99 | -999 |  |
+| TNULL100 | -999 |  |
+| TNULL101 | -999 |  |
+| TNULL102 | -999 |  |
+| TNULL103 | -999 |  |
+| TNULL104 | -999 |  |
+| TNULL105 | -999 |  |
+| TNULL109 | -999 |  |
+| TNULL111 | -999 |  |
+| TNULL112 | -999 |  |
+| TNULL113 | -999 |  |
+| EXTNAME | CONFSUMMARYF-8875.PAR | extension name |
+| CHECKSUM | h3K2j2K1h2K1h2K1 | HDU checksum updated 2025-04-01T06:28:32 |
+| DATASUM | 3296087750 | data unit checksum updated 2025-04-01T06:28:32 |
+
+##### Binary Table Caption for HDU6
+Name | Type | Unit | Description |
+| --- | --- | --- | --- |
+ | POSITIONERID | int64 |  | FPS Positioner identifier |
+ | HOLEID | char[7] |  | Hole ID in which the positioner is sitting |
+ | FIBERID | int64 |  | Fiber ID for the spectrograph |
+ | CONFFIBERID | int64 |  | Raw Slithead FiberIDs |
+ | FIBERTYPE | char[9] |  | Type of fibre (APOGEE, BOSS, or Metrology) |
+ | HOLETYPE | char[10] |  | Plate Hole type |
+ | ASSIGNED | int64 |  | Whether this fibre was assigned to a target |
+ | ON_TARGET | int64 |  | Whether this fibre is on target |
+ | VALID | int64 |  | alpha and beta angles are valid |
+ | DECOLLIDED | int64 |  | this positioner had to be moved to decollide it |
+ | TOO | int64 |  | the fiber is allocated to a TOO |
+ | FIBERMASK | int64 |  | Fiber level bitmasks (maps to SPPIXMASK) |
+ | BADSTDMASK | int64 |  | Standard rejected by magnitude range of design |
+ | THROUGHPUT | int64 |  | Plate Fiber throughput (0-65535, 0=no light) |
+ | SCI_EXPTIME | float64 | s | Rescaled Science Exposure Time for offset plate |
+ | BLUEFIBER | int64 |  | BOSS to assign this target a 'blue' fiber |
+ | ALPHA | float64 | deg | The alpha angles of the positioner arms. |
+ | BETA | float64 | deg | The beta angles of the positioner arms. |
+ | XWOK | float64 | mm | The X value in the FPS WOK coordinates |
+ | YWOK | float64 | mm | The Y value in the FPS WOK coordinates |
+ | ZWOK | float64 | mm | The X value in the FPS WOK coordinates |
+ | XWOK_PRE | float64 | mm | The XWOK pre FVC Loop |
+ | YWOK_PRE | float64 | mm | The YWOK pre FVC Loop |
+ | ZWOK_PRE | float64 | mm | The ZWOK pre FVC Loop |
+ | XFOCAL | float64 | mm | The X value in focal plane coordinates. |
+ | YFOCAL | float64 | mm | The Y value in focal plane coordinates. |
+ | ZOFFSET | float64 | micron | backstopping offset distance (from washers) |
+ | RACAT | float64 | deg | Catalog RA in ICRS coordinates at coord_epoch |
+ | DECCAT | float64 | deg | Catalog Dec in ICRS coordinates at coord_epoch |
+ | COORD_EPOCH | float64 |  | Epoch of the catalogue coordinates. |
+ | PMRA | float64 | mas | Proper motion in RA (pmra is a true angle) |
+ | PMDEC | float64 | mas | Proper motion in Dec |
+ | PARALLAX | float64 | mas | Parallax |
+ | RA | float64 | deg | Calculated on sky fiber RA including delta_RA |
+ | DEC | float64 | deg | Calculated on sky fiber Dec including delta_DEC |
+ | DELTA_RA | float64 | arcsec | The amount in RA this fiber has been offset |
+ | DELTA_DEC | float64 | arcsec | The amount in Dec this fiber has been offset |
+ | RA_OBSERVED | float64 | deg | RA with correction for atmospheric refraction |
+ | DEC_OBSERVED | float64 | deg | Dec with correction for atmospheric refraction |
+ | ALT_OBSERVED | float64 | deg | alt with correction for atmospheric refraction |
+ | AZ_OBSERVED | float64 | deg | az with correction for atmospheric refraction |
+ | FIBER_OFFSET | int64 |  | Flag identifying the fiber was offset by design |
+ | MEASUREDOFFSET | float64 | arcsec | Measured offset between Fiber & Catalog Coord |
+ | WOKOFFSET | float64 | mm | Measured offset in the Wok Coordinates |
+ | LAMBDA_EFF | float64 | Ang | Wavelength used for coordinate transformations |
+ | SPECTROGRAPHID | int64 |  | Spectrograph to which the fibre is assigned. |
+ | OPTICAL_PROV | char[21] |  | The source of the CATDB_MAG optical magnitudes |
+ | MAG | float64[5] |  | [u, g, r, i, z] optical magnitudes |
+ | PSFMAG | float64[5] |  | [u, g, r, i, z] optical PSF magnitudes |
+ | FIBER2MAG | float64[5] |  | [u, g, r, i, z] optical Fiber2 magnitudes |
+ | CATDB_MAG | float64[5] |  | [u, g, r, i, z] Raw TargetDB magnitudes |
+ | V05_REV_MAG | int64 |  | 1: revised with RevisedMagnitude Table, 0: raw |
+ | GAIA_G_MAG | float64 |  | Gaia G magnitude |
+ | BP_MAG | float64 |  | Gaia BP magnitude |
+ | RP_MAG | float64 |  | Gaia RP magnitude |
+ | GAIA_ID | int64 |  | Gaia-DR3 ID |
+ | H_MAG | float64 |  | 2MASS H magnitude |
+ | WISE_MAG | float64[4] |  | WISE [W1, W2, W3, W4] band magnitudes |
+ | TWOMASS_MAG | float64[3] |  | 2MASS [J, H, Ks] band magnitudes |
+ | GUVCAT_MAG | float64[2] |  | GALEX [FUV, NUV] band magnitudes |
+ | SFD_EBV | float64 |  | SFD dust extinction |
+ | EBV_BAYESTAR15 | float64 |  | Bayestar15 3D dust extinction |
+ | EBV_SIMPLEDUST2023 | float64 |  | SimpleDust2023 3D dust extinction |
+ | EBV_RJCE | float64 |  | RJCE dust extinction |
+ | EBV_3D | float64 |  | Merged 3D dust extinction |
+ | EBV_3DSRC | char[14] |  | Source of Merged 3D dust extinction |
+ | GRI_GAIA_TRANSFORM | int64 |  | provenance of photometry in SDSS-V plate design |
+ | CALIBFLUX | float64[5] | nanomaggy | SDSS band [u,g,r,i,z] target calibration flux |
+ | CALIBFLUX_IVAR | float64[5] | nanomaggy | target calibration flux inverse variance |
+ | CALIB_STATUS | int64[5] |  | target calibration status flag |
+ | CATEGORY | char[13] |  | Category for 'firstcarton' |
+ | OBJTYPE | char[16] |  | Why object was targetted (QSO = Science Target) |
+ | SOURCETYPE | char[10] |  | indicate the nature of the source |
+ | OFFSETID | int64 |  | plate offset associated; 0 = primary pointing |
+ | OBJID | int64[5] |  | Unique object id from SDSS imaging |
+ | CATALOGID | char[20] |  | CatalogID or uHHMMSS.S+DDMMSS.S for unassigned |
+ | ICATALOGID | int64 |  | Raw SDSS-V CatalogID |
+ | SDSS_ID | int64 |  | SDSS_ID of Target |
+ | CATALOGID_V0 | int64 |  | V0 (Plate) Crossmatch CatalogID from SDSS_ID |
+ | CATALOGID_V0P5 | int64 |  | V0.5 (FPS) Crossmatch CatalogID from SDSS_ID |
+ | CATALOGID_V1 | int64 |  | V1 (FPS) Crossmatch CatalogID from SDSS_ID |
+ | CATVERSION | char[5] |  | Catalog Version of SDSS-V CatalogID |
+ | CARTON_TO_TARGET_PK | int64 |  | SDSS-V Carton_to_Target primary key for SDSSDB |
+ | FIRSTCARTON | char[17] |  | Main carton from which this carton was drawn |
+ | CARTONNAME | char[17] |  | Main carton from which this carton was drawn |
+ | PROGRAM | char[7] |  | Program for 'firstcarton' |
+ | MAPPER | char[3] |  | SDSS-V Mapper for target |
+ | SURVEY | char[3] |  | SDSS Survey for target |
+ | TOO_ID | int64 |  | SDSS-V Target of Opportunity ID (if TOO=1) |
+ | TOO_PROGRAM | char[10] |  | SDSS-V Target of Opportunity Program (if TOO=1) |
+ | SDSS5_TARGET_FLAGS | bool[69] |  | Targeting Flags for SSDSV Targeting |
+ | SDSSC2BV | char[1] |  | SDSS5_TARGET_FLAG Carton to Bit Version |
+ | SDSSV_BOSS_TARGET0 | int64 |  | Targeting bitmask for SDSSV-BOSS |
+ | SDSSV_APOGEE_TARGET0 | int64 |  | Targeting bitmask for SDSSV-APOGEE |
+ | BOSS_TARGET1 | int64 |  | Targeting bitmask for SDSS-III BOSS |
+ | BOSS_TARGET2 | int64 |  | Targeting bitmask for SDSS-III BOSS |
+ | ANCILLARY_TARGET1 | int64 |  | Targeting bitmask for SDSS-III BOSS Ancillary |
+ | ANCILLARY_TARGET2 | int64 |  | Targeting bitmask for SDSS-III BOSS Ancillary |
+ | EBOSS_TARGET0 | int64 |  | Targeting bitmask for SDSS-IV eBOSS |
+ | EBOSS_TARGET1 | int64 |  | Targeting bitmask for SDSS-IV eBOSS |
+ | EBOSS_TARGET2 | int64 |  | Targeting bitmask for SDSS-IV eBOSS |
+ | EBOSS_TARGET_ID | int64 |  | Targeting bitmask for SDSS-IV eBOSS |
+ | THING_ID_TARGETING | int64 |  | thing_id from targeting version |
+ | PRIMTARGET | int64 |  | Plate Primary target flags |
+ | SECTARGET | int64 |  | Plate Secondary target flags |
+ | STARL | float64 |  | likelihood object is star |
+ | EXPL | float64 |  | likelihood object is exponential disk |
+ | DEVAUCL | float64 |  | likelihood object is deVaucouleurs profile |
+ | RUN | int64 |  | SDSS imaging run, for SDSS imaging targets |
+ | RERUN | char[10] |  | SDSS imaging rerun, for SDSS imaging targets |
+ | CAMCOL | int64 |  | SDSS imaging camcol, for SDSS imaging targets |
+ | FIELD | int64 |  | SDSS imaging field, for SDSS imaging targets |
+ | ID | int64 |  | SDSS imaging id, for SDSS imaging targets |
+ | FIELDCADENCE | char[13] |  | SDSS-V FPS Field Cadence |
+ | CADENCE | char[10] |  | SDSS-V FPS target Cadence |
+ | DESIGN_VERS | char[6] |  | robostrategy Run or platedesign version |
+ | DESIGN_MODE | char[7] |  | SDSS-V DesignMode Mode |
 
 
 

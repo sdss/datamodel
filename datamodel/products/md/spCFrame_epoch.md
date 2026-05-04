@@ -19,7 +19,7 @@ The spCFrame files contain the flux-calibrated extracted spectra for a single CC
 $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/epoch/spCFrame-[BR][ID]-[FRAME].fits
 
 ### Releases
-IPL4
+IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,7 +39,7 @@ False
 ### Data Level
 1.2.4
 
-### HDUS List for release IPL4
+### HDUS List for release DR20
   - [HDU0: FLUX](#hdu0-flux)
   - [HDU1: IVAR](#hdu1-ivar)
   - [HDU2: MASK](#hdu2-mask)
@@ -55,6 +55,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
 
 ---
 ## Example HDUS List

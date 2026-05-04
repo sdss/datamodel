@@ -19,7 +19,7 @@ Contains a summary of the Spectro-1D spZline output for all spectra in a field-m
 $BOSS_SPECTRO_REDUX/[RUN2D]/spectra/daily/full/[FIELDGRP]/[FIELD]/[MJD]/spAllLine-[FIELD]-[MJD].fits.gz
 
 ### Releases
-IPL3, DR19, IPL4
+IPL3, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.2.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: SPLINE](#hdu1-spline)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
    - note: No changes
@@ -70,12 +73,12 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 0 | number of array dimensions |
 | EXTEND | True |  |
-| RUN2D | v6_1_3 | IDLSPEC2D RUN2D |
-| DATE | Wed Apr  3 05:25:17 2024 | Date Created |
+| RUN2D | v6_2_1 | IDLSPEC2D RUN2D |
+| DATE | Wed May 14 00:54:00 2025 | Date Created |
 | DIMS0 |  | Number of emission lines |
 | DIMS1 |  | Number of objects |
-| CHECKSUM | FnCqFm9oFmCoFm9o | HDU checksum updated 2024-04-03T05:25:17 |
-| DATASUM | 0 | data unit checksum updated 2024-04-03T05:25:17 |
+| CHECKSUM | 94C1H39193A1G391 | HDU checksum updated 2025-05-14T00:54:00 |
+| DATASUM | 0 | data unit checksum updated 2025-05-14T00:54:00 |
 
 
 
@@ -91,21 +94,21 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 117 | length of dimension 1 |
-| NAXIS2 | 16096 | length of dimension 2 |
+| NAXIS1 | 120 | length of dimension 1 |
+| NAXIS2 | 15584 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 21 | number of table fields |
+| TFIELDS | 22 | number of table fields |
 | TNULL1 | 0 |  |
 | TNULL2 | 0 |  |
 | TNULL3 | -1 |  |
 | TNULL4 | -999 |  |
 | TNULL5 | -999 |  |
-| TNULL18 | -1 |  |
 | TNULL19 | -1 |  |
+| TNULL20 | -1 |  |
 | EXTNAME | SPLINE | extension name |
-| CHECKSUM | JFRgJ9QeJCQeJ9Qe | HDU checksum updated 2024-04-03T05:25:17 |
-| DATASUM | 2724908761 | data unit checksum updated 2024-04-03T05:25:17 |
+| CHECKSUM | ZYdThVbRZVbRfVbR | HDU checksum updated 2025-05-14T00:54:00 |
+| DATASUM | 2215121949 | data unit checksum updated 2025-05-14T00:54:00 |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
@@ -115,6 +118,7 @@ Name | Type | Unit | Description |
  | TARGET_INDEX | int64 |  | Target Index (1 to number of targets) |
  | CATALOGID | int64 |  | SDSS-V CatalogID used in naming |
  | SDSS_ID | int64 |  | Unified SDSS Target Identifier |
+ | OBS | char[3] |  | Observatory |
  | LINENAME | char[13] |  | Line name |
  | LINEWAVE | float64 | AA | Catalog wavelength of line in vacuum Angstroms |
  | LINEZ | float32 |  | Redshift |

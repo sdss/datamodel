@@ -19,7 +19,7 @@ Contains the calibration vectors for a given frame
 $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/spFluxcalib-[BR][ID]-[FRAME].fits.gz
 
 ### Releases
-DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19, IPL4
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,20 +39,23 @@ False
 ### Data Level
 1.2.4
 
-### HDUS List for release DR19
-  - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1](#hdu1)
-  - [HDU2](#hdu2)
-  - [HDU3](#hdu3)
-  - [HDU4](#hdu4)
+### HDUS List for release DR20
+  - [HDU0: CALIBIMG](#hdu0-calibimg)
+  - [HDU1: BSPLINE](#hdu1-bspline)
+  - [HDU2: STDSTARS](#hdu2-stdstars)
+  - [HDU3: BSPLINE_STD](#hdu3-bspline_std)
+  - [HDU4: OUTPUT](#hdu4-output)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
-   - added_hdus: ['CALIBIMG', 'STDSTARS', 'BSPLINE_STD', 'OUTPUT', 'BSPLINE']
+   - added_hdus: ['CALIBIMG', 'OUTPUT', 'STDSTARS', 'BSPLINE_STD', 'BSPLINE']
    - removed_hdus: ['PRIMARY']
    - primary_delta_nkeys: 1
    - added_primary_header_kwargs: ['EXTNAME']
@@ -93,7 +96,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 ---
 ## Example HDUS List
 
-### HDU0: PRIMARY
+### HDU0: CALIBIMG
 Image with the flux calibration vector for each fiber.
 
 #### HDU Type: IMAGE
@@ -108,12 +111,13 @@ Key | Value | Comment | |
 | NAXIS1 | 4112 |  |
 | NAXIS2 | 500 |  |
 | EXTEND | True | Extensions may be present |
-| WAVEMIN | 3559.19 |  |
-| WAVEMAX | 6317.02 |  |
+| WAVEMIN | 3473.0 |  |
+| WAVEMAX | 6442.45 |  |
+| EXTNAME | CALIBIMG |  |
 
 
 
-### HDU1: 
+### HDU1: BSPLINE
 Binary table with traceset structure of b-spline fits for calibration vectors. This is a compact version of the information in the primary HDU.
 
 #### HDU Type: BINARY TABLE
@@ -125,7 +129,7 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | Binary table written by MWRFITS v1.13 |
 | BITPIX | 8 | Required value |
 | NAXIS | 2 | Required value |
-| NAXIS1 | 3256 | Number of bytes per row |
+| NAXIS1 | 3508 | Number of bytes per row |
 | NAXIS2 | 1 | Number of rows |
 | PCOUNT | 0 | Normally 0 (no varying arrays) |
 | GCOUNT | 1 | Required value |
@@ -133,6 +137,7 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** End of mandatory fields *** |  |
 | COMMENT |  |  |
+| EXTNAME | BSPLINE |  |
 | COMMENT |  |  |
 | COMMENT |  *** Column formats *** |  |
 | COMMENT |  |  |
@@ -143,15 +148,15 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FULLBKPT | float32[234] |  | Breakpoint vector |
- | BKMASK | int16[234] |  | mask of the breakpoint vector |
+ | FULLBKPT | float32[252] |  | Breakpoint vector |
+ | BKMASK | int16[252] |  | mask of the breakpoint vector |
  | NORD | int32 |  | Number of orders for Bspline fit |
- | COEFF | float32[231] |  | The bspline coeffients |
- | ICOEFF | float32[231] |  | inversion bspline coeffients |
+ | COEFF | float32[249] |  | The bspline coeffients |
+ | ICOEFF | float32[249] |  | inversion bspline coeffients |
 
 
 
-### HDU2: 
+### HDU2: STDSTARS
 Binary table with information about the standard stars used to construct the calibration vector.
 
 #### HDU Type: BINARY TABLE
@@ -163,14 +168,15 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | Binary table written by MWRFITS v1.13 |
 | BITPIX | 8 | Required value |
 | NAXIS | 2 | Required value |
-| NAXIS1 | 82629 | Number of bytes per row |
+| NAXIS1 | 82645 | Number of bytes per row |
 | NAXIS2 | 70 | Number of rows |
 | PCOUNT | 0 | Normally 0 (no varying arrays) |
 | GCOUNT | 1 | Required value |
-| TFIELDS | 21 | Number of columns in table |
+| TFIELDS | 23 | Number of columns in table |
 | COMMENT |  |  |
 | COMMENT |  *** End of mandatory fields *** |  |
 | COMMENT |  |  |
+| EXTNAME | STDSTARS |  |
 | COMMENT |  |  |
 | COMMENT |  *** Column formats *** |  |
 | COMMENT |  |  |
@@ -181,7 +187,9 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU2
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | PLATE | int32 |  | SDSS PlateID |
+ | FIELDID | int32 |  | SDSS FieldID (plateID for plate era data) |
+ | CATALOGID | int64 |  | CatalogID or uHHMMSS.S+DDMMSS.S for unassigned |
+ | SDSS_ID | int64 |  | SDSS_ID of Target |
  | MJD | int32 |  | MJD of observation |
  | FIBERID | int32 |  | Fiber of observation |
  | QGOOD | int16 |  | quality flag |
@@ -205,7 +213,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU3: 
+### HDU3: BSPLINE_STD
 Binary table with traceset structure of b-spline fits for calibration vectors of all standards.
 
 #### HDU Type: BINARY TABLE
@@ -217,7 +225,7 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | Binary table written by MWRFITS v1.13 |
 | BITPIX | 8 | Required value |
 | NAXIS | 2 | Required value |
-| NAXIS1 | 3256 | Number of bytes per row |
+| NAXIS1 | 3508 | Number of bytes per row |
 | NAXIS2 | 1 | Number of rows |
 | PCOUNT | 0 | Normally 0 (no varying arrays) |
 | GCOUNT | 1 | Required value |
@@ -225,6 +233,7 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** End of mandatory fields *** |  |
 | COMMENT |  |  |
+| EXTNAME | BSPLINE_STD |  |
 | COMMENT |  |  |
 | COMMENT |  *** Column formats *** |  |
 | COMMENT |  |  |
@@ -235,19 +244,19 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU3
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FULLBKPT | float32[234] |  | Breakpoint vector |
- | BKMASK | int16[234] |  | mask of the breakpoint vector |
+ | FULLBKPT | float32[252] |  | Breakpoint vector |
+ | BKMASK | int16[252] |  | mask of the breakpoint vector |
  | NORD | int32 |  | Number of orders for Bspline fit |
- | COEFF | float32[231] |  | The bspline coefficients |
- | ICOEFF | float32[231] |  | inversion bspline coefficients |
+ | COEFF | float32[249] |  | The bspline coefficients |
+ | ICOEFF | float32[249] |  | inversion bspline coefficients |
 
 
 
-### HDU4: 
+### HDU4: OUTPUT
 Output structure
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  9 MB
+#### HDU Size:  10 MB
 
 ##### Header Table Caption for HDU4
 Key | Value | Comment | |
@@ -255,7 +264,7 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | Binary table written by MWRFITS v1.13 |
 | BITPIX | 8 | Required value |
 | NAXIS | 2 | Required value |
-| NAXIS1 | 10173032 | Number of bytes per row |
+| NAXIS1 | 10531732 | Number of bytes per row |
 | NAXIS2 | 1 | Number of rows |
 | PCOUNT | 0 | Normally 0 (no varying arrays) |
 | GCOUNT | 1 | Required value |
@@ -263,18 +272,19 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** End of mandatory fields *** |  |
 | COMMENT |  |  |
+| EXTNAME | OUTPUT |  |
 | COMMENT |  |  |
 | COMMENT |  *** Column formats *** |  |
 | COMMENT |  |  |
 | COMMENT |  |  |
 | COMMENT |  *** Column dimensions (2 D or greater) *** |  |
 | COMMENT |  |  |
-| TDIM1 | ( 4128, 1, 68) |  |
-| TDIM2 | ( 4128, 1, 68) |  |
-| TDIM3 | ( 4128, 1, 68) |  |
-| TDIM4 | ( 4128, 1, 68) |  |
-| TDIM7 | ( 2492, 500) |  |
-| TDIM8 | ( 2492, 68) |  |
+| TDIM1 | ( 4128, 1, 67) |  |
+| TDIM2 | ( 4128, 1, 67) |  |
+| TDIM3 | ( 4128, 1, 67) |  |
+| TDIM4 | ( 4128, 1, 67) |  |
+| TDIM7 | ( 2683, 500) |  |
+| TDIM8 | ( 2683, 67) |  |
 | COMMENT |  |  |
 | COMMENT |  *** Column names *** |  |
 | COMMENT |  |  |
@@ -282,14 +292,14 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU4
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | THISLOGLAM | float32[280704] | log10(AA) | log lambda |
- | THISMRATIO | float32[280704] |  | MRATIO vectors are the "raw" flux-calib vectors for this expos+CCD |
- | THISMRATIVAR | float32[280704] |  | MRATIO vectors are the "raw" flux-calib vectors for this expos+CCD |
- | THISFLATARR | float32[280704] |  | polynomial fit of the object with respect to the model |
+ | THISLOGLAM | float32[276576] | log10(AA) | log lambda |
+ | THISMRATIO | float32[276576] |  | MRATIO vectors are the "raw" flux-calib vectors for this expos+CCD |
+ | THISMRATIVAR | float32[276576] |  | MRATIO vectors are the "raw" flux-calib vectors for this expos+CCD |
+ | THISFLATARR | float32[276576] |  | polynomial fit of the object with respect to the model |
  | FRAC_SCAT | float64 |  | percental dispersion of the fluxing vectors used wrt the truth |
- | TMPLOGLAM | float64[2492] |  | output grid |
- | THISFLATARR_ALL | float32[1246000] |  | rpolynomial fit of the object with respect to the model for all star |
- | THISFLATARR_NEW | float32[169456] |  | polynomial fit of the object with respect to the model for all the std and all obj |
+ | TMPLOGLAM | float64[2683] |  | output grid |
+ | THISFLATARR_ALL | float32[1341500] |  | rpolynomial fit of the object with respect to the model for all star |
+ | THISFLATARR_NEW | float32[179761] |  | polynomial fit of the object with respect to the model for all the std and all obj |
 
 
 

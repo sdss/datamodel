@@ -30,6 +30,12 @@
         "description": "SDSS internal product launch 4",
         "public": false,
         "release_date": "2025-07-15"
+      },
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-30"
       }
     ],
     "naming_convention": "$GCAM_DATA_S/[MJD]/gcam-[MJD].fits",
@@ -41,7 +47,39 @@
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {}
+    "releases": {
+      "DR20": {
+        "from": "IPL4",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null,
+        "delta_ncolumns": 0,
+        "added_columns": [],
+        "removed_columns": [],
+        "delta_nmetadata": 0,
+        "added_metadata": [],
+        "removed_metadata": []
+      }
+    }
   },
   "releases": {
     "IPL4": {
@@ -271,7 +309,238 @@
         }
       },
       "par": null,
-      "hdfs": null
+      "hdfs": null,
+      "dataframe": null
+    },
+    "DR20": {
+      "template": "$GCAM_DATA_S/[MJD]/gcam-[MJD].fits",
+      "example": "60708/gcam-60708.fits",
+      "location": "{mjd}/gcam-{mjd}.fits",
+      "environment": "GCAM_DATA_S",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "gcam_lco",
+        "path_template": "$GCAM_DATA_S/{mjd}/gcam-{mjd}.fits",
+        "path_kwargs": [
+          "mjd"
+        ],
+        "access_string": "gcam_lco = $GCAM_DATA_S/{mjd}/gcam-{mjd}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary HDU",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "GCAM Guiding and Centering Data",
+          "size": "112 KB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "165",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "698",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "20",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TDIM19",
+              "value": "(6)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM20",
+              "value": "(6)",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "indx": {
+              "name": "indx",
+              "description": "Index of guider image",
+              "type": "int32",
+              "unit": ""
+            },
+            "date-obs": {
+              "name": "date-obs",
+              "description": "Time of the start of the exposure [TAI]",
+              "type": "char[21]",
+              "unit": ""
+            },
+            "mjd": {
+              "name": "mjd",
+              "description": "Modified Julian Date of the start of the exposure",
+              "type": "float64",
+              "unit": ""
+            },
+            "ra": {
+              "name": "ra",
+              "description": "RA of telescope boresight",
+              "type": "float64",
+              "unit": "degree"
+            },
+            "dec": {
+              "name": "dec",
+              "description": "Dec of telescope boresight",
+              "type": "float64",
+              "unit": "degree"
+            },
+            "az": {
+              "name": "az",
+              "description": "Azimuth axis pos. (approx)",
+              "type": "float64",
+              "unit": "degree"
+            },
+            "alt": {
+              "name": "alt",
+              "description": "Altitude axis pos. (approx)",
+              "type": "float64",
+              "unit": "degree"
+            },
+            "ipa": {
+              "name": "ipa",
+              "description": "Rotator axis pos. (approx)",
+              "type": "float64",
+              "unit": "degree"
+            },
+            "focus": {
+              "name": "focus",
+              "description": "User-specified focus offset",
+              "type": "float64",
+              "unit": "micron"
+            },
+            "gdrms": {
+              "name": "gdrms",
+              "description": "Guide RMS",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "dRA": {
+              "name": "dRA",
+              "description": "RA measured delta",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "dDec": {
+              "name": "dDec",
+              "description": "Dec measured delta",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "dRot": {
+              "name": "dRot",
+              "description": "Rotator measured delta",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "dScale": {
+              "name": "dScale",
+              "description": "Scale measured factor",
+              "type": "float32",
+              "unit": ""
+            },
+            "corrRA": {
+              "name": "corrRA",
+              "description": "RA applied correction",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "corrDec": {
+              "name": "corrDec",
+              "description": "Dec applied correction",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "corrRot": {
+              "name": "corrRot",
+              "description": "Rotator applied correction",
+              "type": "float32",
+              "unit": "arcsec"
+            },
+            "corrScale": {
+              "name": "corrScale",
+              "description": "Scale applied correction",
+              "type": "float32",
+              "unit": ""
+            },
+            "nstars": {
+              "name": "nstars",
+              "description": "Number of fit guide stars per camera",
+              "type": "int32[6]",
+              "unit": ""
+            },
+            "fwhm": {
+              "name": "fwhm",
+              "description": "measured full width half max of sources per camera",
+              "type": "float32[6]",
+              "unit": "arcsec"
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null,
+      "dataframe": null
     }
   },
   "notes": "None",

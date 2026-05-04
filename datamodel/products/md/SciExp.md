@@ -19,7 +19,7 @@ Metadata of all Science Exposure for Field/Plate used for building the spPlancom
 $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/SciExp-[FIELD].par
 
 ### Releases
-IPL3, DR19, IPL4
+IPL3, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,13 +39,16 @@ False
 ### Data Level
 1.1
 
-### PAR List for release DR19
+### PAR List for release DR20
   - [SPEXP](#SPEXP)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
    - tables: {'SPEXP': {'delta_nrows': 86}}
@@ -67,7 +70,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 
 #### SPEXP
 - Description: Exposures
-- Number of Rows: 580
+- Number of Rows: 666
 
 #### Structure
 Name | Type | Unit | Description | Is Array | Example |
@@ -76,20 +79,20 @@ Name | Type | Unit | Description | Is Array | Example |
  | fieldid | char[6] |  | FieldID (or PlateID) of exposure | False | 112360 |
  | mjd | int |  | MJD of exposure | False | 59663 |
  | mapname | char[5] |  | Plate Map Name or FPS configuration ID | False | 4145 |
- | flavor | char[7] |  | Flavor of Exposure (flat, arc, science) | False | science |
+ | flavor | char[9] |  | Flavor of Exposure (flat, arc, science) | False | science |
  | exptime | float | s | Exposure Length of exposure | False | 900.0999755859375 |
  | planfile2d | char[27] |  | plan2d file for the spec2d reduction of this exposure | False | 'spPlan2d-112360-59663.par' |
  | obs | char[3] |  | Exposure Length of exposure | False | APO |
  | design | char[21] |  | Observatory of the Exposure | False | 108362 |
- | rs_plan | char[6] |  | Robostrategy Version for this exposure (or 'plates') | False | zeta-0 |
+ | rs_plan | char[7] |  | Robostrategy Version for this exposure (or 'plates') | False | zeta-0 |
  | field_pk | long |  | Field Primary Key (for sdssdb; -999 for plates) | False | 18502 |
  | field_cadence | char[13] |  | Field Cadence Name | False | dark_174x8_v1 |
  | expid | long |  | Exposure ID | False | 339340 |
  | manual | long |  | The design completion was manually set (1: True, 0: False) | False | 1 |
  | Status | long |  | Status of associated Design completion (1: not started, 2: started, 3:done) | False | 3 |
+ | start_mjd | double |  | MJD at start of the exposure | False | 59663.176099537035 |
  | epoch_combine | long |  | Completed Plan Epoch ID (or MJD of incomplete epoch or daily coadd) | False | 0 |
  | epoch_length | double |  | Length of the associated Epoch | False | 2.5 |
- | start_mjd | double |  | MJD at start of the exposure | False | 59663.1760995 |
  | name | char[2][30] |  | Name of spFrame Exposure Files | True | ['spFrame-b1-00339340.fits', 'spFrame-r1-00339340.fits'] |
 
 

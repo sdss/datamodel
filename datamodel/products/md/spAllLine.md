@@ -19,7 +19,7 @@ Contains a summary of the Spectro-1D spZline output for all spectra with line me
 $BOSS_SPECTRO_REDUX/[RUN2D]/summary/daily/spAllLine-[RUN2D].fits.gz
 
 ### Releases
-DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19, IPL4
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.2
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: SPLINE](#hdu1-spline)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
    - note: No changes
@@ -57,7 +60,7 @@ Describes changes to the datamodel product and/or file structure from one releas
    - from: DR18
    - added_hdus: ['SPLINE']
    - primary_delta_nkeys: 6
-   - added_primary_header_kwargs: ['DIMS1', 'DATASUM', 'RUN2D', 'CHECKSUM', 'DIMS0', 'DATE']
+   - added_primary_header_kwargs: ['DATE', 'RUN2D', 'CHECKSUM', 'DIMS0', 'DIMS1', 'DATASUM']
  - DR18
    - from: DR17
    - note: No changes
@@ -102,12 +105,12 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 0 | number of array dimensions |
 | EXTEND | True |  |
-| RUN2D | v6_1_3 | IDLSPEC2D RUN2D |
-| DATE | Tue May 28 20:38:11 2024 | Date Created |
+| RUN2D | v6_2_1 | IDLSPEC2D RUN2D |
+| DATE | Wed Jun 18 11:56:03 2025 | Date Created |
 | DIMS0 |  | Number of emission lines |
 | DIMS1 |  | Number of objects |
-| CHECKSUM | 9oA0Cm509mA0Cm50 | HDU checksum updated 2024-05-28T20:38:11 |
-| DATASUM | 0 | data unit checksum updated 2024-05-28T20:38:11 |
+| CHECKSUM | 9mApDk9n9kAnCk9n | HDU checksum updated 2025-08-08T14:35:33 |
+| DATASUM | 0 | data unit checksum updated 2025-08-08T14:35:33 |
 
 
 
@@ -115,7 +118,7 @@ Key | Value | Comment | |
 contains a summary of the Spectro-1D spZline output for all spectra.
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  14 GB
+#### HDU Size:  30 GB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -123,21 +126,21 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 117 | length of dimension 1 |
-| NAXIS2 | 134733504 | length of dimension 2 |
+| NAXIS1 | 120 | length of dimension 1 |
+| NAXIS2 | 277013440 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 21 | number of table fields |
+| TFIELDS | 22 | number of table fields |
 | TNULL1 | 0 |  |
 | TNULL2 | 0 |  |
 | TNULL3 | -1 |  |
 | TNULL4 | -999 |  |
 | TNULL5 | -999 |  |
-| TNULL18 | -1 |  |
 | TNULL19 | -1 |  |
+| TNULL20 | -1 |  |
 | EXTNAME | SPLINE | extension name |
-| CHECKSUM | gdp9gco6gco6gco6 | HDU checksum updated 2024-05-28T20:42:01 |
-| DATASUM | 250445388 | data unit checksum updated 2024-05-28T20:42:01 |
+| CHECKSUM | WYd3aWa2ZWa2aWa2 | HDU checksum updated 2025-08-08T14:38:06 |
+| DATASUM | 1676571917 | data unit checksum updated 2025-08-08T14:38:06 |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
@@ -147,6 +150,7 @@ Name | Type | Unit | Description |
  | TARGET_INDEX | int64 |  | Target Index (1 to number of targets) |
  | CATALOGID | int64 |  | SDSS-V CatalogID used in naming |
  | SDSS_ID | int64 |  | Unified SDSS Target Identifier |
+ | OBS | char[3] | Observatory of Observation | Observatory |
  | LINENAME | char[13] |  | Line name |
  | LINEWAVE | float64 |  | Catalog wavelength of line in vacuum Angstroms |
  | LINEZ | float32 |  | Redshift |

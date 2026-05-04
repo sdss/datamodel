@@ -19,7 +19,7 @@ Contains a summary of the Spectro-1D spZline output for field epoch coadded spec
 $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/epoch/[RUN1D]/spZline-[FIELD]-[MJD].fits
 
 ### Releases
-IPL3, DR19, IPL4
+IPL3, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,20 +39,23 @@ False
 ### Data Level
 1.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1](#hdu1)
-  - [HDU2](#hdu2)
+  - [HDU1: ZLINEALL](#hdu1-zlineall)
+  - [HDU2: YFIT](#hdu2-yfit)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
    - added_hdus: ['ZLINEALL', 'YFIT']
    - primary_delta_nkeys: 2
-   - added_primary_header_kwargs: ['DATE-OBS', 'SFLATMIN', 'PIXFLAT', 'EXTNAME']
+   - added_primary_header_kwargs: ['PIXFLAT', 'DATE-OBS', 'EXTNAME', 'SFLATMIN']
    - removed_primary_header_kwargs: ['SIGAS0', 'CENAS0']
  - DR19
    - from: IPL3
@@ -70,10 +73,10 @@ Describes changes to the datamodel product and/or file structure from one releas
 ##### Header Table Caption for HDU0
 Key | Value | Comment | |
 | --- | --- | --- | --- |
-| SIMPLE | True | Written by IDL:  Wed Apr  3 03:57:47 2024 |
-| BITPIX | 16 | Number of bits per data pixel |
-| NAXIS | 0 | Number of data axes |
-| EXTEND | True |  |
+| SIMPLE | True | Primary Header created by MWRFITS v1.13 |
+| BITPIX | 16 |  |
+| NAXIS | 0 |  |
+| EXTEND | True | Extensions may be present |
 |  |  |  |
 |  | INSTRUMENT INFO |  |
 | TELESCOP | SDSS 2.5-M | Telescope |
@@ -131,10 +134,11 @@ Key | Value | Comment | |
 | RMSOFF50 | 0.119696130769 | 50% RMS offset of guide fibers (arcsec) |
 | RMSOFF80 | 0.202339538462 | 80% RMS offset of guide fibers (arcsec) |
 | CONFIGS | 8860 8861 8862 8872 8873 8874 8875 | List of configurations included |
+| DATE-OBS | 2023-02-24T05:27:45 | TAI date at start of integration |
 | TAI | 5183989551.69 | Mean MJD(TAI) seconds of integrations |
 | TAI-BEG | 5183933265.0 | MJD(TAI) seconds at start of integrations |
 | TAI-END | 5184028003.08 | MJD(TAI) seconds at End of integrations |
-| SPCOADD | Fri Apr 12 21:14:13 2024 | SPCOADD finished |
+| SPCOADD | Mon Jun  9 14:19:17 2025 | SPCOADD finished |
 |  |  |  |
 |  | FIELD/PLATE INFO |  |
 | NAME |  | The name of the currently loaded plate |
@@ -177,21 +181,22 @@ Key | Value | Comment | |
 | CAMDAQ | 1.5.0:37 | Camera Data Acquisition Version |
 | BOSSVER |  | ICC version |
 | VERSIDL | 8.8.0 | Version of IDL |
-| VERSUTIL | 6.0.0dev | Version of idlutils |
-| VERSREAD | v6_1_3 | Version of idlspec2d for pre-processing raw data |
+| VERSUTIL | 6.3.0 | Version of idlutils |
+| VERSREAD | v6_2_1 | Version of idlspec2d for pre-processing raw data |
 | VERSLOG | trunk 27531 | Version of SPECLOG product |
-| VERSFLAT | v1_35 | SPECFLAT version |
-| VERS2D | v6_1_3 | Version of idlspec2d for 2D reduction |
-| VERSCOMB | v6_1_3 | Version of idlspec2d for combining multiple spe |
+| VERSFLAT | v1_36 | SPECFLAT version |
+| VERS2D | v6_2_1 | Version of idlspec2d for 2D reduction |
+| VERSCOMB | v6_2_1 | Version of idlspec2d for combining multiple spe |
 |  |  |  |
 |  | REDUCTION |  |
+| PIXFLAT | pixflatave-59768-b1.fits.gz | Name of Pixel Flat used |
 | BADPIXEL | badpixels-59747-b1.fits.gz | Name of Badpixel mask used |
 |  |  |  |
 |  | PIPELINE OUTPUTS |  |
-| RUN2D | v6_1_3 | Spectro-2D reduction name |
-| RUN1D | v6_1_3 | Spectro-1D reduction name |
-| VERS1D | v6_1_3 | Version of idlspec2d for 1D reduction |
-| VERSLINE | v6_1_3 | Version of idlspec2d for line fitting |
+| RUN2D | v6_2_1 | Spectro-2D reduction name |
+| RUN1D | v6_2_1 | Spectro-1D reduction name |
+| VERS1D | v6_2_1 | Version of idlspec2d for 1D reduction |
+| VERSLINE | v6_2_1 | Version of idlspec2d for line fitting |
 | REDDEN01 | 0.0 | Median extinction in u-band |
 | REDDEN02 | 0.0 | Median extinction in g-band |
 | REDDEN03 | 0.0 | Median extinction in r-band |
@@ -202,60 +207,59 @@ Key | Value | Comment | |
 | SKYLIST | skylines.dat |  |
 | OBSMODE | dark_rm |  |
 | SIGBS0 | 0.048 | 5577.3 line gaussian fit sigma position before |
-| CENBS0 | -0.224 | 5577.3 line gaussian fit center position before |
+| CENBS0 | -0.223 | 5577.3 line gaussian fit center position before |
 | AVGBS0 | -0.232 | 5577.3 line average position before shift (pixe |
-| STDBS0 | 0.046 | 5577.3 line std position before shift (pixels) |
-| SIGAS0 | 0.025 | 5577.3 line gaussian fit sigma position after s |
-| CENAS0 | 0.003 | 5577.3 line gaussian fit center position after |
-| AVGAS0 | 0.004 | 5577.3 line average position after shift (pixel |
-| STDAS0 | 0.020 | 5577.3 line std position after shift (pixels) |
+| STDBS0 | 0.047 | 5577.3 line std position before shift (pixels) |
+| AVGAS0 | 0.003 | 5577.3 line average position after shift (pixel |
+| STDAS0 | 0.019 | 5577.3 line std position after shift (pixels) |
 | VACUUM | True | Wavelengths are in vacuum |
 | SFLATTEN | True | Superflat has been applied |
+| SFLATMIN | 0.005 | Superflat Minimum |
 | PSFSKY | 3 | Order of PSF skysubtraction |
 | PREJECT | 0.2 | Profile area rejection threshold |
-| SPEC1_G | 21.1374130845 | (S/N)^2 for spec  1 at mag 21.20 |
-| FSPEC1_G | 19.9482 | Fit (S/N)^2 for spec  1 at mag 21.20 |
-| SN2EXT1G | 21.1374130845 | Extinction corrected (S/N)^2 |
-| FSN2EX1G | 19.9482 | Extinction corrected Fit (S/N)^2 |
-| SPEC1_R | 74.7339222431 | (S/N)^2 for spec  1 at mag 20.20 |
-| FSPEC1_R | 72.6865 | Fit (S/N)^2 for spec  1 at mag 20.20 |
-| SN2EXT1R | 74.7339222431 | Extinction corrected (S/N)^2 |
-| FSN2EX1R | 72.6865 | Extinction corrected Fit (S/N)^2 |
-| SPEC1_I | 64.1479740143 | (S/N)^2 for spec  1 at mag 20.20 |
-| FSPEC1_I | 64.3646 | Fit (S/N)^2 for spec  1 at mag 20.20 |
-| SN2EXT1I | 64.1479740143 | Extinction corrected (S/N)^2 |
-| FSN2EX1I | 64.3646 | Extinction corrected Fit (S/N)^2 |
-| NSTD | 70 | Number of (good) std stars |
-| GOFFSTD | -0.0446708068848 | Spectrophoto offset for std stars in G-band |
-| GRMSSTD | 0.0681647935742 | Spectrophoto RMS for std stars in G-band |
-| ROFFSTD | -0.0277010345459 | Spectrophoto offset for std stars in R-band |
-| RRMSSTD | 0.0771244624768 | Spectrophoto RMS for std stars in R-band |
-| IOFFSTD | -0.0163473968506 | Spectrophoto offset for std stars in I-band |
-| IRMSSTD | 0.0939281880399 | Spectrophoto RMS for std stars in I-band |
-| GROFFSTD | -0.00294980621338 | Spectrophoto offset for std stars in (GR) |
-| GRRMSSTD | 0.0844571575977 | Spectrophoto RMS for std stars in (GR) |
-| RIOFFSTD | -0.0200244445801 | Spectrophoto offset for std stars in (RI) |
-| RIRMSSTD | 0.0394228870735 | Spectrophoto RMS for std stars in (RI) |
-| NGAL | 430 | Number of (good) main galaxies |
-| GOFFGAL | 0.0923559799194 | Spectrophoto offset for main galaxies in G-band |
-| GRMSGAL | 0.34255253212 | Spectrophoto RMS for main galaxies in G-band |
-| ROFFGAL | 0.0240796661377 | Spectrophoto offset for main galaxies in R-band |
-| RRMSGAL | 0.271340699103 | Spectrophoto RMS for main galaxies in R-band |
-| IOFFGAL | 0.0406880493164 | Spectrophoto offset for main galaxies in I-band |
-| IRMSGAL | 0.257888709429 | Spectrophoto RMS for main galaxies in I-band |
-| GROFFGAL | 0.0387496032715 | Spectrophoto offset for main galaxies in (GR) |
-| GRRMSGAL | 0.162223615726 | Spectrophoto RMS for main galaxies in (GR) |
-| RIOFFGAL | -0.017344619751 | Spectrophoto offset for main galaxies in (RI) |
-| RIRMSGAL | 0.157059112249 | Spectrophoto RMS for main galaxies in (RI) |
-| SNC01G00 | 1.48455 | SN fit coeff for spec 1, exp 00 at G-band |
-| SNC11G00 | 8.72113 | SN fit coeff for spec 1, exp 00 at G-band |
-| SN2_1G00 | 2.00834 | (S/N)^2 for spec  1, exp 00 at mag 21.20 at G-b |
-| SNC01R00 | 1.49167 | SN fit coeff for spec 1, exp 00 at R-band |
-| SNC11R00 | 11.9366 | SN fit coeff for spec 1, exp 00 at R-band |
-| SN2_1R00 | 7.60031 | (S/N)^2 for spec  1, exp 00 at mag 20.20 at R-b |
-| SNC01I00 | 1.43877 | SN fit coeff for spec 1, exp 00 at I-band |
-| SNC11I00 | 14.0264 | SN fit coeff for spec 1, exp 00 at I-band |
-| SN2_1I00 | 6.40943 | (S/N)^2 for spec  1, exp 00 at mag 20.20 at I-b |
+| SPEC1_G | 21.7788501382 | (S/N)^2 for spec  1 at mag 21.20 |
+| FSPEC1_G | 20.5651 | Fit (S/N)^2 for spec  1 at mag 21.20 |
+| SN2EXT1G | 21.7788501382 | Extinction corrected (S/N)^2 |
+| FSN2EX1G | 20.5651 | Extinction corrected Fit (S/N)^2 |
+| SPEC1_R | 76.2257802486 | (S/N)^2 for spec  1 at mag 20.20 |
+| FSPEC1_R | 74.4024 | Fit (S/N)^2 for spec  1 at mag 20.20 |
+| SN2EXT1R | 76.2257802486 | Extinction corrected (S/N)^2 |
+| FSN2EX1R | 74.4024 | Extinction corrected Fit (S/N)^2 |
+| SPEC1_I | 65.8170142174 | (S/N)^2 for spec  1 at mag 20.20 |
+| FSPEC1_I | 66.4778 | Fit (S/N)^2 for spec  1 at mag 20.20 |
+| SN2EXT1I | 65.8170142174 | Extinction corrected (S/N)^2 |
+| FSN2EX1I | 66.4778 | Extinction corrected Fit (S/N)^2 |
+| NSTD | 69 | Number of (good) std stars |
+| GOFFSTD | -0.0395247802734 | Spectrophoto offset for std stars in G-band |
+| GRMSSTD | 0.0782720912988 | Spectrophoto RMS for std stars in G-band |
+| ROFFSTD | -0.0291315460205 | Spectrophoto offset for std stars in R-band |
+| RRMSSTD | 0.0720634073742 | Spectrophoto RMS for std stars in R-band |
+| IOFFSTD | -0.0245804672241 | Spectrophoto offset for std stars in I-band |
+| IRMSSTD | 0.0934468353875 | Spectrophoto RMS for std stars in I-band |
+| GROFFSTD | -0.0110760650635 | Spectrophoto offset for std stars in (GR) |
+| GRRMSSTD | 0.0955021646979 | Spectrophoto RMS for std stars in (GR) |
+| RIOFFSTD | -0.0121757049561 | Spectrophoto offset for std stars in (RI) |
+| RIRMSSTD | 0.0410565302584 | Spectrophoto RMS for std stars in (RI) |
+| NGAL | 419 | Number of (good) main galaxies |
+| GOFFGAL | 0.0747063293457 | Spectrophoto offset for main galaxies in G-band |
+| GRMSGAL | 0.32096811015 | Spectrophoto RMS for main galaxies in G-band |
+| ROFFGAL | 0.018766746521 | Spectrophoto offset for main galaxies in R-band |
+| RRMSGAL | 0.267352201527 | Spectrophoto RMS for main galaxies in R-band |
+| IOFFGAL | 0.030025970459 | Spectrophoto offset for main galaxies in I-band |
+| IRMSGAL | 0.25621640734 | Spectrophoto RMS for main galaxies in I-band |
+| GROFFGAL | 0.0446890869141 | Spectrophoto offset for main galaxies in (GR) |
+| GRRMSGAL | 0.168475915801 | Spectrophoto RMS for main galaxies in (GR) |
+| RIOFFGAL | -0.0128871459961 | Spectrophoto offset for main galaxies in (RI) |
+| RIRMSGAL | 0.154559321399 | Spectrophoto RMS for main galaxies in (RI) |
+| SNC01G00 | 1.47977 | SN fit coeff for spec 1, exp 00 at G-band |
+| SNC11G00 | 8.30353 | SN fit coeff for spec 1, exp 00 at G-band |
+| SN2_1G00 | 2.06715 | (S/N)^2 for spec  1, exp 00 at mag 21.20 at G-b |
+| SNC01R00 | 1.4876 | SN fit coeff for spec 1, exp 00 at R-band |
+| SNC11R00 | 11.4884 | SN fit coeff for spec 1, exp 00 at R-band |
+| SN2_1R00 | 7.72995 | (S/N)^2 for spec  1, exp 00 at mag 20.20 at R-b |
+| SNC01I00 | 1.43998 | SN fit coeff for spec 1, exp 00 at I-band |
+| SNC11I00 | 13.6504 | SN fit coeff for spec 1, exp 00 at I-band |
+| SN2_1I00 | 6.53011 | (S/N)^2 for spec  1, exp 00 at mag 20.20 at I-b |
 | SNC02G00 | 0.0 | SN fit coeff for spec 2, exp 00 at G-band |
 | SNC12G00 | 0.0 | SN fit coeff for spec 2, exp 00 at G-band |
 | SN2_2G00 | 0.0 | (S/N)^2 for spec  2, exp 00 at mag 21.20 at G-b |
@@ -265,15 +269,15 @@ Key | Value | Comment | |
 | SNC02I00 | 0.0 | SN fit coeff for spec 2, exp 00 at I-band |
 | SNC12I00 | 0.0 | SN fit coeff for spec 2, exp 00 at I-band |
 | SN2_2I00 | 0.0 | (S/N)^2 for spec  2, exp 00 at mag 20.20 at I-b |
-| SNC01G01 | 1.45073 | SN fit coeff for spec 1, exp 01 at G-band |
-| SNC11G01 | 10.1233 | SN fit coeff for spec 1, exp 01 at G-band |
-| SN2_1G01 | 1.71771 | (S/N)^2 for spec  1, exp 01 at mag 21.20 at G-b |
-| SNC01R01 | 1.45622 | SN fit coeff for spec 1, exp 01 at R-band |
-| SNC11R01 | 13.8718 | SN fit coeff for spec 1, exp 01 at R-band |
-| SN2_1R01 | 6.61164 | (S/N)^2 for spec  1, exp 01 at mag 20.20 at R-b |
-| SNC01I01 | 1.40989 | SN fit coeff for spec 1, exp 01 at I-band |
-| SNC11I01 | 15.949 | SN fit coeff for spec 1, exp 01 at I-band |
-| SN2_1I01 | 5.66705 | (S/N)^2 for spec  1, exp 01 at mag 20.20 at I-b |
+| SNC01G01 | 1.44564 | SN fit coeff for spec 1, exp 01 at G-band |
+| SNC11G01 | 9.65677 | SN fit coeff for spec 1, exp 01 at G-band |
+| SN2_1G01 | 1.76703 | (S/N)^2 for spec  1, exp 01 at mag 21.20 at G-b |
+| SNC01R01 | 1.45231 | SN fit coeff for spec 1, exp 01 at R-band |
+| SNC11R01 | 13.4001 | SN fit coeff for spec 1, exp 01 at R-band |
+| SN2_1R01 | 6.71901 | (S/N)^2 for spec  1, exp 01 at mag 20.20 at R-b |
+| SNC01I01 | 1.41097 | SN fit coeff for spec 1, exp 01 at I-band |
+| SNC11I01 | 15.5233 | SN fit coeff for spec 1, exp 01 at I-band |
+| SN2_1I01 | 5.7771 | (S/N)^2 for spec  1, exp 01 at mag 20.20 at I-b |
 | SNC02G01 | 0.0 | SN fit coeff for spec 2, exp 01 at G-band |
 | SNC12G01 | 0.0 | SN fit coeff for spec 2, exp 01 at G-band |
 | SN2_2G01 | 0.0 | (S/N)^2 for spec  2, exp 01 at mag 21.20 at G-b |
@@ -283,15 +287,15 @@ Key | Value | Comment | |
 | SNC02I01 | 0.0 | SN fit coeff for spec 2, exp 01 at I-band |
 | SNC12I01 | 0.0 | SN fit coeff for spec 2, exp 01 at I-band |
 | SN2_2I01 | 0.0 | (S/N)^2 for spec  2, exp 01 at mag 20.20 at I-b |
-| SNC01G02 | 1.47984 | SN fit coeff for spec 1, exp 02 at G-band |
-| SNC11G02 | 10.3253 | SN fit coeff for spec 1, exp 02 at G-band |
-| SN2_1G02 | 1.76085 | (S/N)^2 for spec  1, exp 02 at mag 21.20 at G-b |
-| SNC01R02 | 1.45903 | SN fit coeff for spec 1, exp 02 at R-band |
-| SNC11R02 | 15.0038 | SN fit coeff for spec 1, exp 02 at R-band |
-| SN2_1R02 | 6.31497 | (S/N)^2 for spec  1, exp 02 at mag 20.20 at R-b |
-| SNC01I02 | 1.4043 | SN fit coeff for spec 1, exp 02 at I-band |
-| SNC11I02 | 17.112 | SN fit coeff for spec 1, exp 02 at I-band |
-| SN2_1I02 | 5.36512 | (S/N)^2 for spec  1, exp 02 at mag 20.20 at I-b |
+| SNC01G02 | 1.47448 | SN fit coeff for spec 1, exp 02 at G-band |
+| SNC11G02 | 9.77268 | SN fit coeff for spec 1, exp 02 at G-band |
+| SN2_1G02 | 1.82195 | (S/N)^2 for spec  1, exp 02 at mag 21.20 at G-b |
+| SNC01R02 | 1.45487 | SN fit coeff for spec 1, exp 02 at R-band |
+| SNC11R02 | 14.4847 | SN fit coeff for spec 1, exp 02 at R-band |
+| SN2_1R02 | 6.42201 | (S/N)^2 for spec  1, exp 02 at mag 20.20 at R-b |
+| SNC01I02 | 1.40532 | SN fit coeff for spec 1, exp 02 at I-band |
+| SNC11I02 | 16.6668 | SN fit coeff for spec 1, exp 02 at I-band |
+| SN2_1I02 | 5.46865 | (S/N)^2 for spec  1, exp 02 at mag 20.20 at I-b |
 | SNC02G02 | 0.0 | SN fit coeff for spec 2, exp 02 at G-band |
 | SNC12G02 | 0.0 | SN fit coeff for spec 2, exp 02 at G-band |
 | SN2_2G02 | 0.0 | (S/N)^2 for spec  2, exp 02 at mag 21.20 at G-b |
@@ -301,15 +305,15 @@ Key | Value | Comment | |
 | SNC02I02 | 0.0 | SN fit coeff for spec 2, exp 02 at I-band |
 | SNC12I02 | 0.0 | SN fit coeff for spec 2, exp 02 at I-band |
 | SN2_2I02 | 0.0 | (S/N)^2 for spec  2, exp 02 at mag 20.20 at I-b |
-| SNC01G03 | 1.47427 | SN fit coeff for spec 1, exp 03 at G-band |
-| SNC11G03 | 8.97963 | SN fit coeff for spec 1, exp 03 at G-band |
-| SN2_1G03 | 1.93895 | (S/N)^2 for spec  1, exp 03 at mag 21.20 at G-b |
-| SNC01R03 | 1.48238 | SN fit coeff for spec 1, exp 03 at R-band |
-| SNC11R03 | 12.5552 | SN fit coeff for spec 1, exp 03 at R-band |
-| SN2_1R03 | 7.28348 | (S/N)^2 for spec  1, exp 03 at mag 20.20 at R-b |
-| SNC01I03 | 1.4406 | SN fit coeff for spec 1, exp 03 at I-band |
-| SNC11I03 | 13.6583 | SN fit coeff for spec 1, exp 03 at I-band |
-| SN2_1I03 | 6.53342 | (S/N)^2 for spec  1, exp 03 at mag 20.20 at I-b |
+| SNC01G03 | 1.46947 | SN fit coeff for spec 1, exp 03 at G-band |
+| SNC11G03 | 8.59791 | SN fit coeff for spec 1, exp 03 at G-band |
+| SN2_1G03 | 1.98809 | (S/N)^2 for spec  1, exp 03 at mag 21.20 at G-b |
+| SNC01R03 | 1.47907 | SN fit coeff for spec 1, exp 03 at R-band |
+| SNC11R03 | 12.1054 | SN fit coeff for spec 1, exp 03 at R-band |
+| SN2_1R03 | 7.41065 | (S/N)^2 for spec  1, exp 03 at mag 20.20 at R-b |
+| SNC01I03 | 1.44185 | SN fit coeff for spec 1, exp 03 at I-band |
+| SNC11I03 | 13.2652 | SN fit coeff for spec 1, exp 03 at I-band |
+| SN2_1I03 | 6.66393 | (S/N)^2 for spec  1, exp 03 at mag 20.20 at I-b |
 | SNC02G03 | 0.0 | SN fit coeff for spec 2, exp 03 at G-band |
 | SNC12G03 | 0.0 | SN fit coeff for spec 2, exp 03 at G-band |
 | SN2_2G03 | 0.0 | (S/N)^2 for spec  2, exp 03 at mag 21.20 at G-b |
@@ -319,15 +323,15 @@ Key | Value | Comment | |
 | SNC02I03 | 0.0 | SN fit coeff for spec 2, exp 03 at I-band |
 | SNC12I03 | 0.0 | SN fit coeff for spec 2, exp 03 at I-band |
 | SN2_2I03 | 0.0 | (S/N)^2 for spec  2, exp 03 at mag 20.20 at I-b |
-| SNC01G04 | 1.46584 | SN fit coeff for spec 1, exp 04 at G-band |
-| SNC11G04 | 12.5047 | SN fit coeff for spec 1, exp 04 at G-band |
-| SN2_1G04 | 1.48962 | (S/N)^2 for spec  1, exp 04 at mag 21.20 at G-b |
-| SNC01R04 | 1.40058 | SN fit coeff for spec 1, exp 04 at R-band |
-| SNC11R04 | 16.0349 | SN fit coeff for spec 1, exp 04 at R-band |
-| SN2_1R04 | 5.57278 | (S/N)^2 for spec  1, exp 04 at mag 20.20 at R-b |
-| SNC01I04 | 1.33492 | SN fit coeff for spec 1, exp 04 at I-band |
-| SNC11I04 | 16.6499 | SN fit coeff for spec 1, exp 04 at I-band |
-| SN2_1I04 | 4.93784 | (S/N)^2 for spec  1, exp 04 at mag 20.20 at I-b |
+| SNC01G04 | 1.46033 | SN fit coeff for spec 1, exp 04 at G-band |
+| SNC11G04 | 11.9316 | SN fit coeff for spec 1, exp 04 at G-band |
+| SN2_1G04 | 1.53403 | (S/N)^2 for spec  1, exp 04 at mag 21.20 at G-b |
+| SNC01R04 | 1.39484 | SN fit coeff for spec 1, exp 04 at R-band |
+| SNC11R04 | 15.3865 | SN fit coeff for spec 1, exp 04 at R-band |
+| SN2_1R04 | 5.67841 | (S/N)^2 for spec  1, exp 04 at mag 20.20 at R-b |
+| SNC01I04 | 1.33499 | SN fit coeff for spec 1, exp 04 at I-band |
+| SNC11I04 | 15.8536 | SN fit coeff for spec 1, exp 04 at I-band |
+| SN2_1I04 | 5.10101 | (S/N)^2 for spec  1, exp 04 at mag 20.20 at I-b |
 | SNC02G04 | 0.0 | SN fit coeff for spec 2, exp 04 at G-band |
 | SNC12G04 | 0.0 | SN fit coeff for spec 2, exp 04 at G-band |
 | SN2_2G04 | 0.0 | (S/N)^2 for spec  2, exp 04 at mag 21.20 at G-b |
@@ -337,15 +341,15 @@ Key | Value | Comment | |
 | SNC02I04 | 0.0 | SN fit coeff for spec 2, exp 04 at I-band |
 | SNC12I04 | 0.0 | SN fit coeff for spec 2, exp 04 at I-band |
 | SN2_2I04 | 0.0 | (S/N)^2 for spec  2, exp 04 at mag 20.20 at I-b |
-| SNC01G05 | 1.36618 | SN fit coeff for spec 1, exp 05 at G-band |
-| SNC11G05 | 17.8636 | SN fit coeff for spec 1, exp 05 at G-band |
-| SN2_1G05 | 0.966487 | (S/N)^2 for spec  1, exp 05 at mag 21.20 at G-b |
-| SNC01R05 | 1.34374 | SN fit coeff for spec 1, exp 05 at R-band |
-| SNC11R05 | 28.5096 | SN fit coeff for spec 1, exp 05 at R-band |
-| SN2_1R05 | 3.39203 | (S/N)^2 for spec  1, exp 05 at mag 20.20 at R-b |
-| SNC01I05 | 1.2843 | SN fit coeff for spec 1, exp 05 at I-band |
-| SNC11I05 | 33.4881 | SN fit coeff for spec 1, exp 05 at I-band |
-| SN2_1I05 | 2.72959 | (S/N)^2 for spec  1, exp 05 at mag 20.20 at I-b |
+| SNC01G05 | 1.36014 | SN fit coeff for spec 1, exp 05 at G-band |
+| SNC11G05 | 17.1157 | SN fit coeff for spec 1, exp 05 at G-band |
+| SN2_1G05 | 0.993031 | (S/N)^2 for spec  1, exp 05 at mag 21.20 at G-b |
+| SNC01R05 | 1.33787 | SN fit coeff for spec 1, exp 05 at R-band |
+| SNC11R05 | 27.5361 | SN fit coeff for spec 1, exp 05 at R-band |
+| SN2_1R05 | 3.45378 | (S/N)^2 for spec  1, exp 05 at mag 20.20 at R-b |
+| SNC01I05 | 1.28343 | SN fit coeff for spec 1, exp 05 at I-band |
+| SNC11I05 | 31.985 | SN fit coeff for spec 1, exp 05 at I-band |
+| SN2_1I05 | 2.82753 | (S/N)^2 for spec  1, exp 05 at mag 20.20 at I-b |
 | SNC02G05 | 0.0 | SN fit coeff for spec 2, exp 05 at G-band |
 | SNC12G05 | 0.0 | SN fit coeff for spec 2, exp 05 at G-band |
 | SN2_2G05 | 0.0 | (S/N)^2 for spec  2, exp 05 at mag 21.20 at G-b |
@@ -355,15 +359,15 @@ Key | Value | Comment | |
 | SNC02I05 | 0.0 | SN fit coeff for spec 2, exp 05 at I-band |
 | SNC12I05 | 0.0 | SN fit coeff for spec 2, exp 05 at I-band |
 | SN2_2I05 | 0.0 | (S/N)^2 for spec  2, exp 05 at mag 20.20 at I-b |
-| SNC01G06 | 1.51207 | SN fit coeff for spec 1, exp 06 at G-band |
-| SNC11G06 | 10.15 | SN fit coeff for spec 1, exp 06 at G-band |
-| SN2_1G06 | 1.86234 | (S/N)^2 for spec  1, exp 06 at mag 21.20 at G-b |
-| SNC01R06 | 1.488 | SN fit coeff for spec 1, exp 06 at R-band |
-| SNC11R06 | 15.4916 | SN fit coeff for spec 1, exp 06 at R-band |
-| SN2_1R06 | 6.43367 | (S/N)^2 for spec  1, exp 06 at mag 20.20 at R-b |
-| SNC01I06 | 1.42076 | SN fit coeff for spec 1, exp 06 at I-band |
-| SNC11I06 | 18.2216 | SN fit coeff for spec 1, exp 06 at I-band |
-| SN2_1I06 | 5.26198 | (S/N)^2 for spec  1, exp 06 at mag 20.20 at I-b |
+| SNC01G06 | 1.50712 | SN fit coeff for spec 1, exp 06 at G-band |
+| SNC11G06 | 9.67771 | SN fit coeff for spec 1, exp 06 at G-band |
+| SN2_1G06 | 1.91742 | (S/N)^2 for spec  1, exp 06 at mag 21.20 at G-b |
+| SNC01R06 | 1.48298 | SN fit coeff for spec 1, exp 06 at R-band |
+| SNC11R06 | 14.8286 | SN fit coeff for spec 1, exp 06 at R-band |
+| SN2_1R06 | 6.57342 | (S/N)^2 for spec  1, exp 06 at mag 20.20 at R-b |
+| SNC01I06 | 1.42123 | SN fit coeff for spec 1, exp 06 at I-band |
+| SNC11I06 | 17.3472 | SN fit coeff for spec 1, exp 06 at I-band |
+| SN2_1I06 | 5.44489 | (S/N)^2 for spec  1, exp 06 at mag 20.20 at I-b |
 | SNC02G06 | 0.0 | SN fit coeff for spec 2, exp 06 at G-band |
 | SNC12G06 | 0.0 | SN fit coeff for spec 2, exp 06 at G-band |
 | SN2_2G06 | 0.0 | (S/N)^2 for spec  2, exp 06 at mag 21.20 at G-b |
@@ -373,15 +377,15 @@ Key | Value | Comment | |
 | SNC02I06 | 0.0 | SN fit coeff for spec 2, exp 06 at I-band |
 | SNC12I06 | 0.0 | SN fit coeff for spec 2, exp 06 at I-band |
 | SN2_2I06 | 0.0 | (S/N)^2 for spec  2, exp 06 at mag 20.20 at I-b |
-| SNC01G07 | 1.58317 | SN fit coeff for spec 1, exp 07 at G-band |
-| SNC11G07 | 7.28166 | SN fit coeff for spec 1, exp 07 at G-band |
-| SN2_1G07 | 2.5944 | (S/N)^2 for spec  1, exp 07 at mag 21.20 at G-b |
-| SNC01R07 | 1.56459 | SN fit coeff for spec 1, exp 07 at R-band |
-| SNC11R07 | 10.8008 | SN fit coeff for spec 1, exp 07 at R-band |
-| SN2_1R07 | 8.85833 | (S/N)^2 for spec  1, exp 07 at mag 20.20 at R-b |
-| SNC01I07 | 1.49496 | SN fit coeff for spec 1, exp 07 at I-band |
-| SNC11I07 | 12.0777 | SN fit coeff for spec 1, exp 07 at I-band |
-| SN2_1I07 | 7.58106 | (S/N)^2 for spec  1, exp 07 at mag 20.20 at I-b |
+| SNC01G07 | 1.57871 | SN fit coeff for spec 1, exp 07 at G-band |
+| SNC11G07 | 6.92027 | SN fit coeff for spec 1, exp 07 at G-band |
+| SN2_1G07 | 2.67093 | (S/N)^2 for spec  1, exp 07 at mag 21.20 at G-b |
+| SNC01R07 | 1.56058 | SN fit coeff for spec 1, exp 07 at R-band |
+| SNC11R07 | 10.2798 | SN fit coeff for spec 1, exp 07 at R-band |
+| SN2_1R07 | 9.05979 | (S/N)^2 for spec  1, exp 07 at mag 20.20 at R-b |
+| SNC01I07 | 1.49528 | SN fit coeff for spec 1, exp 07 at I-band |
+| SNC11I07 | 11.5483 | SN fit coeff for spec 1, exp 07 at I-band |
+| SN2_1I07 | 7.7864 | (S/N)^2 for spec  1, exp 07 at mag 20.20 at I-b |
 | SNC02G07 | 0.0 | SN fit coeff for spec 2, exp 07 at G-band |
 | SNC12G07 | 0.0 | SN fit coeff for spec 2, exp 07 at G-band |
 | SN2_2G07 | 0.0 | (S/N)^2 for spec  2, exp 07 at mag 21.20 at G-b |
@@ -391,15 +395,15 @@ Key | Value | Comment | |
 | SNC02I07 | 0.0 | SN fit coeff for spec 2, exp 07 at I-band |
 | SNC12I07 | 0.0 | SN fit coeff for spec 2, exp 07 at I-band |
 | SN2_2I07 | 0.0 | (S/N)^2 for spec  2, exp 07 at mag 20.20 at I-b |
-| SNC01G08 | 1.51658 | SN fit coeff for spec 1, exp 08 at G-band |
-| SNC11G08 | 9.17908 | SN fit coeff for spec 1, exp 08 at G-band |
-| SN2_1G08 | 2.01908 | (S/N)^2 for spec  1, exp 08 at mag 21.20 at G-b |
-| SNC01R08 | 1.49993 | SN fit coeff for spec 1, exp 08 at R-band |
-| SNC11R08 | 13.548 | SN fit coeff for spec 1, exp 08 at R-band |
-| SN2_1R08 | 7.11832 | (S/N)^2 for spec  1, exp 08 at mag 20.20 at R-b |
-| SNC01I08 | 1.44129 | SN fit coeff for spec 1, exp 08 at I-band |
-| SNC11I08 | 14.633 | SN fit coeff for spec 1, exp 08 at I-band |
-| SN2_1I08 | 6.26192 | (S/N)^2 for spec  1, exp 08 at mag 20.20 at I-b |
+| SNC01G08 | 1.51183 | SN fit coeff for spec 1, exp 08 at G-band |
+| SNC11G08 | 8.73093 | SN fit coeff for spec 1, exp 08 at G-band |
+| SN2_1G08 | 2.08114 | (S/N)^2 for spec  1, exp 08 at mag 21.20 at G-b |
+| SNC01R08 | 1.49572 | SN fit coeff for spec 1, exp 08 at R-band |
+| SNC11R08 | 12.7874 | SN fit coeff for spec 1, exp 08 at R-band |
+| SN2_1R08 | 7.33349 | (S/N)^2 for spec  1, exp 08 at mag 20.20 at R-b |
+| SNC01I08 | 1.44151 | SN fit coeff for spec 1, exp 08 at I-band |
+| SNC11I08 | 13.9394 | SN fit coeff for spec 1, exp 08 at I-band |
+| SN2_1I08 | 6.45906 | (S/N)^2 for spec  1, exp 08 at mag 20.20 at I-b |
 | SNC02G08 | 0.0 | SN fit coeff for spec 2, exp 08 at G-band |
 | SNC12G08 | 0.0 | SN fit coeff for spec 2, exp 08 at G-band |
 | SN2_2G08 | 0.0 | (S/N)^2 for spec  2, exp 08 at mag 21.20 at G-b |
@@ -409,15 +413,15 @@ Key | Value | Comment | |
 | SNC02I08 | 0.0 | SN fit coeff for spec 2, exp 08 at I-band |
 | SNC12I08 | 0.0 | SN fit coeff for spec 2, exp 08 at I-band |
 | SN2_2I08 | 0.0 | (S/N)^2 for spec  2, exp 08 at mag 20.20 at I-b |
-| SNC01G09 | 1.3552 | SN fit coeff for spec 1, exp 09 at G-band |
-| SNC11G09 | 17.3612 | SN fit coeff for spec 1, exp 09 at G-band |
-| SN2_1G09 | 0.974117 | (S/N)^2 for spec  1, exp 09 at mag 21.20 at G-b |
-| SNC01R09 | 1.27939 | SN fit coeff for spec 1, exp 09 at R-band |
-| SNC11R09 | 25.1488 | SN fit coeff for spec 1, exp 09 at R-band |
-| SN2_1R09 | 3.38374 | (S/N)^2 for spec  1, exp 09 at mag 20.20 at R-b |
-| SNC01I09 | 1.21711 | SN fit coeff for spec 1, exp 09 at I-band |
-| SNC11I09 | 24.7165 | SN fit coeff for spec 1, exp 09 at I-band |
-| SN2_1I09 | 3.10237 | (S/N)^2 for spec  1, exp 09 at mag 20.20 at I-b |
+| SNC01G09 | 1.34786 | SN fit coeff for spec 1, exp 09 at G-band |
+| SNC11G09 | 16.529 | SN fit coeff for spec 1, exp 09 at G-band |
+| SN2_1G09 | 1.00402 | (S/N)^2 for spec  1, exp 09 at mag 21.20 at G-b |
+| SNC01R09 | 1.2733 | SN fit coeff for spec 1, exp 09 at R-band |
+| SNC11R09 | 24.3085 | SN fit coeff for spec 1, exp 09 at R-band |
+| SN2_1R09 | 3.4379 | (S/N)^2 for spec  1, exp 09 at mag 20.20 at R-b |
+| SNC01I09 | 1.21716 | SN fit coeff for spec 1, exp 09 at I-band |
+| SNC11I09 | 23.8134 | SN fit coeff for spec 1, exp 09 at I-band |
+| SN2_1I09 | 3.18983 | (S/N)^2 for spec  1, exp 09 at mag 20.20 at I-b |
 | SNC02G09 | 0.0 | SN fit coeff for spec 2, exp 09 at G-band |
 | SNC12G09 | 0.0 | SN fit coeff for spec 2, exp 09 at G-band |
 | SN2_2G09 | 0.0 | (S/N)^2 for spec  2, exp 09 at mag 21.20 at G-b |
@@ -427,15 +431,15 @@ Key | Value | Comment | |
 | SNC02I09 | 0.0 | SN fit coeff for spec 2, exp 09 at I-band |
 | SNC12I09 | 0.0 | SN fit coeff for spec 2, exp 09 at I-band |
 | SN2_2I09 | 0.0 | (S/N)^2 for spec  2, exp 09 at mag 20.20 at I-b |
-| SNC01G10 | 1.32026 | SN fit coeff for spec 1, exp 10 at G-band |
-| SNC11G10 | 19.2875 | SN fit coeff for spec 1, exp 10 at G-band |
-| SN2_1G10 | 0.845728 | (S/N)^2 for spec  1, exp 10 at mag 21.20 at G-b |
-| SNC01R10 | 1.23183 | SN fit coeff for spec 1, exp 10 at R-band |
-| SNC11R10 | 29.0726 | SN fit coeff for spec 1, exp 10 at R-band |
-| SN2_1R10 | 2.80763 | (S/N)^2 for spec  1, exp 10 at mag 20.20 at R-b |
-| SNC01I10 | 1.16085 | SN fit coeff for spec 1, exp 10 at I-band |
-| SNC11I10 | 29.1367 | SN fit coeff for spec 1, exp 10 at I-band |
-| SN2_1I10 | 2.48916 | (S/N)^2 for spec  1, exp 10 at mag 20.20 at I-b |
+| SNC01G10 | 1.31163 | SN fit coeff for spec 1, exp 10 at G-band |
+| SNC11G10 | 18.1404 | SN fit coeff for spec 1, exp 10 at G-band |
+| SN2_1G10 | 0.879346 | (S/N)^2 for spec  1, exp 10 at mag 21.20 at G-b |
+| SNC01R10 | 1.22489 | SN fit coeff for spec 1, exp 10 at R-band |
+| SNC11R10 | 28.1622 | SN fit coeff for spec 1, exp 10 at R-band |
+| SN2_1R10 | 2.84539 | (S/N)^2 for spec  1, exp 10 at mag 20.20 at R-b |
+| SNC01I10 | 1.16066 | SN fit coeff for spec 1, exp 10 at I-band |
+| SNC11I10 | 27.8975 | SN fit coeff for spec 1, exp 10 at I-band |
+| SN2_1I10 | 2.57345 | (S/N)^2 for spec  1, exp 10 at mag 20.20 at I-b |
 | SNC02G10 | 0.0 | SN fit coeff for spec 2, exp 10 at G-band |
 | SNC12G10 | 0.0 | SN fit coeff for spec 2, exp 10 at G-band |
 | SN2_2G10 | 0.0 | (S/N)^2 for spec  2, exp 10 at mag 21.20 at G-b |
@@ -445,15 +449,15 @@ Key | Value | Comment | |
 | SNC02I10 | 0.0 | SN fit coeff for spec 2, exp 10 at I-band |
 | SNC12I10 | 0.0 | SN fit coeff for spec 2, exp 10 at I-band |
 | SN2_2I10 | 0.0 | (S/N)^2 for spec  2, exp 10 at mag 20.20 at I-b |
-| SNC01G11 | 1.42431 | SN fit coeff for spec 1, exp 11 at G-band |
-| SNC11G11 | 14.7921 | SN fit coeff for spec 1, exp 11 at G-band |
-| SN2_1G11 | 1.22871 | (S/N)^2 for spec  1, exp 11 at mag 21.20 at G-b |
-| SNC01R11 | 1.32235 | SN fit coeff for spec 1, exp 11 at R-band |
-| SNC11R11 | 22.1714 | SN fit coeff for spec 1, exp 11 at R-band |
-| SN2_1R11 | 3.96781 | (S/N)^2 for spec  1, exp 11 at mag 20.20 at R-b |
-| SNC01I11 | 1.23542 | SN fit coeff for spec 1, exp 11 at I-band |
-| SNC11I11 | 23.013 | SN fit coeff for spec 1, exp 11 at I-band |
-| SN2_1I11 | 3.37024 | (S/N)^2 for spec  1, exp 11 at mag 20.20 at I-b |
+| SNC01G11 | 1.41718 | SN fit coeff for spec 1, exp 11 at G-band |
+| SNC11G11 | 14.0708 | SN fit coeff for spec 1, exp 11 at G-band |
+| SN2_1G11 | 1.2669 | (S/N)^2 for spec  1, exp 11 at mag 21.20 at G-b |
+| SNC01R11 | 1.31616 | SN fit coeff for spec 1, exp 11 at R-band |
+| SNC11R11 | 21.3335 | SN fit coeff for spec 1, exp 11 at R-band |
+| SN2_1R11 | 4.04181 | (S/N)^2 for spec  1, exp 11 at mag 20.20 at R-b |
+| SNC01I11 | 1.23649 | SN fit coeff for spec 1, exp 11 at I-band |
+| SNC11I11 | 22.1228 | SN fit coeff for spec 1, exp 11 at I-band |
+| SN2_1I11 | 3.4748 | (S/N)^2 for spec  1, exp 11 at mag 20.20 at I-b |
 | SNC02G11 | 0.0 | SN fit coeff for spec 2, exp 11 at G-band |
 | SNC12G11 | 0.0 | SN fit coeff for spec 2, exp 11 at G-band |
 | SN2_2G11 | 0.0 | (S/N)^2 for spec  2, exp 11 at mag 21.20 at G-b |
@@ -463,15 +467,15 @@ Key | Value | Comment | |
 | SNC02I11 | 0.0 | SN fit coeff for spec 2, exp 11 at I-band |
 | SNC12I11 | 0.0 | SN fit coeff for spec 2, exp 11 at I-band |
 | SN2_2I11 | 0.0 | (S/N)^2 for spec  2, exp 11 at mag 20.20 at I-b |
-| SNC01G12 | 1.51613 | SN fit coeff for spec 1, exp 12 at G-band |
-| SNC11G12 | 11.2484 | SN fit coeff for spec 1, exp 12 at G-band |
-| SN2_1G12 | 1.73108 | (S/N)^2 for spec  1, exp 12 at mag 21.20 at G-b |
-| SNC01R12 | 1.40697 | SN fit coeff for spec 1, exp 12 at R-band |
-| SNC11R12 | 17.0948 | SN fit coeff for spec 1, exp 12 at R-band |
-| SN2_1R12 | 5.38921 | (S/N)^2 for spec  1, exp 12 at mag 20.20 at R-b |
-| SNC01I12 | 1.30475 | SN fit coeff for spec 1, exp 12 at I-band |
-| SNC11I12 | 18.2156 | SN fit coeff for spec 1, exp 12 at I-band |
-| SN2_1I12 | 4.43878 | (S/N)^2 for spec  1, exp 12 at mag 20.20 at I-b |
+| SNC01G12 | 1.50989 | SN fit coeff for spec 1, exp 12 at G-band |
+| SNC11G12 | 10.6706 | SN fit coeff for spec 1, exp 12 at G-band |
+| SN2_1G12 | 1.78782 | (S/N)^2 for spec  1, exp 12 at mag 21.20 at G-b |
+| SNC01R12 | 1.40047 | SN fit coeff for spec 1, exp 12 at R-band |
+| SNC11R12 | 16.2633 | SN fit coeff for spec 1, exp 12 at R-band |
+| SN2_1R12 | 5.52015 | (S/N)^2 for spec  1, exp 12 at mag 20.20 at R-b |
+| SNC01I12 | 1.30587 | SN fit coeff for spec 1, exp 12 at I-band |
+| SNC11I12 | 17.7823 | SN fit coeff for spec 1, exp 12 at I-band |
+| SN2_1I12 | 4.52025 | (S/N)^2 for spec  1, exp 12 at mag 20.20 at I-b |
 | SNC02G12 | 0.0 | SN fit coeff for spec 2, exp 12 at G-band |
 | SNC12G12 | 0.0 | SN fit coeff for spec 2, exp 12 at G-band |
 | SN2_2G12 | 0.0 | (S/N)^2 for spec  2, exp 12 at mag 21.20 at G-b |
@@ -481,12 +485,12 @@ Key | Value | Comment | |
 | SNC02I12 | 0.0 | SN fit coeff for spec 2, exp 12 at I-band |
 | SNC12I12 | 0.0 | SN fit coeff for spec 2, exp 12 at I-band |
 | SN2_2I12 | 0.0 | (S/N)^2 for spec  2, exp 12 at mag 20.20 at I-b |
-| SNC01G | 5.21954 | Total SN fit coeff for spec 1 at G-band |
-| SNC11G | 11.6634 | Total SN fit coeff for spec 1 at G-band |
-| SNC01R | 5.07178 | Total SN fit coeff for spec 1 at R-band |
-| SNC11R | 16.1655 | Total SN fit coeff for spec 1 at R-band |
-| SNC01I | 4.82403 | Total SN fit coeff for spec 1 at I-band |
-| SNC11I | 16.6958 | Total SN fit coeff for spec 1 at I-band |
+| SNC01G | 5.19876 | Total SN fit coeff for spec 1 at G-band |
+| SNC11G | 11.0988 | Total SN fit coeff for spec 1 at G-band |
+| SNC01R | 5.08941 | Total SN fit coeff for spec 1 at R-band |
+| SNC11R | 15.7674 | Total SN fit coeff for spec 1 at R-band |
+| SNC01I | 4.82322 | Total SN fit coeff for spec 1 at I-band |
+| SNC11I | 15.8925 | Total SN fit coeff for spec 1 at I-band |
 | SNC02G | 0.0 | Total SN fit coeff for spec 2 at G-band |
 | SNC12G | 0.0 | Total SN fit coeff for spec 2 at G-band |
 | SNC02R | 0.0 | Total SN fit coeff for spec 2 at R-band |
@@ -498,6 +502,7 @@ Key | Value | Comment | |
 | SCATPOLY | 0 | Extraction: Order of scattered light polynomial |
 | PROFTYPE | 1 | Extraction profile: 1=Gaussian |
 | NFITPOLY | 1 | Extraction: Number of parameters in each profil |
+| EXTNAME | FLUX |  |
 | SPEC2_G | 0.0 | (S/N)^2 for spec  2 at mag 21.20 |
 | FSPEC2_G | 0 | Fit (S/N)^2 for spec  2 at mag 21.20 |
 | SN2EXT2G | 0.0 | Extinction corrected (S/N)^2 |
@@ -513,9 +518,9 @@ Key | Value | Comment | |
 | NWORDER | 2 | Linear-log10 coefficients |
 | COEFF0 | 3.5523 | Central wavelength (log10) of first pixel |
 | COEFF1 | 0.0001 | Log10 dispersion per pixel |
-| UNAME | notch278 |  |
-| FBADPIX | 0.0128813 | Fraction of bad pixels |
-| FBADPIX1 | 0.0128813 | Fraction of bad pixels on spectro-1 |
+| UNAME | notch288 |  |
+| FBADPIX | 0.00772606 | Fraction of bad pixels |
+| FBADPIX1 | 0.00772606 | Fraction of bad pixels on spectro-1 |
 | FBADPIX2 | 0 | Fraction of bad pixels on spectro-2 |
 | WAT0_001 | system=linear |  |
 | WAT1_001 | wtype=linear label=Wavelength units=Angstroms |  |
@@ -524,25 +529,25 @@ Key | Value | Comment | |
 | CRPIX1 | 1 | Starting pixel (1-indexed) |
 | CTYPE1 | LINEAR |  |
 | DC-FLAG | 1 | Log-linear flag |
-| SKYCHI2 | 0.878436417899 | Mean chi^2 of sky-subtraction |
-| SCHI2MIN | 0.812225947065 | Minimim chi^2 of sky-subtraction |
-| SCHI2MAX | 0.98859987497 | Maximim chi^2 of sky-subtraction |
-| WSIGMA | 1.08953 |  |
-| WSIGMIN | 1.08909 |  |
+| SKYCHI2 | 0.898778317172 | Mean chi^2 of sky-subtraction |
+| SCHI2MIN | 0.726621913426 | Minimim chi^2 of sky-subtraction |
+| SCHI2MAX | 1.1027420899 | Maximim chi^2 of sky-subtraction |
+| WSIGMA | 1.08955 |  |
+| WSIGMIN | 1.08914 |  |
 | WSIGMAX | 1.13388 |  |
 | XSIGMA | 1.06906 |  |
 | XSIGMIN | 1.06889 |  |
-| XSIGMAX | 1.10187 |  |
+| XSIGMAX | 1.1019 |  |
 | AIRMASS | 1.18228 | Mean airmass |
 | BUNIT | 1E-17 erg/cm^2/s/Ang |  |
 | CHOP_MIN | 3600.0 |  |
 | CHOP_MAX | 10400.0 |  |
 | DIMS0 | 32 | Number of emission lines |
-| DIMS1 | 509 | Number of objects |
+| DIMS1 | 493 | Number of objects |
 
 
 
-### HDU1: 
+### HDU1: ZLINEALL
 Line fitting metadata
 
 #### HDU Type: BINARY TABLE
@@ -555,13 +560,14 @@ Key | Value | Comment | |
 | BITPIX | 8 | Required value |
 | NAXIS | 2 | Required value |
 | NAXIS1 | 105 | Number of bytes per row |
-| NAXIS2 | 16288 | Number of rows |
+| NAXIS2 | 15776 | Number of rows |
 | PCOUNT | 0 | Normally 0 (no varying arrays) |
 | GCOUNT | 1 | Required value |
 | TFIELDS | 21 | Number of columns in table |
 | COMMENT |  |  |
 | COMMENT |  *** End of mandatory fields *** |  |
 | COMMENT |  |  |
+| EXTNAME | ZLINEALL |  |
 | COMMENT |  |  |
 | COMMENT |  *** Column formats *** |  |
 | COMMENT |  |  |
@@ -572,9 +578,9 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FIELD | int64 |  | FieldID |
- | MJD | int64 |  | Modified Julian date of observation |
- | TARGET_INDEX | int64 |  | Target Index (1 to number of targets) |
+ | FIELD | int32 |  | FieldID |
+ | MJD | int32 |  | Modified Julian date of observation |
+ | TARGET_INDEX | int32 |  | Target Index (1 to number of targets) |
  | CATALOGID | int64 |  | SDSS-V CatalogID used in naming |
  | SDSS_ID | int64 |  | Unified SDSS Target Identifier |
  | LINENAME | char[13] |  | Line name |
@@ -591,16 +597,16 @@ Name | Type | Unit | Description |
  | LINECONTLEVEL_ERR | float32 |  | Error in continuum level at line center |
  | LINENPIXLEFT | int32 |  | Npixels to -3 sigma with INVVAR > 0 |
  | LINENPIXRIGHT | int32 |  | Npixels to +3 sigma with INVVAR > 0 |
- | LINEDOF | float32 |  | DOF in fit |
+ | LINEDOF | float32 |  | Npixels to +3 sigma with INVVAR > 0 |
  | LINECHI2 | float32 |  | chi2 for all points in 3 sigma of line center |
 
 
 
-### HDU2: 
+### HDU2: YFIT
 Best-fit absorption-line spectrum, with line fits added in.
 
 #### HDU Type: IMAGE
-#### HDU Size:  9 MB
+#### HDU Size:  8 MB
 
 ##### Header Table Caption for HDU2
 Key | Value | Comment | |
@@ -609,7 +615,8 @@ Key | Value | Comment | |
 | BITPIX | -32 |  |
 | NAXIS | 2 |  |
 | NAXIS1 | 4648 |  |
-| NAXIS2 | 509 |  |
+| NAXIS2 | 493 |  |
+| EXTNAME | YFIT |  |
 | PCOUNT | 0 |  |
 | GCOUNT | 1 |  |
 

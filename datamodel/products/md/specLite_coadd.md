@@ -19,7 +19,7 @@ The spectral data for a given custom coadd, mjd, and catalogid including the coa
 $BOSS_SPECTRO_REDUX/[RUN2D]/spectra/[COADD]/lite/[COADD]/[COADD]_[OBS]/[MJD]/spec-[COADD]_[OBS]-[MJD]-[CATALOGID].fits
 
 ### Releases
-IPL3, DR19, IPL4
+IPL3, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.2.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: COADD](#hdu1-coadd)
   - [HDU2: SPALL](#hdu2-spall)
@@ -50,11 +50,14 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
    - primary_delta_nkeys: 112
-   - added_primary_header_kwargs: ['DC-FLAG', 'AZ', 'RRMSSTD', 'REDDEN03', 'XSIGMIN', 'ALT', 'GRMSSTD', 'TAI-BEG', 'IRMSGAL', 'PLATETYP', 'SRVYMODE', 'REDDEN01', 'GOFFSTD', 'WAT0_001', 'NGAL', 'PREJECT', 'CD1_1', 'SKYLIST', 'GOFFGAL', 'RUN2D', 'RMSOFF80', 'HIGHREJ', 'XSIGMA', 'RMSOFF20', 'GRMSGAL', 'NFITPOLY', 'EQUINOX', 'PLUG_RA', 'WDISPR', 'PSFSKY', 'LAMPLIST', 'RIRMSGAL', 'RMSOFF50', 'WAT1_001', 'RADECSYS', 'IRMSSTD', 'WSIGMA', 'PROFTYPE', 'OBSMODE', 'RA', 'XSIGMAX', 'SEEING80', 'CRVAL1', 'CTYPE1', 'HELIO_RV', 'PLUG_DEC', 'V_RAD', 'NAME', 'SCHI2MIN', 'VERS2D', 'REDDEN02', 'SKYCHI2', 'COEFF0', 'IOFFSTD', 'FBADPIX', 'DATE', 'SFLATTEN', 'VERSCOMB', 'PLATEID', 'AVGAS0', 'NSTD', 'REDDEN05', 'GRRMSSTD', 'COMMENT', 'GROFFGAL', 'FBADPIX1', 'TAI-END', 'AIRMASS', 'MAPID', 'STDBS0', 'RRMSGAL', 'RIOFFSTD', 'GROFFSTD', 'SLITID', 'TAI', 'DECDEG', 'RADEG', 'SEEING20', 'CARTID', 'WSIGMIN', 'DATE-OBS', 'RIOFFGAL', 'SEEING50', 'NWORDER', 'LOWREJ', 'VACUUM', 'AVGBS0', 'REDDEN04', 'SCATPOLY', 'DEC', 'RIRMSSTD', 'FIELDCAD', 'MJD', 'FIELDID', 'ROFFGAL', 'ROFFSTD', 'FBADPIX2', 'CRPIX1', 'IOFFGAL', 'STDAS0', 'POINTING', 'GRRMSGAL', 'COEFF1', 'WSIGMAX', 'SCHI2MAX', 'AIRTEMP']
-   - removed_primary_header_kwargs: ['CCDID', 'CCD', 'EXPID05', 'EXPID01', 'EXPID03', 'EXPID06', 'EXPID02', 'EXPID07', 'EXPID04', 'EXPID08', 'CCDTYPE']
+   - added_primary_header_kwargs: ['SLITID', 'PLUG_RA', 'COEFF0', 'WAT0_001', 'IOFFSTD', 'REDDEN03', 'LAMPLIST', 'EQUINOX', 'SFLATTEN', 'GRRMSGAL', 'RMSOFF80', 'ROFFSTD', 'AIRTEMP', 'FIELDID', 'TAI', 'RIOFFGAL', 'RIRMSSTD', 'PLATETYP', 'REDDEN02', 'HELIO_RV', 'RADECSYS', 'RA', 'AVGAS0', 'SEEING50', 'NAME', 'SRVYMODE', 'AIRMASS', 'WSIGMA', 'NSTD', 'GROFFSTD', 'CRPIX1', 'IRMSSTD', 'COEFF1', 'PSFSKY', 'SCATPOLY', 'FBADPIX2', 'WSIGMIN', 'WSIGMAX', 'XSIGMAX', 'GRMSGAL', 'NGAL', 'GOFFGAL', 'RIOFFSTD', 'POINTING', 'RIRMSGAL', 'IRMSGAL', 'SKYLIST', 'REDDEN05', 'CTYPE1', 'RRMSGAL', 'WAT1_001', 'WDISPR', 'VACUUM', 'OBSMODE', 'SCHI2MAX', 'ROFFGAL', 'STDAS0', 'STDBS0', 'RRMSSTD', 'SKYCHI2', 'NWORDER', 'V_RAD', 'AZ', 'AVGBS0', 'RADEG', 'COMMENT', 'MJD', 'HIGHREJ', 'GRRMSSTD', 'FBADPIX1', 'SCHI2MIN', 'RMSOFF20', 'RUN2D', 'PLUG_DEC', 'DEC', 'XSIGMIN', 'GROFFGAL', 'REDDEN04', 'TAI-BEG', 'MAPID', 'DATE-OBS', 'GRMSSTD', 'DECDEG', 'DC-FLAG', 'GOFFSTD', 'FBADPIX', 'RMSOFF50', 'CD1_1', 'ALT', 'IOFFGAL', 'TAI-END', 'PROFTYPE', 'NFITPOLY', 'SEEING20', 'VERSCOMB', 'VERS2D', 'CRVAL1', 'LOWREJ', 'DATE', 'PLATEID', 'CARTID', 'XSIGMA', 'SEEING80', 'REDDEN01', 'FIELDCAD', 'PREJECT']
+   - removed_primary_header_kwargs: ['EXPID04', 'EXPID03', 'EXPID07', 'CCDTYPE', 'EXPID06', 'EXPID05', 'EXPID08', 'CCDID', 'CCD', 'EXPID01', 'EXPID02']
  - DR19
    - from: IPL3
    - note: No changes
@@ -71,67 +74,179 @@ spFullsky metadata
 ##### Header Table Caption for HDU0
 Key | Value | Comment | |
 | --- | --- | --- | --- |
-| SIMPLE | True |  |
-| BITPIX | 8 | Number of bits per data pixel |
-| NAXIS | 0 | Number of data axes |
-| EXTEND | True |  |
+| SIMPLE | True | Primary Header created by MWRFITS v1.13 |
+| BITPIX | 8 |  |
+| NAXIS | 0 |  |
+| EXTEND | True | Extensions may be present |
+| DATE | 2025-07-10 | Creation UTC (CCCC-MM-DD) date of FITS header |
+| COMMENT | FITS (Flexible Image Transport System) format is defined in 'Astronomy |  |
+| COMMENT | and Astrophysics', volume 376, page 359; bibcode 2001A&A...376..359H |  |
 |  |  |  |
 |  | INSTRUMENT INFO |  |
-| TELESCOP | SDSS 2.5-M | Telescope |
+| TELESCOP | 0 | Telescope |
 | OBSERVAT | APO | Observatory |
-| SPEC |  | Spectrograph name |
-| CCD |  | CCD name |
-| CCDID |  | Unique identifier of the CCD |
-| CCDTYPE |  | CCD type |
+| SPEC | SP1+SP2 | Spectrograph name |
 |  |  |  |
 |  | EXPOSURE INFO |  |
-| NEXP | 4 | Number of Coadded Exposures |
-| BESTEXP | 353042 |  |
-| EXPID01 | b1-00353040-00353044-00353039 | ID string for exposure 1 |
-| EXPID02 | b1-00353041-00353044-00353039 | ID string for exposure 2 |
-| EXPID03 | b1-00353042-00353044-00353039 | ID string for exposure 3 |
-| EXPID04 | b1-00353043-00353044-00353039 | ID string for exposure 4 |
-| EXPID05 | r1-00353040-00353044-00353039 | ID string for exposure 5 |
-| EXPID06 | r1-00353041-00353044-00353039 | ID string for exposure 6 |
-| EXPID07 | r1-00353042-00353044-00353039 | ID string for exposure 7 |
-| EXPID08 | r1-00353043-00353044-00353039 | ID string for exposure 8 |
-| NEXP_B1 | 4 | B1 camera number of exposures |
-| NEXP_R1 | 4 | R1 camera number of exposures |
-| NEXP_B2 | 0 | B2 camera number of exposures |
-| NEXP_R2 | 0 | R2 camera number of exposures |
-| EXPT_B1 | 3600.34 | B1 camera exposure time (seconds) |
-| EXPT_R1 | 3600.34 | R1 camera exposure time (seconds) |
-| EXPT_B2 | 0.0 | B2 camera exposure time (seconds) |
-| EXPT_R2 | 0.0 | R2 camera exposure time (seconds) |
-| EXPTIME | 3600.34 | Total Exposure time in seconds of integration |
-| SPCOADD | Wed Apr  3 11:42:15 2024 | SPCOADD finished |
-| SPEC1_G | 6.62995 | (S/N)^2 for spec 1 at mag 21.20 |
+| MJD | 60000 | Modified Julian Date at start of exposure |
+| DATE-OBS | 2022-10-22T11:44:43 | TAI date at start of integration |
+| TAI | 5182352749.92 | Mean MJD(TAI) seconds of integrations |
+| TAI-BEG | 5184014913.0 | MJD(TAI) seconds at start of integrations |
+| TAI-END | 5184019026.1 | MJD(TAI) seconds at End of integrations |
+| NEXP | 172 | Number of Coadded Exposures |
+| NEXP_B1 | 9 | b1 camera number of exposures |
+| NEXP_R1 | 9 | r1 camera number of exposures |
+| NEXP_B2 | 0 | b2 camera number of exposures |
+| NEXP_R2 | 0 | r2 camera number of exposures |
+| EXPTIME | 8100.82 | Total Exposure time in seconds of integration |
+| EXPT_B1 | 8100.82 | b1 camera exposure time (seconds) |
+| EXPT_R1 | 8100.82 | r1 camera exposure time (seconds) |
+| EXPT_B2 | 0.0 | b2 camera exposure time (seconds) |
+| EXPT_R2 | 0.0 | r2 camera exposure time (seconds) |
+| BESTEXP | 353043 | Best Exposure ID in Coadd |
+|  |  |  |
+|  | CONDITIONS |  |
+| AIRMASS | 1.16583076923 | Mean airmass |
+| AIRTEMP |  |  |
+| SEEING20 | 1.28830768462 | 20% seeing during exposure (arcsec) |
+| SEEING50 | 1.41699998462 | 50% seeing during exposure (arcsec) |
+| SEEING80 | 1.71484612308 | 80% seeing during exposure (arcsec) |
+| RMSOFF20 | 0.0216745230769 | 20% RMS offset of guide fibers (arcsec) |
+| RMSOFF50 | 0.0395346153846 | 50% RMS offset of guide fibers (arcsec) |
+| RMSOFF80 | 0 | 80% RMS offset of guide fibers (arcsec) |
+| SKYCHI2 | 0.899496051892 | Mean chi^2 of sky-subtraction |
+| SCHI2MIN | 0.886765994739 | Minimim chi^2 of sky-subtraction |
+| SCHI2MAX | 0.91889732361 | Maximim chi^2 of sky-subtraction |
+|  |  |  |
+|  | FIELD/PLATE INFO |  |
+| NAME | 0 | The name of the currently loaded plate |
+| PLATEID | 0 | The currently loaded plate |
+| CARTID | 0 | The currently loaded cartridge/instrument |
+| MAPID | 0 | The mapping version of the loaded plate |
+| POINTING | 0 | The currently specified pointing |
+| PLATETYP | 0 | Type of plate (e.g. BOSS, MANGA, APOGEE, APOGEE) |
+| SRVYMODE | 0 | Survey leading this observation and its mode |
+| FIELDID | 0 | FPS field |
+| SLITID | 0 | spectrograph Normalized slithead ID. |
+| FIELDCAD | 0 |  |
+| OBSMODE |  |  |
+|  |  |  |
+|  | TELESCOPE INFO |  |
+| RA | 134.350007 | RA of telescope boresight (deg) |
+| DEC | 7.151988 | Dec of telescope boresight (deg) |
+| RADEG | 134.354653 | RA of telescope pointing(deg) |
+| DECDEG | 7.150192 | Dec of telescope pointing (deg) |
+| RADECSYS | 0 |  |
+| EQUINOX | 2000.0 | Equinox of celestial coordinate system |
+|  |  |  |
+|  | VERSION |  |
+| RUN2D | v6_2_1 | Spectro-2D reduction name |
+| VERS2D |  | Version of idlspec2d for 2D reduction |
+| VERSCOMB | v6_2_1 | Version of idlspec2d for combining spectra |
+|  |  |  |
+|  | EXTRACTION |  |
+| LOWREJ | 4 | Extraction: low rejection |
+| HIGHREJ | 50 | Extraction: high rejection |
+| SCATPOLY | 0 | Extraction: Order of scattered light polynomial |
+| PROFTYPE | 1 | Extraction profile: 1=Gaussian |
+| NFITPOLY | 1 | Extraction: Number of parameters in each profil |
+| FBADPIX | 0.00869962 | Fraction of bad pixels |
+| FBADPIX1 | 0.00869962 | Fraction of bad pixels on spectro-1 |
+| FBADPIX2 | 0 | Fraction of bad pixels on spectro-2 |
+| XSIGMA | 1.07448005676 |  |
+| XSIGMIN | 1.07448 |  |
+| XSIGMAX | 1.07448 |  |
+| SFLATTEN | True | Superflat has been applied |
+| PSFSKY | 3 | Order of PSF skysubtraction |
+|  |  |  |
+|  | WAVELENGTH CALIBRATION |  |
+| WDISPR | 3.06577 |  |
+| WAT0_001 | system=linear |  |
+| WAT1_001 | wtype=linear label=Wavelength units=Angstroms |  |
+| VACUUM | True | Wavelengths are in vacuum |
+| NWORDER | 2 | Linear-log10 coefficients |
+| COEFF0 | 3.5523 | Central wavelength (log10) of first pixel |
+| COEFF1 | 0.0001 | Log10 dispersion per pixel |
+| CRVAL1 | 3.5523 | Central wavelength (log10) of first pixel |
+| CD1_1 | 0.0001 | Log10 dispersion per pixel |
+| CRPIX1 | 1 | Starting pixel (1-indexed) |
+| CTYPE1 | LINEAR |  |
+| DC-FLAG | 1 | Log-linear flag |
+| LAMPLIST | lamphgcdne.dat |  |
+| SKYLIST | skylines.dat |  |
+| HELIO_RV | 10.3364611279 | V_RAD for backwards compatibility |
+| V_RAD | 10.3364611279 | radial velocity relative to the barycenter |
+| WSIGMA | 1.07677996159 |  |
+| WSIGMIN | 1.07678 |  |
+| WSIGMAX | 1.07678 |  |
+| AVGBS0 | -0.105 |  |
+| STDBS0 | 0.022 |  |
+| AVGAS0 | 0.002 |  |
+| STDAS0 | 0.019 |  |
+|  |  |  |
+|  | PHOTOMETRIC CALIBRATION |  |
+| REDDEN01 | 0.0 | Median extinction in u-band |
+| REDDEN02 | 0.0 | Median extinction in g-band |
+| REDDEN03 | 0.0 | Median extinction in r-band |
+| REDDEN04 | 0.0 | Median extinction in i-band |
+| REDDEN05 | 0.0 | Median extinction in z-band |
+| NSTD | 27 | Number of (good) std stars |
+| GOFFSTD | -0.0313689575195 | Spectrophoto offset for std stars in G-band |
+| GRMSSTD | 0.137926824081 | Spectrophoto RMS for std stars in G-band |
+| ROFFSTD | -0.0233293914795 | Spectrophoto offset for std stars in R-band |
+| RRMSSTD | 0.1358478774 | Spectrophoto RMS for std stars in R-band |
+| IOFFSTD | -0.035970199585 | Spectrophoto offset for std stars in I-band |
+| IRMSSTD | 0.201251156369 | Spectrophoto RMS for std stars in I-band |
+| GROFFSTD | 0.00182333374023 | Spectrophoto offset for std stars in (GR) |
+| GRRMSSTD | 0.136421932893 | Spectrophoto RMS for std stars in (GR) |
+| RIOFFSTD | -0.00520053100586 | Spectrophoto offset for std stars in (RI) |
+| RIRMSSTD | 0.0855745279829 | Spectrophoto RMS for std stars in (RI) |
+| PREJECT | 0.2 | Profile area rejection threshold |
+| NGAL | 310 | Number of (good) main galaxies |
+| GOFFGAL | 0.0115737515054 | Spectrophoto offset for main galaxies in G-band |
+| GRMSGAL | 0.291070346768 | Spectrophoto RMS for main galaxies in G-band |
+| ROFFGAL | 0.00833821323714 | Spectrophoto offset for main galaxies in R-band |
+| RRMSGAL | 0.29559081107 | Spectrophoto RMS for main galaxies in R-band |
+| IOFFGAL | 0.0100159759522 | Spectrophoto offset for main galaxies in I-band |
+| IRMSGAL | 0.316843125171 | Spectrophoto RMS for main galaxies in I-band |
+| GROFFGAL | 0.0325316467285 | Spectrophoto offset for main galaxies in (GR) |
+| GRRMSGAL | 0.168219581461 | Spectrophoto RMS for main galaxies in (GR) |
+| RIOFFGAL | 0.00991139221191 | Spectrophoto offset for main galaxies in (RI) |
+| RIRMSGAL | 0.129260274737 | Spectrophoto RMS for main galaxies in (RI) |
+|  |  |  |
+|  | TARGET INFO |  |
+| PLUG_RA | 134.222540798 | RA of Target |
+| PLUG_DEC | 7.95494499744 | DEC of Target |
+| AZ | 31.8143338263 | Azimuth axis pos. (approx, deg) |
+| ALT | 60.4074726073 | Altitude axis pos. (approx, deg) |
+| SPCOADD | Thu Jul 10 12:40:43 2025 | SPCOADD finished) |
+| SPEC1_G | 9.01189 | (S/N)^2 for spec 1 at mag 21.20 |
 | FSPEC1_G | 0 | Fit (S/N)^2 for spec  1 at mag 21.20 |
-| SN2EXT1G | 6.62995 | Extinction corrected (S/N)^2 |
+| SN2EXT1G | 9.01189 | Extinction corrected (S/N)^2 |
 | FSN2EX1G | 0 | Extinction corrected Fit (S/N)^2 |
-| SPEC1_R | 21.791 | (S/N)^2 for spec  1 at mag 20.20 |
+| SPEC1_R | 27.9471 | (S/N)^2 for spec  1 at mag 20.20 |
 | FSPEC1_R | 0 | Fit (S/N)^2 for spec  1 at mag 20.20 |
-| SN2EXT1R | 21.791 | Extinction corrected (S/N)^2 |
+| SN2EXT1R | 27.9471 | Extinction corrected (S/N)^2 |
 | FSN2EX1R | 0 | Extinction corrected Fit (S/N)^2 |
-| SPEC1_I | 16.2032 | (S/N)^2 for spec  1 at mag 20.20 |
+| SPEC1_I | 21.8242 | (S/N)^2 for spec  1 at mag 20.20 |
 | FSPEC1_I | 0 | Fit (S/N)^2 for spec  1 at mag 20.20 |
-| SN2EXT1I | 16.2032 | Extinction corrected (S/N)^2 |
+| SN2EXT1I | 21.8242 | Extinction corrected (S/N)^2 |
 | FSN2EX1I | 0 | Extinction corrected Fit (S/N)^2 |
-| SPEC2_G | 0 | (S/N)^2 for spec  2 at mag 21.20 |
+| SPEC2_G | 0.0 | (S/N)^2 for spec  2 at mag 21.20 |
 | FSPEC2_G | 0 | Fit (S/N)^2 for spec  2 at mag 21.20 |
-| SN2EXT2G | 0 | Extinction corrected (S/N)^2 |
+| SN2EXT2G | 0.0 | Extinction corrected (S/N)^2 |
 | FSN2EX2G | 0 | Extinction corrected Fit (S/N)^2 |
-| SPEC2_R | 0 | (S/N)^2 for spec  2 at mag 20.20 |
+| SPEC2_R | 0.0 | (S/N)^2 for spec  2 at mag 20.20 |
 | FSPEC2_R | 0 | Fit (S/N)^2 for spec  2 at mag 20.20 |
-| SN2EXT2R | 0 | Extinction corrected (S/N)^2 |
+| SN2EXT2R | 0.0 | Extinction corrected (S/N)^2 |
 | FSN2EX2R | 0 | Extinction corrected Fit (S/N)^2 |
-| SPEC2_I | 0 | (S/N)^2 for spec  2 at mag 20.20 |
+| SPEC2_I | 0.0 | (S/N)^2 for spec  2 at mag 20.20 |
 | FSPEC2_I | 0 | Fit (S/N)^2 for spec  2 at mag 20.20 |
-| SN2EXT2I | 0 | Extinction corrected (S/N)^2 |
+| SN2EXT2I | 0.0 | Extinction corrected (S/N)^2 |
 | FSN2EX2I | 0 | Extinction corrected Fit (S/N)^2 |
 | SDSSC2BV | 1 | SDSS5_TARGET_FLAG Carton to Bit Version |
-| CHECKSUM | b2LNe0KNb0KNb0KN | HDU checksum updated 2024-04-09T01:36:35 |
-| DATASUM | 0 | data unit checksum updated 2024-04-09T01:36:35 |
+| CHECKSUM | 3MaE3JYB3JaB3JYB | HDU checksum updated 2025-07-10T13:53:59 |
+| DATASUM | 0 | data unit checksum updated 2025-07-10T13:53:59 |
 
 
 
@@ -158,8 +273,8 @@ Key | Value | Comment | |
 | TUNIT7 | 10^-17 ergs/s/cm^2/Angs |  |
 | TUNIT9 | Angs |  |
 | EXTNAME | COADD | extension name |
-| CHECKSUM | PAWGP5VGPAVGP3VG | HDU checksum updated 2024-04-09T01:36:35 |
-| DATASUM | 888955610 | data unit checksum updated 2024-04-09T01:36:35 |
+| CHECKSUM | 9PfoGMZm9MdmGMZm | HDU checksum updated 2025-07-10T13:53:59 |
+| DATASUM | 3520907039 | data unit checksum updated 2025-07-10T13:53:59 |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
@@ -188,70 +303,73 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 2806 | length of dimension 1 |
+| NAXIS1 | 3017 | length of dimension 1 |
 | NAXIS2 | 1 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 144 | number of table fields |
+| TFIELDS | 147 | number of table fields |
 | SDSSC2BV | 1 | SDSS5_TARGET_FLAG Carton to Bit Version |
 | EXTNAME | SPALL | extension name |
-| CHECKSUM | k9R6k6R5k6R5k6R5 | HDU checksum updated 2024-04-09T01:36:35 |
-| DATASUM | 4012778773 | data unit checksum updated 2024-04-09T01:36:35 |
-| TDIM21 | (32) |  |
-| TDIM28 | (5) |  |
-| TDIM29 | (5) |  |
+| CHECKSUM | LooAMlm8LlmALlm7 | HDU checksum updated 2025-07-10T13:53:59 |
+| DATASUM | 4150517227 | data unit checksum updated 2025-07-10T13:53:59 |
+| TDIM21 | (69) |  |
 | TDIM31 | (5) |  |
 | TDIM32 | (5) |  |
-| TDIM33 | (5) |  |
 | TDIM34 | (5) |  |
-| TDIM40 | (4) |  |
-| TDIM41 | (3) |  |
-| TDIM42 | (2) |  |
-| TDIM80 | (5) |  |
-| TDIM98 | (5) |  |
-| TDIM99 | (5) |  |
-| TDIM100 | (5) |  |
+| TDIM35 | (5) |  |
+| TDIM36 | (5) |  |
+| TDIM37 | (5) |  |
+| TDIM43 | (4) |  |
+| TDIM44 | (3) |  |
+| TDIM45 | (2) |  |
+| TDIM83 | (5) |  |
 | TDIM101 | (5) |  |
 | TDIM102 | (5) |  |
-| TDIM115 | (10) |  |
-| TDIM117 | (10) |  |
-| TDIM126 | (10) |  |
-| TDIM127 | (10) |  |
-| TDIM128 | (10) |  |
+| TDIM103 | (5) |  |
+| TDIM104 | (5) |  |
+| TDIM105 | (5) |  |
+| TDIM118 | (10) |  |
+| TDIM120 | (10) |  |
+| TDIM129 | (10) |  |
+| TDIM130 | (10) |  |
+| TDIM131 | (10) |  |
 
 ##### Binary Table Caption for HDU2
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | FIELD | int64 |  | SDSS FieldID (plateID for plate era data) |
  | MJD | int64 |  | Modified Julian date of combined Spectra |
- | OBS | char[3] |  | Observatory of Observation |
+ | OBS | char[8] |  | Observatory of Observation |
  | MJD_FINAL | float64 |  | Mean MJD of the Coadded Spectra |
- | MJD_LIST | char[47] |  | List of MJD of each included exposures |
- | TAI_LIST | char[87] |  | List Tai for each exposure (at midpoint) |
+ | MJD_LIST | char[77] |  | List of MJD of each included exposures |
+ | TAI_LIST | char[142] |  | List Tai for each exposure (at midpoint) |
  | RUN2D | char[6] |  | Spectro-2D reduction name |
  | RUN1D | char[6] |  | Spectro-1D reduction name |
- | DESIGNS | char[55] |  | List of Included Designs |
- | CONFIGS | char[39] |  | List of Included Configurations |
+ | DESIGNS | char[90] |  | List of Included Designs |
+ | CONFIGS | char[64] |  | List of Included Configurations |
  | NEXP | int16 |  | Number of Included Exposures |
  | EXPTIME | float32 | s | Total Exposure time of Coadded Spectra |
  | TARGET_INDEX | int64 |  | Index of target on combined spField |
- | FIBERID_LIST | char[31] |  | List of FiberIDs contributing to Stack |
- | SPEC_FILE | char[41] |  | Name of spec file (in SAS) |
- | PROGRAMNAME | char[7] |  | Program name within a given survey |
- | SURVEY | char[3] |  | Survey that field is part of |
+ | FIBERID_LIST | char[51] |  | List of FiberIDs contributing to Stack |
+ | SPEC_FILE | char[46] |  | Name of spec file (in SAS) |
+ | PROGRAMNAME | char[11] |  | Program name within a given survey |
+ | SURVEY | char[10] |  | Survey that field is part of |
  | CADENCE | char[10] |  | Requested Target Cadence |
- | FIRSTCARTON | char[17] |  | Primary SDSS Carton for target |
- | CARTON_TO_TARGET_PK | char[9] |  | SDSS-V CartonToTarget DB Table Primary Key |
- | SDSS5_TARGET_FLAGS | bool[29] |  | Targeting Flags for SSDSV Targeting |
+ | FIRSTCARTON | char[30] |  | Primary SDSS Carton for target |
+ | CARTON_TO_TARGET_PK | char[19] |  | SDSS-V CartonToTarget DB Table Primary Key |
+ | SDSS5_TARGET_FLAGS | bool[69] |  | Targeting Flags for SSDSV Targeting |
  | OBJTYPE | char[16] |  | Why this object was targetted. QSO=SCIENCE |
+ | TOO | char[25] |  | the fiber is allocated to a TOO |
+ | TOO_ID | int64 |  | SDSS-V Target of Opportunity ID (only if TOO) |
  | CATALOGID | int64 |  | SDSS-V CatalogID used in naming |
  | CATALOGID_V0 | int64 |  | SDSS-V CatalogID from Catalog v0 |
  | CATALOGID_V0P5 | int64 |  | SDSS-V CatalogID from Catalog v0.5 |
+ | CATALOGID_V1 | int64 |  | SDSS-V CatalogID from Catalog v1 |
  | SDSS_ID | int64 |  | Unified SDSS Target Identifier |
- | SPECOBJID | char[30] |  | Unique ID based on Field, MJD, SDSSID, RUN2D, COADD type |
+ | SPECOBJID | char[29] |  | Unique ID based on Field, MJD, SDSSID, RUN2D, COADD type |
  | CALIBFLUX | float32[5] | nanomaggy | Broad-band flux in SDSS-{ugriz} from PSFmag |
  | CALIBFLUX_IVAR | float32[5] | nanomaggy | Inverse var flux SDSS-{ugriz} from PSFmag |
- | OPTICAL_PROV | char[11] |  | The source of the optical CATDB_MAG magnitudes |
+ | OPTICAL_PROV | char[26] |  | The source of the optical CATDB_MAG magnitudes |
  | MAG | float32[5] |  | [u, g, r, i, z] optical magnitudes |
  | PSFMAG | float32[5] |  | [u, g, r, i, z] optical PSF magnitudes |
  | FIBER2MAG | float32[5] |  | [u, g, r, i, z] optical Fiber2 magnitudes |
@@ -265,7 +383,7 @@ Name | Type | Unit | Description |
  | TWOMASS_MAG | float32[3] |  | 2MASS [J, H, Ks] band magnitudes |
  | GUVCAT_MAG | float32[2] |  | GALEX [FUV, NUV] band magnitudes |
  | EBV | float32 |  | dust extinction |
- | EBV_TYPE | char[3] |  | Source of dust extinction |
+ | EBV_TYPE | char[14] |  | Source of dust extinction |
  | FIBER_RA | float64 | degrees | Fiber RA [J2000 for plate; at exp for FPS] |
  | FIBER_DEC | float64 | degrees | Fiber DEC [J2000 for plate; at exp for FPS] |
  | PLUG_RA | float64 | degrees | Object RA (drilled fiber position) [J2000] |
@@ -276,25 +394,25 @@ Name | Type | Unit | Description |
  | PMRA | float32 | mas/year | Proper motion in RA (pmra is a true angle) |
  | PMDEC | float32 | mas/year | Proper motion in Dec |
  | PARALLAX | float32 | mas | Parallax |
- | RA_LIST | char[87] | degrees | List of measured RA per exposure |
- | DEC_LIST | char[71] | degrees | List of measured DEC per exposure |
- | DELTA_RA_LIST | char[31] | arcsec | List of designed RA offsets per exposure |
- | DELTA_DEC_LIST | char[31] | arcsec | List of designed DEC offsets per exposure |
+ | RA_LIST | char[142] | degrees | List of measured RA per exposure |
+ | DEC_LIST | char[116] | degrees | List of measured DEC per exposure |
+ | DELTA_RA_LIST | char[103] | arcsec | List of designed RA offsets per exposure |
+ | DELTA_DEC_LIST | char[103] | arcsec | List of designed DEC offsets per exposure |
  | FIBER_OFFSET | int64 |  | Flag identifying the fiber was offset by design |
- | XFOCAL | char[71] | mm | Hole/robot x-axis position in focal plane |
- | YFOCAL | char[71] | mm | Hole/robot y-axis position in focal plane |
+ | XFOCAL | char[116] | mm | Hole/robot x-axis position in focal plane |
+ | YFOCAL | char[116] | mm | Hole/robot y-axis position in focal plane |
  | ZOFFSET | float32 | microns | Backstopping offset distance |
  | LAMBDA_EFF | float32 | AA | Wavelength to optimize hole location for |
  | BLUEFIBER | int64 |  | 1 if assigned target a blue fiber; 0 otherwise |
  | HEALPIX | int64 |  | healpix pixel number nside=128 |
  | HEALPIXGRP | int64 |  | Rounded-down integer value of healpix / 1000 |
- | HEALPIX_PATH | char[68] |  | Path to spec fits file in SAS healpix structure |
+ | HEALPIX_PATH | char[73] |  | Path to spec fits file in SAS healpix structure |
  | FIELDQUALITY | char[4] |  | Characterization of field quality |
  | EXP_DISP_MED | float64 |  | Dispersion of Median Exposure Flux |
  | FIELDSN2 | float32 |  | Overall (S/N)^2 for field; min of cameras |
- | FIELDSNR2G_LIST | char[39] |  | Overall Field (S/N)^2 in g per exposure |
- | FIELDSNR2R_LIST | char[39] |  | Overall Field (S/N)^2 in r per exposure |
- | FIELDSNR2I_LIST | char[39] |  | Overall Field (S/N)^2 in i per exposure |
+ | FIELDSNR2G_LIST | char[64] |  | Overall Field (S/N)^2 in g per exposure |
+ | FIELDSNR2R_LIST | char[64] |  | Overall Field (S/N)^2 in r per exposure |
+ | FIELDSNR2I_LIST | char[64] |  | Overall Field (S/N)^2 in i per exposure |
  | SPEC1_G | float32 |  | Fit (S/N)^2 at g=20.20 for spectrograph 1 |
  | SPEC1_R | float32 |  | Fit (S/N)^2 at r=20.25 for spectrograph 1 |
  | SPEC1_I | float32 |  | Fit (S/N)^2 at i=19.90 for spectrograph 1 |
@@ -307,12 +425,12 @@ Name | Type | Unit | Description |
  | SEEING20 | float32 | arcsecs | Mean 20% seeing during exposures (arcsec) |
  | SEEING50 | float32 | arcsecs | Mean 50% seeing during exposures (arcsec) |
  | SEEING80 | float32 | arcsecs | Mean 80% seeing during exposures (arcsec) |
- | MOON_DIST | char[47] | degrees | Mean Moon-target separation of Coadded Spectra |
- | MOON_PHASE | char[39] |  | Mean Moon phase of the Coadded Spectra |
- | ASSIGNED | char[15] |  | Whether this fibre was assigned to a target |
- | ON_TARGET | char[15] |  | Whether this fibre is on target |
- | VALID | char[15] |  | alpha and beta angles are valid |
- | DECOLLIDED | char[15] |  | this positioner had to be moved to decollide it |
+ | MOON_DIST | char[67] | degrees | Mean Moon-target separation of Coadded Spectra |
+ | MOON_PHASE | char[64] |  | Mean Moon phase of the Coadded Spectra |
+ | ASSIGNED | char[25] |  | Whether this fibre was assigned to a target |
+ | ON_TARGET | char[25] |  | Whether this fibre is on target |
+ | VALID | char[25] |  | alpha and beta angles are valid |
+ | DECOLLIDED | char[25] |  | this positioner had to be moved to decollide it |
  | ANYANDMASK | int64 |  | For each bit, any pixel has bit set in ANDMASK |
  | ANYORMASK | int64 |  | For each bit, any pixel has bit set in ORMASK |
  | SPECPRIMARY | int64 |  | Best version of spectrum at this location |
@@ -386,7 +504,7 @@ Key | Value | Comment | |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 56 | number of table fields |
-| EXTNAME | ZALL | extension name |
+| EXTNAME | ZALL |  |
 | TDIM23 | (10) |  |
 | TDIM25 | (10) |  |
 | TDIM26 | (10,10) |  |
@@ -399,8 +517,8 @@ Key | Value | Comment | |
 | TDIM46 | (5) |  |
 | TDIM47 | (5) |  |
 | TDIM48 | (5) |  |
-| CHECKSUM | IWk7JVh4IVh4IVh4 | HDU checksum updated 2024-04-09T01:36:35 |
-| DATASUM | 2170682083 | data unit checksum updated 2024-04-09T01:36:35 |
+| CHECKSUM | 7hK69eH57eH57eH5 | HDU checksum updated 2025-07-10T13:53:59 |
+| DATASUM | 153019520 | data unit checksum updated 2025-07-10T13:53:59 |
 
 ##### Binary Table Caption for HDU3
 Name | Type | Unit | Description |
@@ -411,7 +529,7 @@ Name | Type | Unit | Description |
  | TARGET_INDEX | int32 |  | Index of target on combined spField |
  | CATALOGID | int64 |  | SDSS-V CatalogID used in naming |
  | SDSS_ID | int64 |  | Unified SDSS Target Identifier |
- | FIBERID_LIST | char[31] |  | List of FiberIDs contributing to Stack |
+ | FIBERID_LIST | char[51] |  | List of FiberIDs contributing to Stack |
  | RUN2D | char[6] |  | Spectro-2D reduction name |
  | RUN1D | char[6] |  | Spectro-1D reduction name |
  | OBJTYPE | char[16] |  | Why this object was targetted. QSO=SCIENCE |
@@ -476,14 +594,14 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 117 | length of dimension 1 |
+| NAXIS1 | 120 | length of dimension 1 |
 | NAXIS2 | 32 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 21 | number of table fields |
+| TFIELDS | 22 | number of table fields |
 | EXTNAME | ZLINE | extension name |
-| CHECKSUM | U8m7a8k7W8k7a8k7 | HDU checksum updated 2024-04-09T01:36:35 |
-| DATASUM | 3160104972 | data unit checksum updated 2024-04-09T01:36:35 |
+| CHECKSUM | RLD3SJC0RJC0RJC0 | HDU checksum updated 2025-07-10T13:53:59 |
+| DATASUM | 2514575057 | data unit checksum updated 2025-07-10T13:53:59 |
 
 ##### Binary Table Caption for HDU4
 Name | Type | Unit | Description |
@@ -493,6 +611,7 @@ Name | Type | Unit | Description |
  | TARGET_INDEX | int64 |  | Target Index (1 to number of targets) |
  | CATALOGID | int64 |  | SDSS-V CatalogID used in naming |
  | SDSS_ID | int64 |  | Unified SDSS Target Identifier |
+ | OBS | char[3] |  | Observatory |
  | LINENAME | char[13] |  | Line name |
  | LINEWAVE | float64 | AA | Catalog wavelength of line in vacuum Angstroms |
  | LINEZ | float32 |  | Redshift |

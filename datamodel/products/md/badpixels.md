@@ -19,7 +19,7 @@ SDSS BOSS Bad Pixel Mask (including hot pixels) from from a set of darks and bia
 $SPECFLAT_DIR/[SPECFLAT_VER]/flats/badpixels-[MJD]-[BR][ID].fits or badpixels-59919-b2.fits.gz but with regex pattern matches
 
 ### Releases
-IPL4
+IPL4, DR20
 
 ### Enviroments
 SPECFLAT_DIR
@@ -39,13 +39,16 @@ False
 ### Data Level
 1.1.1
 
-### HDUS List for release IPL4
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
 
 ---
 ## Example HDUS List

@@ -19,7 +19,7 @@ This file contains a summary of the BOSS idlspec2d and spectro-1d pipeline outpu
 $BOSS_SPECTRO_REDUX/[RUN2D]/summary/[COADD]/spAll-[RUN2D]-[COADD].fits.gz
 
 ### Releases
-IPL3, DR19, IPL4
+IPL3, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.1
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: SPALL](#hdu1-spall)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
    - note: No changes
@@ -70,11 +73,11 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 0 | number of array dimensions |
 | EXTEND | True |  |
-| RUN2D | v6_1_3 | IDLSPEC2D RUN2D |
-| DATE | Tue May 28 19:59:53 2024 | Date Created |
+| RUN2D | v6_2_1 | IDLSPEC2D RUN2D |
+| DATE | Sat Jul 12 05:14:43 2025 | Date Created |
 | SDSSC2BV | 1 | SDSS5_TARGET_FLAG Carton to Bit Version |
-| CHECKSUM | V9YcY6VaV6VaV6Va | HDU checksum updated 2024-05-28T20:02:42 |
-| DATASUM | 0 | data unit checksum updated 2024-05-28T20:02:42 |
+| CHECKSUM | Y8YeZ5WZY5WdY5WZ | HDU checksum updated 2025-07-12T05:18:48 |
+| DATASUM | 0 | data unit checksum updated 2025-07-12T05:18:48 |
 
 
 
@@ -82,7 +85,7 @@ Key | Value | Comment | |
 Spectral Summary Table
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  13 GB
+#### HDU Size:  36 GB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -90,43 +93,44 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 3466 | length of dimension 1 |
-| NAXIS2 | 4210422 | length of dimension 2 |
+| NAXIS1 | 76982 | length of dimension 1 |
+| NAXIS2 | 506550 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 144 | number of table fields |
+| TFIELDS | 142 | number of table fields |
 | TNULL1 | 0 |  |
-| TNULL2 | 0 |  |
-| TNULL11 | 0 |  |
-| TNULL13 | -1 |  |
-| TDIM21 | (57) |  |
+| TNULL2 | -999 |  |
+| TNULL10 | -999 |  |
+| TNULL12 | -1 |  |
+| TDIM20 | (69) |  |
 | TNULL23 | -999 |  |
 | TNULL24 | -999 |  |
 | TNULL25 | -999 |  |
 | TNULL26 | -999 |  |
-| TNULL27 | -1 |  |
-| TNULL36 | 0 |  |
-| TNULL39 | 0 |  |
+| TNULL27 | -999 |  |
+| TNULL28 | -999 |  |
+| TNULL38 | 0 |  |
+| TNULL41 | -999 |  |
 | TNULL59 | -999 |  |
+| TNULL62 | -999 |  |
+| TNULL63 | -999 |  |
 | TNULL64 | -999 |  |
-| TNULL65 | -999 |  |
-| TNULL66 | -999 |  |
-| TNULL92 | 0 |  |
-| TNULL93 | 0 |  |
-| TNULL94 | 0 |  |
-| TNULL95 | 0 |  |
-| TNULL96 | 0 |  |
-| TNULL97 | 0 |  |
+| TNULL90 | -999 |  |
+| TNULL91 | -999 |  |
+| TNULL92 | -999 |  |
+| TNULL93 | -999 |  |
+| TNULL94 | -999 |  |
+| TNULL95 | -999 |  |
+| TNULL108 | -999 |  |
 | TNULL110 | -999 |  |
-| TNULL112 | -999 |  |
-| TNULL115 | -1 |  |
-| TNULL116 | -1 |  |
-| TNULL124 | -1 |  |
-| TNULL131 | 0 |  |
-| TNULL132 | 0 |  |
+| TNULL113 | -1 |  |
+| TNULL114 | -1 |  |
+| TNULL122 | -1 |  |
+| TNULL129 | -999 |  |
+| TNULL130 | -999 |  |
 | EXTNAME | SPALL | extension name |
-| CHECKSUM | cfBedZ9dcfAdcZ7d | HDU checksum updated 2024-05-28T20:08:13 |
-| DATASUM | 235627286 | data unit checksum updated 2024-05-28T20:08:13 |
+| CHECKSUM | FHaHFHXHFHaHFHWH | HDU checksum updated 2025-07-12T05:21:20 |
+| DATASUM | 3624764112 | data unit checksum updated 2025-07-12T05:21:20 |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
@@ -135,29 +139,31 @@ Name | Type | Unit | Description |
  | MJD | int64 |  | Modified Julian date of combined Spectra |
  | OBS | char[3] |  | Observatory of Observation |
  | MJD_FINAL | float64 |  | Mean MJD of the Coadded Spectra |
- | MJD_LIST | char[173] |  | List of MJD of each included exposures |
- | TAI_LIST | char[318] |  | List Tai for each exposure (at midpoint) |
+ | MJD_LIST | char[5915] |  | List of MJD of each included exposures |
  | RUN2D | char[6] |  | Spectro-2D reduction name |
  | RUN1D | char[6] |  | Spectro-1D reduction name |
- | DESIGNS | char[139] |  | List of Included Designs |
- | CONFIGS | char[173] |  | List of Included Configurations |
+ | DESIGNS | char[4970] |  | List of Included Designs |
+ | CONFIGS | char[5585] |  | List of Included Configurations |
  | NEXP | int16 |  | Number of Included Exposures |
  | EXPTIME | float32 | s | Total Exposure time of Coadded Spectra |
  | TARGET_INDEX | int64 |  | Index of target on combined spField |
- | FIBERID_LIST | char[115] |  | List of FiberIDs contributing to Stack |
- | SPEC_FILE | char[42] |  | Name of spec file (in SAS) |
+ | FIBERID_LIST | char[3879] |  | List of FiberIDs contributing to Stack |
+ | SPEC_FILE | char[46] |  | Name of spec file (in SAS) |
  | PROGRAMNAME | char[14] |  | Program name within a given survey |
  | SURVEY | char[13] |  | Survey that field is part of |
  | CADENCE | char[19] |  | Requested Target Cadence |
- | FIRSTCARTON | char[48] |  | Primary SDSS Carton for target |
- | CARTON_TO_TARGET_PK | char[32] |  | SDSS-V CartonToTarget DB Table Primary Key |
- | SDSS5_TARGET_FLAGS | bool[57] |  | Targeting Flags for SSDSV Targeting |
+ | FIRSTCARTON | char[54] |  | Primary SDSS Carton for target |
+ | CARTON_TO_TARGET_PK | char[78] |  | SDSS-V CartonToTarget DB Table Primary Key |
+ | SDSS5_TARGET_FLAGS | bool[69] |  | Targeting Flags for SSDSV Targeting |
  | OBJTYPE | char[16] |  | Why this object was targeted.  Note that if this field says QSO, it could be the case that this object would have been targetted as a GALAXY or any number of other categories as well. The PRIMTARGET and SECTARGET flags in the plug-map structure (in the spField file) gives this full information. |
+ | TOO | char[1971] |  | the fiber is allocated to a TOO |
+ | TOO_ID | int64 |  | SDSS-V Target of Opportunity ID (only if TOO) |
  | CATALOGID | int64 |  | SDSS-V CatalogID used in naming |
  | CATALOGID_V0 | int64 |  | SDSS-V CatalogID from Catalog v0 |
  | CATALOGID_V0P5 | int64 |  | SDSS-V CatalogID from Catalog v0.5 |
+ | CATALOGID_V1 | int64 |  | SDSS-V CatalogID from Catalog v1 |
  | SDSS_ID | int64 |  | Unified SDSS Target Identifier |
- | SPECOBJID | char[30] |  | Unique ID based on Field, MJD, SDSSID, RUN2D, COADD type |
+ | SPECOBJID | char[29] |  | Unique ID based on Field, MJD, SDSSID, RUN2D, COADD type |
  | CALIBFLUX | float32[5] | nanomaggy | Broad-band flux in SDSS-{ugriz} from PSFmag |
  | CALIBFLUX_IVAR | float32[5] | nanomaggy | Inverse var flux SDSS-{ugriz} from PSFmag |
  | OPTICAL_PROV | char[26] |  | The source of the optical CATDB_MAG magnitudes |
@@ -185,25 +191,21 @@ Name | Type | Unit | Description |
  | PMRA | float32 | mas/year | Proper motion in RA (pmra is a true angle) |
  | PMDEC | float32 | mas/year | Proper motion in Dec |
  | PARALLAX | float32 | mas | Parallax |
- | RA_LIST | char[318] | degrees | List of measured RA per exposure |
- | DEC_LIST | char[289] | degrees | List of measured DEC per exposure |
- | DELTA_RA_LIST | char[115] | arcsec | List of designed RA offsets per exposure |
- | DELTA_DEC_LIST | char[115] | arcsec | List of designed DEC offsets per exposure |
+ | DELTA_RA_LIST | char[7887] | arcsec | List of designed RA offsets per exposure |
+ | DELTA_DEC_LIST | char[7887] | arcsec | List of designed DEC offsets per exposure |
  | FIBER_OFFSET | int64 |  | Flag identifying the fiber was offset by design |
- | XFOCAL | char[260] | mm | Hole/robot x-axis position in focal plane |
- | YFOCAL | char[260] | mm | Hole/robot y-axis position in focal plane |
  | ZOFFSET | float32 | microns | Backstopping offset distance |
  | LAMBDA_EFF | float32 | AA | Wavelength to optimize hole location for |
  | BLUEFIBER | int64 |  | 1 if assigned target a blue fiber; 0 otherwise |
  | HEALPIX | int64 |  | healpix pixel number of the RACAT and DECCAT coordinates, computed with healpix nside=128 |
  | HEALPIXGRP | int64 |  | Rounded-down integer value of healpix / 1000 |
- | HEALPIX_PATH | char[70] |  | Path to spec fits file in SAS healpix structure |
+ | HEALPIX_PATH | char[75] |  | Path to spec fits file in SAS healpix structure |
  | FIELDQUALITY | char[4] |  | Characterization of field quality |
  | EXP_DISP_MED | float64 |  | Dispersion of Median Exposure Flux |
  | FIELDSN2 | float32 |  | Overall (S/N)^2 for field; min of cameras |
- | FIELDSNR2G_LIST | char[144] |  | Overall Field (S/N)^2 in g per exposure |
- | FIELDSNR2R_LIST | char[152] |  | Overall Field (S/N)^2 in r per exposure |
- | FIELDSNR2I_LIST | char[157] |  | Overall Field (S/N)^2 in i per exposure |
+ | FIELDSNR2G_LIST | char[4929] |  | Overall Field (S/N)^2 in g per exposure |
+ | FIELDSNR2R_LIST | char[5141] |  | Overall Field (S/N)^2 in r per exposure |
+ | FIELDSNR2I_LIST | char[5064] |  | Overall Field (S/N)^2 in i per exposure |
  | SPEC1_G | float32 |  | Fit (S/N)^2 at g=20.20 for spectrograph 1 (same value for 500 fibers) |
  | SPEC1_R | float32 |  | Fit (S/N)^2 at r=20.25 for spectrograph 1 (same value for 500 fibers) |
  | SPEC1_I | float32 |  | Fit (S/N)^2 at i=19.90 for spectrograph 1 (same value for 500 fibers) |
@@ -216,12 +218,12 @@ Name | Type | Unit | Description |
  | SEEING20 | float32 | arcsecs | Mean 20% seeing during exposures (arcsec) |
  | SEEING50 | float32 | arcsecs | Mean 50% seeing during exposures (arcsec) |
  | SEEING80 | float32 | arcsecs | Mean 80% seeing during exposures (arcsec) |
- | MOON_DIST | char[144] | degrees | Mean Moon-target separation of Coadded Spectra |
- | MOON_PHASE | char[144] |  | Mean Moon phase of the Coadded Spectra |
- | ASSIGNED | char[57] |  | Whether this fibre was assigned to a target |
- | ON_TARGET | char[57] |  | Whether this fibre is on target |
- | VALID | char[57] |  | alpha and beta angles are valid |
- | DECOLLIDED | char[57] |  | this positioner had to be moved to decollide it |
+ | MOON_DIST | char[5581] | degrees | Mean Moon-target separation of Coadded Spectra |
+ | MOON_PHASE | char[4929] |  | Mean Moon phase of the Coadded Spectra |
+ | ASSIGNED | char[2925] |  | Whether this fibre was assigned to a target |
+ | ON_TARGET | char[2925] |  | Whether this fibre is on target |
+ | VALID | char[2925] |  | alpha and beta angles are valid |
+ | DECOLLIDED | char[2925] |  | this positioner had to be moved to decollide it |
  | ANYANDMASK | int64 |  | For each bit, records whether any pixel in the spectrum has that bit set in its ANDMASK |
  | ANYORMASK | int64 |  | For each bit, records whether any pixel in the spectrum has that bit set in its ORMASK |
  | SPECPRIMARY | int64 |  | Objects observed multiple times will have this set to 1 for one observation only. This is usually the 'best' observation, as defined by critera listed in fieldmerge.py. |

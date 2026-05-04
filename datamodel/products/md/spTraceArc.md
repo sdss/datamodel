@@ -19,7 +19,7 @@ This file contains information about flux density, wavelength solution, fibermas
 $BOSS_SPECTRO_REDUX/[RUN2D]/trace/[MJD]/spTraceArc-[BR][ID]-[FRAME].fits
 
 ### Releases
-IPL4
+IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,7 +39,7 @@ False
 ### Data Level
 1.2.2
 
-### HDUS List for release IPL4
+### HDUS List for release DR20
   - [HDU0: FLUX](#hdu0-flux)
   - [HDU1: LAMBDA](#hdu1-lambda)
   - [HDU2: WSET](#hdu2-wset)
@@ -53,6 +53,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
 
 ---
 ## Example HDUS List

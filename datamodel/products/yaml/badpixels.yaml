@@ -7,6 +7,7 @@ general:
   filesize: 67 KB
   releases:
   - IPL4
+  - DR20
   environments:
   - SPECFLAT_DIR
   surveys:
@@ -21,7 +22,10 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR20:
+      from: IPL4
+      note: No changes
 releases:
   IPL4:
     template: $SPECFLAT_DIR/[SPECFLAT_VER]/flats/badpixels-[MJD]-[BR][ID].fits.gz
@@ -36,6 +40,265 @@ releases:
       - br
       - mjd
       - id
+      access_string: badpixels = $SPECFLAT_DIR/{specflat_ver}/flats/badpixels-{mjd}-{br}{id}.fits.gz
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Bad Pixel Mask for BOSS Frame
+        is_image: true
+        size: 64 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4096
+          comment: Number of positions along axis 1
+        - key: NAXIS2
+          value: 4112
+          comment: Number of positions along axis 2
+        - key: EXTEND
+          value: true
+          comment: Extensions may be present
+        - key: V_ARCHON
+          value: 0.7.1a0
+          comment: ''
+        - key: SPEC
+          value: sp2
+          comment: Spectrograph name
+        - key: OBSERVAT
+          value: LCO
+          comment: Observatory
+        - key: MJD
+          value: 59919
+          comment: Modified Julian Date
+        - key: FLAVOR
+          value: bias
+          comment: Image type
+        - key: INTSTART
+          value: '2022-12-05T18:52:17.553'
+          comment: Start of the integration
+        - key: INTEND
+          value: '2022-12-05T18:52:20.749'
+          comment: End of the integration
+        - key: CAMERAS
+          value: b2
+          comment: ''
+        - key: CCD
+          value: b2
+          comment: CCD name
+        - key: CCDID
+          value: '?'
+          comment: Unique identifier of the CCD
+        - key: CCDTYPE
+          value: '?'
+          comment: CCD type
+        - key: GAIN
+          value: 1.0
+          comment: CCD gain [e-/ADU]
+        - key: RDNOISE
+          value: 2.7
+          comment: CCD read noise [e-]
+        - key: CCDSUM
+          value: 1 1
+          comment: Horizontal and vertical binning
+        - key: ARCHBACK
+          value: 00003FFF1A98CCCF
+          comment: Archon backplane ID
+        - key: ARCHBVER
+          value: 1.0.1092
+          comment: Archon backplane version
+        - key: ARCHACF
+          value: BOSS_extra_purge_erase_v5.acf
+          comment: Archon ACF file loaded
+        - key: TELESCOP
+          value: LCO Du Pont
+          comment: Sloan Digital Sky Survey
+        - key: ARCHTEMP
+          value: 18.375
+          comment: Archon backplane temperature [degC]
+        - key: CCDTEMP
+          value: -99.76
+          comment: Temperature of the sensor (HEATERX 11)
+        - key: LN2TEMP
+          value: -181.15
+          comment: LN2 can temperature (HEATERX 11)
+        - key: BUFFER
+          value: 1
+          comment: The buffer number read
+        - key: CARTID
+          value: FPS-S
+          comment: Instrument ID
+        - key: CONFID
+          value: 10000661
+          comment: Configuration ID
+        - key: DESIGNID
+          value: 192285
+          comment: Design ID associated with CONFIGID
+        - key: FIELDID
+          value: 26696
+          comment: Field ID associated with CONFIGID
+        - key: EQUINOX
+          value: 2000.0
+          comment: Equinox of celestial coordinate system
+        - key: AIRMASS
+          value: 1.0
+          comment: Airmass
+        - key: HA
+          value: 0.033333
+          comment: HA axis pos. (approx, deg)
+        - key: M2ZROT
+          value: 0.0
+          comment: TCC SecOrient
+        - key: T_OUT
+          value: 21.8
+          comment: Outside temperature deg C.
+        - key: T_IN
+          value: 15.8
+          comment: Inside temperature deg C.
+        - key: T_PRIM
+          value: 13.8
+          comment: Primary mirror temperature deg C.
+        - key: T_CELL
+          value: 14.5
+          comment: Cell temperature deg C.
+        - key: T_FLOOR
+          value: 11.8
+          comment: Floor temperature deg C.
+        - key: T_TRUSS
+          value: 15.38
+          comment: Truss temperature deg C.
+        - key: OFFRA
+          value: 0.0
+          comment: Absolute guider offset in RA
+        - key: OFFDEC
+          value: 0.0
+          comment: Absolute guider offset in DEC
+        - key: OFFPA
+          value: -375.0
+          comment: Absolute guider offset in PA
+        - key: SEEING
+          value: NaN
+          comment: Seeing from the guider [arcsec]
+        - key: HEAR
+          value: 0 0 0 0
+          comment: HeAr lamps 1:On 0:Off
+        - key: HARTMANN
+          value: Out
+          comment: 'Hartmanns: Left,Right,Out'
+        - key: MECHORIX
+          value: -925.1
+          comment: Orientation in X axis [cm/s2]
+        - key: MECHORIY
+          value: 221.2
+          comment: Orientation in Y axis [cm/s2]
+        - key: MECHORIZ
+          value: 161.6
+          comment: Orientation in Z axis [cm/s2]
+        - key: B2CAMT
+          value: 11.3
+          comment: B2 camera temperature [degC]
+        - key: B2CAMH
+          value: 32.0
+          comment: B2 camera RH [%]
+        - key: R2CAMT
+          value: 11.2
+          comment: R2 camera temperature [degC]
+        - key: R2CAMH
+          value: 36.0
+          comment: R2 camera RH [%]
+        - key: COLLT
+          value: 12.0
+          comment: Collimator temperature [degC]
+        - key: COLLH
+          value: 34.0
+          comment: Collimator RH [%]
+        - key: SPECMT
+          value: 25.5
+          comment: specMech temperature [degC]
+        - key: VERSIDL
+          value: 8.8.0
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: 6.0.0dev
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v6_0_9
+          comment: Version of idlspec2d for pre-processing raw dat
+        - key: VERSLOG
+          value: trunk 27531
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: Unknown
+          comment: Version of SPECFLAT product
+        - key: TWOPHASE
+          value: false
+          comment: ''
+        - key: QUALITY
+          value: excellent
+          comment: ''
+        - key: RDNOISE0
+          value: 1.7082
+          comment: CCD read noise amp 0 [electrons]
+        - key: PIXFLAT
+          value: None
+          comment: ''
+        - key: BADPIXEL
+          value: None
+          comment: ''
+        - key: BIAS STA
+          value: '00004514'
+          comment: first bias exposure
+        - key: BIAS END
+          value: '00004543'
+          comment: last bias exposure
+        - key: DARK STA
+          value: '00004544'
+          comment: first dark exposure
+        - key: DARK END
+          value: '00004546'
+          comment: last dark exposure
+        - key: BM0
+          value: 0
+          comment: good to use
+        - key: BM1
+          value: 1
+          comment: '> 10 sigma deviation, weaker'
+        - key: BM2
+          value: 2
+          comment: saturated pixel, greater than 15000 in bias
+        - key: BM4
+          value: 4
+          comment: '> 10 sigma deviation, stronger'
+        - key: BM8
+          value: 8
+          comment: bad column
+        - key: BM16
+          value: 16
+          comment: warm bad column, ticket 1368,1369
+        - key: BM32
+          value: 32
+          comment: by hand corrections
+  DR20:
+    template: $SPECFLAT_DIR/[SPECFLAT_VER]/flats/badpixels-[MJD]-[BR][ID].fits.gz
+    example: v1_36/flats/badpixels-59919-b2.fits.gz
+    location: '{specflat_ver}/flats/badpixels-{mjd}-{br}{id}.fits.gz'
+    environment: SPECFLAT_DIR
+    access:
+      in_sdss_access: true
+      path_name: badpixels
+      path_template: $SPECFLAT_DIR/flats/badpixels-{mjd}-{br}{id}.fits
+      path_kwargs:
+      - br
+      - id
+      - mjd
       access_string: badpixels = $SPECFLAT_DIR/{specflat_ver}/flats/badpixels-{mjd}-{br}{id}.fits.gz
     survey: SDSS
     hdus:

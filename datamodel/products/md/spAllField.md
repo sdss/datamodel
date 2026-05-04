@@ -19,7 +19,7 @@ This file contains a summary of the BOSS idlspec2d and spectro-1d pipeline outpu
 $BOSS_SPECTRO_REDUX/[RUN2D]/spectra/daily/full/[FIELDGRP]/[FIELD]/[MJD]/spAll-[FIELD]-[MJD].fits.gz
 
 ### Releases
-IPL3, DR19, IPL4
+IPL3, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.2.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: SPALL](#hdu1-spall)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
    - note: No changes
@@ -70,11 +73,11 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 0 | number of array dimensions |
 | EXTEND | True |  |
-| RUN2D | v6_1_3 | IDLSPEC2D RUN2D |
-| DATE | Wed Apr  3 05:25:17 2024 | Date Created |
+| RUN2D | v6_2_1 | IDLSPEC2D RUN2D |
+| DATE | Wed May 14 00:54:00 2025 | Date Created |
 | SDSSC2BV | 1 | SDSS5_TARGET_FLAG Carton to Bit Version |
-| CHECKSUM | Z7ahg7TZZ7Zff7ZZ | HDU checksum updated 2024-04-03T05:25:17 |
-| DATASUM | 0 | data unit checksum updated 2024-04-03T05:25:17 |
+| CHECKSUM | ZAaba9SbTAYbZ9Yb | HDU checksum updated 2025-05-14T00:54:00 |
+| DATASUM | 0 | data unit checksum updated 2025-05-14T00:54:00 |
 
 
 
@@ -90,43 +93,44 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 2181 | length of dimension 1 |
-| NAXIS2 | 503 | length of dimension 2 |
+| NAXIS1 | 2357 | length of dimension 1 |
+| NAXIS2 | 487 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 144 | number of table fields |
+| TFIELDS | 147 | number of table fields |
 | TNULL1 | 0 |  |
-| TNULL2 | 0 |  |
-| TNULL11 | 0 |  |
+| TNULL2 | -999 |  |
+| TNULL11 | -999 |  |
 | TNULL13 | -1 |  |
-| TDIM21 | (29) |  |
-| TNULL23 | -999 |  |
+| TDIM21 | (69) |  |
 | TNULL24 | -999 |  |
 | TNULL25 | -999 |  |
 | TNULL26 | -999 |  |
-| TNULL27 | -1 |  |
-| TNULL36 | 0 |  |
+| TNULL27 | -999 |  |
+| TNULL28 | -999 |  |
+| TNULL29 | -999 |  |
 | TNULL39 | 0 |  |
-| TNULL59 | -999 |  |
-| TNULL64 | -999 |  |
-| TNULL65 | -999 |  |
-| TNULL66 | -999 |  |
-| TNULL92 | 0 |  |
-| TNULL93 | 0 |  |
-| TNULL94 | 0 |  |
-| TNULL95 | 0 |  |
-| TNULL96 | 0 |  |
-| TNULL97 | 0 |  |
-| TNULL110 | -999 |  |
-| TNULL112 | -999 |  |
-| TNULL115 | -1 |  |
-| TNULL116 | -1 |  |
-| TNULL124 | -1 |  |
-| TNULL131 | 0 |  |
-| TNULL132 | 0 |  |
+| TNULL42 | -999 |  |
+| TNULL62 | -999 |  |
+| TNULL67 | -999 |  |
+| TNULL68 | -999 |  |
+| TNULL69 | -999 |  |
+| TNULL95 | -999 |  |
+| TNULL96 | -999 |  |
+| TNULL97 | -999 |  |
+| TNULL98 | -999 |  |
+| TNULL99 | -999 |  |
+| TNULL100 | -999 |  |
+| TNULL113 | -999 |  |
+| TNULL115 | -999 |  |
+| TNULL118 | -1 |  |
+| TNULL119 | -1 |  |
+| TNULL127 | -1 |  |
+| TNULL134 | -999 |  |
+| TNULL135 | -999 |  |
 | EXTNAME | SPALL | extension name |
-| CHECKSUM | RUdORRdNRRdNRRdN | HDU checksum updated 2024-04-03T05:25:17 |
-| DATASUM | 582471282 | data unit checksum updated 2024-04-03T05:25:17 |
+| CHECKSUM | i5anj4Yki4aki4Yk | HDU checksum updated 2025-05-14T00:54:00 |
+| DATASUM | 701297171 | data unit checksum updated 2025-05-14T00:54:00 |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
@@ -150,17 +154,20 @@ Name | Type | Unit | Description |
  | SURVEY | char[3] |  | Survey that field is part of |
  | CADENCE | char[10] |  | Requested Target Cadence |
  | FIRSTCARTON | char[17] |  | Primary SDSS Carton for target |
- | CARTON_TO_TARGET_PK | char[9] |  | SDSS-V CartonToTarget DB Table Primary Key |
- | SDSS5_TARGET_FLAGS | bool[29] |  | Targeting Flags for SSDSV Targeting |
+ | CARTON_TO_TARGET_PK | char[19] |  | SDSS-V CartonToTarget DB Table Primary Key |
+ | SDSS5_TARGET_FLAGS | bool[69] |  | Targeting Flags for SSDSV Targeting |
  | OBJTYPE | char[16] |  | Why this object was targeted.  Note that if this field says QSO, it could be the case that this object would have been targetted as a GALAXY or any number of other categories as well. The PRIMTARGET and SECTARGET flags in the plug-map structure (in the spField file) gives this full information. |
+ | TOO | char[15] |  | the fiber is allocated to a TOO |
+ | TOO_ID | int64 |  | SDSS-V Target of Opportunity ID (only if TOO) |
  | CATALOGID | int64 |  | SDSS-V CatalogID used in naming |
  | CATALOGID_V0 | int64 |  | SDSS-V CatalogID from Catalog v0 |
  | CATALOGID_V0P5 | int64 |  | SDSS-V CatalogID from Catalog v0.5 |
+ | CATALOGID_V1 | int64 |  | SDSS-V CatalogID from Catalog v1 |
  | SDSS_ID | int64 |  | Unified SDSS Target Identifier |
- | SPECOBJID | char[30] |  | Unique ID based on Field, MJD, SDSSID, RUN2D, COADD type |
+ | SPECOBJID | char[29] |  | Unique ID based on Field, MJD, SDSSID, RUN2D, COADD type |
  | CALIBFLUX | float32[5] | nanomaggy | Broad-band flux in SDSS-{ugriz} from PSFmag |
  | CALIBFLUX_IVAR | float32[5] | nanomaggy | Inverse var flux SDSS-{ugriz} from PSFmag |
- | OPTICAL_PROV | char[11] |  | The source of the optical CATDB_MAG magnitudes |
+ | OPTICAL_PROV | char[21] |  | The source of the optical CATDB_MAG magnitudes |
  | MAG | float32[5] |  | [u, g, r, i, z] optical magnitudes |
  | PSFMAG | float32[5] |  | [u, g, r, i, z] optical PSF magnitudes |
  | FIBER2MAG | float32[5] |  | [u, g, r, i, z] optical Fiber2 magnitudes |
@@ -187,8 +194,8 @@ Name | Type | Unit | Description |
  | PARALLAX | float32 | mas | Parallax |
  | RA_LIST | char[87] | degrees | List of measured RA per exposure |
  | DEC_LIST | char[71] | degrees | List of measured DEC per exposure |
- | DELTA_RA_LIST | char[31] | arcsec | List of designed RA offsets per exposure |
- | DELTA_DEC_LIST | char[31] | arcsec | List of designed DEC offsets per exposure |
+ | DELTA_RA_LIST | char[63] | arcsec | List of designed RA offsets per exposure |
+ | DELTA_DEC_LIST | char[63] | arcsec | List of designed DEC offsets per exposure |
  | FIBER_OFFSET | int64 |  | Flag identifying the fiber was offset by design |
  | XFOCAL | char[71] | mm | Hole/robot x-axis position in focal plane |
  | YFOCAL | char[71] | mm | Hole/robot y-axis position in focal plane |

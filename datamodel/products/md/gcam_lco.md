@@ -19,7 +19,7 @@ GCAM Guiding and Centering Data for LCO for a given MJD
 $GCAM_DATA_S/[MJD]/gcam-[MJD].fits
 
 ### Releases
-IPL4
+IPL4, DR20
 
 ### Enviroments
 GCAM_DATA_S
@@ -39,7 +39,7 @@ False
 ### Data Level
 1.3.2
 
-### HDUS List for release IPL4
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
 
 ---
 ## Example HDUS List

@@ -19,7 +19,7 @@ flux-correction factor between spectro-photometric exposure and science exposure
 $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/spFluxcorr-[BR][ID]-[FRAME].fits.gz
 
 ### Releases
-DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19, IPL4
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,14 +39,17 @@ False
 ### Data Level
 1.2.4
 
-### HDUS List for release DR19
-  - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1](#hdu1)
+### HDUS List for release DR20
+  - [HDU0: MULTCORR](#hdu0-multcorr)
+  - [HDU1: ADDCORR](#hdu1-addcorr)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
    - added_hdus: ['MULTCORR', 'ADDCORR']
@@ -92,7 +95,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 ---
 ## Example HDUS List
 
-### HDU0: PRIMARY
+### HDU0: MULTCORR
 multiplicative flux-correction factor
 
 #### HDU Type: IMAGE
@@ -107,10 +110,11 @@ Key | Value | Comment | |
 | NAXIS1 | 4128 |  |
 | NAXIS2 | 500 |  |
 | EXTEND | True | Extensions may be present |
+| EXTNAME | MULTCORR |  |
 
 
 
-### HDU1: 
+### HDU1: ADDCORR
 additive flux-correction factor
 
 #### HDU Type: IMAGE
@@ -124,6 +128,7 @@ Key | Value | Comment | |
 | NAXIS | 2 |  |
 | NAXIS1 | 4128 |  |
 | NAXIS2 | 500 |  |
+| EXTNAME | ADDCORR |  |
 | PCOUNT | 0 |  |
 | GCOUNT | 1 |  |
 

@@ -10,6 +10,7 @@ general:
   filesize: 7 MB
   releases:
   - IPL4
+  - DR20
   environments:
   - BOSS_SPECTRO_REDUX
   surveys:
@@ -23,7 +24,10 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR20:
+      from: IPL4
+      note: No changes
 releases:
   IPL4:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/trace/[MJD]/spTraceTab-[BR][ID]-[FRAME].fits
@@ -40,6 +44,48 @@ releases:
       - mjd
       - id
       - run2d
+      access_string: spTraceTab = $BOSS_SPECTRO_REDUX/{run2d}/trace/{mjd}/spTraceTab-{br}{id}-{frame}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: XY Trace Table for BOSS Spectrograph Data Reduction
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4112
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+  DR20:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/trace/[MJD]/spTraceTab-[BR][ID]-[FRAME].fits
+    example: v6_2_1/trace/60708/spTraceTab-b2-00046778.fits
+    location: '{run2d}/trace/{mjd}/spTraceTab-{br}{id}-{frame}.fits'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spTraceTab
+      path_template: $BOSS_SPECTRO_REDUX/{run2d}/trace/{mjd}/spTraceTab-{br}{id}-{frame}.fits
+      path_kwargs:
+      - run2d
+      - br
+      - frame
+      - id
+      - mjd
       access_string: spTraceTab = $BOSS_SPECTRO_REDUX/{run2d}/trace/{mjd}/spTraceTab-{br}{id}-{frame}.fits
     survey: SDSS
     hdus:

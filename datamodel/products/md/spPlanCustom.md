@@ -19,7 +19,7 @@ Plan to combine all epochs on a target baseline for custom coadds.
 $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[COADD]/[COADD]_[OBS]/spPlanCustom-[COADD]_[OBS]-[MJD].par
 
 ### Releases
-IPL3, DR19, IPL4
+IPL3, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,17 +39,20 @@ False
 ### Data Level
 1.1
 
-### PAR List for release DR19
+### PAR List for release DR20
   - [COADDPLAN](#COADDPLAN)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
    - delta_nkeys: 1
-   - added_header_keys: ['OBS', 'N_MJDs']
+   - added_header_keys: ['N_MJDs', 'OBS']
    - removed_header_keys: ['idlutilsVersion']
    - tables: {'COADDPLAN': {'delta_nrows': 138325}}
  - DR19
@@ -68,17 +71,18 @@ Describes changes to the datamodel product and/or file structure from one releas
 
 Key | Value | Comment | |
 | --- | --- | --- | --- |
-| NAME | allepoch | Name of the custom coadd schema |
-| RUN2D | v6_1_3 | run2d version |
-| RUN1D | v6_1_3 | run1d version |
-| idlspec2dVersion | v6_1_3 | Version of idlspec2d when building plan file |
-| idlutilsVersion | 6.0.0dev | Version of idlutils when building plan file |
+| NAME | allepoch_apo | Name of the custom coadd schema |
+| RUN2D | v6_2_1 | run2d version |
+| RUN1D | v6_2_1 | run1d version |
+| idlspec2dVersion | v6_2_1 | Version of idlspec2d when building plan file |
 | Rerun_RUN1D | 1 | 1D analysis of Custom Coadd (1:True, 2:False) |
-| Date | 04/07/2024-00:31 | Date of creation |
-| CreateMJD | 60407 | MJD of creation |
-| MJD_range | 59146-60130 | Range of MJDs available to coadd |
-| TARGID | CATALOGID | TARGID column maps to CATALOGID or SDSSID |
-| MJD | 60407 | MJD of Coadd |
+| Date | 06/19/2025-23:05 | Date of creation |
+| CreateMJD | 60844 | MJD of creation |
+| MJD_range | 59146-60708 | Range of MJDs available to coadd |
+| TARGID | SDSS_ID | TARGID column maps to CATALOGID or SDSSID |
+| MJD | 60844 | MJD of Coadd |
+| N_MJDs | 718 | Number of distinct Coadd MJDs |
+| OBS | APO | Observatory |
 
 
 ### Tables
@@ -86,17 +90,17 @@ Key | Value | Comment | |
 
 #### COADDPLAN
 - Description: Target to Field-mjd mapping for custom coadds
-- Number of Rows: 83120
+- Number of Rows: 221445
 
 #### Structure
 Name | Type | Unit | Description | Is Array | Example |
 | --- | --- | --- | --- | --- | --- |
- | TARGID | long |  | Target ID (SDSSID or CatalogID as noted by header key) | False | 4215377264 |
- | FMJD_LIST | char[64][12] |  | List of Field-MJDs that where the target was observed | True | ['015371-59367', '015371-59387', '015371-59392', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''] |
- | FIELDS_LIST | long[64] |  | List of Field IDs where the target was observed (matches to Field-MJD) with -1 for null | True | [15371, 15371, 15371, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1] |
- | MJD_LIST | long[64] |  | List of MJDs where the target was observed (matches to Field-MJD) with -1 for null | True | [59367, 59387, 59392, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1] |
- | CATALOGID_LIST | long[1] |  | Unique CatalogIDs that match to the targetID | True | [4215377264] |
- | EPOCH_COMBINE | long |  | The MJD of the epoch that the Target is grouped into (typically the last MJD the target was observed, but can be slightly later if only a few targets have the same MJD) | False | 59392 |
+ | TARGID | long |  | Target ID (SDSSID or CatalogID as noted by header key) | False | 12743 |
+ | FMJD_LIST | char[172][12] |  | List of Field-MJDs that where the target was observed | True | ['104648-59933', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''] |
+ | FIELDS_LIST | long[172] |  | List of Field IDs where the target was observed (matches to Field-MJD) with -1 for null | True | [104648, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1] |
+ | MJD_LIST | long[172] |  | List of MJDs where the target was observed (matches to Field-MJD) with -1 for null | True | [59933, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1] |
+ | CATALOGID_LIST | long[3] |  | Unique CatalogIDs that match to the targetID | True | [6535904849, 27021597960248626, -1] |
+ | EPOCH_COMBINE | long |  | The MJD of the epoch that the Target is grouped into (typically the last MJD the target was observed, but can be slightly later if only a few targets have the same MJD) | False | 59933 |
 
 
 ---

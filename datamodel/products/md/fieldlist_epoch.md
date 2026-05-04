@@ -19,7 +19,7 @@ This file contains the list of reduced BOSS plates and FPS Fields, with associat
 $BOSS_SPECTRO_REDUX/[RUN2D]/summary/epoch/fieldlist-[RUN2D]-epoch.fits
 
 ### Releases
-IPL3, DR19, IPL4
+IPL3, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.1
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: FIELDLIST](#hdu1-fieldlist)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
    - note: No changes
@@ -70,8 +73,8 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 0 | number of array dimensions |
 | EXTEND | True |  |
-| RUN2D | v6_1_3 | IDLSPEC2D RUN2D |
-| DATE | Sat May 25 13:58:15 2024 | Date Created |
+| RUN2D | v6_2_1 | IDLSPEC2D RUN2D |
+| DATE | Thu Jul  3 22:59:53 2025 | Date Created |
 
 
 
@@ -79,7 +82,7 @@ Key | Value | Comment | |
 Field Summary Table for Field Epoch Coadds
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  6 MB
+#### HDU Size:  12 MB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -87,11 +90,11 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 771 | length of dimension 1 |
-| NAXIS2 | 8456 | length of dimension 2 |
+| NAXIS1 | 881 | length of dimension 1 |
+| NAXIS2 | 14307 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 108 | number of table fields |
+| TFIELDS | 110 | number of table fields |
 | TNULL4 | 0 |  |
 | TNULL18 | -999 |  |
 | TNULL19 | -999 |  |
@@ -120,7 +123,7 @@ Key | Value | Comment | |
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | FIELD | char[6] |  | SDSS FieldID (plateID for plate era data) |
- | DESIGNS | char[55] |  | List of Included Designs |
+ | DESIGNS | char[68] |  | List of Included Designs |
  | CONFIGS | char[68] |  | List of Included Configurations |
  | MJD | int64 |  | Modified Julian date of combined Spectra |
  | OBSERVATORY | char[3] |  | Observatory of Observation |
@@ -144,7 +147,7 @@ Name | Type | Unit | Description |
  | FIELDSN2 | float32 |  | Overall (S/N)^2 for field; min of cameras |
  | DEREDSN2 | float32 |  | Overall Dereddened (S/N)^2 for field |
  | QSURVEY | int64 |  | 1 for an survey quality plate, 0 otherwise |
- | MJDLIST | char[53] |  | List of MJD of each included exposures |
+ | MJDLIST | char[113] |  | List of MJD of each included exposures |
  | NEXP | int64 |  | Number of Included Exposures |
  | NEXP_B1 | int64 |  | Number of Included Exposures from b1 |
  | NEXP_R1 | int64 |  | Number of Included Exposures from r1 |
@@ -223,7 +226,9 @@ Name | Type | Unit | Description |
  | STATUS2D | char[7] |  | Status of 2d extraction |
  | STATUSCOMBINE | char[7] |  | Status of 1d combine |
  | STATUS1D | char[7] |  | Status of 1d analysis |
- | FIELD_CADENCE | char[23] |  | Planned Cadence of Observations |
+ | FIELD_CADENCE | char[25] |  | Planned Cadence of Observations |
+ | DESIGN_VERS | char[20] |  | robostrategy Run or platedesign version |
+ | DESIGN_MODE | char[15] |  | SDSS-V Design Mode |
  | PUBLIC | char[20] |  | Is this Plate Public |
  | QUALCOMMENTS | char[20] |  | Comments of Field Quality |
  | MOON_FRAC | float32 |  | Mean Moon phase of the Coadded Spectra |
