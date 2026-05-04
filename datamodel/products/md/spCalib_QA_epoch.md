@@ -19,7 +19,7 @@ Guassian fit parameters to ratio of the log(synflux/calibflux) for standard star
 $BOSS_SPECTRO_REDUX/[RUN2D]/summary/epoch/spCalib_QA-[RUN2D]-epoch.fits
 
 ### Releases
-IPL4
+IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.1
 
-### HDUS List for release IPL4
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: SPCALIB_QA](#hdu1-spcalib_qa)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
 
 ---
 ## Example HDUS List

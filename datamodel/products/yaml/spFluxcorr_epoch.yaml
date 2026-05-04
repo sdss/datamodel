@@ -8,6 +8,7 @@ general:
   filesize: 16 KB
   releases:
   - IPL4
+  - DR20
   environments:
   - BOSS_SPECTRO_REDUX
   surveys:
@@ -22,7 +23,10 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR20:
+      from: IPL4
+      note: No changes
 releases:
   IPL4:
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/epoch/spFluxcorr-[BR][ID]-[FRAME].fits.gz
@@ -39,6 +43,81 @@ releases:
       - run2d
       - br
       - fieldid
+      access_string: spFluxcorr_epoch = $BOSS_SPECTRO_REDUX/{run2d}/fields/{fieldgrp}/{field}/epoch/spFluxcorr-{br}{id}-{frame}.fits.gz
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: MULTCORR
+        description: multiplicative flux-correction factor
+        is_image: true
+        size: 7 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Primary Header created by MWRFITS v1.13
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: Extensions may be present
+        - key: EXTNAME
+          value: MULTCORR
+          comment: ''
+      hdu1:
+        name: ADDCORR
+        description: additive flux-correction factor
+        is_image: true
+        size: 7 MB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image Extension created by MWRFITS v1.13
+        - key: BITPIX
+          value: -32
+          comment: ''
+        - key: NAXIS
+          value: 2
+          comment: ''
+        - key: NAXIS1
+          value: 4128
+          comment: ''
+        - key: NAXIS2
+          value: 500
+          comment: ''
+        - key: EXTNAME
+          value: ADDCORR
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: ''
+        - key: GCOUNT
+          value: 1
+          comment: ''
+  DR20:
+    template: $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/epoch/spFluxcorr-[BR][ID]-[FRAME].fits.gz
+    example: v6_2_1/fields/112XXX/112360/epoch/spFluxcorr-b1-00353048.fits.gz
+    location: '{run2d}/fields/{fieldgrp}/{field}/epoch/spFluxcorr-{br}{id}-{frame}.fits.gz'
+    environment: BOSS_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: spFluxcorr_epoch
+      path_template: $BOSS_SPECTRO_REDUX/{run2d}/@sptypefolder|/@fieldgrp|/@pad_fieldid|@isplate|/epoch/spFluxcorr-{br}{id}-{frame:0>8}.fits.gz
+      path_kwargs:
+      - fieldid
+      - id
+      - br
+      - frame
+      - run2d
       access_string: spFluxcorr_epoch = $BOSS_SPECTRO_REDUX/{run2d}/fields/{fieldgrp}/{field}/epoch/spFluxcorr-{br}{id}-{frame}.fits.gz
     survey: SDSS
     hdus:

@@ -19,7 +19,7 @@ Contains the output of the pyXCSAO package, a Python replication of IRAF XCSAO (
 $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[COADD]/[COADD]_[OBS]/[RUN1D]/spXCSAO-[COADD]_[OBS]-[MJD].fits
 
 ### Releases
-IPL3, DR19, IPL4
+IPL3, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,14 +39,17 @@ False
 ### Data Level
 1.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1](#hdu1)
+  - [HDU1: PYXCSAO](#hdu1-pyxcsao)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
    - added_hdus: ['PYXCSAO']
@@ -73,11 +76,11 @@ Key | Value | Comment | |
 
 
 
-### HDU1: 
+### HDU1: PYXCSAO
 Object Metadata and pyXCSAO output
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  166 KB
+#### HDU Size:  147 KB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -85,15 +88,12 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 413 | length of dimension 1 |
-| NAXIS2 | 413 | length of dimension 2 |
+| NAXIS1 | 418 | length of dimension 1 |
+| NAXIS2 | 361 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 43 | number of table fields |
-| TNULL9 | 999999 |  |
-| TNULL10 | 999999 |  |
-| TNULL13 | 999999 |  |
-| TNULL14 | 999999 |  |
+| EXTNAME | PYXCSAO | extension name |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
@@ -103,11 +103,11 @@ Name | Type | Unit | Description |
  | coord_epoch | float64 |  | Epoch of the RACAT/DECCAT Catalog coordinates. |
  | objid | char[22] |  | Name of an object |
  | program | char[11] |  | SDSS-V program that requested the source |
- | objtype | char[7] |  | Identified object type, inherited from the standard BOSS pipeline |
- | SOURCETYPE | char[7] |  | Targeting type (science star, standard star, etc) |
+ | objtype | char[16] |  | Identified object type, inherited from the standard BOSS pipeline |
+ | SOURCETYPE | char[13] |  | Targeting type (science star, standard star, etc) |
  | FIELDID | char[1] |  | SDSS FieldID (plateID for plate era data) |
  | mjd | int64 |  | Date of observations |
- | TARGET_INDEX | int64 |  | Index of target on combined spField |
+ | TARGET_INDEX | int16 |  | Index of target on combined spField |
  | FIBERID_LIST | char[51] |  | List of FiberIDs contributing to Stack |
  | firstcarton | char[27] |  | The name of the first carton requesting the object in SDSS-V survey |
  | SDSS_ID | int64 |  | Unified SDSS Target Identifier |
@@ -115,7 +115,7 @@ Name | Type | Unit | Description |
  | parallax | float64 | mas | Gaia parallax |
  | pmra | float64 | mas/yr | Gaia proper motions in RA |
  | pmdec | float64 | mas/yr | Gaia proper motions in Dec |
- | EBV | float64 |  | dust extinction |
+ | EBV | float32 |  | dust extinction |
  | sdss_u | float64 |  | SDSS u-band magnitude |
  | sdss_g | float64 |  | SDSS g-band magnitude |
  | sdss_r | float64 |  | SDSS r-band magnitude |
@@ -131,8 +131,8 @@ Name | Type | Unit | Description |
  | rv | float64 | km/s | Radial velocity measured with XCSAO |
  | erv | float64 | km/s | Uncertainty in rv |
  | grid | char[7] |  | Name of the model grid with which cross-correlation is performed |
- | st_lambda | float64 | Angstrom | Minimum wavelength used in cross-correlation |
- | end_lambda | float64 | Angstrom | Maximum wavelength used in cross-correlation |
+ | st_lambda | int64 | Angstrom | Minimum wavelength used in cross-correlation |
+ | end_lambda | int64 | Angstrom | Maximum wavelength used in cross-correlation |
  | teff | float64 | K | Interpolated temperature of the best matched cross-correlation template |
  | eteff | float64 | K | Uncertainty in Teff |
  | logg | float64 | [cm/s2] | Interpolated surface gravity of the best matched cross-correlation template |
@@ -140,7 +140,7 @@ Name | Type | Unit | Description |
  | feh | float64 | [Sun] | Interpolated metallicity of the best matched cross-correlation template |
  | efeh | float64 | [Sun] | Uncertainty in Fe/H |
  | alpha | float64 | [Sun] | Interpolated [alpha/H] abundance of the best matched cross-correlation template |
- | ealpha | float64 | [Sun] | Uncertainty in alpha |
+ | ealpha | int64 | [Sun] | Uncertainty in alpha |
 
 
 

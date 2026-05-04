@@ -19,7 +19,7 @@ This file contains information from the proc-gimg raw guider image files in the 
 $SPECLOG_DIR/[MJD]/guiderMon-[MJD].par
 
 ### Releases
-IPL4
+IPL4, DR20
 
 ### Enviroments
 SPECLOG_DIR
@@ -39,13 +39,16 @@ False
 ### Data Level
 0.3.1
 
-### PAR List for release IPL4
+### PAR List for release DR20
   - [GUIDEOBJ](#GUIDEOBJ)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
 
 ---
 ## Example PAR List

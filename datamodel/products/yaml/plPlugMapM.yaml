@@ -6,6 +6,7 @@ general:
   filesize: 140 KB
   releases:
   - IPL4
+  - DR20
   environments:
   - SPECLOG_DIR
   surveys:
@@ -19,7 +20,125 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR20:
+      from: IPL4
+      delta_nkeys: 111
+      removed_header_keys:
+      - instruments
+      - plateinput4
+      - idlutilsVersion
+      - priority
+      - mjdDesign
+      - design_platescale_az
+      - design_parallactic_angle
+      - maxskyinblockboss_shared
+      - plateinput19
+      - minskyinblockboss_shared
+      - platerun
+      - platedesign_version
+      - haMin
+      - guidetype
+      - buffersizeapogee_shared
+      - ha_observable_min
+      - napogee_shared_sky
+      - reddeningMed
+      - buffersizeboss_shared
+      - design_platescale_alt
+      - motorId3
+      - completeTileVersion
+      - guider_coeff_6
+      - ferrulesizeboss_shared
+      - plateId
+      - platetype
+      - plateinput7
+      - guider_coeff_5
+      - fscanVersion
+      - nguidemax
+      - nboss_shared_sky
+      - guidemag_minmax
+      - plateinput6
+      - ferrulesizeguide
+      - guider_coeff_7
+      - ninputs
+      - temp
+      - plateinput9
+      - fscanRows
+      - relaxed_fiber_classes
+      - napogee_shared_standard
+      - buffersizeguide
+      - pointing_name
+      - targettypes
+      - pluggers
+      - fscanFile
+      - EVILSCAN
+      - bossmagtype
+      - guider_coeff_1
+      - plateinput17
+      - platedesignstandards
+      - plateinput2
+      - fscanCols
+      - fscanSpeed
+      - guider_coeff_9
+      - fscanMJD
+      - pointing
+      - raCen
+      - fscanMode
+      - defaultsurveymode
+      - plugmapstyle
+      - plateinput12
+      - guider_coeff_8
+      - plateinput16
+      - plateinput3
+      - locationId
+      - ha_observable_max
+      - fscanBias
+      - motorId2
+      - mag_quality
+      - guider_coeff_2
+      - nboss_shared_science
+      - designid
+      - cartridgeId
+      - guider_coeff_4
+      - fscanId
+      - plateinput15
+      - standardtype
+      - skytype
+      - fmapVersion
+      - collectfactor
+      - haMax
+      - tileId
+      - guider_coeff_3
+      - npointings
+      - skyinput18
+      - programname
+      - plateinput11
+      - plateinput8
+      - nboss_shared_standard
+      - napogee_shared_science
+      - theta
+      - plateinput13
+      - plateinput5
+      - guide_lambda_eff
+      - plateinput10
+      - guidenums1
+      - max_off_fiber_for_ha
+      - gfibertype
+      - noffsets
+      - fscanDate
+      - platedesignskies
+      - idlVersion
+      - ha
+      - guider_coeff_0
+      - decCen
+      - motorId1
+      - platedesignversion
+      - plateinput1
+      - ferrulesizeapogee_shared
+      - plateinput14
+      delta_ntables: 1
+      removed_tables:
+      - PLUGMAPOBJ
 releases:
   IPL4:
     template: $SPECLOG_DIR/[MJD]/plPlugMapM-[PLATEID5]-[FSMJD]-[FSCANID2].par
@@ -565,6 +684,24 @@ releases:
             is_array: false
             is_enum: false
             example: 0
+  DR20:
+    template: $SPECLOG_DIR/[MJD]/plPlugMapM-[PLATEID5]-[FSMJD]-[FSCANID2].par
+    example: 59393/plPlugMapM-15090-59392-01.par
+    location: '{mjd}/plPlugMapM-{plateid:0>5}-{fsmjd}-{fscanId:0>2}.par'
+    environment: SPECLOG_DIR
+    access:
+      in_sdss_access: true
+      path_name: plPlugMapM
+      path_template: $SPECLOG_DIR/{mjd}/plPlugMapM-{plateid:0>4}.par
+      path_kwargs:
+      - plateid
+      - mjd
+      access_string: plPlugMapM = $SPECLOG_DIR/{mjd}/plPlugMapM-{plateid:0>5}-{fsmjd}-{fscanId:0>2}.par
+    survey: SDSS
+    par:
+      comments: ""
+      header: []
+      tables: {}
 notes: |-
   General description: This file is a stripped version of the plateHolesSorted file, transformed to an ancient format for the purposes of plate mapping and other onsite operational things. If there are multiple pointings in a plate, there are multiple plPlugMap files (with pointings subsequent to the first labeled "B", "C", etc).
   Note that there can be single-pointing plates with the plPlugMapP file labeled "B", since for MARVELS "A" and "B" specify the appropriate gang connector to use for each pointing. For this reason, the pointing_name keyword exists, to specify the mapping between pointing number and name. E.g., the default "A B C D E F" tells you that pointing 1 is A, pointing 2 is B, etc. Single-pointing MARVELS B-side plates have pointing_name set to "B C D E F".

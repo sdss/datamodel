@@ -19,7 +19,7 @@ The spPlanTrace file contains the plan trace data for a given MJD and Observator
 $BOSS_SPECTRO_REDUX/[RUN2D]/trace/[MJD]/spPlanTrace-[MJD]_[OBS].par
 
 ### Releases
-IPL4
+IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,13 +39,16 @@ False
 ### Data Level
 1.1
 
-### PAR List for release IPL4
+### PAR List for release DR20
   - [SPEXP](#SPEXP)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
 
 ---
 ## Example PAR List

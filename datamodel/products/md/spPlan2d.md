@@ -19,7 +19,7 @@ Processing plan to control the Spectro-2D pipeline reduction of a Field/plate's 
 $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/spPlan2d-[FIELD]-[MJD].par
 
 ### Releases
-DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19, IPL4
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,13 +39,16 @@ False
 ### Data Level
 1.1
 
-### PAR List for release DR19
+### PAR List for release DR20
   - [SPEXP](#SPEXP)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
    - delta_nkeys: 2
@@ -57,9 +60,9 @@ Describes changes to the datamodel product and/or file structure from one releas
  - IPL3
    - from: DR18
    - delta_nkeys: 8
-   - added_header_keys: ['SDSSCOREVersion', 'manual', 'SDSS_access_Ver', 'DITHER', 'OBS', 'SDSS_access_Release', 'fieldname', 'pydlVersion', 'sdss_tree_Ver']
+   - added_header_keys: ['pydlVersion', 'sdss_tree_Ver', 'fieldname', 'SDSS_access_Release', 'DITHER', 'OBS', 'SDSSCOREVersion', 'SDSS_access_Ver', 'manual']
    - removed_header_keys: ['plateid']
-   - tables: {'SPEXP': {'added_cols': ['confid', 'fieldid'], 'removed_cols': ['plateid'], 'delta_nrows': 3}}
+   - tables: {'SPEXP': {'added_cols': ['fieldid', 'confid'], 'removed_cols': ['plateid'], 'delta_nrows': 3}}
  - DR18
    - from: DR17
    - tables: {'SPEXP': {'delta_nrows': 4}}
@@ -78,13 +81,13 @@ Describes changes to the datamodel product and/or file structure from one releas
  - DR13
    - from: DR11
    - delta_nkeys: 7
-   - added_header_keys: ['planfile2d', 'idlspec2dVersion', 'speclogVersion', 'MJD', 'plateid', 'idlutilsVersion', 'RUN2D']
+   - added_header_keys: ['idlutilsVersion', 'plateid', 'RUN2D', 'idlspec2dVersion', 'planfile2d', 'MJD', 'speclogVersion']
    - delta_ntables: 1
    - added_tables: ['SPEXP']
  - DR11
    - from: DR12
    - delta_nkeys: 7
-   - removed_header_keys: ['planfile2d', 'idlspec2dVersion', 'speclogVersion', 'MJD', 'plateid', 'idlutilsVersion', 'RUN2D']
+   - removed_header_keys: ['idlutilsVersion', 'plateid', 'RUN2D', 'idlspec2dVersion', 'planfile2d', 'MJD', 'speclogVersion']
    - delta_ntables: 1
    - removed_tables: ['SPEXP']
  - DR12
@@ -109,17 +112,15 @@ Key | Value | Comment | |
 | fieldname | 112360 | FieldID (or PlateID) |
 | MJD | 60000 | Modified Julian Date of plan |
 | OBS | APO | Associated Observatory |
-| RUN2D | v6_1_3 | 2D reduction name |
+| RUN2D | v6_2_1 | 2D reduction name |
 | DITHER | F | Is the Field Dithered (T: True, F: False) |
-| planfile2d | spPlan2d-112360-60000.par | Plan file for 2D spectral reductions (this file) |
-| idlspec2dVersion | v6_1_3 | idlspec2d Version when building plan |
-| idlutilsVersion | 6.0.0dev | idlutils Version when building plan |
-| pydlVersion | 0.7.0 | Version of pydl when building plan |
-| speclogVersion | trunk 27531 | speclog Version when building plan |
-| SDSSCOREVersion | test | SDSSCORE Version when building plan |
-| SDSS_access_Ver | 3.0.4 | sdss_access Version when building plan |
-| sdss_tree_Ver | 4.0.6dev | sdss-tree Version when building plan |
-| SDSS_access_Release | sdsswork | SDSS-access Release Version when building plan |
+| planfile2d | 'spPlan2d-112360-60000.par' | Plan file for 2D spectral reductions (this file) |
+| idlspec2dVersion | 'v6_2_1' | idlspec2d Version when building plan |
+| pydlVersion | '1.0.0' | Version of pydl when building plan |
+| SDSSCOREVersion | 'main' | SDSSCORE Version when building plan |
+| SDSS_access_Ver | '3.0.5' | sdss_access Version when building plan |
+| sdss_tree_Ver | '4.0.7dev' | sdss-tree Version when building plan |
+| SDSS_access_Release | 'sdsswork' | SDSS-access Release Version when building plan |
 | manual | F | Manually edited plan file (T: True, F: False) |
 
 
@@ -128,18 +129,18 @@ Key | Value | Comment | |
 
 #### SPEXP
 - Description: Exposures included
-- Number of Rows: 10
+- Number of Rows: 12
 
 #### Structure
 Name | Type | Unit | Description | Is Array | Example |
 | --- | --- | --- | --- | --- | --- |
- | confid | char[4] |  | FPS Configuration ID of exposure | False | 8872 |
- | fieldid | char[6] |  | FieldID (or PlateID) of exposure | False | 112360 |
+ | confid | char[4] |  | FPS Configuration ID of exposure | False | 8867 |
+ | fieldid | char[6] |  | FieldID (or PlateID) of exposure | False | 104020 |
  | mjd | int |  | MJD of exposure | False | 60000 |
- | mapname | char[4] |  | Plate Map Name or FPS configuration ID | False | 8872 |
- | flavor | char[7] |  | Flavor of Exposure (flat, arc, science) | False | flat |
+ | mapname | char[4] |  | Plate Map Name or FPS configuration ID | False | 8867 |
+ | flavor | char[9] |  | Flavor of Exposure (flat, arc, science) | False | TRACEFLAT |
  | exptime | float | s | Exposure Length of exposure | False | 25.079999923706055 |
- | name | char[2][19] |  | Name of Raw Exposure Files | True | ['sdR-b1-00353044.fit', 'sdR-r1-00353044.fit'] |
+ | name | char[2][19] |  | Name of Raw Exposure Files | True | ['sdR-b1-00353026.fit', 'sdR-r1-00353026.fit'] |
 
 
 ---

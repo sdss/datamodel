@@ -19,7 +19,7 @@ Parameter file containing header fixes for SDSS BOSS observations
 $SDSSCORE_DIR/[OBS]/sdHdrfix/sdHdrFix-[MJD].par
 
 ### Releases
-IPL4
+IPL4, DR20
 
 ### Enviroments
 SDSSCORE_DIR
@@ -39,13 +39,16 @@ False
 ### Data Level
 0.3.0
 
-### PAR List for release IPL4
+### PAR List for release DR20
   - [OPHDRFIX](#OPHDRFIX)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
 
 ---
 ## Example PAR List

@@ -6,6 +6,7 @@ general:
   filesize: 49 MB
   releases:
   - IPL4
+  - DR20
   environments:
   - SPECFLAT_DIR
   surveys:
@@ -19,7 +20,10 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR20:
+      from: IPL4
+      note: No changes
 releases:
   IPL4:
     template: $SPECFLAT_DIR/[SPECFLAT_VER]/biases/pixbiasave-[MJD]-[CAMERA].fits.gz
@@ -34,6 +38,418 @@ releases:
       - br
       - mjd
       - id
+      access_string: pixbiasave = $SPECFLAT_DIR/{specflat_ver}/biases/pixbiasave-{mjd}-{camera}.fits.gz
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 4-amplifier master bias frame for BOSS
+        is_image: true
+        size: 64 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: 'Written by IDL:  Fri Sep  9 09:37:05 2011'
+        - key: BITPIX
+          value: -32
+          comment: IEEE single precision floating point
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4096
+          comment: Number of positions along axis 1
+        - key: NAXIS2
+          value: 4112
+          comment: Number of positions along axis 2
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: TELESCOP
+          value: SDSS 2.5-M
+          comment: Sloan Digital Sky Survey
+        - key: FILENAME
+          value: sdR-b2-00133159.fit
+          comment: ''
+        - key: CAMERAS
+          value: b2
+          comment: ''
+        - key: EXPOSURE
+          value: 133159
+          comment: ''
+        - key: DAQVER
+          value: 1.3.1
+          comment: ''
+        - key: CAMDAQ
+          value: 1.5.0:37
+          comment: ''
+        - key: SUBFRAME
+          value: ''
+          comment: the subframe readout command
+        - key: ERRCNT
+          value: NONE
+          comment: ''
+        - key: SYNCERR
+          value: NONE
+          comment: ''
+        - key: SLINES
+          value: NONE
+          comment: ''
+        - key: PIXERR
+          value: NONE
+          comment: ''
+        - key: PLINES
+          value: NONE
+          comment: ''
+        - key: PFERR
+          value: NONE
+          comment: ''
+        - key: DIDFLUSH
+          value: true
+          comment: CCD was flushed before integration
+        - key: FLAVOR
+          value: bias
+          comment: exposure type, SDSS spectro style
+        - key: BOSSVER
+          value: '2'
+          comment: ICC version
+        - key: MJD
+          value: 55802
+          comment: APO fMJD day at start of exposure
+        - key: TAI-BEG
+          value: 4821297264.0
+          comment: MJD(TAI) seconds at start of integration
+        - key: DATE-OBS
+          value: '2011-08-29T01:14:24'
+          comment: TAI date at start of integration
+        - key: NAME
+          value: 4349-55800-01
+          comment: The name of the currently loaded plate
+        - key: PLATEID
+          value: 4349
+          comment: The currently loaded plate
+        - key: CARTID
+          value: 15
+          comment: The currently loaded cartridge
+        - key: MAPID
+          value: 1
+          comment: The mapping version of the loaded plate
+        - key: POINTING
+          value: A
+          comment: The currently specified pointing
+        - key: OBJSYS
+          value: Mount
+          comment: The TCC objSys
+        - key: RA
+          value: NaN
+          comment: Telescope is not tracking the sky
+        - key: DEC
+          value: NaN
+          comment: Telescope is not tracking the sky
+        - key: RADEG
+          value: NaN
+          comment: Telescope is not tracking the sky
+        - key: DECDEG
+          value: NaN
+          comment: Telescope is not tracking the sky
+        - key: ROTPOS
+          value: 0.0
+          comment: Rotator request position (deg)
+        - key: BOREOFFX
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: BOREOFFY
+          value: 0.0
+          comment: TCC Boresight offset, deg
+        - key: ARCOFFX
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: ARCOFFY
+          value: 0.0
+          comment: TCC ObjArcOff, deg
+        - key: OBJOFFX
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: OBJOFFY
+          value: 0.0
+          comment: TCC ObjOff, deg
+        - key: CALOFFX
+          value: 0.00079
+          comment: TCC CalibOff, deg
+        - key: CALOFFY
+          value: 0.000357
+          comment: TCC CalibOff, deg
+        - key: CALOFFR
+          value: 0.0
+          comment: TCC CalibOff, deg
+        - key: GUIDOFFX
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFY
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: GUIDOFFR
+          value: 0.0
+          comment: TCC GuideOff, deg
+        - key: AZ
+          value: 120.998
+          comment: Azimuth axis pos. (approx, deg)
+        - key: ALT
+          value: 30.0
+          comment: Altitude axis pos. (approx, deg)
+        - key: IPA
+          value: 0.0
+          comment: Rotator axis pos. (approx, deg)
+        - key: FOCUS
+          value: 97.02
+          comment: User-specified focus offset (um)
+        - key: M2PISTON
+          value: 1353.18
+          comment: TCC SecOrient
+        - key: M2XTILT
+          value: 13.88
+          comment: TCC SecOrient
+        - key: M2YTILT
+          value: 6.47
+          comment: TCC SecOrient
+        - key: M2XTRAN
+          value: -60.96
+          comment: TCC SecOrient
+        - key: M2YTRAN
+          value: 173.92
+          comment: TCC SecOrient
+        - key: M1PISTON
+          value: 0.0
+          comment: TCC PrimOrient
+        - key: M1XTILT
+          value: -24.31
+          comment: TCC PrimOrient
+        - key: M1YTILT
+          value: 11.4
+          comment: TCC PrimOrient
+        - key: M1XTRAN
+          value: 612.32
+          comment: TCC PrimOrient
+        - key: M1YTRAN
+          value: 1325.79
+          comment: TCC PrimOrient
+        - key: SCALE
+          value: 1.0
+          comment: User-specified scale factor
+        - key: PRESSURE
+          value: 21.605
+          comment: pressure
+        - key: WINDD
+          value: 259.4
+          comment: windd
+        - key: WINDS
+          value: 5.0
+          comment: winds
+        - key: GUSTD
+          value: 239.5
+          comment: gustd
+        - key: GUSTS
+          value: 9.7
+          comment: gusts
+        - key: AIRTEMP
+          value: 21.0
+          comment: airTempPT
+        - key: DEWPOINT
+          value: 5.2
+          comment: dpTempPT
+        - key: DPERRPT
+          value: NaN
+          comment: failed to fetch dpErrPT
+        - key: HUMIDITY
+          value: 40.7
+          comment: humidity
+        - key: DUSTA
+          value: 81625.0
+          comment: dusta
+        - key: DUSTB
+          value: 711.0
+          comment: dustb
+        - key: WINDD25M
+          value: 281.8
+          comment: windd25m
+        - key: WINDS25M
+          value: 2.4
+          comment: winds25m
+        - key: FF
+          value: 0 0 0 0
+          comment: FF lamps 1:on 0:0ff
+        - key: NE
+          value: 0 0 0 0
+          comment: NE lamps 1:on 0:0ff
+        - key: HGCD
+          value: 0 0 0 0
+          comment: HGCD lamps 1:on 0:0ff
+        - key: FFS
+          value: 1 1 1 1 1 1 1 1
+          comment: Flatfield Screen 1:closed 0:open
+        - key: GUIDER1
+          value: proc-gimg-0393.fits
+          comment: The first guider image
+        - key: SLITID1
+          value: 15
+          comment: Normalized slithead ID. sp1&2 should match.
+        - key: SLITID2
+          value: 15
+          comment: Normalized slithead ID. sp1&2 should match.
+        - key: GUIDERN
+          value: proc-gimg-0393.fits
+          comment: The last guider image
+        - key: COLLA
+          value: 24409
+          comment: The position of the A collimator motor
+        - key: COLLB
+          value: 24155
+          comment: The position of the B collimator motor
+        - key: COLLC
+          value: 25360
+          comment: The position of the C collimator motor
+        - key: MC2HUMHT
+          value: 12.2
+          comment: sp2 mech Hartmann humidity, %
+        - key: MC2HUMCO
+          value: 13.1
+          comment: sp2 mech Central optics humidity, %
+        - key: MC2TEMDN
+          value: 16.7
+          comment: sp2 mech Median temp, C
+        - key: MC2THT
+          value: 17.1
+          comment: sp2 mech Hartmann Top Temp, C
+        - key: MC2TRCB
+          value: 17.3
+          comment: sp2 mech Red Cam Bottom Temp, C
+        - key: MC2TRCT
+          value: 16.3
+          comment: sp2 mech Red Cam Top Temp, C
+        - key: MC2TBCB
+          value: 16.7
+          comment: sp2 mech Blue Cam Bottom Temp, C
+        - key: MC2TBCT
+          value: 16.6
+          comment: sp2 mech Blue Cam Top Temp, C
+        - key: REQTIME
+          value: 0
+          comment: requested exposure time
+        - key: NEXP
+          value: 17
+          comment: Number of exposures in this file
+        - key: EXPID01
+          value: b2-00133159
+          comment: ID string for exposure 1
+        - key: EXPID02
+          value: b2-00133160
+          comment: ID string for exposure 2
+        - key: EXPID03
+          value: b2-00133161
+          comment: ID string for exposure 3
+        - key: EXPID04
+          value: b2-00133162
+          comment: ID string for exposure 4
+        - key: EXPID05
+          value: b2-00133163
+          comment: ID string for exposure 5
+        - key: EXPID06
+          value: b2-00133164
+          comment: ID string for exposure 6
+        - key: EXPID07
+          value: b2-00133165
+          comment: ID string for exposure 7
+        - key: EXPID08
+          value: b2-00133166
+          comment: ID string for exposure 8
+        - key: EXPID09
+          value: b2-00133167
+          comment: ID string for exposure 9
+        - key: EXPID10
+          value: b2-00133168
+          comment: ID string for exposure 10
+        - key: EXPID11
+          value: b2-00133169
+          comment: ID string for exposure 11
+        - key: EXPID12
+          value: b2-00133170
+          comment: ID string for exposure 12
+        - key: EXPID13
+          value: b2-00133171
+          comment: ID string for exposure 13
+        - key: EXPID14
+          value: b2-00133172
+          comment: ID string for exposure 14
+        - key: EXPID15
+          value: b2-00133173
+          comment: ID string for exposure 15
+        - key: EXPID16
+          value: b2-00133174
+          comment: ID string for exposure 16
+        - key: EXPID17
+          value: b2-00133175
+          comment: ID string for exposure 17
+        - key: EXPTIME
+          value: 0
+          comment: requested exposure time
+        - key: DARKTIME
+          value: 8.936879873275757
+          comment: time between flush end and readout start
+        - key: COMMENT
+          value: failed to make HARTMANN card from ['Closed', 'Closed']
+          comment: ''
+        - key: COMMENT
+          value: Include file pixbias-55802-b2.fits
+          comment: ''
+        - key: COMMENT
+          value: Include file pixbias-55805-b2.fits
+          comment: ''
+        - key: CAMROW
+          value: 0
+          comment: ''
+        - key: CAMCOL
+          value: 3
+          comment: ''
+        - key: AUTHOR
+          value: Scott Burles & David Schlegel
+          comment: ''
+        - key: VERSIDL
+          value: '7.0'
+          comment: Version of IDL
+        - key: VERSUTIL
+          value: trunk
+          comment: Version of idlutils
+        - key: VERSREAD
+          value: v5_4_35
+          comment: Version of idlspec2d for pre-processing raw dat
+        - key: VERSLOG
+          value: trunk 124953
+          comment: Version of SPECLOG product
+        - key: VERSFLAT
+          value: trunk 126812
+          comment: Version of SPECFLAT product
+        - key: TWOPHASE
+          value: false
+          comment: ''
+        - key: QUALITY
+          value: excellent
+          comment: ''
+        - key: OPBC
+          value: opBC-empty.par
+          comment: ''
+  DR20:
+    template: $SPECFLAT_DIR/[SPECFLAT_VER]/biases/pixbiasave-[MJD]-[CAMERA].fits.gz
+    example: v1_36/biases/pixbiasave-55800-b2.fits.gz
+    location: '{specflat_ver}/biases/pixbiasave-{mjd}-{camera}.fits.gz'
+    environment: SPECFLAT_DIR
+    access:
+      in_sdss_access: true
+      path_name: pixbiasave
+      path_template: $SPECFLAT_DIR/biases/pixbiasave-{mjd}-{br}{id}.fits
+      path_kwargs:
+      - br
+      - id
+      - mjd
       access_string: pixbiasave = $SPECFLAT_DIR/{specflat_ver}/biases/pixbiasave-{mjd}-{camera}.fits.gz
     survey: SDSS
     hdus:

@@ -30,6 +30,12 @@
         "description": "SDSS internal product launch 4",
         "public": false,
         "release_date": "2025-07-15"
+      },
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
       }
     ],
     "naming_convention": "$BOSS_SPECTRO_REDUX/[RUN2D]/trace/[MJD]/spTraceTab-[BR][ID]-[FRAME].fits",
@@ -41,7 +47,33 @@
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {}
+    "releases": {
+      "DR20": {
+        "from": "IPL4",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      }
+    }
   },
   "releases": {
     "IPL4": {
@@ -60,6 +92,69 @@
           "mjd",
           "id",
           "run2d"
+        ],
+        "access_string": "spTraceTab = $BOSS_SPECTRO_REDUX/{run2d}/trace/{mjd}/spTraceTab-{br}{id}-{frame}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "XY Trace Table for BOSS Spectrograph Data Reduction",
+          "size": "7 MB",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "-32",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "4112",
+              "comment": ""
+            },
+            {
+              "key": "NAXIS2",
+              "value": "500",
+              "comment": ""
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        }
+      },
+      "par": null,
+      "hdfs": null
+    },
+    "DR20": {
+      "template": "$BOSS_SPECTRO_REDUX/[RUN2D]/trace/[MJD]/spTraceTab-[BR][ID]-[FRAME].fits",
+      "example": "v6_2_1/trace/60708/spTraceTab-b2-00046778.fits",
+      "location": "{run2d}/trace/{mjd}/spTraceTab-{br}{id}-{frame}.fits",
+      "environment": "BOSS_SPECTRO_REDUX",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "spTraceTab",
+        "path_template": "$BOSS_SPECTRO_REDUX/{run2d}/trace/{mjd}/spTraceTab-{br}{id}-{frame}.fits",
+        "path_kwargs": [
+          "run2d",
+          "br",
+          "frame",
+          "id",
+          "mjd"
         ],
         "access_string": "spTraceTab = $BOSS_SPECTRO_REDUX/{run2d}/trace/{mjd}/spTraceTab-{br}{id}-{frame}.fits"
       },

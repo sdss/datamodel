@@ -19,7 +19,7 @@ A parameter file containing field-MJD-exposureID combinations for manual calibra
 $SDSSCORE_DIR/[OBS]/sdHdrfix/spManCal.par
 
 ### Releases
-IPL4
+IPL4, DR20
 
 ### Enviroments
 SDSSCORE_DIR
@@ -39,13 +39,16 @@ False
 ### Data Level
 0.3.0
 
-### PAR List for release IPL4
+### PAR List for release DR20
   - [OPMANCAL](#OPMANCAL)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
 
 ---
 ## Example PAR List

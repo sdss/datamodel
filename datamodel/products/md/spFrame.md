@@ -19,7 +19,7 @@ spFrame contains the non-calibrated spectra from the red- or blue-half of a sing
 $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/spFrame-[BR][ID]-[FRAME].fits.g
 
 ### Releases
-DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19, IPL4
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,42 +39,45 @@ False
 ### Data Level
 1.2.3
 
-### HDUS List for release DR19
-  - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1](#hdu1)
-  - [HDU2](#hdu2)
-  - [HDU3](#hdu3)
-  - [HDU4](#hdu4)
-  - [HDU5](#hdu5)
-  - [HDU6](#hdu6)
-  - [HDU7](#hdu7)
-  - [HDU8](#hdu8)
-  - [HDU9](#hdu9)
-  - [HDU10](#hdu10)
+### HDUS List for release DR20
+  - [HDU0: FLUX](#hdu0-flux)
+  - [HDU1: INVVAR](#hdu1-invvar)
+  - [HDU2: MASK](#hdu2-mask)
+  - [HDU3: WSET](#hdu3-wset)
+  - [HDU4: DISPSET](#hdu4-dispset)
+  - [HDU5: PLUGMAP](#hdu5-plugmap)
+  - [HDU6: SKY](#hdu6-sky)
+  - [HDU7: X](#hdu7-x)
+  - [HDU8: SUPERFLAT](#hdu8-superflat)
+  - [HDU9: RESLSET](#hdu9-reslset)
+  - [HDU10: RESID](#hdu10-resid)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
-   - added_hdus: ['SUPERFLAT', 'WSET', 'PLUGMAP', 'RESID', 'RESLSET', 'MASK', 'X', 'SKY', 'INVVAR', 'DISPSET', 'FLUX']
+   - added_hdus: ['INVVAR', 'FLUX', 'RESLSET', 'RESID', 'WSET', 'DISPSET', 'PLUGMAP', 'SUPERFLAT', 'MASK', 'SKY', 'X']
    - removed_hdus: ['PRIMARY']
    - primary_delta_nkeys: 4
-   - added_primary_header_kwargs: ['EXTNAME', 'M2FF', 'FFSPOS', 'SFLATMIN']
+   - added_primary_header_kwargs: ['FFSPOS', 'M2FF', 'EXTNAME', 'SFLATMIN']
  - DR19
    - from: IPL3
    - note: No changes
  - IPL3
    - from: DR18
    - primary_delta_nkeys: 63
-   - added_primary_header_kwargs: ['OBSERVAT', 'OFFDEC', 'SIGBS0', 'MECHORIX', 'SLITID', 'T_FLOOR', 'ARCHBVER', 'MCHUMHT', 'VJAEGER', 'INTSTART', 'CONFID', 'DAQVER', 'BOSSVER', 'VCALIBS', 'MECHORIY', 'CCDID', 'MCTBCT', 'INTEND', 'B2CAMH', 'T_PRIM', 'MCTRCB', 'MCTBCB', 'HA', 'SPEC', 'MCHUMCO', 'AVGAS0', 'MECHORIZ', 'T_CELL', 'HEAR', 'CCDTYPE', 'CONFSFIL', 'CENBS0', 'VCOORDIO', 'MCTRCT', 'COLLT', 'VKAIJU', 'ARCHACF', 'T_TRUSS', 'R2CAMH', 'OFFRA', 'T_OUT', 'AVGBS0', 'V_ARCHON', 'DESIGNID', 'FIELDID', 'OBSMODE', 'ARCHBACK', 'BUFFER', 'B2CAMT', 'T_IN', 'CCD', 'OFFPA', 'STDAS0', 'COLLH', 'R2CAMT', 'V_RAD', 'MCTEMDN', 'STDBS0', 'GSEEING', 'SPECMT', 'CCDSUM', 'ARCHTEMP', 'MCTHT']
-   - removed_primary_header_kwargs: ['AUTHOR', 'MC1HUMCO', 'MC1TRCT', 'MC1TBCT', 'MC1TEMDN', 'SIGBSH0', 'MC1HUMHT', 'AVGBSH0', 'PLUGFILE', 'MC1TRCB', 'CENBSH0', 'MGDDEC', 'CAMCOL', 'CAMROW', 'TWOPHASE', 'MGDRA', 'TILEID', 'MC1THT', 'AVGASH0', 'MC1TBCB', 'SLITID1', 'MGDPOS', 'STDBSH0', 'STDASH0']
+   - added_primary_header_kwargs: ['T_FLOOR', 'HA', 'V_RAD', 'OFFDEC', 'MECHORIY', 'COLLT', 'ARCHACF', 'HEAR', 'CCDTYPE', 'OBSERVAT', 'T_IN', 'OFFPA', 'MECHORIX', 'SIGBS0', 'ARCHTEMP', 'MCTBCB', 'CONFSFIL', 'STDBS0', 'INTEND', 'SLITID', 'AVGAS0', 'T_OUT', 'INTSTART', 'CCDID', 'OBSMODE', 'MCHUMCO', 'B2CAMT', 'MCTHT', 'DAQVER', 'VCALIBS', 'OFFRA', 'MCHUMHT', 'V_ARCHON', 'SPEC', 'ARCHBVER', 'SPECMT', 'R2CAMT', 'CONFID', 'GSEEING', 'CCD', 'AVGBS0', 'VCOORDIO', 'MCTEMDN', 'T_CELL', 'MCTRCB', 'CCDSUM', 'VJAEGER', 'B2CAMH', 'BUFFER', 'COLLH', 'FIELDID', 'STDAS0', 'DESIGNID', 'BOSSVER', 'MECHORIZ', 'T_TRUSS', 'CENBS0', 'ARCHBACK', 'R2CAMH', 'MCTRCT', 'T_PRIM', 'MCTBCT', 'VKAIJU']
+   - removed_primary_header_kwargs: ['MGDPOS', 'MC1TRCB', 'AUTHOR', 'SLITID1', 'CAMCOL', 'CENBSH0', 'STDASH0', 'MC1TBCB', 'AVGBSH0', 'STDBSH0', 'MC1TRCT', 'PLUGFILE', 'TWOPHASE', 'MGDRA', 'MC1TBCT', 'CAMROW', 'MC1HUMCO', 'AVGASH0', 'MGDDEC', 'TILEID', 'MC1THT', 'SIGBSH0', 'MC1TEMDN', 'MC1HUMHT']
  - DR18
    - from: DR17
    - primary_delta_nkeys: 45
-   - added_primary_header_kwargs: ['HUMIDITY', 'LN2TEMP', 'DUSTB', 'WINDS', 'DUSTA', 'PRESSURE', 'M1ZROT', 'WINDS25M', 'IONPUMP', 'REQTIME', 'WDISPR', 'V_APO', 'MC1HUMCO', 'TRUSTEMP', 'MC1TRCT', 'MC1TBCT', 'GUSTS', 'MC1TEMDN', 'SIGBSH0', 'MC1HUMHT', 'V_SOP', 'AVGBSH0', 'WINDD25M', 'M2ZROT', 'V_BOSS', 'MC1TRCB', 'PLATETYP', 'SRVYMODE', 'PFERR', 'CENBSH0', 'SUBFRAME', 'MGDDEC', 'WINDD', 'MGDRA', 'SHCLOTIM', 'AIRTEMP', 'MC1THT', 'DIDFLUSH', 'SHOPETIM', 'AVGASH0', 'MC1TBCB', 'SLITID1', 'DEWPOINT', 'MGDPOS', 'CCDTEMP', 'DARKTIME', 'STDBSH0', 'V_GUIDER', 'GUSTD', 'STDASH0']
-   - removed_primary_header_kwargs: ['DAQVER', 'PIXBIAS', 'OBJOFFY', 'BOSSVER', 'OBJOFFX']
+   - added_primary_header_kwargs: ['MGDPOS', 'MC1TRCB', 'DIDFLUSH', 'SLITID1', 'DEWPOINT', 'CENBSH0', 'PRESSURE', 'REQTIME', 'STDASH0', 'AIRTEMP', 'DUSTB', 'MC1TBCB', 'AVGBSH0', 'V_APO', 'WDISPR', 'STDBSH0', 'MC1TRCT', 'GUSTD', 'SHOPETIM', 'IONPUMP', 'MGDRA', 'M1ZROT', 'MC1TBCT', 'MC1HUMCO', 'AVGASH0', 'MGDDEC', 'SHCLOTIM', 'TRUSTEMP', 'WINDD25M', 'CCDTEMP', 'LN2TEMP', 'V_BOSS', 'V_SOP', 'GUSTS', 'WINDD', 'SRVYMODE', 'HUMIDITY', 'M2ZROT', 'DARKTIME', 'MC1THT', 'SIGBSH0', 'DUSTA', 'WINDS', 'PLATETYP', 'SUBFRAME', 'PFERR', 'MC1TEMDN', 'V_GUIDER', 'MC1HUMHT', 'WINDS25M']
+   - removed_primary_header_kwargs: ['OBJOFFX', 'BOSSVER', 'PIXBIAS', 'DAQVER', 'OBJOFFY']
  - DR17
    - from: DR16
    - note: No changes
@@ -103,7 +106,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 ---
 ## Example HDUS List
 
-### HDU0: PRIMARY
+### HDU0: FLUX
 Flux in flat fielded electrons
 
 #### HDU Type: IMAGE
@@ -112,12 +115,12 @@ Flux in flat fielded electrons
 ##### Header Table Caption for HDU0
 Key | Value | Comment | |
 | --- | --- | --- | --- |
-| SIMPLE | True | Written by IDL:  Wed Apr  3 02:01:41 2024 |
-| BITPIX | -32 | Number of bits per data pixel |
-| NAXIS | 2 | Number of data axes |
+| SIMPLE | True | Primary Header created by MWRFITS v1.13 |
+| BITPIX | -32 |  |
+| NAXIS | 2 |  |
 | NAXIS1 | 4112 |  |
 | NAXIS2 | 500 |  |
-| EXTEND | True |  |
+| EXTEND | True | Extensions may be present |
 |  |  |  |
 |  | INSTRUMENT INFO |  |
 | TELESCOP | SDSS 2.5-M | Telescope |
@@ -266,11 +269,11 @@ Key | Value | Comment | |
 | CAMDAQ | 1.5.0:37 | Camera Data Acquisition Version |
 | BOSSVER |  | ICC version |
 | VERSIDL | 8.8.0 | Version of IDL |
-| VERSUTIL | 6.0.0dev | Version of idlutils |
-| VERSREAD | v6_1_3 | Version of idlspec2d for pre-processing raw data |
+| VERSUTIL | 6.3.0 | Version of idlutils |
+| VERSREAD | v6_2_1 | Version of idlspec2d for pre-processing raw data |
 | VERSLOG | trunk 27531 | Version of SPECLOG product |
-| VERSFLAT | v1_35 | SPECFLAT version |
-| VERS2D | v6_1_3 | Version of idlspec2d for 2D reduction |
+| VERSFLAT | v1_36 | SPECFLAT version |
+| VERS2D | v6_2_1 | Version of idlspec2d for 2D reduction |
 |  |  |  |
 |  | APO WEATHER |  |
 | PRESSURE | 21.549 | APO SDSS 2.5m Air Pressure (inch Hg) |
@@ -301,6 +304,8 @@ Key | Value | Comment | |
 | HEAR | 0 0 0 0 | HeAr Arc lamps 1:On 0:off |
 | FF | 0 0 0 0 | Flat Field lamps 1:on 0:off |
 | FFS | 0 0 0 0 0 0 0 0 | Flatfield Screen 1:closed 0:open |
+| M2FF | 0 0 0 0 | LCO M2 Flat Field Lamps 1:on 0:off |
+| FFSPOS |  | FF screen position [deg] |
 | HARTMANN | Out | Hartmanns: Left,Right,Out,Closed |
 |  |  |  |
 |  | REDUCTION |  |
@@ -312,10 +317,10 @@ Key | Value | Comment | |
 | BADPIXEL | badpixels-59747-b1.fits.gz | Name of Badpixel mask used |
 |  |  |  |
 |  | PIPELINE OUTPUTS |  |
-| RUN2D | v6_1_3 | Spectro-2D reduction name |
+| RUN2D | v6_2_1 | Spectro-2D reduction name |
 | TAI-END | 5184020657.09 |  |
-| FRAMESN2 | 0.637019265761 | (S/N)^2 at fidicial magnitude |
-| DEREDSN2 | 0.637019265761 | Extinction corrected (S/N)^2 (like quick redux) |
+| FRAMESN2 | 0.671881083121 | (S/N)^2 at fidicial magnitude |
+| DEREDSN2 | 0.671881083121 | Extinction corrected (S/N)^2 (like quick redux) |
 | REDDEN01 | 0.0 | Median extinction in u-band |
 | REDDEN02 | 0.0 | Median extinction in g-band |
 | REDDEN03 | 0.0 | Median extinction in r-band |
@@ -332,7 +337,7 @@ Key | Value | Comment | |
 | SKYLIST | skylines.dat |  |
 | OBSMODE | dark_rm |  |
 | SIGBS0 | 0.034 | 5577.3 line gaussian fit sigma position before |
-| CENBS0 | -0.272 | 5577.3 line gaussian fit center position before |
+| CENBS0 | -0.271 | 5577.3 line gaussian fit center position before |
 | AVGBS0 | -0.289 | 5577.3 line average position before shift (pixe |
 | STDBS0 | 0.042 | 5577.3 line std position before shift (pixels) |
 | AVGAS0 | -0.001 | 5577.3 line average position after shift (pixel |
@@ -341,8 +346,9 @@ Key | Value | Comment | |
 | V_RAD | 1.95078733724 | radial velocity relative to the barycenter (add |
 | VACUUM | True | Wavelengths are in vacuum |
 | SFLATTEN | True | Superflat has been applied |
+| SFLATMIN | 0.005 | Superflat Minimum |
 | PSFSKY | 3 | Order of PSF skysubtraction |
-| SKYCHI2 | 0.900314249399 | Mean chi^2 of sky-subtraction |
+| SKYCHI2 | 0.884752939422 | Mean chi^2 of sky-subtraction |
 | PREJECT | 0.2 | Profile area rejection threshold |
 | LOWREJ | 4 | Extraction: low rejection |
 | HIGHREJ | 50 | Extraction: high rejection |
@@ -350,10 +356,11 @@ Key | Value | Comment | |
 | PROFTYPE | 1 | Extraction profile: 1=Gaussian |
 | NFITPOLY | 1 | Extraction: Number of parameters in each profil |
 | XCHI2 | 0.0 | Extraction: Mean chi^2 |
+| EXTNAME | FLUX |  |
 
 
 
-### HDU1: 
+### HDU1: INVVAR
 Inverse variance (1/sigma^2) for the Flux
 
 #### HDU Type: IMAGE
@@ -367,12 +374,13 @@ Key | Value | Comment | |
 | NAXIS | 2 |  |
 | NAXIS1 | 4112 |  |
 | NAXIS2 | 500 |  |
+| EXTNAME | INVVAR |  |
 | PCOUNT | 0 |  |
 | GCOUNT | 1 |  |
 
 
 
-### HDU2: 
+### HDU2: MASK
 Pixel mask
 
 #### HDU Type: IMAGE
@@ -386,12 +394,13 @@ Key | Value | Comment | |
 | NAXIS | 2 |  |
 | NAXIS1 | 4112 |  |
 | NAXIS2 | 500 |  |
+| EXTNAME | MASK |  |
 | PCOUNT | 0 |  |
 | GCOUNT | 1 |  |
 
 
 
-### HDU3: 
+### HDU3: WSET
 Wavelength solution set in log-10 Angstroms (vacuum)
 
 #### HDU Type: BINARY TABLE
@@ -411,6 +420,7 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** End of mandatory fields *** |  |
 | COMMENT |  |  |
+| EXTNAME | WSET |  |
 | COMMENT |  |  |
 | COMMENT |  *** Column formats *** |  |
 | COMMENT |  |  |
@@ -432,7 +442,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU4: 
+### HDU4: DISPSET
 Wavelength dispersion traceset (sigma of fitted Gaussian) in units of number of pixels
 
 #### HDU Type: BINARY TABLE
@@ -452,6 +462,7 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** End of mandatory fields *** |  |
 | COMMENT |  |  |
+| EXTNAME | DISPSET |  |
 | COMMENT |  |  |
 | COMMENT |  *** Column formats *** |  |
 | COMMENT |  |  |
@@ -473,11 +484,11 @@ Name | Type | Unit | Description |
 
 
 
-### HDU5: 
+### HDU5: PLUGMAP
 plugmap (Fiber to Target mapped metadata)
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  545 KB
+#### HDU Size:  631 KB
 
 ##### Header Table Caption for HDU5
 Key | Value | Comment | |
@@ -485,14 +496,15 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | Binary table written by MWRFITS v1.13 |
 | BITPIX | 8 | Required value |
 | NAXIS | 2 | Required value |
-| NAXIS1 | 1118 | Number of bytes per row |
+| NAXIS1 | 1294 | Number of bytes per row |
 | NAXIS2 | 500 | Number of rows |
 | PCOUNT | 0 | Normally 0 (no varying arrays) |
 | GCOUNT | 1 | Required value |
-| TFIELDS | 99 | Number of columns in table |
+| TFIELDS | 116 | Number of columns in table |
 | COMMENT |  |  |
 | COMMENT |  *** End of mandatory fields *** |  |
 | COMMENT |  |  |
+| EXTNAME | PLUGMAP |  |
 | COMMENT |  |  |
 | COMMENT |  *** Column formats *** |  |
 | COMMENT |  |  |
@@ -513,6 +525,7 @@ Name | Type | Unit | Description |
  | ON_TARGET | int64 |  | Whether this fiber is on target |
  | VALID | int64 |  | alpha and beta angles are valid |
  | DECOLLIDED | int64 |  | this positioner had to be moved to decollide it |
+ | TOO | int64 |  | the fiber is allocated to a TOO |
  | FIBERMASK | int64 |  | Fiber level bitmasks (maps to SPPIXMASK) |
  | BADSTDMASK | int64 |  | Standard rejected by magnitude range of design |
  | THROUGHPUT | int64 |  | Plate Fiber throughput (0-65535, 0=no light) |
@@ -523,6 +536,9 @@ Name | Type | Unit | Description |
  | XWOK | float64 | mm | The X value in the FPS WOK coordinates |
  | YWOK | float64 | mm | The Y value in the FPS WOK coordinates |
  | ZWOK | float64 | mm | The X value in the FPS WOK coordinates |
+ | XWOK_PRE | float64 | mm | The XWOK pre FVC Loop |
+ | YWOK_PRE | float64 | mm | The YWOK pre FVC Loop |
+ | ZWOK_PRE | float64 | mm | The ZWOK pre FVC Loop |
  | XFOCAL | float64 | mm | Hole x-axis position in focal plane per exposure |
  | YFOCAL | float64 | mm | Hole y-axis position in focal plane per exposure |
  | ZOFFSET | float64 | micron | backstopping offset distance (from washers) |
@@ -536,10 +552,16 @@ Name | Type | Unit | Description |
  | DEC | float64 | deg | Calculated on sky fiber Dec including delta_DEC |
  | DELTA_RA | float64 | arcsec | The amount in RA this fiber has been offset |
  | DELTA_DEC | float64 | arcsec | The amount in Dec this fiber has been offset |
+ | RA_OBSERVED | float64 | deg | RA with correction for atmospheric refraction |
+ | DEC_OBSERVED | float64 | deg | Dec with correction for atmospheric refraction |
+ | ALT_OBSERVED | float64 | deg | alt with correction for atmospheric refraction |
+ | AZ_OBSERVED | float64 | deg | Az with correction for atmospheric refraction |
  | FIBER_OFFSET | int64 |  | Flag identifying the fiber was offset by design |
+ | MEASUREDOFFSET | float64 | arcsec | Measured offset between Fiber & Catalog Coord |
+ | WOKOFFSET | float64 | mm | Measured offset in the Wok Coordinates |
  | LAMBDA_EFF | float64 | AA | Wavelength used for coordinate transformations |
  | SPECTROGRAPHID | int64 |  | Spectrograph to which the fibre is assigned. (SDSS-V: 1 = BOSS, 2 = APOGEE) or (SDSS-IV: 1=BOSS SP1, 2=BOSS SP2) |
- | OPTICAL_PROV | char[11] |  | The source of the CATDB_MAG optical magnitudes |
+ | OPTICAL_PROV | char[21] |  | The source of the CATDB_MAG optical magnitudes |
  | MAG | float64[5] |  | [u, g, r, i, z] optical magnitudes |
  | PSFMAG | float64[5] |  | [u, g, r, i, z] optical PSF magnitudes |
  | FIBER2MAG | float64[5] |  | [u, g, r, i, z] optical Fiber2 magnitudes |
@@ -548,7 +570,7 @@ Name | Type | Unit | Description |
  | GAIA_G_MAG | float64 |  | Gaia G magnitude |
  | BP_MAG | float64 |  | Gaia BP magnitude |
  | RP_MAG | float64 |  | Gaia RP magnitude |
- | GAIA_ID | int64 |  | Gaia-DR2 ID |
+ | GAIA_ID | int64 |  | Gaia-DR3 ID |
  | H_MAG | float64 |  | 2MASS H magnitude |
  | WISE_MAG | float64[4] |  | WISE [W1, W2, W3, W4] band magnitudes |
  | TWOMASS_MAG | float64[3] |  | 2MASS [J, H, Ks] band magnitudes |
@@ -568,6 +590,9 @@ Name | Type | Unit | Description |
  | CATALOGID | char[18] |  | CatalogID or uHHMMSS.S+DDMMSS.S for unassigned |
  | ICATALOGID | int64 |  | Raw SDSS-V CatalogID |
  | SDSS_ID | int64 |  | SDSS_ID of Target |
+ | CATALOGID_V0 | int64 |  | V0 (Plate) Crossmatch CatalogID from SDSS_ID |
+ | CATALOGID_V0P5 | int64 |  | V0.5 (FPS) Crossmatch CatalogID from SDSS_ID |
+ | CATALOGID_V1 | int64 |  | V1 (FPS) Crossmatch CatalogID from SDSS_ID |
  | CATVERSION | char[5] |  | Catalog Version of SDSS-V CatalogID |
  | CARTON_TO_TARGET_PK | int64 |  | SDSS-V Carton_to_Target primary key for SDSSDB |
  | FIRSTCARTON | char[17] |  | Main carton from which this carton was drawn |
@@ -575,6 +600,9 @@ Name | Type | Unit | Description |
  | PROGRAM | char[7] |  | Program for 'firstcarton' |
  | MAPPER | char[3] |  | SDSS-V Mapper for target |
  | SURVEY | char[3] |  | SDSS Survey for target |
+ | TOO_ID | int64 |  | SDSS-V Target of Opportunity ID (if TOO=1) |
+ | TOO_PROGRAM | char |  | SDSS-V Target of Opportunity Program (if TOO=1) |
+ | SDSS5_TARGET_FLAGS | bool[69] |  | Targeting Flags for SSDSV Targeting |
  | SDSSC2BV | char |  | SDSS5_TARGET_FLAG Carton to Bit Version |
  | SDSSV_BOSS_TARGET0 | int64 |  | Targeting bitmask for SDSSV-BOSS |
  | SDSSV_APOGEE_TARGET0 | int64 |  | Targeting bitmask for SDSSV-APOGEE |
@@ -586,7 +614,7 @@ Name | Type | Unit | Description |
  | EBOSS_TARGET1 | int64 |  | Targeting bitmask for SDSS-IV eBOSS |
  | EBOSS_TARGET2 | int64 |  | Targeting bitmask for SDSS-IV eBOSS |
  | EBOSS_TARGET_ID | int64 |  | Targeting bitmask for SDSS-IV eBOSS |
- | THING_ID_TARGETING | int64 |  | thing_id from targeting version |
+ | THING_ID_TARGETING | int64 |  | Targeting bitmask for SDSS-IV eBOSS |
  | PRIMTARGET | int64 |  | Plate Primary target flags |
  | SECTARGET | int64 |  | Plate Secondary target flags |
  | STARL | float64 |  | likelihood object is star (0-1, Plate OBJECT holes only) |
@@ -599,13 +627,14 @@ Name | Type | Unit | Description |
  | ID | int64 |  | SDSS imaging id, for SDSS imaging targets |
  | FIELDCADENCE | char[13] |  | SDSS-V FPS Field Cadence |
  | CADENCE | char[10] |  | SDSS-V FPS target Cadence |
- | SDSS5_TARGET_FLAGS | bool[29] |  | Targeting Flags for SSDSV Targeting |
+ | DESIGN_VERS | char[6] |  | robostrategy Run or platedesign version |
+ | DESIGN_MODE | char[7] |  | SDSS-V DesignMode Mode |
  | EBV | float32 |  | dust extinction |
  | EBV_TYPE | char[3] |  | dust extinction source |
 
 
 
-### HDU6: 
+### HDU6: SKY
 Sky flux in flat fielded electrons
 
 #### HDU Type: IMAGE
@@ -619,12 +648,13 @@ Key | Value | Comment | |
 | NAXIS | 2 |  |
 | NAXIS1 | 4112 |  |
 | NAXIS2 | 500 |  |
+| EXTNAME | SKY |  |
 | PCOUNT | 0 |  |
 | GCOUNT | 1 |  |
 
 
 
-### HDU7: 
+### HDU7: X
 X position on the CCD
 
 #### HDU Type: IMAGE
@@ -638,12 +668,13 @@ Key | Value | Comment | |
 | NAXIS | 2 |  |
 | NAXIS1 | 4112 |  |
 | NAXIS2 | 500 |  |
+| EXTNAME | X |  |
 | PCOUNT | 0 |  |
 | GCOUNT | 1 |  |
 
 
 
-### HDU8: 
+### HDU8: SUPERFLAT
 superflat applied to the flux
 
 #### HDU Type: IMAGE
@@ -657,12 +688,13 @@ Key | Value | Comment | |
 | NAXIS | 2 |  |
 | NAXIS1 | 4112 |  |
 | NAXIS2 | 500 |  |
+| EXTNAME | SUPERFLAT |  |
 | PCOUNT | 0 |  |
 | GCOUNT | 1 |  |
 
 
 
-### HDU9: 
+### HDU9: RESLSET
 reslset
 
 #### HDU Type: BINARY TABLE
@@ -682,6 +714,7 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** End of mandatory fields *** |  |
 | COMMENT |  |  |
+| EXTNAME | RESLSET |  |
 | COMMENT |  |  |
 | COMMENT |  *** Column formats *** |  |
 | COMMENT |  |  |
@@ -703,7 +736,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU10: 
+### HDU10: RESID
 skystruct
 
 #### HDU Type: IMAGE
@@ -715,6 +748,7 @@ Key | Value | Comment | |
 | XTENSION | IMAGE | Image Extension created by MWRFITS v1.13 |
 | BITPIX | 8 |  |
 | NAXIS | 0 |  |
+| EXTNAME | RESID |  |
 | PCOUNT | 0 |  |
 | GCOUNT | 1 |  |
 
