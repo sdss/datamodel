@@ -11,8 +11,8 @@ general:
     \ showing strong sky-subtraction residuals\n0.2  - Sy2 objects, all at z < 0.5\n\
     1.0  - Type-1 AGN showing both Ha and Hb BCs\n1.1  - Optical spectra with z correction\n\
     1.9  - Sy 1.9 spectra without HbBC but with HaBC\n-1.0 - UV spectra with incorrectly\
-    \ assigned z\n\nThe second table contains the measurements of the CaII-H and Hb\
-    \ indices for a \nmore comprehensive sample (6439 quasars), selected by having\
+    \ assigned z.\n\nThe second table contains the measurements of the CaII-H and\
+    \ Hb indices for a \nmore comprehensive sample (6439 quasars), selected by having\
     \ 0.01 < z < 0.8, \nSN_MEDIAN_ALL > 15, FIRSTCARTON containing 'bhm' in the label,\
     \ and CLASS = QSO.\n"
   datatype: FITS
@@ -25,11 +25,11 @@ general:
   - SDSS
   naming_convention: $BHM_QSO_HOST/qms_hg/qms_hg_index_diagram-[V_VAC].fits, where
     V_VAC=1.0.0 for DR20.
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  generated_by: See <a href='https://ui.adsabs.harvard.edu/abs/2025MNRAS.543.4272N'>Negrete\n\
+    et al. 2025</a>.
   data_level: 3.3.0
   design: false
-  vac: true
+  vac: false
   recommended_science_product: true
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
@@ -52,7 +52,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: This is an empty HDU.
         is_image: true
         size: 0 bytes
         header:
@@ -70,7 +70,9 @@ releases:
           comment: ''
       hdu1:
         name: N25_INDEXDIAGRAM
-        description: replace me description
+        description: "This table contains the measurements and products derived for\
+          \ the data \nsample used in <a href='https://ui.adsabs.harvard.edu/abs/2025MNRAS.543.4272N'>Negrete\n\
+          et al. 2025</a>."
         is_image: false
         size: 704 KB
         header:
@@ -114,13 +116,13 @@ releases:
           value: mag
           comment: ''
         - key: TUNIT8
-          value: 10**-17 cm-2 erg s-1
+          value: 10^-17 cm-2 erg s-1
           comment: ''
         - key: TUNIT9
-          value: 10**-17 cm-2 erg s-1
+          value: 10^-17 cm-2 erg s-1
           comment: ''
         - key: TUNIT11
-          value: 10**-17 cm-2 erg s-1
+          value: 10^-17 cm-2 erg s-1
           comment: ''
         - key: TUNIT14
           value: Angstrom
@@ -163,150 +165,153 @@ releases:
             name: Object
             type: char[16]
             unit: ''
-            description: replace me - with content
+            description: Object name
           RA:
             name: RA
             type: float64
             unit: deg
-            description: replace me - with content
+            description: RA of the object
           DEC:
             name: DEC
             type: float64
             unit: deg
-            description: replace me - with content
+            description: DEC of the object
           CATALOGID:
             name: CATALOGID
             type: int64
             unit: ''
-            description: replace me - with content
+            description: SDSS Catalog ID of the object
           z_TW:
             name: z_TW
             type: float64
             unit: ''
-            description: replace me - with content
+            description: Redshift used in This Work
           z:
             name: z
             type: float64
             unit: ''
-            description: replace me - with content
+            description: Redshift extracted from the DR20
           g_r:
             name: g_r
             type: float64
             unit: mag
-            description: replace me - with content
+            description: g - r color
           fcont_5100:
             name: fcont_5100
             type: float64
-            unit: 10**-17 cm-2 erg s-1
-            description: replace me - with content
+            unit: 10^-17 cm-2 erg s-1
+            description: Continuum flux at 5100 AA
           fcont_5100_err:
             name: fcont_5100_err
             type: float64
-            unit: 10**-17 cm-2 erg s-1
-            description: replace me - with content
+            unit: 10^-17 cm-2 erg s-1
+            description: Continuum flux at 5100 AA error
           fhb_c4750:
             name: fhb_c4750
             type: float64
             unit: ''
-            description: replace me - with content
+            description: Flux ratio of the Hb blue band and the continuum at 4750
+              AA
           fcont_6400:
             name: fcont_6400
             type: float64
-            unit: 10**-17 cm-2 erg s-1
-            description: replace me - with content
+            unit: 10^-17 cm-2 erg s-1
+            description: Continuum flux at 6400 AA
           fblue_fcont:
             name: fblue_fcont
             type: float64
             unit: ''
-            description: replace me - with content
+            description: Flux ratio of the Ha blue band and the continuum at 6400
+              AA
           fred_fcont:
             name: fred_fcont
             type: float64
             unit: ''
-            description: replace me - with content
+            description: Flux ratio of the Ha red band and the continuum at 6400 AA
           H_index:
             name: H_index
             type: float64
             unit: Angstrom
-            description: replace me - with content
+            description: CaII-H band index
           Hb_index:
             name: Hb_index
             type: float64
             unit: Angstrom
-            description: replace me - with content
+            description: Hb Lick index
           SI:
             name: SI
             type: float64
             unit: ''
-            description: replace me - with content
+            description: Spectral Identifier of the object type
           Family:
             name: Family
             type: int64
             unit: ''
-            description: replace me - with content
+            description: Identifier of the AGN-HG dominance AGND=1 INT=2 and HGD=3
           RFeII:
             name: RFeII
             type: float64
             unit: ''
-            description: replace me - with content
+            description: Flux ratio of FeII and Hb broad component
           FWHM_1000:
             name: FWHM_1000
             type: float64
             unit: km s-1
-            description: replace me - with content
+            description: FWHM of Hb broad component / 1000
           Pop:
             name: Pop
             type: char[2]
             unit: ''
-            description: replace me - with content
+            description: Population designation in the Quasar Main Sequence
           logMBH:
             name: logMBH
             type: float64
-            unit: solMass
-            description: replace me - with content
+            unit: log(Msun)
+            description: Logarithm of the Black Hole Mass
           REdd:
             name: REdd
             type: float64
             unit: ''
-            description: replace me - with content
+            description: Eddington ratio
           L_bol:
             name: L_bol
             type: float64
             unit: erg s-1
-            description: replace me - with content
+            description: Bolometric luminosity
           Lum_g:
             name: Lum_g
             type: float64
             unit: erg s-1
-            description: replace me - with content
+            description: Luminosity of the g band
           Lum_20cm:
             name: Lum_20cm
             type: float64
             unit: erg s-1
-            description: replace me - with content
+            description: Luminosity of the emission at 20 cm
           RK:
             name: RK
             type: float64
             unit: ''
-            description: replace me - with content
+            description: Modified Kellerman's ratio
           Lum_W3:
             name: Lum_W3
             type: float64
             unit: erg s-1
-            description: replace me - with content
+            description: Luminosity of the wise W3 band
           W1_W2:
             name: W1_W2
             type: float64
             unit: mag
-            description: replace me - with content
+            description: W1-W2 Wise color
           W2_W3:
             name: W2_W3
             type: float64
             unit: mag
-            description: replace me - with content
+            description: W2-W3 Wise color
       hdu2:
         name: DR20_H_HB_INDICES
-        description: replace me description
+        description: "This table contains the measurements of the CaII-H and Hb indices\
+          \ for an \nextended sample."
         is_image: false
         size: 352 KB
         header:
@@ -357,32 +362,32 @@ releases:
             name: Object
             type: char[16]
             unit: ''
-            description: replace me - with content
+            description: Object name
           RA:
             name: RA
             type: float64
             unit: deg
-            description: replace me - with content
+            description: RA of the object
           DEC:
             name: DEC
             type: float64
             unit: deg
-            description: replace me - with content
+            description: DEC of the object
           CATALOGID:
             name: CATALOGID
             type: int64
             unit: ''
-            description: replace me - with content
+            description: SDSS Catalog ID of the object
           H_index:
             name: H_index
             type: float64
             unit: Angstrom
-            description: replace me - with content
+            description: CaII-H band index
           Hb_index:
             name: Hb_index
             type: float64
             unit: Angstrom
-            description: replace me - with content
+            description: Hb Lick index
 notes: |-
   None
 regrets: |-
