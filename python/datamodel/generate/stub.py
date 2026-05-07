@@ -43,6 +43,7 @@ class BaseStub(abc.ABC):
         # cache control attrs
         self.use_cache_release = use_cache_release
         self.full_cache = full_cache
+        
         self.force = force
 
         # content attrs
