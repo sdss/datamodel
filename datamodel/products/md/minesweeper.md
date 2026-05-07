@@ -123,7 +123,7 @@ Name | Type | Unit | Description |
  | BP_RP | float32 | mag | Gaia DR3 BP-RP color index |
  | l | float64 | deg | Galactic longitude |
  | b | float64 | deg | Galactic latitude |
- | circularity | float64 | replace me - with content | replace me - with content |
+ | circularity | float64 |  | normalized orbital circularity parameter |
  | catalogid | int64 |  | SDSS catalog identification number |
  | sdssid | int64 |  | SDSS object identifier |
  | field | int64 |  | Field number for the observation |
@@ -185,11 +185,11 @@ Name | Type | Unit | Description |
  | aFe_lerr | float64 | dex | Lower error on alpha enhancement |
  | aFe_uerr | float64 | dex | Upper error on alpha enhancement |
  | aFe_err | float64 | dex | Uncertainty on alpha enhancement |
- | Vrad_MS | float64 | replace me - with content | replace me - with content |
- | Vrad_MS_lerr | float64 | replace me - with content | replace me - with content |
- | Vrad_MS_uerr | float64 | replace me - with content | replace me - with content |
- | Vrad_MS_err | float64 | replace me - with content | replace me - with content |
- | Vrot | float64 | km/s | Projected rotational velocity |
+ | Vrad_MS | float64 | km/s | Radial velocity measured in the MINESweeper wavelength range (unreliable WL calibration) |
+ | Vrad_MS_lerr | float64 | km/s | Lower error on radial velocity measured in the MINESweeper wavelength range |
+ | Vrad_MS_uerr | float64 | km/s | Upper error on radial velocity measured in the MINESweeper wavelength range |
+ | Vrad_MS_err | float64 | km/s | Error on radial velocity measured in the MINESweeper wavelength range |
+ | Vrot | float64 | km/s | Projected rotational velocity - do not use for science, since the intrinsic LSF is uncertain. |
  | Vrot_lerr | float64 | km/s | Lower error on Vrot |
  | Vrot_uerr | float64 | km/s | Upper error on Vrot |
  | Vrot_err | float64 | km/s | Uncertainty on Vrot |
