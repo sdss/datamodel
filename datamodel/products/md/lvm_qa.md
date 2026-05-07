@@ -141,8 +141,8 @@ Name | Type | Unit | Description |
  | Metric | char[14] | dimensionless | Name of the QA metric corresponding to one decoded QA flag and one packed 2-bit field in qa_bitmask. |
  | Bits | char[5] | bit index | Bit positions assigned to the metric within the packed qa_bitmask. |
  | Description | char[67] | dimensionless | Text description of the QA metric and the data-quality aspect it summarizes. |
- | WARNING | char[105] | dimensionless | Criterion or explanatory text for assigning the WARNING state to the metric; exact quantitative thresholds may be provided in the DR20 webpages. |
- | MAJOR ISSUE | char[136] | dimensionless | Criterion or explanatory text for assigning the MAJOR ISSUE state to the metric; exact quantitative thresholds may be provided in the DR20 webpages. |
+ | WARNING | char[105] | dimensionless | Criterion or explanatory text for assigning the WARNING state to the metric. |
+ | MAJOR ISSUE | char[136] | dimensionless | Criterion or explanatory text for assigning the MAJOR ISSUE state to the metric. |
 
 
 
