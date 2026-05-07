@@ -1,7 +1,7 @@
 general:
   name: lvm_dap_model
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: LVM DR20 DAP model FITS file containing the observed spectra, reconstructed stellar and gas models, joint models, and residual spectra for one analyzed exposure.
+  description: 'The LVM DR20 DAP model file is a companion product to the standard DAP file for a single analyzed exposure. It contains a single three-dimensional image array in the PRIMARY HDU with dimensions Nwave x Nspec x 9, where Nwave is the number of wavelength pixels, Nspec is the number of analyzed science fibers, and the third axis stores nine reconstructed spectral components. The wavelength solution is stored in the standard FITS keywords CRPIX1, CRVAL1, and CDELT1. The component planes are identified by the NAME0--NAME8 header keywords: org_spec, model_spec, mod_joint_spec, gas_spec, res_joint_spec, no_gas_spec, gas_model_NP, gas_model_PEK, and mod_joint_spec_PEK. These planes provide the observed spectrum, the stellar-continuum model, the joint stellar-plus-gas model, the gas-only spectrum, the residual after subtracting the joint model, the spectrum with the non-parametric gas model removed, the non-parametric gas model, the refined parametric emission-line model, and the joint model built with the refined parametric gas model. The spectra are sampled from 3600 to 9800 Angstrom with 0.5 Angstrom pixels in the DR20 example, and the spectral values use the LVM per-fiber spectral flux-density convention, 10^-16 erg/s/cm^2/Angstrom measured in one fiber area.'
   datatype: FITS
   filesize: 746 MB
   releases:
@@ -17,8 +17,7 @@ general:
   vac: false
   recommended_science_product: true
 changelog:
-  description: Describes changes to the datamodel product and/or file structure from
-    one release to another
+  description: Describes changes to the datamodel product and/or file structure from one release to another
   releases: {}
 releases:
   DR20:
@@ -36,7 +35,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: 'Primary HDU containing the complete DAP model cube for one exposure. The image has dimensions Nwave x Nspec x 9 and stores nine spectral-component planes identified by the NAME0--NAME8 header keywords. The first axis is wavelength, defined by CRPIX1, CRVAL1, and CDELT1; the second axis is the analyzed fiber index; and the third axis is the model-component index. The planes are: NAME0=org_spec, the original observed spectrum; NAME1=model_spec, the reconstructed stellar-continuum model; NAME2=mod_joint_spec, the joint stellar-plus-non-parametric-gas model; NAME3=gas_spec, the gas-only spectrum after subtracting the stellar model; NAME4=res_joint_spec, the residual after subtracting the joint model; NAME5=no_gas_spec, the observed spectrum with the non-parametric gas model removed; NAME6=gas_model_NP, the non-parametric emission-line gas model; NAME7=gas_model_PEK, the refined parametric emission-line gas model; and NAME8=mod_joint_spec_PEK, the joint model built with the refined parametric emission-line model. All planes are stored as spectral flux densities in the LVM per-fiber convention, 10^-16 erg/s/cm^2/Angstrom measured in one fiber area.'
         is_image: true
         size: 746 MB
         header:
