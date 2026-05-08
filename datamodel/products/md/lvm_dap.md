@@ -16,7 +16,7 @@ Multi-extension LVM DAP FITS file containing per-fiber stellar and emission-line
 The file dap-{rspid}-{snlevel}-{expnum}.{daptype}.fits is the standard multi-extension FITS product delivered by the LVM Data Analysis Pipeline for a single reduced frame or row-stacked-spectra exposure. The PRIMARY extension preserves the original input header for traceability, while the remaining table extensions store the position table of each science fiber on the sky, the luminosity-weighted and mass-weighted stellar properties derived from the stellar decomposition, the coefficients of the resolved-stellar-population decomposition, the emission-line measurements from the first and second parametric analyses, the non-parametric emission-line measurements for the blue, red, and infrared spectrograph arms, the instrumental-resolution-corrected velocity dispersions and reduced chi-square values for each analyzed emission line, the average instrumental-resolution correction and chi-square statistics for each line, and the configuration parameters adopted to run the LVM-DAP. Emission-line fluxes are reported in units of 10^-16 erg/s/cm^2 measured in one fiber area, where each fiber area corresponds to 0.2718 arcmin^2; continuum flux densities are reported in units of 10^-16 erg/s/cm^2/Angstrom measured in one fiber area.
 
 ### Naming Convention
-$LVM_SPECTRO_ANALYSIS/[DRPVER]/[DAPVER]/[TILEGRP]/[TILEID]/[MJD]/[EXPNUM]/dap-[RSPID]-[SNLEVEL]-[EXPNUM]\.[DAPTYPE]\.fits$
+$LVM_SPECTRO_ANALYSIS/[DRPVER]/[DAPVER]/[TILEGRP]/[TILEID]/[MJD]/[EXPNUM]/dap-[RSPID]-[SNLEVEL]-[EXPNUM]\.dap\.fits$
 
 ### Releases
 DR20

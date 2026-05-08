@@ -16,7 +16,7 @@ LVM DR20 LV_dap model FITS file containing the observed spectra, reconstructed s
 The LVM DR20 LV_dap model file is a companion product to the standard DAP file for a single analyzed Local Volume galaxy exposure with Milky Way foreground subtraction. It contains a single three-dimensional image array in the PRIMARY HDU with dimensions Nwave x Nspec x 9, where Nwave is the number of wavelength pixels, Nspec is the number of analyzed science fibers, and the third axis stores nine reconstructed spectral components. The wavelength solution is stored in the standard FITS keywords CRPIX1, CRVAL1, and CDELT1. The component planes are identified by the NAME0--NAME8 header keywords: org_spec, model_spec, mod_joint_spec, gas_spec, res_joint_spec, no_gas_spec, gas_model_NP, gas_model_PEK, and mod_joint_spec_PEK. These planes provide the observed spectrum, the stellar-continuum model, the joint stellar-plus-gas model, the gas-only spectrum, the residual after subtracting the joint model, the spectrum with the non-parametric gas model removed, the non-parametric gas model, the refined parametric emission-line model, and the joint model built with the refined parametric gas model. The spectra are sampled from 3600 to 9800 Angstrom with 0.5 Angstrom pixels in the DR20 example, and the spectral values use the LVM per-fiber spectral flux-density convention, 10^-16 erg/s/cm^2/Angstrom measured in one fiber area.
 
 ### Naming Convention
-$LVM_SPECTRO_ANALYSIS/[DRPVER]/[DAPVER]/[TILEGRP]/[TILEID]/[MJD]/[EXPNUM]/LV_dap-[RSPID]-[SNLEVEL]-[EXPNUM].[DAPTYPE].fits
+$LVM_SPECTRO_ANALYSIS/[DRPVER]/[DAPVER]/[TILEGRP]/[TILEID]/[MJD]/[EXPNUM]/LV_dap-[RSPID]-[SNLEVEL]-[EXPNUM].model.fits
 
 ### Releases
 DR20
