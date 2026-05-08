@@ -1,23 +1,25 @@
 general:
-  name: lvm_dap_model
-  short: LVM DR20 DAP model FITS file containing the observed spectra, reconstructed
-    stellar and gas models, joint models, and residual spectra for one analyzed exposure.
-  description: 'The LVM DR20 DAP model file is a companion product to the standard
-    DAP file for a single analyzed exposure. It contains a single three-dimensional
-    image array in the PRIMARY HDU with dimensions Nwave x Nspec x 9, where Nwave
-    is the number of wavelength pixels, Nspec is the number of analyzed science fibers,
-    and the third axis stores nine reconstructed spectral components. The wavelength
-    solution is stored in the standard FITS keywords CRPIX1, CRVAL1, and CDELT1. The
-    component planes are identified by the NAME0--NAME8 header keywords: org_spec,
-    model_spec, mod_joint_spec, gas_spec, res_joint_spec, no_gas_spec, gas_model_NP,
-    gas_model_PEK, and mod_joint_spec_PEK. These planes provide the observed spectrum,
-    the stellar-continuum model, the joint stellar-plus-gas model, the gas-only spectrum,
-    the residual after subtracting the joint model, the spectrum with the non-parametric
-    gas model removed, the non-parametric gas model, the refined parametric emission-line
-    model, and the joint model built with the refined parametric gas model. The spectra
-    are sampled from 3600 to 9800 Angstrom with 0.5 Angstrom pixels in the DR20 example,
-    and the spectral values use the LVM per-fiber spectral flux-density convention,
-    10^-16 erg/s/cm^2/Angstrom measured in one fiber area.'
+  name: lvm_lv_dap_model
+  short: LVM DR20 LV_dap model FITS file containing the observed spectra, reconstructed
+    stellar and gas models, joint models, and residual spectra for one analyzed exposure,
+    for a single Local Volume galaxy exposure with Milky Way foreground subtraction.
+  description: 'The LVM DR20 LV_dap model file is a companion product to the standard
+    DAP file for a single analyzed Local Volume galaxy exposure with Milky Way foreground
+    subtraction. It contains a single three-dimensional image array in the PRIMARY
+    HDU with dimensions Nwave x Nspec x 9, where Nwave is the number of wavelength
+    pixels, Nspec is the number of analyzed science fibers, and the third axis stores
+    nine reconstructed spectral components. The wavelength solution is stored in the
+    standard FITS keywords CRPIX1, CRVAL1, and CDELT1. The component planes are identified
+    by the NAME0--NAME8 header keywords: org_spec, model_spec, mod_joint_spec, gas_spec,
+    res_joint_spec, no_gas_spec, gas_model_NP, gas_model_PEK, and mod_joint_spec_PEK.
+    These planes provide the observed spectrum, the stellar-continuum model, the joint
+    stellar-plus-gas model, the gas-only spectrum, the residual after subtracting
+    the joint model, the spectrum with the non-parametric gas model removed, the non-parametric
+    gas model, the refined parametric emission-line model, and the joint model built
+    with the refined parametric gas model. The spectra are sampled from 3600 to 9800
+    Angstrom with 0.5 Angstrom pixels in the DR20 example, and the spectral values
+    use the LVM per-fiber spectral flux-density convention, 10^-16 erg/s/cm^2/Angstrom
+    measured in one fiber area.'
   datatype: FITS
   filesize: 746 MB
   releases:
@@ -26,7 +28,7 @@ general:
   - LVM_SPECTRO_ANALYSIS
   surveys:
   - SDSS
-  naming_convention: $LVM_SPECTRO_ANALYSIS/[DRPVER]/[DAPVER]/[TILEGRP]/[TILEID]/[MJD]/[EXPNUM]/dap-[RSPID]-[SNLEVEL]-[EXPNUM].[DAPTYPE].fits
+  naming_convention: $LVM_SPECTRO_ANALYSIS/[DRPVER]/[DAPVER]/[TILEGRP]/[TILEID]/[MJD]/[EXPNUM]/LV_dap-[RSPID]-[SNLEVEL]-[EXPNUM].[DAPTYPE].fits
   generated_by: lvmdap
   data_level: 2.3.3
   design: false
@@ -38,24 +40,24 @@ changelog:
   releases: {}
 releases:
   DR20:
-    template: $LVM_SPECTRO_ANALYSIS/[DRPVER]/[DAPVER]/[TILEGRP]/[TILEID]/[MJD]/[EXPNUM]/dap-[RSPID]-[SNLEVEL]-[EXPNUM].[DAPTYPE].fits
-    example: 1.2.0/1.2.0.251218/0011XX/11111/60191/00004297/dap-rsp108-sn20-00004297.model.fits
-    location: '{drpver}/{dapver}/{tilegrp}/{tileid}/{mjd}/{expnum}/dap-{rspid}-{snlevel}-{expnum}.{daptype}.fits'
+    template: $LVM_SPECTRO_ANALYSIS/[DRPVER]/[DAPVER]/[TILEGRP]/[TILEID]/[MJD]/[EXPNUM]/LV_dap-[RSPID]-[SNLEVEL]-[EXPNUM].[DAPTYPE].fits
+    example: 1.2.0/1.2.0.251218/0011XX/11111/60212/00005512/LV_dap-rsp108-sn20-00005512.model.fits
+    location: '{drpver}/{dapver}/{tilegrp}/{tileid}/{mjd}/{expnum}/LV_dap-{rspid}-{snlevel}-{expnum}.{daptype}.fits'
     environment: LVM_SPECTRO_ANALYSIS
     access:
       in_sdss_access: true
       path_name: lvm_lv_dap
       path_template: $LVM_SPECTRO_ANALYSIS/{drpver}/{dapver}/@tilegrp|/{tileid}/{mjd}/{expnum:0>8}/LV_dap-{rspid}-{snlevel}-{expnum:0>8}.{daptype}.fits
       path_kwargs:
-      - tileid
+      - drpver
+      - snlevel
+      - mjd
+      - rspid
+      - expnum
       - dapver
       - daptype
-      - rspid
-      - snlevel
-      - expnum
-      - drpver
-      - mjd
-      access_string: lvm_lv_dap = $LVM_SPECTRO_ANALYSIS/{drpver}/{dapver}/{tilegrp}/{tileid}/{mjd}/{expnum}/dap-{rspid}-{snlevel}-{expnum}.{daptype}.fits
+      - tileid
+      access_string: lvm_lv_dap = $LVM_SPECTRO_ANALYSIS/{drpver}/{dapver}/{tilegrp}/{tileid}/{mjd}/{expnum}/LV_dap-{rspid}-{snlevel}-{expnum}.{daptype}.fits
     survey: SDSS
     hdus:
       hdu0:
@@ -143,7 +145,7 @@ releases:
           value: mod_joint_spec_PEK
           comment: ''
         - key: FILENAME
-          value: /mnt/NASfilemon/LVM/sdsswork/analysis/LVMDAP/1.2.0//0011XX/11111/60191/00004297/dap-rsp108-sn20-00004297.output.fits.gz
+          value: /mnt/NASfilemon/LVM/sdsswork/analysis/LVMDAP/1.2.0//0011XX/11111/60191/00004297/LV_dap-rsp108-sn20-00004297.output.fits.gz
           comment: ''
 notes: |-
   None
