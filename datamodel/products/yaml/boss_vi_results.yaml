@@ -1,7 +1,9 @@
 general:
   name: boss_vi_results
   short: Results from visual inspection of BOSS spectra
-  description: Catalog of redshifts/classifications/and confidence flags derived from visual inspections of BOSS allepoch spectra, supplemented with ML predictions of pipeline redshift reliability.
+  description: Catalog of redshifts/classifications/and confidence flags derived from
+    visual inspections of BOSS allepoch spectra, supplemented with ML predictions
+    of pipeline redshift reliability.
   datatype: FITS
   filesize: 28 MB
   releases:
@@ -11,10 +13,10 @@ general:
   surveys:
   - SDSS
   naming_convention: $BHM_VI/[V_VAC]/boss_vi_results-[V_VAC].fits
-  generated_by: 
+  generated_by: ''
   data_level: 2.3.3
   design: false
-  vac: true
+  vac: false
   recommended_science_product: true
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
@@ -149,7 +151,7 @@ releases:
           field:
             name: field
             type: int32
-            unit: 
+            unit: ''
             description: SDSS field identifier
           mjd:
             name: mjd
@@ -159,60 +161,60 @@ releases:
           catalogid:
             name: catalogid
             type: int64
-            unit: 
+            unit: ''
             description: SDSS unique catalog identifier
           sdss_id:
             name: sdss_id
             type: int64
-            unit: 
+            unit: ''
             description: SDSS unique object identifer
           z_pipe:
             name: z_pipe
             type: float32
-            unit: 
+            unit: ''
             description: True if spectrum was visually inspected
           has_vi:
             name: has_vi
             type: bool
-            unit: 
+            unit: ''
             description: Pipeline redshift, copied from spAll
           z_vi:
             name: z_vi
             type: float32
-            unit: 
+            unit: ''
             description: Visual inspection redshift, when available
           z_conf_vi:
             name: z_conf_vi
             type: int16
-            unit: 
+            unit: ''
             description: The degree of confidence we have on z_vi
           z_best:
             name: z_best
             type: float32
-            unit: 
-            description: Best redshift available (from VI when available, from the pipeline
-            otherwise). NaN when z_conf_best < 2
+            unit: ''
+            description: Best redshift available (from VI when available, from the
+              pipeline otherwise). NaN when z_conf_best < 2
           z_conf_best:
             name: z_conf_best
             type: int16
-            unit: 
+            unit: ''
             description: The degree of confidence we have on z_best
           class_best:
             name: class_best
             type: char[15]
-            unit: 
+            unit: ''
             description: The best classification for this spectrum
           z_pipe_reliable:
             name: z_pipe_reliable
             type: bool
-            unit: 
+            unit: ''
             description: True when z_pipe is correct (via ML classifier)
           z_best_reliable:
             name: z_best_reliable
             type: bool
-            unit: 
-            description: True if z_best is reliable, i.e. z_conf_best=3 (when we have a secure
-            VI redshift, or the ML classifier says that z_pipe is reliable)
+            unit: ''
+            description: True if z_best is reliable, i.e. z_conf_best=3 (when we have
+              a secure VI redshift, or the ML classifier says that z_pipe is reliable)
 notes: |-
   None
 regrets: |-

@@ -1,8 +1,8 @@
 {
   "general": {
     "name": "boss_vi_results",
-    "short": "replace me - with a short one sentence summary of file",
-    "description": "replace me - with a longer description of the data product",
+    "short": "Results from visual inspection of BOSS spectra",
+    "description": "Catalog of redshifts/classifications/and confidence flags derived from visual inspections of BOSS allepoch spectra, supplemented with ML predictions of pipeline redshift reliability.",
     "environments": [
       "BHM_VI"
     ],
@@ -32,8 +32,8 @@
         "release_date": "2026-07-30"
       }
     ],
-    "naming_convention": "replace me - with $BHM_VI/[V_VAC]/boss_vi_results-[V_VAC].fits or boss_vi_results-1.0.3.fits but with regex pattern matches",
-    "generated_by": "replace me - with the name(s) of any git or svn product(s) that produces this product.",
+    "naming_convention": "$BHM_VI/[V_VAC]/boss_vi_results-[V_VAC].fits",
+    "generated_by": "",
     "design": false,
     "vac": false,
     "recommended_science_product": true,
@@ -63,7 +63,7 @@
         "hdu0": {
           "name": "PRIMARY",
           "is_image": true,
-          "description": "replace me description",
+          "description": "Empty primary HDU",
           "size": "0 bytes",
           "header": [
             {
@@ -92,7 +92,7 @@
         "hdu1": {
           "name": "VI_RESULTS",
           "is_image": false,
-          "description": "replace me description",
+          "description": "Results from visual inspection of BOSS spectra",
           "size": "28 MB",
           "header": [
             {
@@ -241,79 +241,79 @@
               "name": "field",
               "description": "SDSS field identifier",
               "type": "int32",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "mjd": {
               "name": "mjd",
               "description": "SDSS MJD - last date the object was observed",
               "type": "int32",
-              "unit": "replace me - with content"
+              "unit": "days"
             },
             "catalogid": {
               "name": "catalogid",
               "description": "SDSS unique catalog identifier",
               "type": "int64",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "sdss_id": {
               "name": "sdss_id",
               "description": "SDSS unique object identifer",
               "type": "int64",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "z_pipe": {
               "name": "z_pipe",
               "description": "True if spectrum was visually inspected",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "has_vi": {
               "name": "has_vi",
               "description": "Pipeline redshift, copied from spAll",
               "type": "bool",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "z_vi": {
               "name": "z_vi",
               "description": "Visual inspection redshift, when available",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "z_conf_vi": {
               "name": "z_conf_vi",
               "description": "The degree of confidence we have on z_vi",
               "type": "int16",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "z_best": {
               "name": "z_best",
-              "description": "Best redshift available (from VI when available",
+              "description": "Best redshift available (from VI when available, from the pipeline otherwise). NaN when z_conf_best < 2",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "z_conf_best": {
               "name": "z_conf_best",
               "description": "The degree of confidence we have on z_best",
               "type": "int16",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "class_best": {
               "name": "class_best",
               "description": "The best classification for this spectrum",
               "type": "char[15]",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "z_pipe_reliable": {
               "name": "z_pipe_reliable",
               "description": "True when z_pipe is correct (via ML classifier)",
               "type": "bool",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "z_best_reliable": {
               "name": "z_best_reliable",
-              "description": "True if z_best is reliable, i.e. z_conf_best=3",
+              "description": "True if z_best is reliable, i.e. z_conf_best=3 (when we have a secure VI redshift, or the ML classifier says that z_pipe is reliable)",
               "type": "bool",
-              "unit": "replace me - with content"
+              "unit": ""
             }
           }
         }
