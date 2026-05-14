@@ -104,7 +104,7 @@ Key | Value | Comment | |
 | TNULL2 | 999999 | blank value for column 2 |
 | TCOMM2 | SDSS CATALOGID (used before the unification with SDSS_ID) |  |
 | TNULL3 | 999999 | blank value for column 3 |
-| TCOMM3 | SDSS ID (unified for DR19) |  |
+| TCOMM3 | SDSS ID (SDSS-V unique source identifier) |  |
 | TCOMM4 | SDSS observatory (APO or LCO) |  |
 | TCOMM5 | SDSS Semaphore byte array for the target cartons |  |
 | TNULL6 | 999999 | blank value for column 6 |
@@ -186,7 +186,7 @@ Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | ero_detuid | char[32] |  | eROSITA unique X-ray source identifier |
  | sdss_catalogid | int64 |  | SDSS CATALOGID (used before the unification with SDSS_ID) |
- | sdss_id | int64 |  | SDSS ID (unified for DR19) |
+ | sdss_id | int64 |  | SDSS ID (SDSS-V unique source identifier) |
  | sdss_obs | char[3] |  | SDSS observatory (APO or LCO) |
  | sdss_target_flag | bool[69] |  | SDSS Semaphore byte array for the target cartons |
  | sdss_field | int64 |  | SDSS field sequence number |
