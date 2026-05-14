@@ -1,7 +1,18 @@
 general:
   name: fermi_blazar_redshifts
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: Multi-component spectral classifications and redshifts for Fermi-LAT blazars
+    observed in SDSS-V DR20.
+  description: 'Value-added catalogue (VAC) of 707 Fermi-LAT blazar candidates cross-matched
+    with SDSS-V DR20 BOSS spectroscopy. Each source has been fitted with a multi-component
+    spectral decomposition combining a flexible dual power-law jet continuum, elliptical
+    galaxy templates (SWIRE), and synthetic QSO templates (Temple et al. 2021) over
+    a logarithmic redshift grid z=0.01--5.0. Model selection uses the corrected Akaike
+    Information Criterion (AICc). The catalogue provides improved spectroscopic redshifts,
+    best model classification,  optical jet flux fractions, and power-law continuum
+    shape parameters for sources previously misclassified or lacking reliable redshifts
+    in the SDSS pipeline.
+
+    '
   datatype: FITS
   filesize: 165 KB
   releases:
@@ -12,8 +23,8 @@ general:
   - SDSS
   naming_convention: $BHM_BLAZAR/boss_fermi_redshifts/fermi_blazar-[V_VAC].fits where
     V_VAC=1.0.0 for DR20
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  generated_by: Nlowie et al. (in prep); multi-component blazar spectral fitting pipeline
+    using lmfit, SpectRes, and SDSS-V DR20 BOSS spectra.
   data_level: 3.3.0
   design: false
   vac: true
@@ -39,7 +50,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Empty primary HDU conforming to FITS standard.
         is_image: true
         size: 0 bytes
         header:
@@ -56,8 +67,12 @@ releases:
           value: true
           comment: ''
       hdu1:
-        name: ''
-        description: replace me description
+        name: BLAZAR_VAC
+        description: 'Binary table containing 707 Fermi-LAT blazar candidates with
+          multi-component spectral fit results, redshifts, blazar classifications,
+          and continuum shape parameters derived from SDSS-V DR20 BOSS spectroscopy.
+
+          '
         is_image: false
         size: 155 KB
         header:
@@ -89,79 +104,144 @@ releases:
           SDSS_ID:
             name: SDSS_ID
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'SDSS-V unique source identifier (sdss_id) from the SDSS-V
+              catalogue database, cross-matched to the 4FGL-DR4 Fermi source.
+
+              '
           SDSS_NAME:
             name: SDSS_NAME
             type: char[24]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'IAU-format SDSS designation constructed from J2000 right
+              ascension and declination (SDSS JHHMMSS.SS+DDMMSS.S).
+
+              '
           FGL_NAME:
             name: FGL_NAME
             type: char[18]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: '4FGL-DR4 source name from the fourth Fermi-LAT source catalogue
+              data release 4 (Ballet et al. 2023).
+
+              '
           FGL_CLASS:
             name: FGL_CLASS
             type: char[5]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: "Fermi source classification from 4FGL-DR4. Blazar subclasses\
+              \ include bll (BL Lac), fsrq (flat-spectrum radio quasar), and bcu (blazar\
+              \ candidate of unknown type). \n"
           BEST_MODEL:
             name: BEST_MODEL
             type: char[100]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: "Best-fit spectral model family selected by AICc from six\
+              \ families: Galaxy, QSO, Powerlaw, Powerlaw+Galaxy, Powerlaw+QSO, and\
+              \ Powerlaw+Lines. Powerlaw+Galaxy and purePowerlaw sources are classified\
+              \ as BL Lac candidates; Powerlaw+QSO and Powerlaw+Lines as FSRQ candidates.\
+              \ \n"
           SDSS_CLASS:
             name: SDSS_CLASS
             type: char[6]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Spectroscopic classification from the SDSS-V automated pipeline
+              (GALAXY, QSO, or STAR). Many blazar sources are misclassified as STAR
+              by the SDSS pipeline due to the featureless power-law continuum dominating
+              the spectrum.
+
+              '
           Z_SDSS:
             name: Z_SDSS
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Spectroscopic redshift from the SDSS-V automated pipeline.
+
+              '
           Z_fit:
             name: Z_fit
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Best-fit spectroscopic redshift from the multi-component
+              decomposition, derived from the maximum a posteriori (MAP) estimate
+              over a logarithmic redshift grid z=0.01--5.0 with local refinement within
+              dz=0.15 of the MAP solution.
+
+              '
           Z_fit_err:
             name: Z_fit_err
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: '1-sigma uncertainty on Z_fit from the lmfit covariance matrix
+              at the best-fit redshift. A small value indicates the fit is locally
+              well-constrained but does not rule out alternative redshift solutions
+              at other values.
+
+              '
           rchi2_fit:
             name: rchi2_fit
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Reduced chi-squared of the best-fit multi-component model,
+              evaluated on the native BOSS wavelength grid using SpectRes resampling.
+              Sources with rchi2_fit > 3 * rchi2_sdss are flagged as poor fits and
+              excluded from this catalogue.
+
+              '
           rchi2_sdss:
             name: rchi2_sdss
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Reduced chi-squared of the best-fit SDSS pipeline model,
+              as reported in the SDSS-V spectroscopic catalogue. Used as a quality
+              baseline for filtering catastrophic fit failures.
+
+              '
           Jet_Fraction:
             name: Jet_Fraction
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Fraction of total optical flux attributed to the jet power-law
+              component at the best-fit redshift, computed as F_jet / (F_jet + F_host),
+              where F_host is the integrated flux of the galaxy or QSO template component.
+              Values near 1.0 indicate a jet-dominated spectrum. For Powerlaw+Lines
+              sources this is an upper limit as line emission contributes negligibly
+              to the broadband continuum.
+
+              '
           PL_alpha:
             name: PL_alpha
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Power-law spectral slope parameter alpha of the jet continuum
+              model F(lambda) proportional to (lambda/lambda_0)^(-alpha). Positive
+              values indicate a redder (steeper) spectrum; negative values a bluer
+              (flatter) spectrum in flux density per unit wavelength.
+
+              '
           PL_delta:
             name: PL_delta
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: "Power-law curvature parameter delta controlling the spectral\
+              \ transition between two regimes in the dual power-law jet model. Positive\
+              \ delta produces a spectrum that is flatter at shorter wavelengths and\
+              \ steeper at longer wavelengths. Negative delta produces the opposite\
+              \ \u2014 steeper at shorter wavelengths and flatter at longer wavelengths.\
+              \ delta=0 recovers a simple single power-law. \n"
           SNR:
             name: SNR
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: 'Median signal-to-noise ratio per pixel across all BOSS spectral
+              bands as reported by the SDSS-V pipeline (SN_MEDIAN_ALL). Sources with
+              SNR < 3 are retained in the catalogue but carry lower confidence in
+              their redshift and jet fraction estimates.
+
+              '
 notes: |-
-  None
+  Sources are drawn from the cross-match of the Fermi-LAT 4FGL-DR4
+  catalogue with SDSS-V DR20 BOSS spectroscopy. Non-blazar Fermi
+  classes (pulsars, radio galaxies, binaries, etc.).
 regrets: |-
   I  have no regrets!
