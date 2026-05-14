@@ -34,7 +34,7 @@ FITS
 replace me - with the name(s) of any git or svn product(s) that produces this product.
 
 ### Is a VAC
-True
+False
 
 ### Data Level
 3.3.0
@@ -102,7 +102,7 @@ Name | Type | Unit | Description |
  | Jet_Fraction | float64 | replace me - with content | replace me - with content |
  | PL_alpha | float64 | replace me - with content | replace me - with content |
  | PL_delta | float64 | replace me - with content | replace me - with content |
- | S/N | float32 | replace me - with content | replace me - with content |
+ | SNR | float32 | replace me - with content | replace me - with content |
 
 
 
