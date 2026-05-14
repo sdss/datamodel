@@ -37,7 +37,7 @@ https://github.com/imedan/mdwarf_contin/tree/1.0.0
 False
 
 ### Data Level
-2.3.3
+3.2.0
 
 ### HDFS List for release DR20
   - [top](#top-level)
