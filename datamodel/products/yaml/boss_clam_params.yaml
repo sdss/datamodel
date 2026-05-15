@@ -1,10 +1,12 @@
 general:
   name: boss_clam_params
   short: Stellar Parameters from BOSS Spectra with The CLAM
-  description: BOSS-CLAM is a data driven method that maps labels to NMF basis weights to forward model continuum normalized 
-    BOSS spectra. This model was training with labels from ASPCAP, BOSS-MINESweeper, wide binaries and a validation set of hot 
-    stars. This VAC includes the inferened stellar parameters from all mwmStar BOSS spectra with snr > 10, the forward modeled 
-    spectra at these parameters, a series of flags to clean the dataset, and all meta-data from mwmAllStar.
+  description: BOSS-CLAM is a data driven method that maps labels to NMF basis weights
+    to forward model continuum normalized BOSS spectra. This model was training with
+    labels from ASPCAP, BOSS-MINESweeper, wide binaries and a validation set of hot
+    stars. This VAC includes the inferened stellar parameters from all mwmStar BOSS
+    spectra with snr > 10, the forward modeled spectra at these parameters, a series
+    of flags to clean the dataset, and all meta-data from mwmAllStar.
   datatype: H5
   filesize: 24 GB
   releases:
@@ -20,7 +22,8 @@ general:
   vac: true
   recommended_science_product: true
 changelog:
-  description: Describes changes to the datamodel product and/or file structure from one release to another
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
   releases: {}
 releases:
   DR20:
@@ -115,7 +118,8 @@ releases:
           name: clam/param_covariance
           parent: /clam
           object: dataset
-          description: Covariance matrix for the parameters. Order is [teff, logg, fe_h, alpha_m]
+          description: Covariance matrix for the parameters. Order is [teff, logg,
+            fe_h, alpha_m]
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -131,7 +135,8 @@ releases:
           name: clam/rchi2
           parent: /clam
           object: dataset
-          description: Reduced chi^2 between BOSS spectrum and forward modeled CLAM spectrum
+          description: Reduced chi^2 between BOSS spectrum and forward modeled CLAM
+            spectrum
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -160,19 +165,21 @@ releases:
           name: clam/clam_flags
           parent: /clam
           object: dataset
-          description: |
-            Bitmask indicating potentially unreliable or out-of-distribution BOSS-CLAM results. Flags include:
-              - IN_WD (0): likely white dwarf in mwm_wd not represented in the training set
-              - IN_YSO (1): likely young stellar object in mwm_yso not represented in the training set
-              - IN_OB (2): likely hot star in mwm_ob with unreliable [Fe/H] or [alpha/M] training coverage
-              - FE_H_ALPHA_SUSPECT (3): Teff > 6500 K, where [Fe/H] and [alpha/M] are poorly constrained
-              - BAD_SPEC_FIT (4): reduced chi^2 > 1 indicating poor forward-model fit
-              - LOW_MASS_SUSPECT (5): Teff < 4000 K and [Fe/H] < -1 in sparsely sampled low-mass regime
-              - FE_H_ALPHA_CORR (6): atypical correlation between [Fe/H], [alpha/M], and Teff
-              - TEFF_LOGG_CORR (7): unphysical negative correlation between Teff and logg
-              - LOW_MASS_TEFF_LOGG_CORR (8): weak Teff-logg correlation in low-mass stars (Teff < 4200 K)
-              - EXTREME_CORR (9): extreme correlations involving [alpha/M]
-              - ALTER_CORR (10): alternating correlation structure relative to the bulk population
+          description: "Bitmask indicating potentially unreliable or out-of-distribution\
+            \ BOSS-CLAM results. Flags include:\n  - IN_WD (0): likely white dwarf\
+            \ in mwm_wd not represented in the training set\n  - IN_YSO (1): likely\
+            \ young stellar object in mwm_yso not represented in the training set\n\
+            \  - IN_OB (2): likely hot star in mwm_ob with unreliable [Fe/H] or [alpha/M]\
+            \ training coverage\n  - FE_H_ALPHA_SUSPECT (3): Teff > 6500 K, where\
+            \ [Fe/H] and [alpha/M] are poorly constrained\n  - BAD_SPEC_FIT (4): reduced\
+            \ chi^2 > 1 indicating poor forward-model fit\n  - LOW_MASS_SUSPECT (5):\
+            \ Teff < 4000 K and [Fe/H] < -1 in sparsely sampled low-mass regime\n\
+            \  - FE_H_ALPHA_CORR (6): atypical correlation between [Fe/H], [alpha/M],\
+            \ and Teff\n  - TEFF_LOGG_CORR (7): unphysical negative correlation between\
+            \ Teff and logg\n  - LOW_MASS_TEFF_LOGG_CORR (8): weak Teff-logg correlation\
+            \ in low-mass stars (Teff < 4200 K)\n  - EXTREME_CORR (9): extreme correlations\
+            \ involving [alpha/M]\n  - ALTER_CORR (10): alternating correlation structure\
+            \ relative to the bulk population\n"
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -200,7 +207,9 @@ releases:
           name: clam/flag_bad
           parent: /clam
           object: dataset
-          description: If IN_WD, IN_YSO, BAD_SPEC_FIT, LOW_MASS_SUSPECT, FE_H_ALPHA_CORR, TEFF_LOGG_CORR, LOW_MASS_TEFF_LOGG_CORR, EXTREME_CORR or ALTER_CORR is set
+          description: If IN_WD, IN_YSO, BAD_SPEC_FIT, LOW_MASS_SUSPECT, FE_H_ALPHA_CORR,
+            TEFF_LOGG_CORR, LOW_MASS_TEFF_LOGG_CORR, EXTREME_CORR or ALTER_CORR is
+            set
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -2528,5 +2537,7 @@ releases:
           nbytes: 13665712
           is_virtual: false
           is_empty: false
-notes: None
-regrets: I  have no regrets!
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

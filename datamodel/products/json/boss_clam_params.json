@@ -1,8 +1,8 @@
 {
   "general": {
     "name": "boss_clam_params",
-    "short": "replace me - with a short one sentence summary of file",
-    "description": "replace me - with a longer description of the data product",
+    "short": "Stellar Parameters from BOSS Spectra with The CLAM",
+    "description": "BOSS-CLAM is a data driven method that maps labels to NMF basis weights to forward model continuum normalized BOSS spectra. This model was training with labels from ASPCAP, BOSS-MINESweeper, wide binaries and a validation set of hot stars. This VAC includes the inferened stellar parameters from all mwmStar BOSS spectra with snr > 10, the forward modeled spectra at these parameters, a series of flags to clean the dataset, and all meta-data from mwmAllStar.",
     "environments": [
       "MWM_STELLAR_PARAMS"
     ],
@@ -32,8 +32,8 @@
         "release_date": "2026-07-30"
       }
     ],
-    "naming_convention": "replace me - with $MWM_STELLAR_PARAMS/boss_clam/boss_clam_params-[V_VAC].h5 or boss_clam_params-1.0.0.h5 but with regex pattern matches",
-    "generated_by": "replace me - with the name(s) of any git or svn product(s) that produces this product.",
+    "naming_convention": "$MWM_STELLAR_PARAMS/boss_clam/boss_clam_params-[V_VAC].h5",
+    "generated_by": "https://github.com/andycasey/clam-boss",
     "design": false,
     "vac": true,
     "recommended_science_product": true,
@@ -65,7 +65,7 @@
         "name": "/",
         "parent": "/",
         "object": "group",
-        "description": "replace me - with a description of this group",
+        "description": "BOSS-CLAM results and meta-data",
         "pytables": false,
         "attrs": [],
         "n_members": 2,
@@ -78,16 +78,16 @@
             "name": "clam",
             "parent": "/",
             "object": "group",
-            "description": "replace me - with a description of this group",
+            "description": "BOSS-CLAM results",
             "pytables": null,
             "attrs": [],
             "n_members": 10
           },
-          "clam/alpha_m": {
-            "name": "clam/alpha_m",
+          "clam/teff": {
+            "name": "clam/teff",
             "parent": "/clam",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "BOSS-CLAM effective temperature [K]",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -100,11 +100,11 @@
             "is_virtual": false,
             "is_empty": false
           },
-          "clam/clam_flags": {
-            "name": "clam/clam_flags",
+          "clam/logg": {
+            "name": "clam/logg",
             "parent": "/clam",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "BOSS-CLAM log(g)",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -112,7 +112,7 @@
             ],
             "size": 1708214,
             "ndim": 1,
-            "dtype": "int64",
+            "dtype": "float64",
             "nbytes": 13665712,
             "is_virtual": false,
             "is_empty": false
@@ -121,7 +121,7 @@
             "name": "clam/fe_h",
             "parent": "/clam",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "BOSS-CLAM [Fe/H]",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -134,63 +134,11 @@
             "is_virtual": false,
             "is_empty": false
           },
-          "clam/flag_bad": {
-            "name": "clam/flag_bad",
+          "clam/alpha_m": {
+            "name": "clam/alpha_m",
             "parent": "/clam",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": "bool",
-            "nbytes": 1708214,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "clam/flag_warn": {
-            "name": "clam/flag_warn",
-            "parent": "/clam",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": "bool",
-            "nbytes": 1708214,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "clam/forward_model_flux": {
-            "name": "clam/forward_model_flux",
-            "parent": "/clam",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214,
-              4648
-            ],
-            "size": 7939778672,
-            "ndim": 2,
-            "dtype": "float32",
-            "nbytes": 31759114688,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "clam/logg": {
-            "name": "clam/logg",
-            "parent": "/clam",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "BOSS-CLAM [alpha/M]",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -207,7 +155,7 @@
             "name": "clam/param_covariance",
             "parent": "/clam",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "Covariance matrix for the parameters. Order is [teff, logg, fe_h, alpha_m]",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -226,7 +174,7 @@
             "name": "clam/rchi2",
             "parent": "/clam",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "Reduced chi^2 between BOSS spectrum and forward modeled CLAM spectrum",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -239,11 +187,29 @@
             "is_virtual": false,
             "is_empty": false
           },
-          "clam/teff": {
-            "name": "clam/teff",
+          "clam/forward_model_flux": {
+            "name": "clam/forward_model_flux",
             "parent": "/clam",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "Forward modeled CLAM spectrum. Spectrum is continuum normalized.",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214,
+              4648
+            ],
+            "size": 7939778672,
+            "ndim": 2,
+            "dtype": "float32",
+            "nbytes": 31759114688,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "clam/clam_flags": {
+            "name": "clam/clam_flags",
+            "parent": "/clam",
+            "object": "dataset",
+            "description": "Bitmask indicating potentially unreliable or out-of-distribution BOSS-CLAM results. Flags include:\n  - IN_WD (0): likely white dwarf in mwm_wd not represented in the training set\n  - IN_YSO (1): likely young stellar object in mwm_yso not represented in the training set\n  - IN_OB (2): likely hot star in mwm_ob with unreliable [Fe/H] or [alpha/M] training coverage\n  - FE_H_ALPHA_SUSPECT (3): Teff > 6500 K, where [Fe/H] and [alpha/M] are poorly constrained\n  - BAD_SPEC_FIT (4): reduced chi^2 > 1 indicating poor forward-model fit\n  - LOW_MASS_SUSPECT (5): Teff < 4000 K and [Fe/H] < -1 in sparsely sampled low-mass regime\n  - FE_H_ALPHA_CORR (6): atypical correlation between [Fe/H], [alpha/M], and Teff\n  - TEFF_LOGG_CORR (7): unphysical negative correlation between Teff and logg\n  - LOW_MASS_TEFF_LOGG_CORR (8): weak Teff-logg correlation in low-mass stars (Teff < 4200 K)\n  - EXTREME_CORR (9): extreme correlations involving [alpha/M]\n  - ALTER_CORR (10): alternating correlation structure relative to the bulk population\n",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -251,8 +217,42 @@
             ],
             "size": 1708214,
             "ndim": 1,
-            "dtype": "float64",
+            "dtype": "int64",
             "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "clam/flag_warn": {
+            "name": "clam/flag_warn",
+            "parent": "/clam",
+            "object": "dataset",
+            "description": "If IN_OB or FE_H_ALPHA_SUSPECT is set",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": "bool",
+            "nbytes": 1708214,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "clam/flag_bad": {
+            "name": "clam/flag_bad",
+            "parent": "/clam",
+            "object": "dataset",
+            "description": "If IN_WD, IN_YSO, BAD_SPEC_FIT, LOW_MASS_SUSPECT, FE_H_ALPHA_CORR, TEFF_LOGG_CORR, LOW_MASS_TEFF_LOGG_CORR, EXTREME_CORR or ALTER_CORR is set",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": "bool",
+            "nbytes": 1708214,
             "is_virtual": false,
             "is_empty": false
           },
@@ -260,1733 +260,16 @@
             "name": "meta",
             "parent": "/",
             "object": "group",
-            "description": "replace me - with a description of this group",
+            "description": "Meta-data from mwmAllStar for the BOSS-CLAM results",
             "pytables": null,
             "attrs": [],
             "n_members": 165
           },
-          "meta/apogee_max_mjd": {
-            "name": "meta/apogee_max_mjd",
+          "meta/sdss_id": {
+            "name": "meta/sdss_id",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/apogee_min_mjd": {
-            "name": "meta/apogee_min_mjd",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/b": {
-            "name": "meta/b",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/b_jkc_mag": {
-            "name": "meta/b_jkc_mag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/b_jkc_mag_flag": {
-            "name": "meta/b_jkc_mag_flag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/bailer_jones_flags": {
-            "name": "meta/bailer_jones_flags",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": "object",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/bl_flg": {
-            "name": "meta/bl_flg",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": "object",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/boss_max_mjd": {
-            "name": "meta/boss_max_mjd",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/boss_min_mjd": {
-            "name": "meta/boss_min_mjd",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/bp_mag": {
-            "name": "meta/bp_mag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/c_star": {
-            "name": "meta/c_star",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/catalogid": {
-            "name": "meta/catalogid",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i8",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/catalogid21": {
-            "name": "meta/catalogid21",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i8",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/catalogid25": {
-            "name": "meta/catalogid25",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i8",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/catalogid31": {
-            "name": "meta/catalogid31",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i8",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/cc_flg": {
-            "name": "meta/cc_flg",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": "object",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/created": {
-            "name": "meta/created",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": "object",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/crossmatch_flags": {
-            "name": "meta/crossmatch_flags",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i8",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/csf": {
-            "name": "meta/csf",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i8",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/d4_5m": {
-            "name": "meta/d4_5m",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/dec": {
-            "name": "meta/dec",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/e_ebv": {
-            "name": "meta/e_ebv",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/e_ebv_bayestar_2019": {
-            "name": "meta/e_ebv_bayestar_2019",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/e_ebv_edenhofer_2023": {
-            "name": "meta/e_ebv_edenhofer_2023",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/e_ebv_rjce_allwise": {
-            "name": "meta/e_ebv_rjce_allwise",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/e_ebv_rjce_glimpse": {
-            "name": "meta/e_ebv_rjce_glimpse",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/e_ebv_sfd": {
-            "name": "meta/e_ebv_sfd",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/e_ebv_zhang_2023": {
-            "name": "meta/e_ebv_zhang_2023",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/e_h_mag": {
-            "name": "meta/e_h_mag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/e_j_mag": {
-            "name": "meta/e_j_mag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/e_k_mag": {
-            "name": "meta/e_k_mag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/e_plx": {
-            "name": "meta/e_plx",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/e_pmde": {
-            "name": "meta/e_pmde",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/e_pmra": {
-            "name": "meta/e_pmra",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/e_v_rad": {
-            "name": "meta/e_v_rad",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/e_w1_mag": {
-            "name": "meta/e_w1_mag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/e_w2_mag": {
-            "name": "meta/e_w2_mag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/ebv": {
-            "name": "meta/ebv",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/ebv_bayestar_2019": {
-            "name": "meta/ebv_bayestar_2019",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/ebv_edenhofer_2023": {
-            "name": "meta/ebv_edenhofer_2023",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/ebv_flags": {
-            "name": "meta/ebv_flags",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i8",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/ebv_rjce_allwise": {
-            "name": "meta/ebv_rjce_allwise",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/ebv_rjce_glimpse": {
-            "name": "meta/ebv_rjce_glimpse",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/ebv_sfd": {
-            "name": "meta/ebv_sfd",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/ebv_zhang_2023": {
-            "name": "meta/ebv_zhang_2023",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/filetype": {
-            "name": "meta/filetype",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": "object",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/g_mag": {
-            "name": "meta/g_mag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/g_sdss_mag": {
-            "name": "meta/g_sdss_mag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/g_sdss_mag_flag": {
-            "name": "meta/g_sdss_mag_flag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/gaia_dr2_source_id": {
-            "name": "meta/gaia_dr2_source_id",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i8",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/gaia_dr3_source_id": {
-            "name": "meta/gaia_dr3_source_id",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i8",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/gaia_e_v_rad": {
-            "name": "meta/gaia_e_v_rad",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/gaia_v_rad": {
-            "name": "meta/gaia_v_rad",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/gri_gaia_transform_flags": {
-            "name": "meta/gri_gaia_transform_flags",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i8",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/h_mag": {
-            "name": "meta/h_mag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/healpix": {
-            "name": "meta/healpix",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/i_jkc_mag": {
-            "name": "meta/i_jkc_mag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/i_jkc_mag_flag": {
-            "name": "meta/i_jkc_mag_flag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/i_sdss_mag": {
-            "name": "meta/i_sdss_mag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/i_sdss_mag_flag": {
-            "name": "meta/i_sdss_mag_flag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/j_mag": {
-            "name": "meta/j_mag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/k_mag": {
-            "name": "meta/k_mag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/l": {
-            "name": "meta/l",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/lead": {
-            "name": "meta/lead",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": "object",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/mag4_5": {
-            "name": "meta/mag4_5",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/max_mjd": {
-            "name": "meta/max_mjd",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/median_e_v_rad": {
-            "name": "meta/median_e_v_rad",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/mf4_5": {
-            "name": "meta/mf4_5",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i8",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/min_mjd": {
-            "name": "meta/min_mjd",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/modified": {
-            "name": "meta/modified",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": "object",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/n_apogee_visits": {
-            "name": "meta/n_apogee_visits",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/n_associated": {
-            "name": "meta/n_associated",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/n_boss_visits": {
-            "name": "meta/n_boss_visits",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/n_good_rvs": {
-            "name": "meta/n_good_rvs",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/n_good_visits": {
-            "name": "meta/n_good_visits",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/n_neighborhood": {
-            "name": "meta/n_neighborhood",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/n_visits": {
-            "name": "meta/n_visits",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/nmf_flags": {
-            "name": "meta/nmf_flags",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i8",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/nmf_rchi2": {
-            "name": "meta/nmf_rchi2",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/ph_qual": {
-            "name": "meta/ph_qual",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": "object",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/plx": {
-            "name": "meta/plx",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/pmde": {
-            "name": "meta/pmde",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/pmra": {
-            "name": "meta/pmra",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/r_hi_geo": {
-            "name": "meta/r_hi_geo",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/r_hi_photogeo": {
-            "name": "meta/r_hi_photogeo",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/r_jkc_mag": {
-            "name": "meta/r_jkc_mag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/r_jkc_mag_flag": {
-            "name": "meta/r_jkc_mag_flag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/r_lo_geo": {
-            "name": "meta/r_lo_geo",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/r_lo_photogeo": {
-            "name": "meta/r_lo_photogeo",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/r_med_geo": {
-            "name": "meta/r_med_geo",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/r_med_photogeo": {
-            "name": "meta/r_med_photogeo",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/r_sdss_mag": {
-            "name": "meta/r_sdss_mag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/r_sdss_mag_flag": {
-            "name": "meta/r_sdss_mag_flag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/ra": {
-            "name": "meta/ra",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/release": {
-            "name": "meta/release",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": "object",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/rms_f4_5": {
-            "name": "meta/rms_f4_5",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/rp_mag": {
-            "name": "meta/rp_mag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/run2d": {
-            "name": "meta/run2d",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": "object",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/sdss4_apogee2_target1_flags": {
-            "name": "meta/sdss4_apogee2_target1_flags",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i8",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/sdss4_apogee2_target2_flags": {
-            "name": "meta/sdss4_apogee2_target2_flags",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i8",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/sdss4_apogee2_target3_flags": {
-            "name": "meta/sdss4_apogee2_target3_flags",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i8",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/sdss4_apogee_extra_target_flags": {
-            "name": "meta/sdss4_apogee_extra_target_flags",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "SDSS-5 unique identifier",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -2003,7 +286,7 @@
             "name": "meta/sdss4_apogee_id",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "SDSS-4 DR17 APOGEE identifier",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -2016,11 +299,11 @@
             "is_virtual": false,
             "is_empty": false
           },
-          "meta/sdss4_apogee_member_flags": {
-            "name": "meta/sdss4_apogee_member_flags",
+          "meta/gaia_dr2_source_id": {
+            "name": "meta/gaia_dr2_source_id",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "Gaia DR2 source identifier",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -2033,11 +316,233 @@
             "is_virtual": false,
             "is_empty": false
           },
+          "meta/gaia_dr3_source_id": {
+            "name": "meta/gaia_dr3_source_id",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Gaia DR3 source identifier",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i8",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/tic_v8_id": {
+            "name": "meta/tic_v8_id",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "TESS Input Catalog (v8) identifier",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i8",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/healpix": {
+            "name": "meta/healpix",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "HEALPix (128 side)",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/lead": {
+            "name": "meta/lead",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Lead catalog used for cross-match",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": "object",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/version_id": {
+            "name": "meta/version_id",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "SDSS catalog version for targeting",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/catalogid": {
+            "name": "meta/catalogid",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Catalog identifier used to target the source",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i8",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/catalogid21": {
+            "name": "meta/catalogid21",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Catalog identifier (v21; v0.0)",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i8",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/catalogid25": {
+            "name": "meta/catalogid25",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Catalog identifier (v25; v0.5)",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i8",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/catalogid31": {
+            "name": "meta/catalogid31",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Catalog identifier (v31; v1.0)",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i8",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/n_associated": {
+            "name": "meta/n_associated",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "SDSS_IDs associated with this CATALOGID",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/n_neighborhood": {
+            "name": "meta/n_neighborhood",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Sources within 3\" and G_MAG < G_MAG_source + 5",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/crossmatch_flags": {
+            "name": "meta/crossmatch_flags",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Astra internal crossmatch flag system",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i8",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/sdss5_target_flags": {
+            "name": "meta/sdss5_target_flags",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "SDSS-5 targeting flags",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214,
+              71
+            ],
+            "size": 121283194,
+            "ndim": 2,
+            "dtype": "uint8",
+            "nbytes": 121283194,
+            "is_virtual": false,
+            "is_empty": false
+          },
           "meta/sdss4_apogee_target1_flags": {
             "name": "meta/sdss4_apogee_target1_flags",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "SDSS4 APOGEE1 targeting flags (1/2)",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -2054,7 +559,92 @@
             "name": "meta/sdss4_apogee_target2_flags",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "SDSS4 APOGEE1 targeting flags (2/2)",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i8",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/sdss4_apogee2_target1_flags": {
+            "name": "meta/sdss4_apogee2_target1_flags",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "SDSS4 APOGEE2 targeting flags (1/3)",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i8",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/sdss4_apogee2_target2_flags": {
+            "name": "meta/sdss4_apogee2_target2_flags",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "SDSS4 APOGEE2 targeting flags (2/3)",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i8",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/sdss4_apogee2_target3_flags": {
+            "name": "meta/sdss4_apogee2_target3_flags",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "SDSS4 APOGEE2 targeting flags (3/3)",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i8",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/sdss4_apogee_member_flags": {
+            "name": "meta/sdss4_apogee_member_flags",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "SDSS4 likely cluster/galaxy member flags",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i8",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/sdss4_apogee_extra_target_flags": {
+            "name": "meta/sdss4_apogee_extra_target_flags",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "SDSS4 target info (aka EXTRATARG)",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -2071,7 +661,7 @@
             "name": "meta/sdss5_dr19_apogee_flag",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "If entry has APOGEE spectrum in DR19",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -2084,46 +674,11 @@
             "is_virtual": false,
             "is_empty": false
           },
-          "meta/sdss5_target_flags": {
-            "name": "meta/sdss5_target_flags",
+          "meta/ra": {
+            "name": "meta/ra",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214,
-              71
-            ],
-            "size": 121283194,
-            "ndim": 2,
-            "dtype": "uint8",
-            "nbytes": 121283194,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/sdss_id": {
-            "name": "meta/sdss_id",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i8",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/snr": {
-            "name": "meta/snr",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "Right ascension [deg]",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -2136,62 +691,11 @@
             "is_virtual": false,
             "is_empty": false
           },
-          "meta/source": {
-            "name": "meta/source",
+          "meta/dec": {
+            "name": "meta/dec",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i8",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/spectrum_pk": {
-            "name": "meta/spectrum_pk",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i8",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/sqf_4_5": {
-            "name": "meta/sqf_4_5",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i8",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/std_v_rad": {
-            "name": "meta/std_v_rad",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "Declination [deg]",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -2204,11 +708,334 @@
             "is_virtual": false,
             "is_empty": false
           },
-          "meta/telescope": {
-            "name": "meta/telescope",
+          "meta/l": {
+            "name": "meta/l",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "Galactic longitude [deg]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/b": {
+            "name": "meta/b",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Galactic latitude [deg]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/plx": {
+            "name": "meta/plx",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Parallax [mas]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/e_plx": {
+            "name": "meta/e_plx",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on parallax [mas]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/pmra": {
+            "name": "meta/pmra",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Proper motion in RA [mas/yr]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/e_pmra": {
+            "name": "meta/e_pmra",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on proper motion in RA [mas/yr]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/pmde": {
+            "name": "meta/pmde",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Proper motion in DEC [mas/yr]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/e_pmde": {
+            "name": "meta/e_pmde",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on proper motion in DEC [mas/yr]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/gaia_v_rad": {
+            "name": "meta/gaia_v_rad",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Gaia radial velocity [km/s]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/gaia_e_v_rad": {
+            "name": "meta/gaia_e_v_rad",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on Gaia radial velocity [km/s]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/g_mag": {
+            "name": "meta/g_mag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Gaia DR3 mean G band magnitude [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/bp_mag": {
+            "name": "meta/bp_mag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Gaia DR3 mean BP band magnitude [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/rp_mag": {
+            "name": "meta/rp_mag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Gaia DR3 mean RP band magnitude [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/j_mag": {
+            "name": "meta/j_mag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "2MASS J band magnitude [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/e_j_mag": {
+            "name": "meta/e_j_mag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on 2MASS J band magnitude [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/h_mag": {
+            "name": "meta/h_mag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "2MASS H band magnitude [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/e_h_mag": {
+            "name": "meta/e_h_mag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on 2MASS H band magnitude [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/k_mag": {
+            "name": "meta/k_mag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "2MASS K band magnitude [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/e_k_mag": {
+            "name": "meta/e_k_mag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on 2MASS K band magnitude [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/ph_qual": {
+            "name": "meta/ph_qual",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "2MASS photometric quality flag",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -2221,96 +1048,11 @@
             "is_virtual": false,
             "is_empty": false
           },
-          "meta/tic_v8_id": {
-            "name": "meta/tic_v8_id",
+          "meta/bl_flg": {
+            "name": "meta/bl_flg",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i8",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/u_jkc_mag": {
-            "name": "meta/u_jkc_mag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/u_jkc_mag_flag": {
-            "name": "meta/u_jkc_mag_flag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/u_sdss_mag": {
-            "name": "meta/u_sdss_mag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/u_sdss_mag_flag": {
-            "name": "meta/u_sdss_mag_flag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/v_astra": {
-            "name": "meta/v_astra",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "Number of components fit per band (JHK)",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -2323,11 +1065,28 @@
             "is_virtual": false,
             "is_empty": false
           },
-          "meta/v_jkc_mag": {
-            "name": "meta/v_jkc_mag",
+          "meta/cc_flg": {
+            "name": "meta/cc_flg",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "Contamination and confusion flag",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": "object",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/w1_mag": {
+            "name": "meta/w1_mag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "W1 magnitude",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -2340,62 +1099,11 @@
             "is_virtual": false,
             "is_empty": false
           },
-          "meta/v_jkc_mag_flag": {
-            "name": "meta/v_jkc_mag_flag",
+          "meta/e_w1_mag": {
+            "name": "meta/e_w1_mag",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/v_rad": {
-            "name": "meta/v_rad",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/version_id": {
-            "name": "meta/version_id",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/w1_dflux": {
-            "name": "meta/w1_dflux",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "Error on W1 magnitude",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -2412,7 +1120,24 @@
             "name": "meta/w1_flux",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "W1 flux [Vega nMgy]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/w1_dflux": {
+            "name": "meta/w1_dflux",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on W1 flux [Vega nMgy]",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -2429,109 +1154,7 @@
             "name": "meta/w1_frac",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/w1_mag": {
-            "name": "meta/w1_mag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/w1aflags": {
-            "name": "meta/w1aflags",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i8",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/w1uflags": {
-            "name": "meta/w1uflags",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i8",
-            "nbytes": 13665712,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/w2_dflux": {
-            "name": "meta/w2_dflux",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/w2_flux": {
-            "name": "meta/w2_flux",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/w2_frac": {
-            "name": "meta/w2_frac",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "Fraction of W1 flux from this object",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -2548,7 +1171,7 @@
             "name": "meta/w2_mag",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "W2 magnitude [Vega]",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -2561,11 +1184,79 @@
             "is_virtual": false,
             "is_empty": false
           },
-          "meta/w2aflags": {
-            "name": "meta/w2aflags",
+          "meta/e_w2_mag": {
+            "name": "meta/e_w2_mag",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "Error on W2 magnitude",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/w2_flux": {
+            "name": "meta/w2_flux",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "W2 flux [Vega nMgy]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/w2_dflux": {
+            "name": "meta/w2_dflux",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on W2 flux [Vega nMgy]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/w2_frac": {
+            "name": "meta/w2_frac",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Fraction of W2 flux from this object",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/w1uflags": {
+            "name": "meta/w1uflags",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "unWISE flags for W1",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -2582,7 +1273,7 @@
             "name": "meta/w2uflags",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "unWISE flags for W2",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -2595,11 +1286,45 @@
             "is_virtual": false,
             "is_empty": false
           },
-          "meta/xcsao_e_fe_h": {
-            "name": "meta/xcsao_e_fe_h",
+          "meta/w1aflags": {
+            "name": "meta/w1aflags",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "Additional flags for W1",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i8",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/w2aflags": {
+            "name": "meta/w2aflags",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Additional flags for W2",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i8",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/mag4_5": {
+            "name": "meta/mag4_5",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "IRAC band 4.5 micron magnitude [mag]",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -2612,11 +1337,11 @@
             "is_virtual": false,
             "is_empty": false
           },
-          "meta/xcsao_e_logg": {
-            "name": "meta/xcsao_e_logg",
+          "meta/d4_5m": {
+            "name": "meta/d4_5m",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "Error on IRAC band 4.5 micron magnitude [mag]",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -2629,11 +1354,11 @@
             "is_virtual": false,
             "is_empty": false
           },
-          "meta/xcsao_e_teff": {
-            "name": "meta/xcsao_e_teff",
+          "meta/rms_f4_5": {
+            "name": "meta/rms_f4_5",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "RMS deviations from final flux [mJy]",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -2646,11 +1371,11 @@
             "is_virtual": false,
             "is_empty": false
           },
-          "meta/xcsao_fe_h": {
-            "name": "meta/xcsao_fe_h",
+          "meta/sqf_4_5": {
+            "name": "meta/sqf_4_5",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "Source quality flag for IRAC band 4.5 micron",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -2658,16 +1383,16 @@
             ],
             "size": 1708214,
             "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
+            "dtype": ">i8",
+            "nbytes": 13665712,
             "is_virtual": false,
             "is_empty": false
           },
-          "meta/xcsao_logg": {
-            "name": "meta/xcsao_logg",
+          "meta/mf4_5": {
+            "name": "meta/mf4_5",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "Flux calculation method flag",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -2675,339 +1400,16 @@
             ],
             "size": 1708214,
             "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
+            "dtype": ">i8",
+            "nbytes": 13665712,
             "is_virtual": false,
             "is_empty": false
           },
-          "meta/xcsao_meanrxc": {
-            "name": "meta/xcsao_meanrxc",
+          "meta/csf": {
+            "name": "meta/csf",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/xcsao_teff": {
-            "name": "meta/xcsao_teff",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/y_ps1_mag": {
-            "name": "meta/y_ps1_mag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/y_ps1_mag_flag": {
-            "name": "meta/y_ps1_mag_flag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/z_sdss_mag": {
-            "name": "meta/z_sdss_mag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/z_sdss_mag_flag": {
-            "name": "meta/z_sdss_mag_flag",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">i4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/zgr_chi2": {
-            "name": "meta/zgr_chi2",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/zgr_e": {
-            "name": "meta/zgr_e",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/zgr_e_e": {
-            "name": "meta/zgr_e_e",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/zgr_e_fe_h": {
-            "name": "meta/zgr_e_fe_h",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/zgr_e_logg": {
-            "name": "meta/zgr_e_logg",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/zgr_e_plx": {
-            "name": "meta/zgr_e_plx",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/zgr_e_teff": {
-            "name": "meta/zgr_e_teff",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/zgr_fe_h": {
-            "name": "meta/zgr_fe_h",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/zgr_fe_h_confidence": {
-            "name": "meta/zgr_fe_h_confidence",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/zgr_ln_prior": {
-            "name": "meta/zgr_ln_prior",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/zgr_logg": {
-            "name": "meta/zgr_logg",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/zgr_logg_confidence": {
-            "name": "meta/zgr_logg_confidence",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/zgr_plx": {
-            "name": "meta/zgr_plx",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
-            "pytables": null,
-            "attrs": [],
-            "shape": [
-              1708214
-            ],
-            "size": 1708214,
-            "ndim": 1,
-            "dtype": ">f4",
-            "nbytes": 6832856,
-            "is_virtual": false,
-            "is_empty": false
-          },
-          "meta/zgr_quality_flags": {
-            "name": "meta/zgr_quality_flags",
-            "parent": "/meta",
-            "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "Close source flag",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -3024,7 +1426,160 @@
             "name": "meta/zgr_teff",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "Stellar effective temperature [K]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/zgr_e_teff": {
+            "name": "meta/zgr_e_teff",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on stellar effective temperature [K]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/zgr_logg": {
+            "name": "meta/zgr_logg",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Surface gravity [log10(cm/s^2)]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/zgr_e_logg": {
+            "name": "meta/zgr_e_logg",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on surface gravity [log10(cm/s^2)]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/zgr_fe_h": {
+            "name": "meta/zgr_fe_h",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "[Fe/H] [dex]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/zgr_e_fe_h": {
+            "name": "meta/zgr_e_fe_h",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on [Fe/H] [dex]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/zgr_e": {
+            "name": "meta/zgr_e",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Extinction [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/zgr_e_e": {
+            "name": "meta/zgr_e_e",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on extinction [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/zgr_plx": {
+            "name": "meta/zgr_plx",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Parallax [mas] (Gaia DR3)",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/zgr_e_plx": {
+            "name": "meta/zgr_e_plx",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on parallax [mas] (Gaia DR3)",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -3041,7 +1596,7 @@
             "name": "meta/zgr_teff_confidence",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "Confidence estimate in TEFF",
             "pytables": null,
             "attrs": [],
             "shape": [
@@ -3054,11 +1609,1456 @@
             "is_virtual": false,
             "is_empty": false
           },
+          "meta/zgr_logg_confidence": {
+            "name": "meta/zgr_logg_confidence",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Confidence estimate in LOGG",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/zgr_fe_h_confidence": {
+            "name": "meta/zgr_fe_h_confidence",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Confidence estimate in FE_H",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/zgr_ln_prior": {
+            "name": "meta/zgr_ln_prior",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Log prior probability",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/zgr_chi2": {
+            "name": "meta/zgr_chi2",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Chi-square value",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/zgr_quality_flags": {
+            "name": "meta/zgr_quality_flags",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Quality flags",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i8",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/r_med_geo": {
+            "name": "meta/r_med_geo",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Median geometric distance [pc]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/r_lo_geo": {
+            "name": "meta/r_lo_geo",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "16th percentile of geometric distance [pc]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/r_hi_geo": {
+            "name": "meta/r_hi_geo",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "84th percentile of geometric distance [pc]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/r_med_photogeo": {
+            "name": "meta/r_med_photogeo",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "50th percentile of photogeometric distance [pc]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/r_lo_photogeo": {
+            "name": "meta/r_lo_photogeo",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "16th percentile of photogeometric distance [pc]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/r_hi_photogeo": {
+            "name": "meta/r_hi_photogeo",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "84th percentile of photogeometric distance [pc]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/bailer_jones_flags": {
+            "name": "meta/bailer_jones_flags",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Bailer-Jones quality flags",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": "object",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/ebv": {
+            "name": "meta/ebv",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "E(B-V) [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/e_ebv": {
+            "name": "meta/e_ebv",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on E(B-V) [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/ebv_flags": {
+            "name": "meta/ebv_flags",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Flags indicating the source of E(B-V)",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i8",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/ebv_zhang_2023": {
+            "name": "meta/ebv_zhang_2023",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "E(B-V) from Zhang et al. (2023) [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/e_ebv_zhang_2023": {
+            "name": "meta/e_ebv_zhang_2023",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on E(B-V) from Zhang et al. (2023) [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/ebv_sfd": {
+            "name": "meta/ebv_sfd",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "E(B-V) from SFD [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/e_ebv_sfd": {
+            "name": "meta/e_ebv_sfd",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on E(B-V) from SFD [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/ebv_rjce_glimpse": {
+            "name": "meta/ebv_rjce_glimpse",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "E(B-V) from RJCE GLIMPSE [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/e_ebv_rjce_glimpse": {
+            "name": "meta/e_ebv_rjce_glimpse",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on RJCE GLIMPSE E(B-V) [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/ebv_rjce_allwise": {
+            "name": "meta/ebv_rjce_allwise",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "E(B-V) from RJCE AllWISE [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/e_ebv_rjce_allwise": {
+            "name": "meta/e_ebv_rjce_allwise",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on RJCE AllWISE E(B-V) [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/ebv_bayestar_2019": {
+            "name": "meta/ebv_bayestar_2019",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "E(B-V) from Bayestar 2019 [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/e_ebv_bayestar_2019": {
+            "name": "meta/e_ebv_bayestar_2019",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on Bayestar 2019 E(B-V) [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/ebv_edenhofer_2023": {
+            "name": "meta/ebv_edenhofer_2023",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "E(B-V) from Edenhofer et al. (2023) [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/e_ebv_edenhofer_2023": {
+            "name": "meta/e_ebv_edenhofer_2023",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on Edenhofer et al. (2023) E(B-V) [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/c_star": {
+            "name": "meta/c_star",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Quality parameter (see Riello et al. 2021)",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/u_jkc_mag": {
+            "name": "meta/u_jkc_mag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Gaia XP synthetic U-band (JKC) [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/u_jkc_mag_flag": {
+            "name": "meta/u_jkc_mag_flag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "U-band (JKC) is within valid range",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/b_jkc_mag": {
+            "name": "meta/b_jkc_mag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Gaia XP synthetic B-band (JKC) [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/b_jkc_mag_flag": {
+            "name": "meta/b_jkc_mag_flag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "B-band (JKC) is within valid range",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/v_jkc_mag": {
+            "name": "meta/v_jkc_mag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Gaia XP synthetic V-band (JKC) [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/v_jkc_mag_flag": {
+            "name": "meta/v_jkc_mag_flag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "V-band (JKC) is within valid range",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/r_jkc_mag": {
+            "name": "meta/r_jkc_mag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Gaia XP synthetic R-band (JKC) [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/r_jkc_mag_flag": {
+            "name": "meta/r_jkc_mag_flag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "R-band (JKC) is within valid range",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/i_jkc_mag": {
+            "name": "meta/i_jkc_mag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Gaia XP synthetic I-band (JKC) [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/i_jkc_mag_flag": {
+            "name": "meta/i_jkc_mag_flag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "I-band (JKC) is within valid range",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/u_sdss_mag": {
+            "name": "meta/u_sdss_mag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Gaia XP synthetic u-band (SDSS) [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/u_sdss_mag_flag": {
+            "name": "meta/u_sdss_mag_flag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "u-band (SDSS) is within valid range",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/g_sdss_mag": {
+            "name": "meta/g_sdss_mag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Gaia XP synthetic g-band (SDSS) [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/g_sdss_mag_flag": {
+            "name": "meta/g_sdss_mag_flag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "g-band (SDSS) is within valid range",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/r_sdss_mag": {
+            "name": "meta/r_sdss_mag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Gaia XP synthetic r-band (SDSS) [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/r_sdss_mag_flag": {
+            "name": "meta/r_sdss_mag_flag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "r-band (SDSS) is within valid range",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/i_sdss_mag": {
+            "name": "meta/i_sdss_mag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Gaia XP synthetic i-band (SDSS) [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/i_sdss_mag_flag": {
+            "name": "meta/i_sdss_mag_flag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "i-band (SDSS) is within valid range",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/z_sdss_mag": {
+            "name": "meta/z_sdss_mag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Gaia XP synthetic z-band (SDSS) [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/z_sdss_mag_flag": {
+            "name": "meta/z_sdss_mag_flag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "z-band (SDSS) is within valid range",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/y_ps1_mag": {
+            "name": "meta/y_ps1_mag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Gaia XP synthetic Y-band (PS1) [mag]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/y_ps1_mag_flag": {
+            "name": "meta/y_ps1_mag_flag",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Y-band (PS1) is within valid range",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/n_boss_visits": {
+            "name": "meta/n_boss_visits",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Number of BOSS visits",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/boss_min_mjd": {
+            "name": "meta/boss_min_mjd",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Minimum MJD of BOSS visits",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/boss_max_mjd": {
+            "name": "meta/boss_max_mjd",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Maximum MJD of BOSS visits",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/n_apogee_visits": {
+            "name": "meta/n_apogee_visits",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Number of APOGEE visits",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/apogee_min_mjd": {
+            "name": "meta/apogee_min_mjd",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Minimum MJD of APOGEE visits",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/apogee_max_mjd": {
+            "name": "meta/apogee_max_mjd",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Maximum MJD of APOGEE visits",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/created": {
+            "name": "meta/created",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Datetime when task record was created",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": "object",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/modified": {
+            "name": "meta/modified",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Datetime when task record was modified",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": "object",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/spectrum_pk": {
+            "name": "meta/spectrum_pk",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Unique spectrum primary key",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i8",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/source": {
+            "name": "meta/source",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Unique source primary key",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i8",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/release": {
+            "name": "meta/release",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "SDSS release",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": "object",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/filetype": {
+            "name": "meta/filetype",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "SDSS file type that stores this spectrum",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": "object",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/v_astra": {
+            "name": "meta/v_astra",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Astra version",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": "object",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/run2d": {
+            "name": "meta/run2d",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "BOSS data reduction pipeline version",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": "object",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/telescope": {
+            "name": "meta/telescope",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Short telescope name",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": "object",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/min_mjd": {
+            "name": "meta/min_mjd",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Minimum MJD of visits",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/max_mjd": {
+            "name": "meta/max_mjd",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Maximum MJD of visits",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/n_visits": {
+            "name": "meta/n_visits",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Number of BOSS visits",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/n_good_visits": {
+            "name": "meta/n_good_visits",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Number of 'good' BOSS visits",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/n_good_rvs": {
+            "name": "meta/n_good_rvs",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Number of 'good' BOSS radial velocities",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/v_rad": {
+            "name": "meta/v_rad",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Barycentric rest frame radial velocity [km/s]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/e_v_rad": {
+            "name": "meta/e_v_rad",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on radial velocity [km/s]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/std_v_rad": {
+            "name": "meta/std_v_rad",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Standard deviation of visit V_RAD [km/s]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/median_e_v_rad": {
+            "name": "meta/median_e_v_rad",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Median error in radial velocity [km/s]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/xcsao_teff": {
+            "name": "meta/xcsao_teff",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Stellar effective temperature [K]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/xcsao_e_teff": {
+            "name": "meta/xcsao_e_teff",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on stellar effective temperature [K]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/xcsao_logg": {
+            "name": "meta/xcsao_logg",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Surface gravity [log10(cm/s^2)]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/xcsao_e_logg": {
+            "name": "meta/xcsao_e_logg",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on surface gravity [log10(cm/s^2)]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/xcsao_fe_h": {
+            "name": "meta/xcsao_fe_h",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "[Fe/H] [dex]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/xcsao_e_fe_h": {
+            "name": "meta/xcsao_e_fe_h",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Error on [Fe/H] [dex]",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/xcsao_meanrxc": {
+            "name": "meta/xcsao_meanrxc",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Cross-correlation R-value (1979AJ.....84.1511T)",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/snr": {
+            "name": "meta/snr",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Signal-to-noise ratio",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/gri_gaia_transform_flags": {
+            "name": "meta/gri_gaia_transform_flags",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Flags for provenance of ugriz photometry",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i8",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
           "meta/zwarning_flags": {
             "name": "meta/zwarning_flags",
             "parent": "/meta",
             "object": "dataset",
-            "description": "replace me - with a description of this dataset",
+            "description": "BOSS DRP warning flags",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">i8",
+            "nbytes": 13665712,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/nmf_rchi2": {
+            "name": "meta/nmf_rchi2",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "Reduced chi-square value of NMF continuum fit",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              1708214
+            ],
+            "size": 1708214,
+            "ndim": 1,
+            "dtype": ">f4",
+            "nbytes": 6832856,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "meta/nmf_flags": {
+            "name": "meta/nmf_flags",
+            "parent": "/meta",
+            "object": "dataset",
+            "description": "NMF Continuum method flags",
             "pytables": null,
             "attrs": [],
             "shape": [

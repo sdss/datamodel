@@ -1,10 +1,12 @@
 general:
   name: boss_clam_lite_fits
   short: Stellar Parameters from BOSS Spectra with The CLAM
-  description: BOSS-CLAM is a data driven method that maps labels to NMF basis weights to forward model continuum normalized 
-    BOSS spectra. This model was training with labels from ASPCAP, BOSS-MINESweeper, wide binaries and a validation set of hot 
-    stars. This is the lite version of the VAC includes the inferened stellar parameters from all mwmStar BOSS spectra with snr > 10, 
-    a series of flags to clean the dataset, and a subset of meta-data from mwmAllStar.
+  description: BOSS-CLAM is a data driven method that maps labels to NMF basis weights
+    to forward model continuum normalized BOSS spectra. This model was training with
+    labels from ASPCAP, BOSS-MINESweeper, wide binaries and a validation set of hot
+    stars. This is the lite version of the VAC includes the inferened stellar parameters
+    from all mwmStar BOSS spectra with snr > 10, a series of flags to clean the dataset,
+    and a subset of meta-data from mwmAllStar.
   datatype: FITS
   filesize: 674 MB
   releases:
@@ -25,17 +27,18 @@ changelog:
   releases: {}
 releases:
   DR20:
-    template: $MWM_STELLAR_PARAMS/boss_clam/boss_clam_lite-[V_VAC].fits
+    template: $MWM_STELLAR_PARAMS/boss_clam/boss_clam_lite-[V_VAC].[FTYPE]
     example: boss_clam/boss_clam_lite-1.0.0.fits
-    location: boss_clam/boss_clam_lite-{v_vac}.fits
+    location: boss_clam/boss_clam_lite-{v_vac}.{ftype}
     environment: MWM_STELLAR_PARAMS
     access:
       in_sdss_access: true
       path_name: boss_clam_lite
-      path_template: $MWM_STELLAR_PARAMS/boss_clam/boss_clam_lite-{v_vac}.fits
+      path_template: $MWM_STELLAR_PARAMS/boss_clam/boss_clam_lite-{v_vac}.{ftype}
       path_kwargs:
+      - ftype
       - v_vac
-      access_string: boss_clam_lite = $MWM_STELLAR_PARAMS/boss_clam/boss_clam_lite-{v_vac}.fits
+      access_string: boss_clam_lite = $MWM_STELLAR_PARAMS/boss_clam/boss_clam_lite-{v_vac}.{ftype}
     survey: SDSS
     hdus:
       hdu0:
@@ -300,29 +303,33 @@ releases:
             name: param_covariance
             type: float64[16]
             unit: ''
-            description: Covariance matrix for the parameters. Order is [teff, logg, fe_h, alpha_m]
+            description: Covariance matrix for the parameters. Order is [teff, logg,
+              fe_h, alpha_m]
           rchi2:
             name: rchi2
             type: float64
             unit: ''
-            description: Reduced chi^2 between BOSS spectrum and forward modeled CLAM spectrum
+            description: Reduced chi^2 between BOSS spectrum and forward modeled CLAM
+              spectrum
           clam_flags:
             name: clam_flags
             type: int64
             unit: ''
-            description: |
-              Bitmask indicating potentially unreliable or out-of-distribution BOSS-CLAM results. Flags include:
-                - IN_WD (0): likely white dwarf in mwm_wd not represented in the training set
-                - IN_YSO (1): likely young stellar object in mwm_yso not represented in the training set
-                - IN_OB (2): likely hot star in mwm_ob with unreliable [Fe/H] or [alpha/M] training coverage
-                - FE_H_ALPHA_SUSPECT (3): Teff > 6500 K, where [Fe/H] and [alpha/M] are poorly constrained
-                - BAD_SPEC_FIT (4): reduced chi^2 > 1 indicating poor forward-model fit
-                - LOW_MASS_SUSPECT (5): Teff < 4000 K and [Fe/H] < -1 in sparsely sampled low-mass regime
-                - FE_H_ALPHA_CORR (6): atypical correlation between [Fe/H], [alpha/M], and Teff
-                - TEFF_LOGG_CORR (7): unphysical negative correlation between Teff and logg
-                - LOW_MASS_TEFF_LOGG_CORR (8): weak Teff-logg correlation in low-mass stars (Teff < 4200 K)
-                - EXTREME_CORR (9): extreme correlations involving [alpha/M]
-                - ALTER_CORR (10): alternating correlation structure relative to the bulk population
+            description: "Bitmask indicating potentially unreliable or out-of-distribution\
+              \ BOSS-CLAM results. Flags include:\n  - IN_WD (0): likely white dwarf\
+              \ in mwm_wd not represented in the training set\n  - IN_YSO (1): likely\
+              \ young stellar object in mwm_yso not represented in the training set\n\
+              \  - IN_OB (2): likely hot star in mwm_ob with unreliable [Fe/H] or\
+              \ [alpha/M] training coverage\n  - FE_H_ALPHA_SUSPECT (3): Teff > 6500\
+              \ K, where [Fe/H] and [alpha/M] are poorly constrained\n  - BAD_SPEC_FIT\
+              \ (4): reduced chi^2 > 1 indicating poor forward-model fit\n  - LOW_MASS_SUSPECT\
+              \ (5): Teff < 4000 K and [Fe/H] < -1 in sparsely sampled low-mass regime\n\
+              \  - FE_H_ALPHA_CORR (6): atypical correlation between [Fe/H], [alpha/M],\
+              \ and Teff\n  - TEFF_LOGG_CORR (7): unphysical negative correlation\
+              \ between Teff and logg\n  - LOW_MASS_TEFF_LOGG_CORR (8): weak Teff-logg\
+              \ correlation in low-mass stars (Teff < 4200 K)\n  - EXTREME_CORR (9):\
+              \ extreme correlations involving [alpha/M]\n  - ALTER_CORR (10): alternating\
+              \ correlation structure relative to the bulk population\n"
           flag_warn:
             name: flag_warn
             type: bool
@@ -332,7 +339,9 @@ releases:
             name: flag_bad
             type: bool
             unit: ''
-            description: If IN_WD, IN_YSO, BAD_SPEC_FIT, LOW_MASS_SUSPECT, FE_H_ALPHA_CORR, TEFF_LOGG_CORR, LOW_MASS_TEFF_LOGG_CORR, EXTREME_CORR or ALTER_CORR is set
+            description: If IN_WD, IN_YSO, BAD_SPEC_FIT, LOW_MASS_SUSPECT, FE_H_ALPHA_CORR,
+              TEFF_LOGG_CORR, LOW_MASS_TEFF_LOGG_CORR, EXTREME_CORR or ALTER_CORR
+              is set
 notes: |-
   None
 regrets: |-

@@ -1,8 +1,8 @@
 {
   "general": {
     "name": "boss_clam_lite_fits",
-    "short": "replace me - with a short one sentence summary of file",
-    "description": "replace me - with a longer description of the data product",
+    "short": "Stellar Parameters from BOSS Spectra with The CLAM",
+    "description": "BOSS-CLAM is a data driven method that maps labels to NMF basis weights to forward model continuum normalized BOSS spectra. This model was training with labels from ASPCAP, BOSS-MINESweeper, wide binaries and a validation set of hot stars. This is the lite version of the VAC includes the inferened stellar parameters from all mwmStar BOSS spectra with snr > 10, a series of flags to clean the dataset, and a subset of meta-data from mwmAllStar.",
     "environments": [
       "MWM_STELLAR_PARAMS"
     ],
@@ -32,8 +32,8 @@
         "release_date": "2026-07-30"
       }
     ],
-    "naming_convention": "replace me - with $MWM_STELLAR_PARAMS/boss_clam/boss_clam_lite-[V_VAC].fits or boss_clam_lite-1.0.0.fits but with regex pattern matches",
-    "generated_by": "replace me - with the name(s) of any git or svn product(s) that produces this product.",
+    "naming_convention": "$MWM_STELLAR_PARAMS/boss_clam/boss_clam_lite-[V_VAC].fits",
+    "generated_by": "https://github.com/andycasey/clam-boss",
     "design": false,
     "vac": true,
     "recommended_science_product": true,
@@ -45,25 +45,26 @@
   },
   "releases": {
     "DR20": {
-      "template": "$MWM_STELLAR_PARAMS/boss_clam/boss_clam_lite-[V_VAC].fits",
+      "template": "$MWM_STELLAR_PARAMS/boss_clam/boss_clam_lite-[V_VAC].[FTYPE]",
       "example": "boss_clam/boss_clam_lite-1.0.0.fits",
-      "location": "boss_clam/boss_clam_lite-{v_vac}.fits",
+      "location": "boss_clam/boss_clam_lite-{v_vac}.{ftype}",
       "environment": "MWM_STELLAR_PARAMS",
       "survey": "SDSS",
       "access": {
         "in_sdss_access": true,
         "path_name": "boss_clam_lite",
-        "path_template": "$MWM_STELLAR_PARAMS/boss_clam/boss_clam_lite-{v_vac}.fits",
+        "path_template": "$MWM_STELLAR_PARAMS/boss_clam/boss_clam_lite-{v_vac}.{ftype}",
         "path_kwargs": [
+          "ftype",
           "v_vac"
         ],
-        "access_string": "boss_clam_lite = $MWM_STELLAR_PARAMS/boss_clam/boss_clam_lite-{v_vac}.fits"
+        "access_string": "boss_clam_lite = $MWM_STELLAR_PARAMS/boss_clam/boss_clam_lite-{v_vac}.{ftype}"
       },
       "hdus": {
         "hdu0": {
           "name": "PRIMARY",
           "is_image": true,
-          "description": "replace me description",
+          "description": "Stellar Parameters from BOSS Spectra with The CLAM",
           "size": "0 bytes",
           "header": [
             {
@@ -92,7 +93,7 @@
         "hdu1": {
           "name": "BOSS_CLAM",
           "is_image": false,
-          "description": "replace me description",
+          "description": "BOSS-CLAM results and meta-data",
           "size": "674 MB",
           "header": [
             {
@@ -154,273 +155,273 @@
           "columns": {
             "sdss_id": {
               "name": "sdss_id",
-              "description": "replace me - with content",
+              "description": "SDSS-5 unique identifier",
               "type": "int64",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "gaia_dr2_source_id": {
               "name": "gaia_dr2_source_id",
-              "description": "replace me - with content",
+              "description": "Gaia DR2 source identifier",
               "type": "int64",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "gaia_dr3_source_id": {
               "name": "gaia_dr3_source_id",
-              "description": "replace me - with content",
+              "description": "Gaia DR3 source identifier",
               "type": "int64",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "sdss5_target_flags": {
               "name": "sdss5_target_flags",
-              "description": "replace me - with content",
+              "description": "SDSS-5 targeting flags",
               "type": "bool[71]",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "ra": {
               "name": "ra",
-              "description": "replace me - with content",
+              "description": "Right ascension ",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": "deg"
             },
             "dec": {
               "name": "dec",
-              "description": "replace me - with content",
+              "description": "Declination ",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": "deg"
             },
             "l": {
               "name": "l",
-              "description": "replace me - with content",
+              "description": "Galactic longitude ",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": "deg"
             },
             "b": {
               "name": "b",
-              "description": "replace me - with content",
+              "description": "Galactic latitude ",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": "deg"
             },
             "plx": {
               "name": "plx",
-              "description": "replace me - with content",
+              "description": "Parallax ",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": "mas"
             },
             "e_plx": {
               "name": "e_plx",
-              "description": "replace me - with content",
+              "description": "Error on parallax ",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": "mas"
             },
             "pmra": {
               "name": "pmra",
-              "description": "replace me - with content",
+              "description": "Proper motion in RA ",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": "mas/yr"
             },
             "e_pmra": {
               "name": "e_pmra",
-              "description": "replace me - with content",
+              "description": "Error on proper motion in RA ",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": "mas/yr"
             },
             "pmde": {
               "name": "pmde",
-              "description": "replace me - with content",
+              "description": "Proper motion in DEC ",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": "mas/yr"
             },
             "e_pmde": {
               "name": "e_pmde",
-              "description": "replace me - with content",
+              "description": "Error on proper motion in DEC ",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": "mas/yr"
             },
             "g_mag": {
               "name": "g_mag",
-              "description": "replace me - with content",
+              "description": "Gaia DR3 mean G band magnitude ",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": "mag"
             },
             "bp_mag": {
               "name": "bp_mag",
-              "description": "replace me - with content",
+              "description": "Gaia DR3 mean BP band magnitude ",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": "mag"
             },
             "rp_mag": {
               "name": "rp_mag",
-              "description": "replace me - with content",
+              "description": "Gaia DR3 mean RP band magnitude ",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": "mag"
             },
             "j_mag": {
               "name": "j_mag",
-              "description": "replace me - with content",
+              "description": "2MASS J band magnitude ",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": "mag"
             },
             "h_mag": {
               "name": "h_mag",
-              "description": "replace me - with content",
+              "description": "2MASS H band magnitude ",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": "mag"
             },
             "k_mag": {
               "name": "k_mag",
-              "description": "replace me - with content",
+              "description": "2MASS K band magnitude ",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": "mag"
             },
             "r_med_geo": {
               "name": "r_med_geo",
-              "description": "replace me - with content",
+              "description": "Median geometric distance ",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": "pc"
             },
             "r_med_photogeo": {
               "name": "r_med_photogeo",
-              "description": "replace me - with content",
+              "description": "50th percentile of photogeometric distance ",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": "pc"
             },
             "bailer_jones_flags": {
               "name": "bailer_jones_flags",
-              "description": "replace me - with content",
+              "description": "Bailer-Jones quality flags",
               "type": "char[8]",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "ebv": {
               "name": "ebv",
-              "description": "replace me - with content",
+              "description": "E(B-V) ",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": "mag"
             },
             "e_ebv": {
               "name": "e_ebv",
-              "description": "replace me - with content",
+              "description": "Error on E(B-V) ",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": "mag"
             },
             "ebv_flags": {
               "name": "ebv_flags",
-              "description": "replace me - with content",
+              "description": "Flags indicating the source of E(B-V)",
               "type": "int64",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "n_boss_visits": {
               "name": "n_boss_visits",
-              "description": "replace me - with content",
+              "description": "Number of BOSS visits",
               "type": "int32",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "boss_min_mjd": {
               "name": "boss_min_mjd",
-              "description": "replace me - with content",
+              "description": "Minimum MJD of BOSS visits",
               "type": "int32",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "boss_max_mjd": {
               "name": "boss_max_mjd",
-              "description": "replace me - with content",
+              "description": "Maximum MJD of BOSS visits",
               "type": "int32",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "telescope": {
               "name": "telescope",
-              "description": "replace me - with content",
+              "description": "Short telescope name",
               "type": "char[9]",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "n_good_visits": {
               "name": "n_good_visits",
-              "description": "replace me - with content",
+              "description": "Number of 'good' BOSS visits",
               "type": "int32",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "n_good_rvs": {
               "name": "n_good_rvs",
-              "description": "replace me - with content",
+              "description": "Number of 'good' BOSS radial velocities",
               "type": "int32",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "v_rad": {
               "name": "v_rad",
-              "description": "replace me - with content",
+              "description": "Barycentric rest frame radial velocity ",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": "km/s"
             },
             "e_v_rad": {
               "name": "e_v_rad",
-              "description": "replace me - with content",
+              "description": "Error on radial velocity ",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": "km/s"
             },
             "std_v_rad": {
               "name": "std_v_rad",
-              "description": "replace me - with content",
+              "description": "Standard deviation of visit V_RAD ",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": "km/s"
             },
             "snr": {
               "name": "snr",
-              "description": "replace me - with content",
+              "description": "Signal-to-noise ratio",
               "type": "float32",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "teff": {
               "name": "teff",
-              "description": "replace me - with content",
+              "description": "BOSS-CLAM effective temperature",
               "type": "float64",
-              "unit": "replace me - with content"
+              "unit": "K"
             },
             "logg": {
               "name": "logg",
-              "description": "replace me - with content",
+              "description": "BOSS-CLAM log(g)",
               "type": "float64",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "fe_h": {
               "name": "fe_h",
-              "description": "replace me - with content",
+              "description": "BOSS-CLAM [Fe/H]",
               "type": "float64",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "alpha_m": {
               "name": "alpha_m",
-              "description": "replace me - with content",
+              "description": "BOSS-CLAM [alpha/M]",
               "type": "float64",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "param_covariance": {
               "name": "param_covariance",
-              "description": "replace me - with content",
+              "description": "Covariance matrix for the parameters. Order is [teff, logg, fe_h, alpha_m]",
               "type": "float64[16]",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "rchi2": {
               "name": "rchi2",
-              "description": "replace me - with content",
+              "description": "Reduced chi^2 between BOSS spectrum and forward modeled CLAM spectrum",
               "type": "float64",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "clam_flags": {
               "name": "clam_flags",
-              "description": "replace me - with content",
+              "description": "Bitmask indicating potentially unreliable or out-of-distribution BOSS-CLAM results. Flags include:\n  - IN_WD (0): likely white dwarf in mwm_wd not represented in the training set\n  - IN_YSO (1): likely young stellar object in mwm_yso not represented in the training set\n  - IN_OB (2): likely hot star in mwm_ob with unreliable [Fe/H] or [alpha/M] training coverage\n  - FE_H_ALPHA_SUSPECT (3): Teff > 6500 K, where [Fe/H] and [alpha/M] are poorly constrained\n  - BAD_SPEC_FIT (4): reduced chi^2 > 1 indicating poor forward-model fit\n  - LOW_MASS_SUSPECT (5): Teff < 4000 K and [Fe/H] < -1 in sparsely sampled low-mass regime\n  - FE_H_ALPHA_CORR (6): atypical correlation between [Fe/H], [alpha/M], and Teff\n  - TEFF_LOGG_CORR (7): unphysical negative correlation between Teff and logg\n  - LOW_MASS_TEFF_LOGG_CORR (8): weak Teff-logg correlation in low-mass stars (Teff < 4200 K)\n  - EXTREME_CORR (9): extreme correlations involving [alpha/M]\n  - ALTER_CORR (10): alternating correlation structure relative to the bulk population\n",
               "type": "int64",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "flag_warn": {
               "name": "flag_warn",
-              "description": "replace me - with content",
+              "description": "If IN_OB or FE_H_ALPHA_SUSPECT is set",
               "type": "bool",
-              "unit": "replace me - with content"
+              "unit": ""
             },
             "flag_bad": {
               "name": "flag_bad",
-              "description": "replace me - with content",
+              "description": "If IN_WD, IN_YSO, BAD_SPEC_FIT, LOW_MASS_SUSPECT, FE_H_ALPHA_CORR, TEFF_LOGG_CORR, LOW_MASS_TEFF_LOGG_CORR, EXTREME_CORR or ALTER_CORR is set",
               "type": "bool",
-              "unit": "replace me - with content"
+              "unit": ""
             }
           }
         }
