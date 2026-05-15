@@ -127,7 +127,7 @@ Name | Type | Unit | Description |
 ## Notes
 Sources are drawn from the cross-match of the Fermi-LAT 4FGL-DR4
 catalogue with SDSS-V DR20 BOSS spectroscopy. Non-blazar Fermi
-classes (pulsars, radio galaxies, binaries, etc.).
+classes (pulsars, radio galaxies, binaries, etc.) were excluded.
 
 ---
 ## Regrets
