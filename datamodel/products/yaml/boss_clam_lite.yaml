@@ -1,7 +1,10 @@
 general:
   name: boss_clam_lite
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: Stellar Parameters from BOSS Spectra with The CLAM
+  description: BOSS-CLAM is a data driven method that maps labels to NMF basis weights to forward model continuum normalized 
+    BOSS spectra. This model was training with labels from ASPCAP, BOSS-MINESweeper, wide binaries and a validation set of hot 
+    stars. This is the lite version of the VAC includes the inferened stellar parameters from all mwmStar BOSS spectra with snr > 10, 
+    a series of flags to clean the dataset, and a subset of meta-data from mwmAllStar.
   datatype: H5
   filesize: 482 MB
   releases:
@@ -10,10 +13,8 @@ general:
   - MWM_STELLAR_PARAMS
   surveys:
   - SDSS
-  naming_convention: replace me - with $MWM_STELLAR_PARAMS/boss_clam/boss_clam_lite-[V_VAC].h5
-    or boss_clam_lite-1.0.0.h5 but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $MWM_STELLAR_PARAMS/boss_clam/boss_clam_lite-[V_VAC].h5
+  generated_by: https://github.com/andycasey/clam-boss
   data_level: 3.3.0
   design: false
   vac: true
@@ -40,7 +41,7 @@ releases:
       name: /
       parent: /
       object: group
-      description: replace me - with a description of this group
+      description: BOSS-CLAM results and meta-data
       libver: !!python/tuple
       - earliest
       - v114
@@ -52,14 +53,14 @@ releases:
           name: clam
           parent: /
           object: group
-          description: replace me - with a description of this group
+          description: BOSS-CLAM results
           n_members: 9
           attrs: []
-        clam/alpha_m:
-          name: clam/alpha_m
+        clam/teff:
+          name: clam/teff
           parent: /clam
           object: dataset
-          description: replace me - with a description of this dataset
+          description: BOSS-CLAM effective temperature [K]
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -69,17 +70,17 @@ releases:
           nbytes: 13665712
           is_virtual: false
           is_empty: false
-        clam/clam_flags:
-          name: clam/clam_flags
+        clam/logg:
+          name: clam/logg
           parent: /clam
           object: dataset
-          description: replace me - with a description of this dataset
+          description: BOSS-CLAM log(g)
           attrs: []
           shape: !!python/tuple
           - 1708214
           size: 1708214
           ndim: 1
-          dtype: int64
+          dtype: float64
           nbytes: 13665712
           is_virtual: false
           is_empty: false
@@ -87,7 +88,7 @@ releases:
           name: clam/fe_h
           parent: /clam
           object: dataset
-          description: replace me - with a description of this dataset
+          description: BOSS-CLAM [Fe/H]
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -97,39 +98,11 @@ releases:
           nbytes: 13665712
           is_virtual: false
           is_empty: false
-        clam/flag_bad:
-          name: clam/flag_bad
+        clam/alpha_m:
+          name: clam/alpha_m
           parent: /clam
           object: dataset
-          description: replace me - with a description of this dataset
-          attrs: []
-          shape: !!python/tuple
-          - 1708214
-          size: 1708214
-          ndim: 1
-          dtype: bool
-          nbytes: 1708214
-          is_virtual: false
-          is_empty: false
-        clam/flag_warn:
-          name: clam/flag_warn
-          parent: /clam
-          object: dataset
-          description: replace me - with a description of this dataset
-          attrs: []
-          shape: !!python/tuple
-          - 1708214
-          size: 1708214
-          ndim: 1
-          dtype: bool
-          nbytes: 1708214
-          is_virtual: false
-          is_empty: false
-        clam/logg:
-          name: clam/logg
-          parent: /clam
-          object: dataset
-          description: replace me - with a description of this dataset
+          description: BOSS-CLAM [alpha/M]
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -143,7 +116,7 @@ releases:
           name: clam/param_covariance
           parent: /clam
           object: dataset
-          description: replace me - with a description of this dataset
+          description: Covariance matrix for the parameters. Order is [teff, logg, fe_h, alpha_m]
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -159,7 +132,7 @@ releases:
           name: clam/rchi2
           parent: /clam
           object: dataset
-          description: replace me - with a description of this dataset
+          description: Reduced chi^2 between BOSS spectrum and forward modeled CLAM spectrum
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -169,200 +142,72 @@ releases:
           nbytes: 13665712
           is_virtual: false
           is_empty: false
-        clam/teff:
-          name: clam/teff
+        clam/clam_flags:
+          name: clam/clam_flags
           parent: /clam
           object: dataset
-          description: replace me - with a description of this dataset
+          description: |
+            Bitmask indicating potentially unreliable or out-of-distribution BOSS-CLAM results. Flags include:
+              - IN_WD (0): likely white dwarf in mwm_wd not represented in the training set
+              - IN_YSO (1): likely young stellar object in mwm_yso not represented in the training set
+              - IN_OB (2): likely hot star in mwm_ob with unreliable [Fe/H] or [alpha/M] training coverage
+              - FE_H_ALPHA_SUSPECT (3): Teff > 6500 K, where [Fe/H] and [alpha/M] are poorly constrained
+              - BAD_SPEC_FIT (4): reduced chi^2 > 1 indicating poor forward-model fit
+              - LOW_MASS_SUSPECT (5): Teff < 4000 K and [Fe/H] < -1 in sparsely sampled low-mass regime
+              - FE_H_ALPHA_CORR (6): atypical correlation between [Fe/H], [alpha/M], and Teff
+              - TEFF_LOGG_CORR (7): unphysical negative correlation between Teff and logg
+              - LOW_MASS_TEFF_LOGG_CORR (8): weak Teff-logg correlation in low-mass stars (Teff < 4200 K)
+              - EXTREME_CORR (9): extreme correlations involving [alpha/M]
+              - ALTER_CORR (10): alternating correlation structure relative to the bulk population
           attrs: []
           shape: !!python/tuple
           - 1708214
           size: 1708214
           ndim: 1
-          dtype: float64
+          dtype: int64
           nbytes: 13665712
+          is_virtual: false
+          is_empty: false
+        clam/flag_warn:
+          name: clam/flag_warn
+          parent: /clam
+          object: dataset
+          description: If IN_OB or FE_H_ALPHA_SUSPECT is set
+          attrs: []
+          shape: !!python/tuple
+          - 1708214
+          size: 1708214
+          ndim: 1
+          dtype: bool
+          nbytes: 1708214
+          is_virtual: false
+          is_empty: false
+        clam/flag_bad:
+          name: clam/flag_bad
+          parent: /clam
+          object: dataset
+          description: If IN_WD, IN_YSO, BAD_SPEC_FIT, LOW_MASS_SUSPECT, FE_H_ALPHA_CORR, TEFF_LOGG_CORR, LOW_MASS_TEFF_LOGG_CORR, EXTREME_CORR or ALTER_CORR is set
+          attrs: []
+          shape: !!python/tuple
+          - 1708214
+          size: 1708214
+          ndim: 1
+          dtype: bool
+          nbytes: 1708214
           is_virtual: false
           is_empty: false
         meta:
           name: meta
           parent: /
           object: group
-          description: replace me - with a description of this group
+          description: Meta-data from mwmAllStar for the BOSS-CLAM results
           n_members: 36
           attrs: []
-        meta/b:
-          name: meta/b
+        meta/sdss_id:
+          name: meta/sdss_id
           parent: /meta
           object: dataset
-          description: replace me - with a description of this dataset
-          attrs: []
-          shape: !!python/tuple
-          - 1708214
-          size: 1708214
-          ndim: 1
-          dtype: '>f4'
-          nbytes: 6832856
-          is_virtual: false
-          is_empty: false
-        meta/bailer_jones_flags:
-          name: meta/bailer_jones_flags
-          parent: /meta
-          object: dataset
-          description: replace me - with a description of this dataset
-          attrs: []
-          shape: !!python/tuple
-          - 1708214
-          size: 1708214
-          ndim: 1
-          dtype: object
-          nbytes: 13665712
-          is_virtual: false
-          is_empty: false
-        meta/boss_max_mjd:
-          name: meta/boss_max_mjd
-          parent: /meta
-          object: dataset
-          description: replace me - with a description of this dataset
-          attrs: []
-          shape: !!python/tuple
-          - 1708214
-          size: 1708214
-          ndim: 1
-          dtype: '>i4'
-          nbytes: 6832856
-          is_virtual: false
-          is_empty: false
-        meta/boss_min_mjd:
-          name: meta/boss_min_mjd
-          parent: /meta
-          object: dataset
-          description: replace me - with a description of this dataset
-          attrs: []
-          shape: !!python/tuple
-          - 1708214
-          size: 1708214
-          ndim: 1
-          dtype: '>i4'
-          nbytes: 6832856
-          is_virtual: false
-          is_empty: false
-        meta/bp_mag:
-          name: meta/bp_mag
-          parent: /meta
-          object: dataset
-          description: replace me - with a description of this dataset
-          attrs: []
-          shape: !!python/tuple
-          - 1708214
-          size: 1708214
-          ndim: 1
-          dtype: '>f4'
-          nbytes: 6832856
-          is_virtual: false
-          is_empty: false
-        meta/dec:
-          name: meta/dec
-          parent: /meta
-          object: dataset
-          description: replace me - with a description of this dataset
-          attrs: []
-          shape: !!python/tuple
-          - 1708214
-          size: 1708214
-          ndim: 1
-          dtype: '>f4'
-          nbytes: 6832856
-          is_virtual: false
-          is_empty: false
-        meta/e_ebv:
-          name: meta/e_ebv
-          parent: /meta
-          object: dataset
-          description: replace me - with a description of this dataset
-          attrs: []
-          shape: !!python/tuple
-          - 1708214
-          size: 1708214
-          ndim: 1
-          dtype: '>f4'
-          nbytes: 6832856
-          is_virtual: false
-          is_empty: false
-        meta/e_plx:
-          name: meta/e_plx
-          parent: /meta
-          object: dataset
-          description: replace me - with a description of this dataset
-          attrs: []
-          shape: !!python/tuple
-          - 1708214
-          size: 1708214
-          ndim: 1
-          dtype: '>f4'
-          nbytes: 6832856
-          is_virtual: false
-          is_empty: false
-        meta/e_pmde:
-          name: meta/e_pmde
-          parent: /meta
-          object: dataset
-          description: replace me - with a description of this dataset
-          attrs: []
-          shape: !!python/tuple
-          - 1708214
-          size: 1708214
-          ndim: 1
-          dtype: '>f4'
-          nbytes: 6832856
-          is_virtual: false
-          is_empty: false
-        meta/e_pmra:
-          name: meta/e_pmra
-          parent: /meta
-          object: dataset
-          description: replace me - with a description of this dataset
-          attrs: []
-          shape: !!python/tuple
-          - 1708214
-          size: 1708214
-          ndim: 1
-          dtype: '>f4'
-          nbytes: 6832856
-          is_virtual: false
-          is_empty: false
-        meta/e_v_rad:
-          name: meta/e_v_rad
-          parent: /meta
-          object: dataset
-          description: replace me - with a description of this dataset
-          attrs: []
-          shape: !!python/tuple
-          - 1708214
-          size: 1708214
-          ndim: 1
-          dtype: '>f4'
-          nbytes: 6832856
-          is_virtual: false
-          is_empty: false
-        meta/ebv:
-          name: meta/ebv
-          parent: /meta
-          object: dataset
-          description: replace me - with a description of this dataset
-          attrs: []
-          shape: !!python/tuple
-          - 1708214
-          size: 1708214
-          ndim: 1
-          dtype: '>f4'
-          nbytes: 6832856
-          is_virtual: false
-          is_empty: false
-        meta/ebv_flags:
-          name: meta/ebv_flags
-          parent: /meta
-          object: dataset
-          description: replace me - with a description of this dataset
+          description: SDSS-5 unique identifier
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -372,25 +217,11 @@ releases:
           nbytes: 13665712
           is_virtual: false
           is_empty: false
-        meta/g_mag:
-          name: meta/g_mag
-          parent: /meta
-          object: dataset
-          description: replace me - with a description of this dataset
-          attrs: []
-          shape: !!python/tuple
-          - 1708214
-          size: 1708214
-          ndim: 1
-          dtype: '>f4'
-          nbytes: 6832856
-          is_virtual: false
-          is_empty: false
         meta/gaia_dr2_source_id:
           name: meta/gaia_dr2_source_id
           parent: /meta
           object: dataset
-          description: replace me - with a description of this dataset
+          description: Gaia DR2 source identifier
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -404,7 +235,7 @@ releases:
           name: meta/gaia_dr3_source_id
           parent: /meta
           object: dataset
-          description: replace me - with a description of this dataset
+          description: Gaia DR3 source identifier
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -414,11 +245,26 @@ releases:
           nbytes: 13665712
           is_virtual: false
           is_empty: false
-        meta/h_mag:
-          name: meta/h_mag
+        meta/sdss5_target_flags:
+          name: meta/sdss5_target_flags
           parent: /meta
           object: dataset
-          description: replace me - with a description of this dataset
+          description: SDSS-5 targeting flags
+          attrs: []
+          shape: !!python/tuple
+          - 1708214
+          - 71
+          size: 121283194
+          ndim: 2
+          dtype: uint8
+          nbytes: 121283194
+          is_virtual: false
+          is_empty: false
+        meta/ra:
+          name: meta/ra
+          parent: /meta
+          object: dataset
+          description: Right ascension [deg]
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -428,25 +274,11 @@ releases:
           nbytes: 6832856
           is_virtual: false
           is_empty: false
-        meta/j_mag:
-          name: meta/j_mag
+        meta/dec:
+          name: meta/dec
           parent: /meta
           object: dataset
-          description: replace me - with a description of this dataset
-          attrs: []
-          shape: !!python/tuple
-          - 1708214
-          size: 1708214
-          ndim: 1
-          dtype: '>f4'
-          nbytes: 6832856
-          is_virtual: false
-          is_empty: false
-        meta/k_mag:
-          name: meta/k_mag
-          parent: /meta
-          object: dataset
-          description: replace me - with a description of this dataset
+          description: Declination [deg]
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -460,7 +292,7 @@ releases:
           name: meta/l
           parent: /meta
           object: dataset
-          description: replace me - with a description of this dataset
+          description: Galactic longitude [deg]
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -470,45 +302,17 @@ releases:
           nbytes: 6832856
           is_virtual: false
           is_empty: false
-        meta/n_boss_visits:
-          name: meta/n_boss_visits
+        meta/b:
+          name: meta/b
           parent: /meta
           object: dataset
-          description: replace me - with a description of this dataset
+          description: Galactic latitude [deg]
           attrs: []
           shape: !!python/tuple
           - 1708214
           size: 1708214
           ndim: 1
-          dtype: '>i4'
-          nbytes: 6832856
-          is_virtual: false
-          is_empty: false
-        meta/n_good_rvs:
-          name: meta/n_good_rvs
-          parent: /meta
-          object: dataset
-          description: replace me - with a description of this dataset
-          attrs: []
-          shape: !!python/tuple
-          - 1708214
-          size: 1708214
-          ndim: 1
-          dtype: '>i4'
-          nbytes: 6832856
-          is_virtual: false
-          is_empty: false
-        meta/n_good_visits:
-          name: meta/n_good_visits
-          parent: /meta
-          object: dataset
-          description: replace me - with a description of this dataset
-          attrs: []
-          shape: !!python/tuple
-          - 1708214
-          size: 1708214
-          ndim: 1
-          dtype: '>i4'
+          dtype: '>f4'
           nbytes: 6832856
           is_virtual: false
           is_empty: false
@@ -516,7 +320,7 @@ releases:
           name: meta/plx
           parent: /meta
           object: dataset
-          description: replace me - with a description of this dataset
+          description: Parallax [mas]
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -526,11 +330,11 @@ releases:
           nbytes: 6832856
           is_virtual: false
           is_empty: false
-        meta/pmde:
-          name: meta/pmde
+        meta/e_plx:
+          name: meta/e_plx
           parent: /meta
           object: dataset
-          description: replace me - with a description of this dataset
+          description: Error on parallax [mas]
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -544,7 +348,7 @@ releases:
           name: meta/pmra
           parent: /meta
           object: dataset
-          description: replace me - with a description of this dataset
+          description: Proper motion in RA [mas/yr]
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -554,11 +358,11 @@ releases:
           nbytes: 6832856
           is_virtual: false
           is_empty: false
-        meta/r_med_geo:
-          name: meta/r_med_geo
+        meta/e_pmra:
+          name: meta/e_pmra
           parent: /meta
           object: dataset
-          description: replace me - with a description of this dataset
+          description: Error on proper motion in RA [mas/yr]
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -568,11 +372,11 @@ releases:
           nbytes: 6832856
           is_virtual: false
           is_empty: false
-        meta/r_med_photogeo:
-          name: meta/r_med_photogeo
+        meta/pmde:
+          name: meta/pmde
           parent: /meta
           object: dataset
-          description: replace me - with a description of this dataset
+          description: Proper motion in DEC [mas/yr]
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -582,11 +386,39 @@ releases:
           nbytes: 6832856
           is_virtual: false
           is_empty: false
-        meta/ra:
-          name: meta/ra
+        meta/e_pmde:
+          name: meta/e_pmde
           parent: /meta
           object: dataset
-          description: replace me - with a description of this dataset
+          description: Error on proper motion in DEC [mas/yr]
+          attrs: []
+          shape: !!python/tuple
+          - 1708214
+          size: 1708214
+          ndim: 1
+          dtype: '>f4'
+          nbytes: 6832856
+          is_virtual: false
+          is_empty: false
+        meta/g_mag:
+          name: meta/g_mag
+          parent: /meta
+          object: dataset
+          description: Gaia DR3 mean G band magnitude [mag]
+          attrs: []
+          shape: !!python/tuple
+          - 1708214
+          size: 1708214
+          ndim: 1
+          dtype: '>f4'
+          nbytes: 6832856
+          is_virtual: false
+          is_empty: false
+        meta/bp_mag:
+          name: meta/bp_mag
+          parent: /meta
+          object: dataset
+          description: Gaia DR3 mean BP band magnitude [mag]
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -600,7 +432,7 @@ releases:
           name: meta/rp_mag
           parent: /meta
           object: dataset
-          description: replace me - with a description of this dataset
+          description: Gaia DR3 mean RP band magnitude [mag]
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -610,26 +442,123 @@ releases:
           nbytes: 6832856
           is_virtual: false
           is_empty: false
-        meta/sdss5_target_flags:
-          name: meta/sdss5_target_flags
+        meta/j_mag:
+          name: meta/j_mag
           parent: /meta
           object: dataset
-          description: replace me - with a description of this dataset
+          description: 2MASS J band magnitude [mag]
           attrs: []
           shape: !!python/tuple
           - 1708214
-          - 71
-          size: 121283194
-          ndim: 2
-          dtype: uint8
-          nbytes: 121283194
+          size: 1708214
+          ndim: 1
+          dtype: '>f4'
+          nbytes: 6832856
           is_virtual: false
           is_empty: false
-        meta/sdss_id:
-          name: meta/sdss_id
+        meta/h_mag:
+          name: meta/h_mag
           parent: /meta
           object: dataset
-          description: replace me - with a description of this dataset
+          description: 2MASS H band magnitude [mag]
+          attrs: []
+          shape: !!python/tuple
+          - 1708214
+          size: 1708214
+          ndim: 1
+          dtype: '>f4'
+          nbytes: 6832856
+          is_virtual: false
+          is_empty: false
+        meta/k_mag:
+          name: meta/k_mag
+          parent: /meta
+          object: dataset
+          description: 2MASS K band magnitude [mag]
+          attrs: []
+          shape: !!python/tuple
+          - 1708214
+          size: 1708214
+          ndim: 1
+          dtype: '>f4'
+          nbytes: 6832856
+          is_virtual: false
+          is_empty: false
+        meta/r_med_geo:
+          name: meta/r_med_geo
+          parent: /meta
+          object: dataset
+          description: Median geometric distance [pc]
+          attrs: []
+          shape: !!python/tuple
+          - 1708214
+          size: 1708214
+          ndim: 1
+          dtype: '>f4'
+          nbytes: 6832856
+          is_virtual: false
+          is_empty: false
+        meta/r_med_photogeo:
+          name: meta/r_med_photogeo
+          parent: /meta
+          object: dataset
+          description: 50th percentile of photogeometric distance [pc]
+          attrs: []
+          shape: !!python/tuple
+          - 1708214
+          size: 1708214
+          ndim: 1
+          dtype: '>f4'
+          nbytes: 6832856
+          is_virtual: false
+          is_empty: false
+        meta/bailer_jones_flags:
+          name: meta/bailer_jones_flags
+          parent: /meta
+          object: dataset
+          description: Bailer-Jones quality flags
+          attrs: []
+          shape: !!python/tuple
+          - 1708214
+          size: 1708214
+          ndim: 1
+          dtype: object
+          nbytes: 13665712
+          is_virtual: false
+          is_empty: false
+        meta/ebv:
+          name: meta/ebv
+          parent: /meta
+          object: dataset
+          description: E(B-V) [mag]
+          attrs: []
+          shape: !!python/tuple
+          - 1708214
+          size: 1708214
+          ndim: 1
+          dtype: '>f4'
+          nbytes: 6832856
+          is_virtual: false
+          is_empty: false
+        meta/e_ebv:
+          name: meta/e_ebv
+          parent: /meta
+          object: dataset
+          description: Error on E(B-V) [mag]
+          attrs: []
+          shape: !!python/tuple
+          - 1708214
+          size: 1708214
+          ndim: 1
+          dtype: '>f4'
+          nbytes: 6832856
+          is_virtual: false
+          is_empty: false
+        meta/ebv_flags:
+          name: meta/ebv_flags
+          parent: /meta
+          object: dataset
+          description: Flags indicating the source of E(B-V)
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -639,11 +568,109 @@ releases:
           nbytes: 13665712
           is_virtual: false
           is_empty: false
-        meta/snr:
-          name: meta/snr
+        meta/n_boss_visits:
+          name: meta/n_boss_visits
           parent: /meta
           object: dataset
-          description: replace me - with a description of this dataset
+          description: Number of BOSS visits
+          attrs: []
+          shape: !!python/tuple
+          - 1708214
+          size: 1708214
+          ndim: 1
+          dtype: '>i4'
+          nbytes: 6832856
+          is_virtual: false
+          is_empty: false
+        meta/boss_min_mjd:
+          name: meta/boss_min_mjd
+          parent: /meta
+          object: dataset
+          description: Minimum MJD of BOSS visits
+          attrs: []
+          shape: !!python/tuple
+          - 1708214
+          size: 1708214
+          ndim: 1
+          dtype: '>i4'
+          nbytes: 6832856
+          is_virtual: false
+          is_empty: false
+        meta/boss_max_mjd:
+          name: meta/boss_max_mjd
+          parent: /meta
+          object: dataset
+          description: Maximum MJD of BOSS visits
+          attrs: []
+          shape: !!python/tuple
+          - 1708214
+          size: 1708214
+          ndim: 1
+          dtype: '>i4'
+          nbytes: 6832856
+          is_virtual: false
+          is_empty: false
+        meta/telescope:
+          name: meta/telescope
+          parent: /meta
+          object: dataset
+          description: Short telescope name
+          attrs: []
+          shape: !!python/tuple
+          - 1708214
+          size: 1708214
+          ndim: 1
+          dtype: object
+          nbytes: 13665712
+          is_virtual: false
+          is_empty: false
+        meta/n_good_visits:
+          name: meta/n_good_visits
+          parent: /meta
+          object: dataset
+          description: Number of 'good' BOSS visits
+          attrs: []
+          shape: !!python/tuple
+          - 1708214
+          size: 1708214
+          ndim: 1
+          dtype: '>i4'
+          nbytes: 6832856
+          is_virtual: false
+          is_empty: false
+        meta/n_good_rvs:
+          name: meta/n_good_rvs
+          parent: /meta
+          object: dataset
+          description: Number of 'good' BOSS radial velocities
+          attrs: []
+          shape: !!python/tuple
+          - 1708214
+          size: 1708214
+          ndim: 1
+          dtype: '>i4'
+          nbytes: 6832856
+          is_virtual: false
+          is_empty: false
+        meta/v_rad:
+          name: meta/v_rad
+          parent: /meta
+          object: dataset
+          description: Barycentric rest frame radial velocity [km/s]
+          attrs: []
+          shape: !!python/tuple
+          - 1708214
+          size: 1708214
+          ndim: 1
+          dtype: '>f4'
+          nbytes: 6832856
+          is_virtual: false
+          is_empty: false
+        meta/e_v_rad:
+          name: meta/e_v_rad
+          parent: /meta
+          object: dataset
+          description: Error on radial velocity [km/s]
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -657,7 +684,7 @@ releases:
           name: meta/std_v_rad
           parent: /meta
           object: dataset
-          description: replace me - with a description of this dataset
+          description: Standard deviation of visit V_RAD [km/s]
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -667,25 +694,11 @@ releases:
           nbytes: 6832856
           is_virtual: false
           is_empty: false
-        meta/telescope:
-          name: meta/telescope
+        meta/snr:
+          name: meta/snr
           parent: /meta
           object: dataset
-          description: replace me - with a description of this dataset
-          attrs: []
-          shape: !!python/tuple
-          - 1708214
-          size: 1708214
-          ndim: 1
-          dtype: object
-          nbytes: 13665712
-          is_virtual: false
-          is_empty: false
-        meta/v_rad:
-          name: meta/v_rad
-          parent: /meta
-          object: dataset
-          description: replace me - with a description of this dataset
+          description: Signal-to-noise ratio
           attrs: []
           shape: !!python/tuple
           - 1708214
@@ -695,7 +708,5 @@ releases:
           nbytes: 6832856
           is_virtual: false
           is_empty: false
-notes: |-
-  None
-regrets: |-
-  I  have no regrets!
+notes: None
+regrets: I  have no regrets!
