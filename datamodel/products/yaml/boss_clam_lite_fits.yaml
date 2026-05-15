@@ -1,7 +1,10 @@
 general:
   name: boss_clam_lite_fits
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: Stellar Parameters from BOSS Spectra with The CLAM
+  description: BOSS-CLAM is a data driven method that maps labels to NMF basis weights to forward model continuum normalized 
+    BOSS spectra. This model was training with labels from ASPCAP, BOSS-MINESweeper, wide binaries and a validation set of hot 
+    stars. This is the lite version of the VAC includes the inferened stellar parameters from all mwmStar BOSS spectra with snr > 10, 
+    a series of flags to clean the dataset, and a subset of meta-data from mwmAllStar.
   datatype: FITS
   filesize: 674 MB
   releases:
@@ -10,10 +13,8 @@ general:
   - MWM_STELLAR_PARAMS
   surveys:
   - SDSS
-  naming_convention: replace me - with $MWM_STELLAR_PARAMS/boss_clam/boss_clam_lite-[V_VAC].fits
-    or boss_clam_lite-1.0.0.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $MWM_STELLAR_PARAMS/boss_clam/boss_clam_lite-[V_VAC].fits
+  generated_by: https://github.com/andycasey/clam-boss
   data_level: 3.3.0
   design: false
   vac: true
@@ -39,7 +40,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Stellar Parameters from BOSS Spectra with The CLAM
         is_image: true
         size: 0 bytes
         header:
@@ -57,7 +58,7 @@ releases:
           comment: ''
       hdu1:
         name: BOSS_CLAM
-        description: replace me description
+        description: BOSS-CLAM results and meta-data
         is_image: false
         size: 674 MB
         header:
@@ -98,228 +99,240 @@ releases:
           sdss_id:
             name: sdss_id
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS-5 unique identifier
           gaia_dr2_source_id:
             name: gaia_dr2_source_id
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Gaia DR2 source identifier
           gaia_dr3_source_id:
             name: gaia_dr3_source_id
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Gaia DR3 source identifier
           sdss5_target_flags:
             name: sdss5_target_flags
             type: bool[71]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: SDSS-5 targeting flags
           ra:
             name: ra
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: 'Right ascension '
           dec:
             name: dec
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: 'Declination '
           l:
             name: l
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: 'Galactic longitude '
           b:
             name: b
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: deg
+            description: 'Galactic latitude '
           plx:
             name: plx
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas
+            description: 'Parallax '
           e_plx:
             name: e_plx
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas
+            description: 'Error on parallax '
           pmra:
             name: pmra
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/yr
+            description: 'Proper motion in RA '
           e_pmra:
             name: e_pmra
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/yr
+            description: 'Error on proper motion in RA '
           pmde:
             name: pmde
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/yr
+            description: 'Proper motion in DEC '
           e_pmde:
             name: e_pmde
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mas/yr
+            description: 'Error on proper motion in DEC '
           g_mag:
             name: g_mag
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: 'Gaia DR3 mean G band magnitude '
           bp_mag:
             name: bp_mag
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: 'Gaia DR3 mean BP band magnitude '
           rp_mag:
             name: rp_mag
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: 'Gaia DR3 mean RP band magnitude '
           j_mag:
             name: j_mag
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: '2MASS J band magnitude '
           h_mag:
             name: h_mag
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: '2MASS H band magnitude '
           k_mag:
             name: k_mag
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: '2MASS K band magnitude '
           r_med_geo:
             name: r_med_geo
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: pc
+            description: 'Median geometric distance '
           r_med_photogeo:
             name: r_med_photogeo
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: pc
+            description: '50th percentile of photogeometric distance '
           bailer_jones_flags:
             name: bailer_jones_flags
             type: char[8]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Bailer-Jones quality flags
           ebv:
             name: ebv
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: 'E(B-V) '
           e_ebv:
             name: e_ebv
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: mag
+            description: 'Error on E(B-V) '
           ebv_flags:
             name: ebv_flags
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Flags indicating the source of E(B-V)
           n_boss_visits:
             name: n_boss_visits
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of BOSS visits
           boss_min_mjd:
             name: boss_min_mjd
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Minimum MJD of BOSS visits
           boss_max_mjd:
             name: boss_max_mjd
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Maximum MJD of BOSS visits
           telescope:
             name: telescope
             type: char[9]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Short telescope name
           n_good_visits:
             name: n_good_visits
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of 'good' BOSS visits
           n_good_rvs:
             name: n_good_rvs
             type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Number of 'good' BOSS radial velocities
           v_rad:
             name: v_rad
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: km/s
+            description: 'Barycentric rest frame radial velocity '
           e_v_rad:
             name: e_v_rad
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: km/s
+            description: 'Error on radial velocity '
           std_v_rad:
             name: std_v_rad
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: km/s
+            description: 'Standard deviation of visit V_RAD '
           snr:
             name: snr
             type: float32
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Signal-to-noise ratio
           teff:
             name: teff
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: K
+            description: BOSS-CLAM effective temperature
           logg:
             name: logg
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: BOSS-CLAM log(g)
           fe_h:
             name: fe_h
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: BOSS-CLAM [Fe/H]
           alpha_m:
             name: alpha_m
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: BOSS-CLAM [alpha/M]
           param_covariance:
             name: param_covariance
             type: float64[16]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Covariance matrix for the parameters. Order is [teff, logg, fe_h, alpha_m]
           rchi2:
             name: rchi2
             type: float64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: Reduced chi^2 between BOSS spectrum and forward modeled CLAM spectrum
           clam_flags:
             name: clam_flags
             type: int64
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: |
+              Bitmask indicating potentially unreliable or out-of-distribution BOSS-CLAM results. Flags include:
+                - IN_WD (0): likely white dwarf in mwm_wd not represented in the training set
+                - IN_YSO (1): likely young stellar object in mwm_yso not represented in the training set
+                - IN_OB (2): likely hot star in mwm_ob with unreliable [Fe/H] or [alpha/M] training coverage
+                - FE_H_ALPHA_SUSPECT (3): Teff > 6500 K, where [Fe/H] and [alpha/M] are poorly constrained
+                - BAD_SPEC_FIT (4): reduced chi^2 > 1 indicating poor forward-model fit
+                - LOW_MASS_SUSPECT (5): Teff < 4000 K and [Fe/H] < -1 in sparsely sampled low-mass regime
+                - FE_H_ALPHA_CORR (6): atypical correlation between [Fe/H], [alpha/M], and Teff
+                - TEFF_LOGG_CORR (7): unphysical negative correlation between Teff and logg
+                - LOW_MASS_TEFF_LOGG_CORR (8): weak Teff-logg correlation in low-mass stars (Teff < 4200 K)
+                - EXTREME_CORR (9): extreme correlations involving [alpha/M]
+                - ALTER_CORR (10): alternating correlation structure relative to the bulk population
           flag_warn:
             name: flag_warn
             type: bool
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: If IN_OB or FE_H_ALPHA_SUSPECT is set
           flag_bad:
             name: flag_bad
             type: bool
-            unit: replace me - with content
-            description: replace me - with content
+            unit: ''
+            description: If IN_WD, IN_YSO, BAD_SPEC_FIT, LOW_MASS_SUSPECT, FE_H_ALPHA_CORR, TEFF_LOGG_CORR, LOW_MASS_TEFF_LOGG_CORR, EXTREME_CORR or ALTER_CORR is set
 notes: |-
   None
 regrets: |-
