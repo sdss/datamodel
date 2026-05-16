@@ -16,7 +16,7 @@ replace me - with a short one sentence summary of file
 replace me - with a longer description of the data product
 
 ### Naming Convention
-$BOSS_OCCAM/BOSS_occam_member-DR20-[V_VAC].fits where V_VAC=v1 in DR20.
+$BOSS_OCCAM/BOSS_occam_member-[V_VAC].fits where V_VAC=DR20-v1 in DR20.
 
 ### Releases
 DR20
