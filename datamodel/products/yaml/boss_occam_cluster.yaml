@@ -1,7 +1,14 @@
 general:
   name: boss_occam_cluster
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: The BOSS OCCAM cluster summary table provides mean cluster parameters for
+    open clusters.
+  description: 'The BOSS OCCAM cluster summary table provides a comprehensive, uniform
+    dataset for open clusters. It contains mean 5-D astrometry from Gaia (Cantat-Gaudin
+    et al. 2020, Hunt & Reffert 2023), mean orbital parameters calculated using Gala
+    (Adrian M. Price-Whelan 2017), an orbital dynamics code, and mean radial velocities
+    and chemical abundances from MWM/BOSS.
+
+    '
   datatype: FITS
   filesize: 45 KB
   releases:
@@ -10,10 +17,9 @@ general:
   - BOSS_OCCAM
   surveys:
   - SDSS
-  naming_convention: $BOSS_OCCAM/BOSS_occam_cluster-[V_VAC].fits where V_VAC=DR20-v1
+  naming_convention: $BOSS_OCCAM/BOSS_occam_cluster-DR20-[V_VAC].fits where V_VAC=v1
     in DR20.
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  generated_by: OCCAM
   data_level: 3.3.0
   design: false
   vac: true
@@ -39,7 +45,8 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: The primary HDU, in accordance with the FITS file standard. No
+          useful information is stored here
         is_image: true
         size: 0 bytes
         header:
@@ -57,7 +64,9 @@ releases:
           comment: ''
       hdu1:
         name: ''
-        description: replace me description
+        description: 'The parameters for each cluster are reported here:
+
+          '
         is_image: false
         size: 32 KB
         header:
@@ -103,184 +112,190 @@ releases:
         columns:
           Name:
             name: Name
-            type: char[20]
+            type: char
             unit: ''
-            description: replace me - with content
+            description: Open cluster name
           GLON:
             name: GLON
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: deg
+            description: Galactic longitude
           GLAT:
             name: GLAT
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: deg
+            description: Galactic latitude
           RAdeg:
             name: RAdeg
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: deg
+            description: Right ascension in degrees
           DEdeg:
             name: DEdeg
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: deg
+            description: Declination in degrees
           EH_Radius:
             name: EH_Radius
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: deg
+            description: Total radius of the cluster including tidal tails from Hunt
+              and Reffert 2023
           EH_PMRA:
             name: EH_PMRA
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: mas/yr
+            description: Mean proper motion in RA multiplied by cos(DE) from Hunt
+              & Reffert 2023
           EH_PMRA_ERR:
             name: EH_PMRA_ERR
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: mas/yr
+            description: Standard error of EH_PMRA from Hunt & Reffert 2023
           EH_PMDE:
             name: EH_PMDE
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: mas/yr
+            description: Mean proper motion in DE from Hunt & Reffert 2023
           EH_PMDE_ERR:
             name: EH_PMDE_ERR
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: mas/yr
+            description: Standard error in EH_PMDE from Hunt & Reffert 2023
           V_RAD:
             name: V_RAD
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: km/s
+            description: Mean radial velocity of cluster members
           V_RAD_ERR:
             name: V_RAD_ERR
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: km/s
+            description: 1-sigma V_RAD dispersion
           R_GC_EH:
             name: R_GC_EH
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: kpc
+            description: Distance from the Galactic center using distances from Hunt
+              & Reffert 2023
           R_GC_Cav:
             name: R_GC_Cav
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: kpc
+            description: Distance from the Galactic center from Cantat-Gaudin et al.
+              2020
           EH_logAge:
             name: EH_logAge
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: yr
+            description: logAge of the cluster from Hunt & Reffert 2023
           Cav_logAge:
             name: Cav_logAge
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: yr
+            description: logAge of the cluster from Cantat-Gaudin et al. 2020
           R_Guide:
             name: R_Guide
             type: float64
             unit: kpc
-            description: replace me - with content
+            description: Guiding Center radius
           Z_Height:
             name: Z_Height
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: kpc
+            description: Current Z position in X,Y,Z Galactocentric coordinates
           Z_Max:
             name: Z_Max
             type: float64
             unit: kpc
-            description: replace me - with content
+            description: Maximum Z position
           Azimuth_Angle:
             name: Azimuth_Angle
             type: float64
             unit: deg
-            description: replace me - with content
+            description: Azimuthal angle relative to Galactic center
           Eccentricity:
             name: Eccentricity
             type: float64
             unit: ''
-            description: replace me - with content
+            description: Average eccentricity of calculated cluster orbits
           Z_Period_Avg:
             name: Z_Period_Avg
             type: float64
             unit: Myr
-            description: replace me - with content
+            description: Average period in the Z coordinate
           Radial_Period_Avg:
             name: Radial_Period_Avg
             type: float64
             unit: Myr
-            description: replace me - with content
+            description: Average radial period of the cluster
           Fe_H:
             name: Fe_H
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: dex
+            description: Mean [Fe/H]
           Fe_H_ERR:
             name: Fe_H_ERR
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: dex
+            description: 1-sigma [Fe/H] dispersion
           alpha_M:
             name: alpha_M
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: dex
+            description: Mean [alpha/M]
           alpha_M_ERR:
             name: alpha_M_ERR
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: dex
+            description: 1-sigma [alpha/M] dispersion
           Num_Full_Members:
             name: Num_Full_Members
             type: int64
             unit: ''
-            description: replace me - with content
+            description: Number of full cluster members
           Num_PMRV_Members:
             name: Num_PMRV_Members
             type: int64
             unit: ''
-            description: replace me - with content
+            description: Number of cluster members with proper motion and radial velocity
           OCCAM_Qual:
             name: OCCAM_Qual
             type: int64
             unit: ''
-            description: replace me - with content
+            description: 'Visual CMD quality Flag; 4: calibration, 3: high quality
+              >5 stars, 2: high quality 2-4 stars, 1: good 1 star'
           Cav_Qual:
             name: Cav_Qual
             type: int64
             unit: ''
-            description: replace me - with content
+            description: Quality flag for Cantat-Gaudin data
           EH_Dist:
             name: EH_Dist
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: pc
+            description: Distance from solar neighborhood from Hunt & Reffert 2023
           Cav_Dist:
             name: Cav_Dist
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: pc
+            description: Distance from solar neighborhood from Cantat-Gaudin et al.
+              2020
           X:
             name: X
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: kpc
+            description: Galactocentric X coordinate
           Y:
             name: Y
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: kpc
+            description: Galactocentric Y coordinate
           Z:
             name: Z
             type: float64
-            unit: ''
-            description: replace me - with content
+            unit: kpc
+            description: Galactocentric Z coordinate
 notes: |-
   None
 regrets: |-
