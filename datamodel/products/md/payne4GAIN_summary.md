@@ -16,7 +16,7 @@ replace me - with a short one sentence summary of file
 replace me - with a longer description of the data product
 
 ### Naming Convention
-$MWM_RGB/apogee_rgb_nlte_abundances/payne4GAIN_summary-[V_VAC].fits where V_VAC=1.1.0 for DR20
+$MWM_RGB/apogee_rgb_nlte_abundances/payne4GAIN_summary-[V_VAC].fits where V_VAC=1.1.1 for DR20
 
 ### Releases
 DR20
@@ -99,8 +99,8 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | sdssid | int32 | replace me - with content | replace me - with content |
- | gaia_dr3_source_id | int32 | replace me - with content | replace me - with content |
+ | sdssid | int64 | replace me - with content | replace me - with content |
+ | gaia_dr3_source_id | int64 | replace me - with content | replace me - with content |
  | aspcap_raw_teff | float32 | replace me - with content | replace me - with content |
  | aspcap_raw_logg | float32 | replace me - with content | replace me - with content |
  | aspcap_raw_vmicro | float32 | replace me - with content | replace me - with content |
