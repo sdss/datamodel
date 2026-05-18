@@ -16,7 +16,7 @@ replace me - with a short one sentence summary of file
 replace me - with a longer description of the data product
 
 ### Naming Convention
-replace me - with $MWM_RGB/apogee_rgb_nlte_abundances/payne4GAIN_modelSpectra-[V_VAC].fits.gz or payne4GAIN_modelSpectra-1.1.1.fits.gz but with regex pattern matches
+replace me - with $MWM_RGB/apogee_rgb_nlte_abundances/payne4GAIN_modelSpectra-[V_VAC].fits or payne4GAIN_modelSpectra-1.1.1.fits but with regex pattern matches
 
 ### Releases
 DR20
