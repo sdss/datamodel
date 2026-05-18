@@ -1,7 +1,11 @@
 general:
   name: payne4GAIN_modelSpectra
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: the payne4GAIN model spectra used to generate the lte, nlte, and corrected abundances in this VAC
+  description: We trained Payne models on grids of Turbospectrum_NLTE synthetic spectra: one in LTE and one in NLTE, 
+  using departure coefficient grids calculated in MULTI. These are the model spectra that come from our Paynes, 
+  after chi-squared fitting the APOGEE DR19 spectra that fall within our training range (according to ASPCAP). 
+  In addition to the 15-label Payne, we also fit each spectrum with 9 continuum parameters 
+  (2nd order Chebyshev polynomials for each chip), radial velocity and gaussian broadening. 
   datatype: FITS
   filesize: 17 GB
   releases:
@@ -12,8 +16,7 @@ general:
   - SDSS
   naming_convention: $MWM_RGB/apogee_rgb_nlte_abundances/payne4GAIN_modelSpectra-[V_VAC].fits
     where V_VAC=1.1.1 for DR20
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  generated_by: Thibodeaux et al (in prep).
   data_level: 3.2.0
   design: false
   vac: true
@@ -39,7 +42,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Empty primary HDU conforming to FITS standard.
         is_image: true
         size: 0 bytes
         header:
@@ -81,7 +84,8 @@ releases:
           comment: data unit checksum updated 2026-05-15T21:19:04
       hdu1:
         name: MODEL SPECTRA
-        description: replace me description
+        description: The model spectra generated during fitting of APOGEE spectra. This HDU contains the sdssids, which can be used
+        to crossmatch with original data, and the LTE and NLTE model spectra. The wavelength solution is stored in hdu2.
         is_image: false
         size: 21 GB
         header:
@@ -121,22 +125,22 @@ releases:
         columns:
           sdssid:
             name: sdssid
-            type: int32
-            unit: replace me - with content
-            description: replace me - with content
+            type: int64
+            unit: N/A
+            description: SDSS-V unique source identifier
           p4g_lte_spec:
             name: p4g_lte_spec
             type: float32[7827]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Normalized flux (no physical units)
+            description: LTE Payne4GAIN model spectra, based on best fit to corresponding APOGEE spectra. Normalized flux.
           p4g_nlte_spec:
             name: p4g_nlte_spec
             type: float32[7827]
-            unit: replace me - with content
-            description: replace me - with content
+            unit: Normalized flux (no physical units)
+            description: NLTE Payne4GAIN model spectra, based on best fit to corresponding APOGEE spectra. Normalized flux.
       hdu2:
         name: WAVELENGTHS
-        description: replace me description
+        description: Wavelength solution from DR19, in units of angstroms
         is_image: true
         size: 30 KB
         header:
