@@ -1,21 +1,27 @@
 general:
   name: payne4GAIN_modelSpectra
-  short: the payne4GAIN model spectra used to generate the lte, nlte, and corrected abundances in this VAC
-  description: We trained Payne models on grids of Turbospectrum_NLTE synthetic spectra: one in LTE and one in NLTE, 
-  using departure coefficient grids calculated in MULTI. These are the model spectra that come from our Paynes, 
-  after chi-squared fitting the APOGEE DR19 spectra that fall within our training range (according to ASPCAP). 
-  In addition to the 15-label Payne, we also fit each spectrum with 9 continuum parameters 
-  (2nd order Chebyshev polynomials for each chip), radial velocity and gaussian broadening. 
+  short: the payne4GAIN model spectra used to generate the lte, nlte, and corrected
+    abundances in this VAC
+  description: 'We trained Payne models on grids of Turbospectrum_NLTE synthetic spectra:
+    one in LTE and one in NLTE, using departure coefficient grids calculated in MULTI.
+    These are the model spectra that come from our Paynes, after chi-squared fitting
+    the APOGEE DR19 spectra that fall within our training range (according to ASPCAP).
+    In addition to the 15-label Payne, we also fit each spectrum with 9 continuum
+    parameters (2nd order Chebyshev polynomials for each chip), radial velocity and
+    gaussian broadening.'
   datatype: FITS
-  filesize: 17 GB
+  filesize: 21 GB
   releases:
   - DR20
   environments:
   - MWM_RGB
   surveys:
   - SDSS
-  naming_convention: $MWM_RGB/apogee_rgb_nlte_abundances/payne4GAIN_modelSpectra-[V_VAC].fits
+  naming_convention: '$MWM_RGB/apogee_rgb_nlte_abundances/payne4GAIN_modelSpectra-[V_VAC].fits
+
     where V_VAC=1.1.1 for DR20
+
+    '
   generated_by: Thibodeaux et al (in prep).
   data_level: 3.2.0
   design: false
@@ -84,8 +90,10 @@ releases:
           comment: data unit checksum updated 2026-05-15T21:19:04
       hdu1:
         name: MODEL SPECTRA
-        description: The model spectra generated during fitting of APOGEE spectra. This HDU contains the sdssids, which can be used
-        to crossmatch with original data, and the LTE and NLTE model spectra. The wavelength solution is stored in hdu2.
+        description: The model spectra generated during fitting of APOGEE spectra.
+          This HDU contains the sdssids, which can be used to crossmatch with original
+          data, and the LTE and NLTE model spectra. The wavelength solution is stored
+          in hdu2.
         is_image: false
         size: 21 GB
         header:
@@ -132,12 +140,14 @@ releases:
             name: p4g_lte_spec
             type: float32[7827]
             unit: Normalized flux (no physical units)
-            description: LTE Payne4GAIN model spectra, based on best fit to corresponding APOGEE spectra. Normalized flux.
+            description: LTE Payne4GAIN model spectra, based on best fit to corresponding
+              APOGEE spectra. Normalized flux.
           p4g_nlte_spec:
             name: p4g_nlte_spec
             type: float32[7827]
             unit: Normalized flux (no physical units)
-            description: NLTE Payne4GAIN model spectra, based on best fit to corresponding APOGEE spectra. Normalized flux.
+            description: NLTE Payne4GAIN model spectra, based on best fit to corresponding
+              APOGEE spectra. Normalized flux.
       hdu2:
         name: WAVELENGTHS
         description: Wavelength solution from DR19, in units of angstroms
@@ -174,4 +184,4 @@ releases:
 notes: |-
   None
 regrets: |-
-  I  have no regrets!
+  I have no regrets!
