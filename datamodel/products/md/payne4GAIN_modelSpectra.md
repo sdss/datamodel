@@ -67,7 +67,7 @@ Key | Value | Comment | |
 | EXTEND | True |  |
 | DATECREA | 2026-05-15 | Creation date |
 | DATEMOD | 2026-05-16 | Modification date |
-| VACVER | 1.1.0 | VAC version |
+| VACVER | 1.1.1 | VAC version |
 | SDSSDR | 20 | SDSS data release |
 | MAPPER | MWM | Mapper |
 | SURVEY | APOGEE | Survey |
