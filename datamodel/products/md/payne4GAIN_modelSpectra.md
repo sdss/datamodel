@@ -102,9 +102,9 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | sdssid | int64 | N/A | SDSS-V unique source identifier |
- | p4g_lte_spec | float32[7827] | Normalized flux (no physical units) | LTE Payne4GAIN model spectra, based on best fit to corresponding APOGEE spectra. Normalized flux. |
- | p4g_nlte_spec | float32[7827] | Normalized flux (no physical units) | NLTE Payne4GAIN model spectra, based on best fit to corresponding APOGEE spectra. Normalized flux. |
+ | sdssid | int64 |  | SDSS-V unique source identifier |
+ | p4g_lte_spec | float32[7827] |  | LTE Payne4GAIN model spectra, based on best fit to corresponding APOGEE spectra. Normalized flux, so no physical units. |
+ | p4g_nlte_spec | float32[7827] |  | NLTE Payne4GAIN model spectra, based on best fit to corresponding APOGEE spectra. Normalized flux, so no physical units. |
 
 
 
