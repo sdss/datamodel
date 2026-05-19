@@ -108,21 +108,21 @@ Name | Type | Unit | Description |
  | aspcap_raw_cfe | float32 |  | spectroscopic [C/Fe] from ASPCAP. Logarithmic ratio to solar abundance. |
  | aspcap_raw_nfe | float32 |  | spectroscopic [N/Fe] from ASPCAP. Logarithmic ratio to solar abundance. |
  | aspcap_raw_mgfe | float32 |  | spectroscopic [Mg/Fe] from ASPCAP. Logarithmic ratio to solar abundance. |
- | aspcap_p4gcorr_mgfe | float32 |  | ASPCAP [Mg/Fe] with polynomial correction from Paynes. Logarithmic ratio to solar abundance. |
+ | aspcap_p4gcorr_mgfe | float32 |  | ASPCAP [Mg/Fe] with polynomial NLTE correction from Paynes. Logarithmic ratio to solar abundance. |
  | aspcap_raw_alfe | float32 |  | spectroscopic [Al/Fe] from ASPCAP. Logarithmic ratio to solar abundance. |
- | aspcap_p4gcorr_alfe | float32 |  | ASPCAP [Al/Fe] with polynomial correction from Paynes. Logarithmic ratio to solar abundance. |
+ | aspcap_p4gcorr_alfe | float32 |  | ASPCAP [Al/Fe] with polynomial NLTE correction from Paynes. Logarithmic ratio to solar abundance. |
  | aspcap_raw_mnfe | float32 |  | spectroscopic [Mn/Fe] from ASPCAP. Logarithmic ratio to solar abundance. |
- | aspcap_p4gcorr_mnfe | float32 |  | ASPCAP [Mn/Fe] with polynomial correction from Paynes. Logarithmic ratio to solar abundance. |
+ | aspcap_p4gcorr_mnfe | float32 |  | ASPCAP [Mn/Fe] with polynomial NLTE correction from Paynes. Logarithmic ratio to solar abundance. |
  | aspcap_raw_nafe | float32 |  | spectroscopic [Na/Fe] from ASPCAP. Logarithmic ratio to solar abundance. |
- | aspcap_p4gcorr_nafe | float32 |  | ASPCAP [Na/Fe] with polynomial correction from Paynes. Logarithmic ratio to solar abundance. |
+ | aspcap_p4gcorr_nafe | float32 |  | ASPCAP [Na/Fe] with polynomial NLTE correction from Paynes. Logarithmic ratio to solar abundance. |
  | aspcap_raw_cafe | float32 |  | spectroscopic [Ca/Fe] from ASPCAP. Logarithmic ratio to solar abundance. |
- | aspcap_p4gcorr_cafe | float32 |  | ASPCAP [Ca/Fe] with polynomial correction from Paynes. Logarithmic ratio to solar abundance. |
+ | aspcap_p4gcorr_cafe | float32 |  | ASPCAP [Ca/Fe] with polynomial NLTE correction from Paynes. Logarithmic ratio to solar abundance. |
  | aspcap_raw_nife | float32 |  | spectroscopic [Ni/Fe] from ASPCAP. Logarithmic ratio to solar abundance. |
- | aspcap_p4gcorr_nife | float32 |  | ASPCAP [Ni/Fe] with polynomial correction from Paynes. Logarithmic ratio to solar abundance. |
+ | aspcap_p4gcorr_nife | float32 |  | ASPCAP [Ni/Fe] with polynomial NLTE correction from Paynes. Logarithmic ratio to solar abundance. |
  | aspcap_raw_tife | float32 |  | spectroscopic [Ti/Fe] from ASPCAP. Logarithmic ratio to solar abundance. |
- | aspcap_p4gcorr_tife | float32 |  | ASPCAP [Ti/Fe] with polynomial correction from Paynes. Logarithmic ratio to solar abundance. |
+ | aspcap_p4gcorr_tife | float32 |  | ASPCAP [Ti/Fe] with polynomial NLTE correction from Paynes. Logarithmic ratio to solar abundance. |
  | aspcap_raw_sife | float32 |  | spectroscopic [Si/Fe] from ASPCAP. Logarithmic ratio to solar abundance. |
- | aspcap_p4gcorr_sife | float32 |  | ASPCAP [Si/Fe] with polynomial correction from Paynes. Logarithmic ratio to solar abundance. |
+ | aspcap_p4gcorr_sife | float32 |  | ASPCAP [Si/Fe] with polynomial NLTE correction from Paynes. Logarithmic ratio to solar abundance. |
  | aspcap_raw_ofe | float32 |  | spectroscopic [O/Fe] from ASPCAP. Logarithmic ratio to solar abundance. |
  | aspcap_spectrum_flags | int32 | bitflag | Data-level flags from ASPCAP |
  | aspcap_result_flags | int32 | bitflag | Flags from initial (stellar parameter) fit in ASPCAP |
