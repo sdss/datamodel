@@ -1,7 +1,10 @@
 general:
   name: eROSITA_CVs_in_SDSS
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: Cataclysmic variables identified from screening of SDSS-V spectra based from
+    eROSITA X-ray sources
+  description: Cataclysmic variable binaries confirmed by screening and visual inspection
+    of SDSS-V spectra of eROSITA eRASS1 and eRASS:3 X-ray sources, with optical data
+    from Gaia DR3 and X-ray data from eRASS:3
   datatype: FITS
   filesize: 177 KB
   releases:
@@ -12,8 +15,7 @@ general:
   - SDSS
   naming_convention: $MWM_WHITEDWARF/eROSITA_CVs/eROSITA_CVs_in_SDSS-[V_VAC].fits
     where V_VAC=1.0.0 in DR20.
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  generated_by: Jaco Brink and collaborators within eROSITA and SDSS-V this product.
   data_level: 3.3.0
   design: false
   vac: true
@@ -39,7 +41,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Header
         is_image: true
         size: 12 KB
         header:
@@ -93,7 +95,7 @@ releases:
           comment: Number of following BINTABLE HDUs
       hdu1:
         name: Joined
-        description: replace me description
+        description: Column descriptions
         is_image: false
         size: 149 KB
         header:
@@ -210,142 +212,151 @@ releases:
             name: IAUNAME
             type: char[23]
             unit: ''
-            description: label for column 1
+            description: IAU ID
           SDSS_ID:
             name: SDSS_ID
             type: int64
             unit: ''
-            description: label for column 2
+            description: SDSS ID
           DETUID:
             name: DETUID
             type: char[32]
             unit: ''
-            description: label for column 3
+            description: eRASS:3 ID
           GAIA_DR3_ID:
             name: GAIA_DR3_ID
             type: int64
             unit: ''
-            description: label for column 4
-          eRO_RA:
-            name: eRO_RA
+            description: Gaia DR3 ID
+          RA_eRO:
+            name: RA_eRO
             type: float64
             unit: deg
-            description: label for column 5
-          eRO_DEC:
-            name: eRO_DEC
+            description: Right ascension in eRASS:3
+          DEC_eRO:
+            name: DEC_eRO
             type: float64
             unit: deg
-            description: label for column 6
-          GAIA_DR3_RA:
-            name: GAIA_DR3_RA
+            description: Declination in eRASS:3
+          RA_GAIA_DR3:
+            name: RA_GAIA_DR3
             type: float64
-            unit: ''
-            description: label for column 7
-          GAIA_DR3_DEC:
-            name: GAIA_DR3_DEC
+            unit: deg
+            description: Right ascension in Gaia DR3
+          DEC_GAIA_DR3:
+            name: DEC_GAIA_DR3
             type: float64
-            unit: ''
-            description: label for column 8
+            unit: deg
+            description: Declination in Gaia DR3
           RA_ICRS:
             name: RA_ICRS
             type: float64
             unit: deg
-            description: label for column 9
+            description: Right ascension in ICRS
           DE_ICRS:
             name: DE_ICRS
             type: float64
             unit: deg
-            description: label for column 10
+            description: Declination in ICRS
           eRO_FLUX:
             name: eRO_FLUX
             type: float32
-            unit: erg cm**(-2) s**(-1)
-            description: label for column 11
+            unit: erg s**(-1) cm**(-2)
+            description: eRASS:3 flux in 0.2 - 2.3 keV band
           eRO_FLUX_ERR:
             name: eRO_FLUX_ERR
             type: float32
-            unit: erg cm**(-2) s**(-1)
-            description: label for column 12
+            unit: erg s**(-1) cm**(-2)
+            description: eRASS:3 flux error in 0.2 - 2.3 keV band
           Gmag:
             name: Gmag
             type: float64
-            unit: ''
-            description: label for column 13
+            unit: mag
+            description: Gaia DR3 G-band magnitude
           BP-RP:
             name: BP-RP
             type: float64
             unit: mag
-            description: label for column 14
+            description: Gaia DR3 BP - RP magnitude
           DISTANCE:
             name: DISTANCE
             type: float64
             unit: pc
-            description: label for column 15
+            description: Gaia DR3 rgeo nominal distance based on Bailer-Jones et al.
+              (2018)
           DISTANCE_LOWER:
             name: DISTANCE_LOWER
             type: float64
             unit: pc
-            description: label for column 16
+            description: Gaia DR3 rgeo lower distance based on Bailer-Jones et al.
+              (2018)
           DISTANCE_UPPER:
             name: DISTANCE_UPPER
             type: float64
             unit: pc
-            description: label for column 17
+            description: Gaia DR3 rgeo upper distance based on Bailer-Jones et al.
+              (2018)
           Gabs:
             name: Gabs
             type: float64
-            unit: ''
-            description: label for column 18
+            unit: mag
+            description: Absolute magnitude based on Gmag and DISTANCE
           logLx:
             name: logLx
             type: float64
-            unit: ''
-            description: label for column 19
-          log(fx/fopt):
-            name: log(fx/fopt)
+            unit: 'erg s**(-1) '
+            description: logarithm of X-ray luminosity in eRASS:3 0.2 - 2.3 keV band
+          log(Fx/Fopt):
+            name: log(Fx/Fopt)
             type: float64
             unit: ''
-            description: label for column 20
+            description: 'logarithm of X-ray to flux ratio given by: log(Fx/Fopt)
+              = log10(eRO_FLUX) + (Gmag/2.5) + 4.86'
           HR_P12:
             name: HR_P12
             type: float32
             unit: ''
-            description: label for column 21
+            description: "Hardness ratio between the eRASS:3 0.2\u20130.5 keV and\
+              \ 0.5\u20131.0 keV bands"
           HR_P12_ERR:
             name: HR_P12_ERR
             type: float32
             unit: ''
-            description: label for column 22
+            description: "Hardness ratio error between the eRASS:3 0.2\u20130.5 keV\
+              \ and 0.5\u20131.0 keV bands"
           HR_P23:
             name: HR_P23
             type: float32
             unit: ''
-            description: label for column 23
+            description: "Hardness ratio between the eRASS:3 0.5\u20131.0 keV and\
+              \ 1.0\u20132.0 keV bands"
           HR_P23_ERR:
             name: HR_P23_ERR
             type: float32
             unit: ''
-            description: label for column 24
+            description: "Hardness ratio error between the eRASS:3 0.5\u20131.0 keV\
+              \ and 1.0\u20132.0 keV bands"
           PERIOD:
             name: PERIOD
             type: float64
             unit: hours
-            description: label for column 25
+            description: Orbital period of system
           CV_TYPE:
             name: CV_TYPE
             type: char[6]
             unit: ''
-            description: label for column 26
+            description: Main CV type of system
           CV_SUBTYPE:
             name: CV_SUBTYPE
             type: char[14]
             unit: ''
-            description: label for column 27
+            description: Subtype of CV or alternative (less likely) main CV type
           REFERENCES:
             name: REFERENCES
             type: char[25]
             unit: ''
-            description: label for column 28
+            description: References used to obtain orbital period and/or CV type and
+              subtype
 notes: |-
   None
 regrets: |-
