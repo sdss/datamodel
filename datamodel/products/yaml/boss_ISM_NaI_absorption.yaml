@@ -1,7 +1,14 @@
 general:
   name: boss_ISM_NaI_absorption
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: Catalog of Na I D interstellar absorption equivalent widths and V-band extinctions
+    measured from SDSS-V DR20 BOSS spectra.
+  description: "This VAC provides measurements of the Na I D (5889.95/5895.92 \xC5\
+    ) interstellar absorption doublet and V-band dust extinction (A_V, assuming R_V\
+    \ = 3.1) for 1,373,392 stellar sightlines observed with the BOSS spectrograph\
+    \ as part of the SDSS-V Milky Way Mapper program. Equivalent widths and extinctions\
+    \ are derived from spectral fits via ISM-cleaned MaStar spectra; uncertainties\
+    \ and fit quality (reduced chi^2) are reported for each source. See McQuaid et\
+    \ al. (2026) for full methodology."
   datatype: FITS
   filesize: 83 MB
   releases:
@@ -12,8 +19,7 @@ general:
   - SDSS
   naming_convention: $MWM_ISM/NaI_ISM/boss_ISM_NaI_absorption-[V_VAC].fits where V_VAC=1.0.0
     in DR20
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  generated_by: https://github.com/timmcq1400/nai-ism-vac
   data_level: 3.3.0
   design: false
   vac: true
@@ -38,7 +44,8 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Empty primary HDU containing global metadata (VAC version, creation
+          date, survey) in the header.
         is_image: true
         size: 0 bytes
         header:
@@ -83,7 +90,9 @@ releases:
           comment: data unit checksum updated 2026-02-04T11:52:28
       hdu1:
         name: CATALOG
-        description: replace me description
+        description: Binary table with one row per stellar sightline, containing SDSS
+          ID, sky coordinates, fit quality, V-band extinction (A_V), and Na I D equivalent
+          width, along with their uncertainties.
         is_image: false
         size: 83 MB
         header:
