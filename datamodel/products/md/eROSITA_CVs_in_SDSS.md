@@ -132,10 +132,10 @@ Name | Type | Unit | Description |
  | SDSS_ID | int64 |  | SDSS ID |
  | DETUID | char[32] |  | eRASS:3 ID |
  | GAIA_DR3_ID | int64 |  | Gaia DR3 ID |
- | eRO_RA | float64 | deg | Right ascension in eRASS:3 |
- | eRO_DEC | float64 | deg | Declination in eRASS:3 |
- | GAIA_DR3_RA | float64 | deg | Right ascension in Gaia DR3 |
- | GAIA_DR3_DEC | float64 | deg | Declination in Gaia DR3 |
+ | RA_eRO | float64 | deg | Right ascension in eRASS:3 |
+ | DEC_eRO | float64 | deg | Declination in eRASS:3 |
+ | RA_GAIA_DR3 | float64 | deg | Right ascension in Gaia DR3 |
+ | DEC_GAIA_DR3 | float64 | deg | Declination in Gaia DR3 |
  | RA_ICRS | float64 | deg | Right ascension in ICRS |
  | DE_ICRS | float64 | deg | Declination in ICRS |
  | eRO_FLUX | float32 | erg s**(-1) cm**(-2) | eRASS:3 flux in 0.2 - 2.3 keV band |
