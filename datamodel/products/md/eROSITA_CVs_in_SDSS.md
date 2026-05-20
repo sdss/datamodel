@@ -132,10 +132,10 @@ Name | Type | Unit | Description |
  | SDSS_ID | int64 |  | SDSS ID |
  | DETUID | char[32] |  | eRASS:3 ID |
  | GAIA_DR3_ID | int64 |  | Gaia DR3 ID |
- | RA_eRO | float64 | deg | Right ascension in eRASS:3 |
- | DEC_eRO | float64 | deg | Declination in eRASS:3 |
- | RA_GAIA_DR3 | float64 | deg | Right ascension in Gaia DR3 |
- | DEC_GAIA_DR3 | float64 | deg | Declination in Gaia DR3 |
+ | eRO_RA | float64 | deg | Right ascension in eRASS:3 |
+ | eRO_DEC | float64 | deg | Declination in eRASS:3 |
+ | GAIA_DR3_RA | float64 | deg | Right ascension in Gaia DR3 |
+ | GAIA_DR3_DEC | float64 | deg | Declination in Gaia DR3 |
  | RA_ICRS | float64 | deg | Right ascension in ICRS |
  | DE_ICRS | float64 | deg | Declination in ICRS |
  | eRO_FLUX | float32 | erg s**(-1) cm**(-2) | eRASS:3 flux in 0.2 - 2.3 keV band |
@@ -153,9 +153,9 @@ Name | Type | Unit | Description |
  | HR_P23 | float32 |  | Hardness ratio between the eRASS:3 0.5–1.0 keV and 1.0–2.0 keV bands |
  | HR_P23_ERR | float32 |  | Hardness ratio error between the eRASS:3 0.5–1.0 keV and 1.0–2.0 keV bands |
  | PERIOD | float64 | hours | Orbital period of system |
- | CV_TYPE | char[6] |  | Main CV type of system |
- | CV_SUBTYPE | char[14] |  | Subtype of CV or alternative (less likely) main CV type |
- | REFERENCES | char[25] |  | References used to obtain orbital period and/or CV type and subtype |
+ | CV_TYPE | char[8] |  | Main CV type of system |
+ | CV_SUBTYPE | char[11] |  | Subtype of CV or alternative (less likely) main CV type |
+ | REFERENCES | char[31] |  | References used to obtain orbital period and/or CV type and subtype |
 
 
 
