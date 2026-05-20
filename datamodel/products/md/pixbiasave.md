@@ -19,7 +19,7 @@
 $SPECFLAT_DIR/[SPECFLAT_VER]/biases/pixbiasave-[MJD]-[BR][ID].fits
 
 ### Releases
-IPL4
+IPL4, DR20
 
 ### Enviroments
 SPECFLAT_DIR
@@ -39,13 +39,16 @@ False
 ### Data Level
 1.1.1
 
-### HDUS List for release IPL4
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
 
 ---
 ## Example HDUS List

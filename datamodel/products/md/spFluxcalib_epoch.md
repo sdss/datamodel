@@ -19,7 +19,7 @@ Contains the calibration vectors for a given frame
 $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/epoch/spFluxcalib-[BR][ID]-[FRAME].fits.gz
 
 ### Releases
-IPL4
+IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,7 +39,7 @@ False
 ### Data Level
 1.2.4
 
-### HDUS List for release IPL4
+### HDUS List for release DR20
   - [HDU0: CALIBIMG](#hdu0-calibimg)
   - [HDU1: BSPLINE](#hdu1-bspline)
   - [HDU2: STDSTARS](#hdu2-stdstars)
@@ -50,6 +50,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
 
 ---
 ## Example HDUS List

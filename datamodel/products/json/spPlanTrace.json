@@ -30,6 +30,12 @@
         "description": "SDSS internal product launch 4",
         "public": false,
         "release_date": "2025-07-15"
+      },
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-11"
       }
     ],
     "naming_convention": "$BOSS_SPECTRO_REDUX/[RUN2D]/trace/[MJD]/spPlanTrace-[MJD]_[OBS].par",
@@ -41,7 +47,33 @@
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {}
+    "releases": {
+      "DR20": {
+        "from": "IPL4",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null
+      }
+    }
   },
   "releases": {
     "IPL4": {
@@ -58,6 +90,163 @@
           "OBS",
           "mjd",
           "run2d"
+        ],
+        "access_string": "spPlanTrace = $BOSS_SPECTRO_REDUX/{run2d}/trace/{mjd}/spPlanTrace-{mjd}_{OBS}.par"
+      },
+      "hdus": null,
+      "par": {
+        "comments": "#%yanny\n# Table",
+        "header": [
+          {
+            "key": "MJD",
+            "value": "60708",
+            "comment": "Modified Julian Date of plan"
+          },
+          {
+            "key": "OBS",
+            "value": "LCO",
+            "comment": "Associated Observatory"
+          },
+          {
+            "key": "RUN2D",
+            "value": "v6_2_1",
+            "comment": "2D reduction name"
+          },
+          {
+            "key": "idlspec2dVersion",
+            "value": "'v6_2_1'",
+            "comment": "Version of idlspec2d used to generate this file"
+          },
+          {
+            "key": "pydlVersion",
+            "value": "'1.0.0'",
+            "comment": "Version of pydl used to generate this file"
+          },
+          {
+            "key": "SDSSCOREVersion",
+            "value": "'main'",
+            "comment": "Version of SDSSCORE used to generate this file"
+          },
+          {
+            "key": "SDSS_access_Ver",
+            "value": "'3.0.5'",
+            "comment": "Version of SDSS_access used to generate this file"
+          },
+          {
+            "key": "sdss_tree_Ver",
+            "value": "'4.0.7dev'",
+            "comment": "Version of sdss_tree used to generate this file"
+          },
+          {
+            "key": "SDSS_access_Release",
+            "value": "'sdsswork'",
+            "comment": "SDSS-access Release Version when building plan"
+          },
+          {
+            "key": "manual",
+            "value": "F",
+            "comment": "Manually edited plan file (T: True, F: False)"
+          }
+        ],
+        "tables": {
+          "SPEXP": {
+            "name": "SPEXP",
+            "description": "Table of Nightly Calibration Exposures",
+            "n_rows": 16,
+            "structure": [
+              {
+                "name": "confid",
+                "type": "char[8]",
+                "description": "FPS Configuration ID of exposure",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": "-999"
+              },
+              {
+                "name": "fieldid",
+                "type": "char[6]",
+                "description": "FieldID (or PlateID) of exposure",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": "-00999"
+              },
+              {
+                "name": "mjd",
+                "type": "int",
+                "description": "MJD of exposure",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": 60708
+              },
+              {
+                "name": "mapname",
+                "type": "char[8]",
+                "description": "Plate Map Name or FPS configuration ID",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": "-999"
+              },
+              {
+                "name": "flavor",
+                "type": "char[9]",
+                "description": "Flavor of Exposure (flat, arc, science)",
+                "unit": "",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": "flat"
+              },
+              {
+                "name": "exptime",
+                "type": "float",
+                "description": "Exposure Length of exposure",
+                "unit": "seconds",
+                "is_array": false,
+                "is_enum": false,
+                "enum_values": null,
+                "example": 100.0
+              },
+              {
+                "name": "name",
+                "type": "char[2][19]",
+                "description": "Name of Raw Exposure Files",
+                "unit": "",
+                "is_array": true,
+                "is_enum": false,
+                "enum_values": null,
+                "example": [
+                  "sdR-b2-00046740.fit",
+                  "sdR-r2-00046740.fit"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "hdfs": null
+    },
+    "DR20": {
+      "template": "$BOSS_SPECTRO_REDUX/[RUN2D]/trace/[MJD]/spPlanTrace-[MJD]_[OBS].par",
+      "example": "v6_2_1/trace/60708/spPlanTrace-60708_LCO.par",
+      "location": "{run2d}/trace/{mjd}/spPlanTrace-{mjd}_{OBS}.par",
+      "environment": "BOSS_SPECTRO_REDUX",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "spPlanTrace",
+        "path_template": "$BOSS_SPECTRO_REDUX/{run2d}/trace/{mjd}/spPlanTrace-{mjd}_{OBS}.par",
+        "path_kwargs": [
+          "OBS",
+          "run2d",
+          "mjd"
         ],
         "access_string": "spPlanTrace = $BOSS_SPECTRO_REDUX/{run2d}/trace/{mjd}/spPlanTrace-{mjd}_{OBS}.par"
       },
