@@ -1226,634 +1226,634 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | ObjID | char[23] |  | replace me column 1 |
- | ERO_Name | char[22] |  | replace me column 2 |
- | ERO_ID_HARD | int32 |  | replace me column 3 |
- | ERO_ID_MAIN | int32 |  | replace me column 4 |
- | SPECZ_REDSHIFT | float32 |  | replace me column 5 |
- | SAMPLE | char[4] |  | replace me column 6 |
- | SN_MEDIAN_ALL | float64 |  | replace me column 7 |
- | SII6732_Peak_wavelength | float64 | A | replace me column 8 |
- | SII6732_Peak_wavelength_error | float64 | A | replace me column 9 |
- | SII6732_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 10 |
- | SII6732_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 11 |
- | SII6732_LogL | float64 |  | replace me column 12 |
- | SII6732_LogL_error | float64 |  | replace me column 13 |
- | SII6732_FWHM | float64 | km/s | replace me column 14 |
- | SII6732_FWHM_error | float64 | km/s | replace me column 15 |
- | SII6732_EW | float64 | A | replace me column 16 |
- | SII6732_EW_error | float64 | A | replace me column 17 |
- | SII6718_Peak_wavelength | float64 | A | replace me column 18 |
- | SII6718_Peak_wavelength_error | float64 | A | replace me column 19 |
- | SII6718_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 20 |
- | SII6718_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 21 |
- | SII6718_LogL | float64 |  | replace me column 22 |
- | SII6718_LogL_error | float64 |  | replace me column 23 |
- | SII6718_FWHM | float64 | km/s | replace me column 24 |
- | SII6718_FWHM_error | float64 | km/s | replace me column 25 |
- | SII6718_EW | float64 | A | replace me column 26 |
- | SII6718_EW_error | float64 | A | replace me column 27 |
- | NII6585_Peak_wavelength | float64 | A | replace me column 28 |
- | NII6585_Peak_wavelength_error | float64 | A | replace me column 29 |
- | NII6585_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 30 |
- | NII6585_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 31 |
- | NII6585_LogL | float64 |  | replace me column 32 |
- | NII6585_LogL_error | float64 |  | replace me column 33 |
- | NII6585_FWHM | float64 | km/s | replace me column 34 |
- | NII6585_FWHM_error | float64 | km/s | replace me column 35 |
- | NII6585_EW | float64 | A | replace me column 36 |
- | NII6585_EW_error | float64 | A | replace me column 37 |
- | NII6549_Peak_wavelength | float64 | A | replace me column 38 |
- | NII6549_Peak_wavelength_error | float64 | A | replace me column 39 |
- | NII6549_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 40 |
- | NII6549_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 41 |
- | NII6549_LogL | float64 |  | replace me column 42 |
- | NII6549_LogL_error | float64 |  | replace me column 43 |
- | NII6549_FWHM | float64 | km/s | replace me column 44 |
- | NII6549_FWHM_error | float64 | km/s | replace me column 45 |
- | NII6549_EW | float64 | A | replace me column 46 |
- | NII6549_EW_error | float64 | A | replace me column 47 |
- | HALPHA_Peak_wavelength | float64 | A | replace me column 48 |
- | HALPHA_Peak_wavelength_error | float64 | A | replace me column 49 |
- | HALPHA_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 50 |
- | HALPHA_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 51 |
- | HALPHA_LogL | float64 |  | replace me column 52 |
- | HALPHA_LogL_error | float64 |  | replace me column 53 |
- | HALPHA_FWHM | float64 | km/s | replace me column 54 |
- | HALPHA_FWHM_error | float64 | km/s | replace me column 55 |
- | HALPHA_EW | float64 | A | replace me column 56 |
- | HALPHA_EW_error | float64 | A | replace me column 57 |
- | HALPHA_BR_Peak_wavelength | float64 | A | replace me column 58 |
- | HALPHA_BR_Peak_wavelength_error | float64 | A | replace me column 59 |
- | HALPHA_BR_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 60 |
- | HALPHA_BR_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 61 |
- | HALPHA_BR_LogL | float64 |  | replace me column 62 |
- | HALPHA_BR_LogL_error | float64 |  | replace me column 63 |
- | HALPHA_BR_FWHM | float64 | km/s | replace me column 64 |
- | HALPHA_BR_FWHM_error | float64 | km/s | replace me column 65 |
- | HALPHA_BR_EW | float64 | A | replace me column 66 |
- | HALPHA_BR_EW_error | float64 | A | replace me column 67 |
- | HALPHA_NA_Peak_wavelength | float64 | A | replace me column 68 |
- | HALPHA_NA_Peak_wavelength_error | float64 | A | replace me column 69 |
- | HALPHA_NA_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 70 |
- | HALPHA_NA_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 71 |
- | HALPHA_NA_LogL | float64 |  | replace me column 72 |
- | HALPHA_NA_LogL_error | float64 |  | replace me column 73 |
- | HALPHA_NA_FWHM | float64 | km/s | replace me column 74 |
- | HALPHA_NA_FWHM_error | float64 | km/s | replace me column 75 |
- | HALPHA_NA_EW | float64 | A | replace me column 76 |
- | HALPHA_NA_EW_error | float64 | A | replace me column 77 |
- | FeX6376_Peak_wavelength | float64 | A | replace me column 78 |
- | FeX6376_Peak_wavelength_error | float64 | A | replace me column 79 |
- | FeX6376_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 80 |
- | FeX6376_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 81 |
- | FeX6376_LogL | float64 |  | replace me column 82 |
- | FeX6376_LogL_error | float64 |  | replace me column 83 |
- | FeX6376_FWHM | float64 | km/s | replace me column 84 |
- | FeX6376_FWHM_error | float64 | km/s | replace me column 85 |
- | FeX6376_EW | float64 | A | replace me column 86 |
- | FeX6376_EW_error | float64 | A | replace me column 87 |
- | OI6300_Peak_wavelength | float64 | A | replace me column 88 |
- | OI6300_Peak_wavelength_error | float64 | A | replace me column 89 |
- | OI6300_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 90 |
- | OI6300_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 91 |
- | OI6300_LogL | float64 |  | replace me column 92 |
- | OI6300_LogL_error | float64 |  | replace me column 93 |
- | OI6300_FWHM | float64 | km/s | replace me column 94 |
- | OI6300_FWHM_error | float64 | km/s | replace me column 95 |
- | OI6300_EW | float64 | A | replace me column 96 |
- | OI6300_EW_error | float64 | A | replace me column 97 |
- | FeVII6088_Peak_wavelength | float64 | A | replace me column 98 |
- | FeVII6088_Peak_wavelength_error | float64 | A | replace me column 99 |
- | FeVII6088_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 100 |
- | FeVII6088_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 101 |
- | FeVII6088_LogL | float64 |  | replace me column 102 |
- | FeVII6088_LogL_error | float64 |  | replace me column 103 |
- | FeVII6088_FWHM | float64 | km/s | replace me column 104 |
- | FeVII6088_FWHM_error | float64 | km/s | replace me column 105 |
- | FeVII6088_EW | float64 | A | replace me column 106 |
- | FeVII6088_EW_error | float64 | A | replace me column 107 |
- | HeI5877_BR_Peak_wavelength | float64 | A | replace me column 108 |
- | HeI5877_BR_Peak_wavelength_error | float64 | A | replace me column 109 |
- | HeI5877_BR_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 110 |
- | HeI5877_BR_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 111 |
- | HeI5877_BR_LogL | float64 |  | replace me column 112 |
- | HeI5877_BR_LogL_error | float64 |  | replace me column 113 |
- | HeI5877_BR_FWHM | float64 | km/s | replace me column 114 |
- | HeI5877_BR_FWHM_error | float64 | km/s | replace me column 115 |
- | HeI5877_BR_EW | float64 | A | replace me column 116 |
- | HeI5877_BR_EW_error | float64 | A | replace me column 117 |
- | HeI5877_NA_Peak_wavelength | float64 | A | replace me column 118 |
- | HeI5877_NA_Peak_wavelength_error | float64 | A | replace me column 119 |
- | HeI5877_NA_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 120 |
- | HeI5877_NA_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 121 |
- | HeI5877_NA_LogL | float64 |  | replace me column 122 |
- | HeI5877_NA_LogL_error | float64 |  | replace me column 123 |
- | HeI5877_NA_FWHM | float64 | km/s | replace me column 124 |
- | HeI5877_NA_FWHM_error | float64 | km/s | replace me column 125 |
- | HeI5877_NA_EW | float64 | A | replace me column 126 |
- | HeI5877_NA_EW_error | float64 | A | replace me column 127 |
- | HeI5877_Peak_wavelength | float64 | A | replace me column 128 |
- | HeI5877_Peak_wavelength_error | float64 | A | replace me column 129 |
- | HeI5877_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 130 |
- | HeI5877_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 131 |
- | HeI5877_LogL | float64 |  | replace me column 132 |
- | HeI5877_LogL_error | float64 |  | replace me column 133 |
- | HeI5877_FWHM | float64 | km/s | replace me column 134 |
- | HeI5877_FWHM_error | float64 | km/s | replace me column 135 |
- | HeI5877_EW | float64 | A | replace me column 136 |
- | HeI5877_EW_error | float64 | A | replace me column 137 |
- | HeII4685_BR_Peak_wavelength | float64 | A | replace me column 138 |
- | HeII4685_BR_Peak_wavelength_error | float64 | A | replace me column 139 |
- | HeII4685_BR_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 140 |
- | HeII4685_BR_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 141 |
- | HeII4685_BR_LogL | float64 |  | replace me column 142 |
- | HeII4685_BR_LogL_error | float64 |  | replace me column 143 |
- | HeII4685_BR_FWHM | float64 | km/s | replace me column 144 |
- | HeII4685_BR_FWHM_error | float64 | km/s | replace me column 145 |
- | HeII4685_BR_EW | float64 | A | replace me column 146 |
- | HeII4685_BR_EW_error | float64 | A | replace me column 147 |
- | HeII4685_NA_Peak_wavelength | float64 | A | replace me column 148 |
- | HeII4685_NA_Peak_wavelength_error | float64 | A | replace me column 149 |
- | HeII4685_NA_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 150 |
- | HeII4685_NA_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 151 |
- | HeII4685_NA_LogL | float64 |  | replace me column 152 |
- | HeII4685_NA_LogL_error | float64 |  | replace me column 153 |
- | HeII4685_NA_FWHM | float64 | km/s | replace me column 154 |
- | HeII4685_NA_FWHM_error | float64 | km/s | replace me column 155 |
- | HeII4685_NA_EW | float64 | A | replace me column 156 |
- | HeII4685_NA_EW_error | float64 | A | replace me column 157 |
- | HeII4685_Peak_wavelength | float64 | A | replace me column 158 |
- | HeII4685_Peak_wavelength_error | float64 | A | replace me column 159 |
- | HeII4685_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 160 |
- | HeII4685_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 161 |
- | HeII4685_LogL | float64 |  | replace me column 162 |
- | HeII4685_LogL_error | float64 |  | replace me column 163 |
- | HeII4685_FWHM | float64 | km/s | replace me column 164 |
- | HeII4685_FWHM_error | float64 | km/s | replace me column 165 |
- | HeII4685_EW | float64 | A | replace me column 166 |
- | HeII4685_EW_error | float64 | A | replace me column 167 |
- | OIII5007_Peak_wavelength | float64 | A | replace me column 168 |
- | OIII5007_Peak_wavelength_error | float64 | A | replace me column 169 |
- | OIII5007_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 170 |
- | OIII5007_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 171 |
- | OIII5007_LogL | float64 |  | replace me column 172 |
- | OIII5007_LogL_error | float64 |  | replace me column 173 |
- | OIII5007_FWHM | float64 | km/s | replace me column 174 |
- | OIII5007_FWHM_error | float64 | km/s | replace me column 175 |
- | OIII5007_EW | float64 | A | replace me column 176 |
- | OIII5007_EW_error | float64 | A | replace me column 177 |
- | OIII5007C_Peak_wavelength | float64 | A | replace me column 178 |
- | OIII5007C_Peak_wavelength_error | float64 | A | replace me column 179 |
- | OIII5007C_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 180 |
- | OIII5007C_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 181 |
- | OIII5007C_LogL | float64 |  | replace me column 182 |
- | OIII5007C_LogL_error | float64 |  | replace me column 183 |
- | OIII5007C_FWHM | float64 | km/s | replace me column 184 |
- | OIII5007C_FWHM_error | float64 | km/s | replace me column 185 |
- | OIII5007C_EW | float64 | A | replace me column 186 |
- | OIII5007C_EW_error | float64 | A | replace me column 187 |
- | OIII5007W_Peak_wavelength | float64 | A | replace me column 188 |
- | OIII5007W_Peak_wavelength_error | float64 | A | replace me column 189 |
- | OIII5007W_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 190 |
- | OIII5007W_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 191 |
- | OIII5007W_LogL | float64 |  | replace me column 192 |
- | OIII5007W_LogL_error | float64 |  | replace me column 193 |
- | OIII5007W_FWHM | float64 | km/s | replace me column 194 |
- | OIII5007W_FWHM_error | float64 | km/s | replace me column 195 |
- | OIII5007W_EW | float64 | A | replace me column 196 |
- | OIII5007W_EW_error | float64 | A | replace me column 197 |
- | OIII4959_Peak_wavelength | float64 | A | replace me column 198 |
- | OIII4959_Peak_wavelength_error | float64 | A | replace me column 199 |
- | OIII4959_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 200 |
- | OIII4959_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 201 |
- | OIII4959_LogL | float64 |  | replace me column 202 |
- | OIII4959_LogL_error | float64 |  | replace me column 203 |
- | OIII4959_FWHM | float64 | km/s | replace me column 204 |
- | OIII4959_FWHM_error | float64 | km/s | replace me column 205 |
- | OIII4959_EW | float64 | A | replace me column 206 |
- | OIII4959_EW_error | float64 | A | replace me column 207 |
- | OIII4959C_Peak_wavelength | float64 | A | replace me column 208 |
- | OIII4959C_Peak_wavelength_error | float64 | A | replace me column 209 |
- | OIII4959C_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 210 |
- | OIII4959C_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 211 |
- | OIII4959C_LogL | float64 |  | replace me column 212 |
- | OIII4959C_LogL_error | float64 |  | replace me column 213 |
- | OIII4959C_FWHM | float64 | km/s | replace me column 214 |
- | OIII4959C_FWHM_error | float64 | km/s | replace me column 215 |
- | OIII4959C_EW | float64 | A | replace me column 216 |
- | OIII4959C_EW_error | float64 | A | replace me column 217 |
- | OIII4959W_Peak_wavelength | float64 | A | replace me column 218 |
- | OIII4959W_Peak_wavelength_error | float64 | A | replace me column 219 |
- | OIII4959W_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 220 |
- | OIII4959W_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 221 |
- | OIII4959W_LogL | float64 |  | replace me column 222 |
- | OIII4959W_LogL_error | float64 |  | replace me column 223 |
- | OIII4959W_FWHM | float64 | km/s | replace me column 224 |
- | OIII4959W_FWHM_error | float64 | km/s | replace me column 225 |
- | OIII4959W_EW | float64 | A | replace me column 226 |
- | OIII4959W_EW_error | float64 | A | replace me column 227 |
- | HBETA_Peak_wavelength | float64 | A | replace me column 228 |
- | HBETA_Peak_wavelength_error | float64 | A | replace me column 229 |
- | HBETA_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 230 |
- | HBETA_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 231 |
- | HBETA_LogL | float64 |  | replace me column 232 |
- | HBETA_LogL_error | float64 |  | replace me column 233 |
- | HBETA_FWHM | float64 | km/s | replace me column 234 |
- | HBETA_FWHM_error | float64 | km/s | replace me column 235 |
- | HBETA_EW | float64 | A | replace me column 236 |
- | HBETA_EW_error | float64 | A | replace me column 237 |
- | HBETA_BR_Peak_wavelength | float64 | A | replace me column 238 |
- | HBETA_BR_Peak_wavelength_error | float64 | A | replace me column 239 |
- | HBETA_BR_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 240 |
- | HBETA_BR_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 241 |
- | HBETA_BR_LogL | float64 |  | replace me column 242 |
- | HBETA_BR_LogL_error | float64 |  | replace me column 243 |
- | HBETA_BR_FWHM | float64 | km/s | replace me column 244 |
- | HBETA_BR_FWHM_error | float64 | km/s | replace me column 245 |
- | HBETA_BR_EW | float64 | A | replace me column 246 |
- | HBETA_BR_EW_error | float64 | A | replace me column 247 |
- | HBETA_NA_Peak_wavelength | float64 | A | replace me column 248 |
- | HBETA_NA_Peak_wavelength_error | float64 | A | replace me column 249 |
- | HBETA_NA_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 250 |
- | HBETA_NA_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 251 |
- | HBETA_NA_LogL | float64 |  | replace me column 252 |
- | HBETA_NA_LogL_error | float64 |  | replace me column 253 |
- | HBETA_NA_FWHM | float64 | km/s | replace me column 254 |
- | HBETA_NA_FWHM_error | float64 | km/s | replace me column 255 |
- | HBETA_NA_EW | float64 | A | replace me column 256 |
- | HBETA_NA_EW_error | float64 | A | replace me column 257 |
- | OIII4363_Peak_wavelength | float64 | A | replace me column 258 |
- | OIII4363_Peak_wavelength_error | float64 | A | replace me column 259 |
- | OIII4363_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 260 |
- | OIII4363_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 261 |
- | OIII4363_LogL | float64 |  | replace me column 262 |
- | OIII4363_LogL_error | float64 |  | replace me column 263 |
- | OIII4363_FWHM | float64 | km/s | replace me column 264 |
- | OIII4363_FWHM_error | float64 | km/s | replace me column 265 |
- | OIII4363_EW | float64 | A | replace me column 266 |
- | OIII4363_EW_error | float64 | A | replace me column 267 |
- | HGAMMA_Peak_wavelength | float64 | A | replace me column 268 |
- | HGAMMA_Peak_wavelength_error | float64 | A | replace me column 269 |
- | HGAMMA_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 270 |
- | HGAMMA_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 271 |
- | HGAMMA_LogL | float64 |  | replace me column 272 |
- | HGAMMA_LogL_error | float64 |  | replace me column 273 |
- | HGAMMA_FWHM | float64 | km/s | replace me column 274 |
- | HGAMMA_FWHM_error | float64 | km/s | replace me column 275 |
- | HGAMMA_EW | float64 | A | replace me column 276 |
- | HGAMMA_EW_error | float64 | A | replace me column 277 |
- | HGAMMA_BR_Peak_wavelength | float64 | A | replace me column 278 |
- | HGAMMA_BR_Peak_wavelength_error | float64 | A | replace me column 279 |
- | HGAMMA_BR_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 280 |
- | HGAMMA_BR_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 281 |
- | HGAMMA_BR_LogL | float64 |  | replace me column 282 |
- | HGAMMA_BR_LogL_error | float64 |  | replace me column 283 |
- | HGAMMA_BR_FWHM | float64 | km/s | replace me column 284 |
- | HGAMMA_BR_FWHM_error | float64 | km/s | replace me column 285 |
- | HGAMMA_BR_EW | float64 | A | replace me column 286 |
- | HGAMMA_BR_EW_error | float64 | A | replace me column 287 |
- | HGAMMA_NA_Peak_wavelength | float64 | A | replace me column 288 |
- | HGAMMA_NA_Peak_wavelength_error | float64 | A | replace me column 289 |
- | HGAMMA_NA_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 290 |
- | HGAMMA_NA_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 291 |
- | HGAMMA_NA_LogL | float64 |  | replace me column 292 |
- | HGAMMA_NA_LogL_error | float64 |  | replace me column 293 |
- | HGAMMA_NA_FWHM | float64 | km/s | replace me column 294 |
- | HGAMMA_NA_FWHM_error | float64 | km/s | replace me column 295 |
- | HGAMMA_NA_EW | float64 | A | replace me column 296 |
- | HGAMMA_NA_EW_error | float64 | A | replace me column 297 |
- | HDELTA_Peak_wavelength | float64 | A | replace me column 298 |
- | HDELTA_Peak_wavelength_error | float64 | A | replace me column 299 |
- | HDELTA_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 300 |
- | HDELTA_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 301 |
- | HDELTA_LogL | float64 |  | replace me column 302 |
- | HDELTA_LogL_error | float64 |  | replace me column 303 |
- | HDELTA_FWHM | float64 | km/s | replace me column 304 |
- | HDELTA_FWHM_error | float64 | km/s | replace me column 305 |
- | HDELTA_EW | float64 | A | replace me column 306 |
- | HDELTA_EW_error | float64 | A | replace me column 307 |
- | HDELTA_BR_Peak_wavelength | float64 | A | replace me column 308 |
- | HDELTA_BR_Peak_wavelength_error | float64 | A | replace me column 309 |
- | HDELTA_BR_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 310 |
- | HDELTA_BR_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 311 |
- | HDELTA_BR_LogL | float64 |  | replace me column 312 |
- | HDELTA_BR_LogL_error | float64 |  | replace me column 313 |
- | HDELTA_BR_FWHM | float64 | km/s | replace me column 314 |
- | HDELTA_BR_FWHM_error | float64 | km/s | replace me column 315 |
- | HDELTA_BR_EW | float64 | A | replace me column 316 |
- | HDELTA_BR_EW_error | float64 | A | replace me column 317 |
- | HDELTA_NA_Peak_wavelength | float64 | A | replace me column 318 |
- | HDELTA_NA_Peak_wavelength_error | float64 | A | replace me column 319 |
- | HDELTA_NA_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 320 |
- | HDELTA_NA_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 321 |
- | HDELTA_NA_LogL | float64 |  | replace me column 322 |
- | HDELTA_NA_LogL_error | float64 |  | replace me column 323 |
- | HDELTA_NA_FWHM | float64 | km/s | replace me column 324 |
- | HDELTA_NA_FWHM_error | float64 | km/s | replace me column 325 |
- | HDELTA_NA_EW | float64 | A | replace me column 326 |
- | HDELTA_NA_EW_error | float64 | A | replace me column 327 |
- | NeIII3967_Peak_wavelength | float64 | A | replace me column 328 |
- | NeIII3967_Peak_wavelength_error | float64 | A | replace me column 329 |
- | NeIII3967_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 330 |
- | NeIII3967_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 331 |
- | NeIII3967_LogL | float64 |  | replace me column 332 |
- | NeIII3967_LogL_error | float64 |  | replace me column 333 |
- | NeIII3967_FWHM | float64 | km/s | replace me column 334 |
- | NeIII3967_FWHM_error | float64 | km/s | replace me column 335 |
- | NeIII3967_EW | float64 | A | replace me column 336 |
- | NeIII3967_EW_error | float64 | A | replace me column 337 |
- | NeIII3869_Peak_wavelength | float64 | A | replace me column 338 |
- | NeIII3869_Peak_wavelength_error | float64 | A | replace me column 339 |
- | NeIII3869_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 340 |
- | NeIII3869_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 341 |
- | NeIII3869_LogL | float64 |  | replace me column 342 |
- | NeIII3869_LogL_error | float64 |  | replace me column 343 |
- | NeIII3869_FWHM | float64 | km/s | replace me column 344 |
- | NeIII3869_FWHM_error | float64 | km/s | replace me column 345 |
- | NeIII3869_EW | float64 | A | replace me column 346 |
- | NeIII3869_EW_error | float64 | A | replace me column 347 |
- | FeVII3759_Peak_wavelength | float64 | A | replace me column 348 |
- | FeVII3759_Peak_wavelength_error | float64 | A | replace me column 349 |
- | FeVII3759_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 350 |
- | FeVII3759_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 351 |
- | FeVII3759_LogL | float64 |  | replace me column 352 |
- | FeVII3759_LogL_error | float64 |  | replace me column 353 |
- | FeVII3759_FWHM | float64 | km/s | replace me column 354 |
- | FeVII3759_FWHM_error | float64 | km/s | replace me column 355 |
- | FeVII3759_EW | float64 | A | replace me column 356 |
- | FeVII3759_EW_error | float64 | A | replace me column 357 |
- | OII3728_Peak_wavelength | float64 | A | replace me column 358 |
- | OII3728_Peak_wavelength_error | float64 | A | replace me column 359 |
- | OII3728_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 360 |
- | OII3728_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 361 |
- | OII3728_LogL | float64 |  | replace me column 362 |
- | OII3728_LogL_error | float64 |  | replace me column 363 |
- | OII3728_FWHM | float64 | km/s | replace me column 364 |
- | OII3728_FWHM_error | float64 | km/s | replace me column 365 |
- | OII3728_EW | float64 | A | replace me column 366 |
- | OII3728_EW_error | float64 | A | replace me column 367 |
- | NeV3426_Peak_wavelength | float64 | A | replace me column 368 |
- | NeV3426_Peak_wavelength_error | float64 | A | replace me column 369 |
- | NeV3426_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 370 |
- | NeV3426_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 371 |
- | NeV3426_LogL | float64 |  | replace me column 372 |
- | NeV3426_LogL_error | float64 |  | replace me column 373 |
- | NeV3426_FWHM | float64 | km/s | replace me column 374 |
- | NeV3426_FWHM_error | float64 | km/s | replace me column 375 |
- | NeV3426_EW | float64 | A | replace me column 376 |
- | NeV3426_EW_error | float64 | A | replace me column 377 |
- | NeV3426_BR_Peak_wavelength | float64 | A | replace me column 378 |
- | NeV3426_BR_Peak_wavelength_error | float64 | A | replace me column 379 |
- | NeV3426_BR_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 380 |
- | NeV3426_BR_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 381 |
- | NeV3426_BR_LogL | float64 |  | replace me column 382 |
- | NeV3426_BR_LogL_error | float64 |  | replace me column 383 |
- | NeV3426_BR_FWHM | float64 | km/s | replace me column 384 |
- | NeV3426_BR_FWHM_error | float64 | km/s | replace me column 385 |
- | NeV3426_BR_EW | float64 | A | replace me column 386 |
- | NeV3426_BR_EW_error | float64 | A | replace me column 387 |
- | NeV3426_NA_Peak_wavelength | float64 | A | replace me column 388 |
- | NeV3426_NA_Peak_wavelength_error | float64 | A | replace me column 389 |
- | NeV3426_NA_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 390 |
- | NeV3426_NA_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 391 |
- | NeV3426_NA_LogL | float64 |  | replace me column 392 |
- | NeV3426_NA_LogL_error | float64 |  | replace me column 393 |
- | NeV3426_NA_FWHM | float64 | km/s | replace me column 394 |
- | NeV3426_NA_FWHM_error | float64 | km/s | replace me column 395 |
- | NeV3426_NA_EW | float64 | A | replace me column 396 |
- | NeV3426_NA_EW_error | float64 | A | replace me column 397 |
- | NeV3346_Peak_wavelength | float64 | A | replace me column 398 |
- | NeV3346_Peak_wavelength_error | float64 | A | replace me column 399 |
- | NeV3346_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 400 |
- | NeV3346_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 401 |
- | NeV3346_LogL | float64 |  | replace me column 402 |
- | NeV3346_LogL_error | float64 |  | replace me column 403 |
- | NeV3346_FWHM | float64 | km/s | replace me column 404 |
- | NeV3346_FWHM_error | float64 | km/s | replace me column 405 |
- | NeV3346_EW | float64 | A | replace me column 406 |
- | NeV3346_EW_error | float64 | A | replace me column 407 |
- | MgII_Peak_wavelength | float64 | A | replace me column 408 |
- | MgII_Peak_wavelength_error | float64 | A | replace me column 409 |
- | MgII_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 410 |
- | MgII_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 411 |
- | MgII_LogL | float64 |  | replace me column 412 |
- | MgII_LogL_error | float64 |  | replace me column 413 |
- | MgII_FWHM | float64 | km/s | replace me column 414 |
- | MgII_FWHM_error | float64 | km/s | replace me column 415 |
- | MgII_EW | float64 | A | replace me column 416 |
- | MgII_EW_error | float64 | A | replace me column 417 |
- | MgII_BR_Peak_wavelength | float64 | A | replace me column 418 |
- | MgII_BR_Peak_wavelength_error | float64 | A | replace me column 419 |
- | MgII_BR_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 420 |
- | MgII_BR_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 421 |
- | MgII_BR_LogL | float64 |  | replace me column 422 |
- | MgII_BR_LogL_error | float64 |  | replace me column 423 |
- | MgII_BR_FWHM | float64 | km/s | replace me column 424 |
- | MgII_BR_FWHM_error | float64 | km/s | replace me column 425 |
- | MgII_BR_EW | float64 | A | replace me column 426 |
- | MgII_BR_EW_error | float64 | A | replace me column 427 |
- | MgII_NA_Peak_wavelength | float64 | A | replace me column 428 |
- | MgII_NA_Peak_wavelength_error | float64 | A | replace me column 429 |
- | MgII_NA_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 430 |
- | MgII_NA_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 431 |
- | MgII_NA_LogL | float64 |  | replace me column 432 |
- | MgII_NA_LogL_error | float64 |  | replace me column 433 |
- | MgII_NA_FWHM | float64 | km/s | replace me column 434 |
- | MgII_NA_FWHM_error | float64 | km/s | replace me column 435 |
- | MgII_NA_EW | float64 | A | replace me column 436 |
- | MgII_NA_EW_error | float64 | A | replace me column 437 |
- | NeIV2422_Peak_wavelength | float64 | A | replace me column 438 |
- | NeIV2422_Peak_wavelength_error | float64 | A | replace me column 439 |
- | NeIV2422_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 440 |
- | NeIV2422_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 441 |
- | NeIV2422_LogL | float64 |  | replace me column 442 |
- | NeIV2422_LogL_error | float64 |  | replace me column 443 |
- | NeIV2422_FWHM | float64 | km/s | replace me column 444 |
- | NeIV2422_FWHM_error | float64 | km/s | replace me column 445 |
- | NeIV2422_EW | float64 | A | replace me column 446 |
- | NeIV2422_EW_error | float64 | A | replace me column 447 |
- | CII2326_Peak_wavelength | float64 | A | replace me column 448 |
- | CII2326_Peak_wavelength_error | float64 | A | replace me column 449 |
- | CII2326_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 450 |
- | CII2326_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 451 |
- | CII2326_LogL | float64 |  | replace me column 452 |
- | CII2326_LogL_error | float64 |  | replace me column 453 |
- | CII2326_FWHM | float64 | km/s | replace me column 454 |
- | CII2326_FWHM_error | float64 | km/s | replace me column 455 |
- | CII2326_EW | float64 | A | replace me column 456 |
- | CII2326_EW_error | float64 | A | replace me column 457 |
- | CIII_ALL_Peak_wavelength | float64 | A | replace me column 458 |
- | CIII_ALL_Peak_wavelength_error | float64 | A | replace me column 459 |
- | CIII_ALL_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 460 |
- | CIII_ALL_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 461 |
- | CIII_ALL_LogL | float64 |  | replace me column 462 |
- | CIII_ALL_LogL_error | float64 |  | replace me column 463 |
- | CIII_ALL_FWHM | float64 | km/s | replace me column 464 |
- | CIII_ALL_FWHM_error | float64 | km/s | replace me column 465 |
- | CIII_ALL_EW | float64 | A | replace me column 466 |
- | CIII_ALL_EW_error | float64 | A | replace me column 467 |
- | CIII_BR_Peak_wavelength | float64 | A | replace me column 468 |
- | CIII_BR_Peak_wavelength_error | float64 | A | replace me column 469 |
- | CIII_BR_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 470 |
- | CIII_BR_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 471 |
- | CIII_BR_LogL | float64 |  | replace me column 472 |
- | CIII_BR_LogL_error | float64 |  | replace me column 473 |
- | CIII_BR_FWHM | float64 | km/s | replace me column 474 |
- | CIII_BR_FWHM_error | float64 | km/s | replace me column 475 |
- | CIII_BR_EW | float64 | A | replace me column 476 |
- | CIII_BR_EW_error | float64 | A | replace me column 477 |
- | SiIII1892_Peak_wavelength | float64 | A | replace me column 478 |
- | SiIII1892_Peak_wavelength_error | float64 | A | replace me column 479 |
- | SiIII1892_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 480 |
- | SiIII1892_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 481 |
- | SiIII1892_LogL | float64 |  | replace me column 482 |
- | SiIII1892_LogL_error | float64 |  | replace me column 483 |
- | SiIII1892_FWHM | float64 | km/s | replace me column 484 |
- | SiIII1892_FWHM_error | float64 | km/s | replace me column 485 |
- | SiIII1892_EW | float64 | A | replace me column 486 |
- | SiIII1892_EW_error | float64 | A | replace me column 487 |
- | AlIII1857_Peak_wavelength | float64 | A | replace me column 488 |
- | AlIII1857_Peak_wavelength_error | float64 | A | replace me column 489 |
- | AlIII1857_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 490 |
- | AlIII1857_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 491 |
- | AlIII1857_LogL | float64 |  | replace me column 492 |
- | AlIII1857_LogL_error | float64 |  | replace me column 493 |
- | AlIII1857_FWHM | float64 | km/s | replace me column 494 |
- | AlIII1857_FWHM_error | float64 | km/s | replace me column 495 |
- | AlIII1857_EW | float64 | A | replace me column 496 |
- | AlIII1857_EW_error | float64 | A | replace me column 497 |
- | SiIII1816_Peak_wavelength | float64 | A | replace me column 498 |
- | SiIII1816_Peak_wavelength_error | float64 | A | replace me column 499 |
- | SiIII1816_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 500 |
- | SiIII1816_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 501 |
- | SiIII1816_LogL | float64 |  | replace me column 502 |
- | SiIII1816_LogL_error | float64 |  | replace me column 503 |
- | SiIII1816_FWHM | float64 | km/s | replace me column 504 |
- | SiIII1816_FWHM_error | float64 | km/s | replace me column 505 |
- | SiIII1816_EW | float64 | A | replace me column 506 |
- | SiIII1816_EW_error | float64 | A | replace me column 507 |
- | NIII1750_Peak_wavelength | float64 | A | replace me column 508 |
- | NIII1750_Peak_wavelength_error | float64 | A | replace me column 509 |
- | NIII1750_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 510 |
- | NIII1750_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 511 |
- | NIII1750_LogL | float64 |  | replace me column 512 |
- | NIII1750_LogL_error | float64 |  | replace me column 513 |
- | NIII1750_FWHM | float64 | km/s | replace me column 514 |
- | NIII1750_FWHM_error | float64 | km/s | replace me column 515 |
- | NIII1750_EW | float64 | A | replace me column 516 |
- | NIII1750_EW_error | float64 | A | replace me column 517 |
- | NIV1718_Peak_wavelength | float64 | A | replace me column 518 |
- | NIV1718_Peak_wavelength_error | float64 | A | replace me column 519 |
- | NIV1718_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 520 |
- | NIV1718_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 521 |
- | NIV1718_LogL | float64 |  | replace me column 522 |
- | NIV1718_LogL_error | float64 |  | replace me column 523 |
- | NIV1718_FWHM | float64 | km/s | replace me column 524 |
- | NIV1718_FWHM_error | float64 | km/s | replace me column 525 |
- | NIV1718_EW | float64 | A | replace me column 526 |
- | NIV1718_EW_error | float64 | A | replace me column 527 |
- | OIII1663_Peak_wavelength | float64 | A | replace me column 528 |
- | OIII1663_Peak_wavelength_error | float64 | A | replace me column 529 |
- | OIII1663_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 530 |
- | OIII1663_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 531 |
- | OIII1663_LogL | float64 |  | replace me column 532 |
- | OIII1663_LogL_error | float64 |  | replace me column 533 |
- | OIII1663_FWHM | float64 | km/s | replace me column 534 |
- | OIII1663_FWHM_error | float64 | km/s | replace me column 535 |
- | OIII1663_EW | float64 | A | replace me column 536 |
- | OIII1663_EW_error | float64 | A | replace me column 537 |
- | HeII1640_Peak_wavelength | float64 | A | replace me column 538 |
- | HeII1640_Peak_wavelength_error | float64 | A | replace me column 539 |
- | HeII1640_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 540 |
- | HeII1640_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 541 |
- | HeII1640_LogL | float64 |  | replace me column 542 |
- | HeII1640_LogL_error | float64 |  | replace me column 543 |
- | HeII1640_FWHM | float64 | km/s | replace me column 544 |
- | HeII1640_FWHM_error | float64 | km/s | replace me column 545 |
- | HeII1640_EW | float64 | A | replace me column 546 |
- | HeII1640_EW_error | float64 | A | replace me column 547 |
- | HeII1640_BR_Peak_wavelength | float64 | A | replace me column 548 |
- | HeII1640_BR_Peak_wavelength_error | float64 | A | replace me column 549 |
- | HeII1640_BR_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 550 |
- | HeII1640_BR_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 551 |
- | HeII1640_BR_LogL | float64 |  | replace me column 552 |
- | HeII1640_BR_LogL_error | float64 |  | replace me column 553 |
- | HeII1640_BR_FWHM | float64 | km/s | replace me column 554 |
- | HeII1640_BR_FWHM_error | float64 | km/s | replace me column 555 |
- | HeII1640_BR_EW | float64 | A | replace me column 556 |
- | HeII1640_BR_EW_error | float64 | A | replace me column 557 |
- | CIV_Peak_wavelength | float64 | A | replace me column 558 |
- | CIV_Peak_wavelength_error | float64 | A | replace me column 559 |
- | CIV_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 560 |
- | CIV_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 561 |
- | CIV_LogL | float64 |  | replace me column 562 |
- | CIV_LogL_error | float64 |  | replace me column 563 |
- | CIV_FWHM | float64 | km/s | replace me column 564 |
- | CIV_FWHM_error | float64 | km/s | replace me column 565 |
- | CIV_EW | float64 | A | replace me column 566 |
- | CIV_EW_error | float64 | A | replace me column 567 |
- | SiIV_OIV_Peak_wavelength | float64 | A | replace me column 568 |
- | SiIV_OIV_Peak_wavelength_error | float64 | A | replace me column 569 |
- | SiIV_OIV_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 570 |
- | SiIV_OIV_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 571 |
- | SiIV_OIV_LogL | float64 |  | replace me column 572 |
- | SiIV_OIV_LogL_error | float64 |  | replace me column 573 |
- | SiIV_OIV_FWHM | float64 | km/s | replace me column 574 |
- | SiIV_OIV_FWHM_error | float64 | km/s | replace me column 575 |
- | SiIV_OIV_EW | float64 | A | replace me column 576 |
- | SiIV_OIV_EW_error | float64 | A | replace me column 577 |
- | CII1335_Peak_wavelength | float64 | A | replace me column 578 |
- | CII1335_Peak_wavelength_error | float64 | A | replace me column 579 |
- | CII1335_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 580 |
- | CII1335_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 581 |
- | CII1335_LogL | float64 |  | replace me column 582 |
- | CII1335_LogL_error | float64 |  | replace me column 583 |
- | CII1335_FWHM | float64 | km/s | replace me column 584 |
- | CII1335_FWHM_error | float64 | km/s | replace me column 585 |
- | CII1335_EW | float64 | A | replace me column 586 |
- | CII1335_EW_error | float64 | A | replace me column 587 |
- | OI1304_Peak_wavelength | float64 | A | replace me column 588 |
- | OI1304_Peak_wavelength_error | float64 | A | replace me column 589 |
- | OI1304_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 590 |
- | OI1304_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 591 |
- | OI1304_LogL | float64 |  | replace me column 592 |
- | OI1304_LogL_error | float64 |  | replace me column 593 |
- | OI1304_FWHM | float64 | km/s | replace me column 594 |
- | OI1304_FWHM_error | float64 | km/s | replace me column 595 |
- | OI1304_EW | float64 | A | replace me column 596 |
- | OI1304_EW_error | float64 | A | replace me column 597 |
- | LyA_Peak_wavelength | float64 | A | replace me column 598 |
- | LyA_Peak_wavelength_error | float64 | A | replace me column 599 |
- | LyA_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 600 |
- | LyA_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 601 |
- | LyA_LogL | float64 |  | replace me column 602 |
- | LyA_LogL_error | float64 |  | replace me column 603 |
- | LyA_FWHM | float64 | km/s | replace me column 604 |
- | LyA_FWHM_error | float64 | km/s | replace me column 605 |
- | LyA_EW | float64 | A | replace me column 606 |
- | LyA_EW_error | float64 | A | replace me column 607 |
- | NV1240_Peak_wavelength | float64 | A | replace me column 608 |
- | NV1240_Peak_wavelength_error | float64 | A | replace me column 609 |
- | NV1240_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 610 |
- | NV1240_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 611 |
- | NV1240_LogL | float64 |  | replace me column 612 |
- | NV1240_LogL_error | float64 |  | replace me column 613 |
- | NV1240_FWHM | float64 | km/s | replace me column 614 |
- | NV1240_FWHM_error | float64 | km/s | replace me column 615 |
- | NV1240_EW | float64 | A | replace me column 616 |
- | NV1240_EW_error | float64 | A | replace me column 617 |
- | OIV1035_Peak_wavelength | float64 | A | replace me column 618 |
- | OIV1035_Peak_wavelength_error | float64 | A | replace me column 619 |
- | OIV1035_Flux | float64 | 1e-17 erg/s/cm^2 | replace me column 620 |
- | OIV1035_Flux_error | float64 | 1e-17 erg/s/cm^2 | replace me column 621 |
- | OIV1035_LogL | float64 |  | replace me column 622 |
- | OIV1035_LogL_error | float64 |  | replace me column 623 |
- | OIV1035_FWHM | float64 | km/s | replace me column 624 |
- | OIV1035_FWHM_error | float64 | km/s | replace me column 625 |
- | OIV1035_EW | float64 | A | replace me column 626 |
- | OIV1035_EW_error | float64 | A | replace me column 627 |
- | HG_subtraction | bool |  | replace me column 628 |
+ | ObjID | char[23] |  | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |
+ | ERO_Name | char[22] |  | eROSITA official source name (Brunner+2022) |
+ | ERO_ID_HARD | int32 |  | ID of Hard sample eROSITA source (Brunner+2022) |
+ | ERO_ID_MAIN | int32 |  | ID of Main sample eROSITA source (Brunner+2022) |
+ | SPECZ_REDSHIFT | float32 |  | Spectroscopic redshift from visual inspection (Aydar+2025) |
+ | SAMPLE | char[4] |  | Main or Hard sample from eROSITA (Brunner+2022) |
+ | SN_MEDIAN_ALL | float64 |  | SDSS Median S/N per pix in spectrum (idlspec2d v6_0_2 reductions) |
+ | SII6732_Peak_wavelength | float64 | A | Line peak wavelength |
+ | SII6732_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | SII6732_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | SII6732_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | SII6732_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | SII6732_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | SII6732_FWHM | float64 | km/s | Line full width at half maximum |
+ | SII6732_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | SII6732_EW | float64 | A | Line equivalent width |
+ | SII6732_EW_error | float64 | A | Line equivalent width error |
+ | SII6718_Peak_wavelength | float64 | A | Line peak wavelength |
+ | SII6718_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | SII6718_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | SII6718_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | SII6718_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | SII6718_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | SII6718_FWHM | float64 | km/s | Line full width at half maximum |
+ | SII6718_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | SII6718_EW | float64 | A | Line equivalent width |
+ | SII6718_EW_error | float64 | A | Line equivalent width error |
+ | NII6585_Peak_wavelength | float64 | A | Line peak wavelength |
+ | NII6585_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | NII6585_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | NII6585_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | NII6585_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | NII6585_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | NII6585_FWHM | float64 | km/s | Line full width at half maximum |
+ | NII6585_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | NII6585_EW | float64 | A | Line equivalent width |
+ | NII6585_EW_error | float64 | A | Line equivalent width error |
+ | NII6549_Peak_wavelength | float64 | A | Line peak wavelength |
+ | NII6549_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | NII6549_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | NII6549_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | NII6549_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | NII6549_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | NII6549_FWHM | float64 | km/s | Line full width at half maximum |
+ | NII6549_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | NII6549_EW | float64 | A | Line equivalent width |
+ | NII6549_EW_error | float64 | A | Line equivalent width error |
+ | HALPHA_Peak_wavelength | float64 | A | Line peak wavelength |
+ | HALPHA_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | HALPHA_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | HALPHA_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | HALPHA_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | HALPHA_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | HALPHA_FWHM | float64 | km/s | Line full width at half maximum |
+ | HALPHA_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | HALPHA_EW | float64 | A | Line equivalent width |
+ | HALPHA_EW_error | float64 | A | Line equivalent width error |
+ | HALPHA_BR_Peak_wavelength | float64 | A | Line peak wavelength |
+ | HALPHA_BR_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | HALPHA_BR_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | HALPHA_BR_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | HALPHA_BR_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | HALPHA_BR_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | HALPHA_BR_FWHM | float64 | km/s | Line full width at half maximum |
+ | HALPHA_BR_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | HALPHA_BR_EW | float64 | A | Line equivalent width |
+ | HALPHA_BR_EW_error | float64 | A | Line equivalent width error |
+ | HALPHA_NA_Peak_wavelength | float64 | A | Line peak wavelength |
+ | HALPHA_NA_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | HALPHA_NA_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | HALPHA_NA_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | HALPHA_NA_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | HALPHA_NA_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | HALPHA_NA_FWHM | float64 | km/s | Line full width at half maximum |
+ | HALPHA_NA_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | HALPHA_NA_EW | float64 | A | Line equivalent width |
+ | HALPHA_NA_EW_error | float64 | A | Line equivalent width error |
+ | FeX6376_Peak_wavelength | float64 | A | Line peak wavelength |
+ | FeX6376_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | FeX6376_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | FeX6376_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | FeX6376_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | FeX6376_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | FeX6376_FWHM | float64 | km/s | Line full width at half maximum |
+ | FeX6376_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | FeX6376_EW | float64 | A | Line equivalent width |
+ | FeX6376_EW_error | float64 | A | Line equivalent width error |
+ | OI6300_Peak_wavelength | float64 | A | Line peak wavelength |
+ | OI6300_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | OI6300_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | OI6300_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | OI6300_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | OI6300_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | OI6300_FWHM | float64 | km/s | Line full width at half maximum |
+ | OI6300_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | OI6300_EW | float64 | A | Line equivalent width |
+ | OI6300_EW_error | float64 | A | Line equivalent width error |
+ | FeVII6088_Peak_wavelength | float64 | A | Line peak wavelength |
+ | FeVII6088_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | FeVII6088_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | FeVII6088_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | FeVII6088_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | FeVII6088_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | FeVII6088_FWHM | float64 | km/s | Line full width at half maximum |
+ | FeVII6088_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | FeVII6088_EW | float64 | A | Line equivalent width |
+ | FeVII6088_EW_error | float64 | A | Line equivalent width error |
+ | HeI5877_BR_Peak_wavelength | float64 | A | Line peak wavelength |
+ | HeI5877_BR_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | HeI5877_BR_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | HeI5877_BR_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | HeI5877_BR_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | HeI5877_BR_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | HeI5877_BR_FWHM | float64 | km/s | Line full width at half maximum |
+ | HeI5877_BR_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | HeI5877_BR_EW | float64 | A | Line equivalent width |
+ | HeI5877_BR_EW_error | float64 | A | Line equivalent width error |
+ | HeI5877_NA_Peak_wavelength | float64 | A | Line peak wavelength |
+ | HeI5877_NA_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | HeI5877_NA_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | HeI5877_NA_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | HeI5877_NA_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | HeI5877_NA_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | HeI5877_NA_FWHM | float64 | km/s | Line full width at half maximum |
+ | HeI5877_NA_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | HeI5877_NA_EW | float64 | A | Line equivalent width |
+ | HeI5877_NA_EW_error | float64 | A | Line equivalent width error |
+ | HeI5877_Peak_wavelength | float64 | A | Line peak wavelength |
+ | HeI5877_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | HeI5877_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | HeI5877_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | HeI5877_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | HeI5877_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | HeI5877_FWHM | float64 | km/s | Line full width at half maximum |
+ | HeI5877_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | HeI5877_EW | float64 | A | Line equivalent width |
+ | HeI5877_EW_error | float64 | A | Line equivalent width error |
+ | HeII4685_BR_Peak_wavelength | float64 | A | Line peak wavelength |
+ | HeII4685_BR_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | HeII4685_BR_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | HeII4685_BR_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | HeII4685_BR_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | HeII4685_BR_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | HeII4685_BR_FWHM | float64 | km/s | Line full width at half maximum |
+ | HeII4685_BR_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | HeII4685_BR_EW | float64 | A | Line equivalent width |
+ | HeII4685_BR_EW_error | float64 | A | Line equivalent width error |
+ | HeII4685_NA_Peak_wavelength | float64 | A | Line peak wavelength |
+ | HeII4685_NA_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | HeII4685_NA_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | HeII4685_NA_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | HeII4685_NA_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | HeII4685_NA_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | HeII4685_NA_FWHM | float64 | km/s | Line full width at half maximum |
+ | HeII4685_NA_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | HeII4685_NA_EW | float64 | A | Line equivalent width |
+ | HeII4685_NA_EW_error | float64 | A | Line equivalent width error |
+ | HeII4685_Peak_wavelength | float64 | A | Line peak wavelength |
+ | HeII4685_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | HeII4685_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | HeII4685_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | HeII4685_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | HeII4685_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | HeII4685_FWHM | float64 | km/s | Line full width at half maximum |
+ | HeII4685_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | HeII4685_EW | float64 | A | Line equivalent width |
+ | HeII4685_EW_error | float64 | A | Line equivalent width error |
+ | OIII5007_Peak_wavelength | float64 | A | Line peak wavelength |
+ | OIII5007_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | OIII5007_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | OIII5007_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | OIII5007_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | OIII5007_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | OIII5007_FWHM | float64 | km/s | Line full width at half maximum |
+ | OIII5007_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | OIII5007_EW | float64 | A | Line equivalent width |
+ | OIII5007_EW_error | float64 | A | Line equivalent width error |
+ | OIII5007C_Peak_wavelength | float64 | A | Line peak wavelength |
+ | OIII5007C_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | OIII5007C_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | OIII5007C_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | OIII5007C_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | OIII5007C_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | OIII5007C_FWHM | float64 | km/s | Line full width at half maximum |
+ | OIII5007C_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | OIII5007C_EW | float64 | A | Line equivalent width |
+ | OIII5007C_EW_error | float64 | A | Line equivalent width error |
+ | OIII5007W_Peak_wavelength | float64 | A | Line peak wavelength |
+ | OIII5007W_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | OIII5007W_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | OIII5007W_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | OIII5007W_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | OIII5007W_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | OIII5007W_FWHM | float64 | km/s | Line full width at half maximum |
+ | OIII5007W_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | OIII5007W_EW | float64 | A | Line equivalent width |
+ | OIII5007W_EW_error | float64 | A | Line equivalent width error |
+ | OIII4959_Peak_wavelength | float64 | A | Line peak wavelength |
+ | OIII4959_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | OIII4959_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | OIII4959_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | OIII4959_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | OIII4959_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | OIII4959_FWHM | float64 | km/s | Line full width at half maximum |
+ | OIII4959_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | OIII4959_EW | float64 | A | Line equivalent width |
+ | OIII4959_EW_error | float64 | A | Line equivalent width error |
+ | OIII4959C_Peak_wavelength | float64 | A | Line peak wavelength |
+ | OIII4959C_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | OIII4959C_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | OIII4959C_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | OIII4959C_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | OIII4959C_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | OIII4959C_FWHM | float64 | km/s | Line full width at half maximum |
+ | OIII4959C_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | OIII4959C_EW | float64 | A | Line equivalent width |
+ | OIII4959C_EW_error | float64 | A | Line equivalent width error |
+ | OIII4959W_Peak_wavelength | float64 | A | Line peak wavelength |
+ | OIII4959W_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | OIII4959W_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | OIII4959W_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | OIII4959W_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | OIII4959W_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | OIII4959W_FWHM | float64 | km/s | Line full width at half maximum |
+ | OIII4959W_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | OIII4959W_EW | float64 | A | Line equivalent width |
+ | OIII4959W_EW_error | float64 | A | Line equivalent width error |
+ | HBETA_Peak_wavelength | float64 | A | Line peak wavelength |
+ | HBETA_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | HBETA_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | HBETA_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | HBETA_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | HBETA_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | HBETA_FWHM | float64 | km/s | Line full width at half maximum |
+ | HBETA_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | HBETA_EW | float64 | A | Line equivalent width |
+ | HBETA_EW_error | float64 | A | Line equivalent width error |
+ | HBETA_BR_Peak_wavelength | float64 | A | Line peak wavelength |
+ | HBETA_BR_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | HBETA_BR_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | HBETA_BR_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | HBETA_BR_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | HBETA_BR_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | HBETA_BR_FWHM | float64 | km/s | Line full width at half maximum |
+ | HBETA_BR_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | HBETA_BR_EW | float64 | A | Line equivalent width |
+ | HBETA_BR_EW_error | float64 | A | Line equivalent width error |
+ | HBETA_NA_Peak_wavelength | float64 | A | Line peak wavelength |
+ | HBETA_NA_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | HBETA_NA_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | HBETA_NA_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | HBETA_NA_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | HBETA_NA_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | HBETA_NA_FWHM | float64 | km/s | Line full width at half maximum |
+ | HBETA_NA_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | HBETA_NA_EW | float64 | A | Line equivalent width |
+ | HBETA_NA_EW_error | float64 | A | Line equivalent width error |
+ | OIII4363_Peak_wavelength | float64 | A | Line peak wavelength |
+ | OIII4363_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | OIII4363_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | OIII4363_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | OIII4363_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | OIII4363_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | OIII4363_FWHM | float64 | km/s | Line full width at half maximum |
+ | OIII4363_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | OIII4363_EW | float64 | A | Line equivalent width |
+ | OIII4363_EW_error | float64 | A | Line equivalent width error |
+ | HGAMMA_Peak_wavelength | float64 | A | Line peak wavelength |
+ | HGAMMA_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | HGAMMA_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | HGAMMA_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | HGAMMA_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | HGAMMA_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | HGAMMA_FWHM | float64 | km/s | Line full width at half maximum |
+ | HGAMMA_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | HGAMMA_EW | float64 | A | Line equivalent width |
+ | HGAMMA_EW_error | float64 | A | Line equivalent width error |
+ | HGAMMA_BR_Peak_wavelength | float64 | A | Line peak wavelength |
+ | HGAMMA_BR_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | HGAMMA_BR_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | HGAMMA_BR_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | HGAMMA_BR_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | HGAMMA_BR_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | HGAMMA_BR_FWHM | float64 | km/s | Line full width at half maximum |
+ | HGAMMA_BR_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | HGAMMA_BR_EW | float64 | A | Line equivalent width |
+ | HGAMMA_BR_EW_error | float64 | A | Line equivalent width error |
+ | HGAMMA_NA_Peak_wavelength | float64 | A | Line peak wavelength |
+ | HGAMMA_NA_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | HGAMMA_NA_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | HGAMMA_NA_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | HGAMMA_NA_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | HGAMMA_NA_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | HGAMMA_NA_FWHM | float64 | km/s | Line full width at half maximum |
+ | HGAMMA_NA_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | HGAMMA_NA_EW | float64 | A | Line equivalent width |
+ | HGAMMA_NA_EW_error | float64 | A | Line equivalent width error |
+ | HDELTA_Peak_wavelength | float64 | A | Line peak wavelength |
+ | HDELTA_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | HDELTA_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | HDELTA_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | HDELTA_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | HDELTA_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | HDELTA_FWHM | float64 | km/s | Line full width at half maximum |
+ | HDELTA_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | HDELTA_EW | float64 | A | Line equivalent width |
+ | HDELTA_EW_error | float64 | A | Line equivalent width error |
+ | HDELTA_BR_Peak_wavelength | float64 | A | Line peak wavelength |
+ | HDELTA_BR_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | HDELTA_BR_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | HDELTA_BR_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | HDELTA_BR_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | HDELTA_BR_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | HDELTA_BR_FWHM | float64 | km/s | Line full width at half maximum |
+ | HDELTA_BR_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | HDELTA_BR_EW | float64 | A | Line equivalent width |
+ | HDELTA_BR_EW_error | float64 | A | Line equivalent width error |
+ | HDELTA_NA_Peak_wavelength | float64 | A | Line peak wavelength |
+ | HDELTA_NA_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | HDELTA_NA_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | HDELTA_NA_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | HDELTA_NA_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | HDELTA_NA_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | HDELTA_NA_FWHM | float64 | km/s | Line full width at half maximum |
+ | HDELTA_NA_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | HDELTA_NA_EW | float64 | A | Line equivalent width |
+ | HDELTA_NA_EW_error | float64 | A | Line equivalent width error |
+ | NeIII3967_Peak_wavelength | float64 | A | Line peak wavelength |
+ | NeIII3967_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | NeIII3967_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | NeIII3967_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | NeIII3967_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | NeIII3967_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | NeIII3967_FWHM | float64 | km/s | Line full width at half maximum |
+ | NeIII3967_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | NeIII3967_EW | float64 | A | Line equivalent width |
+ | NeIII3967_EW_error | float64 | A | Line equivalent width error |
+ | NeIII3869_Peak_wavelength | float64 | A | Line peak wavelength |
+ | NeIII3869_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | NeIII3869_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | NeIII3869_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | NeIII3869_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | NeIII3869_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | NeIII3869_FWHM | float64 | km/s | Line full width at half maximum |
+ | NeIII3869_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | NeIII3869_EW | float64 | A | Line equivalent width |
+ | NeIII3869_EW_error | float64 | A | Line equivalent width error |
+ | FeVII3759_Peak_wavelength | float64 | A | Line peak wavelength |
+ | FeVII3759_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | FeVII3759_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | FeVII3759_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | FeVII3759_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | FeVII3759_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | FeVII3759_FWHM | float64 | km/s | Line full width at half maximum |
+ | FeVII3759_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | FeVII3759_EW | float64 | A | Line equivalent width |
+ | FeVII3759_EW_error | float64 | A | Line equivalent width error |
+ | OII3728_Peak_wavelength | float64 | A | Line peak wavelength |
+ | OII3728_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | OII3728_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | OII3728_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | OII3728_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | OII3728_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | OII3728_FWHM | float64 | km/s | Line full width at half maximum |
+ | OII3728_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | OII3728_EW | float64 | A | Line equivalent width |
+ | OII3728_EW_error | float64 | A | Line equivalent width error |
+ | NeV3426_Peak_wavelength | float64 | A | Line peak wavelength |
+ | NeV3426_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | NeV3426_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | NeV3426_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | NeV3426_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | NeV3426_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | NeV3426_FWHM | float64 | km/s | Line full width at half maximum |
+ | NeV3426_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | NeV3426_EW | float64 | A | Line equivalent width |
+ | NeV3426_EW_error | float64 | A | Line equivalent width error |
+ | NeV3426_BR_Peak_wavelength | float64 | A | Line peak wavelength |
+ | NeV3426_BR_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | NeV3426_BR_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | NeV3426_BR_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | NeV3426_BR_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | NeV3426_BR_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | NeV3426_BR_FWHM | float64 | km/s | Line full width at half maximum |
+ | NeV3426_BR_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | NeV3426_BR_EW | float64 | A | Line equivalent width |
+ | NeV3426_BR_EW_error | float64 | A | Line equivalent width error |
+ | NeV3426_NA_Peak_wavelength | float64 | A | Line peak wavelength |
+ | NeV3426_NA_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | NeV3426_NA_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | NeV3426_NA_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | NeV3426_NA_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | NeV3426_NA_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | NeV3426_NA_FWHM | float64 | km/s | Line full width at half maximum |
+ | NeV3426_NA_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | NeV3426_NA_EW | float64 | A | Line equivalent width |
+ | NeV3426_NA_EW_error | float64 | A | Line equivalent width error |
+ | NeV3346_Peak_wavelength | float64 | A | Line peak wavelength |
+ | NeV3346_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | NeV3346_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | NeV3346_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | NeV3346_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | NeV3346_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | NeV3346_FWHM | float64 | km/s | Line full width at half maximum |
+ | NeV3346_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | NeV3346_EW | float64 | A | Line equivalent width |
+ | NeV3346_EW_error | float64 | A | Line equivalent width error |
+ | MgII_Peak_wavelength | float64 | A | Line peak wavelength |
+ | MgII_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | MgII_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | MgII_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | MgII_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | MgII_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | MgII_FWHM | float64 | km/s | Line full width at half maximum |
+ | MgII_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | MgII_EW | float64 | A | Line equivalent width |
+ | MgII_EW_error | float64 | A | Line equivalent width error |
+ | MgII_BR_Peak_wavelength | float64 | A | Line peak wavelength |
+ | MgII_BR_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | MgII_BR_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | MgII_BR_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | MgII_BR_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | MgII_BR_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | MgII_BR_FWHM | float64 | km/s | Line full width at half maximum |
+ | MgII_BR_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | MgII_BR_EW | float64 | A | Line equivalent width |
+ | MgII_BR_EW_error | float64 | A | Line equivalent width error |
+ | MgII_NA_Peak_wavelength | float64 | A | Line peak wavelength |
+ | MgII_NA_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | MgII_NA_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | MgII_NA_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | MgII_NA_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | MgII_NA_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | MgII_NA_FWHM | float64 | km/s | Line full width at half maximum |
+ | MgII_NA_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | MgII_NA_EW | float64 | A | Line equivalent width |
+ | MgII_NA_EW_error | float64 | A | Line equivalent width error |
+ | NeIV2422_Peak_wavelength | float64 | A | Line peak wavelength |
+ | NeIV2422_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | NeIV2422_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | NeIV2422_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | NeIV2422_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | NeIV2422_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | NeIV2422_FWHM | float64 | km/s | Line full width at half maximum |
+ | NeIV2422_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | NeIV2422_EW | float64 | A | Line equivalent width |
+ | NeIV2422_EW_error | float64 | A | Line equivalent width error |
+ | CII2326_Peak_wavelength | float64 | A | Line peak wavelength |
+ | CII2326_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | CII2326_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | CII2326_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | CII2326_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | CII2326_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | CII2326_FWHM | float64 | km/s | Line full width at half maximum |
+ | CII2326_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | CII2326_EW | float64 | A | Line equivalent width |
+ | CII2326_EW_error | float64 | A | Line equivalent width error |
+ | CIII_ALL_Peak_wavelength | float64 | A | Line peak wavelength |
+ | CIII_ALL_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | CIII_ALL_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | CIII_ALL_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | CIII_ALL_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | CIII_ALL_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | CIII_ALL_FWHM | float64 | km/s | Line full width at half maximum |
+ | CIII_ALL_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | CIII_ALL_EW | float64 | A | Line equivalent width |
+ | CIII_ALL_EW_error | float64 | A | Line equivalent width error |
+ | CIII_BR_Peak_wavelength | float64 | A | Line peak wavelength |
+ | CIII_BR_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | CIII_BR_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | CIII_BR_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | CIII_BR_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | CIII_BR_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | CIII_BR_FWHM | float64 | km/s | Line full width at half maximum |
+ | CIII_BR_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | CIII_BR_EW | float64 | A | Line equivalent width |
+ | CIII_BR_EW_error | float64 | A | Line equivalent width error |
+ | SiIII1892_Peak_wavelength | float64 | A | Line peak wavelength |
+ | SiIII1892_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | SiIII1892_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | SiIII1892_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | SiIII1892_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | SiIII1892_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | SiIII1892_FWHM | float64 | km/s | Line full width at half maximum |
+ | SiIII1892_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | SiIII1892_EW | float64 | A | Line equivalent width |
+ | SiIII1892_EW_error | float64 | A | Line equivalent width error |
+ | AlIII1857_Peak_wavelength | float64 | A | Line peak wavelength |
+ | AlIII1857_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | AlIII1857_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | AlIII1857_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | AlIII1857_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | AlIII1857_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | AlIII1857_FWHM | float64 | km/s | Line full width at half maximum |
+ | AlIII1857_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | AlIII1857_EW | float64 | A | Line equivalent width |
+ | AlIII1857_EW_error | float64 | A | Line equivalent width error |
+ | SiIII1816_Peak_wavelength | float64 | A | Line peak wavelength |
+ | SiIII1816_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | SiIII1816_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | SiIII1816_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | SiIII1816_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | SiIII1816_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | SiIII1816_FWHM | float64 | km/s | Line full width at half maximum |
+ | SiIII1816_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | SiIII1816_EW | float64 | A | Line equivalent width |
+ | SiIII1816_EW_error | float64 | A | Line equivalent width error |
+ | NIII1750_Peak_wavelength | float64 | A | Line peak wavelength |
+ | NIII1750_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | NIII1750_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | NIII1750_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | NIII1750_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | NIII1750_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | NIII1750_FWHM | float64 | km/s | Line full width at half maximum |
+ | NIII1750_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | NIII1750_EW | float64 | A | Line equivalent width |
+ | NIII1750_EW_error | float64 | A | Line equivalent width error |
+ | NIV1718_Peak_wavelength | float64 | A | Line peak wavelength |
+ | NIV1718_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | NIV1718_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | NIV1718_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | NIV1718_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | NIV1718_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | NIV1718_FWHM | float64 | km/s | Line full width at half maximum |
+ | NIV1718_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | NIV1718_EW | float64 | A | Line equivalent width |
+ | NIV1718_EW_error | float64 | A | Line equivalent width error |
+ | OIII1663_Peak_wavelength | float64 | A | Line peak wavelength |
+ | OIII1663_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | OIII1663_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | OIII1663_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | OIII1663_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | OIII1663_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | OIII1663_FWHM | float64 | km/s | Line full width at half maximum |
+ | OIII1663_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | OIII1663_EW | float64 | A | Line equivalent width |
+ | OIII1663_EW_error | float64 | A | Line equivalent width error |
+ | HeII1640_Peak_wavelength | float64 | A | Line peak wavelength |
+ | HeII1640_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | HeII1640_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | HeII1640_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | HeII1640_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | HeII1640_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | HeII1640_FWHM | float64 | km/s | Line full width at half maximum |
+ | HeII1640_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | HeII1640_EW | float64 | A | Line equivalent width |
+ | HeII1640_EW_error | float64 | A | Line equivalent width error |
+ | HeII1640_BR_Peak_wavelength | float64 | A | Line peak wavelength |
+ | HeII1640_BR_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | HeII1640_BR_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | HeII1640_BR_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | HeII1640_BR_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | HeII1640_BR_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | HeII1640_BR_FWHM | float64 | km/s | Line full width at half maximum |
+ | HeII1640_BR_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | HeII1640_BR_EW | float64 | A | Line equivalent width |
+ | HeII1640_BR_EW_error | float64 | A | Line equivalent width error |
+ | CIV_Peak_wavelength | float64 | A | Line peak wavelength |
+ | CIV_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | CIV_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | CIV_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | CIV_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | CIV_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | CIV_FWHM | float64 | km/s | Line full width at half maximum |
+ | CIV_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | CIV_EW | float64 | A | Line equivalent width |
+ | CIV_EW_error | float64 | A | Line equivalent width error |
+ | SiIV_OIV_Peak_wavelength | float64 | A | Line peak wavelength |
+ | SiIV_OIV_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | SiIV_OIV_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | SiIV_OIV_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | SiIV_OIV_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | SiIV_OIV_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | SiIV_OIV_FWHM | float64 | km/s | Line full width at half maximum |
+ | SiIV_OIV_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | SiIV_OIV_EW | float64 | A | Line equivalent width |
+ | SiIV_OIV_EW_error | float64 | A | Line equivalent width error |
+ | CII1335_Peak_wavelength | float64 | A | Line peak wavelength |
+ | CII1335_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | CII1335_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | CII1335_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | CII1335_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | CII1335_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | CII1335_FWHM | float64 | km/s | Line full width at half maximum |
+ | CII1335_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | CII1335_EW | float64 | A | Line equivalent width |
+ | CII1335_EW_error | float64 | A | Line equivalent width error |
+ | OI1304_Peak_wavelength | float64 | A | Line peak wavelength |
+ | OI1304_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | OI1304_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | OI1304_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | OI1304_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | OI1304_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | OI1304_FWHM | float64 | km/s | Line full width at half maximum |
+ | OI1304_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | OI1304_EW | float64 | A | Line equivalent width |
+ | OI1304_EW_error | float64 | A | Line equivalent width error |
+ | LyA_Peak_wavelength | float64 | A | Line peak wavelength |
+ | LyA_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | LyA_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | LyA_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | LyA_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | LyA_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | LyA_FWHM | float64 | km/s | Line full width at half maximum |
+ | LyA_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | LyA_EW | float64 | A | Line equivalent width |
+ | LyA_EW_error | float64 | A | Line equivalent width error |
+ | NV1240_Peak_wavelength | float64 | A | Line peak wavelength |
+ | NV1240_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | NV1240_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | NV1240_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | NV1240_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | NV1240_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | NV1240_FWHM | float64 | km/s | Line full width at half maximum |
+ | NV1240_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | NV1240_EW | float64 | A | Line equivalent width |
+ | NV1240_EW_error | float64 | A | Line equivalent width error |
+ | OIV1035_Peak_wavelength | float64 | A | Line peak wavelength |
+ | OIV1035_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | OIV1035_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | OIV1035_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | OIV1035_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | OIV1035_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | OIV1035_FWHM | float64 | km/s | Line full width at half maximum |
+ | OIV1035_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | OIV1035_EW | float64 | A | Line equivalent width |
+ | OIV1035_EW_error | float64 | A | Line equivalent width error |
+ | HG_subtraction | bool |  | True: host-galaxy emission subtracted; False: quasar-dominated |
 
 
 
@@ -1964,65 +1964,65 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU2
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | ObjID | char[23] |  | replace me column 1 |
- | ERO_Name | char[22] |  | replace me column 2 |
- | ERO_ID_HARD | int32 |  | replace me column 3 |
- | ERO_ID_MAIN | int32 |  | replace me column 4 |
- | SPECZ_REDSHIFT | float32 |  | replace me column 5 |
- | SAMPLE | char[4] |  | replace me column 6 |
- | HG_subtraction | bool |  | replace me column 7 |
- | Reduced_Chi2 | float64 |  | replace me column 8 |
- | f_AGN | float64 |  | replace me column 9 |
- | f_HG | float64 |  | replace me column 10 |
- | Stellar_mass_flux_Msun_r | float64 | Msun | replace me column 11 |
- | apcorr_factor | float64 |  | replace me column 12 |
- | Stellar_mass_Msun_r_apcorr | float64 | Msun | replace me column 13 |
- | Stellar_mass_flux_Msun_g | float64 | Msun | replace me column 14 |
- | velocity_dispersion_stars | float64 | km/s | replace me column 15 |
- | velocity_dispersion_stars_error | float64 | km/s | replace me column 16 |
- | velocity_stars | float64 | km/s | replace me column 17 |
- | velocity_stars_error | float64 | km/s | replace me column 18 |
- | SPECZ_NORMC_specz | char[6] |  | replace me column 19 |
- | PLATE | int32 |  | replace me column 20 |
- | MJD | int32 |  | replace me column 21 |
- | FIBERID | int32 |  | replace me column 22 |
- | CATALOGID | int64 |  | replace me column 23 |
- | RUN2D | char[7] |  | replace me column 24 |
- | SN_MEDIAN_ALL | float64 |  | replace me column 25 |
- | RA | float64 | deg | replace me column 26 |
- | DEC | float64 | deg | replace me column 27 |
- | CTP_LS8_TYPE | char[4] |  | replace me column 28 |
- | LS8_g | float64 | mag | replace me column 29 |
- | LS8_r | float64 | mag | replace me column 30 |
- | Flux_DECam_r | float64 | erg/s/cm2 | replace me column 31 |
- | D4000 | float64 |  | replace me column 32 |
- | D4000_error | float64 |  | replace me column 33 |
- | log_Mean_Age_yr_light | float64 |  | replace me column 34 |
- | Mean_Metallicity_Zsun_light | float64 | Zsun | replace me column 35 |
- | log_Mean_Age_yr_mass | float64 |  | replace me column 36 |
- | Mean_Metallicity_Zsun_mass | float64 | Zsun | replace me column 37 |
- | Mass_to_Light_DECamr | float64 |  | replace me column 38 |
- | LogL_DECamr_SSP | float64 |  | replace me column 39 |
- | Mass_to_Light_DECamg | float64 |  | replace me column 40 |
- | LogL_DECamg_SSP | float64 |  | replace me column 41 |
- | LogL5100_SSP | float64 |  | replace me column 42 |
- | LogL5100_AGN | float64 |  | replace me column 43 |
- | LogL5100_obs | float64 |  | replace me column 44 |
- | weight_SSP | float64 |  | replace me column 45 |
- | weight_NarrowLines | float64 |  | replace me column 46 |
- | weight_BroadLines | float64 |  | replace me column 47 |
- | weight_FeII | float64 |  | replace me column 48 |
- | weight_PowerLaw | float64 |  | replace me column 49 |
- | weight_Balmer | float64 |  | replace me column 50 |
- | log_Age_yr_1 | float64 |  | replace me column 51 |
- | Metallicity_Zsun_1 | float64 | Zsun | replace me column 52 |
- | Weight_1 | float64 |  | replace me column 53 |
- | log_Age_yr_2 | float64 |  | replace me column 54 |
- | Metallicity_Zsun_2 | float64 | Zsun | replace me column 55 |
- | Weight_2 | float64 |  | replace me column 56 |
- | log_Age_yr_3 | float64 |  | replace me column 57 |
- | Metallicity_Zsun_3 | float64 | Zsun | replace me column 58 |
- | Weight_3 | float64 |  | replace me column 59 |
+ | ObjID | char[23] |  | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |
+ | ERO_Name | char[22] |  | eROSITA official source name (Brunner+2022) |
+ | ERO_ID_HARD | int32 |  | ID of Hard sample eROSITA source (Brunner+2022) |
+ | ERO_ID_MAIN | int32 |  | ID of Main sample eROSITA source (Brunner+2022) |
+ | SPECZ_REDSHIFT | float32 |  | Spectroscopic redshift from visual inspection (Aydar+2025) |
+ | SAMPLE | char[4] |  | Main or Hard sample from eROSITA (Brunner+2022) |
+ | HG_subtraction | bool |  | True: host-galaxy emission subtracted; False: quasar-dominated |
+ | Reduced_Chi2 | float64 |  | Reduced chi2 from pPXF fit |
+ | f_AGN | float64 |  | AGN continuum (PL+Fe II+Balmer) weight to continuum fit |
+ | f_HG | float64 |  | Host galaxy continuum (SSP) weight to continuum fit |
+ | Stellar_mass_flux_Msun_r | float64 | Msun | Stellar mass within aperture from the spectral flux in DECam r |
+ | apcorr_factor | float64 |  | Aperture correction factor (Aydar+2026a) |
+ | Stellar_mass_Msun_r_apcorr | float64 | Msun | Aperture corrected stellar mass from the spectral flux in DECam r |
+ | Stellar_mass_flux_Msun_g | float64 | Msun | Stellar mass within aperture from the spectral flux in DECam r |
+ | velocity_dispersion_stars | float64 | km/s | Stellar velocity dispersion (second term of kinematic fit) |
+ | velocity_dispersion_stars_error | float64 | km/s | Stellar velocity dispersion error |
+ | velocity_stars | float64 | km/s | Stellar velocity (first term of kinematic fit) |
+ | velocity_stars_error | float64 | km/s | Stellar velocity error |
+ | SPECZ_NORMC_specz | char[6] |  | Final normalised classification (Aydar+2025) |
+ | PLATE | int32 |  | SDSS PLATE |
+ | MJD | int32 |  | SDSS modified Julian date of observation |
+ | FIBERID | int32 |  | SDSS FIBER ID |
+ | CATALOGID | int64 |  | SDSS CATALOGID |
+ | RUN2D | char[7] |  | Tagged version of idlspec2d used to reduce the SDSS BOSS spectra |
+ | SN_MEDIAN_ALL | float64 |  | SDSS Median S/N per pix in spectrum (idlspec2d v6_0_2 reductions) |
+ | RA | float64 | deg | SDSS right ascension (J2000) |
+ | DEC | float64 | deg | SDSS declination (J2000) |
+ | CTP_LS8_TYPE | char[4] |  | Morphological model from LS8 |
+ | LS8_g | float64 | mag | LS8 g-band magnitude (AB) |
+ | LS8_r | float64 | mag | LS8 r-band magnitude (AB) |
+ | Flux_DECam_r | float64 | erg/s/cm2 | Spectral flux integrated in the DECam r band coverage |
+ | D4000 | float64 |  | D4000 break measurement from observed spectrum |
+ | D4000_error | float64 |  | D4000 break measurement from observed spectrum error |
+ | log_Mean_Age_yr_light | float64 |  | Mean light-weighted age from SSP fits (log, yr) |
+ | Mean_Metallicity_Zsun_light | float64 | Zsun | Mean light-weighted metallicity from SSP fits |
+ | log_Mean_Age_yr_mass | float64 |  | Mean mass-weighted age from SSP fits (log, yr) |
+ | Mean_Metallicity_Zsun_mass | float64 | Zsun | Mean mass-weighted metallicity from SSP fits |
+ | Mass_to_Light_DECamr | float64 |  | Mass to light ratio from the spectral flux in DECam r |
+ | LogL_DECamr_SSP | float64 |  | SSP luminosity from the spectral flux in DECam r (log, erg/s) |
+ | Mass_to_Light_DECamg | float64 |  | Mass to light ratio from the spectral flux in DECam g |
+ | LogL_DECamg_SSP | float64 |  | SSP luminosity from the spectral flux in DECam g (log, erg/s) |
+ | LogL5100_SSP | float64 |  | SSP luminosity at 5100 A (log, erg/s) |
+ | LogL5100_AGN | float64 |  | AGN luminosity at 5100 A (log, erg/s) |
+ | LogL5100_obs | float64 |  | Observed luminosity at 5100 A (log, erg/s) |
+ | weight_SSP | float64 |  | Simple Stellar Population templates weight to total fit |
+ | weight_NarrowLines | float64 |  | Narrow emission lines template weight to total fit |
+ | weight_BroadLines | float64 |  | Broad emission lines template weight to total fit |
+ | weight_FeII | float64 |  | Fe II pseudo-continuum template weight to total fit |
+ | weight_PowerLaw | float64 |  | Power-law templates weight to total fit |
+ | weight_Balmer | float64 |  | Balmer continuum and high-order templates weight to total fit |
+ | log_Age_yr_1 | float64 |  | Age of SSP with highest weight (log, yr) |
+ | Metallicity_Zsun_1 | float64 | Zsun | Metallicity of SSP with highest weight |
+ | Weight_1 | float64 |  | Weight of SSP with highest weight |
+ | log_Age_yr_2 | float64 |  | Age of SSP with second highest weight (log, yr) |
+ | Metallicity_Zsun_2 | float64 | Zsun | Metallicity of SSP with second highest weight |
+ | Weight_2 | float64 |  | Weight of SSP with second highest weight |
+ | log_Age_yr_3 | float64 |  | Age of SSP with third highest weight (log, yr) |
+ | Metallicity_Zsun_3 | float64 | Zsun | Metallicity of SSP with third highest weight |
+ | Weight_3 | float64 |  | Weight of SSP with third highest weight |
 
 
 
@@ -2196,144 +2196,144 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU3
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | ObjID | char[23] |  | replace me column 1 |
- | ERO_Name | char[22] |  | replace me column 2 |
- | ERO_ID_HARD | int32 |  | replace me column 3 |
- | ERO_ID_MAIN | int32 |  | replace me column 4 |
- | HG_subtraction | bool |  | replace me column 5 |
- | SPECZ_REDSHIFT | float32 |  | replace me column 6 |
- | SN_MEDIAN_ALL | float64 |  | replace me column 7 |
- | class_line | char[10] |  | replace me column 8 |
- | f_AGN | float64 |  | replace me column 9 |
- | type | char[15] |  | replace me column 10 |
- | subtype | char[15] |  | replace me column 11 |
- | Xray_obscuration | char[20] |  | replace me column 12 |
- | OIII_outflow | char[5] |  | replace me column 13 |
- | Coronal_line | bool |  | replace me column 14 |
- | a_ox | float64 |  | replace me column 15 |
- | a_ox_error | float64 |  | replace me column 16 |
- | LogBHmass | float64 |  | replace me column 17 |
- | LogBHmass_error | float64 |  | replace me column 18 |
- | LogLbol | float64 |  | replace me column 19 |
- | LogLbol_error | float64 |  | replace me column 20 |
- | LogEdd_ratio | float64 |  | replace me column 21 |
- | LogEdd_ratio_error | float64 |  | replace me column 22 |
- | LogL2500 | float64 |  | replace me column 23 |
- | LogL2500_error | float64 |  | replace me column 24 |
- | BalmDec | float64 |  | replace me column 25 |
- | BalmDec_error | float64 |  | replace me column 26 |
- | BalmDec_na | float64 |  | replace me column 27 |
- | BalmDec_na_error | float64 |  | replace me column 28 |
- | BalmDec_br | float64 |  | replace me column 29 |
- | BalmDec_br_error | float64 |  | replace me column 30 |
- | T_e_OIII | float64 | K | replace me column 31 |
- | T_e_OII | float64 | K | replace me column 32 |
- | n_e_SII | float64 | cm-3 | replace me column 33 |
- | metallicity_OH_direct | float64 |  | replace me column 34 |
- | metallicity_Zsun_N2 | float64 | Zsun | replace me column 35 |
- | ionization_U | float64 |  | replace me column 36 |
- | aperture_physical_size_kpc | float64 | kpc | replace me column 37 |
- | LogBHmass_Ha | float64 |  | replace me column 38 |
- | LogBHmass_Ha_error | float64 |  | replace me column 39 |
- | LogBHmass_Hb | float64 |  | replace me column 40 |
- | LogBHmass_Hb_error | float64 |  | replace me column 41 |
- | LogBHmass_Mg | float64 |  | replace me column 42 |
- | LogBHmass_Mg_error | float64 |  | replace me column 43 |
- | LogBHmass_CIV | float64 |  | replace me column 44 |
- | LogBHmass_CIV_error | float64 |  | replace me column 45 |
- | LogLbol_5100 | float64 |  | replace me column 46 |
- | LogLbol_5100_error | float64 |  | replace me column 47 |
- | LogLbol_3000 | float64 |  | replace me column 48 |
- | LogLbol_3000_error | float64 |  | replace me column 49 |
- | LogLbol_1350 | float64 |  | replace me column 50 |
- | LogLbol_1350_error | float64 |  | replace me column 51 |
- | Lbol_x | float64 |  | replace me column 52 |
- | Lbol_x_error | float64 |  | replace me column 53 |
- | LogEdd_ratio_Ha | float64 |  | replace me column 54 |
- | LogEdd_ratio_Ha_error | float64 |  | replace me column 55 |
- | LogEdd_ratio_Hb | float64 |  | replace me column 56 |
- | LogEdd_ratio_Hb_error | float64 |  | replace me column 57 |
- | LogEdd_ratio_Mg | float64 |  | replace me column 58 |
- | LogEdd_ratio_Mg_error | float64 |  | replace me column 59 |
- | LogEdd_ratio_CIV | float64 |  | replace me column 60 |
- | LogEdd_ratio_CIV_error | float64 |  | replace me column 61 |
- | SII6732_detected | bool |  | replace me column 62 |
- | SII6718_detected | bool |  | replace me column 63 |
- | NII6585_detected | bool |  | replace me column 64 |
- | NII6549_detected | bool |  | replace me column 65 |
- | HALPHA_detected | bool |  | replace me column 66 |
- | HALPHA_broad | bool |  | replace me column 67 |
- | HALPHA_BR_detected | bool |  | replace me column 68 |
- | HALPHA_NA_detected | bool |  | replace me column 69 |
- | FeX6376_detected | bool |  | replace me column 70 |
- | OI6300_detected | bool |  | replace me column 71 |
- | FeVII6088_detected | bool |  | replace me column 72 |
- | HeI5877_detected | bool |  | replace me column 73 |
- | HeI5877_broad | bool |  | replace me column 74 |
- | HeI5877_BR_detected | bool |  | replace me column 75 |
- | HeI5877_NA_detected | bool |  | replace me column 76 |
- | HeII4685_detected | bool |  | replace me column 77 |
- | HeII4685_broad | bool |  | replace me column 78 |
- | HeII4685_BR_detected | bool |  | replace me column 79 |
- | HeII4685_NA_detected | bool |  | replace me column 80 |
- | OIII5007_detected | bool |  | replace me column 81 |
- | OIII5007_broad | bool |  | replace me column 82 |
- | OIII5007C_detected | bool |  | replace me column 83 |
- | OIII5007W_detected | bool |  | replace me column 84 |
- | OIII4959_detected | bool |  | replace me column 85 |
- | OIII4959_broad | bool |  | replace me column 86 |
- | OIII4959C_detected | bool |  | replace me column 87 |
- | OIII4959W_detected | bool |  | replace me column 88 |
- | HBETA_detected | bool |  | replace me column 89 |
- | HBETA_broad | bool |  | replace me column 90 |
- | HBETA_BR_detected | bool |  | replace me column 91 |
- | HBETA_NA_detected | bool |  | replace me column 92 |
- | OIII4363_detected | bool |  | replace me column 93 |
- | HGAMMA_detected | bool |  | replace me column 94 |
- | HGAMMA_broad | bool |  | replace me column 95 |
- | HGAMMA_BR_detected | bool |  | replace me column 96 |
- | HGAMMA_NA_detected | bool |  | replace me column 97 |
- | HDELTA_detected | bool |  | replace me column 98 |
- | HDELTA_broad | bool |  | replace me column 99 |
- | HDELTA_BR_detected | bool |  | replace me column 100 |
- | HDELTA_NA_detected | bool |  | replace me column 101 |
- | NeIII3967_detected | bool |  | replace me column 102 |
- | NeIII3869_detected | bool |  | replace me column 103 |
- | FeVII3759_detected | bool |  | replace me column 104 |
- | OII3728_detected | bool |  | replace me column 105 |
- | NeV3426_detected | bool |  | replace me column 106 |
- | NeV3426_broad | bool |  | replace me column 107 |
- | NeV3426_BR_detected | bool |  | replace me column 108 |
- | NeV3426_NA_detected | bool |  | replace me column 109 |
- | NeV3346_detected | bool |  | replace me column 110 |
- | MgII_detected | bool |  | replace me column 111 |
- | MgII_broad | bool |  | replace me column 112 |
- | MgII_BR_detected | bool |  | replace me column 113 |
- | MgII_NA_detected | bool |  | replace me column 114 |
- | NeIV2422_detected | bool |  | replace me column 115 |
- | CII2326_detected | bool |  | replace me column 116 |
- | CIII_ALL_detected | bool |  | replace me column 117 |
- | CIII_ALL_broad | bool |  | replace me column 118 |
- | CIII_BR_detected | bool |  | replace me column 119 |
- | SiIII1892_detected | bool |  | replace me column 120 |
- | AlIII1857_detected | bool |  | replace me column 121 |
- | SiIII1816_detected | bool |  | replace me column 122 |
- | NIII1750_detected | bool |  | replace me column 123 |
- | NIV1718_detected | bool |  | replace me column 124 |
- | OIII1663_detected | bool |  | replace me column 125 |
- | OIII1663_broad | bool |  | replace me column 126 |
- | HeII1640_detected | bool |  | replace me column 127 |
- | HeII1640_broad | bool |  | replace me column 128 |
- | HeII1640_BR_detected | bool |  | replace me column 129 |
- | CIV_detected | bool |  | replace me column 130 |
- | CIV_broad | bool |  | replace me column 131 |
- | SiIV_OIV_detected | bool |  | replace me column 132 |
- | CII1335_detected | bool |  | replace me column 133 |
- | OI1304_detected | bool |  | replace me column 134 |
- | LyA_detected | bool |  | replace me column 135 |
- | LyA_broad | bool |  | replace me column 136 |
- | NV1240_detected | bool |  | replace me column 137 |
- | OIV1035_detected | bool |  | replace me column 138 |
+ | ObjID | char[23] |  | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |
+ | ERO_Name | char[22] |  | eROSITA official source Name (Brunner+2022) |
+ | ERO_ID_HARD | int32 |  | ID of Hard sample eROSITA source (Brunner+2022) |
+ | ERO_ID_MAIN | int32 |  | ID of Main sample eROSITA source (Brunner+2022) |
+ | HG_subtraction | bool |  | True: host-galaxy emission subtracted; False: quasar-dominated |
+ | SPECZ_REDSHIFT | float32 |  | Spectroscopic redshift from visual inspection (Aydar+2025) |
+ | SN_MEDIAN_ALL | float64 |  | SDSS Median S/N per pix in spectrum (idlspec2d v6_0_2 reductions) |
+ | class_line | char[10] |  | Classification onto Broad, Narrow or No (emission) lines |
+ | f_AGN | float64 |  | AGN continuum (PL+Fe II+Balmer) weight to continuum fit |
+ | type | char[15] |  | Types 1-2; c for candidates; SF from BPT or WHAN |
+ | subtype | char[15] |  | Narrow Line Seyfert 1; for Type 1.9, if Mg II or Ha are broad |
+ | Xray_obscuration | char[20] |  | Obscuration according to nH=21.5; c for candidates |
+ | OIII_outflow | char[5] |  | Candidates of having an outflow in [O III], red- or blueshifted |
+ | Coronal_line | bool |  | Candidates of having a coronal line ([Ne V], [Fe VII], or [Fe X]) |
+ | a_ox | float64 |  | Ratio between UV and X-ray luminosities, Tananbaum+1979 |
+ | a_ox_error | float64 |  | Ratio between UV and X-ray luminosities error, Tananbaum+1979 |
+ | LogBHmass | float64 |  | Black hole mass (log, Msun): Hb or Ha z<0.7; Mg II 0.7<z<2; C IV z>2 |
+ | LogBHmass_error | float64 |  | Black hole mass error (log, Msun): line as LogBHmass |
+ | LogLbol | float64 |  | Bolometric luminosity (log, erg/s): 5100 z<0.7; 3000 0.7<z<2; 1350 z |
+ | LogLbol_error | float64 |  | Bolometric luminosity error (log, erg/s): luminosities as LogLbol |
+ | LogEdd_ratio | float64 |  | Eddington ratio: Hb,Ha,5100 z<0.7; MgII,3000 0.7<z<2; CIV,1350 z>2 |
+ | LogEdd_ratio_error | float64 |  | Eddington ratio error: lines and luminosities as LogEdd_ratio |
+ | LogL2500 | float64 |  | Continuum luminosity at 2500 A (log, erg/s) |
+ | LogL2500_error | float64 |  | Uncertainty of the continuum luminosity at 2500 A (log, erg/s) |
+ | BalmDec | float64 |  | Balmer decrement from the total lines (Ha/Hb) |
+ | BalmDec_error | float64 |  | Balmer decrement from the total lines error |
+ | BalmDec_na | float64 |  | Balmer decrement from the narrow lines (Ha_na/Hb_na) |
+ | BalmDec_na_error | float64 |  | Balmer decrement from the narrow lines error |
+ | BalmDec_br | float64 |  | Balmer decrement from the broad lines (Ha_br/Hb_br) |
+ | BalmDec_br_error | float64 |  | Balmer decrement from the broad lines error |
+ | T_e_OIII | float64 | K | Electron temperature from [O III], Dors+2020 |
+ | T_e_OII | float64 | K | Electron temperature from [O II], Dors+2020 |
+ | n_e_SII | float64 | cm-3 | Electron density from [S II], Dors+2020 |
+ | metallicity_OH_direct | float64 |  | 12+log(O/H) from the direct method, Dors+2020 |
+ | metallicity_Zsun_N2 | float64 | Zsun | Z in solar metallicity from [N II]/Ha, Carvalho+2020 |
+ | ionization_U | float64 |  | Ionization parameter, Morisset+2016 |
+ | aperture_physical_size_kpc | float64 | kpc | Physical size within the fiber |
+ | LogBHmass_Ha | float64 |  | Black hole mass estimated from Ha, Shen+2011 (log, Msun) |
+ | LogBHmass_Ha_error | float64 |  | Black hole mass error estimated from Ha, Shen+2011 (log, Msun) |
+ | LogBHmass_Hb | float64 |  | Black hole mass estimated from Hb, Shen+2011 (log, Msun) |
+ | LogBHmass_Hb_error | float64 |  | Black hole mass error estimated from Hb, Shen+2011 (log, Msun) |
+ | LogBHmass_Mg | float64 |  | Black hole mass estimated from Mg II, Shen+2011 (log, Msun) |
+ | LogBHmass_Mg_error | float64 |  | Black hole mass error estimated from Mg II, Shen+2011 (log, Msun) |
+ | LogBHmass_CIV | float64 |  | Black hole mass estimated from C IV, Shen+2011 (log, Msun) |
+ | LogBHmass_CIV_error | float64 |  | Black hole mass error estimated from C IV, Shen+2011 (log, Msun) |
+ | LogLbol_5100 | float64 |  | Bolometric luminosity estimated from 5100A, Runnoe+2012 (log, erg/s) |
+ | LogLbol_5100_error | float64 |  | Bolometric luminosity error from 5100A, Runnoe+2012 (log, erg/s) |
+ | LogLbol_3000 | float64 |  | Bolometric luminosity estimated from 3000A, Runnoe+2012 (log, erg/s) |
+ | LogLbol_3000_error | float64 |  | Bolometric luminosity error from 3000A, Runnoe+2012 (log, erg/s) |
+ | LogLbol_1350 | float64 |  | Bolometric luminosity estimated from 1350A, Runnoe+2012 (log, erg/s) |
+ | LogLbol_1350_error | float64 |  | Bolometric luminosity error from 1350A, Runnoe+2012 (log, erg/s) |
+ | Lbol_x | float64 |  | Bolometric luminosity estimated from Lx, Duras+2020 (log, erg/s) |
+ | Lbol_x_error | float64 |  | Bolometric luminosity error from Lx, Duras+2020 (log, erg/s) |
+ | LogEdd_ratio_Ha | float64 |  | Eddington ratio estimated from Ha and Lbol_5100 |
+ | LogEdd_ratio_Ha_error | float64 |  | Eddington ratio error estimated from Ha and Lbol_5100 |
+ | LogEdd_ratio_Hb | float64 |  | Eddington ratio estimated from Hb and Lbol_5100 |
+ | LogEdd_ratio_Hb_error | float64 |  | Eddington ratio error estimated from Hb and Lbol_5100 |
+ | LogEdd_ratio_Mg | float64 |  | Eddington ratio estimated from Mg II and Lbol_3000 |
+ | LogEdd_ratio_Mg_error | float64 |  | Eddington ratio error estimated from Mg II and Lbol_3000 |
+ | LogEdd_ratio_CIV | float64 |  | Eddington ratio estimated from C IV and Lbol_1350 |
+ | LogEdd_ratio_CIV_error | float64 |  | Eddington ratio error estimated from C IV and Lbol_1350 |
+ | SII6732_detected | bool |  | Flag for considering a reliable detection of the line |
+ | SII6718_detected | bool |  | Flag for considering a reliable detection of the line |
+ | NII6585_detected | bool |  | Flag for considering a reliable detection of the line |
+ | NII6549_detected | bool |  | Flag for considering a reliable detection of the line |
+ | HALPHA_detected | bool |  | Flag for considering a reliable detection of the line |
+ | HALPHA_broad | bool |  | Flag for considering a reliable detection of the broad component |
+ | HALPHA_BR_detected | bool |  | Flag for considering a reliable detection of the line |
+ | HALPHA_NA_detected | bool |  | Flag for considering a reliable detection of the line |
+ | FeX6376_detected | bool |  | Flag for considering a reliable detection of the line |
+ | OI6300_detected | bool |  | Flag for considering a reliable detection of the line |
+ | FeVII6088_detected | bool |  | Flag for considering a reliable detection of the line |
+ | HeI5877_detected | bool |  | Flag for considering a reliable detection of the line |
+ | HeI5877_broad | bool |  | Flag for considering a reliable detection of the broad component |
+ | HeI5877_BR_detected | bool |  | Flag for considering a reliable detection of the line |
+ | HeI5877_NA_detected | bool |  | Flag for considering a reliable detection of the line |
+ | HeII4685_detected | bool |  | Flag for considering a reliable detection of the line |
+ | HeII4685_broad | bool |  | Flag for considering a reliable detection of the broad component |
+ | HeII4685_BR_detected | bool |  | Flag for considering a reliable detection of the line |
+ | HeII4685_NA_detected | bool |  | Flag for considering a reliable detection of the line |
+ | OIII5007_detected | bool |  | Flag for considering a reliable detection of the line |
+ | OIII5007_broad | bool |  | Flag for considering a reliable detection of the broad component |
+ | OIII5007C_detected | bool |  | Flag for considering a reliable detection of the line |
+ | OIII5007W_detected | bool |  | Flag for considering a reliable detection of the line |
+ | OIII4959_detected | bool |  | Flag for considering a reliable detection of the line |
+ | OIII4959_broad | bool |  | Flag for considering a reliable detection of the broad component |
+ | OIII4959C_detected | bool |  | Flag for considering a reliable detection of the line |
+ | OIII4959W_detected | bool |  | Flag for considering a reliable detection of the line |
+ | HBETA_detected | bool |  | Flag for considering a reliable detection of the line |
+ | HBETA_broad | bool |  | Flag for considering a reliable detection of the broad component |
+ | HBETA_BR_detected | bool |  | Flag for considering a reliable detection of the line |
+ | HBETA_NA_detected | bool |  | Flag for considering a reliable detection of the line |
+ | OIII4363_detected | bool |  | Flag for considering a reliable detection of the line |
+ | HGAMMA_detected | bool |  | Flag for considering a reliable detection of the line |
+ | HGAMMA_broad | bool |  | Flag for considering a reliable detection of the broad component |
+ | HGAMMA_BR_detected | bool |  | Flag for considering a reliable detection of the line |
+ | HGAMMA_NA_detected | bool |  | Flag for considering a reliable detection of the line |
+ | HDELTA_detected | bool |  | Flag for considering a reliable detection of the line |
+ | HDELTA_broad | bool |  | Flag for considering a reliable detection of the broad component |
+ | HDELTA_BR_detected | bool |  | Flag for considering a reliable detection of the line |
+ | HDELTA_NA_detected | bool |  | Flag for considering a reliable detection of the line |
+ | NeIII3967_detected | bool |  | Flag for considering a reliable detection of the line |
+ | NeIII3869_detected | bool |  | Flag for considering a reliable detection of the line |
+ | FeVII3759_detected | bool |  | Flag for considering a reliable detection of the line |
+ | OII3728_detected | bool |  | Flag for considering a reliable detection of the line |
+ | NeV3426_detected | bool |  | Flag for considering a reliable detection of the line |
+ | NeV3426_broad | bool |  | Flag for considering a reliable detection of the broad component |
+ | NeV3426_BR_detected | bool |  | Flag for considering a reliable detection of the line |
+ | NeV3426_NA_detected | bool |  | Flag for considering a reliable detection of the line |
+ | NeV3346_detected | bool |  | Flag for considering a reliable detection of the line |
+ | MgII_detected | bool |  | Flag for considering a reliable detection of the line |
+ | MgII_broad | bool |  | Flag for considering a reliable detection of the broad component |
+ | MgII_BR_detected | bool |  | Flag for considering a reliable detection of the line |
+ | MgII_NA_detected | bool |  | Flag for considering a reliable detection of the line |
+ | NeIV2422_detected | bool |  | Flag for considering a reliable detection of the line |
+ | CII2326_detected | bool |  | Flag for considering a reliable detection of the line |
+ | CIII_ALL_detected | bool |  | Flag for considering a reliable detection of the line |
+ | CIII_ALL_broad | bool |  | Flag for considering a reliable detection of the broad component |
+ | CIII_BR_detected | bool |  | Flag for considering a reliable detection of the line |
+ | SiIII1892_detected | bool |  | Flag for considering a reliable detection of the line |
+ | AlIII1857_detected | bool |  | Flag for considering a reliable detection of the line |
+ | SiIII1816_detected | bool |  | Flag for considering a reliable detection of the line |
+ | NIII1750_detected | bool |  | Flag for considering a reliable detection of the line |
+ | NIV1718_detected | bool |  | Flag for considering a reliable detection of the line |
+ | OIII1663_detected | bool |  | Flag for considering a reliable detection of the line |
+ | OIII1663_broad | bool |  | Flag for considering a reliable detection of the broad component |
+ | HeII1640_detected | bool |  | Flag for considering a reliable detection of the line |
+ | HeII1640_broad | bool |  | Flag for considering a reliable detection of the broad component |
+ | HeII1640_BR_detected | bool |  | Flag for considering a reliable detection of the line |
+ | CIV_detected | bool |  | Flag for considering a reliable detection of the line |
+ | CIV_broad | bool |  | Flag for considering a reliable detection of the broad component |
+ | SiIV_OIV_detected | bool |  | Flag for considering a reliable detection of the line |
+ | CII1335_detected | bool |  | Flag for considering a reliable detection of the line |
+ | OI1304_detected | bool |  | Flag for considering a reliable detection of the line |
+ | LyA_detected | bool |  | Flag for considering a reliable detection of the line |
+ | LyA_broad | bool |  | Flag for considering a reliable detection of the broad component |
+ | NV1240_detected | bool |  | Flag for considering a reliable detection of the line |
+ | OIV1035_detected | bool |  | Flag for considering a reliable detection of the line |
 
 
 
@@ -2830,458 +2830,458 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU4
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | ObjID | char[23] |  | replace me column 1 |
- | ERO_Name | char[22] |  | replace me column 2 |
- | ERO_ID_HARD | int32 |  | replace me column 3 |
- | ERO_ID_MAIN | int32 |  | replace me column 4 |
- | SAMPLE | char[4] |  | replace me column 5 |
- | RA | float64 | deg | replace me column 6 |
- | DEC | float64 | deg | replace me column 7 |
- | PLATE | int64 |  | replace me column 8 |
- | MJD | int64 |  | replace me column 9 |
- | FIBERID | int64 |  | replace me column 10 |
- | Z_FIT | float64 |  | replace me column 11 |
- | SNR_conti | float64 |  | replace me column 12 |
- | EBV | float64 |  | replace me column 13 |
- | conti_chi2 | float64 |  | replace me column 14 |
- | conti_rchi2 | float64 |  | replace me column 15 |
- | conti_dof | float64 |  | replace me column 16 |
- | conti_npix | float64 |  | replace me column 17 |
- | Fe_uv_norm | float64 |  | replace me column 18 |
- | Fe_uv_norm_error | float64 |  | replace me column 19 |
- | Fe_uv_FWHM | float64 | km/s | replace me column 20 |
- | Fe_uv_FWHM_error | float64 | km/s | replace me column 21 |
- | Fe_uv_shift | float64 | A | replace me column 22 |
- | Fe_uv_shift_error | float64 | A | replace me column 23 |
- | Fe_op_norm | float64 |  | replace me column 24 |
- | Fe_op_norm_error | float64 |  | replace me column 25 |
- | Fe_op_FWHM | float64 | km/s | replace me column 26 |
- | Fe_op_FWHM_error | float64 | km/s | replace me column 27 |
- | Fe_op_shift | float64 | A | replace me column 28 |
- | Fe_op_shift_error | float64 | A | replace me column 29 |
- | Fe_uv_EW | float64 | A | replace me column 30 |
- | Fe_op_EW | float64 | A | replace me column 31 |
- | Fe_uv_EW_error | float64 | A | replace me column 32 |
- | Fe_op_EW_error | float64 | A | replace me column 33 |
- | PL_norm | float64 |  | replace me column 34 |
- | PL_norm_error | float64 |  | replace me column 35 |
- | PL_slope | float64 |  | replace me column 36 |
- | PL_slope_error | float64 |  | replace me column 37 |
- | POLY_a | float64 |  | replace me column 38 |
- | POLY_a_error | float64 |  | replace me column 39 |
- | POLY_b | float64 |  | replace me column 40 |
- | POLY_b_error | float64 |  | replace me column 41 |
- | POLY_c | float64 |  | replace me column 42 |
- | POLY_c_error | float64 |  | replace me column 43 |
- | LogL1350 | float64 |  | replace me column 44 |
- | LogL1350_error | float64 |  | replace me column 45 |
- | LogL1700 | float64 |  | replace me column 46 |
- | LogL1700_error | float64 |  | replace me column 47 |
- | LogL3000 | float64 |  | replace me column 48 |
- | LogL3000_error | float64 |  | replace me column 49 |
- | LogL5100 | float64 |  | replace me column 50 |
- | LogL5100_error | float64 |  | replace me column 51 |
- | 1_complex_name | char[8] |  | replace me column 52 |
- | 1_line_status | int64 |  | replace me column 53 |
- | 1_line_min_chi2 | float64 |  | replace me column 54 |
- | 1_line_red_chi2 | float64 |  | replace me column 55 |
- | 1_niter | float64 |  | replace me column 56 |
- | 1_npix | float64 |  | replace me column 57 |
- | 1_ndof | float64 |  | replace me column 58 |
- | 2_complex_name | char[8] |  | replace me column 59 |
- | 2_line_status | int64 |  | replace me column 60 |
- | 2_line_min_chi2 | float64 |  | replace me column 61 |
- | 2_line_red_chi2 | float64 |  | replace me column 62 |
- | 2_niter | float64 |  | replace me column 63 |
- | 2_npix | float64 |  | replace me column 64 |
- | 2_ndof | float64 |  | replace me column 65 |
- | 3_complex_name | char[8] |  | replace me column 66 |
- | 3_line_status | int64 |  | replace me column 67 |
- | 3_line_min_chi2 | float64 |  | replace me column 68 |
- | 3_line_red_chi2 | float64 |  | replace me column 69 |
- | 3_niter | float64 |  | replace me column 70 |
- | 3_npix | float64 |  | replace me column 71 |
- | 3_ndof | float64 |  | replace me column 72 |
- | 4_complex_name | char[8] |  | replace me column 73 |
- | 4_line_status | int64 |  | replace me column 74 |
- | 4_line_min_chi2 | float64 |  | replace me column 75 |
- | 4_line_red_chi2 | float64 |  | replace me column 76 |
- | 4_niter | float64 |  | replace me column 77 |
- | 4_npix | float64 |  | replace me column 78 |
- | 4_ndof | float64 |  | replace me column 79 |
- | 5_complex_name | char[8] |  | replace me column 80 |
- | 5_line_status | int64 |  | replace me column 81 |
- | 5_line_min_chi2 | float64 |  | replace me column 82 |
- | 5_line_red_chi2 | float64 |  | replace me column 83 |
- | 5_niter | float64 |  | replace me column 84 |
- | 5_npix | float64 |  | replace me column 85 |
- | 5_ndof | float64 |  | replace me column 86 |
- | Lya_br_1_scale | float64 |  | replace me column 87 |
- | Lya_br_1_scale_error | float64 |  | replace me column 88 |
- | Lya_br_1_centerwave | float64 |  | replace me column 89 |
- | Lya_br_1_centerwave_error | float64 |  | replace me column 90 |
- | Lya_br_1_sigma | float64 |  | replace me column 91 |
- | Lya_br_1_sigma_error | float64 |  | replace me column 92 |
- | Lya_br_2_scale | float64 |  | replace me column 93 |
- | Lya_br_2_scale_error | float64 |  | replace me column 94 |
- | Lya_br_2_centerwave | float64 |  | replace me column 95 |
- | Lya_br_2_centerwave_error | float64 |  | replace me column 96 |
- | Lya_br_2_sigma | float64 |  | replace me column 97 |
- | Lya_br_2_sigma_error | float64 |  | replace me column 98 |
- | Lya_br_3_scale | float64 |  | replace me column 99 |
- | Lya_br_3_scale_error | float64 |  | replace me column 100 |
- | Lya_br_3_centerwave | float64 |  | replace me column 101 |
- | Lya_br_3_centerwave_error | float64 |  | replace me column 102 |
- | Lya_br_3_sigma | float64 |  | replace me column 103 |
- | Lya_br_3_sigma_error | float64 |  | replace me column 104 |
- | NV1240_1_scale | float64 |  | replace me column 105 |
- | NV1240_1_scale_error | float64 |  | replace me column 106 |
- | NV1240_1_centerwave | float64 |  | replace me column 107 |
- | NV1240_1_centerwave_error | float64 |  | replace me column 108 |
- | NV1240_1_sigma | float64 |  | replace me column 109 |
- | NV1240_1_sigma_error | float64 |  | replace me column 110 |
- | SiIV_OIV1_1_scale | float64 |  | replace me column 111 |
- | SiIV_OIV1_1_scale_error | float64 |  | replace me column 112 |
- | SiIV_OIV1_1_centerwave | float64 |  | replace me column 113 |
- | SiIV_OIV1_1_centerwave_error | float64 |  | replace me column 114 |
- | SiIV_OIV1_1_sigma | float64 |  | replace me column 115 |
- | SiIV_OIV1_1_sigma_error | float64 |  | replace me column 116 |
- | SiIV_OIV2_1_scale | float64 |  | replace me column 117 |
- | SiIV_OIV2_1_scale_error | float64 |  | replace me column 118 |
- | SiIV_OIV2_1_centerwave | float64 |  | replace me column 119 |
- | SiIV_OIV2_1_centerwave_error | float64 |  | replace me column 120 |
- | SiIV_OIV2_1_sigma | float64 |  | replace me column 121 |
- | SiIV_OIV2_1_sigma_error | float64 |  | replace me column 122 |
- | CII1335_1_scale | float64 |  | replace me column 123 |
- | CII1335_1_scale_error | float64 |  | replace me column 124 |
- | CII1335_1_centerwave | float64 |  | replace me column 125 |
- | CII1335_1_centerwave_error | float64 |  | replace me column 126 |
- | CII1335_1_sigma | float64 |  | replace me column 127 |
- | CII1335_1_sigma_error | float64 |  | replace me column 128 |
- | OI1304_1_scale | float64 |  | replace me column 129 |
- | OI1304_1_scale_error | float64 |  | replace me column 130 |
- | OI1304_1_centerwave | float64 |  | replace me column 131 |
- | OI1304_1_centerwave_error | float64 |  | replace me column 132 |
- | OI1304_1_sigma | float64 |  | replace me column 133 |
- | OI1304_1_sigma_error | float64 |  | replace me column 134 |
- | CIV_br_1_scale | float64 |  | replace me column 135 |
- | CIV_br_1_scale_error | float64 |  | replace me column 136 |
- | CIV_br_1_centerwave | float64 |  | replace me column 137 |
- | CIV_br_1_centerwave_error | float64 |  | replace me column 138 |
- | CIV_br_1_sigma | float64 |  | replace me column 139 |
- | CIV_br_1_sigma_error | float64 |  | replace me column 140 |
- | CIV_br_2_scale | float64 |  | replace me column 141 |
- | CIV_br_2_scale_error | float64 |  | replace me column 142 |
- | CIV_br_2_centerwave | float64 |  | replace me column 143 |
- | CIV_br_2_centerwave_error | float64 |  | replace me column 144 |
- | CIV_br_2_sigma | float64 |  | replace me column 145 |
- | CIV_br_2_sigma_error | float64 |  | replace me column 146 |
- | CIV_br_3_scale | float64 |  | replace me column 147 |
- | CIV_br_3_scale_error | float64 |  | replace me column 148 |
- | CIV_br_3_centerwave | float64 |  | replace me column 149 |
- | CIV_br_3_centerwave_error | float64 |  | replace me column 150 |
- | CIV_br_3_sigma | float64 |  | replace me column 151 |
- | CIV_br_3_sigma_error | float64 |  | replace me column 152 |
- | HeII1640_1_scale | float64 |  | replace me column 153 |
- | HeII1640_1_scale_error | float64 |  | replace me column 154 |
- | HeII1640_1_centerwave | float64 |  | replace me column 155 |
- | HeII1640_1_centerwave_error | float64 |  | replace me column 156 |
- | HeII1640_1_sigma | float64 |  | replace me column 157 |
- | HeII1640_1_sigma_error | float64 |  | replace me column 158 |
- | OIII1663_1_scale | float64 |  | replace me column 159 |
- | OIII1663_1_scale_error | float64 |  | replace me column 160 |
- | OIII1663_1_centerwave | float64 |  | replace me column 161 |
- | OIII1663_1_centerwave_error | float64 |  | replace me column 162 |
- | OIII1663_1_sigma | float64 |  | replace me column 163 |
- | OIII1663_1_sigma_error | float64 |  | replace me column 164 |
- | HeII1640_br_1_scale | float64 |  | replace me column 165 |
- | HeII1640_br_1_scale_error | float64 |  | replace me column 166 |
- | HeII1640_br_1_centerwave | float64 |  | replace me column 167 |
- | HeII1640_br_1_centerwave_error | float64 |  | replace me column 168 |
- | HeII1640_br_1_sigma | float64 |  | replace me column 169 |
- | HeII1640_br_1_sigma_error | float64 |  | replace me column 170 |
- | OIII1663_br_1_scale | float64 |  | replace me column 171 |
- | OIII1663_br_1_scale_error | float64 |  | replace me column 172 |
- | OIII1663_br_1_centerwave | float64 |  | replace me column 173 |
- | OIII1663_br_1_centerwave_error | float64 |  | replace me column 174 |
- | OIII1663_br_1_sigma | float64 |  | replace me column 175 |
- | OIII1663_br_1_sigma_error | float64 |  | replace me column 176 |
- | CIII_br1_1_scale | float64 |  | replace me column 177 |
- | CIII_br1_1_scale_error | float64 |  | replace me column 178 |
- | CIII_br1_1_centerwave | float64 |  | replace me column 179 |
- | CIII_br1_1_centerwave_error | float64 |  | replace me column 180 |
- | CIII_br1_1_sigma | float64 |  | replace me column 181 |
- | CIII_br1_1_sigma_error | float64 |  | replace me column 182 |
- | CIII_br2_1_scale | float64 |  | replace me column 183 |
- | CIII_br2_1_scale_error | float64 |  | replace me column 184 |
- | CIII_br2_1_centerwave | float64 |  | replace me column 185 |
- | CIII_br2_1_centerwave_error | float64 |  | replace me column 186 |
- | CIII_br2_1_sigma | float64 |  | replace me column 187 |
- | CIII_br2_1_sigma_error | float64 |  | replace me column 188 |
- | SiIII1892_1_scale | float64 |  | replace me column 189 |
- | SiIII1892_1_scale_error | float64 |  | replace me column 190 |
- | SiIII1892_1_centerwave | float64 |  | replace me column 191 |
- | SiIII1892_1_centerwave_error | float64 |  | replace me column 192 |
- | SiIII1892_1_sigma | float64 |  | replace me column 193 |
- | SiIII1892_1_sigma_error | float64 |  | replace me column 194 |
- | AlIII1857_1_scale | float64 |  | replace me column 195 |
- | AlIII1857_1_scale_error | float64 |  | replace me column 196 |
- | AlIII1857_1_centerwave | float64 |  | replace me column 197 |
- | AlIII1857_1_centerwave_error | float64 |  | replace me column 198 |
- | AlIII1857_1_sigma | float64 |  | replace me column 199 |
- | AlIII1857_1_sigma_error | float64 |  | replace me column 200 |
- | SiII1816_1_scale | float64 |  | replace me column 201 |
- | SiII1816_1_scale_error | float64 |  | replace me column 202 |
- | SiII1816_1_centerwave | float64 |  | replace me column 203 |
- | SiII1816_1_centerwave_error | float64 |  | replace me column 204 |
- | SiII1816_1_sigma | float64 |  | replace me column 205 |
- | SiII1816_1_sigma_error | float64 |  | replace me column 206 |
- | NIII1750_1_scale | float64 |  | replace me column 207 |
- | NIII1750_1_scale_error | float64 |  | replace me column 208 |
- | NIII1750_1_centerwave | float64 |  | replace me column 209 |
- | NIII1750_1_centerwave_error | float64 |  | replace me column 210 |
- | NIII1750_1_sigma | float64 |  | replace me column 211 |
- | NIII1750_1_sigma_error | float64 |  | replace me column 212 |
- | NIV1718_1_scale | float64 |  | replace me column 213 |
- | NIV1718_1_scale_error | float64 |  | replace me column 214 |
- | NIV1718_1_centerwave | float64 |  | replace me column 215 |
- | NIV1718_1_centerwave_error | float64 |  | replace me column 216 |
- | NIV1718_1_sigma | float64 |  | replace me column 217 |
- | NIV1718_1_sigma_error | float64 |  | replace me column 218 |
- | MgII_br_1_scale | float64 |  | replace me column 219 |
- | MgII_br_1_scale_error | float64 |  | replace me column 220 |
- | MgII_br_1_centerwave | float64 |  | replace me column 221 |
- | MgII_br_1_centerwave_error | float64 |  | replace me column 222 |
- | MgII_br_1_sigma | float64 |  | replace me column 223 |
- | MgII_br_1_sigma_error | float64 |  | replace me column 224 |
- | MgII_br_2_scale | float64 |  | replace me column 225 |
- | MgII_br_2_scale_error | float64 |  | replace me column 226 |
- | MgII_br_2_centerwave | float64 |  | replace me column 227 |
- | MgII_br_2_centerwave_error | float64 |  | replace me column 228 |
- | MgII_br_2_sigma | float64 |  | replace me column 229 |
- | MgII_br_2_sigma_error | float64 |  | replace me column 230 |
- | MgII_na_1_scale | float64 |  | replace me column 231 |
- | MgII_na_1_scale_error | float64 |  | replace me column 232 |
- | MgII_na_1_centerwave | float64 |  | replace me column 233 |
- | MgII_na_1_centerwave_error | float64 |  | replace me column 234 |
- | MgII_na_1_sigma | float64 |  | replace me column 235 |
- | MgII_na_1_sigma_error | float64 |  | replace me column 236 |
- | 1_local_complex_name | char[8] |  | replace me column 237 |
- | 1_local_line_status | int64 |  | replace me column 238 |
- | 1_local_line_min_chi2 | float64 |  | replace me column 239 |
- | 1_local_line_red_chi2 | float64 |  | replace me column 240 |
- | 1_local_niter | float64 |  | replace me column 241 |
- | 1_local_ndof | float64 |  | replace me column 242 |
- | 1_local_npix | float64 |  | replace me column 243 |
- | 2_local_complex_name | char[8] |  | replace me column 244 |
- | 2_local_line_status | int64 |  | replace me column 245 |
- | 2_local_line_min_chi2 | float64 |  | replace me column 246 |
- | 2_local_line_red_chi2 | float64 |  | replace me column 247 |
- | 2_local_niter | float64 |  | replace me column 248 |
- | 2_local_ndof | float64 |  | replace me column 249 |
- | 2_local_npix | float64 |  | replace me column 250 |
- | CII_PL_norm | float64 |  | replace me column 251 |
- | CII_PL_slope | float64 |  | replace me column 252 |
- | NeIV2422_1_scale | float64 |  | replace me column 253 |
- | NeIV2422_1_centerwave | float64 |  | replace me column 254 |
- | NeIV2422_1_sigma | float64 |  | replace me column 255 |
- | CII2326_1_scale | float64 |  | replace me column 256 |
- | CII2326_1_centerwave | float64 |  | replace me column 257 |
- | CII2326_1_sigma | float64 |  | replace me column 258 |
- | NeV_PL_norm | float64 |  | replace me column 259 |
- | NeV_PL_slope | float64 |  | replace me column 260 |
- | NeV3426_na_1_scale | float64 |  | replace me column 261 |
- | NeV3426_na_1_centerwave | float64 |  | replace me column 262 |
- | NeV3426_na_1_sigma | float64 |  | replace me column 263 |
- | NeV3426_br_1_scale | float64 |  | replace me column 264 |
- | NeV3426_br_1_centerwave | float64 |  | replace me column 265 |
- | NeV3426_br_1_sigma | float64 |  | replace me column 266 |
- | NeV3346_1_scale | float64 |  | replace me column 267 |
- | NeV3346_1_centerwave | float64 |  | replace me column 268 |
- | NeV3346_1_sigma | float64 |  | replace me column 269 |
- | HeII_br_1_scale | float64 |  | replace me column 270 |
- | HeII_br_1_scale_error | float64 |  | replace me column 271 |
- | HeII_br_1_centerwave | float64 |  | replace me column 272 |
- | HeII_br_1_centerwave_error | float64 |  | replace me column 273 |
- | HeII_br_1_sigma | float64 |  | replace me column 274 |
- | HeII_br_1_sigma_error | float64 |  | replace me column 275 |
- | HeII_na_1_scale | float64 |  | replace me column 276 |
- | HeII_na_1_scale_error | float64 |  | replace me column 277 |
- | HeII_na_1_centerwave | float64 |  | replace me column 278 |
- | HeII_na_1_centerwave_error | float64 |  | replace me column 279 |
- | HeII_na_1_sigma | float64 |  | replace me column 280 |
- | HeII_na_1_sigma_error | float64 |  | replace me column 281 |
- | Hbeta_br_1_scale | float64 |  | replace me column 282 |
- | Hbeta_br_1_scale_error | float64 |  | replace me column 283 |
- | Hbeta_br_1_centerwave | float64 |  | replace me column 284 |
- | Hbeta_br_1_centerwave_error | float64 |  | replace me column 285 |
- | Hbeta_br_1_sigma | float64 |  | replace me column 286 |
- | Hbeta_br_1_sigma_error | float64 |  | replace me column 287 |
- | Hbeta_br_2_scale | float64 |  | replace me column 288 |
- | Hbeta_br_2_scale_error | float64 |  | replace me column 289 |
- | Hbeta_br_2_centerwave | float64 |  | replace me column 290 |
- | Hbeta_br_2_centerwave_error | float64 |  | replace me column 291 |
- | Hbeta_br_2_sigma | float64 |  | replace me column 292 |
- | Hbeta_br_2_sigma_error | float64 |  | replace me column 293 |
- | Hbeta_br_3_scale | float64 |  | replace me column 294 |
- | Hbeta_br_3_scale_error | float64 |  | replace me column 295 |
- | Hbeta_br_3_centerwave | float64 |  | replace me column 296 |
- | Hbeta_br_3_centerwave_error | float64 |  | replace me column 297 |
- | Hbeta_br_3_sigma | float64 |  | replace me column 298 |
- | Hbeta_br_3_sigma_error | float64 |  | replace me column 299 |
- | Hbeta_na_1_scale | float64 |  | replace me column 300 |
- | Hbeta_na_1_scale_error | float64 |  | replace me column 301 |
- | Hbeta_na_1_centerwave | float64 |  | replace me column 302 |
- | Hbeta_na_1_centerwave_error | float64 |  | replace me column 303 |
- | Hbeta_na_1_sigma | float64 |  | replace me column 304 |
- | Hbeta_na_1_sigma_error | float64 |  | replace me column 305 |
- | OIII4959c_1_scale | float64 |  | replace me column 306 |
- | OIII4959c_1_scale_error | float64 |  | replace me column 307 |
- | OIII4959c_1_centerwave | float64 |  | replace me column 308 |
- | OIII4959c_1_centerwave_error | float64 |  | replace me column 309 |
- | OIII4959c_1_sigma | float64 |  | replace me column 310 |
- | OIII4959c_1_sigma_error | float64 |  | replace me column 311 |
- | OIII5007c_1_scale | float64 |  | replace me column 312 |
- | OIII5007c_1_scale_error | float64 |  | replace me column 313 |
- | OIII5007c_1_centerwave | float64 |  | replace me column 314 |
- | OIII5007c_1_centerwave_error | float64 |  | replace me column 315 |
- | OIII5007c_1_sigma | float64 |  | replace me column 316 |
- | OIII5007c_1_sigma_error | float64 |  | replace me column 317 |
- | OIII4959w_1_scale | float64 |  | replace me column 318 |
- | OIII4959w_1_scale_error | float64 |  | replace me column 319 |
- | OIII4959w_1_centerwave | float64 |  | replace me column 320 |
- | OIII4959w_1_centerwave_error | float64 |  | replace me column 321 |
- | OIII4959w_1_sigma | float64 |  | replace me column 322 |
- | OIII4959w_1_sigma_error | float64 |  | replace me column 323 |
- | OIII5007w_1_scale | float64 |  | replace me column 324 |
- | OIII5007w_1_scale_error | float64 |  | replace me column 325 |
- | OIII5007w_1_centerwave | float64 |  | replace me column 326 |
- | OIII5007w_1_centerwave_error | float64 |  | replace me column 327 |
- | OIII5007w_1_sigma | float64 |  | replace me column 328 |
- | OIII5007w_1_sigma_error | float64 |  | replace me column 329 |
- | 3_local_complex_name | char[8] |  | replace me column 330 |
- | 3_local_line_status | int64 |  | replace me column 331 |
- | 3_local_line_min_chi2 | float64 |  | replace me column 332 |
- | 3_local_line_red_chi2 | float64 |  | replace me column 333 |
- | 3_local_niter | float64 |  | replace me column 334 |
- | 3_local_ndof | float64 |  | replace me column 335 |
- | 3_local_npix | float64 |  | replace me column 336 |
- | 4_local_complex_name | char[8] |  | replace me column 337 |
- | 4_local_line_status | int64 |  | replace me column 338 |
- | 4_local_line_min_chi2 | float64 |  | replace me column 339 |
- | 4_local_line_red_chi2 | float64 |  | replace me column 340 |
- | 4_local_niter | float64 |  | replace me column 341 |
- | 4_local_ndof | float64 |  | replace me column 342 |
- | 4_local_npix | float64 |  | replace me column 343 |
- | NeIII_OII_PL_norm | float64 |  | replace me column 344 |
- | NeIII_OII_PL_slope | float64 |  | replace me column 345 |
- | NeIII3967_1_scale | float64 |  | replace me column 346 |
- | NeIII3967_1_centerwave | float64 |  | replace me column 347 |
- | NeIII3967_1_sigma | float64 |  | replace me column 348 |
- | NeIII3869_1_scale | float64 |  | replace me column 349 |
- | NeIII3869_1_centerwave | float64 |  | replace me column 350 |
- | NeIII3869_1_sigma | float64 |  | replace me column 351 |
- | OII3728_1_scale | float64 |  | replace me column 352 |
- | OII3728_1_centerwave | float64 |  | replace me column 353 |
- | OII3728_1_sigma | float64 |  | replace me column 354 |
- | FeVII3759_1_scale | float64 |  | replace me column 355 |
- | FeVII3759_1_centerwave | float64 |  | replace me column 356 |
- | FeVII3759_1_sigma | float64 |  | replace me column 357 |
- | Hg_Hd_PL_norm | float64 |  | replace me column 358 |
- | Hg_Hd_PL_slope | float64 |  | replace me column 359 |
- | OIII4363_1_scale | float64 |  | replace me column 360 |
- | OIII4363_1_centerwave | float64 |  | replace me column 361 |
- | OIII4363_1_sigma | float64 |  | replace me column 362 |
- | Hgamma_br_1_scale | float64 |  | replace me column 363 |
- | Hgamma_br_1_centerwave | float64 |  | replace me column 364 |
- | Hgamma_br_1_sigma | float64 |  | replace me column 365 |
- | Hgamma_na_1_scale | float64 |  | replace me column 366 |
- | Hgamma_na_1_centerwave | float64 |  | replace me column 367 |
- | Hgamma_na_1_sigma | float64 |  | replace me column 368 |
- | Hdelta_br_1_scale | float64 |  | replace me column 369 |
- | Hdelta_br_1_centerwave | float64 |  | replace me column 370 |
- | Hdelta_br_1_sigma | float64 |  | replace me column 371 |
- | Hdelta_na_1_scale | float64 |  | replace me column 372 |
- | Hdelta_na_1_centerwave | float64 |  | replace me column 373 |
- | Hdelta_na_1_sigma | float64 |  | replace me column 374 |
- | OIV_PL_norm | float64 |  | replace me column 375 |
- | OIV_PL_slope | float64 |  | replace me column 376 |
- | OIV1035_1_scale | float64 |  | replace me column 377 |
- | OIV1035_1_centerwave | float64 |  | replace me column 378 |
- | OIV1035_1_sigma | float64 |  | replace me column 379 |
- | Halpha_br_1_scale | float64 |  | replace me column 380 |
- | Halpha_br_1_scale_error | float64 |  | replace me column 381 |
- | Halpha_br_1_centerwave | float64 |  | replace me column 382 |
- | Halpha_br_1_centerwave_error | float64 |  | replace me column 383 |
- | Halpha_br_1_sigma | float64 |  | replace me column 384 |
- | Halpha_br_1_sigma_error | float64 |  | replace me column 385 |
- | Halpha_br_2_scale | float64 |  | replace me column 386 |
- | Halpha_br_2_scale_error | float64 |  | replace me column 387 |
- | Halpha_br_2_centerwave | float64 |  | replace me column 388 |
- | Halpha_br_2_centerwave_error | float64 |  | replace me column 389 |
- | Halpha_br_2_sigma | float64 |  | replace me column 390 |
- | Halpha_br_2_sigma_error | float64 |  | replace me column 391 |
- | Halpha_br_3_scale | float64 |  | replace me column 392 |
- | Halpha_br_3_scale_error | float64 |  | replace me column 393 |
- | Halpha_br_3_centerwave | float64 |  | replace me column 394 |
- | Halpha_br_3_centerwave_error | float64 |  | replace me column 395 |
- | Halpha_br_3_sigma | float64 |  | replace me column 396 |
- | Halpha_br_3_sigma_error | float64 |  | replace me column 397 |
- | Halpha_na_1_scale | float64 |  | replace me column 398 |
- | Halpha_na_1_scale_error | float64 |  | replace me column 399 |
- | Halpha_na_1_centerwave | float64 |  | replace me column 400 |
- | Halpha_na_1_centerwave_error | float64 |  | replace me column 401 |
- | Halpha_na_1_sigma | float64 |  | replace me column 402 |
- | Halpha_na_1_sigma_error | float64 |  | replace me column 403 |
- | NII6549_1_scale | float64 |  | replace me column 404 |
- | NII6549_1_scale_error | float64 |  | replace me column 405 |
- | NII6549_1_centerwave | float64 |  | replace me column 406 |
- | NII6549_1_centerwave_error | float64 |  | replace me column 407 |
- | NII6549_1_sigma | float64 |  | replace me column 408 |
- | NII6549_1_sigma_error | float64 |  | replace me column 409 |
- | NII6585_1_scale | float64 |  | replace me column 410 |
- | NII6585_1_scale_error | float64 |  | replace me column 411 |
- | NII6585_1_centerwave | float64 |  | replace me column 412 |
- | NII6585_1_centerwave_error | float64 |  | replace me column 413 |
- | NII6585_1_sigma | float64 |  | replace me column 414 |
- | NII6585_1_sigma_error | float64 |  | replace me column 415 |
- | SII6718_1_scale | float64 |  | replace me column 416 |
- | SII6718_1_scale_error | float64 |  | replace me column 417 |
- | SII6718_1_centerwave | float64 |  | replace me column 418 |
- | SII6718_1_centerwave_error | float64 |  | replace me column 419 |
- | SII6718_1_sigma | float64 |  | replace me column 420 |
- | SII6718_1_sigma_error | float64 |  | replace me column 421 |
- | SII6732_1_scale | float64 |  | replace me column 422 |
- | SII6732_1_scale_error | float64 |  | replace me column 423 |
- | SII6732_1_centerwave | float64 |  | replace me column 424 |
- | SII6732_1_centerwave_error | float64 |  | replace me column 425 |
- | SII6732_1_sigma | float64 |  | replace me column 426 |
- | SII6732_1_sigma_error | float64 |  | replace me column 427 |
- | HeI_Fe_OI_PL_norm | float64 |  | replace me column 428 |
- | HeI_Fe_OI_PL_slope | float64 |  | replace me column 429 |
- | FeVII6088_1_scale | float64 |  | replace me column 430 |
- | FeVII6088_1_centerwave | float64 |  | replace me column 431 |
- | FeVII6088_1_sigma | float64 |  | replace me column 432 |
- | FeX6376_1_scale | float64 |  | replace me column 433 |
- | FeX6376_1_centerwave | float64 |  | replace me column 434 |
- | FeX6376_1_sigma | float64 |  | replace me column 435 |
- | OI6300_1_scale | float64 |  | replace me column 436 |
- | OI6300_1_centerwave | float64 |  | replace me column 437 |
- | OI6300_1_sigma | float64 |  | replace me column 438 |
- | HeI_br_1_scale | float64 |  | replace me column 439 |
- | HeI_br_1_centerwave | float64 |  | replace me column 440 |
- | HeI_br_1_sigma | float64 |  | replace me column 441 |
- | HeI_na_1_scale | float64 |  | replace me column 442 |
- | HeI_na_1_centerwave | float64 |  | replace me column 443 |
- | HeI_na_1_sigma | float64 |  | replace me column 444 |
- | 5_local_complex_name | char[8] |  | replace me column 445 |
- | 5_local_line_status | int64 |  | replace me column 446 |
- | 5_local_line_min_chi2 | float64 |  | replace me column 447 |
- | 5_local_line_red_chi2 | float64 |  | replace me column 448 |
- | 5_local_niter | float64 |  | replace me column 449 |
- | 5_local_ndof | float64 |  | replace me column 450 |
- | 5_local_npix | float64 |  | replace me column 451 |
- | HG_subtraction | bool |  | replace me column 452 |
+ | ObjID | char[23] |  | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |
+ | ERO_Name | char[22] |  | eROSITA official source name (Brunner+2022) |
+ | ERO_ID_HARD | int32 |  | ID of Hard sample eROSITA source (Brunner+2022) |
+ | ERO_ID_MAIN | int32 |  | ID of Main sample eROSITA source (Brunner+2022) |
+ | SAMPLE | char[4] |  | Main or Hard sample from eROSITA (Brunner+2022) |
+ | RA | float64 | deg | SDSS right ascension (J2000) |
+ | DEC | float64 | deg | SDSS declination (J2000) |
+ | PLATE | int64 |  | SDSS PLATE |
+ | MJD | int64 |  | SDSS modified Julian date of observation |
+ | FIBERID | int64 |  | SDSS FIBER ID |
+ | Z_FIT | float64 |  | Spectroscopic redshift from visual inspection (Aydar+2025) |
+ | SNR_conti | float64 |  | Signal-to-noise ratio of the continuum |
+ | EBV | float64 |  | Milky Way extinction E(B-V) |
+ | conti_chi2 | float64 |  | Continuum chi2 |
+ | conti_rchi2 | float64 |  | Continuum reduced chi2 |
+ | conti_dof | float64 |  | Continuum degrees of freedom |
+ | conti_npix | float64 |  | Continuum number of pixels |
+ | Fe_uv_norm | float64 |  | Fe II UV normalization |
+ | Fe_uv_norm_error | float64 |  | Fe II UV normalization error |
+ | Fe_uv_FWHM | float64 | km/s | Fe II UV FWHM |
+ | Fe_uv_FWHM_error | float64 | km/s | Fe II UV FWHM error |
+ | Fe_uv_shift | float64 | A | Fe II UV shift (offset) |
+ | Fe_uv_shift_error | float64 | A | Fe II UV shift (offset) error |
+ | Fe_op_norm | float64 |  | Fe II optical normalization |
+ | Fe_op_norm_error | float64 |  | Fe II optical normalization error |
+ | Fe_op_FWHM | float64 | km/s | Fe II optical FWHM |
+ | Fe_op_FWHM_error | float64 | km/s | Fe II optical FWHM error |
+ | Fe_op_shift | float64 | A | Fe II optical shift (offset) |
+ | Fe_op_shift_error | float64 | A | Fe II optical shift (offset) error |
+ | Fe_uv_EW | float64 | A | Fe II UV equivalent width |
+ | Fe_op_EW | float64 | A | Fe II optical equivalent width |
+ | Fe_uv_EW_error | float64 | A | Fe II UV equivalent width error |
+ | Fe_op_EW_error | float64 | A | Fe II optical equivalent width error |
+ | PL_norm | float64 |  | Power-law normalization |
+ | PL_norm_error | float64 |  | Power-law normalization error |
+ | PL_slope | float64 |  | Power-law slope |
+ | PL_slope_error | float64 |  | Power-law slope error |
+ | POLY_a | float64 |  | Polynomial linear coefficient |
+ | POLY_a_error | float64 |  | Polynomial linear coefficient error |
+ | POLY_b | float64 |  | Polynomial quadratic coefficient |
+ | POLY_b_error | float64 |  | Polynomial quadratic coefficient error |
+ | POLY_c | float64 |  | Polynomial cubic coefficient |
+ | POLY_c_error | float64 |  | Polynomial cubic coefficient error |
+ | LogL1350 | float64 |  | Continuum luminosity at 1350 A (log, erg/s) |
+ | LogL1350_error | float64 |  | Uncertainty of the continuum luminosity at 1350 A (log, erg/s) |
+ | LogL1700 | float64 |  | Continuum luminosity at 1700 A (log, erg/s) |
+ | LogL1700_error | float64 |  | Uncertainty of the continuum luminosity at 1700 A (log, erg/s) |
+ | LogL3000 | float64 |  | Continuum luminosity at 3000 A (log, erg/s) |
+ | LogL3000_error | float64 |  | Uncertainty of the continuum luminosity at 3000 A (log, erg/s) |
+ | LogL5100 | float64 |  | Continuum luminosity at 5100 A (log, erg/s) |
+ | LogL5100_error | float64 |  | Uncertainty of the continuum luminosity at 5100 A (log, erg/s) |
+ | 1_complex_name | char[8] |  | First line complex name |
+ | 1_line_status | int64 |  | First line complex fit status |
+ | 1_line_min_chi2 | float64 |  | First line complex chi2 |
+ | 1_line_red_chi2 | float64 |  | First line complex reduced chi2 |
+ | 1_niter | float64 |  | First line complex number of iterations |
+ | 1_npix | float64 |  | First line complex number of pixels |
+ | 1_ndof | float64 |  | First line complex number of degrees of freedom |
+ | 2_complex_name | char[8] |  | Second line complex name |
+ | 2_line_status | int64 |  | Second line complex fit status |
+ | 2_line_min_chi2 | float64 |  | Second line complex chi2 |
+ | 2_line_red_chi2 | float64 |  | Second line complex reduced chi2 |
+ | 2_niter | float64 |  | Second line complex number of iterations |
+ | 2_npix | float64 |  | Second line complex number of pixels |
+ | 2_ndof | float64 |  | Second line complex number of degrees of freedom |
+ | 3_complex_name | char[8] |  | Third line complex name |
+ | 3_line_status | int64 |  | Third line complex fit status |
+ | 3_line_min_chi2 | float64 |  | Third line complex chi2 |
+ | 3_line_red_chi2 | float64 |  | Third line complex reduced chi2 |
+ | 3_niter | float64 |  | Third line complex number of iterations |
+ | 3_npix | float64 |  | Third line complex number of pixels |
+ | 3_ndof | float64 |  | Third line complex number of degrees of freedom |
+ | 4_complex_name | char[8] |  | Fourth line complex name |
+ | 4_line_status | int64 |  | Fourth line complex fit status |
+ | 4_line_min_chi2 | float64 |  | Fourth line complex chi2 |
+ | 4_line_red_chi2 | float64 |  | Fourth line complex reduced chi2 |
+ | 4_niter | float64 |  | Fourth line complex number of iterations |
+ | 4_npix | float64 |  | Fourth line complex number of pixels |
+ | 4_ndof | float64 |  | Fourth line complex number of degrees of freedom |
+ | 5_complex_name | char[8] |  | Fifth line complex name |
+ | 5_line_status | int64 |  | Fifth line complex fit status |
+ | 5_line_min_chi2 | float64 |  | Fifth line complex chi2 |
+ | 5_line_red_chi2 | float64 |  | Fifth line complex reduced chi2 |
+ | 5_niter | float64 |  | Fifth line complex number of iterations |
+ | 5_npix | float64 |  | Fifth line complex number of pixels |
+ | 5_ndof | float64 |  | Fifth line complex number of degrees of freedom |
+ | Lya_br_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | Lya_br_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | Lya_br_1_centerwave | float64 |  | Central wavelength (ln) |
+ | Lya_br_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | Lya_br_1_sigma | float64 |  | Gaussian width (ln) |
+ | Lya_br_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | Lya_br_2_scale | float64 |  | Gaussian amplitude (ln) |
+ | Lya_br_2_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | Lya_br_2_centerwave | float64 |  | Central wavelength (ln) |
+ | Lya_br_2_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | Lya_br_2_sigma | float64 |  | Gaussian width (ln) |
+ | Lya_br_2_sigma_error | float64 |  | Gaussian width (ln) error |
+ | Lya_br_3_scale | float64 |  | Gaussian amplitude (ln) |
+ | Lya_br_3_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | Lya_br_3_centerwave | float64 |  | Central wavelength (ln) |
+ | Lya_br_3_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | Lya_br_3_sigma | float64 |  | Gaussian width (ln) |
+ | Lya_br_3_sigma_error | float64 |  | Gaussian width (ln) error |
+ | NV1240_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | NV1240_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | NV1240_1_centerwave | float64 |  | Central wavelength (ln) |
+ | NV1240_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | NV1240_1_sigma | float64 |  | Gaussian width (ln) |
+ | NV1240_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | SiIV_OIV1_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | SiIV_OIV1_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | SiIV_OIV1_1_centerwave | float64 |  | Central wavelength (ln) |
+ | SiIV_OIV1_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | SiIV_OIV1_1_sigma | float64 |  | Gaussian width (ln) |
+ | SiIV_OIV1_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | SiIV_OIV2_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | SiIV_OIV2_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | SiIV_OIV2_1_centerwave | float64 |  | Central wavelength (ln) |
+ | SiIV_OIV2_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | SiIV_OIV2_1_sigma | float64 |  | Gaussian width (ln) |
+ | SiIV_OIV2_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | CII1335_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | CII1335_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | CII1335_1_centerwave | float64 |  | Central wavelength (ln) |
+ | CII1335_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | CII1335_1_sigma | float64 |  | Gaussian width (ln) |
+ | CII1335_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | OI1304_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | OI1304_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | OI1304_1_centerwave | float64 |  | Central wavelength (ln) |
+ | OI1304_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | OI1304_1_sigma | float64 |  | Gaussian width (ln) |
+ | OI1304_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | CIV_br_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | CIV_br_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | CIV_br_1_centerwave | float64 |  | Central wavelength (ln) |
+ | CIV_br_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | CIV_br_1_sigma | float64 |  | Gaussian width (ln) |
+ | CIV_br_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | CIV_br_2_scale | float64 |  | Gaussian amplitude (ln) |
+ | CIV_br_2_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | CIV_br_2_centerwave | float64 |  | Central wavelength (ln) |
+ | CIV_br_2_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | CIV_br_2_sigma | float64 |  | Gaussian width (ln) |
+ | CIV_br_2_sigma_error | float64 |  | Gaussian width (ln) error |
+ | CIV_br_3_scale | float64 |  | Gaussian amplitude (ln) |
+ | CIV_br_3_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | CIV_br_3_centerwave | float64 |  | Central wavelength (ln) |
+ | CIV_br_3_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | CIV_br_3_sigma | float64 |  | Gaussian width (ln) |
+ | CIV_br_3_sigma_error | float64 |  | Gaussian width (ln) error |
+ | HeII1640_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | HeII1640_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | HeII1640_1_centerwave | float64 |  | Central wavelength (ln) |
+ | HeII1640_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | HeII1640_1_sigma | float64 |  | Gaussian width (ln) |
+ | HeII1640_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | OIII1663_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | OIII1663_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | OIII1663_1_centerwave | float64 |  | Central wavelength (ln) |
+ | OIII1663_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | OIII1663_1_sigma | float64 |  | Gaussian width (ln) |
+ | OIII1663_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | HeII1640_br_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | HeII1640_br_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | HeII1640_br_1_centerwave | float64 |  | Central wavelength (ln) |
+ | HeII1640_br_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | HeII1640_br_1_sigma | float64 |  | Gaussian width (ln) |
+ | HeII1640_br_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | OIII1663_br_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | OIII1663_br_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | OIII1663_br_1_centerwave | float64 |  | Central wavelength (ln) |
+ | OIII1663_br_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | OIII1663_br_1_sigma | float64 |  | Gaussian width (ln) |
+ | OIII1663_br_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | CIII_br1_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | CIII_br1_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | CIII_br1_1_centerwave | float64 |  | Central wavelength (ln) |
+ | CIII_br1_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | CIII_br1_1_sigma | float64 |  | Gaussian width (ln) |
+ | CIII_br1_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | CIII_br2_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | CIII_br2_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | CIII_br2_1_centerwave | float64 |  | Central wavelength (ln) |
+ | CIII_br2_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | CIII_br2_1_sigma | float64 |  | Gaussian width (ln) |
+ | CIII_br2_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | SiIII1892_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | SiIII1892_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | SiIII1892_1_centerwave | float64 |  | Central wavelength (ln) |
+ | SiIII1892_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | SiIII1892_1_sigma | float64 |  | Gaussian width (ln) |
+ | SiIII1892_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | AlIII1857_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | AlIII1857_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | AlIII1857_1_centerwave | float64 |  | Central wavelength (ln) |
+ | AlIII1857_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | AlIII1857_1_sigma | float64 |  | Gaussian width (ln) |
+ | AlIII1857_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | SiII1816_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | SiII1816_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | SiII1816_1_centerwave | float64 |  | Central wavelength (ln) |
+ | SiII1816_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | SiII1816_1_sigma | float64 |  | Gaussian width (ln) |
+ | SiII1816_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | NIII1750_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | NIII1750_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | NIII1750_1_centerwave | float64 |  | Central wavelength (ln) |
+ | NIII1750_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | NIII1750_1_sigma | float64 |  | Gaussian width (ln) |
+ | NIII1750_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | NIV1718_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | NIV1718_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | NIV1718_1_centerwave | float64 |  | Central wavelength (ln) |
+ | NIV1718_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | NIV1718_1_sigma | float64 |  | Gaussian width (ln) |
+ | NIV1718_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | MgII_br_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | MgII_br_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | MgII_br_1_centerwave | float64 |  | Central wavelength (ln) |
+ | MgII_br_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | MgII_br_1_sigma | float64 |  | Gaussian width (ln) |
+ | MgII_br_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | MgII_br_2_scale | float64 |  | Gaussian amplitude (ln) |
+ | MgII_br_2_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | MgII_br_2_centerwave | float64 |  | Central wavelength (ln) |
+ | MgII_br_2_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | MgII_br_2_sigma | float64 |  | Gaussian width (ln) |
+ | MgII_br_2_sigma_error | float64 |  | Gaussian width (ln) error |
+ | MgII_na_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | MgII_na_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | MgII_na_1_centerwave | float64 |  | Central wavelength (ln) |
+ | MgII_na_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | MgII_na_1_sigma | float64 |  | Gaussian width (ln) |
+ | MgII_na_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | 1_local_complex_name | char[8] |  | First local line complex name |
+ | 1_local_line_status | int64 |  | First local line complex fit status |
+ | 1_local_line_min_chi2 | float64 |  | First local line complex chi2 |
+ | 1_local_line_red_chi2 | float64 |  | First local line complex reduced chi2 |
+ | 1_local_niter | float64 |  | First local line complex number of iterations |
+ | 1_local_ndof | float64 |  | First local line complex number of pixels |
+ | 1_local_npix | float64 |  | First local line complex number of degrees of freedom |
+ | 2_local_complex_name | char[8] |  | Second local line complex name |
+ | 2_local_line_status | int64 |  | Second local line complex fit status |
+ | 2_local_line_min_chi2 | float64 |  | Second local line complex chi2 |
+ | 2_local_line_red_chi2 | float64 |  | Second local line complex reduced chi2 |
+ | 2_local_niter | float64 |  | Second local line complex number of iterations |
+ | 2_local_ndof | float64 |  | Second local line complex number of pixels |
+ | 2_local_npix | float64 |  | Second local line complex number of degrees of freedom |
+ | CII_PL_norm | float64 |  | Local line complex power-law normalization |
+ | CII_PL_slope | float64 |  | Local line complex power-law slope |
+ | NeIV2422_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | NeIV2422_1_centerwave | float64 |  | Central wavelength (ln) |
+ | NeIV2422_1_sigma | float64 |  | Gaussian width (ln) |
+ | CII2326_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | CII2326_1_centerwave | float64 |  | Central wavelength (ln) |
+ | CII2326_1_sigma | float64 |  | Gaussian width (ln) |
+ | NeV_PL_norm | float64 |  | Local line complex power-law normalization |
+ | NeV_PL_slope | float64 |  | Local line complex power-law slope |
+ | NeV3426_na_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | NeV3426_na_1_centerwave | float64 |  | Central wavelength (ln) |
+ | NeV3426_na_1_sigma | float64 |  | Gaussian width (ln) |
+ | NeV3426_br_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | NeV3426_br_1_centerwave | float64 |  | Central wavelength (ln) |
+ | NeV3426_br_1_sigma | float64 |  | Gaussian width (ln) |
+ | NeV3346_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | NeV3346_1_centerwave | float64 |  | Central wavelength (ln) |
+ | NeV3346_1_sigma | float64 |  | Gaussian width (ln) |
+ | HeII_br_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | HeII_br_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | HeII_br_1_centerwave | float64 |  | Central wavelength (ln) |
+ | HeII_br_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | HeII_br_1_sigma | float64 |  | Gaussian width (ln) |
+ | HeII_br_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | HeII_na_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | HeII_na_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | HeII_na_1_centerwave | float64 |  | Central wavelength (ln) |
+ | HeII_na_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | HeII_na_1_sigma | float64 |  | Gaussian width (ln) |
+ | HeII_na_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | Hbeta_br_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | Hbeta_br_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | Hbeta_br_1_centerwave | float64 |  | Central wavelength (ln) |
+ | Hbeta_br_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | Hbeta_br_1_sigma | float64 |  | Gaussian width (ln) |
+ | Hbeta_br_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | Hbeta_br_2_scale | float64 |  | Gaussian amplitude (ln) |
+ | Hbeta_br_2_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | Hbeta_br_2_centerwave | float64 |  | Central wavelength (ln) |
+ | Hbeta_br_2_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | Hbeta_br_2_sigma | float64 |  | Gaussian width (ln) |
+ | Hbeta_br_2_sigma_error | float64 |  | Gaussian width (ln) error |
+ | Hbeta_br_3_scale | float64 |  | Gaussian amplitude (ln) |
+ | Hbeta_br_3_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | Hbeta_br_3_centerwave | float64 |  | Central wavelength (ln) |
+ | Hbeta_br_3_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | Hbeta_br_3_sigma | float64 |  | Gaussian width (ln) |
+ | Hbeta_br_3_sigma_error | float64 |  | Gaussian width (ln) error |
+ | Hbeta_na_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | Hbeta_na_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | Hbeta_na_1_centerwave | float64 |  | Central wavelength (ln) |
+ | Hbeta_na_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | Hbeta_na_1_sigma | float64 |  | Gaussian width (ln) |
+ | Hbeta_na_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | OIII4959c_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | OIII4959c_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | OIII4959c_1_centerwave | float64 |  | Central wavelength (ln) |
+ | OIII4959c_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | OIII4959c_1_sigma | float64 |  | Gaussian width (ln) |
+ | OIII4959c_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | OIII5007c_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | OIII5007c_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | OIII5007c_1_centerwave | float64 |  | Central wavelength (ln) |
+ | OIII5007c_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | OIII5007c_1_sigma | float64 |  | Gaussian width (ln) |
+ | OIII5007c_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | OIII4959w_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | OIII4959w_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | OIII4959w_1_centerwave | float64 |  | Central wavelength (ln) |
+ | OIII4959w_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | OIII4959w_1_sigma | float64 |  | Gaussian width (ln) |
+ | OIII4959w_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | OIII5007w_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | OIII5007w_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | OIII5007w_1_centerwave | float64 |  | Central wavelength (ln) |
+ | OIII5007w_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | OIII5007w_1_sigma | float64 |  | Gaussian width (ln) |
+ | OIII5007w_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | 3_local_complex_name | char[8] |  | Third local line complex name |
+ | 3_local_line_status | int64 |  | Third local line complex fit status |
+ | 3_local_line_min_chi2 | float64 |  | Third local line complex chi2 |
+ | 3_local_line_red_chi2 | float64 |  | Third local line complex reduced chi2 |
+ | 3_local_niter | float64 |  | Third local line complex number of iterations |
+ | 3_local_ndof | float64 |  | Third local line complex number of pixels |
+ | 3_local_npix | float64 |  | Third local line complex number of degrees of freedom |
+ | 4_local_complex_name | char[8] |  | Fourth local line complex name |
+ | 4_local_line_status | int64 |  | Fourth local line complex fit status |
+ | 4_local_line_min_chi2 | float64 |  | Fourth local line complex chi2 |
+ | 4_local_line_red_chi2 | float64 |  | Fourth local line complex reduced chi2 |
+ | 4_local_niter | float64 |  | Fourth local line complex number of iterations |
+ | 4_local_ndof | float64 |  | Fourth local line complex number of pixels |
+ | 4_local_npix | float64 |  | Fourth local line complex number of degrees of freedom |
+ | NeIII_OII_PL_norm | float64 |  | Local line complex power-law normalization |
+ | NeIII_OII_PL_slope | float64 |  | Local line complex power-law slope |
+ | NeIII3967_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | NeIII3967_1_centerwave | float64 |  | Central wavelength (ln) |
+ | NeIII3967_1_sigma | float64 |  | Gaussian width (ln) |
+ | NeIII3869_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | NeIII3869_1_centerwave | float64 |  | Central wavelength (ln) |
+ | NeIII3869_1_sigma | float64 |  | Gaussian width (ln) |
+ | OII3728_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | OII3728_1_centerwave | float64 |  | Central wavelength (ln) |
+ | OII3728_1_sigma | float64 |  | Gaussian width (ln) |
+ | FeVII3759_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | FeVII3759_1_centerwave | float64 |  | Central wavelength (ln) |
+ | FeVII3759_1_sigma | float64 |  | Gaussian width (ln) |
+ | Hg_Hd_PL_norm | float64 |  | Local line complex power-law normalization |
+ | Hg_Hd_PL_slope | float64 |  | Local line complex power-law slope |
+ | OIII4363_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | OIII4363_1_centerwave | float64 |  | Central wavelength (ln) |
+ | OIII4363_1_sigma | float64 |  | Gaussian width (ln) |
+ | Hgamma_br_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | Hgamma_br_1_centerwave | float64 |  | Central wavelength (ln) |
+ | Hgamma_br_1_sigma | float64 |  | Gaussian width (ln) |
+ | Hgamma_na_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | Hgamma_na_1_centerwave | float64 |  | Central wavelength (ln) |
+ | Hgamma_na_1_sigma | float64 |  | Gaussian width (ln) |
+ | Hdelta_br_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | Hdelta_br_1_centerwave | float64 |  | Central wavelength (ln) |
+ | Hdelta_br_1_sigma | float64 |  | Gaussian width (ln) |
+ | Hdelta_na_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | Hdelta_na_1_centerwave | float64 |  | Central wavelength (ln) |
+ | Hdelta_na_1_sigma | float64 |  | Gaussian width (ln) |
+ | OIV_PL_norm | float64 |  | Local line complex power-law normalization |
+ | OIV_PL_slope | float64 |  | Local line complex power-law slope |
+ | OIV1035_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | OIV1035_1_centerwave | float64 |  | Central wavelength (ln) |
+ | OIV1035_1_sigma | float64 |  | Gaussian width (ln) |
+ | Halpha_br_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | Halpha_br_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | Halpha_br_1_centerwave | float64 |  | Central wavelength (ln) |
+ | Halpha_br_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | Halpha_br_1_sigma | float64 |  | Gaussian width (ln) |
+ | Halpha_br_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | Halpha_br_2_scale | float64 |  | Gaussian amplitude (ln) |
+ | Halpha_br_2_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | Halpha_br_2_centerwave | float64 |  | Central wavelength (ln) |
+ | Halpha_br_2_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | Halpha_br_2_sigma | float64 |  | Gaussian width (ln) |
+ | Halpha_br_2_sigma_error | float64 |  | Gaussian width (ln) error |
+ | Halpha_br_3_scale | float64 |  | Gaussian amplitude (ln) |
+ | Halpha_br_3_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | Halpha_br_3_centerwave | float64 |  | Central wavelength (ln) |
+ | Halpha_br_3_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | Halpha_br_3_sigma | float64 |  | Gaussian width (ln) |
+ | Halpha_br_3_sigma_error | float64 |  | Gaussian width (ln) error |
+ | Halpha_na_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | Halpha_na_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | Halpha_na_1_centerwave | float64 |  | Central wavelength (ln) |
+ | Halpha_na_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | Halpha_na_1_sigma | float64 |  | Gaussian width (ln) |
+ | Halpha_na_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | NII6549_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | NII6549_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | NII6549_1_centerwave | float64 |  | Central wavelength (ln) |
+ | NII6549_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | NII6549_1_sigma | float64 |  | Gaussian width (ln) |
+ | NII6549_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | NII6585_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | NII6585_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | NII6585_1_centerwave | float64 |  | Central wavelength (ln) |
+ | NII6585_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | NII6585_1_sigma | float64 |  | Gaussian width (ln) |
+ | NII6585_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | SII6718_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | SII6718_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | SII6718_1_centerwave | float64 |  | Central wavelength (ln) |
+ | SII6718_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | SII6718_1_sigma | float64 |  | Gaussian width (ln) |
+ | SII6718_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | SII6732_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | SII6732_1_scale_error | float64 |  | Gaussian amplitude (ln) error |
+ | SII6732_1_centerwave | float64 |  | Central wavelength (ln) |
+ | SII6732_1_centerwave_error | float64 |  | Central wavelength (ln) error |
+ | SII6732_1_sigma | float64 |  | Gaussian width (ln) |
+ | SII6732_1_sigma_error | float64 |  | Gaussian width (ln) error |
+ | HeI_Fe_OI_PL_norm | float64 |  | Local line complex power-law normalization |
+ | HeI_Fe_OI_PL_slope | float64 |  | Local line complex power-law slope |
+ | FeVII6088_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | FeVII6088_1_centerwave | float64 |  | Central wavelength (ln) |
+ | FeVII6088_1_sigma | float64 |  | Gaussian width (ln) |
+ | FeX6376_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | FeX6376_1_centerwave | float64 |  | Central wavelength (ln) |
+ | FeX6376_1_sigma | float64 |  | Gaussian width (ln) |
+ | OI6300_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | OI6300_1_centerwave | float64 |  | Central wavelength (ln) |
+ | OI6300_1_sigma | float64 |  | Gaussian width (ln) |
+ | HeI_br_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | HeI_br_1_centerwave | float64 |  | Central wavelength (ln) |
+ | HeI_br_1_sigma | float64 |  | Gaussian width (ln) |
+ | HeI_na_1_scale | float64 |  | Gaussian amplitude (ln) |
+ | HeI_na_1_centerwave | float64 |  | Central wavelength (ln) |
+ | HeI_na_1_sigma | float64 |  | Gaussian width (ln) |
+ | 5_local_complex_name | char[8] |  | Fifth local line complex name |
+ | 5_local_line_status | int64 |  | Fifth local line complex fit status |
+ | 5_local_line_min_chi2 | float64 |  | Fifth local line complex chi2 |
+ | 5_local_line_red_chi2 | float64 |  | Fifth local line complex reduced chi2 |
+ | 5_local_niter | float64 |  | Fifth local line complex number of iterations |
+ | 5_local_ndof | float64 |  | Fifth local line complex number of pixels |
+ | 5_local_npix | float64 |  | Fifth local line complex number of degrees of freedom |
+ | HG_subtraction | bool |  | True: host-galaxy emission subtracted; False: quasar-dominated |
 
 
 
@@ -3617,171 +3617,171 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU5
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | ObjID | char[23] |  | replace me column 1 |
- | ERO_Name | char[22] |  | replace me column 2 |
- | SPECZ_REDSHIFT | float32 |  | replace me column 3 |
- | SAMPLE | char[4] |  | replace me column 4 |
- | ID_SRC | int32 |  | replace me column 5 |
- | ERO_ID_HARD | int32 |  | replace me column 6 |
- | RA | float64 | deg | replace me column 7 |
- | DEC | float64 | deg | replace me column 8 |
- | RADEC_ERR | float32 | arcsec | replace me column 9 |
- | RA_CORR | float64 | deg | replace me column 10 |
- | DEC_CORR | float64 | deg | replace me column 11 |
- | RADEC_ERR_CORR | float64 | arcsec | replace me column 12 |
- | EXT | float32 | arcsec | replace me column 13 |
- | EXT_ERR | float32 | arcsec | replace me column 14 |
- | EXT_LIKE | float32 |  | replace me column 15 |
- | DET_LIKE | float32 |  | replace me column 16 |
- | ML_RATE | float32 | count/s | replace me column 17 |
- | ML_RATE_ERR | float32 | count/s | replace me column 18 |
- | ML_CTS | float32 | count | replace me column 19 |
- | ML_CTS_ERR | float32 | count | replace me column 20 |
- | ML_FLUX | float32 | erg / (cm2 s) | replace me column 21 |
- | ML_FLUX_ERR | float32 | erg / (cm2 s) | replace me column 22 |
- | ML_EXP | float32 | s | replace me column 23 |
- | ML_BKG | float32 | count/arcmin^2 | replace me column 24 |
- | inArea90 | bool |  | replace me column 25 |
- | DET_LIKE_b1 | float64 |  | replace me column 26 |
- | DET_LIKE_b2 | float64 |  | replace me column 27 |
- | DET_LIKE_b3 | float64 |  | replace me column 28 |
- | DET_LIKE_b4 | float64 |  | replace me column 29 |
- | DET_LIKE_s | float64 |  | replace me column 30 |
- | DET_LIKE_h | float64 |  | replace me column 31 |
- | DET_LIKE_u | float64 |  | replace me column 32 |
- | ML_RATE_b1 | float64 | count/s | replace me column 33 |
- | ML_RATE_b2 | float64 | count/s | replace me column 34 |
- | ML_RATE_b3 | float64 | count/s | replace me column 35 |
- | ML_RATE_b4 | float64 | count/s | replace me column 36 |
- | ML_RATE_s | float64 | count/s | replace me column 37 |
- | ML_RATE_h | float64 | count/s | replace me column 38 |
- | ML_RATE_u | float64 | count/s | replace me column 39 |
- | ML_RATE_ERR_b1 | float64 | count/s | replace me column 40 |
- | ML_RATE_ERR_b2 | float64 | count/s | replace me column 41 |
- | ML_RATE_ERR_b3 | float64 | count/s | replace me column 42 |
- | ML_RATE_ERR_b4 | float64 | count/s | replace me column 43 |
- | ML_RATE_ERR_s | float64 | count/s | replace me column 44 |
- | ML_RATE_ERR_h | float64 | count/s | replace me column 45 |
- | ML_RATE_ERR_u | float64 | count/s | replace me column 46 |
- | ML_RATE_LOWERR_b1 | float64 | count/s | replace me column 47 |
- | ML_RATE_LOWERR_b2 | float64 | count/s | replace me column 48 |
- | ML_RATE_LOWERR_b3 | float64 | count/s | replace me column 49 |
- | ML_RATE_LOWERR_b4 | float64 | count/s | replace me column 50 |
- | ML_RATE_LOWERR_s | float64 | count/s | replace me column 51 |
- | ML_RATE_LOWERR_h | float64 | count/s | replace me column 52 |
- | ML_RATE_LOWERR_u | float64 | count/s | replace me column 53 |
- | ML_RATE_UPERR_b1 | float64 | count/s | replace me column 54 |
- | ML_RATE_UPERR_b2 | float64 | count/s | replace me column 55 |
- | ML_RATE_UPERR_b3 | float64 | count/s | replace me column 56 |
- | ML_RATE_UPERR_b4 | float64 | count/s | replace me column 57 |
- | ML_RATE_UPERR_s | float64 | count/s | replace me column 58 |
- | ML_RATE_UPERR_h | float64 | count/s | replace me column 59 |
- | ML_RATE_UPERR_u | float64 | count/s | replace me column 60 |
- | ML_CTS_b1 | float64 | count | replace me column 61 |
- | ML_CTS_b2 | float64 | count | replace me column 62 |
- | ML_CTS_b3 | float64 | count | replace me column 63 |
- | ML_CTS_b4 | float64 | count | replace me column 64 |
- | ML_CTS_s | float64 | count | replace me column 65 |
- | ML_CTS_h | float64 | count | replace me column 66 |
- | ML_CTS_u | float64 | count | replace me column 67 |
- | ML_CTS_ERR_b1 | float64 | count | replace me column 68 |
- | ML_CTS_ERR_b2 | float64 | count | replace me column 69 |
- | ML_CTS_ERR_b3 | float64 | count | replace me column 70 |
- | ML_CTS_ERR_b4 | float64 | count | replace me column 71 |
- | ML_CTS_ERR_s | float64 | count | replace me column 72 |
- | ML_CTS_ERR_h | float64 | count | replace me column 73 |
- | ML_CTS_ERR_u | float64 | count | replace me column 74 |
- | ML_CTS_LOWERR_b1 | float64 | count | replace me column 75 |
- | ML_CTS_LOWERR_b2 | float64 | count | replace me column 76 |
- | ML_CTS_LOWERR_b3 | float64 | count | replace me column 77 |
- | ML_CTS_LOWERR_b4 | float64 | count | replace me column 78 |
- | ML_CTS_LOWERR_s | float64 | count | replace me column 79 |
- | ML_CTS_LOWERR_h | float64 | count | replace me column 80 |
- | ML_CTS_LOWERR_u | float64 | count | replace me column 81 |
- | ML_CTS_UPERR_b1 | float64 | count | replace me column 82 |
- | ML_CTS_UPERR_b2 | float64 | count | replace me column 83 |
- | ML_CTS_UPERR_b3 | float64 | count | replace me column 84 |
- | ML_CTS_UPERR_b4 | float64 | count | replace me column 85 |
- | ML_CTS_UPERR_s | float64 | count | replace me column 86 |
- | ML_CTS_UPERR_h | float64 | count | replace me column 87 |
- | ML_CTS_UPERR_u | float64 | count | replace me column 88 |
- | ML_FLUX_b1 | float64 | erg / (cm2 s) | replace me column 89 |
- | ML_FLUX_b2 | float64 | erg / (cm2 s) | replace me column 90 |
- | ML_FLUX_b3 | float64 | erg / (cm2 s) | replace me column 91 |
- | ML_FLUX_b4 | float64 | erg / (cm2 s) | replace me column 92 |
- | ML_FLUX_s | float64 | erg / (cm2 s) | replace me column 93 |
- | ML_FLUX_h | float64 | erg / (cm2 s) | replace me column 94 |
- | ML_FLUX_u | float64 | erg / (cm2 s) | replace me column 95 |
- | ML_FLUX_ERR_b1 | float64 | erg / (cm2 s) | replace me column 96 |
- | ML_FLUX_ERR_b2 | float64 | erg / (cm2 s) | replace me column 97 |
- | ML_FLUX_ERR_b3 | float64 | erg / (cm2 s) | replace me column 98 |
- | ML_FLUX_ERR_b4 | float64 | erg / (cm2 s) | replace me column 99 |
- | ML_FLUX_ERR_s | float64 | erg / (cm2 s) | replace me column 100 |
- | ML_FLUX_ERR_h | float64 | erg / (cm2 s) | replace me column 101 |
- | ML_FLUX_ERR_u | float64 | erg / (cm2 s) | replace me column 102 |
- | ML_FLUX_LOWERR_b1 | float64 | erg / (cm2 s) | replace me column 103 |
- | ML_FLUX_LOWERR_b2 | float64 | erg / (cm2 s) | replace me column 104 |
- | ML_FLUX_LOWERR_b3 | float64 | erg / (cm2 s) | replace me column 105 |
- | ML_FLUX_LOWERR_b4 | float64 | erg / (cm2 s) | replace me column 106 |
- | ML_FLUX_LOWERR_s | float64 | erg / (cm2 s) | replace me column 107 |
- | ML_FLUX_LOWERR_h | float64 | erg / (cm2 s) | replace me column 108 |
- | ML_FLUX_LOWERR_u | float64 | erg / (cm2 s) | replace me column 109 |
- | ML_FLUX_UPERR_b1 | float64 | erg / (cm2 s) | replace me column 110 |
- | ML_FLUX_UPERR_b2 | float64 | erg / (cm2 s) | replace me column 111 |
- | ML_FLUX_UPERR_b3 | float64 | erg / (cm2 s) | replace me column 112 |
- | ML_FLUX_UPERR_b4 | float64 | erg / (cm2 s) | replace me column 113 |
- | ML_FLUX_UPERR_s | float64 | erg / (cm2 s) | replace me column 114 |
- | ML_FLUX_UPERR_h | float64 | erg / (cm2 s) | replace me column 115 |
- | ML_FLUX_UPERR_u | float64 | erg / (cm2 s) | replace me column 116 |
- | ML_EXP_b1 | float64 | s | replace me column 117 |
- | ML_EXP_b2 | float64 | s | replace me column 118 |
- | ML_EXP_b3 | float64 | s | replace me column 119 |
- | ML_EXP_b4 | float64 | s | replace me column 120 |
- | ML_EXP_s | float64 | s | replace me column 121 |
- | ML_EXP_h | float64 | s | replace me column 122 |
- | ML_EXP_u | float64 | s | replace me column 123 |
- | ML_BKG_b1 | float64 | count/arcmin^2 | replace me column 124 |
- | ML_BKG_b2 | float64 | count/arcmin^2 | replace me column 125 |
- | ML_BKG_b3 | float64 | count/arcmin^2 | replace me column 126 |
- | ML_BKG_b4 | float64 | count/arcmin^2 | replace me column 127 |
- | ML_BKG_s | float64 | count/arcmin^2 | replace me column 128 |
- | ML_BKG_h | float64 | count/arcmin^2 | replace me column 129 |
- | ML_BKG_u | float64 | count/arcmin^2 | replace me column 130 |
- | APE_CTS_b1 | int32 | count | replace me column 131 |
- | APE_CTS_b2 | int32 | count | replace me column 132 |
- | APE_CTS_b3 | int32 | count | replace me column 133 |
- | APE_CTS_b4 | int32 | count | replace me column 134 |
- | APE_CTS_s | int32 | count | replace me column 135 |
- | APE_CTS_h | int32 | count | replace me column 136 |
- | APE_CTS_u | int32 | count | replace me column 137 |
- | APE_EXP_b1 | float64 | s | replace me column 138 |
- | APE_EXP_b2 | float64 | s | replace me column 139 |
- | APE_EXP_b3 | float64 | s | replace me column 140 |
- | APE_EXP_b4 | float64 | s | replace me column 141 |
- | APE_EXP_s | float64 | s | replace me column 142 |
- | APE_EXP_h | float64 | s | replace me column 143 |
- | APE_EXP_u | float64 | s | replace me column 144 |
- | APE_BKG_b1 | float64 | count | replace me column 145 |
- | APE_BKG_b2 | float64 | count | replace me column 146 |
- | APE_BKG_b3 | float64 | count | replace me column 147 |
- | APE_BKG_b4 | float64 | count | replace me column 148 |
- | APE_BKG_s | float64 | count | replace me column 149 |
- | APE_BKG_h | float64 | count | replace me column 150 |
- | APE_BKG_u | float64 | count | replace me column 151 |
- | APE_RADIUS_b1 | float64 | pixel | replace me column 152 |
- | APE_RADIUS_b2 | float64 | pixel | replace me column 153 |
- | APE_RADIUS_b3 | float64 | pixel | replace me column 154 |
- | APE_RADIUS_b4 | float64 | pixel | replace me column 155 |
- | APE_RADIUS_s | float64 | pixel | replace me column 156 |
- | APE_RADIUS_h | float64 | pixel | replace me column 157 |
- | APE_RADIUS_u | float64 | pixel | replace me column 158 |
- | APE_POIS_b1 | float64 |  | replace me column 159 |
- | APE_POIS_b2 | float64 |  | replace me column 160 |
- | APE_POIS_b3 | float64 |  | replace me column 161 |
- | APE_POIS_b4 | float64 |  | replace me column 162 |
- | APE_POIS_s | float64 |  | replace me column 163 |
- | APE_POIS_h | float64 |  | replace me column 164 |
- | APE_POIS_u | float64 |  | replace me column 165 |
+ | ObjID | char[23] |  | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |
+ | ERO_Name | char[22] |  | eROSITA official source Name |
+ | SPECZ_REDSHIFT | float32 |  | Spectroscopic redshift from visual inspection (Aydar+2025) |
+ | SAMPLE | char[4] |  | Main or Hard sample from eROSITA (Brunner+2022) |
+ | ID_SRC | int32 |  | ID of eROSITA source in the Main Sample |
+ | ERO_ID_HARD | int32 |  | ID of eROSITA source in the Hard Sample |
+ | RA | float64 | deg | Uncorrected RA (ICRS) |
+ | DEC | float64 | deg | Uncorrected Dec (ICRS) |
+ | RADEC_ERR | float32 | arcsec | Combined positional uncertainty, uncorrected |
+ | RA_CORR | float64 | deg | J2000 Right Ascension of the eROSITA source (corrected) |
+ | DEC_CORR | float64 | deg | J2000 Declination of the eROSITA source (corrected) |
+ | RADEC_ERR_CORR | float64 | arcsec | eROSITA positional uncertainty (corrected) |
+ | EXT | float32 | arcsec | Source extent |
+ | EXT_ERR | float32 | arcsec | Extent error |
+ | EXT_LIKE | float32 |  | Extent likelihood |
+ | DET_LIKE | float32 |  | Detection likelihood measured by PSF-fitting, combining 3 bands |
+ | ML_RATE | float32 | count/s | Source count rate, combining 3 bands |
+ | ML_RATE_ERR | float32 | count/s | 1 sigma count rate error |
+ | ML_CTS | float32 | count | Source net counts, combining 3 bands |
+ | ML_CTS_ERR | float32 | count | 1 sigma counts error |
+ | ML_FLUX | float32 | erg / (cm2 s) | Source flux, combining 3 bands |
+ | ML_FLUX_ERR | float32 | erg / (cm2 s) | 1 sigma flux error |
+ | ML_EXP | float32 | s | Vignetted exposure value |
+ | ML_BKG | float32 | count/arcmin^2 | Background flux at the source position |
+ | inArea90 | bool |  | True if in the 0.2-2.3keV exp>500s region, which comprises 90% area |
+ | DET_LIKE_b1 | float64 |  | Detection likelihood measured by forced PSF-fitting; 0.2-0.5 keV |
+ | DET_LIKE_b2 | float64 |  | Detection likelihood measured by forced PSF-fitting; 0.5-1 keV |
+ | DET_LIKE_b3 | float64 |  | Detection likelihood measured by forced PSF-fitting; 1-2 keV |
+ | DET_LIKE_b4 | float64 |  | Detection likelihood measured by forced PSF-fitting; 2-4.5 keV |
+ | DET_LIKE_s | float64 |  | Detection likelihood measured by forced PSF-fitting; 0.5-2 keV |
+ | DET_LIKE_h | float64 |  | Detection likelihood measured by forced PSF-fitting; 2.3-5 keV |
+ | DET_LIKE_u | float64 |  | Detection likelihood measured by forced PSF-fitting; 5-8 keV |
+ | ML_RATE_b1 | float64 | count/s | Source count rate measured by forced PSF-fitting; 0.2-0.5 keV |
+ | ML_RATE_b2 | float64 | count/s | Source count rate measured by forced PSF-fitting; 0.5-1 keV |
+ | ML_RATE_b3 | float64 | count/s | Source count rate measured by forced PSF-fitting; 1-2 keV |
+ | ML_RATE_b4 | float64 | count/s | Source count rate measured by forced PSF-fitting; 2-4.5 keV |
+ | ML_RATE_s | float64 | count/s | Source count rate measured by forced PSF-fitting; 0.5-2 keV |
+ | ML_RATE_h | float64 | count/s | Source count rate measured by forced PSF-fitting; 2.3-5 keV |
+ | ML_RATE_u | float64 | count/s | Source count rate measured by forced PSF-fitting; 5-8 keV |
+ | ML_RATE_ERR_b1 | float64 | count/s | 1 sigma count rate error; 0.2-0.5 keV |
+ | ML_RATE_ERR_b2 | float64 | count/s | 1 sigma count rate error; 0.5-1 keV |
+ | ML_RATE_ERR_b3 | float64 | count/s | 1 sigma count rate error; 1-2 keV |
+ | ML_RATE_ERR_b4 | float64 | count/s | 1 sigma count rate error; 2-4.5 keV |
+ | ML_RATE_ERR_s | float64 | count/s | 1 sigma count rate error; 0.5-2 keV |
+ | ML_RATE_ERR_h | float64 | count/s | 1 sigma count rate error; 2.3-5 keV |
+ | ML_RATE_ERR_u | float64 | count/s | 1 sigma count rate error; 5-8 keV |
+ | ML_RATE_LOWERR_b1 | float64 | count/s | 1 sigma lower error of count rate; 0.2-0.5 keV |
+ | ML_RATE_LOWERR_b2 | float64 | count/s | 1 sigma lower error of count rate; 0.5-1 keV |
+ | ML_RATE_LOWERR_b3 | float64 | count/s | 1 sigma lower error of count rate; 1-2 keV |
+ | ML_RATE_LOWERR_b4 | float64 | count/s | 1 sigma lower error of count rate; 2-4.5 keV |
+ | ML_RATE_LOWERR_s | float64 | count/s | 1 sigma lower error of count rate; 0.5-2 keV |
+ | ML_RATE_LOWERR_h | float64 | count/s | 1 sigma lower error of count rate; 2.3-5 keV |
+ | ML_RATE_LOWERR_u | float64 | count/s | 1 sigma lower error of count rate; 5-8 keV |
+ | ML_RATE_UPERR_b1 | float64 | count/s | 1 sigma upper error of count rate; 0.2-0.5 keV |
+ | ML_RATE_UPERR_b2 | float64 | count/s | 1 sigma upper error of count rate; 0.5-1 keV |
+ | ML_RATE_UPERR_b3 | float64 | count/s | 1 sigma upper error of count rate; 1-2 keV |
+ | ML_RATE_UPERR_b4 | float64 | count/s | 1 sigma upper error of count rate; 2-4.5 keV |
+ | ML_RATE_UPERR_s | float64 | count/s | 1 sigma upper error of count rate; 0.5-2 keV |
+ | ML_RATE_UPERR_h | float64 | count/s | 1 sigma upper error of count rate; 2.3-5 keV |
+ | ML_RATE_UPERR_u | float64 | count/s | 1 sigma upper error of count rate; 5-8 keV |
+ | ML_CTS_b1 | float64 | count | Source net counts measured from count rate; 0.2-0.5 keV |
+ | ML_CTS_b2 | float64 | count | Source net counts measured from count rate; 0.5-1 keV |
+ | ML_CTS_b3 | float64 | count | Source net counts measured from count rate; 1-2 keV |
+ | ML_CTS_b4 | float64 | count | Source net counts measured from count rate; 2-4.5 keV |
+ | ML_CTS_s | float64 | count | Source net counts measured from count rate; 0.5-2 keV |
+ | ML_CTS_h | float64 | count | Source net counts measured from count rate; 2.3-5 keV |
+ | ML_CTS_u | float64 | count | Source net counts measured from count rate; 5-8 keV |
+ | ML_CTS_ERR_b1 | float64 | count | 1 sigma counts error; 0.2-0.5 keV |
+ | ML_CTS_ERR_b2 | float64 | count | 1 sigma counts error; 0.5-1 keV |
+ | ML_CTS_ERR_b3 | float64 | count | 1 sigma counts error; 1-2 keV |
+ | ML_CTS_ERR_b4 | float64 | count | 1 sigma counts error; 2-4.5 keV |
+ | ML_CTS_ERR_s | float64 | count | 1 sigma counts error; 0.5-2 keV |
+ | ML_CTS_ERR_h | float64 | count | 1 sigma counts error; 2.3-5 keV |
+ | ML_CTS_ERR_u | float64 | count | 1 sigma counts error; 5-8 keV |
+ | ML_CTS_LOWERR_b1 | float64 | count | 1 sigma lower error of counts; 0.2-0.5 keV |
+ | ML_CTS_LOWERR_b2 | float64 | count | 1 sigma lower error of counts; 0.5-1 keV |
+ | ML_CTS_LOWERR_b3 | float64 | count | 1 sigma lower error of counts; 1-2 keV |
+ | ML_CTS_LOWERR_b4 | float64 | count | 1 sigma lower error of counts; 2-4.5 keV |
+ | ML_CTS_LOWERR_s | float64 | count | 1 sigma lower error of counts; 0.5-2 keV |
+ | ML_CTS_LOWERR_h | float64 | count | 1 sigma lower error of counts; 2.3-5 keV |
+ | ML_CTS_LOWERR_u | float64 | count | 1 sigma lower error of counts; 5-8 keV |
+ | ML_CTS_UPERR_b1 | float64 | count | 1 sigma upper error of counts; 0.2-0.5 keV |
+ | ML_CTS_UPERR_b2 | float64 | count | 1 sigma upper error of counts; 0.5-1 keV |
+ | ML_CTS_UPERR_b3 | float64 | count | 1 sigma upper error of counts; 1-2 keV |
+ | ML_CTS_UPERR_b4 | float64 | count | 1 sigma upper error of counts; 2-4.5 keV |
+ | ML_CTS_UPERR_s | float64 | count | 1 sigma upper error of counts; 0.5-2 keV |
+ | ML_CTS_UPERR_h | float64 | count | 1 sigma upper error of counts; 2.3-5 keV |
+ | ML_CTS_UPERR_u | float64 | count | 1 sigma upper error of counts; 5-8 keV |
+ | ML_FLUX_b1 | float64 | erg / (cm2 s) | Source flux converted from count rate; 0.2-0.5 keV |
+ | ML_FLUX_b2 | float64 | erg / (cm2 s) | Source flux converted from count rate; 0.5-1 keV |
+ | ML_FLUX_b3 | float64 | erg / (cm2 s) | Source flux converted from count rate; 1-2 keV |
+ | ML_FLUX_b4 | float64 | erg / (cm2 s) | Source flux converted from count rate; 2-4.5 keV |
+ | ML_FLUX_s | float64 | erg / (cm2 s) | Source flux converted from count rate; 0.5-2 keV |
+ | ML_FLUX_h | float64 | erg / (cm2 s) | Source flux converted from count rate; 2.3-5 keV |
+ | ML_FLUX_u | float64 | erg / (cm2 s) | Source flux converted from count rate; 5-8 keV |
+ | ML_FLUX_ERR_b1 | float64 | erg / (cm2 s) | 1 sigma flux error; 0.2-0.5 keV |
+ | ML_FLUX_ERR_b2 | float64 | erg / (cm2 s) | 1 sigma flux error; 0.5-1 keV |
+ | ML_FLUX_ERR_b3 | float64 | erg / (cm2 s) | 1 sigma flux error; 1-2 keV |
+ | ML_FLUX_ERR_b4 | float64 | erg / (cm2 s) | 1 sigma flux error; 2-4.5 keV |
+ | ML_FLUX_ERR_s | float64 | erg / (cm2 s) | 1 sigma flux error; 0.5-2 keV |
+ | ML_FLUX_ERR_h | float64 | erg / (cm2 s) | 1 sigma flux error; 2.3-5 keV |
+ | ML_FLUX_ERR_u | float64 | erg / (cm2 s) | 1 sigma flux error; 5-8 keV |
+ | ML_FLUX_LOWERR_b1 | float64 | erg / (cm2 s) | 1 sigma lower error of flux; 0.2-0.5 keV |
+ | ML_FLUX_LOWERR_b2 | float64 | erg / (cm2 s) | 1 sigma lower error of flux; 0.5-1 keV |
+ | ML_FLUX_LOWERR_b3 | float64 | erg / (cm2 s) | 1 sigma lower error of flux; 1-2 keV |
+ | ML_FLUX_LOWERR_b4 | float64 | erg / (cm2 s) | 1 sigma lower error of flux; 2-4.5 keV |
+ | ML_FLUX_LOWERR_s | float64 | erg / (cm2 s) | 1 sigma lower error of flux; 0.5-2 keV |
+ | ML_FLUX_LOWERR_h | float64 | erg / (cm2 s) | 1 sigma lower error of flux; 2.3-5 keV |
+ | ML_FLUX_LOWERR_u | float64 | erg / (cm2 s) | 1 sigma lower error of flux; 5-8 keV |
+ | ML_FLUX_UPERR_b1 | float64 | erg / (cm2 s) | 1 sigma upper error of flux; 0.2-0.5 keV |
+ | ML_FLUX_UPERR_b2 | float64 | erg / (cm2 s) | 1 sigma upper error of flux; 0.5-1 keV |
+ | ML_FLUX_UPERR_b3 | float64 | erg / (cm2 s) | 1 sigma upper error of flux; 1-2 keV |
+ | ML_FLUX_UPERR_b4 | float64 | erg / (cm2 s) | 1 sigma upper error of flux; 2-4.5 keV |
+ | ML_FLUX_UPERR_s | float64 | erg / (cm2 s) | 1 sigma upper error of flux; 0.5-2 keV |
+ | ML_FLUX_UPERR_h | float64 | erg / (cm2 s) | 1 sigma upper error of flux; 2.3-5 keV |
+ | ML_FLUX_UPERR_u | float64 | erg / (cm2 s) | 1 sigma upper error of flux; 5-8 keV |
+ | ML_EXP_b1 | float64 | s | Vignetted exposure value; 0.2-0.5 keV |
+ | ML_EXP_b2 | float64 | s | Vignetted exposure value; 0.5-1 keV |
+ | ML_EXP_b3 | float64 | s | Vignetted exposure value; 1-2 keV |
+ | ML_EXP_b4 | float64 | s | Vignetted exposure value; 2-4.5 keV |
+ | ML_EXP_s | float64 | s | Vignetted exposure value; 0.5-2 keV |
+ | ML_EXP_h | float64 | s | Vignetted exposure value; 2.3-5 keV |
+ | ML_EXP_u | float64 | s | Vignetted exposure value; 5-8 keV |
+ | ML_BKG_b1 | float64 | count/arcmin^2 | Background flux at the source position; 0.2-0.5 keV |
+ | ML_BKG_b2 | float64 | count/arcmin^2 | Background flux at the source position; 0.5-1 keV |
+ | ML_BKG_b3 | float64 | count/arcmin^2 | Background flux at the source position; 1-2 keV |
+ | ML_BKG_b4 | float64 | count/arcmin^2 | Background flux at the source position; 2-4.5 keV |
+ | ML_BKG_s | float64 | count/arcmin^2 | Background flux at the source position; 0.5-2 keV |
+ | ML_BKG_h | float64 | count/arcmin^2 | Background flux at the source position; 2.3-5 keV |
+ | ML_BKG_u | float64 | count/arcmin^2 | Background flux at the source position; 5-8 keV |
+ | APE_CTS_b1 | int32 | count | Total counts extracted in the aperture; 0.2-0.5 keV |
+ | APE_CTS_b2 | int32 | count | Total counts extracted in the aperture; 0.5-1 keV |
+ | APE_CTS_b3 | int32 | count | Total counts extracted in the aperture; 1-2 keV |
+ | APE_CTS_b4 | int32 | count | Total counts extracted in the aperture; 2-4.5 keV |
+ | APE_CTS_s | int32 | count | Total counts extracted in the aperture; 0.5-2 keV |
+ | APE_CTS_h | int32 | count | Total counts extracted in the aperture; 2.3-5 keV |
+ | APE_CTS_u | int32 | count | Total counts extracted in the aperture; 5-8 keV |
+ | APE_EXP_b1 | float64 | s | Vignetted exposure value; 0.2-0.5 keV |
+ | APE_EXP_b2 | float64 | s | Vignetted exposure value; 0.5-1 keV |
+ | APE_EXP_b3 | float64 | s | Vignetted exposure value; 1-2 keV |
+ | APE_EXP_b4 | float64 | s | Vignetted exposure value; 2-4.5 keV |
+ | APE_EXP_s | float64 | s | Vignetted exposure value; 0.5-2 keV |
+ | APE_EXP_h | float64 | s | Vignetted exposure value; 2.3-5 keV |
+ | APE_EXP_u | float64 | s | Vignetted exposure value; 5-8 keV |
+ | APE_BKG_b1 | float64 | count | Background counts in aperture, excluding nearby sources; 0.2-0.5 keV |
+ | APE_BKG_b2 | float64 | count | Background counts in aperture, excluding nearby sources; 0.5-1 keV |
+ | APE_BKG_b3 | float64 | count | Background counts in aperture, excluding nearby sources; 1-2 keV |
+ | APE_BKG_b4 | float64 | count | Background counts in aperture, excluding nearby sources; 2-4.5 keV |
+ | APE_BKG_s | float64 | count | Background counts in aperture, excluding nearby sources; 0.5-2 keV |
+ | APE_BKG_h | float64 | count | Background counts in aperture, excluding nearby sources; 2.3-5 keV |
+ | APE_BKG_u | float64 | count | Background counts in aperture, excluding nearby sources; 5-8 keV |
+ | APE_RADIUS_b1 | float64 | pixel | Aperture radius; 0.2-0.5 keV |
+ | APE_RADIUS_b2 | float64 | pixel | Aperture radius; 0.5-1 keV |
+ | APE_RADIUS_b3 | float64 | pixel | Aperture radius; 1-2 keV |
+ | APE_RADIUS_b4 | float64 | pixel | Aperture radius; 2-4.5 keV |
+ | APE_RADIUS_s | float64 | pixel | Aperture radius; 0.5-2 keV |
+ | APE_RADIUS_h | float64 | pixel | Aperture radius; 2.3-5 keV |
+ | APE_RADIUS_u | float64 | pixel | Aperture radius; 5-8 keV |
+ | APE_POIS_b1 | float64 |  | Poisson probability of being background fluctuation; 0.2-0.5 keV |
+ | APE_POIS_b2 | float64 |  | Poisson probability of being background fluctuation; 0.5-1 keV |
+ | APE_POIS_b3 | float64 |  | Poisson probability of being background fluctuation; 1-2 keV |
+ | APE_POIS_b4 | float64 |  | Poisson probability of being background fluctuation; 2-4.5 keV |
+ | APE_POIS_s | float64 |  | Poisson probability of being background fluctuation; 0.5-2 keV |
+ | APE_POIS_h | float64 |  | Poisson probability of being background fluctuation; 2.3-5 keV |
+ | APE_POIS_u | float64 |  | Poisson probability of being background fluctuation; 5-8 keV |
 
 
 
@@ -4166,197 +4166,197 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU6
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | ObjID | char[23] |  | replace me column 1 |
- | ERO_Name | char[22] |  | replace me column 2 |
- | ERO_ID_HARD | int32 |  | replace me column 3 |
- | SPECZ_REDSHIFT | float32 |  | replace me column 4 |
- | SAMPLE | char[4] |  | replace me column 5 |
- | ERO_ID_MAIN | int32 |  | replace me column 6 |
- | RA | float64 | deg | replace me column 7 |
- | DEC | float64 | deg | replace me column 8 |
- | RADEC_ERR | float32 | arcsec | replace me column 9 |
- | RA_CORR | float64 | deg | replace me column 10 |
- | DEC_CORR | float64 | deg | replace me column 11 |
- | RADEC_ERR_CORR | float64 | arcsec | replace me column 12 |
- | EXT | float32 | arcsec | replace me column 13 |
- | EXT_ERR | float32 | arcsec | replace me column 14 |
- | EXT_LIKE | float32 |  | replace me column 15 |
- | DET_LIKE_0 | float32 |  | replace me column 16 |
- | ML_RATE_0 | float32 | count/s | replace me column 17 |
- | ML_RATE_ERR_0 | float32 | count/s | replace me column 18 |
- | ML_CTS_0 | float32 | count | replace me column 19 |
- | ML_CTS_ERR_0 | float32 | count | replace me column 20 |
- | ML_FLUX_0 | float32 | erg / (cm2 s) | replace me column 21 |
- | ML_FLUX_ERR_0 | float32 | erg / (cm2 s) | replace me column 22 |
- | ML_BKG_0 | float32 | count/arcmin^2 | replace me column 23 |
- | inArea90 | bool |  | replace me column 24 |
- | DET_LIKE_1 | float32 |  | replace me column 25 |
- | DET_LIKE_2 | float32 |  | replace me column 26 |
- | DET_LIKE_3 | float32 |  | replace me column 27 |
- | ML_RATE_1 | float32 | count/s | replace me column 28 |
- | ML_RATE_2 | float32 | count/s | replace me column 29 |
- | ML_RATE_3 | float32 | count/s | replace me column 30 |
- | ML_RATE_ERR_1 | float32 | count/s | replace me column 31 |
- | ML_RATE_ERR_2 | float32 | count/s | replace me column 32 |
- | ML_RATE_ERR_3 | float32 | count/s | replace me column 33 |
- | ML_CTS_1 | float32 | count | replace me column 34 |
- | ML_CTS_2 | float32 | count | replace me column 35 |
- | ML_CTS_3 | float32 | count | replace me column 36 |
- | ML_CTS_ERR_1 | float32 | count | replace me column 37 |
- | ML_CTS_ERR_2 | float32 | count | replace me column 38 |
- | ML_CTS_ERR_3 | float32 | count | replace me column 39 |
- | ML_FLUX_1 | float32 | erg / (cm2 s) | replace me column 40 |
- | ML_FLUX_2 | float32 | erg / (cm2 s) | replace me column 41 |
- | ML_FLUX_3 | float32 | erg / (cm2 s) | replace me column 42 |
- | ML_FLUX_ERR_1 | float32 | erg / (cm2 s) | replace me column 43 |
- | ML_FLUX_ERR_2 | float32 | erg / (cm2 s) | replace me column 44 |
- | ML_FLUX_ERR_3 | float32 | erg / (cm2 s) | replace me column 45 |
- | ML_EXP_1 | float32 | s | replace me column 46 |
- | ML_EXP_2 | float32 | s | replace me column 47 |
- | ML_EXP_3 | float32 | s | replace me column 48 |
- | ML_BKG_1 | float32 | count/arcmin^2 | replace me column 49 |
- | ML_BKG_2 | float32 | count/arcmin^2 | replace me column 50 |
- | ML_BKG_3 | float32 | count/arcmin^2 | replace me column 51 |
- | DET_LIKE_b1 | float64 |  | replace me column 52 |
- | DET_LIKE_b2 | float64 |  | replace me column 53 |
- | DET_LIKE_b3 | float64 |  | replace me column 54 |
- | DET_LIKE_b4 | float64 |  | replace me column 55 |
- | DET_LIKE_s | float64 |  | replace me column 56 |
- | DET_LIKE_h | float64 |  | replace me column 57 |
- | DET_LIKE_u | float64 |  | replace me column 58 |
- | ML_RATE_b1 | float64 | count/s | replace me column 59 |
- | ML_RATE_b2 | float64 | count/s | replace me column 60 |
- | ML_RATE_b3 | float64 | count/s | replace me column 61 |
- | ML_RATE_b4 | float64 | count/s | replace me column 62 |
- | ML_RATE_s | float64 | count/s | replace me column 63 |
- | ML_RATE_h | float64 | count/s | replace me column 64 |
- | ML_RATE_u | float64 | count/s | replace me column 65 |
- | ML_RATE_ERR_b1 | float64 | count/s | replace me column 66 |
- | ML_RATE_ERR_b2 | float64 | count/s | replace me column 67 |
- | ML_RATE_ERR_b3 | float64 | count/s | replace me column 68 |
- | ML_RATE_ERR_b4 | float64 | count/s | replace me column 69 |
- | ML_RATE_ERR_s | float64 | count/s | replace me column 70 |
- | ML_RATE_ERR_h | float64 | count/s | replace me column 71 |
- | ML_RATE_ERR_u | float64 | count/s | replace me column 72 |
- | ML_RATE_LOWERR_b1 | float64 | count/s | replace me column 73 |
- | ML_RATE_LOWERR_b2 | float64 | count/s | replace me column 74 |
- | ML_RATE_LOWERR_b3 | float64 | count/s | replace me column 75 |
- | ML_RATE_LOWERR_b4 | float64 | count/s | replace me column 76 |
- | ML_RATE_LOWERR_s | float64 | count/s | replace me column 77 |
- | ML_RATE_LOWERR_h | float64 | count/s | replace me column 78 |
- | ML_RATE_LOWERR_u | float64 | count/s | replace me column 79 |
- | ML_RATE_UPERR_b1 | float64 | count/s | replace me column 80 |
- | ML_RATE_UPERR_b2 | float64 | count/s | replace me column 81 |
- | ML_RATE_UPERR_b3 | float64 | count/s | replace me column 82 |
- | ML_RATE_UPERR_b4 | float64 | count/s | replace me column 83 |
- | ML_RATE_UPERR_s | float64 | count/s | replace me column 84 |
- | ML_RATE_UPERR_h | float64 | count/s | replace me column 85 |
- | ML_RATE_UPERR_u | float64 | count/s | replace me column 86 |
- | ML_CTS_b1 | float64 | count | replace me column 87 |
- | ML_CTS_b2 | float64 | count | replace me column 88 |
- | ML_CTS_b3 | float64 | count | replace me column 89 |
- | ML_CTS_b4 | float64 | count | replace me column 90 |
- | ML_CTS_s | float64 | count | replace me column 91 |
- | ML_CTS_h | float64 | count | replace me column 92 |
- | ML_CTS_u | float64 | count | replace me column 93 |
- | ML_CTS_ERR_b1 | float64 | count | replace me column 94 |
- | ML_CTS_ERR_b2 | float64 | count | replace me column 95 |
- | ML_CTS_ERR_b3 | float64 | count | replace me column 96 |
- | ML_CTS_ERR_b4 | float64 | count | replace me column 97 |
- | ML_CTS_ERR_s | float64 | count | replace me column 98 |
- | ML_CTS_ERR_h | float64 | count | replace me column 99 |
- | ML_CTS_ERR_u | float64 | count | replace me column 100 |
- | ML_CTS_LOWERR_b1 | float64 | count | replace me column 101 |
- | ML_CTS_LOWERR_b2 | float64 | count | replace me column 102 |
- | ML_CTS_LOWERR_b3 | float64 | count | replace me column 103 |
- | ML_CTS_LOWERR_b4 | float64 | count | replace me column 104 |
- | ML_CTS_LOWERR_s | float64 | count | replace me column 105 |
- | ML_CTS_LOWERR_h | float64 | count | replace me column 106 |
- | ML_CTS_LOWERR_u | float64 | count | replace me column 107 |
- | ML_CTS_UPERR_b1 | float64 | count | replace me column 108 |
- | ML_CTS_UPERR_b2 | float64 | count | replace me column 109 |
- | ML_CTS_UPERR_b3 | float64 | count | replace me column 110 |
- | ML_CTS_UPERR_b4 | float64 | count | replace me column 111 |
- | ML_CTS_UPERR_s | float64 | count | replace me column 112 |
- | ML_CTS_UPERR_h | float64 | count | replace me column 113 |
- | ML_CTS_UPERR_u | float64 | count | replace me column 114 |
- | ML_FLUX_b1 | float64 | erg / (cm2 s) | replace me column 115 |
- | ML_FLUX_b2 | float64 | erg / (cm2 s) | replace me column 116 |
- | ML_FLUX_b3 | float64 | erg / (cm2 s) | replace me column 117 |
- | ML_FLUX_b4 | float64 | erg / (cm2 s) | replace me column 118 |
- | ML_FLUX_s | float64 | erg / (cm2 s) | replace me column 119 |
- | ML_FLUX_h | float64 | erg / (cm2 s) | replace me column 120 |
- | ML_FLUX_u | float64 | erg / (cm2 s) | replace me column 121 |
- | ML_FLUX_ERR_b1 | float64 | erg / (cm2 s) | replace me column 122 |
- | ML_FLUX_ERR_b2 | float64 | erg / (cm2 s) | replace me column 123 |
- | ML_FLUX_ERR_b3 | float64 | erg / (cm2 s) | replace me column 124 |
- | ML_FLUX_ERR_b4 | float64 | erg / (cm2 s) | replace me column 125 |
- | ML_FLUX_ERR_s | float64 | erg / (cm2 s) | replace me column 126 |
- | ML_FLUX_ERR_h | float64 | erg / (cm2 s) | replace me column 127 |
- | ML_FLUX_ERR_u | float64 | erg / (cm2 s) | replace me column 128 |
- | ML_FLUX_LOWERR_b1 | float64 | erg / (cm2 s) | replace me column 129 |
- | ML_FLUX_LOWERR_b2 | float64 | erg / (cm2 s) | replace me column 130 |
- | ML_FLUX_LOWERR_b3 | float64 | erg / (cm2 s) | replace me column 131 |
- | ML_FLUX_LOWERR_b4 | float64 | erg / (cm2 s) | replace me column 132 |
- | ML_FLUX_LOWERR_s | float64 | erg / (cm2 s) | replace me column 133 |
- | ML_FLUX_LOWERR_h | float64 | erg / (cm2 s) | replace me column 134 |
- | ML_FLUX_LOWERR_u | float64 | erg / (cm2 s) | replace me column 135 |
- | ML_FLUX_UPERR_b1 | float64 | erg / (cm2 s) | replace me column 136 |
- | ML_FLUX_UPERR_b2 | float64 | erg / (cm2 s) | replace me column 137 |
- | ML_FLUX_UPERR_b3 | float64 | erg / (cm2 s) | replace me column 138 |
- | ML_FLUX_UPERR_b4 | float64 | erg / (cm2 s) | replace me column 139 |
- | ML_FLUX_UPERR_s | float64 | erg / (cm2 s) | replace me column 140 |
- | ML_FLUX_UPERR_h | float64 | erg / (cm2 s) | replace me column 141 |
- | ML_FLUX_UPERR_u | float64 | erg / (cm2 s) | replace me column 142 |
- | ML_EXP_b1 | float64 | s | replace me column 143 |
- | ML_EXP_b2 | float64 | s | replace me column 144 |
- | ML_EXP_b3 | float64 | s | replace me column 145 |
- | ML_EXP_b4 | float64 | s | replace me column 146 |
- | ML_EXP_s | float64 | s | replace me column 147 |
- | ML_EXP_h | float64 | s | replace me column 148 |
- | ML_EXP_u | float64 | s | replace me column 149 |
- | ML_BKG_b1 | float64 | count/arcmin^2 | replace me column 150 |
- | ML_BKG_b2 | float64 | count/arcmin^2 | replace me column 151 |
- | ML_BKG_b3 | float64 | count/arcmin^2 | replace me column 152 |
- | ML_BKG_b4 | float64 | count/arcmin^2 | replace me column 153 |
- | ML_BKG_s | float64 | count/arcmin^2 | replace me column 154 |
- | ML_BKG_h | float64 | count/arcmin^2 | replace me column 155 |
- | ML_BKG_u | float64 | count/arcmin^2 | replace me column 156 |
- | APE_CTS_b1 | int32 | count | replace me column 157 |
- | APE_CTS_b2 | int32 | count | replace me column 158 |
- | APE_CTS_b3 | int32 | count | replace me column 159 |
- | APE_CTS_b4 | int32 | count | replace me column 160 |
- | APE_CTS_s | int32 | count | replace me column 161 |
- | APE_CTS_h | int32 | count | replace me column 162 |
- | APE_CTS_u | int32 | count | replace me column 163 |
- | APE_EXP_b1 | float64 | s | replace me column 164 |
- | APE_EXP_b2 | float64 | s | replace me column 165 |
- | APE_EXP_b3 | float64 | s | replace me column 166 |
- | APE_EXP_b4 | float64 | s | replace me column 167 |
- | APE_EXP_s | float64 | s | replace me column 168 |
- | APE_EXP_h | float64 | s | replace me column 169 |
- | APE_EXP_u | float64 | s | replace me column 170 |
- | APE_BKG_b1 | float64 | count | replace me column 171 |
- | APE_BKG_b2 | float64 | count | replace me column 172 |
- | APE_BKG_b3 | float64 | count | replace me column 173 |
- | APE_BKG_b4 | float64 | count | replace me column 174 |
- | APE_BKG_s | float64 | count | replace me column 175 |
- | APE_BKG_h | float64 | count | replace me column 176 |
- | APE_BKG_u | float64 | count | replace me column 177 |
- | APE_RADIUS_b1 | float64 | pixel | replace me column 178 |
- | APE_RADIUS_b2 | float64 | pixel | replace me column 179 |
- | APE_RADIUS_b3 | float64 | pixel | replace me column 180 |
- | APE_RADIUS_b4 | float64 | pixel | replace me column 181 |
- | APE_RADIUS_s | float64 | pixel | replace me column 182 |
- | APE_RADIUS_h | float64 | pixel | replace me column 183 |
- | APE_RADIUS_u | float64 | pixel | replace me column 184 |
- | APE_POIS_b1 | float64 |  | replace me column 185 |
- | APE_POIS_b2 | float64 |  | replace me column 186 |
- | APE_POIS_b3 | float64 |  | replace me column 187 |
- | APE_POIS_b4 | float64 |  | replace me column 188 |
- | APE_POIS_s | float64 |  | replace me column 189 |
- | APE_POIS_h | float64 |  | replace me column 190 |
- | APE_POIS_u | float64 |  | replace me column 191 |
+ | ObjID | char[23] |  | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |
+ | ERO_Name | char[22] |  | eROSITA official source Name |
+ | ERO_ID_HARD | int32 |  | ID of eROSITA source in the Hard Sample |
+ | SPECZ_REDSHIFT | float32 |  | Spectroscopic redshift from visual inspection (Aydar+2025) |
+ | SAMPLE | char[4] |  | Main or Hard sample from eROSITA (Brunner+2022) |
+ | ERO_ID_MAIN | int32 |  | ID of eROSITA source in the Main Sample |
+ | RA | float64 | deg | Uncorrected RA (ICRS) |
+ | DEC | float64 | deg | Uncorrected Dec (ICRS) |
+ | RADEC_ERR | float32 | arcsec | Combined positional uncertainty, uncorrected |
+ | RA_CORR | float64 | deg | J2000 Right Ascension of the eROSITA source (corrected) |
+ | DEC_CORR | float64 | deg | J2000 Declination of the eROSITA source (corrected) |
+ | RADEC_ERR_CORR | float64 | arcsec | eROSITA positional uncertainty (corrected) |
+ | EXT | float32 | arcsec | Source extent |
+ | EXT_ERR | float32 | arcsec | Extent error |
+ | EXT_LIKE | float32 |  | Extent likelihood |
+ | DET_LIKE_0 | float32 |  | Detection likelihood measured by PSF-fitting, combining 3 bands |
+ | ML_RATE_0 | float32 | count/s | Source count rate, combining 3 bands |
+ | ML_RATE_ERR_0 | float32 | count/s | 1 sigma count rate error |
+ | ML_CTS_0 | float32 | count | Source net counts, combining 3 bands |
+ | ML_CTS_ERR_0 | float32 | count | 1 sigma counts error |
+ | ML_FLUX_0 | float32 | erg / (cm2 s) | Source flux, combining 3 bands |
+ | ML_FLUX_ERR_0 | float32 | erg / (cm2 s) | 1 sigma flux error |
+ | ML_BKG_0 | float32 | count/arcmin^2 | Background flux at the source position |
+ | inArea90 | bool |  | True if in the 0.2-2.3keV exp>500s region, which comprises 90% area |
+ | DET_LIKE_1 | float32 |  | 0.2-0.6 keV detection likelihood |
+ | DET_LIKE_2 | float32 |  | 0.6-2.3 keV detection likelihood |
+ | DET_LIKE_3 | float32 |  | 2.3-5 keV detection likelihood |
+ | ML_RATE_1 | float32 | count/s | 0.2-0.6 keV count rate |
+ | ML_RATE_2 | float32 | count/s | 0.6-2.3 keV count rate |
+ | ML_RATE_3 | float32 | count/s | 2.3-5 keV count rate |
+ | ML_RATE_ERR_1 | float32 | count/s | 1 sigma count rate error; 0.2-0.6 keV |
+ | ML_RATE_ERR_2 | float32 | count/s | 1 sigma count rate error; 0.6-2.3 keV |
+ | ML_RATE_ERR_3 | float32 | count/s | 1 sigma count rate error; 2.3-5 keV |
+ | ML_CTS_1 | float32 | count | 0.2-0.6 keV net counts |
+ | ML_CTS_2 | float32 | count | 0.6-2.3 keV net counts |
+ | ML_CTS_3 | float32 | count | 2.3-5 keV net counts |
+ | ML_CTS_ERR_1 | float32 | count | 1 sigma counts error; 0.2-0.6 keV |
+ | ML_CTS_ERR_2 | float32 | count | 1 sigma counts error; 0.6-2.3 keV |
+ | ML_CTS_ERR_3 | float32 | count | 1 sigma counts error; 2.3-5 keV |
+ | ML_FLUX_1 | float32 | erg / (cm2 s) | 0.2-0.6 keV flux |
+ | ML_FLUX_2 | float32 | erg / (cm2 s) | 0.6-2.3 keV flux |
+ | ML_FLUX_3 | float32 | erg / (cm2 s) | 2.3-5 keV flux |
+ | ML_FLUX_ERR_1 | float32 | erg / (cm2 s) | 1 sigma flux error; 0.2-0.6 keV |
+ | ML_FLUX_ERR_2 | float32 | erg / (cm2 s) | 1 sigma flux error; 0.6-2.3 keV |
+ | ML_FLUX_ERR_3 | float32 | erg / (cm2 s) | 1 sigma flux error; 2.3-5 keV |
+ | ML_EXP_1 | float32 | s | Vignetted exposure value; 0.2-0.6 keV |
+ | ML_EXP_2 | float32 | s | Vignetted exposure value; 0.6-2.3 keV |
+ | ML_EXP_3 | float32 | s | Vignetted exposure value; 2.3-5 keV |
+ | ML_BKG_1 | float32 | count/arcmin^2 | Background flux at the source position; 0.2-0.6 keV |
+ | ML_BKG_2 | float32 | count/arcmin^2 | Background flux at the source position; 0.6-2.3 keV |
+ | ML_BKG_3 | float32 | count/arcmin^2 | Background flux at the source position; 2.3-5 keV |
+ | DET_LIKE_b1 | float64 |  | Detection likelihood measured by forced PSF-fitting; 0.2-0.5 keV |
+ | DET_LIKE_b2 | float64 |  | Detection likelihood measured by forced PSF-fitting; 0.5-1 keV |
+ | DET_LIKE_b3 | float64 |  | Detection likelihood measured by forced PSF-fitting; 1-2 keV |
+ | DET_LIKE_b4 | float64 |  | Detection likelihood measured by forced PSF-fitting; 2-4.5 keV |
+ | DET_LIKE_s | float64 |  | Detection likelihood measured by forced PSF-fitting; 0.5-2 keV |
+ | DET_LIKE_h | float64 |  | Detection likelihood measured by forced PSF-fitting; 2.3-5 keV |
+ | DET_LIKE_u | float64 |  | Detection likelihood measured by forced PSF-fitting; 5-8 keV |
+ | ML_RATE_b1 | float64 | count/s | Source count rate measured by forced PSF-fitting; 0.2-0.5 keV |
+ | ML_RATE_b2 | float64 | count/s | Source count rate measured by forced PSF-fitting; 0.5-1 keV |
+ | ML_RATE_b3 | float64 | count/s | Source count rate measured by forced PSF-fitting; 1-2 keV |
+ | ML_RATE_b4 | float64 | count/s | Source count rate measured by forced PSF-fitting; 2-4.5 keV |
+ | ML_RATE_s | float64 | count/s | Source count rate measured by forced PSF-fitting; 0.5-2 keV |
+ | ML_RATE_h | float64 | count/s | Source count rate measured by forced PSF-fitting; 2.3-5 keV |
+ | ML_RATE_u | float64 | count/s | Source count rate measured by forced PSF-fitting; 5-8 keV |
+ | ML_RATE_ERR_b1 | float64 | count/s | 1 sigma count rate error; 0.2-0.5 keV |
+ | ML_RATE_ERR_b2 | float64 | count/s | 1 sigma count rate error; 0.5-1 keV |
+ | ML_RATE_ERR_b3 | float64 | count/s | 1 sigma count rate error; 1-2 keV |
+ | ML_RATE_ERR_b4 | float64 | count/s | 1 sigma count rate error; 2-4.5 keV |
+ | ML_RATE_ERR_s | float64 | count/s | 1 sigma count rate error; 0.5-2 keV |
+ | ML_RATE_ERR_h | float64 | count/s | 1 sigma count rate error; 2.3-5 keV |
+ | ML_RATE_ERR_u | float64 | count/s | 1 sigma count rate error; 5-8 keV |
+ | ML_RATE_LOWERR_b1 | float64 | count/s | 1 sigma lower error of count rate; 0.2-0.5 keV |
+ | ML_RATE_LOWERR_b2 | float64 | count/s | 1 sigma lower error of count rate; 0.5-1 keV |
+ | ML_RATE_LOWERR_b3 | float64 | count/s | 1 sigma lower error of count rate; 1-2 keV |
+ | ML_RATE_LOWERR_b4 | float64 | count/s | 1 sigma lower error of count rate; 2-4.5 keV |
+ | ML_RATE_LOWERR_s | float64 | count/s | 1 sigma lower error of count rate; 0.5-2 keV |
+ | ML_RATE_LOWERR_h | float64 | count/s | 1 sigma lower error of count rate; 2.3-5 keV |
+ | ML_RATE_LOWERR_u | float64 | count/s | 1 sigma lower error of count rate; 5-8 keV |
+ | ML_RATE_UPERR_b1 | float64 | count/s | 1 sigma upper error of count rate; 0.2-0.5 keV |
+ | ML_RATE_UPERR_b2 | float64 | count/s | 1 sigma upper error of count rate; 0.5-1 keV |
+ | ML_RATE_UPERR_b3 | float64 | count/s | 1 sigma upper error of count rate; 1-2 keV |
+ | ML_RATE_UPERR_b4 | float64 | count/s | 1 sigma upper error of count rate; 2-4.5 keV |
+ | ML_RATE_UPERR_s | float64 | count/s | 1 sigma upper error of count rate; 0.5-2 keV |
+ | ML_RATE_UPERR_h | float64 | count/s | 1 sigma upper error of count rate; 2.3-5 keV |
+ | ML_RATE_UPERR_u | float64 | count/s | 1 sigma upper error of count rate; 5-8 keV |
+ | ML_CTS_b1 | float64 | count | Source net counts measured from count rate; 0.2-0.5 keV |
+ | ML_CTS_b2 | float64 | count | Source net counts measured from count rate; 0.5-1 keV |
+ | ML_CTS_b3 | float64 | count | Source net counts measured from count rate; 1-2 keV |
+ | ML_CTS_b4 | float64 | count | Source net counts measured from count rate; 2-4.5 keV |
+ | ML_CTS_s | float64 | count | Source net counts measured from count rate; 0.5-2 keV |
+ | ML_CTS_h | float64 | count | Source net counts measured from count rate; 2.3-5 keV |
+ | ML_CTS_u | float64 | count | Source net counts measured from count rate; 5-8 keV |
+ | ML_CTS_ERR_b1 | float64 | count | 1 sigma counts error; 0.2-0.5 keV |
+ | ML_CTS_ERR_b2 | float64 | count | 1 sigma counts error; 0.5-1 keV |
+ | ML_CTS_ERR_b3 | float64 | count | 1 sigma counts error; 1-2 keV |
+ | ML_CTS_ERR_b4 | float64 | count | 1 sigma counts error; 2-4.5 keV |
+ | ML_CTS_ERR_s | float64 | count | 1 sigma counts error; 0.5-2 keV |
+ | ML_CTS_ERR_h | float64 | count | 1 sigma counts error; 2.3-5 keV |
+ | ML_CTS_ERR_u | float64 | count | 1 sigma counts error; 5-8 keV |
+ | ML_CTS_LOWERR_b1 | float64 | count | 1 sigma lower error of counts; 0.2-0.5 keV |
+ | ML_CTS_LOWERR_b2 | float64 | count | 1 sigma lower error of counts; 0.5-1 keV |
+ | ML_CTS_LOWERR_b3 | float64 | count | 1 sigma lower error of counts; 1-2 keV |
+ | ML_CTS_LOWERR_b4 | float64 | count | 1 sigma lower error of counts; 2-4.5 keV |
+ | ML_CTS_LOWERR_s | float64 | count | 1 sigma lower error of counts; 0.5-2 keV |
+ | ML_CTS_LOWERR_h | float64 | count | 1 sigma lower error of counts; 2.3-5 keV |
+ | ML_CTS_LOWERR_u | float64 | count | 1 sigma lower error of counts; 5-8 keV |
+ | ML_CTS_UPERR_b1 | float64 | count | 1 sigma upper error of counts; 0.2-0.5 keV |
+ | ML_CTS_UPERR_b2 | float64 | count | 1 sigma upper error of counts; 0.5-1 keV |
+ | ML_CTS_UPERR_b3 | float64 | count | 1 sigma upper error of counts; 1-2 keV |
+ | ML_CTS_UPERR_b4 | float64 | count | 1 sigma upper error of counts; 2-4.5 keV |
+ | ML_CTS_UPERR_s | float64 | count | 1 sigma upper error of counts; 0.5-2 keV |
+ | ML_CTS_UPERR_h | float64 | count | 1 sigma upper error of counts; 2.3-5 keV |
+ | ML_CTS_UPERR_u | float64 | count | 1 sigma upper error of counts; 5-8 keV |
+ | ML_FLUX_b1 | float64 | erg / (cm2 s) | Source flux converted from count rate; 0.2-0.5 keV |
+ | ML_FLUX_b2 | float64 | erg / (cm2 s) | Source flux converted from count rate; 0.5-1 keV |
+ | ML_FLUX_b3 | float64 | erg / (cm2 s) | Source flux converted from count rate; 1-2 keV |
+ | ML_FLUX_b4 | float64 | erg / (cm2 s) | Source flux converted from count rate; 2-4.5 keV |
+ | ML_FLUX_s | float64 | erg / (cm2 s) | Source flux converted from count rate; 0.5-2 keV |
+ | ML_FLUX_h | float64 | erg / (cm2 s) | Source flux converted from count rate; 2.3-5 keV |
+ | ML_FLUX_u | float64 | erg / (cm2 s) | Source flux converted from count rate; 5-8 keV |
+ | ML_FLUX_ERR_b1 | float64 | erg / (cm2 s) | 1 sigma flux error; 0.2-0.5 keV |
+ | ML_FLUX_ERR_b2 | float64 | erg / (cm2 s) | 1 sigma flux error; 0.5-1 keV |
+ | ML_FLUX_ERR_b3 | float64 | erg / (cm2 s) | 1 sigma flux error; 1-2 keV |
+ | ML_FLUX_ERR_b4 | float64 | erg / (cm2 s) | 1 sigma flux error; 2-4.5 keV |
+ | ML_FLUX_ERR_s | float64 | erg / (cm2 s) | 1 sigma flux error; 0.5-2 keV |
+ | ML_FLUX_ERR_h | float64 | erg / (cm2 s) | 1 sigma flux error; 2.3-5 keV |
+ | ML_FLUX_ERR_u | float64 | erg / (cm2 s) | 1 sigma flux error; 5-8 keV |
+ | ML_FLUX_LOWERR_b1 | float64 | erg / (cm2 s) | 1 sigma lower error of flux; 0.2-0.5 keV |
+ | ML_FLUX_LOWERR_b2 | float64 | erg / (cm2 s) | 1 sigma lower error of flux; 0.5-1 keV |
+ | ML_FLUX_LOWERR_b3 | float64 | erg / (cm2 s) | 1 sigma lower error of flux; 1-2 keV |
+ | ML_FLUX_LOWERR_b4 | float64 | erg / (cm2 s) | 1 sigma lower error of flux; 2-4.5 keV |
+ | ML_FLUX_LOWERR_s | float64 | erg / (cm2 s) | 1 sigma lower error of flux; 0.5-2 keV |
+ | ML_FLUX_LOWERR_h | float64 | erg / (cm2 s) | 1 sigma lower error of flux; 2.3-5 keV |
+ | ML_FLUX_LOWERR_u | float64 | erg / (cm2 s) | 1 sigma lower error of flux; 5-8 keV |
+ | ML_FLUX_UPERR_b1 | float64 | erg / (cm2 s) | 1 sigma upper error of flux; 0.2-0.5 keV |
+ | ML_FLUX_UPERR_b2 | float64 | erg / (cm2 s) | 1 sigma upper error of flux; 0.5-1 keV |
+ | ML_FLUX_UPERR_b3 | float64 | erg / (cm2 s) | 1 sigma upper error of flux; 1-2 keV |
+ | ML_FLUX_UPERR_b4 | float64 | erg / (cm2 s) | 1 sigma upper error of flux; 2-4.5 keV |
+ | ML_FLUX_UPERR_s | float64 | erg / (cm2 s) | 1 sigma upper error of flux; 0.5-2 keV |
+ | ML_FLUX_UPERR_h | float64 | erg / (cm2 s) | 1 sigma upper error of flux; 2.3-5 keV |
+ | ML_FLUX_UPERR_u | float64 | erg / (cm2 s) | 1 sigma upper error of flux; 5-8 keV |
+ | ML_EXP_b1 | float64 | s | Vignetted exposure value; 0.2-0.5 keV |
+ | ML_EXP_b2 | float64 | s | Vignetted exposure value; 0.5-1 keV |
+ | ML_EXP_b3 | float64 | s | Vignetted exposure value; 1-2 keV |
+ | ML_EXP_b4 | float64 | s | Vignetted exposure value; 2-4.5 keV |
+ | ML_EXP_s | float64 | s | Vignetted exposure value; 0.5-2 keV |
+ | ML_EXP_h | float64 | s | Vignetted exposure value; 2.3-5 keV |
+ | ML_EXP_u | float64 | s | Vignetted exposure value; 5-8 keV |
+ | ML_BKG_b1 | float64 | count/arcmin^2 | Background flux at the source position; 0.2-0.5 keV |
+ | ML_BKG_b2 | float64 | count/arcmin^2 | Background flux at the source position; 0.5-1 keV |
+ | ML_BKG_b3 | float64 | count/arcmin^2 | Background flux at the source position; 1-2 keV |
+ | ML_BKG_b4 | float64 | count/arcmin^2 | Background flux at the source position; 2-4.5 keV |
+ | ML_BKG_s | float64 | count/arcmin^2 | Background flux at the source position; 0.5-2 keV |
+ | ML_BKG_h | float64 | count/arcmin^2 | Background flux at the source position; 2.3-5 keV |
+ | ML_BKG_u | float64 | count/arcmin^2 | Background flux at the source position; 5-8 keV |
+ | APE_CTS_b1 | int32 | count | Total counts extracted in the aperture; 0.2-0.5 keV |
+ | APE_CTS_b2 | int32 | count | Total counts extracted in the aperture; 0.5-1 keV |
+ | APE_CTS_b3 | int32 | count | Total counts extracted in the aperture; 1-2 keV |
+ | APE_CTS_b4 | int32 | count | Total counts extracted in the aperture; 2-4.5 keV |
+ | APE_CTS_s | int32 | count | Total counts extracted in the aperture; 0.5-2 keV |
+ | APE_CTS_h | int32 | count | Total counts extracted in the aperture; 2.3-5 keV |
+ | APE_CTS_u | int32 | count | Total counts extracted in the aperture; 5-8 keV |
+ | APE_EXP_b1 | float64 | s | Vignetted exposure value; 0.2-0.5 keV |
+ | APE_EXP_b2 | float64 | s | Vignetted exposure value; 0.5-1 keV |
+ | APE_EXP_b3 | float64 | s | Vignetted exposure value; 1-2 keV |
+ | APE_EXP_b4 | float64 | s | Vignetted exposure value; 2-4.5 keV |
+ | APE_EXP_s | float64 | s | Vignetted exposure value; 0.5-2 keV |
+ | APE_EXP_h | float64 | s | Vignetted exposure value; 2.3-5 keV |
+ | APE_EXP_u | float64 | s | Vignetted exposure value; 5-8 keV |
+ | APE_BKG_b1 | float64 | count | Background counts in aperture, excluding nearby sources; 0.2-0.5 keV |
+ | APE_BKG_b2 | float64 | count | Background counts in aperture, excluding nearby sources; 0.5-1 keV |
+ | APE_BKG_b3 | float64 | count | Background counts in aperture, excluding nearby sources; 1-2 keV |
+ | APE_BKG_b4 | float64 | count | Background counts in aperture, excluding nearby sources; 2-4.5 keV |
+ | APE_BKG_s | float64 | count | Background counts in aperture, excluding nearby sources; 0.5-2 keV |
+ | APE_BKG_h | float64 | count | Background counts in aperture, excluding nearby sources; 2.3-5 keV |
+ | APE_BKG_u | float64 | count | Background counts in aperture, excluding nearby sources; 5-8 keV |
+ | APE_RADIUS_b1 | float64 | pixel | Aperture radius; 0.2-0.5 keV |
+ | APE_RADIUS_b2 | float64 | pixel | Aperture radius; 0.5-1 keV |
+ | APE_RADIUS_b3 | float64 | pixel | Aperture radius; 1-2 keV |
+ | APE_RADIUS_b4 | float64 | pixel | Aperture radius; 2-4.5 keV |
+ | APE_RADIUS_s | float64 | pixel | Aperture radius; 0.5-2 keV |
+ | APE_RADIUS_h | float64 | pixel | Aperture radius; 2.3-5 keV |
+ | APE_RADIUS_u | float64 | pixel | Aperture radius; 5-8 keV |
+ | APE_POIS_b1 | float64 |  | Poisson probability of being background fluctuation; 0.2-0.5 keV |
+ | APE_POIS_b2 | float64 |  | Poisson probability of being background fluctuation; 0.5-1 keV |
+ | APE_POIS_b3 | float64 |  | Poisson probability of being background fluctuation; 1-2 keV |
+ | APE_POIS_b4 | float64 |  | Poisson probability of being background fluctuation; 2-4.5 keV |
+ | APE_POIS_s | float64 |  | Poisson probability of being background fluctuation; 0.5-2 keV |
+ | APE_POIS_h | float64 |  | Poisson probability of being background fluctuation; 2.3-5 keV |
+ | APE_POIS_u | float64 |  | Poisson probability of being background fluctuation; 5-8 keV |
 
 
 
@@ -4492,68 +4492,68 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU7
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | ObjID | char[23] |  | replace me column 1 |
- | ERO_Name | char[22] |  | replace me column 2 |
- | ERO_ID_HARD | int32 |  | replace me column 3 |
- | ERO_ID_MAIN | int32 |  | replace me column 4 |
- | SPECZ_REDSHIFT | float32 |  | replace me column 5 |
- | SAMPLE | char[4] |  | replace me column 6 |
- | ID_SRC | int32 |  | replace me column 7 |
- | Redshift | float32 |  | replace me column 8 |
- | New_Class | int32 |  | replace me column 9 |
- | New_quality | int32 |  | replace me column 10 |
- | RA_CORR | float64 | deg | replace me column 11 |
- | DEC_CORR | float64 | deg | replace me column 12 |
- | DET_LIKE | float32 |  | replace me column 13 |
- | inArea90 | bool |  | replace me column 14 |
- | EDR_QUALITY | int16 |  | replace me column 15 |
- | EDR_CLASS | int16 |  | replace me column 16 |
- | EDR_REDSHIFT | float32 |  | replace me column 17 |
- | LxModel | int32 |  | replace me column 18 |
- | NHclass | int32 |  | replace me column 19 |
- | FSModel | int32 |  | replace me column 20 |
- | FHModel | int32 |  | replace me column 21 |
- | galNH | float64 | cm-2 | replace me column 22 |
- | galNHI | float64 | cm-2 | replace me column 23 |
- | SrcCts | float64 | count | replace me column 24 |
- | FluxCorr_Med_s | float32 | erg / (cm2 s) | replace me column 25 |
- | FluxCorr_Lo1_s | float32 | erg / (cm2 s) | replace me column 26 |
- | FluxCorr_Up1_s | float32 | erg / (cm2 s) | replace me column 27 |
- | FluxCorr_Med_t | float32 | erg / (cm2 s) | replace me column 28 |
- | FluxCorr_Lo1_t | float32 | erg / (cm2 s) | replace me column 29 |
- | FluxCorr_Up1_t | float32 | erg / (cm2 s) | replace me column 30 |
- | FluxIntr_Med_s | float32 | erg / (cm2 s) | replace me column 31 |
- | FluxIntr_Lo1_s | float32 | erg / (cm2 s) | replace me column 32 |
- | FluxIntr_Up1_s | float32 | erg / (cm2 s) | replace me column 33 |
- | FluxIntr_Med_2keV | float32 | erg / (cm2 eV s) | replace me column 34 |
- | FluxIntr_Lo1_2keV | float32 | erg / (cm2 eV s) | replace me column 35 |
- | FluxIntr_Up1_2keV | float32 | erg / (cm2 eV s) | replace me column 36 |
- | LumiIntr_Med_s | float32 | erg / s | replace me column 37 |
- | LumiIntr_Lo1_s | float32 | erg / s | replace me column 38 |
- | LumiIntr_Up1_s | float32 | erg / s | replace me column 39 |
- | LumiIntr_Med_2keV | float32 | erg / (eV s) | replace me column 40 |
- | LumiIntr_Lo1_2keV | float32 | erg / (eV s) | replace me column 41 |
- | LumiIntr_Up1_2keV | float32 | erg / (eV s) | replace me column 42 |
- | FluxObsv_Med_s | float32 | erg / (cm2 s) | replace me column 43 |
- | FluxObsv_Lo1_s | float32 | erg / (cm2 s) | replace me column 44 |
- | FluxObsv_Up1_s | float32 | erg / (cm2 s) | replace me column 45 |
- | FluxObsv_Med_t | float32 | erg / (cm2 s) | replace me column 46 |
- | FluxObsv_Lo1_t | float32 | erg / (cm2 s) | replace me column 47 |
- | FluxObsv_Up1_t | float32 | erg / (cm2 s) | replace me column 48 |
- | lognH_KL_m1 | float32 | nats | replace me column 49 |
- | lognH_HLo_m1 | float32 | cm-2 | replace me column 50 |
- | lognH_HUp_m1 | float32 | cm-2 | replace me column 51 |
- | lognH_Med_m1 | float32 | cm-2 | replace me column 52 |
- | Gamma_KL_m3 | float32 | nats | replace me column 53 |
- | Gamma_HLo_m3 | float32 |  | replace me column 54 |
- | Gamma_HUp_m3 | float32 |  | replace me column 55 |
- | Gamma_Med_m3 | float32 |  | replace me column 56 |
- | logZ_m0 | float32 |  | replace me column 57 |
- | logZ_m1 | float32 |  | replace me column 58 |
- | logZ_m2 | float32 |  | replace me column 59 |
- | logZ_m3 | float32 |  | replace me column 60 |
- | logZ_m4 | float32 |  | replace me column 61 |
- | logZ_m5 | float32 |  | replace me column 62 |
+ | ObjID | char[23] |  | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |
+ | ERO_Name | char[22] |  | eROSITA official source Name (Brunner+2022) |
+ | ERO_ID_HARD | int32 |  | ID of Hard sample eROSITA source (Brunner+2022) |
+ | ERO_ID_MAIN | int32 |  | ID of Main sample eROSITA source (Brunner+2022) |
+ | SPECZ_REDSHIFT | float32 |  | Spectroscopic redshift from visual inspection (Aydar+2025) |
+ | SAMPLE | char[4] |  | Main or Hard sample from eROSITA (Brunner+2022) |
+ | ID_SRC | int32 |  | ID of the sources in the eFEDS main X-ray catalog (Paper I) |
+ | Redshift | float32 |  | Redshift of the optical counterpart (Paper II) |
+ | New_Class | int32 |  | Updated classification of the optical counterpart |
+ | New_quality | int32 |  | Updated counterpart quality |
+ | RA_CORR | float64 | deg | Right ascension (J2000), astrometric corrected (Paper I) |
+ | DEC_CORR | float64 | deg | Declination (J2000), astrometric corrected (Paper I) |
+ | DET_LIKE | float32 |  | 0.2-2.3 keV source detection likelihood (Paper I) |
+ | inArea90 | bool |  | Whether located inside the inner 90%-area region of eFEDS (Paper I) |
+ | EDR_QUALITY | int16 |  | Counterpart quality (Paper II). A value >=2 is recommended. |
+ | EDR_CLASS | int16 |  | Classification of the optical counterpart (Paper II). 0:likely Galac |
+ | EDR_REDSHIFT | float32 |  | Redshift of the optical counterpart (Paper II) |
+ | LxModel | int32 |  | Index of selected model for luminosity measurement. 1:single-powerla |
+ | NHclass | int32 |  | Class of AGN NH measurement with model 1 (single-powerlaw). 1: uninf |
+ | FSModel | int32 |  | Index of selected model for 0.5-2keV flux. 5: counts-based measureme |
+ | FHModel | int32 |  | Index of selected model for 2.3-5keV flux. 5: counts-based measureme |
+ | galNH | float64 | cm-2 | Total column density of Galactic absorption |
+ | galNHI | float64 | cm-2 | HI column density from HI4PI |
+ | SrcCts | float64 | count | Source net counts in the 0.2-5 keV band |
+ | FluxCorr_Med_s | float32 | erg / (cm2 s) | Absorption corrected flux in observed 0.5-2 keV, posterior median |
+ | FluxCorr_Lo1_s | float32 | erg / (cm2 s) | Absorption corrected flux in observed 0.5-2 keV, 1sigma lower limit |
+ | FluxCorr_Up1_s | float32 | erg / (cm2 s) | Absorption corrected flux in observed 0.5-2 keV, 1sigma upper limit |
+ | FluxCorr_Med_t | float32 | erg / (cm2 s) | Absorption corrected flux in observed 2.3-5 keV, posterior median |
+ | FluxCorr_Lo1_t | float32 | erg / (cm2 s) | Absorption corrected flux in observed 2.3-5 keV, 1sigma lower limit |
+ | FluxCorr_Up1_t | float32 | erg / (cm2 s) | Absorption corrected flux in observed 2.3-5 keV, 1sigma upper limit |
+ | FluxIntr_Med_s | float32 | erg / (cm2 s) | Absorption corrected flux in rest-frame 0.5-2 keV, posterior median |
+ | FluxIntr_Lo1_s | float32 | erg / (cm2 s) | Absorption corrected flux in rest-frame 0.5-2keV, 1sigma lower limit |
+ | FluxIntr_Up1_s | float32 | erg / (cm2 s) | Absorption corrected flux in rest-frame 0.5-2keV, 1sigma upper limit |
+ | FluxIntr_Med_2keV | float32 | erg / (cm2 eV s) | Absorption corrected flux at rest-frame 2keV, median |
+ | FluxIntr_Lo1_2keV | float32 | erg / (cm2 eV s) | Absorption corrected flux at rest-frame 2keV, 1sigma lower limit |
+ | FluxIntr_Up1_2keV | float32 | erg / (cm2 eV s) | Absorption corrected flux at rest-frame 2keV, 1sigma upper limit |
+ | LumiIntr_Med_s | float32 | erg / s | Intrinsic luminosity in rest-frame 0.5-2 keV, posterior median |
+ | LumiIntr_Lo1_s | float32 | erg / s | Intrinsic luminosity in rest-frame 0.5-2 keV, 1sigma lower limit |
+ | LumiIntr_Up1_s | float32 | erg / s | Intrinsic luminosity in rest-frame 0.5-2 keV, 1sigma upper limit |
+ | LumiIntr_Med_2keV | float32 | erg / (eV s) | Intrinsic luminosity at rest-frame 2keV, posterior median |
+ | LumiIntr_Lo1_2keV | float32 | erg / (eV s) | Intrinsic luminosity at rest-frame 2keV, 1sigma lower limit |
+ | LumiIntr_Up1_2keV | float32 | erg / (eV s) | Intrinsic luminosity at rest-frame 2keV, 1sigma upper limit |
+ | FluxObsv_Med_s | float32 | erg / (cm2 s) | Observed flux in observed 0.5-2 keV, posterior median |
+ | FluxObsv_Lo1_s | float32 | erg / (cm2 s) | Observed flux in observed 0.5-2 keV, 1sigma lower limit |
+ | FluxObsv_Up1_s | float32 | erg / (cm2 s) | Observed flux in observed 0.5-2 keV, 1sigma upper limit |
+ | FluxObsv_Med_t | float32 | erg / (cm2 s) | Observed flux in observed 2.3-5 keV, posterior median |
+ | FluxObsv_Lo1_t | float32 | erg / (cm2 s) | Observed flux in observed 2.3-5 keV, 1sigma lower limit |
+ | FluxObsv_Up1_t | float32 | erg / (cm2 s) | Observed flux in observed 2.3-5 keV, 1sigma upper limit |
+ | lognH_KL_m1 | float32 | nats | log AGN column density, KL divergence |
+ | lognH_HLo_m1 | float32 | cm-2 | log AGN column density, HDI lower limit |
+ | lognH_HUp_m1 | float32 | cm-2 | log AGN column density, HDI upper limit |
+ | lognH_Med_m1 | float32 | cm-2 | log AGN column density, posterior median |
+ | Gamma_KL_m3 | float32 | nats | primary power-law slope in model 3, KL divergence |
+ | Gamma_HLo_m3 | float32 |  | primary power-law slope in model 3, HDI lower limit |
+ | Gamma_HUp_m3 | float32 |  | primary power-law slope in model 3, HDI upper limit |
+ | Gamma_Med_m3 | float32 |  | primary power-law slope in model 3, posterior median |
+ | logZ_m0 | float32 |  | log Bayesian evidence with model 0: APEC |
+ | logZ_m1 | float32 |  | log Bayesian evidence with model 1: single powerlaw |
+ | logZ_m2 | float32 |  | log Bayesian evidence with model 2: double powerlaw |
+ | logZ_m3 | float32 |  | log Bayesian evidence with model 3: powerlaw + blackbody |
+ | logZ_m4 | float32 |  | log Bayesian evidence with model 4: powerlaw with Gamma fixed at 2.0 |
+ | logZ_m5 | float32 |  | log Bayesian evidence with model 5: shape-fixed powerlaw |
 
 
 
@@ -4894,184 +4894,184 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU8
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | ObjID | char[23] |  | replace me column 1 |
- | ERO_Name | char[22] |  | replace me column 2 |
- | ERO_ID_HARD | int32 |  | replace me column 3 |
- | ERO_ID_MAIN | int32 |  | replace me column 4 |
- | SAMPLE | char[4] |  | replace me column 5 |
- | CTP_LS8_UNIQUE_OBJID | char[11] |  | replace me column 6 |
- | CTP_LS8_RA | float64 | deg | replace me column 7 |
- | CTP_LS8_DEC | float64 | deg | replace me column 8 |
- | SPECZ_N_specz | int32 |  | replace me column 9 |
- | SPECZ_REDSHIFT_specz | float32 |  | replace me column 10 |
- | SPECZ_NORMQ_specz | int32 |  | replace me column 11 |
- | SPECZ_NORMC_specz | char[8] |  | replace me column 12 |
- | SPECZ_HASVI_specz | bool |  | replace me column 13 |
- | SPECZ_CATCODE_specz | char[12] |  | replace me column 14 |
- | SPECZ_BITMASK_specz | int64 |  | replace me column 15 |
- | PLUG_RA | float64 | deg | replace me column 16 |
- | PLUG_DEC | float64 | deg | replace me column 17 |
- | PLATE | int32 |  | replace me column 18 |
- | MJD | int32 |  | replace me column 19 |
- | FIBERID | int32 |  | replace me column 20 |
- | FIELD | int32 |  | replace me column 21 |
- | CATALOGID | int64 |  | replace me column 22 |
- | RUN2D | char[7] |  | replace me column 23 |
- | DR | char[4] |  | replace me column 24 |
- | URL | char[131] |  | replace me column 25 |
- | Sep_LS8_SDSS | float64 | arcsec | replace me column 26 |
- | SN_MEDIAN_ALL | float64 |  | replace me column 27 |
- | Z | float64 |  | replace me column 28 |
- | Z_ERR | float64 |  | replace me column 29 |
- | ZWARNING | float64 |  | replace me column 30 |
- | ERO_RA_CORR | float64 | deg | replace me column 31 |
- | ERO_DEC_CORR | float64 | deg | replace me column 32 |
- | ERO_RADEC_ERROR_CORR | float64 | deg | replace me column 33 |
- | ERO_ML_FLUX | float32 | erg / (cm2 s) | replace me column 34 |
- | ERO_ML_FLUX_ERR | float32 | erg / (cm2 s) | replace me column 35 |
- | ERO_DET_LIKE | float32 |  | replace me column 36 |
- | ERO_inArea90 | bool |  | replace me column 37 |
- | Dist_CTP_LS8_ERO | float64 | arcsec | replace me column 38 |
- | CTP_NWAY_LS8_UNIQUE_OBJID | char[11] |  | replace me column 39 |
- | CTP_NWAY_LS8_RA | float64 | deg | replace me column 40 |
- | CTP_NWAY_LS8_Dec | float64 | deg | replace me column 41 |
- | CTP_NWAY_dist_bayesfactor | float32 |  | replace me column 42 |
- | CTP_NWAY_dist_post | float32 |  | replace me column 43 |
- | CTP_NWAY_p_single | float32 |  | replace me column 44 |
- | CTP_NWAY_p_any | float32 |  | replace me column 45 |
- | CTP_NWAY_p_i | float32 |  | replace me column 46 |
- | Dist_NWAY_LS8_ERO | float32 | arcsec | replace me column 47 |
- | CTP_MLR_LS8_UNIQUE_OBJID | char[11] |  | replace me column 48 |
- | CTP_MLR_LS8_RA | float64 | deg | replace me column 49 |
- | CTP_MLR_LS8_DEC | float64 | deg | replace me column 50 |
- | CTP_MLR_LR_BEST | float64 |  | replace me column 51 |
- | CTP_MLR_REL_BEST | float64 |  | replace me column 52 |
- | Dist_MLR_LS8_ERO | float64 | arcsec | replace me column 53 |
- | CTP_SAME | int16 |  | replace me column 54 |
- | CTP_MLR | int16 |  | replace me column 55 |
- | CTP_Hamstar | int32 |  | replace me column 56 |
- | CTP_Hamstar_p_stellar | float64 | arcsec | replace me column 57 |
- | Dist_CTP_Hamstar | float64 | arcsec | replace me column 58 |
- | CTP_quality | int16 |  | replace me column 59 |
- | GaiaEDR3_ID | int64 |  | replace me column 60 |
- | GaiaEDR3_parallax | float64 | mas | replace me column 61 |
- | GaiaEDR3_parallax_error | float64 | mas | replace me column 62 |
- | GaiaEDR3_parallax_over_error | float64 |  | replace me column 63 |
- | GaiaEDR3_pmra | float64 | mas / yr | replace me column 64 |
- | GaiaEDR3_pmra_error | float64 | mas / yr | replace me column 65 |
- | GaiaEDR3_pmdec | float64 | mas / yr | replace me column 66 |
- | GaiaEDR3_pmdec_error | float64 | mas / yr | replace me column 67 |
- | GaiaEDR3_phot_g_mean_mag | float64 | mag | replace me column 68 |
- | GaiaEDR3_phot_g_mean_mag_error | float64 | mag | replace me column 69 |
- | GaiaEDR3_phot_bp_mean_mag | float64 | mag | replace me column 70 |
- | GaiaEDR3_phot_bp_mean_mag_error | float64 | mag | replace me column 71 |
- | GaiaEDR3_phot_rp_mean_mag | float64 | mag | replace me column 72 |
- | GaiaEDR3_phot_rp_mean_mag_error | float64 | mag | replace me column 73 |
- | FUV | float64 | mag | replace me column 74 |
- | FUV_ERR | float64 | mag | replace me column 75 |
- | NUV | float64 | mag | replace me column 76 |
- | NUV_ERR | float64 | mag | replace me column 77 |
- | KiDS_u | float64 | mag | replace me column 78 |
- | KiDS_u_ERR | float64 | mag | replace me column 79 |
- | KiDS_g | float64 | mag | replace me column 80 |
- | KiDS_g_ERR | float64 | mag | replace me column 81 |
- | KiDS_r | float64 | mag | replace me column 82 |
- | KiDS_r_ERR | float64 | mag | replace me column 83 |
- | KiDS_i | float64 | mag | replace me column 84 |
- | KiDS_i_ERR | float64 | mag | replace me column 85 |
- | omegac_z | int16 | mag | replace me column 86 |
- | omegac_z_ERR | float32 | mag | replace me column 87 |
- | HSC_g | float64 | mag | replace me column 88 |
- | HSC_g_ERR | float64 | mag | replace me column 89 |
- | HSC_r | float64 | mag | replace me column 90 |
- | HSC_r_ERR | float64 | mag | replace me column 91 |
- | HSC_r2 | float64 | mag | replace me column 92 |
- | HSC_r2_ERR | float64 | mag | replace me column 93 |
- | HSC_i | float64 | mag | replace me column 94 |
- | HSC_i_ERR | float64 | mag | replace me column 95 |
- | HSC_i2 | float64 | mag | replace me column 96 |
- | HSC_i2_ERR | float64 | mag | replace me column 97 |
- | HSC_z | float64 | mag | replace me column 98 |
- | HSC_z_ERR | float64 | mag | replace me column 99 |
- | HSC_Y | float64 | mag | replace me column 100 |
- | HSC_Y_ERR | float64 | mag | replace me column 101 |
- | VISTA_z | float64 | mag | replace me column 102 |
- | VISTA_z_ERR | float64 | mag | replace me column 103 |
- | VISTA_Y | float64 | mag | replace me column 104 |
- | VISTA_Y_ERR | float64 | mag | replace me column 105 |
- | VISTA_J | float64 | mag | replace me column 106 |
- | VISTA_J_ERR | float64 | mag | replace me column 107 |
- | VISTA_H | float64 | mag | replace me column 108 |
- | VISTA_H_ERR | float64 | mag | replace me column 109 |
- | VISTA_Ks | float64 | mag | replace me column 110 |
- | VISTA_Ks_ERR | float64 | mag | replace me column 111 |
- | W1 | float64 | mag | replace me column 112 |
- | W1_ERR | float64 | mag | replace me column 113 |
- | W2 | float64 | mag | replace me column 114 |
- | W2_ERR | float64 | mag | replace me column 115 |
- | W3 | float64 | mag | replace me column 116 |
- | W3_ERR | float64 | mag | replace me column 117 |
- | W4 | float64 | mag | replace me column 118 |
- | W4_ERR | float64 | mag | replace me column 119 |
- | LS8_g | float64 | mag | replace me column 120 |
- | LS8_g_ERR | float64 | mag | replace me column 121 |
- | LS8_r | float64 | mag | replace me column 122 |
- | LS8_r_ERR | float64 | mag | replace me column 123 |
- | LS8_z | float64 | mag | replace me column 124 |
- | LS8_z_ERR | float64 | mag | replace me column 125 |
- | VHS_Y | float64 | mag | replace me column 126 |
- | VHS_Y_ERR | float32 | mag | replace me column 127 |
- | VHS_H | float64 | mag | replace me column 128 |
- | VHS_H_ERR | float32 | mag | replace me column 129 |
- | VHS_Ks | float64 | mag | replace me column 130 |
- | VHS_Ks_ERR | float32 | mag | replace me column 131 |
- | HSC_g_diff | float64 | mag | replace me column 132 |
- | HSC_r_diff | float64 | mag | replace me column 133 |
- | HSC_i_diff | float64 | mag | replace me column 134 |
- | HSC_z_diff | float64 | mag | replace me column 135 |
- | HSC_opt_extended | int32 |  | replace me column 136 |
- | CTP_LS8_phot_flag | bool |  | replace me column 137 |
- | CTP_LS8_TYPE | char[4] |  | replace me column 138 |
- | in_KiDS_flag | int16 |  | replace me column 139 |
- | in_HSC_flag | int16 |  | replace me column 140 |
- | SPECZ_RA | float64 | deg | replace me column 141 |
- | SPECZ_DEC | float64 | deg | replace me column 142 |
- | SPECZ_REDSHIFT | float64 |  | replace me column 143 |
- | SPECZ_NORMQ | int32 |  | replace me column 144 |
- | SPECZ_ORIGIN | char[8] |  | replace me column 145 |
- | SPECZ_ORIG_ID | char[12] |  | replace me column 146 |
- | SPECZ_galaxy_flag | bool |  | replace me column 147 |
- | SPECZ_star_flag | bool |  | replace me column 148 |
- | CTP_Classification | char[20] |  | replace me column 149 |
- | PHZ_LePHARE_zphot | float32 |  | replace me column 150 |
- | PHZ_LePHARE_zl68 | float32 |  | replace me column 151 |
- | PHZ_LePHARE_zu68 | float32 |  | replace me column 152 |
- | PHZ_LePHARE_zl90 | float32 |  | replace me column 153 |
- | PHZ_LePHARE_zu90 | float32 |  | replace me column 154 |
- | PHZ_LePHARE_zl99 | float32 |  | replace me column 155 |
- | PHZ_LePHARE_zu99 | float32 |  | replace me column 156 |
- | PHZ_LePHARE_chi2 | float64 |  | replace me column 157 |
- | PHZ_LePHARE_modelAGN | int16 |  | replace me column 158 |
- | PHZ_LePHARE_extlaw | int16 |  | replace me column 159 |
- | PHZ_LePHARE_EBV | float32 |  | replace me column 160 |
- | PHZ_LePHARE_pdz | float32 |  | replace me column 161 |
- | PHZ_LePHARE_nband | int16 |  | replace me column 162 |
- | PHZ_LePHARE_zphot_2 | float32 |  | replace me column 163 |
- | PHZ_LePHARE_chi2_2 | float64 |  | replace me column 164 |
- | PHZ_LePHARE_modelAGN_2 | int16 |  | replace me column 165 |
- | PHZ_LePHARE_pdz_2 | float32 |  | replace me column 166 |
- | PHZ_DNNz_zphot | float64 |  | replace me column 167 |
- | PHZ_DNNZ_zl68 | float64 |  | replace me column 168 |
- | PHZ_DNNZ_zu68 | float64 |  | replace me column 169 |
- | PHZ_DNNZ_zl95 | float64 |  | replace me column 170 |
- | PHZ_DNNz_zu95 | float64 |  | replace me column 171 |
- | CTP_REDSHIFT | float64 |  | replace me column 172 |
- | CTP_REDSHIFT_GRADE | int16 |  | replace me column 173 |
- | CLUSTER_CLASS | int16 |  | replace me column 174 |
- | CTP_CLASS | int16 |  | replace me column 175 |
- | NSPEC | int32 |  | replace me column 176 |
- | SDSS_CLASS | char[20] |  | replace me column 177 |
- | SDSS_SUBCLASS | char[20] |  | replace me column 178 |
+ | ObjID | char[23] |  | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |
+ | ERO_Name | char[22] |  | eROSITA official source Name (Brunner+2022) |
+ | ERO_ID_HARD | int32 |  | ID of eROSITA source in the Hard Sample |
+ | ERO_ID_MAIN | int32 |  | ID of Main sample eROSITA source (Brunner+2022) |
+ | SAMPLE | char[4] |  | Main or Hard sample from eROSITA (Brunner+2022) |
+ | CTP_LS8_UNIQUE_OBJID | char[11] |  | LS8 unique identifier for the counterpart to the eROSITA source (Exp |
+ | CTP_LS8_RA | float64 | deg | J2000 Right Ascension of the LS8 counterpart |
+ | CTP_LS8_DEC | float64 | deg | J2000 Declination of the LS8 counterpart |
+ | SPECZ_N_specz | int32 |  | Total number of spec_z associated with this Legacy Survey DR9 object |
+ | SPECZ_REDSHIFT_specz | float32 |  | Spectroscopic redshift from Visual Inspection (Aydar+2025) |
+ | SPECZ_NORMQ_specz | int32 |  | Normalised quality of spectroscopic redshift: 3=secure, 2=not secure |
+ | SPECZ_NORMC_specz | char[8] |  | Final normalised classification determined for this object |
+ | SPECZ_HASVI_specz | bool |  | True if best spec-z for this object has a visual inspection |
+ | SPECZ_CATCODE_specz | char[12] |  | Catalogue code of best spec-z for this object |
+ | SPECZ_BITMASK_specz | int64 |  | Bitmask encoding catalogues containing spec-z for this object. Bit e |
+ | PLUG_RA | float64 | deg | SDSS right ascension sky coordinate of spectroscopic fibre |
+ | PLUG_DEC | float64 | deg | SDSS declination sky coordinate of spectroscopic fibre |
+ | PLATE | int32 |  | SDSS plate |
+ | MJD | int32 |  | SDSS modified Julian date of observation |
+ | FIBERID | int32 |  | SDSS FIBER ID |
+ | FIELD | int32 |  | SDSS field sequence number |
+ | CATALOGID | int64 |  | SDSS CATALOGID (used before the unification with SDSS_ID) |
+ | RUN2D | char[7] |  | Tagged version of idlspec2d used to reduce the SDSS BOSS spectra |
+ | DR | char[4] |  | SDSS Data Release version |
+ | URL | char[131] |  | SDSS url to (internal) access observed spectrum |
+ | Sep_LS8_SDSS | float64 | arcsec | Distance between matched objects along a great circle |
+ | SN_MEDIAN_ALL | float64 |  | SDSS Median S/N per pix in spectrum (idlspec2d v6_0_2 reductions) |
+ | Z | float64 |  | SDSS Pipeline redshift in idlspec2d eFEDS v6_0_2 reductions |
+ | Z_ERR | float64 |  | SDSS Pipeline redshift uncertainty in idlspec2d eFEDS v6_0_2 reducti |
+ | ZWARNING | float64 |  | SDSS Pipeline redshift warning flags in idlspec2d eFEDS v6_0_2 reduc |
+ | ERO_RA_CORR | float64 | deg | J2000 Right Ascension of the eROSITA source (corrected) |
+ | ERO_DEC_CORR | float64 | deg | J2000 Declination of the eROSITA source (corrected) |
+ | ERO_RADEC_ERROR_CORR | float64 | deg | eROSITA positional uncertainty (corrected) |
+ | ERO_ML_FLUX | float32 | erg / (cm2 s) | 0.2-2.3 keV source flux converted from count rate assuming ECF=1.074 |
+ | ERO_ML_FLUX_ERR | float32 | erg / (cm2 s) | 2.3-5 keV source flux error (1 sigma) |
+ | ERO_DET_LIKE | float32 |  | X-ray detection likelihood measured by PSF-fitting |
+ | ERO_inArea90 | bool |  | True if in the 0.2-2.3keV exp>500s region, which comprises 90% |
+ | Dist_CTP_LS8_ERO | float64 | arcsec | Separation between selected counterpart and eROSITA (corrected) posi |
+ | CTP_NWAY_LS8_UNIQUE_OBJID | char[11] |  | Unique OBJECTID of the best LS8 counterpart from NWAY (Expression: t |
+ | CTP_NWAY_LS8_RA | float64 | deg | J2000 Right Ascension of the best LS8 counterpart from NWAY |
+ | CTP_NWAY_LS8_Dec | float64 | deg | J2000 Declination of the best LS8 counterpart from NWAY |
+ | CTP_NWAY_dist_bayesfactor | float32 |  | Logarithm of ratio between prior and posterior, from separation, pos |
+ | CTP_NWAY_dist_post | float32 |  | Distance probability comparing this association vs. no association ( |
+ | CTP_NWAY_p_single | float32 |  | Same as dist_post, but weighted by the prior (see Appx. in Salvato e |
+ | CTP_NWAY_p_any | float32 |  | For each entry in the X-ray catalogue, the probability that there is |
+ | CTP_NWAY_p_i | float32 |  | Relative probability of the eROSITA/LS8 match (see Appx. in Salvato |
+ | Dist_NWAY_LS8_ERO | float32 | arcsec | Separation between the X-ray position and the best LS8 counterparts |
+ | CTP_MLR_LS8_UNIQUE_OBJID | char[11] |  | LS8 unique identifier of the LS8 counterpart from Maximum Likelihood |
+ | CTP_MLR_LS8_RA | float64 | deg | J2000 Right Ascension of the LS8 counterpart |
+ | CTP_MLR_LS8_DEC | float64 | deg | J2000 Declination of the best LS8 counterpart |
+ | CTP_MLR_LR_BEST | float64 |  | Likelihood Ratio value from Maximum Likelihood Ratio technique |
+ | CTP_MLR_REL_BEST | float64 |  | Reliability of the identification from Maximum Likelihood Ratio tech |
+ | Dist_MLR_LS8_ERO | float64 | arcsec | Separation between the X-ray position and the best LS8 counterparts |
+ | CTP_SAME | int16 |  | Comparison NWAY/MLR: true if the counterpart selected by the two met |
+ | CTP_MLR | int16 |  | Comparison NWAY/MLR: true if the counterpart from NWAY/MLR has p_any |
+ | CTP_Hamstar | int32 |  | Match to Hamstar: 1=same counterpart, 0=different counterpart, -99=n |
+ | CTP_Hamstar_p_stellar | float64 | arcsec | probability of association from Hamstar |
+ | Dist_CTP_Hamstar | float64 | arcsec | Separation between Hamstar ctp and NWAY/MLR ctp |
+ | CTP_quality | int16 |  | colour: 1=best, 4=best, 3=good, 2=with secondary, 1/0=unreliable. (s |
+ | GaiaEDR3_ID | int64 |  | ID in Gaia EDR3 source catalog |
+ | GaiaEDR3_parallax | float64 | mas | Parallax from Gaia EDR3 |
+ | GaiaEDR3_parallax_error | float64 | mas | Parallax error from Gaia EDR3 |
+ | GaiaEDR3_parallax_over_error | float64 |  | Parallax/Parallax error, ratio >5 SECURE GALACTIC |
+ | GaiaEDR3_pmra | float64 | mas / yr | Proper motion in RA from Gaia EDR3 |
+ | GaiaEDR3_pmra_error | float64 | mas / yr | Proper motion error in RA from Gaia EDR3 |
+ | GaiaEDR3_pmdec | float64 | mas / yr | Proper motion in Dec from Gaia EDR3 |
+ | GaiaEDR3_pmdec_error | float64 | mas / yr | Proper motion error in Dec from Gaia EDR3 |
+ | GaiaEDR3_phot_g_mean_mag | float64 | mag | g band magnitude (VEGA) from Gaia EDR3 |
+ | GaiaEDR3_phot_g_mean_mag_error | float64 | mag | Error g band magnitude from Gaia EDR3 |
+ | GaiaEDR3_phot_bp_mean_mag | float64 | mag | bp band magnitude from Gaia EDR3 |
+ | GaiaEDR3_phot_bp_mean_mag_error | float64 | mag | Error bp band magnitude from Gaia EDR3 |
+ | GaiaEDR3_phot_rp_mean_mag | float64 | mag | rp band magnitude (VEGA) from Gaia EDR3 |
+ | GaiaEDR3_phot_rp_mean_mag_error | float64 | mag | Error rp band magnitude from Gaia EDR3 |
+ | FUV | float64 | mag | Galex Far UV magnitude (AB) |
+ | FUV_ERR | float64 | mag | Galex Far UV magnitude error (AB) |
+ | NUV | float64 | mag | Galex Near UV magnitude (AB) |
+ | NUV_ERR | float64 | mag | Galex Near UV magnitude error (AB) |
+ | KiDS_u | float64 | mag | KIDS u-band magnitude |
+ | KiDS_u_ERR | float64 | mag | KIDS u-band magnitude error |
+ | KiDS_g | float64 | mag | KIDS g-band magnitude |
+ | KiDS_g_ERR | float64 | mag | KIDS g-band magnitude error |
+ | KiDS_r | float64 | mag | KIDS r-band magnitude |
+ | KiDS_r_ERR | float64 | mag | KIDS r-band magnitude error |
+ | KiDS_i | float64 | mag | KIDS i-band magnitude |
+ | KiDS_i_ERR | float64 | mag | KIDS i-band magnitude error |
+ | omegac_z | int16 | mag | OmegaCAM z-band magnitude (AB) |
+ | omegac_z_ERR | float32 | mag | OmegaCAM z-band magnitude error |
+ | HSC_g | float64 | mag | HSC g-band magnitude (AB) |
+ | HSC_g_ERR | float64 | mag | HSC g-band magnitude error |
+ | HSC_r | float64 | mag | HSC r-band magnitude (AB) when images are mostly from r-filter (see |
+ | HSC_r_ERR | float64 | mag | HSC r-band magnitude error |
+ | HSC_r2 | float64 | mag | HSC r2-band magnitude (AB) when images are mostly from r2-filter (se |
+ | HSC_r2_ERR | float64 | mag | HSC r2-band magnitude error |
+ | HSC_i | float64 | mag | HSC i-band magnitude (AB) when images are mostly from i-filter (see |
+ | HSC_i_ERR | float64 | mag | HSC i-band magnitude error |
+ | HSC_i2 | float64 | mag | HSC i2-band magnitude (AB) when images are mostly from i2-filter (se |
+ | HSC_i2_ERR | float64 | mag | HSC i2-band magnitude error |
+ | HSC_z | float64 | mag | HSC z-band magnitude (AB) |
+ | HSC_z_ERR | float64 | mag | HSC z-band magnitude error |
+ | HSC_Y | float64 | mag | HSC Y-band magnitude (AB) |
+ | HSC_Y_ERR | float64 | mag | HSC Y-band magnitude error |
+ | VISTA_z | float64 | mag | VISTA/VIKING z-band magnitude (AB) |
+ | VISTA_z_ERR | float64 | mag | VISTA/VIKING z-band magnitude error |
+ | VISTA_Y | float64 | mag | VISTA/VIKING Y-band magnitude (AB) |
+ | VISTA_Y_ERR | float64 | mag | VISTA/VIKING Y-band magnitude error |
+ | VISTA_J | float64 | mag | VISTA/VIKING J-band magnitude (AB) |
+ | VISTA_J_ERR | float64 | mag | VISTA/VIKING J-band magnitude error |
+ | VISTA_H | float64 | mag | VISTA/VIKING H-band magnitude (AB) |
+ | VISTA_H_ERR | float64 | mag | VISTA/VIKING H-band magnitude error |
+ | VISTA_Ks | float64 | mag | VISTA/VIKING Ks-band magnitude (AB) |
+ | VISTA_Ks_ERR | float64 | mag | VISTA/VIKING Ks-band magnitude error |
+ | W1 | float64 | mag | LS8/Wise W1 magnitude (AB) |
+ | W1_ERR | float64 | mag | LS8/Wise W1 magnitude error |
+ | W2 | float64 | mag | LS8/Wise W2 magnitude (AB) |
+ | W2_ERR | float64 | mag | LS8/Wise W2 magnitude error |
+ | W3 | float64 | mag | LS8/Wise W3 magnitude (AB) |
+ | W3_ERR | float64 | mag | LS8/Wise W3 magnitude error |
+ | W4 | float64 | mag | LS8/Wise W4 magnitude (AB) |
+ | W4_ERR | float64 | mag | LS8/Wise W4 magnitude error |
+ | LS8_g | float64 | mag | LS8 g-band magnitude (AB) |
+ | LS8_g_ERR | float64 | mag | LS8 g-band magnitude error |
+ | LS8_r | float64 | mag | LS8 r-band magnitude (AB) |
+ | LS8_r_ERR | float64 | mag | LS8 r-band magnitude error |
+ | LS8_z | float64 | mag | LS8 z-band magnitude (AB) |
+ | LS8_z_ERR | float64 | mag | LS8 z-band magnitude error |
+ | VHS_Y | float64 | mag | VISTA/VHS Y-band magnitude (AB) |
+ | VHS_Y_ERR | float32 | mag | VISTA/VHS Y-band magnitude error |
+ | VHS_H | float64 | mag | VISTA/VHS H-band magnitude (AB) |
+ | VHS_H_ERR | float32 | mag | VISTA/VHS H-band magnitude error |
+ | VHS_Ks | float64 | mag | VISTA/VHS Ks-band magnitude (AB) |
+ | VHS_Ks_ERR | float32 | mag | VISTA/VHS Ks-band magnitude error |
+ | HSC_g_diff | float64 | mag | Difference between psf and Kron magnitude in HSC g-band |
+ | HSC_r_diff | float64 | mag | Distance between pfron and Kron magnitude in HSC r-band |
+ | HSC_i_diff | float64 | mag | Distance between pfron and Kron magnitude in HSC i-band |
+ | HSC_z_diff | float64 | mag | Distance between pfron and Kron magnitude in HSC z-band |
+ | HSC_opt_extended | int32 |  | Extension in HSC griz bands. 1=extended; -99=data missing; 0=other f |
+ | CTP_LS8_phot_flag | bool |  | Flag for LS8 photometry: true when the source has simultaneously g,r |
+ | CTP_LS8_TYPE | char[4] |  | Morphological model from LS8 |
+ | in_KiDS_flag | int16 |  | Source is in KIDS area |
+ | in_HSC_flag | int16 |  | Source is in HSC area |
+ | SPECZ_RA | float64 | deg | J2000 Right Ascension of the spectroscopic redshift entry in the ori |
+ | SPECZ_DEC | float64 | deg | J2000 Declination of the spectroscopic redshift entry in the origina |
+ | SPECZ_REDSHIFT | float64 |  | Spectroscopic redshift from the original catalogue |
+ | SPECZ_NORMQ | int32 |  | Normalised quality of spectroscopic redshift: 3=secure, 2=not secure |
+ | SPECZ_ORIGIN | char[8] |  | Catalogue which provided this spectroscopic redshift |
+ | SPECZ_ORIG_ID | char[12] |  | Original ID of this spec-z in ORIGIN catalogue |
+ | SPECZ_galaxy_flag | bool |  | True when the CTP has a reliable redshift above 0.002 |
+ | SPECZ_star_flag | bool |  | True when the CTP has a reliable redshift below 0.002 |
+ | CTP_Classification | char[20] |  | SECURE/LIKELY GALACTIC/EXTRAGALACTIC, as from flowchart (Salvato+202 |
+ | PHZ_LePHARE_zphot | float32 |  | Photoz from Le PHARE, but set to 0 for GALACTIC sources |
+ | PHZ_LePHARE_zl68 | float32 |  | Le PHARE zphot min at 1 sigma |
+ | PHZ_LePHARE_zu68 | float32 |  | Le PHARE zphot max at 1 sigma |
+ | PHZ_LePHARE_zl90 | float32 |  | Le PHARE zphot min at 2 sigma |
+ | PHZ_LePHARE_zu90 | float32 |  | Le PHARE zphot max at 2 sigma |
+ | PHZ_LePHARE_zl99 | float32 |  | Le PHARE zphot min at 3 sigma |
+ | PHZ_LePHARE_zu99 | float32 |  | Le PHARE zphot max at 3 sigma |
+ | PHZ_LePHARE_chi2 | float64 |  | Le PHARE chi2 value for best fitting galaxy/AGN template |
+ | PHZ_LePHARE_modelAGN | int16 |  | Le PHARE model number for best template fitting the data (for PLIKE |
+ | PHZ_LePHARE_extlaw | int16 |  | Le PHARE Extinction Law applied to the template: Prevot (1) or none |
+ | PHZ_LePHARE_EBV | float32 |  | Le PHARE E(B-V) applied to the template |
+ | PHZ_LePHARE_pdz | float32 |  | Le Phare probability distribution: Photoz more reliable when value i |
+ | PHZ_LePHARE_nband | int16 |  | Le Phare number of bands used for the computation of photoz |
+ | PHZ_LePHARE_zphot_2 | float32 |  | Le Phare best photoz from LePhare, if existing |
+ | PHZ_LePHARE_chi2_2 | float64 |  | Le Phare chi2 value for second best fitting template, if existing |
+ | PHZ_LePHARE_modelAGN_2 | int16 |  | Le Phare second best template fitting the data, if existing |
+ | PHZ_LePHARE_pdz_2 | float32 |  | Le Phare distribution of photoz for secondary solution, if existing |
+ | PHZ_DNNz_zphot | float64 |  | Photoz from DNNZ (from Nishizawa et al.), but set to 0 for GALACTIC |
+ | PHZ_DNNZ_zl68 | float64 |  | DNNZ zphot min at 1 sigma |
+ | PHZ_DNNZ_zu68 | float64 |  | DNNZ zphot max at 1 sigma |
+ | PHZ_DNNZ_zl95 | float64 |  | DNNZ zphot min at 2 sigma |
+ | PHZ_DNNz_zu95 | float64 |  | DNNZ zphot max at 2 sigma |
+ | CTP_REDSHIFT | float64 |  | Final redshift: zspec when available, else photo-z from Le PHARE; 0 |
+ | CTP_REDSHIFT_GRADE | int16 |  | In a range from 5 (spectroscopy) to 0 (unreliable photo-z) |
+ | CLUSTER_CLASS | int16 |  | Range from 5 (most likely a cluster) to 1 (not a cluster) (see Salva |
+ | CTP_CLASS | int16 |  | same as CTP_classification, but with numbers: 3: SECURE EXTRAGALACTI |
+ | NSPEC | int32 |  | Number of spectra for the same eROSITA source |
+ | SDSS_CLASS | char[20] |  | SDSS class (STAR, GALAXY, QSO) in idlspec2d eFEDS v6_0_2 reductions |
+ | SDSS_SUBCLASS | char[20] |  | SDSS subclass in idlspec2d eFEDS v6_0_2 reductions |
 
 
 
