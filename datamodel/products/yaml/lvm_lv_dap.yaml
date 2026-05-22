@@ -52,15 +52,16 @@ releases:
     access:
       in_sdss_access: true
       path_name: lvm_lv_dap
-      path_template: $LVM_SPECTRO_ANALYSIS/{drpver}/{tileid}/{mjd}/{expnum:0>8}/LV_dap-{rspid}-{snlevel}-{expnum:0>8}.{daptype}.fits
+      path_template: $LVM_SPECTRO_ANALYSIS/{drpver}/{dapver}/@tilegrp|/{tileid}/{mjd}/{expnum:0>8}/LV_dap-{rspid}-{snlevel}-{expnum:0>8}.{daptype}.fits
       path_kwargs:
-      - mjd
-      - tileid
       - expnum
-      - snlevel
-      - drpver
-      - daptype
       - rspid
+      - drpver
+      - dapver
+      - snlevel
+      - tileid
+      - mjd
+      - daptype
       access_string: lvm_lv_dap = $LVM_SPECTRO_ANALYSIS/{drpver}/{dapver}/{tilegrp}/{tileid}/{mjd}/{expnum}/LV_dap-{rspid}-{snlevel}-{expnum}.{daptype}.fits
     survey: SDSS
     hdus:
@@ -15644,7 +15645,7 @@ releases:
               masked in the analysis.
           fiberid:
             name: fiberid
-            type: char[9]
+            type: int64
             unit: ''
             description: Fiber identifier from the original DRP SLITMAP extension.
           exposure:
