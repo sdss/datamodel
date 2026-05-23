@@ -6,6 +6,7 @@ general:
   filesize: 846 KB
   releases:
   - IPL4
+  - DR20
   environments:
   - PLATELIST_DIR
   surveys:
@@ -19,9 +20,12 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR20:
+      from: IPL4
+      note: No changes
 releases:
-  IPL4:
+  IPL4: &id001
     template: $PLATELIST_DIR/plates/[PLATEDIR]/plateHoles-[PLATEID6].par
     example: plates/0154XX/015418/plateHoles-015418.par
     location: plates/{platedir}/plateHoles-{plateid:0>6}.par
@@ -1112,7 +1116,6 @@ releases:
             is_array: false
             is_enum: false
             example: 0.0
-notes: |-
-  None
-regrets: |-
-  I  have no regrets!
+  DR20: *id001
+notes: None
+regrets: I  have no regrets!

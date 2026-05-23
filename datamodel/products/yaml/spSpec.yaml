@@ -10,6 +10,7 @@ general:
   - IPL3
   - DR19
   - IPL4
+  - DR20
   environments:
   - BOSS_SPECTRO_REDUX
   surveys:
@@ -25,14 +26,17 @@ changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
   releases:
+    DR20:
+      from: IPL4
+      note: No changes
     IPL4:
       from: DR19
       primary_delta_nkeys: 3
       added_primary_header_kwargs:
-      - EXTNAME
       - TAI
-      - SFLATMIN
       - PIXFLAT
+      - EXTNAME
+      - SFLATMIN
       removed_primary_header_kwargs:
       - NAXIS1
     DR19:
@@ -16815,7 +16819,7 @@ releases:
             type: float32
             unit: ''
             description: spectral resolution in A units
-  IPL4:
+  IPL4: &id001
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/coadd/[MJD]/spSpec-[FIELD]-[MJD]-[CATALOGID].fits
     example: v6_2_1/fields/112XXX/112360/coadd/60000/spSpec-112360-60000-27021598150202075.fits
     location: '{run2d}/fields/{fieldgrp}/{field}/coadd/{mjd}/spSpec-{field}-{mjd}-{catalogid}.fits'
@@ -25353,7 +25357,6 @@ releases:
             type: float32
             unit: ''
             description: spectral resolution in A units
-notes: |-
-  None
-regrets: |-
-  I have no regrets!
+  DR20: *id001
+notes: None
+regrets: I have no regrets!

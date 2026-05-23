@@ -19,7 +19,7 @@ The spectral data for a given field, epoch, and catalogid including the coadded 
 $BOSS_SPECTRO_REDUX/[RUN2D]/spectra/epoch/full/[FIELDGRP]/[FIELD]/[MJD]/spec-[FIELD]-[MJD]-[CATALOGID].fits
 
 ### Releases
-IPL3, DR19, IPL4
+IPL3, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,8 +39,8 @@ False
 ### Data Level
 2.2.1
 
-### HDUS List for release DR19
-  - [HDU0: PRIMARY](#hdu0-primary)
+### HDUS List for release DR20
+  - [HDU0: FLUX](#hdu0-flux)
   - [HDU1: COADD](#hdu1-coadd)
   - [HDU2: SPALL](#hdu2-spall)
   - [HDU3: ZALL](#hdu3-zall)
@@ -63,13 +63,16 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
    - added_hdus: ['FLUX']
    - removed_hdus: ['PRIMARY']
    - primary_delta_nkeys: 2
-   - added_primary_header_kwargs: ['EXTNAME', 'TAI', 'SFLATMIN', 'PIXFLAT']
-   - removed_primary_header_kwargs: ['SIGAS0', 'CENAS0']
+   - added_primary_header_kwargs: ['SFLATMIN', 'PIXFLAT', 'TAI', 'EXTNAME']
+   - removed_primary_header_kwargs: ['CENAS0', 'SIGAS0']
  - DR19
    - from: IPL3
    - note: No changes
@@ -77,7 +80,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 ---
 ## Example HDUS List
 
-### HDU0: PRIMARY
+### HDU0: FLUX
 spField metadata
 
 #### HDU Type: IMAGE
@@ -86,10 +89,10 @@ spField metadata
 ##### Header Table Caption for HDU0
 Key | Value | Comment | |
 | --- | --- | --- | --- |
-| SIMPLE | True | Written by IDL:  Wed Apr  3 03:57:47 2024 |
-| BITPIX | 8 | Number of bits per data pixel |
-| NAXIS | 0 | Number of data axes |
-| EXTEND | True |  |
+| SIMPLE | True | Primary Header created by MWRFITS v1.13 |
+| BITPIX | 8 |  |
+| NAXIS | 0 |  |
+| EXTEND | True | Extensions may be present |
 |  |  |  |
 |  | INSTRUMENT INFO |  |
 | TELESCOP | SDSS 2.5-M | Telescope |
@@ -137,7 +140,10 @@ Key | Value | Comment | |
 | EXPT_B2 | 0.0 | B2 camera exposure time (seconds) |
 | EXPT_R2 | 0.0 | R2 camera exposure time (seconds) |
 | EXPTIME | 11701.0701782 | Total Exposure time in seconds of integration |
-| SPCOADD | Fri Apr 12 21:14:13 2024 | SPCOADD finished |
+| TAI | 5183983711.7 | Mean MJD(TAI) seconds of integrations |
+| TAI-BEG | 5183933265.0 | MJD(TAI) seconds at start of integrations |
+| TAI-END | 5184028003.08 | MJD(TAI) seconds at End of integrations |
+| SPCOADD | Mon Jun  9 14:19:17 2025 | SPCOADD finished |
 |  |  |  |
 |  | FIELD/PLATE INFO |  |
 | NAME |  | The name of the currently loaded plate |
@@ -149,6 +155,7 @@ Key | Value | Comment | |
 | SRVYMODE |  | Survey leading this observation and its mode |
 | FIELDID | 112360 | FPS field |
 | MJD | 60000 |  |
+| NGUIDE | 309.0 | Number of guider frames during integration |
 | FIELDCAD | dark_174x8_v1 |  |
 | SLITID | 0 | spectrograph Normalized slithead ID. |
 |  |  |  |
@@ -179,18 +186,19 @@ Key | Value | Comment | |
 | CAMDAQ | 1.5.0:37 | Camera Data Acquisition Version |
 | BOSSVER |  | ICC version |
 | VERSIDL | 8.8.0 | Version of IDL |
-| VERSUTIL | 6.0.0dev | Version of idlutils |
-| VERSREAD | v6_1_3 | Version of idlspec2d for pre-processing raw data |
+| VERSUTIL | 6.3.0 | Version of idlutils |
+| VERSREAD | v6_2_1 | Version of idlspec2d for pre-processing raw data |
 | VERSLOG | trunk 27531 | Version of SPECLOG product |
-| VERSFLAT | v1_35 | SPECFLAT version |
-| VERS2D | v6_1_3 | Version of idlspec2d for 2D reduction |
-| VERSCOMB | v6_1_3 | Version of idlspec2d for combining multiple spe |
+| VERSFLAT | v1_36 | SPECFLAT version |
+| VERS2D | v6_2_1 | Version of idlspec2d for 2D reduction |
+| VERSCOMB | v6_2_1 | Version of idlspec2d for combining multiple spe |
 |  |  |  |
 |  | REDUCTION |  |
+| PIXFLAT | pixflatave-59768-b1.fits.gz | Name of Pixel Flat used |
 | BADPIXEL | badpixels-59747-b1.fits.gz | Name of Badpixel mask used |
 |  |  |  |
 |  | PIPELINE OUTPUTS |  |
-| RUN2D | v6_1_3 | Spectro-2D reduction name |
+| RUN2D | v6_2_1 | Spectro-2D reduction name |
 | REDDEN01 | 0.0 | Median extinction in u-band |
 | REDDEN02 | 0.0 | Median extinction in g-band |
 | REDDEN03 | 0.0 | Median extinction in r-band |
@@ -201,60 +209,59 @@ Key | Value | Comment | |
 | SKYLIST | skylines.dat |  |
 | OBSMODE | dark_rm |  |
 | SIGBS0 | 0.048 | 5577.3 line gaussian fit sigma position before |
-| CENBS0 | -0.224 | 5577.3 line gaussian fit center position before |
+| CENBS0 | -0.223 | 5577.3 line gaussian fit center position before |
 | AVGBS0 | -0.232 | 5577.3 line average position before shift (pixe |
-| STDBS0 | 0.046 | 5577.3 line std position before shift (pixels) |
-| SIGAS0 | 0.025 | 5577.3 line gaussian fit sigma position after s |
-| CENAS0 | 0.003 | 5577.3 line gaussian fit center position after |
-| AVGAS0 | 0.004 | 5577.3 line average position after shift (pixel |
-| STDAS0 | 0.020 | 5577.3 line std position after shift (pixels) |
+| STDBS0 | 0.047 | 5577.3 line std position before shift (pixels) |
+| AVGAS0 | 0.003 | 5577.3 line average position after shift (pixel |
+| STDAS0 | 0.019 | 5577.3 line std position after shift (pixels) |
 | VACUUM | True | Wavelengths are in vacuum |
 | SFLATTEN | True | Superflat has been applied |
+| SFLATMIN | 0.005 | Superflat Minimum |
 | PSFSKY | 3 | Order of PSF skysubtraction |
 | PREJECT | 0.2 | Profile area rejection threshold |
-| SPEC1_G | 21.1374130845 | (S/N)^2 for spec  1 at mag 21.20 |
-| FSPEC1_G | 19.9482 | Fit (S/N)^2 for spec  1 at mag 21.20 |
-| SN2EXT1G | 21.1374130845 | Extinction corrected (S/N)^2 |
-| FSN2EX1G | 19.9482 | Extinction corrected Fit (S/N)^2 |
-| SPEC1_R | 74.7339222431 | (S/N)^2 for spec  1 at mag 20.20 |
-| FSPEC1_R | 72.6865 | Fit (S/N)^2 for spec  1 at mag 20.20 |
-| SN2EXT1R | 74.7339222431 | Extinction corrected (S/N)^2 |
-| FSN2EX1R | 72.6865 | Extinction corrected Fit (S/N)^2 |
-| SPEC1_I | 64.1479740143 | (S/N)^2 for spec  1 at mag 20.20 |
-| FSPEC1_I | 64.3646 | Fit (S/N)^2 for spec  1 at mag 20.20 |
-| SN2EXT1I | 64.1479740143 | Extinction corrected (S/N)^2 |
-| FSN2EX1I | 64.3646 | Extinction corrected Fit (S/N)^2 |
-| NSTD | 70 | Number of (good) std stars |
-| GOFFSTD | -0.0446708068848 | Spectrophoto offset for std stars in G-band |
-| GRMSSTD | 0.0681647935742 | Spectrophoto RMS for std stars in G-band |
-| ROFFSTD | -0.0277010345459 | Spectrophoto offset for std stars in R-band |
-| RRMSSTD | 0.0771244624768 | Spectrophoto RMS for std stars in R-band |
-| IOFFSTD | -0.0163473968506 | Spectrophoto offset for std stars in I-band |
-| IRMSSTD | 0.0939281880399 | Spectrophoto RMS for std stars in I-band |
-| GROFFSTD | -0.00294980621338 | Spectrophoto offset for std stars in (GR) |
-| GRRMSSTD | 0.0844571575977 | Spectrophoto RMS for std stars in (GR) |
-| RIOFFSTD | -0.0200244445801 | Spectrophoto offset for std stars in (RI) |
-| RIRMSSTD | 0.0394228870735 | Spectrophoto RMS for std stars in (RI) |
-| NGAL | 430 | Number of (good) main galaxies |
-| GOFFGAL | 0.0923559799194 | Spectrophoto offset for main galaxies in G-band |
-| GRMSGAL | 0.34255253212 | Spectrophoto RMS for main galaxies in G-band |
-| ROFFGAL | 0.0240796661377 | Spectrophoto offset for main galaxies in R-band |
-| RRMSGAL | 0.271340699103 | Spectrophoto RMS for main galaxies in R-band |
-| IOFFGAL | 0.0406880493164 | Spectrophoto offset for main galaxies in I-band |
-| IRMSGAL | 0.257888709429 | Spectrophoto RMS for main galaxies in I-band |
-| GROFFGAL | 0.0387496032715 | Spectrophoto offset for main galaxies in (GR) |
-| GRRMSGAL | 0.162223615726 | Spectrophoto RMS for main galaxies in (GR) |
-| RIOFFGAL | -0.017344619751 | Spectrophoto offset for main galaxies in (RI) |
-| RIRMSGAL | 0.157059112249 | Spectrophoto RMS for main galaxies in (RI) |
-| SNC01G00 | 1.48455 | SN fit coeff for spec 1, exp 00 at G-band |
-| SNC11G00 | 8.72113 | SN fit coeff for spec 1, exp 00 at G-band |
-| SN2_1G00 | 2.00834 | (S/N)^2 for spec  1, exp 00 at mag 21.20 at G-b |
-| SNC01R00 | 1.49167 | SN fit coeff for spec 1, exp 00 at R-band |
-| SNC11R00 | 11.9366 | SN fit coeff for spec 1, exp 00 at R-band |
-| SN2_1R00 | 7.60031 | (S/N)^2 for spec  1, exp 00 at mag 20.20 at R-b |
-| SNC01I00 | 1.43877 | SN fit coeff for spec 1, exp 00 at I-band |
-| SNC11I00 | 14.0264 | SN fit coeff for spec 1, exp 00 at I-band |
-| SN2_1I00 | 6.40943 | (S/N)^2 for spec  1, exp 00 at mag 20.20 at I-b |
+| SPEC1_G | 21.7788501382 | (S/N)^2 for spec  1 at mag 21.20 |
+| FSPEC1_G | 20.5651 | Fit (S/N)^2 for spec  1 at mag 21.20 |
+| SN2EXT1G | 21.7788501382 | Extinction corrected (S/N)^2 |
+| FSN2EX1G | 20.5651 | Extinction corrected Fit (S/N)^2 |
+| SPEC1_R | 76.2257802486 | (S/N)^2 for spec  1 at mag 20.20 |
+| FSPEC1_R | 74.4024 | Fit (S/N)^2 for spec  1 at mag 20.20 |
+| SN2EXT1R | 76.2257802486 | Extinction corrected (S/N)^2 |
+| FSN2EX1R | 74.4024 | Extinction corrected Fit (S/N)^2 |
+| SPEC1_I | 65.8170142174 | (S/N)^2 for spec  1 at mag 20.20 |
+| FSPEC1_I | 66.4778 | Fit (S/N)^2 for spec  1 at mag 20.20 |
+| SN2EXT1I | 65.8170142174 | Extinction corrected (S/N)^2 |
+| FSN2EX1I | 66.4778 | Extinction corrected Fit (S/N)^2 |
+| NSTD | 69 | Number of (good) std stars |
+| GOFFSTD | -0.0395247802734 | Spectrophoto offset for std stars in G-band |
+| GRMSSTD | 0.0782720912988 | Spectrophoto RMS for std stars in G-band |
+| ROFFSTD | -0.0291315460205 | Spectrophoto offset for std stars in R-band |
+| RRMSSTD | 0.0720634073742 | Spectrophoto RMS for std stars in R-band |
+| IOFFSTD | -0.0245804672241 | Spectrophoto offset for std stars in I-band |
+| IRMSSTD | 0.0934468353875 | Spectrophoto RMS for std stars in I-band |
+| GROFFSTD | -0.0110760650635 | Spectrophoto offset for std stars in (GR) |
+| GRRMSSTD | 0.0955021646979 | Spectrophoto RMS for std stars in (GR) |
+| RIOFFSTD | -0.0121757049561 | Spectrophoto offset for std stars in (RI) |
+| RIRMSSTD | 0.0410565302584 | Spectrophoto RMS for std stars in (RI) |
+| NGAL | 419 | Number of (good) main galaxies |
+| GOFFGAL | 0.0747063293457 | Spectrophoto offset for main galaxies in G-band |
+| GRMSGAL | 0.32096811015 | Spectrophoto RMS for main galaxies in G-band |
+| ROFFGAL | 0.018766746521 | Spectrophoto offset for main galaxies in R-band |
+| RRMSGAL | 0.267352201527 | Spectrophoto RMS for main galaxies in R-band |
+| IOFFGAL | 0.030025970459 | Spectrophoto offset for main galaxies in I-band |
+| IRMSGAL | 0.25621640734 | Spectrophoto RMS for main galaxies in I-band |
+| GROFFGAL | 0.0446890869141 | Spectrophoto offset for main galaxies in (GR) |
+| GRRMSGAL | 0.168475915801 | Spectrophoto RMS for main galaxies in (GR) |
+| RIOFFGAL | -0.0128871459961 | Spectrophoto offset for main galaxies in (RI) |
+| RIRMSGAL | 0.154559321399 | Spectrophoto RMS for main galaxies in (RI) |
+| SNC01G00 | 1.47977 | SN fit coeff for spec 1, exp 00 at G-band |
+| SNC11G00 | 8.30353 | SN fit coeff for spec 1, exp 00 at G-band |
+| SN2_1G00 | 2.06715 | (S/N)^2 for spec  1, exp 00 at mag 21.20 at G-b |
+| SNC01R00 | 1.4876 | SN fit coeff for spec 1, exp 00 at R-band |
+| SNC11R00 | 11.4884 | SN fit coeff for spec 1, exp 00 at R-band |
+| SN2_1R00 | 7.72995 | (S/N)^2 for spec  1, exp 00 at mag 20.20 at R-b |
+| SNC01I00 | 1.43998 | SN fit coeff for spec 1, exp 00 at I-band |
+| SNC11I00 | 13.6504 | SN fit coeff for spec 1, exp 00 at I-band |
+| SN2_1I00 | 6.53011 | (S/N)^2 for spec  1, exp 00 at mag 20.20 at I-b |
 | SNC02G00 | 0.0 | SN fit coeff for spec 2, exp 00 at G-band |
 | SNC12G00 | 0.0 | SN fit coeff for spec 2, exp 00 at G-band |
 | SN2_2G00 | 0.0 | (S/N)^2 for spec  2, exp 00 at mag 21.20 at G-b |
@@ -264,15 +271,15 @@ Key | Value | Comment | |
 | SNC02I00 | 0.0 | SN fit coeff for spec 2, exp 00 at I-band |
 | SNC12I00 | 0.0 | SN fit coeff for spec 2, exp 00 at I-band |
 | SN2_2I00 | 0.0 | (S/N)^2 for spec  2, exp 00 at mag 20.20 at I-b |
-| SNC01G01 | 1.45073 | SN fit coeff for spec 1, exp 01 at G-band |
-| SNC11G01 | 10.1233 | SN fit coeff for spec 1, exp 01 at G-band |
-| SN2_1G01 | 1.71771 | (S/N)^2 for spec  1, exp 01 at mag 21.20 at G-b |
-| SNC01R01 | 1.45622 | SN fit coeff for spec 1, exp 01 at R-band |
-| SNC11R01 | 13.8718 | SN fit coeff for spec 1, exp 01 at R-band |
-| SN2_1R01 | 6.61164 | (S/N)^2 for spec  1, exp 01 at mag 20.20 at R-b |
-| SNC01I01 | 1.40989 | SN fit coeff for spec 1, exp 01 at I-band |
-| SNC11I01 | 15.949 | SN fit coeff for spec 1, exp 01 at I-band |
-| SN2_1I01 | 5.66705 | (S/N)^2 for spec  1, exp 01 at mag 20.20 at I-b |
+| SNC01G01 | 1.44564 | SN fit coeff for spec 1, exp 01 at G-band |
+| SNC11G01 | 9.65677 | SN fit coeff for spec 1, exp 01 at G-band |
+| SN2_1G01 | 1.76703 | (S/N)^2 for spec  1, exp 01 at mag 21.20 at G-b |
+| SNC01R01 | 1.45231 | SN fit coeff for spec 1, exp 01 at R-band |
+| SNC11R01 | 13.4001 | SN fit coeff for spec 1, exp 01 at R-band |
+| SN2_1R01 | 6.71901 | (S/N)^2 for spec  1, exp 01 at mag 20.20 at R-b |
+| SNC01I01 | 1.41097 | SN fit coeff for spec 1, exp 01 at I-band |
+| SNC11I01 | 15.5233 | SN fit coeff for spec 1, exp 01 at I-band |
+| SN2_1I01 | 5.7771 | (S/N)^2 for spec  1, exp 01 at mag 20.20 at I-b |
 | SNC02G01 | 0.0 | SN fit coeff for spec 2, exp 01 at G-band |
 | SNC12G01 | 0.0 | SN fit coeff for spec 2, exp 01 at G-band |
 | SN2_2G01 | 0.0 | (S/N)^2 for spec  2, exp 01 at mag 21.20 at G-b |
@@ -282,15 +289,15 @@ Key | Value | Comment | |
 | SNC02I01 | 0.0 | SN fit coeff for spec 2, exp 01 at I-band |
 | SNC12I01 | 0.0 | SN fit coeff for spec 2, exp 01 at I-band |
 | SN2_2I01 | 0.0 | (S/N)^2 for spec  2, exp 01 at mag 20.20 at I-b |
-| SNC01G02 | 1.47984 | SN fit coeff for spec 1, exp 02 at G-band |
-| SNC11G02 | 10.3253 | SN fit coeff for spec 1, exp 02 at G-band |
-| SN2_1G02 | 1.76085 | (S/N)^2 for spec  1, exp 02 at mag 21.20 at G-b |
-| SNC01R02 | 1.45903 | SN fit coeff for spec 1, exp 02 at R-band |
-| SNC11R02 | 15.0038 | SN fit coeff for spec 1, exp 02 at R-band |
-| SN2_1R02 | 6.31497 | (S/N)^2 for spec  1, exp 02 at mag 20.20 at R-b |
-| SNC01I02 | 1.4043 | SN fit coeff for spec 1, exp 02 at I-band |
-| SNC11I02 | 17.112 | SN fit coeff for spec 1, exp 02 at I-band |
-| SN2_1I02 | 5.36512 | (S/N)^2 for spec  1, exp 02 at mag 20.20 at I-b |
+| SNC01G02 | 1.47448 | SN fit coeff for spec 1, exp 02 at G-band |
+| SNC11G02 | 9.77268 | SN fit coeff for spec 1, exp 02 at G-band |
+| SN2_1G02 | 1.82195 | (S/N)^2 for spec  1, exp 02 at mag 21.20 at G-b |
+| SNC01R02 | 1.45487 | SN fit coeff for spec 1, exp 02 at R-band |
+| SNC11R02 | 14.4847 | SN fit coeff for spec 1, exp 02 at R-band |
+| SN2_1R02 | 6.42201 | (S/N)^2 for spec  1, exp 02 at mag 20.20 at R-b |
+| SNC01I02 | 1.40532 | SN fit coeff for spec 1, exp 02 at I-band |
+| SNC11I02 | 16.6668 | SN fit coeff for spec 1, exp 02 at I-band |
+| SN2_1I02 | 5.46865 | (S/N)^2 for spec  1, exp 02 at mag 20.20 at I-b |
 | SNC02G02 | 0.0 | SN fit coeff for spec 2, exp 02 at G-band |
 | SNC12G02 | 0.0 | SN fit coeff for spec 2, exp 02 at G-band |
 | SN2_2G02 | 0.0 | (S/N)^2 for spec  2, exp 02 at mag 21.20 at G-b |
@@ -300,15 +307,15 @@ Key | Value | Comment | |
 | SNC02I02 | 0.0 | SN fit coeff for spec 2, exp 02 at I-band |
 | SNC12I02 | 0.0 | SN fit coeff for spec 2, exp 02 at I-band |
 | SN2_2I02 | 0.0 | (S/N)^2 for spec  2, exp 02 at mag 20.20 at I-b |
-| SNC01G03 | 1.47427 | SN fit coeff for spec 1, exp 03 at G-band |
-| SNC11G03 | 8.97963 | SN fit coeff for spec 1, exp 03 at G-band |
-| SN2_1G03 | 1.93895 | (S/N)^2 for spec  1, exp 03 at mag 21.20 at G-b |
-| SNC01R03 | 1.48238 | SN fit coeff for spec 1, exp 03 at R-band |
-| SNC11R03 | 12.5552 | SN fit coeff for spec 1, exp 03 at R-band |
-| SN2_1R03 | 7.28348 | (S/N)^2 for spec  1, exp 03 at mag 20.20 at R-b |
-| SNC01I03 | 1.4406 | SN fit coeff for spec 1, exp 03 at I-band |
-| SNC11I03 | 13.6583 | SN fit coeff for spec 1, exp 03 at I-band |
-| SN2_1I03 | 6.53342 | (S/N)^2 for spec  1, exp 03 at mag 20.20 at I-b |
+| SNC01G03 | 1.46947 | SN fit coeff for spec 1, exp 03 at G-band |
+| SNC11G03 | 8.59791 | SN fit coeff for spec 1, exp 03 at G-band |
+| SN2_1G03 | 1.98809 | (S/N)^2 for spec  1, exp 03 at mag 21.20 at G-b |
+| SNC01R03 | 1.47907 | SN fit coeff for spec 1, exp 03 at R-band |
+| SNC11R03 | 12.1054 | SN fit coeff for spec 1, exp 03 at R-band |
+| SN2_1R03 | 7.41065 | (S/N)^2 for spec  1, exp 03 at mag 20.20 at R-b |
+| SNC01I03 | 1.44185 | SN fit coeff for spec 1, exp 03 at I-band |
+| SNC11I03 | 13.2652 | SN fit coeff for spec 1, exp 03 at I-band |
+| SN2_1I03 | 6.66393 | (S/N)^2 for spec  1, exp 03 at mag 20.20 at I-b |
 | SNC02G03 | 0.0 | SN fit coeff for spec 2, exp 03 at G-band |
 | SNC12G03 | 0.0 | SN fit coeff for spec 2, exp 03 at G-band |
 | SN2_2G03 | 0.0 | (S/N)^2 for spec  2, exp 03 at mag 21.20 at G-b |
@@ -318,15 +325,15 @@ Key | Value | Comment | |
 | SNC02I03 | 0.0 | SN fit coeff for spec 2, exp 03 at I-band |
 | SNC12I03 | 0.0 | SN fit coeff for spec 2, exp 03 at I-band |
 | SN2_2I03 | 0.0 | (S/N)^2 for spec  2, exp 03 at mag 20.20 at I-b |
-| SNC01G04 | 1.46584 | SN fit coeff for spec 1, exp 04 at G-band |
-| SNC11G04 | 12.5047 | SN fit coeff for spec 1, exp 04 at G-band |
-| SN2_1G04 | 1.48962 | (S/N)^2 for spec  1, exp 04 at mag 21.20 at G-b |
-| SNC01R04 | 1.40058 | SN fit coeff for spec 1, exp 04 at R-band |
-| SNC11R04 | 16.0349 | SN fit coeff for spec 1, exp 04 at R-band |
-| SN2_1R04 | 5.57278 | (S/N)^2 for spec  1, exp 04 at mag 20.20 at R-b |
-| SNC01I04 | 1.33492 | SN fit coeff for spec 1, exp 04 at I-band |
-| SNC11I04 | 16.6499 | SN fit coeff for spec 1, exp 04 at I-band |
-| SN2_1I04 | 4.93784 | (S/N)^2 for spec  1, exp 04 at mag 20.20 at I-b |
+| SNC01G04 | 1.46033 | SN fit coeff for spec 1, exp 04 at G-band |
+| SNC11G04 | 11.9316 | SN fit coeff for spec 1, exp 04 at G-band |
+| SN2_1G04 | 1.53403 | (S/N)^2 for spec  1, exp 04 at mag 21.20 at G-b |
+| SNC01R04 | 1.39484 | SN fit coeff for spec 1, exp 04 at R-band |
+| SNC11R04 | 15.3865 | SN fit coeff for spec 1, exp 04 at R-band |
+| SN2_1R04 | 5.67841 | (S/N)^2 for spec  1, exp 04 at mag 20.20 at R-b |
+| SNC01I04 | 1.33499 | SN fit coeff for spec 1, exp 04 at I-band |
+| SNC11I04 | 15.8536 | SN fit coeff for spec 1, exp 04 at I-band |
+| SN2_1I04 | 5.10101 | (S/N)^2 for spec  1, exp 04 at mag 20.20 at I-b |
 | SNC02G04 | 0.0 | SN fit coeff for spec 2, exp 04 at G-band |
 | SNC12G04 | 0.0 | SN fit coeff for spec 2, exp 04 at G-band |
 | SN2_2G04 | 0.0 | (S/N)^2 for spec  2, exp 04 at mag 21.20 at G-b |
@@ -336,15 +343,15 @@ Key | Value | Comment | |
 | SNC02I04 | 0.0 | SN fit coeff for spec 2, exp 04 at I-band |
 | SNC12I04 | 0.0 | SN fit coeff for spec 2, exp 04 at I-band |
 | SN2_2I04 | 0.0 | (S/N)^2 for spec  2, exp 04 at mag 20.20 at I-b |
-| SNC01G05 | 1.36618 | SN fit coeff for spec 1, exp 05 at G-band |
-| SNC11G05 | 17.8636 | SN fit coeff for spec 1, exp 05 at G-band |
-| SN2_1G05 | 0.966487 | (S/N)^2 for spec  1, exp 05 at mag 21.20 at G-b |
-| SNC01R05 | 1.34374 | SN fit coeff for spec 1, exp 05 at R-band |
-| SNC11R05 | 28.5096 | SN fit coeff for spec 1, exp 05 at R-band |
-| SN2_1R05 | 3.39203 | (S/N)^2 for spec  1, exp 05 at mag 20.20 at R-b |
-| SNC01I05 | 1.2843 | SN fit coeff for spec 1, exp 05 at I-band |
-| SNC11I05 | 33.4881 | SN fit coeff for spec 1, exp 05 at I-band |
-| SN2_1I05 | 2.72959 | (S/N)^2 for spec  1, exp 05 at mag 20.20 at I-b |
+| SNC01G05 | 1.36014 | SN fit coeff for spec 1, exp 05 at G-band |
+| SNC11G05 | 17.1157 | SN fit coeff for spec 1, exp 05 at G-band |
+| SN2_1G05 | 0.993031 | (S/N)^2 for spec  1, exp 05 at mag 21.20 at G-b |
+| SNC01R05 | 1.33787 | SN fit coeff for spec 1, exp 05 at R-band |
+| SNC11R05 | 27.5361 | SN fit coeff for spec 1, exp 05 at R-band |
+| SN2_1R05 | 3.45378 | (S/N)^2 for spec  1, exp 05 at mag 20.20 at R-b |
+| SNC01I05 | 1.28343 | SN fit coeff for spec 1, exp 05 at I-band |
+| SNC11I05 | 31.985 | SN fit coeff for spec 1, exp 05 at I-band |
+| SN2_1I05 | 2.82753 | (S/N)^2 for spec  1, exp 05 at mag 20.20 at I-b |
 | SNC02G05 | 0.0 | SN fit coeff for spec 2, exp 05 at G-band |
 | SNC12G05 | 0.0 | SN fit coeff for spec 2, exp 05 at G-band |
 | SN2_2G05 | 0.0 | (S/N)^2 for spec  2, exp 05 at mag 21.20 at G-b |
@@ -354,15 +361,15 @@ Key | Value | Comment | |
 | SNC02I05 | 0.0 | SN fit coeff for spec 2, exp 05 at I-band |
 | SNC12I05 | 0.0 | SN fit coeff for spec 2, exp 05 at I-band |
 | SN2_2I05 | 0.0 | (S/N)^2 for spec  2, exp 05 at mag 20.20 at I-b |
-| SNC01G06 | 1.51207 | SN fit coeff for spec 1, exp 06 at G-band |
-| SNC11G06 | 10.15 | SN fit coeff for spec 1, exp 06 at G-band |
-| SN2_1G06 | 1.86234 | (S/N)^2 for spec  1, exp 06 at mag 21.20 at G-b |
-| SNC01R06 | 1.488 | SN fit coeff for spec 1, exp 06 at R-band |
-| SNC11R06 | 15.4916 | SN fit coeff for spec 1, exp 06 at R-band |
-| SN2_1R06 | 6.43367 | (S/N)^2 for spec  1, exp 06 at mag 20.20 at R-b |
-| SNC01I06 | 1.42076 | SN fit coeff for spec 1, exp 06 at I-band |
-| SNC11I06 | 18.2216 | SN fit coeff for spec 1, exp 06 at I-band |
-| SN2_1I06 | 5.26198 | (S/N)^2 for spec  1, exp 06 at mag 20.20 at I-b |
+| SNC01G06 | 1.50712 | SN fit coeff for spec 1, exp 06 at G-band |
+| SNC11G06 | 9.67771 | SN fit coeff for spec 1, exp 06 at G-band |
+| SN2_1G06 | 1.91742 | (S/N)^2 for spec  1, exp 06 at mag 21.20 at G-b |
+| SNC01R06 | 1.48298 | SN fit coeff for spec 1, exp 06 at R-band |
+| SNC11R06 | 14.8286 | SN fit coeff for spec 1, exp 06 at R-band |
+| SN2_1R06 | 6.57342 | (S/N)^2 for spec  1, exp 06 at mag 20.20 at R-b |
+| SNC01I06 | 1.42123 | SN fit coeff for spec 1, exp 06 at I-band |
+| SNC11I06 | 17.3472 | SN fit coeff for spec 1, exp 06 at I-band |
+| SN2_1I06 | 5.44489 | (S/N)^2 for spec  1, exp 06 at mag 20.20 at I-b |
 | SNC02G06 | 0.0 | SN fit coeff for spec 2, exp 06 at G-band |
 | SNC12G06 | 0.0 | SN fit coeff for spec 2, exp 06 at G-band |
 | SN2_2G06 | 0.0 | (S/N)^2 for spec  2, exp 06 at mag 21.20 at G-b |
@@ -372,15 +379,15 @@ Key | Value | Comment | |
 | SNC02I06 | 0.0 | SN fit coeff for spec 2, exp 06 at I-band |
 | SNC12I06 | 0.0 | SN fit coeff for spec 2, exp 06 at I-band |
 | SN2_2I06 | 0.0 | (S/N)^2 for spec  2, exp 06 at mag 20.20 at I-b |
-| SNC01G07 | 1.58317 | SN fit coeff for spec 1, exp 07 at G-band |
-| SNC11G07 | 7.28166 | SN fit coeff for spec 1, exp 07 at G-band |
-| SN2_1G07 | 2.5944 | (S/N)^2 for spec  1, exp 07 at mag 21.20 at G-b |
-| SNC01R07 | 1.56459 | SN fit coeff for spec 1, exp 07 at R-band |
-| SNC11R07 | 10.8008 | SN fit coeff for spec 1, exp 07 at R-band |
-| SN2_1R07 | 8.85833 | (S/N)^2 for spec  1, exp 07 at mag 20.20 at R-b |
-| SNC01I07 | 1.49496 | SN fit coeff for spec 1, exp 07 at I-band |
-| SNC11I07 | 12.0777 | SN fit coeff for spec 1, exp 07 at I-band |
-| SN2_1I07 | 7.58106 | (S/N)^2 for spec  1, exp 07 at mag 20.20 at I-b |
+| SNC01G07 | 1.57871 | SN fit coeff for spec 1, exp 07 at G-band |
+| SNC11G07 | 6.92027 | SN fit coeff for spec 1, exp 07 at G-band |
+| SN2_1G07 | 2.67093 | (S/N)^2 for spec  1, exp 07 at mag 21.20 at G-b |
+| SNC01R07 | 1.56058 | SN fit coeff for spec 1, exp 07 at R-band |
+| SNC11R07 | 10.2798 | SN fit coeff for spec 1, exp 07 at R-band |
+| SN2_1R07 | 9.05979 | (S/N)^2 for spec  1, exp 07 at mag 20.20 at R-b |
+| SNC01I07 | 1.49528 | SN fit coeff for spec 1, exp 07 at I-band |
+| SNC11I07 | 11.5483 | SN fit coeff for spec 1, exp 07 at I-band |
+| SN2_1I07 | 7.7864 | (S/N)^2 for spec  1, exp 07 at mag 20.20 at I-b |
 | SNC02G07 | 0.0 | SN fit coeff for spec 2, exp 07 at G-band |
 | SNC12G07 | 0.0 | SN fit coeff for spec 2, exp 07 at G-band |
 | SN2_2G07 | 0.0 | (S/N)^2 for spec  2, exp 07 at mag 21.20 at G-b |
@@ -390,15 +397,15 @@ Key | Value | Comment | |
 | SNC02I07 | 0.0 | SN fit coeff for spec 2, exp 07 at I-band |
 | SNC12I07 | 0.0 | SN fit coeff for spec 2, exp 07 at I-band |
 | SN2_2I07 | 0.0 | (S/N)^2 for spec  2, exp 07 at mag 20.20 at I-b |
-| SNC01G08 | 1.51658 | SN fit coeff for spec 1, exp 08 at G-band |
-| SNC11G08 | 9.17908 | SN fit coeff for spec 1, exp 08 at G-band |
-| SN2_1G08 | 2.01908 | (S/N)^2 for spec  1, exp 08 at mag 21.20 at G-b |
-| SNC01R08 | 1.49993 | SN fit coeff for spec 1, exp 08 at R-band |
-| SNC11R08 | 13.548 | SN fit coeff for spec 1, exp 08 at R-band |
-| SN2_1R08 | 7.11832 | (S/N)^2 for spec  1, exp 08 at mag 20.20 at R-b |
-| SNC01I08 | 1.44129 | SN fit coeff for spec 1, exp 08 at I-band |
-| SNC11I08 | 14.633 | SN fit coeff for spec 1, exp 08 at I-band |
-| SN2_1I08 | 6.26192 | (S/N)^2 for spec  1, exp 08 at mag 20.20 at I-b |
+| SNC01G08 | 1.51183 | SN fit coeff for spec 1, exp 08 at G-band |
+| SNC11G08 | 8.73093 | SN fit coeff for spec 1, exp 08 at G-band |
+| SN2_1G08 | 2.08114 | (S/N)^2 for spec  1, exp 08 at mag 21.20 at G-b |
+| SNC01R08 | 1.49572 | SN fit coeff for spec 1, exp 08 at R-band |
+| SNC11R08 | 12.7874 | SN fit coeff for spec 1, exp 08 at R-band |
+| SN2_1R08 | 7.33349 | (S/N)^2 for spec  1, exp 08 at mag 20.20 at R-b |
+| SNC01I08 | 1.44151 | SN fit coeff for spec 1, exp 08 at I-band |
+| SNC11I08 | 13.9394 | SN fit coeff for spec 1, exp 08 at I-band |
+| SN2_1I08 | 6.45906 | (S/N)^2 for spec  1, exp 08 at mag 20.20 at I-b |
 | SNC02G08 | 0.0 | SN fit coeff for spec 2, exp 08 at G-band |
 | SNC12G08 | 0.0 | SN fit coeff for spec 2, exp 08 at G-band |
 | SN2_2G08 | 0.0 | (S/N)^2 for spec  2, exp 08 at mag 21.20 at G-b |
@@ -408,15 +415,15 @@ Key | Value | Comment | |
 | SNC02I08 | 0.0 | SN fit coeff for spec 2, exp 08 at I-band |
 | SNC12I08 | 0.0 | SN fit coeff for spec 2, exp 08 at I-band |
 | SN2_2I08 | 0.0 | (S/N)^2 for spec  2, exp 08 at mag 20.20 at I-b |
-| SNC01G09 | 1.3552 | SN fit coeff for spec 1, exp 09 at G-band |
-| SNC11G09 | 17.3612 | SN fit coeff for spec 1, exp 09 at G-band |
-| SN2_1G09 | 0.974117 | (S/N)^2 for spec  1, exp 09 at mag 21.20 at G-b |
-| SNC01R09 | 1.27939 | SN fit coeff for spec 1, exp 09 at R-band |
-| SNC11R09 | 25.1488 | SN fit coeff for spec 1, exp 09 at R-band |
-| SN2_1R09 | 3.38374 | (S/N)^2 for spec  1, exp 09 at mag 20.20 at R-b |
-| SNC01I09 | 1.21711 | SN fit coeff for spec 1, exp 09 at I-band |
-| SNC11I09 | 24.7165 | SN fit coeff for spec 1, exp 09 at I-band |
-| SN2_1I09 | 3.10237 | (S/N)^2 for spec  1, exp 09 at mag 20.20 at I-b |
+| SNC01G09 | 1.34786 | SN fit coeff for spec 1, exp 09 at G-band |
+| SNC11G09 | 16.529 | SN fit coeff for spec 1, exp 09 at G-band |
+| SN2_1G09 | 1.00402 | (S/N)^2 for spec  1, exp 09 at mag 21.20 at G-b |
+| SNC01R09 | 1.2733 | SN fit coeff for spec 1, exp 09 at R-band |
+| SNC11R09 | 24.3085 | SN fit coeff for spec 1, exp 09 at R-band |
+| SN2_1R09 | 3.4379 | (S/N)^2 for spec  1, exp 09 at mag 20.20 at R-b |
+| SNC01I09 | 1.21716 | SN fit coeff for spec 1, exp 09 at I-band |
+| SNC11I09 | 23.8134 | SN fit coeff for spec 1, exp 09 at I-band |
+| SN2_1I09 | 3.18983 | (S/N)^2 for spec  1, exp 09 at mag 20.20 at I-b |
 | SNC02G09 | 0.0 | SN fit coeff for spec 2, exp 09 at G-band |
 | SNC12G09 | 0.0 | SN fit coeff for spec 2, exp 09 at G-band |
 | SN2_2G09 | 0.0 | (S/N)^2 for spec  2, exp 09 at mag 21.20 at G-b |
@@ -426,15 +433,15 @@ Key | Value | Comment | |
 | SNC02I09 | 0.0 | SN fit coeff for spec 2, exp 09 at I-band |
 | SNC12I09 | 0.0 | SN fit coeff for spec 2, exp 09 at I-band |
 | SN2_2I09 | 0.0 | (S/N)^2 for spec  2, exp 09 at mag 20.20 at I-b |
-| SNC01G10 | 1.32026 | SN fit coeff for spec 1, exp 10 at G-band |
-| SNC11G10 | 19.2875 | SN fit coeff for spec 1, exp 10 at G-band |
-| SN2_1G10 | 0.845728 | (S/N)^2 for spec  1, exp 10 at mag 21.20 at G-b |
-| SNC01R10 | 1.23183 | SN fit coeff for spec 1, exp 10 at R-band |
-| SNC11R10 | 29.0726 | SN fit coeff for spec 1, exp 10 at R-band |
-| SN2_1R10 | 2.80763 | (S/N)^2 for spec  1, exp 10 at mag 20.20 at R-b |
-| SNC01I10 | 1.16085 | SN fit coeff for spec 1, exp 10 at I-band |
-| SNC11I10 | 29.1367 | SN fit coeff for spec 1, exp 10 at I-band |
-| SN2_1I10 | 2.48916 | (S/N)^2 for spec  1, exp 10 at mag 20.20 at I-b |
+| SNC01G10 | 1.31163 | SN fit coeff for spec 1, exp 10 at G-band |
+| SNC11G10 | 18.1404 | SN fit coeff for spec 1, exp 10 at G-band |
+| SN2_1G10 | 0.879346 | (S/N)^2 for spec  1, exp 10 at mag 21.20 at G-b |
+| SNC01R10 | 1.22489 | SN fit coeff for spec 1, exp 10 at R-band |
+| SNC11R10 | 28.1622 | SN fit coeff for spec 1, exp 10 at R-band |
+| SN2_1R10 | 2.84539 | (S/N)^2 for spec  1, exp 10 at mag 20.20 at R-b |
+| SNC01I10 | 1.16066 | SN fit coeff for spec 1, exp 10 at I-band |
+| SNC11I10 | 27.8975 | SN fit coeff for spec 1, exp 10 at I-band |
+| SN2_1I10 | 2.57345 | (S/N)^2 for spec  1, exp 10 at mag 20.20 at I-b |
 | SNC02G10 | 0.0 | SN fit coeff for spec 2, exp 10 at G-band |
 | SNC12G10 | 0.0 | SN fit coeff for spec 2, exp 10 at G-band |
 | SN2_2G10 | 0.0 | (S/N)^2 for spec  2, exp 10 at mag 21.20 at G-b |
@@ -444,15 +451,15 @@ Key | Value | Comment | |
 | SNC02I10 | 0.0 | SN fit coeff for spec 2, exp 10 at I-band |
 | SNC12I10 | 0.0 | SN fit coeff for spec 2, exp 10 at I-band |
 | SN2_2I10 | 0.0 | (S/N)^2 for spec  2, exp 10 at mag 20.20 at I-b |
-| SNC01G11 | 1.42431 | SN fit coeff for spec 1, exp 11 at G-band |
-| SNC11G11 | 14.7921 | SN fit coeff for spec 1, exp 11 at G-band |
-| SN2_1G11 | 1.22871 | (S/N)^2 for spec  1, exp 11 at mag 21.20 at G-b |
-| SNC01R11 | 1.32235 | SN fit coeff for spec 1, exp 11 at R-band |
-| SNC11R11 | 22.1714 | SN fit coeff for spec 1, exp 11 at R-band |
-| SN2_1R11 | 3.96781 | (S/N)^2 for spec  1, exp 11 at mag 20.20 at R-b |
-| SNC01I11 | 1.23542 | SN fit coeff for spec 1, exp 11 at I-band |
-| SNC11I11 | 23.013 | SN fit coeff for spec 1, exp 11 at I-band |
-| SN2_1I11 | 3.37024 | (S/N)^2 for spec  1, exp 11 at mag 20.20 at I-b |
+| SNC01G11 | 1.41718 | SN fit coeff for spec 1, exp 11 at G-band |
+| SNC11G11 | 14.0708 | SN fit coeff for spec 1, exp 11 at G-band |
+| SN2_1G11 | 1.2669 | (S/N)^2 for spec  1, exp 11 at mag 21.20 at G-b |
+| SNC01R11 | 1.31616 | SN fit coeff for spec 1, exp 11 at R-band |
+| SNC11R11 | 21.3335 | SN fit coeff for spec 1, exp 11 at R-band |
+| SN2_1R11 | 4.04181 | (S/N)^2 for spec  1, exp 11 at mag 20.20 at R-b |
+| SNC01I11 | 1.23649 | SN fit coeff for spec 1, exp 11 at I-band |
+| SNC11I11 | 22.1228 | SN fit coeff for spec 1, exp 11 at I-band |
+| SN2_1I11 | 3.4748 | (S/N)^2 for spec  1, exp 11 at mag 20.20 at I-b |
 | SNC02G11 | 0.0 | SN fit coeff for spec 2, exp 11 at G-band |
 | SNC12G11 | 0.0 | SN fit coeff for spec 2, exp 11 at G-band |
 | SN2_2G11 | 0.0 | (S/N)^2 for spec  2, exp 11 at mag 21.20 at G-b |
@@ -462,15 +469,15 @@ Key | Value | Comment | |
 | SNC02I11 | 0.0 | SN fit coeff for spec 2, exp 11 at I-band |
 | SNC12I11 | 0.0 | SN fit coeff for spec 2, exp 11 at I-band |
 | SN2_2I11 | 0.0 | (S/N)^2 for spec  2, exp 11 at mag 20.20 at I-b |
-| SNC01G12 | 1.51613 | SN fit coeff for spec 1, exp 12 at G-band |
-| SNC11G12 | 11.2484 | SN fit coeff for spec 1, exp 12 at G-band |
-| SN2_1G12 | 1.73108 | (S/N)^2 for spec  1, exp 12 at mag 21.20 at G-b |
-| SNC01R12 | 1.40697 | SN fit coeff for spec 1, exp 12 at R-band |
-| SNC11R12 | 17.0948 | SN fit coeff for spec 1, exp 12 at R-band |
-| SN2_1R12 | 5.38921 | (S/N)^2 for spec  1, exp 12 at mag 20.20 at R-b |
-| SNC01I12 | 1.30475 | SN fit coeff for spec 1, exp 12 at I-band |
-| SNC11I12 | 18.2156 | SN fit coeff for spec 1, exp 12 at I-band |
-| SN2_1I12 | 4.43878 | (S/N)^2 for spec  1, exp 12 at mag 20.20 at I-b |
+| SNC01G12 | 1.50989 | SN fit coeff for spec 1, exp 12 at G-band |
+| SNC11G12 | 10.6706 | SN fit coeff for spec 1, exp 12 at G-band |
+| SN2_1G12 | 1.78782 | (S/N)^2 for spec  1, exp 12 at mag 21.20 at G-b |
+| SNC01R12 | 1.40047 | SN fit coeff for spec 1, exp 12 at R-band |
+| SNC11R12 | 16.2633 | SN fit coeff for spec 1, exp 12 at R-band |
+| SN2_1R12 | 5.52015 | (S/N)^2 for spec  1, exp 12 at mag 20.20 at R-b |
+| SNC01I12 | 1.30587 | SN fit coeff for spec 1, exp 12 at I-band |
+| SNC11I12 | 17.7823 | SN fit coeff for spec 1, exp 12 at I-band |
+| SN2_1I12 | 4.52025 | (S/N)^2 for spec  1, exp 12 at mag 20.20 at I-b |
 | SNC02G12 | 0.0 | SN fit coeff for spec 2, exp 12 at G-band |
 | SNC12G12 | 0.0 | SN fit coeff for spec 2, exp 12 at G-band |
 | SN2_2G12 | 0.0 | (S/N)^2 for spec  2, exp 12 at mag 21.20 at G-b |
@@ -480,12 +487,12 @@ Key | Value | Comment | |
 | SNC02I12 | 0.0 | SN fit coeff for spec 2, exp 12 at I-band |
 | SNC12I12 | 0.0 | SN fit coeff for spec 2, exp 12 at I-band |
 | SN2_2I12 | 0.0 | (S/N)^2 for spec  2, exp 12 at mag 20.20 at I-b |
-| SNC01G | 5.21954 | Total SN fit coeff for spec 1 at G-band |
-| SNC11G | 11.6634 | Total SN fit coeff for spec 1 at G-band |
-| SNC01R | 5.07178 | Total SN fit coeff for spec 1 at R-band |
-| SNC11R | 16.1655 | Total SN fit coeff for spec 1 at R-band |
-| SNC01I | 4.82403 | Total SN fit coeff for spec 1 at I-band |
-| SNC11I | 16.6958 | Total SN fit coeff for spec 1 at I-band |
+| SNC01G | 5.19876 | Total SN fit coeff for spec 1 at G-band |
+| SNC11G | 11.0988 | Total SN fit coeff for spec 1 at G-band |
+| SNC01R | 5.08941 | Total SN fit coeff for spec 1 at R-band |
+| SNC11R | 15.7674 | Total SN fit coeff for spec 1 at R-band |
+| SNC01I | 4.82322 | Total SN fit coeff for spec 1 at I-band |
+| SNC11I | 15.8925 | Total SN fit coeff for spec 1 at I-band |
 | SNC02G | 0.0 | Total SN fit coeff for spec 2 at G-band |
 | SNC12G | 0.0 | Total SN fit coeff for spec 2 at G-band |
 | SNC02R | 0.0 | Total SN fit coeff for spec 2 at R-band |
@@ -497,6 +504,7 @@ Key | Value | Comment | |
 | SCATPOLY | 0 | Extraction: Order of scattered light polynomial |
 | PROFTYPE | 1 | Extraction profile: 1=Gaussian |
 | NFITPOLY | 1 | Extraction: Number of parameters in each profil |
+| EXTNAME | FLUX |  |
 | SPEC2_G | 0.0 | (S/N)^2 for spec  2 at mag 21.20 |
 | FSPEC2_G | 0 | Fit (S/N)^2 for spec  2 at mag 21.20 |
 | SN2EXT2G | 0.0 | Extinction corrected (S/N)^2 |
@@ -512,9 +520,9 @@ Key | Value | Comment | |
 | NWORDER | 2 | Linear-log10 coefficients |
 | COEFF0 | 3.5523 | Central wavelength (log10) of first pixel |
 | COEFF1 | 0.0001 | Log10 dispersion per pixel |
-| UNAME | notch278 |  |
-| FBADPIX | 0.0128813 | Fraction of bad pixels |
-| FBADPIX1 | 0.0128813 | Fraction of bad pixels on spectro-1 |
+| UNAME | notch288 |  |
+| FBADPIX | 0.00772606 | Fraction of bad pixels |
+| FBADPIX1 | 0.00772606 | Fraction of bad pixels on spectro-1 |
 | FBADPIX2 | 0 | Fraction of bad pixels on spectro-2 |
 | WAT0_001 | system=linear |  |
 | WAT1_001 | wtype=linear label=Wavelength units=Angstroms |  |
@@ -525,44 +533,41 @@ Key | Value | Comment | |
 | DC-FLAG | 1 | Log-linear flag |
 | PLUG_RA | 148.965816206 | RA of Target |
 | PLUG_DEC | 1.51882579382 | DEC of Target |
-| AZ | 177.283427881 | Azimuth axis pos. (approx, deg) |
-| ALT | 57.3181718099 | Altitude axis pos. (approx, deg) |
-| AIRMASS | 1.18242427584 | Mean airmass |
-| DUSTA | 15268.5693929 |  |
-| DUSTB | 1375.57599592 |  |
-| GUSTS | 21.9544262809 |  |
-| GUSTD | 207.411752976 |  |
+| AZ | 176.589538933 | Azimuth axis pos. (approx, deg) |
+| ALT | 57.3218255609 | Altitude axis pos. (approx, deg) |
+| AIRMASS | 1.18238186362 | Mean airmass |
+| DUSTA | 15258.2364874 |  |
+| DUSTB | 1375.91823068 |  |
+| GUSTS | 21.9591091303 |  |
+| GUSTD | 207.417932412 |  |
 | WINDD25M | -999.0 |  |
 | WINDS25M | -999.0 |  |
 | HUMIDITY | NaN |  |
-| PRESSURE | 21.4978897597 |  |
-| WINDD | 202.096675261 |  |
-| WINDS | 18.0172895553 |  |
-| HELIO_RV | 1.80806090571 | V_RAD for backwards compatibility |
-| V_RAD | 1.80806090571 | radial velocity relative to the barycenter (adde |
-| SEEING20 | 1.21676281794 | 20% seeing during exposure (arcsec) |
-| SEEING50 | 1.36868166805 | 50% seeing during exposure (arcsec) |
-| SEEING80 | 1.63051304564 | 80% seeing during exposure (arcsec) |
-| RMSOFF20 | 0.0696661895404 | 20% RMS offset of guide fibers (arcsec) |
-| RMSOFF50 | 0.120115090409 | 50% RMS offset of guide fibers (arcsec) |
-| RMSOFF80 | 0.209591337837 | 80% RMS offset of guide fibers (arcsec) |
-| SKYCHI2 | 0.875732936623 | Mean chi^2 of sky-subtraction |
-| SCHI2MIN | 0.812225947065 | Minimim chi^2 of sky-subtraction |
-| SCHI2MAX | 0.912219683676 | Maximim chi^2 of sky-subtraction |
-| WSIGMA | 1.08948548352 |  |
-| WSIGMIN | 1.08909 |  |
+| PRESSURE | 21.4980981979 |  |
+| WINDD | 202.1085953 |  |
+| WINDS | 18.016533659 |  |
+| HELIO_RV | 1.80909765882 | V_RAD for backwards compatibility |
+| V_RAD | 1.80909765882 | radial velocity relative to the barycenter (adde |
+| SEEING20 | 1.2162898498 | 20% seeing during exposure (arcsec) |
+| SEEING50 | 1.3680996753 | 50% seeing during exposure (arcsec) |
+| SEEING80 | 1.63008482082 | 80% seeing during exposure (arcsec) |
+| RMSOFF20 | 0.0696609121614 | 20% RMS offset of guide fibers (arcsec) |
+| RMSOFF50 | 0.120088903797 | 50% RMS offset of guide fibers (arcsec) |
+| RMSOFF80 | 0.209318440633 | 80% RMS offset of guide fibers (arcsec) |
+| SKYCHI2 | 0.89971671645 | Mean chi^2 of sky-subtraction |
+| SCHI2MIN | 0.880459284805 | Minimim chi^2 of sky-subtraction |
+| SCHI2MAX | 0.929733183919 | Maximim chi^2 of sky-subtraction |
+| WSIGMA | 1.08950931581 |  |
+| WSIGMIN | 1.08914 |  |
 | WSIGMAX | 1.08981 |  |
-| XSIGMA | 1.06909280696 |  |
+| XSIGMA | 1.06909195683 |  |
 | XSIGMIN | 1.06889 |  |
 | XSIGMAX | 1.06934 |  |
-| CCDTEMP | -99.7002351112 |  |
-| LN2TEMP | 95.1432614305 |  |
-| TAI-BEG | 5183933265.0 | MJD(TAI) seconds at start of integrations |
-| TAI-END | 5184028003.08 | MJD(TAI) seconds at End of integrations |
-| NGUIDE | 309.0 | Number of guider frames during integration |
+| CCDTEMP | -99.7003951887 |  |
+| LN2TEMP | 95.1430551183 |  |
 | SDSSC2BV | 1 | SDSS5_TARGET_FLAG Carton to Bit Version |
-| CHECKSUM | ZAE9d596ZAC6d396 | HDU checksum updated 2024-04-12T22:35:55 |
-| DATASUM | 0 | data unit checksum updated 2024-04-12T22:35:55 |
+| CHECKSUM | EAJGH4IEE9IEE9IE | HDU checksum updated 2025-06-09T16:02:44 |
+| DATASUM | 0 | data unit checksum updated 2025-06-09T16:02:44 |
 
 
 
@@ -589,8 +594,8 @@ Key | Value | Comment | |
 | TUNIT7 | 10^-17 ergs/s/cm^2/Angs |  |
 | TUNIT9 | Angs |  |
 | EXTNAME | COADD | extension name |
-| CHECKSUM | haM6iZJ6haJ6hWJ6 | HDU checksum updated 2024-04-12T22:35:55 |
-| DATASUM | 2569774199 | data unit checksum updated 2024-04-12T22:35:55 |
+| CHECKSUM | 74cJB2aG92aGA2aG | HDU checksum updated 2025-06-09T16:02:44 |
+| DATASUM | 1137596718 | data unit checksum updated 2025-06-09T16:02:44 |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
@@ -619,36 +624,36 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 2746 | length of dimension 1 |
+| NAXIS1 | 2972 | length of dimension 1 |
 | NAXIS2 | 1 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 144 | number of table fields |
+| TFIELDS | 147 | number of table fields |
 | SDSSC2BV | 1 | SDSS5_TARGET_FLAG Carton to Bit Version |
 | EXTNAME | SPALL | extension name |
-| CHECKSUM | Q2IMS0ILQ0ILQ0IL | HDU checksum updated 2024-04-12T22:35:55 |
-| DATASUM | 3385509504 | data unit checksum updated 2024-04-12T22:35:55 |
-| TDIM21 | (29) |  |
-| TDIM28 | (5) |  |
-| TDIM29 | (5) |  |
+| CHECKSUM | WWAAZU82WUA8WU78 | HDU checksum updated 2025-06-09T16:02:44 |
+| DATASUM | 764537771 | data unit checksum updated 2025-06-09T16:02:44 |
+| TDIM21 | (69) |  |
 | TDIM31 | (5) |  |
 | TDIM32 | (5) |  |
-| TDIM33 | (5) |  |
 | TDIM34 | (5) |  |
-| TDIM40 | (4) |  |
-| TDIM41 | (3) |  |
-| TDIM42 | (2) |  |
-| TDIM80 | (5) |  |
-| TDIM98 | (5) |  |
-| TDIM99 | (5) |  |
-| TDIM100 | (5) |  |
+| TDIM35 | (5) |  |
+| TDIM36 | (5) |  |
+| TDIM37 | (5) |  |
+| TDIM43 | (4) |  |
+| TDIM44 | (3) |  |
+| TDIM45 | (2) |  |
+| TDIM83 | (5) |  |
 | TDIM101 | (5) |  |
 | TDIM102 | (5) |  |
-| TDIM115 | (10) |  |
-| TDIM117 | (10) |  |
-| TDIM126 | (10) |  |
-| TDIM127 | (10) |  |
-| TDIM128 | (10) |  |
+| TDIM103 | (5) |  |
+| TDIM104 | (5) |  |
+| TDIM105 | (5) |  |
+| TDIM118 | (10) |  |
+| TDIM120 | (10) |  |
+| TDIM129 | (10) |  |
+| TDIM130 | (10) |  |
+| TDIM131 | (10) |  |
 
 ##### Binary Table Caption for HDU2
 Name | Type | Unit | Description |
@@ -657,32 +662,35 @@ Name | Type | Unit | Description |
  | MJD | int64 |  | Modified Julian date of combined Spectra |
  | OBS | char[3] |  | Observatory of Observation |
  | MJD_FINAL | float64 |  | Mean MJD of the Coadded Spectra |
- | MJD_LIST | char[47] |  | List of MJD of each included exposures |
- | TAI_LIST | char[87] |  | List Tai for each exposure (at midpoint) |
+ | MJD_LIST | char[77] |  | List of MJD of each included exposures |
+ | TAI_LIST | char[142] |  | List Tai for each exposure (at midpoint) |
  | RUN2D | char[6] |  | Spectro-2D reduction name |
  | RUN1D | char[6] |  | Spectro-1D reduction name |
- | DESIGNS | char[55] |  | List of Included Designs |
- | CONFIGS | char[39] |  | List of Included Configurations |
+ | DESIGNS | char[90] |  | List of Included Designs |
+ | CONFIGS | char[64] |  | List of Included Configurations |
  | NEXP | int16 |  | Number of Included Exposures |
  | EXPTIME | float32 | s | Total Exposure time of Coadded Spectra |
  | TARGET_INDEX | int64 |  | Index of target on combined spField |
- | FIBERID_LIST | char[31] |  | List of FiberIDs contributing to Stack |
+ | FIBERID_LIST | char[51] |  | List of FiberIDs contributing to Stack |
  | SPEC_FILE | char[41] |  | Name of spec file (in SAS) |
  | PROGRAMNAME | char[7] |  | Program name within a given survey |
  | SURVEY | char[3] |  | Survey that field is part of |
  | CADENCE | char[10] |  | Requested Target Cadence |
  | FIRSTCARTON | char[17] |  | Primary SDSS Carton for target |
- | CARTON_TO_TARGET_PK | char[9] |  | SDSS-V CartonToTarget DB Table Primary Key |
- | SDSS5_TARGET_FLAGS | bool[29] |  | Targeting Flags for SSDSV Targeting |
+ | CARTON_TO_TARGET_PK | char[19] |  | SDSS-V CartonToTarget DB Table Primary Key |
+ | SDSS5_TARGET_FLAGS | bool[69] |  | Targeting Flags for SSDSV Targeting |
  | OBJTYPE | char[16] |  | Why this object was targetted. QSO=SCIENCE |
+ | TOO | char[25] |  | the fiber is allocated to a TOO |
+ | TOO_ID | int64 |  | SDSS-V Target of Opportunity ID (only if TOO) |
  | CATALOGID | int64 |  | SDSS-V CatalogID used in naming |
  | CATALOGID_V0 | int64 |  | SDSS-V CatalogID from Catalog v0 |
  | CATALOGID_V0P5 | int64 |  | SDSS-V CatalogID from Catalog v0.5 |
+ | CATALOGID_V1 | int64 |  | SDSS-V CatalogID from Catalog v1 |
  | SDSS_ID | int64 |  | Unified SDSS Target Identifier |
- | SPECOBJID | char[30] |  | Unique ID based on Field, MJD, SDSSID, RUN2D, COADD type |
+ | SPECOBJID | char[29] |  | Unique ID based on Field, MJD, SDSSID, RUN2D, COADD type |
  | CALIBFLUX | float32[5] | nanomaggy | Broad-band flux in SDSS-{ugriz} from PSFmag |
  | CALIBFLUX_IVAR | float32[5] | nanomaggy | Inverse var flux SDSS-{ugriz} from PSFmag |
- | OPTICAL_PROV | char[11] |  | The source of the optical CATDB_MAG magnitudes |
+ | OPTICAL_PROV | char[21] |  | The source of the optical CATDB_MAG magnitudes |
  | MAG | float32[5] |  | [u, g, r, i, z] optical magnitudes |
  | PSFMAG | float32[5] |  | [u, g, r, i, z] optical PSF magnitudes |
  | FIBER2MAG | float32[5] |  | [u, g, r, i, z] optical Fiber2 magnitudes |
@@ -707,13 +715,13 @@ Name | Type | Unit | Description |
  | PMRA | float32 | mas/year | Proper motion in RA (pmra is a true angle) |
  | PMDEC | float32 | mas/year | Proper motion in Dec |
  | PARALLAX | float32 | mas | Parallax |
- | RA_LIST | char[87] | degrees | List of measured RA per exposure |
- | DEC_LIST | char[71] | degrees | List of measured DEC per exposure |
- | DELTA_RA_LIST | char[31] | arcsec | List of designed RA offsets per exposure |
- | DELTA_DEC_LIST | char[31] | arcsec | List of designed DEC offsets per exposure |
+ | RA_LIST | char[142] | degrees | List of measured RA per exposure |
+ | DEC_LIST | char[116] | degrees | List of measured DEC per exposure |
+ | DELTA_RA_LIST | char[103] | arcsec | List of designed RA offsets per exposure |
+ | DELTA_DEC_LIST | char[103] | arcsec | List of designed DEC offsets per exposure |
  | FIBER_OFFSET | int64 |  | Flag identifying the fiber was offset by design |
- | XFOCAL | char[71] | mm | Hole/robot x-axis position in focal plane |
- | YFOCAL | char[71] | mm | Hole/robot y-axis position in focal plane |
+ | XFOCAL | char[116] | mm | Hole/robot x-axis position in focal plane |
+ | YFOCAL | char[116] | mm | Hole/robot y-axis position in focal plane |
  | ZOFFSET | float32 | microns | Backstopping offset distance |
  | LAMBDA_EFF | float32 | AA | Wavelength to optimize hole location for |
  | BLUEFIBER | int64 |  | 1 if assigned target a blue fiber; 0 otherwise |
@@ -723,9 +731,9 @@ Name | Type | Unit | Description |
  | FIELDQUALITY | char[4] |  | Characterization of field quality |
  | EXP_DISP_MED | float64 |  | Dispersion of Median Exposure Flux |
  | FIELDSN2 | float32 |  | Overall (S/N)^2 for field; min of cameras |
- | FIELDSNR2G_LIST | char[39] |  | Overall Field (S/N)^2 in g per exposure |
- | FIELDSNR2R_LIST | char[39] |  | Overall Field (S/N)^2 in r per exposure |
- | FIELDSNR2I_LIST | char[39] |  | Overall Field (S/N)^2 in i per exposure |
+ | FIELDSNR2G_LIST | char[64] |  | Overall Field (S/N)^2 in g per exposure |
+ | FIELDSNR2R_LIST | char[64] |  | Overall Field (S/N)^2 in r per exposure |
+ | FIELDSNR2I_LIST | char[64] |  | Overall Field (S/N)^2 in i per exposure |
  | SPEC1_G | float32 |  | Fit (S/N)^2 at g=20.20 for spectrograph 1 |
  | SPEC1_R | float32 |  | Fit (S/N)^2 at r=20.25 for spectrograph 1 |
  | SPEC1_I | float32 |  | Fit (S/N)^2 at i=19.90 for spectrograph 1 |
@@ -738,12 +746,12 @@ Name | Type | Unit | Description |
  | SEEING20 | float32 | arcsecs | Mean 20% seeing during exposures (arcsec) |
  | SEEING50 | float32 | arcsecs | Mean 50% seeing during exposures (arcsec) |
  | SEEING80 | float32 | arcsecs | Mean 80% seeing during exposures (arcsec) |
- | MOON_DIST | char[47] | degrees | Mean Moon-target separation of Coadded Spectra |
- | MOON_PHASE | char[39] |  | Mean Moon phase of the Coadded Spectra |
- | ASSIGNED | char[15] |  | Whether this fibre was assigned to a target |
- | ON_TARGET | char[15] |  | Whether this fibre is on target |
- | VALID | char[15] |  | alpha and beta angles are valid |
- | DECOLLIDED | char[15] |  | this positioner had to be moved to decollide it |
+ | MOON_DIST | char[77] | degrees | Mean Moon-target separation of Coadded Spectra |
+ | MOON_PHASE | char[64] |  | Mean Moon phase of the Coadded Spectra |
+ | ASSIGNED | char[25] |  | Whether this fibre was assigned to a target |
+ | ON_TARGET | char[25] |  | Whether this fibre is on target |
+ | VALID | char[25] |  | alpha and beta angles are valid |
+ | DECOLLIDED | char[25] |  | this positioner had to be moved to decollide it |
  | ANYANDMASK | int64 |  | For each bit, any pixel has bit set in ANDMASK |
  | ANYORMASK | int64 |  | For each bit, any pixel has bit set in ORMASK |
  | SPECPRIMARY | int64 |  | Best version of spectrum at this location |
@@ -817,7 +825,7 @@ Key | Value | Comment | |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 56 | number of table fields |
-| EXTNAME | ZALL | extension name |
+| EXTNAME | ZALL |  |
 | TDIM23 | (10) |  |
 | TDIM25 | (10) |  |
 | TDIM26 | (10,10) |  |
@@ -830,8 +838,8 @@ Key | Value | Comment | |
 | TDIM46 | (5) |  |
 | TDIM47 | (5) |  |
 | TDIM48 | (5) |  |
-| CHECKSUM | mNUAnKT4mKT9mKT9 | HDU checksum updated 2024-04-12T22:35:55 |
-| DATASUM | 3032212060 | data unit checksum updated 2024-04-12T22:35:55 |
+| CHECKSUM | EIJDEFH9EFHAEFH9 | HDU checksum updated 2025-06-09T16:02:44 |
+| DATASUM | 2181678649 | data unit checksum updated 2025-06-09T16:02:44 |
 
 ##### Binary Table Caption for HDU3
 Name | Type | Unit | Description |
@@ -842,7 +850,7 @@ Name | Type | Unit | Description |
  | TARGET_INDEX | int32 |  | Index of target on combined spField |
  | CATALOGID | int64 |  | SDSS-V CatalogID used in naming |
  | SDSS_ID | int64 |  | Unified SDSS Target Identifier |
- | FIBERID_LIST | char[31] |  | List of FiberIDs contributing to Stack |
+ | FIBERID_LIST | char[51] |  | List of FiberIDs contributing to Stack |
  | RUN2D | char[6] |  | Spectro-2D reduction name |
  | RUN1D | char[6] |  | Spectro-1D reduction name |
  | OBJTYPE | char[16] |  | Why this object was targetted. QSO=SCIENCE |
@@ -907,14 +915,14 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 117 | length of dimension 1 |
+| NAXIS1 | 120 | length of dimension 1 |
 | NAXIS2 | 32 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 21 | number of table fields |
+| TFIELDS | 22 | number of table fields |
 | EXTNAME | ZLINE | extension name |
-| CHECKSUM | 7MfU7LeU7LeU7LeU | HDU checksum updated 2024-04-12T22:35:55 |
-| DATASUM | 1618469540 | data unit checksum updated 2024-04-12T22:35:55 |
+| CHECKSUM | jFVilCTZjCTfjCTZ | HDU checksum updated 2025-06-09T16:02:44 |
+| DATASUM | 3163594856 | data unit checksum updated 2025-06-09T16:02:44 |
 
 ##### Binary Table Caption for HDU4
 Name | Type | Unit | Description |
@@ -924,6 +932,7 @@ Name | Type | Unit | Description |
  | TARGET_INDEX | int64 |  | Target Index (1 to number of targets) |
  | CATALOGID | int64 |  | SDSS-V CatalogID used in naming |
  | SDSS_ID | int64 |  | Unified SDSS Target Identifier |
+ | OBS | char[3] |  | Observatory |
  | LINENAME | char[13] |  | Line name |
  | LINEWAVE | float64 | AA | Catalog wavelength of line in vacuum Angstroms |
  | LINEZ | float32 |  | Redshift |
@@ -1110,11 +1119,11 @@ Key | Value | Comment | |
 | CAMDAQ | 1.5.0:37 | Camera Data Acquisition Version |
 | BOSSVER |  | ICC version |
 | VERSIDL | 8.8.0 | Version of IDL |
-| VERSUTIL | 6.0.0dev | Version of idlutils |
-| VERSREAD | v6_1_3 | Version of idlspec2d for pre-processing raw data |
+| VERSUTIL | 6.3.0 | Version of idlutils |
+| VERSREAD | v6_2_1 | Version of idlspec2d for pre-processing raw data |
 | VERSLOG | trunk 27531 | Version of SPECLOG product |
-| VERSFLAT | v1_35 | SPECFLAT version |
-| VERS2D | v6_1_3 | Version of idlspec2d for 2D reduction |
+| VERSFLAT | v1_36 | SPECFLAT version |
+| VERS2D | v6_2_1 | Version of idlspec2d for 2D reduction |
 |  |  |  |
 |  | APO WEATHER |  |
 | PRESSURE | 21.439 | APO SDSS 2.5m Air Pressure (inch Hg) |
@@ -1145,6 +1154,8 @@ Key | Value | Comment | |
 | HEAR | 0 0 0 0 | HeAr Arc lamps 1:On 0:off |
 | FF | 0 0 0 0 | Flat Field lamps 1:on 0:off |
 | FFS | 0 0 0 0 0 0 0 0 | Flatfield Screen 1:closed 0:open |
+| M2FF | 0 0 0 0 | LCO M2 Flat Field Lamps 1:on 0:off |
+| FFSPOS |  | FF screen position [deg] |
 | HARTMANN | Out | Hartmanns: Left,Right,Out,Closed |
 |  |  |  |
 |  | REDUCTION |  |
@@ -1156,17 +1167,17 @@ Key | Value | Comment | |
 | BADPIXEL | badpixels-59747-b1.fits.gz | Name of Badpixel mask used |
 |  |  |  |
 |  | PIPELINE OUTPUTS |  |
-| RUN2D | v6_1_3 | Spectro-2D reduction name |
+| RUN2D | v6_2_1 | Spectro-2D reduction name |
 | TAI-END | 5183934165.09 |  |
-| FRAMESN2 | 1.19790731499 | (S/N)^2 at fidicial magnitude |
-| DEREDSN2 | 1.19790731499 | Extinction corrected (S/N)^2 (like quick redux) |
+| FRAMESN2 | 1.278400224 | (S/N)^2 at fidicial magnitude |
+| DEREDSN2 | 1.278400224 | Extinction corrected (S/N)^2 (like quick redux) |
 | REDDEN01 | 0.0 | Median extinction in u-band |
 | REDDEN02 | 0.0 | Median extinction in g-band |
 | REDDEN03 | 0.0 | Median extinction in r-band |
 | REDDEN04 | 0.0 | Median extinction in i-band |
 | REDDEN05 | 0.0 | Median extinction in z-band |
 | XSIGMA | 1.06934 |  |
-| WSIGMA | 1.08909 |  |
+| WSIGMA | 1.08914 |  |
 | WDISPR | 3.10556 |  |
 | CONFSFIL | confSummaryF-8860.par |  |
 | FLATFILE | sdR-b1-00352990.fit |  |
@@ -1176,19 +1187,18 @@ Key | Value | Comment | |
 | SKYLIST | skylines.dat |  |
 | OBSMODE | dark_rm |  |
 | SIGBS0 | 0.048 | 5577.3 line gaussian fit sigma position before |
-| CENBS0 | -0.224 | 5577.3 line gaussian fit center position before |
+| CENBS0 | -0.223 | 5577.3 line gaussian fit center position before |
 | AVGBS0 | -0.232 | 5577.3 line average position before shift (pixe |
-| STDBS0 | 0.046 | 5577.3 line std position before shift (pixels) |
-| SIGAS0 | 0.025 | 5577.3 line gaussian fit sigma position after s |
-| CENAS0 | 0.003 | 5577.3 line gaussian fit center position after |
-| AVGAS0 | 0.004 | 5577.3 line average position after shift (pixel |
-| STDAS0 | 0.020 | 5577.3 line std position after shift (pixels) |
+| STDBS0 | 0.047 | 5577.3 line std position before shift (pixels) |
+| AVGAS0 | 0.003 | 5577.3 line average position after shift (pixel |
+| STDAS0 | 0.019 | 5577.3 line std position after shift (pixels) |
 | HELIO_RV | 1.4250895467 | V_RAD for backwards compatibility |
 | V_RAD | 1.4250895467 | radial velocity relative to the barycenter (add |
 | VACUUM | True | Wavelengths are in vacuum |
 | SFLATTEN | True | Superflat has been applied |
+| SFLATMIN | 0.005 | Superflat Minimum |
 | PSFSKY | 3 | Order of PSF skysubtraction |
-| SKYCHI2 | 0.912219683676 | Mean chi^2 of sky-subtraction |
+| SKYCHI2 | 0.883711261419 | Mean chi^2 of sky-subtraction |
 | PREJECT | 0.2 | Profile area rejection threshold |
 | LOWREJ | 4 | Extraction: low rejection |
 | HIGHREJ | 50 | Extraction: high rejection |
@@ -1203,13 +1213,13 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** Column names *** |  |
 | COMMENT |  |  |
-| TUNIT1 | FLUX | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT2 | LOGLAM | log10(Angs) |
-| TUNIT6 | WDISP | Pixels |
-| TUNIT7 | SKY | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT8 | WRESL | Angs |
-| CHECKSUM | UYK7aXK4UXK4aXK4 | HDU checksum updated 2024-04-12T22:35:55 |
-| DATASUM | 2146316643 | data unit checksum updated 2024-04-12T22:35:55 |
+| TUNIT1 | 10^-17 ergs/s/cm^2/Angs | FLUX |
+| TUNIT2 | log10(Angs) | LOGLAM |
+| TUNIT6 | Pixels | WDISP |
+| TUNIT7 | 10^-17 ergs/s/cm^2/Angs | SKY |
+| TUNIT8 | Angs | WRESL |
+| CHECKSUM | AMAABJ01AJ78AJ78 | HDU checksum updated 2025-06-09T16:02:44 |
+| DATASUM | 2626581809 | data unit checksum updated 2025-06-09T16:02:44 |
 
 ##### Binary Table Caption for HDU5
 Name | Type | Unit | Description |
@@ -1392,11 +1402,11 @@ Key | Value | Comment | |
 | CAMDAQ | 1.5.0:37 | Camera Data Acquisition Version |
 | BOSSVER |  | ICC version |
 | VERSIDL | 8.8.0 | Version of IDL |
-| VERSUTIL | 6.0.0dev | Version of idlutils |
-| VERSREAD | v6_1_3 | Version of idlspec2d for pre-processing raw data |
+| VERSUTIL | 6.3.0 | Version of idlutils |
+| VERSREAD | v6_2_1 | Version of idlspec2d for pre-processing raw data |
 | VERSLOG | trunk 27531 | Version of SPECLOG product |
-| VERSFLAT | v1_35 | SPECFLAT version |
-| VERS2D | v6_1_3 | Version of idlspec2d for 2D reduction |
+| VERSFLAT | v1_36 | SPECFLAT version |
+| VERS2D | v6_2_1 | Version of idlspec2d for 2D reduction |
 |  |  |  |
 |  | APO WEATHER |  |
 | PRESSURE | 21.44 | APO SDSS 2.5m Air Pressure (inch Hg) |
@@ -1427,6 +1437,8 @@ Key | Value | Comment | |
 | HEAR | 0 0 0 0 | HeAr Arc lamps 1:On 0:off |
 | FF | 0 0 0 0 | Flat Field lamps 1:on 0:off |
 | FFS | 0 0 0 0 0 0 0 0 | Flatfield Screen 1:closed 0:open |
+| M2FF | 0 0 0 0 | LCO M2 Flat Field Lamps 1:on 0:off |
+| FFSPOS |  | FF screen position [deg] |
 | HARTMANN | Out | Hartmanns: Left,Right,Out,Closed |
 |  |  |  |
 |  | REDUCTION |  |
@@ -1438,17 +1450,17 @@ Key | Value | Comment | |
 | BADPIXEL | badpixels-59747-b1.fits.gz | Name of Badpixel mask used |
 |  |  |  |
 |  | PIPELINE OUTPUTS |  |
-| RUN2D | v6_1_3 | Spectro-2D reduction name |
+| RUN2D | v6_2_1 | Spectro-2D reduction name |
 | TAI-END | 5183935154.08 |  |
-| FRAMESN2 | 1.05182494854 | (S/N)^2 at fidicial magnitude |
-| DEREDSN2 | 1.05182494854 | Extinction corrected (S/N)^2 (like quick redux) |
+| FRAMESN2 | 1.10497327279 | (S/N)^2 at fidicial magnitude |
+| DEREDSN2 | 1.10497327279 | Extinction corrected (S/N)^2 (like quick redux) |
 | REDDEN01 | 0.0 | Median extinction in u-band |
 | REDDEN02 | 0.0 | Median extinction in g-band |
 | REDDEN03 | 0.0 | Median extinction in r-band |
 | REDDEN04 | 0.0 | Median extinction in i-band |
 | REDDEN05 | 0.0 | Median extinction in z-band |
 | XSIGMA | 1.06934 |  |
-| WSIGMA | 1.08909 |  |
+| WSIGMA | 1.08914 |  |
 | WDISPR | 3.10556 |  |
 | CONFSFIL | confSummaryF-8860.par |  |
 | FLATFILE | sdR-b1-00352990.fit |  |
@@ -1457,20 +1469,21 @@ Key | Value | Comment | |
 | LAMPLIST | lamphgcdne.dat |  |
 | SKYLIST | skylines.dat |  |
 | OBSMODE | dark_rm |  |
-| SIGBS0 | 0.154 | 5577.3 line gaussian fit sigma position before |
-| CENBS0 | -0.517 | 5577.3 line gaussian fit center position before |
+| SIGBS0 | 0.148 | 5577.3 line gaussian fit sigma position before |
+| CENBS0 | -0.514 | 5577.3 line gaussian fit center position before |
 | AVGBS0 | -0.550 | 5577.3 line average position before shift (pixe |
 | STDBS0 | 0.111 | 5577.3 line std position before shift (pixels) |
-| SIGAS0 | 0.026 | 5577.3 line gaussian fit sigma position after s |
-| CENAS0 | 0.004 | 5577.3 line gaussian fit center position after |
-| AVGAS0 | 0.006 | 5577.3 line average position after shift (pixel |
-| STDAS0 | 0.022 | 5577.3 line std position after shift (pixels) |
+| SIGAS0 | 0.025 | 5577.3 line gaussian fit sigma position after s |
+| CENAS0 | 0.006 | 5577.3 line gaussian fit center position after |
+| AVGAS0 | 0.005 | 5577.3 line average position after shift (pixel |
+| STDAS0 | 0.024 | 5577.3 line std position after shift (pixels) |
 | HELIO_RV | 1.45817078532 | V_RAD for backwards compatibility |
 | V_RAD | 1.45817078532 | radial velocity relative to the barycenter (add |
 | VACUUM | True | Wavelengths are in vacuum |
 | SFLATTEN | True | Superflat has been applied |
+| SFLATMIN | 0.005 | Superflat Minimum |
 | PSFSKY | 3 | Order of PSF skysubtraction |
-| SKYCHI2 | 0.878755921998 | Mean chi^2 of sky-subtraction |
+| SKYCHI2 | 0.920322604401 | Mean chi^2 of sky-subtraction |
 | PREJECT | 0.2 | Profile area rejection threshold |
 | LOWREJ | 4 | Extraction: low rejection |
 | HIGHREJ | 50 | Extraction: high rejection |
@@ -1485,13 +1498,13 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** Column names *** |  |
 | COMMENT |  |  |
-| TUNIT1 | FLUX | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT2 | LOGLAM | log10(Angs) |
-| TUNIT6 | WDISP | Pixels |
-| TUNIT7 | SKY | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT8 | WRESL | Angs |
-| CHECKSUM | gFeBgDZAgDdAgDZA | HDU checksum updated 2024-04-12T22:35:55 |
-| DATASUM | 3226206994 | data unit checksum updated 2024-04-12T22:35:55 |
+| TUNIT1 | 10^-17 ergs/s/cm^2/Angs | FLUX |
+| TUNIT2 | log10(Angs) | LOGLAM |
+| TUNIT6 | Pixels | WDISP |
+| TUNIT7 | 10^-17 ergs/s/cm^2/Angs | SKY |
+| TUNIT8 | Angs | WRESL |
+| CHECKSUM | eKE5gKB2eKB2eKB2 | HDU checksum updated 2025-06-09T16:02:44 |
+| DATASUM | 1437678425 | data unit checksum updated 2025-06-09T16:02:44 |
 
 ##### Binary Table Caption for HDU6
 Name | Type | Unit | Description |
@@ -1674,11 +1687,11 @@ Key | Value | Comment | |
 | CAMDAQ | 1.5.0:37 | Camera Data Acquisition Version |
 | BOSSVER |  | ICC version |
 | VERSIDL | 8.8.0 | Version of IDL |
-| VERSUTIL | 6.0.0dev | Version of idlutils |
-| VERSREAD | v6_1_3 | Version of idlspec2d for pre-processing raw data |
+| VERSUTIL | 6.3.0 | Version of idlutils |
+| VERSREAD | v6_2_1 | Version of idlspec2d for pre-processing raw data |
 | VERSLOG | trunk 27531 | Version of SPECLOG product |
-| VERSFLAT | v1_35 | SPECFLAT version |
-| VERS2D | v6_1_3 | Version of idlspec2d for 2D reduction |
+| VERSFLAT | v1_36 | SPECFLAT version |
+| VERS2D | v6_2_1 | Version of idlspec2d for 2D reduction |
 |  |  |  |
 |  | APO WEATHER |  |
 | PRESSURE | 21.438 | APO SDSS 2.5m Air Pressure (inch Hg) |
@@ -1709,6 +1722,8 @@ Key | Value | Comment | |
 | HEAR | 0 0 0 0 | HeAr Arc lamps 1:On 0:off |
 | FF | 0 0 0 0 | Flat Field lamps 1:on 0:off |
 | FFS | 0 0 0 0 0 0 0 0 | Flatfield Screen 1:closed 0:open |
+| M2FF | 0 0 0 0 | LCO M2 Flat Field Lamps 1:on 0:off |
+| FFSPOS |  | FF screen position [deg] |
 | HARTMANN | Out | Hartmanns: Left,Right,Out,Closed |
 |  |  |  |
 |  | REDUCTION |  |
@@ -1720,17 +1735,17 @@ Key | Value | Comment | |
 | BADPIXEL | badpixels-59747-b1.fits.gz | Name of Badpixel mask used |
 |  |  |  |
 |  | PIPELINE OUTPUTS |  |
-| RUN2D | v6_1_3 | Spectro-2D reduction name |
+| RUN2D | v6_2_1 | Spectro-2D reduction name |
 | TAI-END | 5183936174.09 |  |
-| FRAMESN2 | 1.07058054816 | (S/N)^2 at fidicial magnitude |
-| DEREDSN2 | 1.07058054816 | Extinction corrected (S/N)^2 (like quick redux) |
+| FRAMESN2 | 1.12898445409 | (S/N)^2 at fidicial magnitude |
+| DEREDSN2 | 1.12898445409 | Extinction corrected (S/N)^2 (like quick redux) |
 | REDDEN01 | 0.0 | Median extinction in u-band |
 | REDDEN02 | 0.0 | Median extinction in g-band |
 | REDDEN03 | 0.0 | Median extinction in r-band |
 | REDDEN04 | 0.0 | Median extinction in i-band |
 | REDDEN05 | 0.0 | Median extinction in z-band |
 | XSIGMA | 1.06934 |  |
-| WSIGMA | 1.08909 |  |
+| WSIGMA | 1.08914 |  |
 | WDISPR | 3.10556 |  |
 | CONFSFIL | confSummaryF-8861.par |  |
 | FLATFILE | sdR-b1-00352990.fit |  |
@@ -1739,20 +1754,21 @@ Key | Value | Comment | |
 | LAMPLIST | lamphgcdne.dat |  |
 | SKYLIST | skylines.dat |  |
 | OBSMODE | dark_rm |  |
-| SIGBS0 | 0.278 | 5577.3 line gaussian fit sigma position before |
-| CENBS0 | -0.740 | 5577.3 line gaussian fit center position before |
+| SIGBS0 | 0.283 | 5577.3 line gaussian fit sigma position before |
+| CENBS0 | -0.727 | 5577.3 line gaussian fit center position before |
 | AVGBS0 | -0.831 | 5577.3 line average position before shift (pixe |
 | STDBS0 | 0.162 | 5577.3 line std position before shift (pixels) |
 | SIGAS0 | 0.025 | 5577.3 line gaussian fit sigma position after s |
 | CENAS0 | 0.003 | 5577.3 line gaussian fit center position after |
 | AVGAS0 | 0.004 | 5577.3 line average position after shift (pixel |
-| STDAS0 | 0.024 | 5577.3 line std position after shift (pixels) |
+| STDAS0 | 0.028 | 5577.3 line std position after shift (pixels) |
 | HELIO_RV | 1.49278175105 | V_RAD for backwards compatibility |
 | V_RAD | 1.49278175105 | radial velocity relative to the barycenter (add |
 | VACUUM | True | Wavelengths are in vacuum |
 | SFLATTEN | True | Superflat has been applied |
+| SFLATMIN | 0.005 | Superflat Minimum |
 | PSFSKY | 3 | Order of PSF skysubtraction |
-| SKYCHI2 | 0.854717693816 | Mean chi^2 of sky-subtraction |
+| SKYCHI2 | 0.902871935888 | Mean chi^2 of sky-subtraction |
 | PREJECT | 0.2 | Profile area rejection threshold |
 | LOWREJ | 4 | Extraction: low rejection |
 | HIGHREJ | 50 | Extraction: high rejection |
@@ -1767,13 +1783,13 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** Column names *** |  |
 | COMMENT |  |  |
-| TUNIT1 | FLUX | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT2 | LOGLAM | log10(Angs) |
-| TUNIT6 | WDISP | Pixels |
-| TUNIT7 | SKY | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT8 | WRESL | Angs |
-| CHECKSUM | 9Bd8FBZ69Bd6CBZ6 | HDU checksum updated 2024-04-12T22:35:55 |
-| DATASUM | 3814330275 | data unit checksum updated 2024-04-12T22:35:55 |
+| TUNIT1 | 10^-17 ergs/s/cm^2/Angs | FLUX |
+| TUNIT2 | log10(Angs) | LOGLAM |
+| TUNIT6 | Pixels | WDISP |
+| TUNIT7 | 10^-17 ergs/s/cm^2/Angs | SKY |
+| TUNIT8 | Angs | WRESL |
+| CHECKSUM | LPmeNPleLPleLPle | HDU checksum updated 2025-06-09T16:02:44 |
+| DATASUM | 1039743668 | data unit checksum updated 2025-06-09T16:02:44 |
 
 ##### Binary Table Caption for HDU7
 Name | Type | Unit | Description |
@@ -1956,11 +1972,11 @@ Key | Value | Comment | |
 | CAMDAQ | 1.5.0:37 | Camera Data Acquisition Version |
 | BOSSVER |  | ICC version |
 | VERSIDL | 8.8.0 | Version of IDL |
-| VERSUTIL | 6.0.0dev | Version of idlutils |
-| VERSREAD | v6_1_3 | Version of idlspec2d for pre-processing raw data |
+| VERSUTIL | 6.3.0 | Version of idlutils |
+| VERSREAD | v6_2_1 | Version of idlspec2d for pre-processing raw data |
 | VERSLOG | trunk 27531 | Version of SPECLOG product |
-| VERSFLAT | v1_35 | SPECFLAT version |
-| VERS2D | v6_1_3 | Version of idlspec2d for 2D reduction |
+| VERSFLAT | v1_36 | SPECFLAT version |
+| VERS2D | v6_2_1 | Version of idlspec2d for 2D reduction |
 |  |  |  |
 |  | APO WEATHER |  |
 | PRESSURE | 21.438 | APO SDSS 2.5m Air Pressure (inch Hg) |
@@ -1991,6 +2007,8 @@ Key | Value | Comment | |
 | HEAR | 0 0 0 0 | HeAr Arc lamps 1:On 0:off |
 | FF | 0 0 0 0 | Flat Field lamps 1:on 0:off |
 | FFS | 0 0 0 0 0 0 0 0 | Flatfield Screen 1:closed 0:open |
+| M2FF | 0 0 0 0 | LCO M2 Flat Field Lamps 1:on 0:off |
+| FFSPOS |  | FF screen position [deg] |
 | HARTMANN | Out | Hartmanns: Left,Right,Out,Closed |
 |  |  |  |
 |  | REDUCTION |  |
@@ -2002,17 +2020,17 @@ Key | Value | Comment | |
 | BADPIXEL | badpixels-59747-b1.fits.gz | Name of Badpixel mask used |
 |  |  |  |
 |  | PIPELINE OUTPUTS |  |
-| RUN2D | v6_1_3 | Spectro-2D reduction name |
+| RUN2D | v6_2_1 | Spectro-2D reduction name |
 | TAI-END | 5183937165.09 |  |
-| FRAMESN2 | 1.15416998685 | (S/N)^2 at fidicial magnitude |
-| DEREDSN2 | 1.15416998685 | Extinction corrected (S/N)^2 (like quick redux) |
+| FRAMESN2 | 1.2370151029 | (S/N)^2 at fidicial magnitude |
+| DEREDSN2 | 1.2370151029 | Extinction corrected (S/N)^2 (like quick redux) |
 | REDDEN01 | 0.0 | Median extinction in u-band |
 | REDDEN02 | 0.0 | Median extinction in g-band |
 | REDDEN03 | 0.0 | Median extinction in r-band |
 | REDDEN04 | 0.0 | Median extinction in i-band |
 | REDDEN05 | 0.0 | Median extinction in z-band |
 | XSIGMA | 1.06934 |  |
-| WSIGMA | 1.08909 |  |
+| WSIGMA | 1.08914 |  |
 | WDISPR | 3.10556 |  |
 | CONFSFIL | confSummaryF-8861.par |  |
 | FLATFILE | sdR-b1-00352990.fit |  |
@@ -2021,20 +2039,21 @@ Key | Value | Comment | |
 | LAMPLIST | lamphgcdne.dat |  |
 | SKYLIST | skylines.dat |  |
 | OBSMODE | dark_rm |  |
-| SIGBS0 | 0.331 | 5577.3 line gaussian fit sigma position before |
-| CENBS0 | -0.947 | 5577.3 line gaussian fit center position before |
+| SIGBS0 | 0.325 | 5577.3 line gaussian fit sigma position before |
+| CENBS0 | -0.948 | 5577.3 line gaussian fit center position before |
 | AVGBS0 | -1.058 | 5577.3 line average position before shift (pixe |
 | STDBS0 | 0.198 | 5577.3 line std position before shift (pixels) |
-| SIGAS0 | 0.029 | 5577.3 line gaussian fit sigma position after s |
+| SIGAS0 | 0.023 | 5577.3 line gaussian fit sigma position after s |
 | CENAS0 | 0.003 | 5577.3 line gaussian fit center position after |
-| AVGAS0 | 0.006 | 5577.3 line average position after shift (pixel |
-| STDAS0 | 0.029 | 5577.3 line std position after shift (pixels) |
+| AVGAS0 | 0.005 | 5577.3 line average position after shift (pixel |
+| STDAS0 | 0.034 | 5577.3 line std position after shift (pixels) |
 | HELIO_RV | 1.52669861724 | V_RAD for backwards compatibility |
 | V_RAD | 1.52669861724 | radial velocity relative to the barycenter (add |
 | VACUUM | True | Wavelengths are in vacuum |
 | SFLATTEN | True | Superflat has been applied |
+| SFLATMIN | 0.005 | Superflat Minimum |
 | PSFSKY | 3 | Order of PSF skysubtraction |
-| SKYCHI2 | 0.812225947065 | Mean chi^2 of sky-subtraction |
+| SKYCHI2 | 0.882105337479 | Mean chi^2 of sky-subtraction |
 | PREJECT | 0.2 | Profile area rejection threshold |
 | LOWREJ | 4 | Extraction: low rejection |
 | HIGHREJ | 50 | Extraction: high rejection |
@@ -2049,13 +2068,13 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** Column names *** |  |
 | COMMENT |  |  |
-| TUNIT1 | FLUX | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT2 | LOGLAM | log10(Angs) |
-| TUNIT6 | WDISP | Pixels |
-| TUNIT7 | SKY | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT8 | WRESL | Angs |
-| CHECKSUM | emlQfmlQemlQemlQ | HDU checksum updated 2024-04-12T22:35:55 |
-| DATASUM | 218926082 | data unit checksum updated 2024-04-12T22:35:55 |
+| TUNIT1 | 10^-17 ergs/s/cm^2/Angs | FLUX |
+| TUNIT2 | log10(Angs) | LOGLAM |
+| TUNIT6 | Pixels | WDISP |
+| TUNIT7 | 10^-17 ergs/s/cm^2/Angs | SKY |
+| TUNIT8 | Angs | WRESL |
+| CHECKSUM | W8TGa6S9Y6SEa6S9 | HDU checksum updated 2025-06-09T16:02:44 |
+| DATASUM | 1935799138 | data unit checksum updated 2025-06-09T16:02:44 |
 
 ##### Binary Table Caption for HDU8
 Name | Type | Unit | Description |
@@ -2238,11 +2257,11 @@ Key | Value | Comment | |
 | CAMDAQ | 1.5.0:37 | Camera Data Acquisition Version |
 | BOSSVER |  | ICC version |
 | VERSIDL | 8.8.0 | Version of IDL |
-| VERSUTIL | 6.0.0dev | Version of idlutils |
-| VERSREAD | v6_1_3 | Version of idlspec2d for pre-processing raw data |
+| VERSUTIL | 6.3.0 | Version of idlutils |
+| VERSREAD | v6_2_1 | Version of idlspec2d for pre-processing raw data |
 | VERSLOG | trunk 27531 | Version of SPECLOG product |
-| VERSFLAT | v1_35 | SPECFLAT version |
-| VERS2D | v6_1_3 | Version of idlspec2d for 2D reduction |
+| VERSFLAT | v1_36 | SPECFLAT version |
+| VERS2D | v6_2_1 | Version of idlspec2d for 2D reduction |
 |  |  |  |
 |  | APO WEATHER |  |
 | PRESSURE | 21.434 | APO SDSS 2.5m Air Pressure (inch Hg) |
@@ -2273,6 +2292,8 @@ Key | Value | Comment | |
 | HEAR | 0 0 0 0 | HeAr Arc lamps 1:On 0:off |
 | FF | 0 0 0 0 | Flat Field lamps 1:on 0:off |
 | FFS | 0 0 0 0 0 0 0 0 | Flatfield Screen 1:closed 0:open |
+| M2FF | 0 0 0 0 | LCO M2 Flat Field Lamps 1:on 0:off |
+| FFSPOS |  | FF screen position [deg] |
 | HARTMANN | Out | Hartmanns: Left,Right,Out,Closed |
 |  |  |  |
 |  | REDUCTION |  |
@@ -2284,17 +2305,17 @@ Key | Value | Comment | |
 | BADPIXEL | badpixels-59747-b1.fits.gz | Name of Badpixel mask used |
 |  |  |  |
 |  | PIPELINE OUTPUTS |  |
-| RUN2D | v6_1_3 | Spectro-2D reduction name |
+| RUN2D | v6_2_1 | Spectro-2D reduction name |
 | TAI-END | 5183938680.1 |  |
-| FRAMESN2 | 0.905622340181 | (S/N)^2 at fidicial magnitude |
-| DEREDSN2 | 0.905622340181 | Extinction corrected (S/N)^2 (like quick redux) |
+| FRAMESN2 | 0.97546050151 | (S/N)^2 at fidicial magnitude |
+| DEREDSN2 | 0.97546050151 | Extinction corrected (S/N)^2 (like quick redux) |
 | REDDEN01 | 0.0 | Median extinction in u-band |
 | REDDEN02 | 0.0 | Median extinction in g-band |
 | REDDEN03 | 0.0 | Median extinction in r-band |
 | REDDEN04 | 0.0 | Median extinction in i-band |
 | REDDEN05 | 0.0 | Median extinction in z-band |
 | XSIGMA | 1.06934 |  |
-| WSIGMA | 1.08909 |  |
+| WSIGMA | 1.08914 |  |
 | WDISPR | 3.10556 |  |
 | CONFSFIL | confSummaryF-8862.par |  |
 | FLATFILE | sdR-b1-00352990.fit |  |
@@ -2303,20 +2324,21 @@ Key | Value | Comment | |
 | LAMPLIST | lamphgcdne.dat |  |
 | SKYLIST | skylines.dat |  |
 | OBSMODE | dark_rm |  |
-| SIGBS0 | 0.508 | 5577.3 line gaussian fit sigma position before |
-| CENBS0 | -0.774 | 5577.3 line gaussian fit center position before |
+| SIGBS0 | 0.506 | 5577.3 line gaussian fit sigma position before |
+| CENBS0 | -0.760 | 5577.3 line gaussian fit center position before |
 | AVGBS0 | -1.156 | 5577.3 line average position before shift (pixe |
 | STDBS0 | 0.209 | 5577.3 line std position before shift (pixels) |
-| SIGAS0 | 0.027 | 5577.3 line gaussian fit sigma position after s |
+| SIGAS0 | 0.028 | 5577.3 line gaussian fit sigma position after s |
 | CENAS0 | 0.004 | 5577.3 line gaussian fit center position after |
 | AVGAS0 | 0.006 | 5577.3 line average position after shift (pixel |
-| STDAS0 | 0.030 | 5577.3 line std position after shift (pixels) |
+| STDAS0 | 0.035 | 5577.3 line std position after shift (pixels) |
 | HELIO_RV | 1.57902276722 | V_RAD for backwards compatibility |
 | V_RAD | 1.57902276722 | radial velocity relative to the barycenter (add |
 | VACUUM | True | Wavelengths are in vacuum |
 | SFLATTEN | True | Superflat has been applied |
+| SFLATMIN | 0.005 | Superflat Minimum |
 | PSFSKY | 3 | Order of PSF skysubtraction |
-| SKYCHI2 | 0.898168503809 | Mean chi^2 of sky-subtraction |
+| SKYCHI2 | 0.880459284805 | Mean chi^2 of sky-subtraction |
 | PREJECT | 0.2 | Profile area rejection threshold |
 | LOWREJ | 4 | Extraction: low rejection |
 | HIGHREJ | 50 | Extraction: high rejection |
@@ -2331,13 +2353,13 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** Column names *** |  |
 | COMMENT |  |  |
-| TUNIT1 | FLUX | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT2 | LOGLAM | log10(Angs) |
-| TUNIT6 | WDISP | Pixels |
-| TUNIT7 | SKY | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT8 | WRESL | Angs |
-| CHECKSUM | 9aGaDR9S9XGYCX9Y | HDU checksum updated 2024-04-12T22:35:55 |
-| DATASUM | 1158193595 | data unit checksum updated 2024-04-12T22:35:55 |
+| TUNIT1 | 10^-17 ergs/s/cm^2/Angs | FLUX |
+| TUNIT2 | log10(Angs) | LOGLAM |
+| TUNIT6 | Pixels | WDISP |
+| TUNIT7 | 10^-17 ergs/s/cm^2/Angs | SKY |
+| TUNIT8 | Angs | WRESL |
+| CHECKSUM | WDp3Z9o1WAo1W9o1 | HDU checksum updated 2025-06-09T16:02:44 |
+| DATASUM | 1631337848 | data unit checksum updated 2025-06-09T16:02:44 |
 
 ##### Binary Table Caption for HDU9
 Name | Type | Unit | Description |
@@ -2520,11 +2542,11 @@ Key | Value | Comment | |
 | CAMDAQ | 1.5.0:37 | Camera Data Acquisition Version |
 | BOSSVER |  | ICC version |
 | VERSIDL | 8.8.0 | Version of IDL |
-| VERSUTIL | 6.0.0dev | Version of idlutils |
-| VERSREAD | v6_1_3 | Version of idlspec2d for pre-processing raw data |
+| VERSUTIL | 6.3.0 | Version of idlutils |
+| VERSREAD | v6_2_1 | Version of idlspec2d for pre-processing raw data |
 | VERSLOG | trunk 27531 | Version of SPECLOG product |
-| VERSFLAT | v1_35 | SPECFLAT version |
-| VERS2D | v6_1_3 | Version of idlspec2d for 2D reduction |
+| VERSFLAT | v1_36 | SPECFLAT version |
+| VERS2D | v6_2_1 | Version of idlspec2d for 2D reduction |
 |  |  |  |
 |  | APO WEATHER |  |
 | PRESSURE | 21.549 | APO SDSS 2.5m Air Pressure (inch Hg) |
@@ -2555,6 +2577,8 @@ Key | Value | Comment | |
 | HEAR | 0 0 0 0 | HeAr Arc lamps 1:On 0:off |
 | FF | 0 0 0 0 | Flat Field lamps 1:on 0:off |
 | FFS | 0 0 0 0 0 0 0 0 | Flatfield Screen 1:closed 0:open |
+| M2FF | 0 0 0 0 | LCO M2 Flat Field Lamps 1:on 0:off |
+| FFSPOS |  | FF screen position [deg] |
 | HARTMANN | Out | Hartmanns: Left,Right,Out,Closed |
 |  |  |  |
 |  | REDUCTION |  |
@@ -2566,10 +2590,10 @@ Key | Value | Comment | |
 | BADPIXEL | badpixels-59747-b1.fits.gz | Name of Badpixel mask used |
 |  |  |  |
 |  | PIPELINE OUTPUTS |  |
-| RUN2D | v6_1_3 | Spectro-2D reduction name |
+| RUN2D | v6_2_1 | Spectro-2D reduction name |
 | TAI-END | 5184020657.09 |  |
-| FRAMESN2 | 0.637019265761 | (S/N)^2 at fidicial magnitude |
-| DEREDSN2 | 0.637019265761 | Extinction corrected (S/N)^2 (like quick redux) |
+| FRAMESN2 | 0.671881083121 | (S/N)^2 at fidicial magnitude |
+| DEREDSN2 | 0.671881083121 | Extinction corrected (S/N)^2 (like quick redux) |
 | REDDEN01 | 0.0 | Median extinction in u-band |
 | REDDEN02 | 0.0 | Median extinction in g-band |
 | REDDEN03 | 0.0 | Median extinction in r-band |
@@ -2586,7 +2610,7 @@ Key | Value | Comment | |
 | SKYLIST | skylines.dat |  |
 | OBSMODE | dark_rm |  |
 | SIGBS0 | 0.034 | 5577.3 line gaussian fit sigma position before |
-| CENBS0 | -0.272 | 5577.3 line gaussian fit center position before |
+| CENBS0 | -0.271 | 5577.3 line gaussian fit center position before |
 | AVGBS0 | -0.289 | 5577.3 line average position before shift (pixe |
 | STDBS0 | 0.042 | 5577.3 line std position before shift (pixels) |
 | AVGAS0 | -0.001 | 5577.3 line average position after shift (pixel |
@@ -2595,8 +2619,9 @@ Key | Value | Comment | |
 | V_RAD | 1.95078733724 | radial velocity relative to the barycenter (add |
 | VACUUM | True | Wavelengths are in vacuum |
 | SFLATTEN | True | Superflat has been applied |
+| SFLATMIN | 0.005 | Superflat Minimum |
 | PSFSKY | 3 | Order of PSF skysubtraction |
-| SKYCHI2 | 0.900314249399 | Mean chi^2 of sky-subtraction |
+| SKYCHI2 | 0.884752939422 | Mean chi^2 of sky-subtraction |
 | PREJECT | 0.2 | Profile area rejection threshold |
 | LOWREJ | 4 | Extraction: low rejection |
 | HIGHREJ | 50 | Extraction: high rejection |
@@ -2611,13 +2636,13 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** Column names *** |  |
 | COMMENT |  |  |
-| TUNIT1 | FLUX | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT2 | LOGLAM | log10(Angs) |
-| TUNIT6 | WDISP | Pixels |
-| TUNIT7 | SKY | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT8 | WRESL | Angs |
-| CHECKSUM | ZAWQd8TNZATNb7TN | HDU checksum updated 2024-04-12T22:35:55 |
-| DATASUM | 2866282381 | data unit checksum updated 2024-04-12T22:35:55 |
+| TUNIT1 | 10^-17 ergs/s/cm^2/Angs | FLUX |
+| TUNIT2 | log10(Angs) | LOGLAM |
+| TUNIT6 | Pixels | WDISP |
+| TUNIT7 | 10^-17 ergs/s/cm^2/Angs | SKY |
+| TUNIT8 | Angs | WRESL |
+| CHECKSUM | gKfMhJZJgJdJgJZJ | HDU checksum updated 2025-06-09T16:02:44 |
+| DATASUM | 864683426 | data unit checksum updated 2025-06-09T16:02:44 |
 
 ##### Binary Table Caption for HDU10
 Name | Type | Unit | Description |
@@ -2800,11 +2825,11 @@ Key | Value | Comment | |
 | CAMDAQ | 1.5.0:37 | Camera Data Acquisition Version |
 | BOSSVER |  | ICC version |
 | VERSIDL | 8.8.0 | Version of IDL |
-| VERSUTIL | 6.0.0dev | Version of idlutils |
-| VERSREAD | v6_1_3 | Version of idlspec2d for pre-processing raw data |
+| VERSUTIL | 6.3.0 | Version of idlutils |
+| VERSREAD | v6_2_1 | Version of idlspec2d for pre-processing raw data |
 | VERSLOG | trunk 27531 | Version of SPECLOG product |
-| VERSFLAT | v1_35 | SPECFLAT version |
-| VERS2D | v6_1_3 | Version of idlspec2d for 2D reduction |
+| VERSFLAT | v1_36 | SPECFLAT version |
+| VERS2D | v6_2_1 | Version of idlspec2d for 2D reduction |
 |  |  |  |
 |  | APO WEATHER |  |
 | PRESSURE | 21.552 | APO SDSS 2.5m Air Pressure (inch Hg) |
@@ -2835,6 +2860,8 @@ Key | Value | Comment | |
 | HEAR | 0 0 0 0 | HeAr Arc lamps 1:On 0:off |
 | FF | 0 0 0 0 | Flat Field lamps 1:on 0:off |
 | FFS | 0 0 0 0 0 0 0 0 | Flatfield Screen 1:closed 0:open |
+| M2FF | 0 0 0 0 | LCO M2 Flat Field Lamps 1:on 0:off |
+| FFSPOS |  | FF screen position [deg] |
 | HARTMANN | Out | Hartmanns: Left,Right,Out,Closed |
 |  |  |  |
 |  | REDUCTION |  |
@@ -2846,10 +2873,10 @@ Key | Value | Comment | |
 | BADPIXEL | badpixels-59747-b1.fits.gz | Name of Badpixel mask used |
 |  |  |  |
 |  | PIPELINE OUTPUTS |  |
-| RUN2D | v6_1_3 | Spectro-2D reduction name |
+| RUN2D | v6_2_1 | Spectro-2D reduction name |
 | TAI-END | 5184021660.09 |  |
-| FRAMESN2 | 1.13770034235 | (S/N)^2 at fidicial magnitude |
-| DEREDSN2 | 1.13770034235 | Extinction corrected (S/N)^2 (like quick redux) |
+| FRAMESN2 | 1.21742890786 | (S/N)^2 at fidicial magnitude |
+| DEREDSN2 | 1.21742890786 | Extinction corrected (S/N)^2 (like quick redux) |
 | REDDEN01 | 0.0 | Median extinction in u-band |
 | REDDEN02 | 0.0 | Median extinction in g-band |
 | REDDEN03 | 0.0 | Median extinction in r-band |
@@ -2865,20 +2892,21 @@ Key | Value | Comment | |
 | LAMPLIST | lamphgcdne.dat |  |
 | SKYLIST | skylines.dat |  |
 | OBSMODE | dark_rm |  |
-| SIGBS0 | 0.120 | 5577.3 line gaussian fit sigma position before |
-| CENBS0 | -0.610 | 5577.3 line gaussian fit center position before |
-| AVGBS0 | -0.640 | 5577.3 line average position before shift (pixe |
+| SIGBS0 | 0.117 | 5577.3 line gaussian fit sigma position before |
+| CENBS0 | -0.612 | 5577.3 line gaussian fit center position before |
+| AVGBS0 | -0.641 | 5577.3 line average position before shift (pixe |
 | STDBS0 | 0.098 | 5577.3 line std position before shift (pixels) |
-| SIGAS0 | 0.025 | 5577.3 line gaussian fit sigma position after s |
+| SIGAS0 | 0.023 | 5577.3 line gaussian fit sigma position after s |
 | CENAS0 | -0.001 | 5577.3 line gaussian fit center position after |
-| AVGAS0 | 0.000 | 5577.3 line average position after shift (pixel |
-| STDAS0 | 0.021 | 5577.3 line std position after shift (pixels) |
+| AVGAS0 | -0.000 | 5577.3 line average position after shift (pixel |
+| STDAS0 | 0.023 | 5577.3 line std position after shift (pixels) |
 | HELIO_RV | 1.98446819301 | V_RAD for backwards compatibility |
 | V_RAD | 1.98446819301 | radial velocity relative to the barycenter (add |
 | VACUUM | True | Wavelengths are in vacuum |
 | SFLATTEN | True | Superflat has been applied |
+| SFLATMIN | 0.005 | Superflat Minimum |
 | PSFSKY | 3 | Order of PSF skysubtraction |
-| SKYCHI2 | 0.901168846604 | Mean chi^2 of sky-subtraction |
+| SKYCHI2 | 0.895330753153 | Mean chi^2 of sky-subtraction |
 | PREJECT | 0.2 | Profile area rejection threshold |
 | LOWREJ | 4 | Extraction: low rejection |
 | HIGHREJ | 50 | Extraction: high rejection |
@@ -2893,13 +2921,13 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** Column names *** |  |
 | COMMENT |  |  |
-| TUNIT1 | FLUX | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT2 | LOGLAM | log10(Angs) |
-| TUNIT6 | WDISP | Pixels |
-| TUNIT7 | SKY | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT8 | WRESL | Angs |
-| CHECKSUM | bG8De95AbE5Ab95A | HDU checksum updated 2024-04-12T22:35:55 |
-| DATASUM | 4027832677 | data unit checksum updated 2024-04-12T22:35:55 |
+| TUNIT1 | 10^-17 ergs/s/cm^2/Angs | FLUX |
+| TUNIT2 | log10(Angs) | LOGLAM |
+| TUNIT6 | Pixels | WDISP |
+| TUNIT7 | 10^-17 ergs/s/cm^2/Angs | SKY |
+| TUNIT8 | Angs | WRESL |
+| CHECKSUM | NAAFO05CN7ACN75C | HDU checksum updated 2025-06-09T16:02:44 |
+| DATASUM | 2027155173 | data unit checksum updated 2025-06-09T16:02:44 |
 
 ##### Binary Table Caption for HDU11
 Name | Type | Unit | Description |
@@ -3082,11 +3110,11 @@ Key | Value | Comment | |
 | CAMDAQ | 1.5.0:37 | Camera Data Acquisition Version |
 | BOSSVER |  | ICC version |
 | VERSIDL | 8.8.0 | Version of IDL |
-| VERSUTIL | 6.0.0dev | Version of idlutils |
-| VERSREAD | v6_1_3 | Version of idlspec2d for pre-processing raw data |
+| VERSUTIL | 6.3.0 | Version of idlutils |
+| VERSREAD | v6_2_1 | Version of idlspec2d for pre-processing raw data |
 | VERSLOG | trunk 27531 | Version of SPECLOG product |
-| VERSFLAT | v1_35 | SPECFLAT version |
-| VERS2D | v6_1_3 | Version of idlspec2d for 2D reduction |
+| VERSFLAT | v1_36 | SPECFLAT version |
+| VERS2D | v6_2_1 | Version of idlspec2d for 2D reduction |
 |  |  |  |
 |  | APO WEATHER |  |
 | PRESSURE | 21.551 | APO SDSS 2.5m Air Pressure (inch Hg) |
@@ -3117,6 +3145,8 @@ Key | Value | Comment | |
 | HEAR | 0 0 0 0 | HeAr Arc lamps 1:On 0:off |
 | FF | 0 0 0 0 | Flat Field lamps 1:on 0:off |
 | FFS | 0 0 0 0 0 0 0 0 | Flatfield Screen 1:closed 0:open |
+| M2FF | 0 0 0 0 | LCO M2 Flat Field Lamps 1:on 0:off |
+| FFSPOS |  | FF screen position [deg] |
 | HARTMANN | Out | Hartmanns: Left,Right,Out,Closed |
 |  |  |  |
 |  | REDUCTION |  |
@@ -3128,10 +3158,10 @@ Key | Value | Comment | |
 | BADPIXEL | badpixels-59747-b1.fits.gz | Name of Badpixel mask used |
 |  |  |  |
 |  | PIPELINE OUTPUTS |  |
-| RUN2D | v6_1_3 | Spectro-2D reduction name |
+| RUN2D | v6_2_1 | Spectro-2D reduction name |
 | TAI-END | 5184022648.08 |  |
-| FRAMESN2 | 1.59241887556 | (S/N)^2 at fidicial magnitude |
-| DEREDSN2 | 1.59241887556 | Extinction corrected (S/N)^2 (like quick redux) |
+| FRAMESN2 | 1.70034387769 | (S/N)^2 at fidicial magnitude |
+| DEREDSN2 | 1.70034387769 | Extinction corrected (S/N)^2 (like quick redux) |
 | REDDEN01 | 0.0 | Median extinction in u-band |
 | REDDEN02 | 0.0 | Median extinction in g-band |
 | REDDEN03 | 0.0 | Median extinction in r-band |
@@ -3147,20 +3177,21 @@ Key | Value | Comment | |
 | LAMPLIST | lamphgcdne.dat |  |
 | SKYLIST | skylines.dat |  |
 | OBSMODE | dark_rm |  |
-| SIGBS0 | 0.138 | 5577.3 line gaussian fit sigma position before |
-| CENBS0 | -0.768 | 5577.3 line gaussian fit center position before |
+| SIGBS0 | 0.131 | 5577.3 line gaussian fit sigma position before |
+| CENBS0 | -0.766 | 5577.3 line gaussian fit center position before |
 | AVGBS0 | -0.811 | 5577.3 line average position before shift (pixe |
-| STDBS0 | 0.123 | 5577.3 line std position before shift (pixels) |
-| SIGAS0 | 0.033 | 5577.3 line gaussian fit sigma position after s |
-| CENAS0 | -0.012 | 5577.3 line gaussian fit center position after |
-| AVGAS0 | 0.001 | 5577.3 line average position after shift (pixel |
-| STDAS0 | 0.022 | 5577.3 line std position after shift (pixels) |
+| STDBS0 | 0.122 | 5577.3 line std position before shift (pixels) |
+| SIGAS0 | 0.025 | 5577.3 line gaussian fit sigma position after s |
+| CENAS0 | -0.004 | 5577.3 line gaussian fit center position after |
+| AVGAS0 | 0.000 | 5577.3 line average position after shift (pixel |
+| STDAS0 | 0.024 | 5577.3 line std position after shift (pixels) |
 | HELIO_RV | 2.01797647329 | V_RAD for backwards compatibility |
 | V_RAD | 2.01797647329 | radial velocity relative to the barycenter (add |
 | VACUUM | True | Wavelengths are in vacuum |
 | SFLATTEN | True | Superflat has been applied |
+| SFLATMIN | 0.005 | Superflat Minimum |
 | PSFSKY | 3 | Order of PSF skysubtraction |
-| SKYCHI2 | 0.852563463649 | Mean chi^2 of sky-subtraction |
+| SKYCHI2 | 0.929733183919 | Mean chi^2 of sky-subtraction |
 | PREJECT | 0.2 | Profile area rejection threshold |
 | LOWREJ | 4 | Extraction: low rejection |
 | HIGHREJ | 50 | Extraction: high rejection |
@@ -3175,13 +3206,13 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** Column names *** |  |
 | COMMENT |  |  |
-| TUNIT1 | FLUX | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT2 | LOGLAM | log10(Angs) |
-| TUNIT6 | WDISP | Pixels |
-| TUNIT7 | SKY | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT8 | WRESL | Angs |
-| CHECKSUM | WHZBWHZ9WHZAWHZ7 | HDU checksum updated 2024-04-12T22:35:55 |
-| DATASUM | 3097565623 | data unit checksum updated 2024-04-12T22:35:55 |
+| TUNIT1 | 10^-17 ergs/s/cm^2/Angs | FLUX |
+| TUNIT2 | log10(Angs) | LOGLAM |
+| TUNIT6 | Pixels | WDISP |
+| TUNIT7 | 10^-17 ergs/s/cm^2/Angs | SKY |
+| TUNIT8 | Angs | WRESL |
+| CHECKSUM | 3Inp6Glm3Glm3Glm | HDU checksum updated 2025-06-09T16:02:44 |
+| DATASUM | 1816025971 | data unit checksum updated 2025-06-09T16:02:44 |
 
 ##### Binary Table Caption for HDU12
 Name | Type | Unit | Description |
@@ -3364,11 +3395,11 @@ Key | Value | Comment | |
 | CAMDAQ | 1.5.0:37 | Camera Data Acquisition Version |
 | BOSSVER |  | ICC version |
 | VERSIDL | 8.8.0 | Version of IDL |
-| VERSUTIL | 6.0.0dev | Version of idlutils |
-| VERSREAD | v6_1_3 | Version of idlspec2d for pre-processing raw data |
+| VERSUTIL | 6.3.0 | Version of idlutils |
+| VERSREAD | v6_2_1 | Version of idlspec2d for pre-processing raw data |
 | VERSLOG | trunk 27531 | Version of SPECLOG product |
-| VERSFLAT | v1_35 | SPECFLAT version |
-| VERS2D | v6_1_3 | Version of idlspec2d for 2D reduction |
+| VERSFLAT | v1_36 | SPECFLAT version |
+| VERS2D | v6_2_1 | Version of idlspec2d for 2D reduction |
 |  |  |  |
 |  | APO WEATHER |  |
 | PRESSURE | 21.549 | APO SDSS 2.5m Air Pressure (inch Hg) |
@@ -3399,6 +3430,8 @@ Key | Value | Comment | |
 | HEAR | 0 0 0 0 | HeAr Arc lamps 1:On 0:off |
 | FF | 0 0 0 0 | Flat Field lamps 1:on 0:off |
 | FFS | 0 0 0 0 0 0 0 0 | Flatfield Screen 1:closed 0:open |
+| M2FF | 0 0 0 0 | LCO M2 Flat Field Lamps 1:on 0:off |
+| FFSPOS |  | FF screen position [deg] |
 | HARTMANN | Out | Hartmanns: Left,Right,Out,Closed |
 |  |  |  |
 |  | REDUCTION |  |
@@ -3410,10 +3443,10 @@ Key | Value | Comment | |
 | BADPIXEL | badpixels-59747-b1.fits.gz | Name of Badpixel mask used |
 |  |  |  |
 |  | PIPELINE OUTPUTS |  |
-| RUN2D | v6_1_3 | Spectro-2D reduction name |
+| RUN2D | v6_2_1 | Spectro-2D reduction name |
 | TAI-END | 5184023653.06 |  |
-| FRAMESN2 | 1.23718973343 | (S/N)^2 at fidicial magnitude |
-| DEREDSN2 | 1.23718973343 | Extinction corrected (S/N)^2 (like quick redux) |
+| FRAMESN2 | 1.33002698651 | (S/N)^2 at fidicial magnitude |
+| DEREDSN2 | 1.33002698651 | Extinction corrected (S/N)^2 (like quick redux) |
 | REDDEN01 | 0.0 | Median extinction in u-band |
 | REDDEN02 | 0.0 | Median extinction in g-band |
 | REDDEN03 | 0.0 | Median extinction in r-band |
@@ -3429,20 +3462,21 @@ Key | Value | Comment | |
 | LAMPLIST | lamphgcdne.dat |  |
 | SKYLIST | skylines.dat |  |
 | OBSMODE | dark_rm |  |
-| SIGBS0 | 0.095 | 5577.3 line gaussian fit sigma position before |
-| CENBS0 | -0.840 | 5577.3 line gaussian fit center position before |
-| AVGBS0 | -0.914 | 5577.3 line average position before shift (pixe |
+| SIGBS0 | 0.091 | 5577.3 line gaussian fit sigma position before |
+| CENBS0 | -0.839 | 5577.3 line gaussian fit center position before |
+| AVGBS0 | -0.915 | 5577.3 line average position before shift (pixe |
 | STDBS0 | 0.134 | 5577.3 line std position before shift (pixels) |
-| SIGAS0 | 0.023 | 5577.3 line gaussian fit sigma position after s |
-| CENAS0 | -0.000 | 5577.3 line gaussian fit center position after |
+| SIGAS0 | 0.024 | 5577.3 line gaussian fit sigma position after s |
+| CENAS0 | -0.001 | 5577.3 line gaussian fit center position after |
 | AVGAS0 | 0.002 | 5577.3 line average position after shift (pixel |
-| STDAS0 | 0.025 | 5577.3 line std position after shift (pixels) |
+| STDAS0 | 0.026 | 5577.3 line std position after shift (pixels) |
 | HELIO_RV | 2.0524419935 | V_RAD for backwards compatibility |
 | V_RAD | 2.0524419935 | radial velocity relative to the barycenter (add |
 | VACUUM | True | Wavelengths are in vacuum |
 | SFLATTEN | True | Superflat has been applied |
+| SFLATMIN | 0.005 | Superflat Minimum |
 | PSFSKY | 3 | Order of PSF skysubtraction |
-| SKYCHI2 | 0.885065905071 | Mean chi^2 of sky-subtraction |
+| SKYCHI2 | 0.896185281448 | Mean chi^2 of sky-subtraction |
 | PREJECT | 0.2 | Profile area rejection threshold |
 | LOWREJ | 4 | Extraction: low rejection |
 | HIGHREJ | 50 | Extraction: high rejection |
@@ -3457,13 +3491,13 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** Column names *** |  |
 | COMMENT |  |  |
-| TUNIT1 | FLUX | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT2 | LOGLAM | log10(Angs) |
-| TUNIT6 | WDISP | Pixels |
-| TUNIT7 | SKY | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT8 | WRESL | Angs |
-| CHECKSUM | 1agA3Tf61YfA1Yf3 | HDU checksum updated 2024-04-12T22:35:55 |
-| DATASUM | 1315766306 | data unit checksum updated 2024-04-12T22:35:55 |
+| TUNIT1 | 10^-17 ergs/s/cm^2/Angs | FLUX |
+| TUNIT2 | log10(Angs) | LOGLAM |
+| TUNIT6 | Pixels | WDISP |
+| TUNIT7 | 10^-17 ergs/s/cm^2/Angs | SKY |
+| TUNIT8 | Angs | WRESL |
+| CHECKSUM | NV2aPT2WNT2aNT2U | HDU checksum updated 2025-06-09T16:02:45 |
+| DATASUM | 321223911 | data unit checksum updated 2025-06-09T16:02:45 |
 
 ##### Binary Table Caption for HDU13
 Name | Type | Unit | Description |
@@ -3646,11 +3680,11 @@ Key | Value | Comment | |
 | CAMDAQ | 1.5.0:37 | Camera Data Acquisition Version |
 | BOSSVER |  | ICC version |
 | VERSIDL | 8.8.0 | Version of IDL |
-| VERSUTIL | 6.0.0dev | Version of idlutils |
-| VERSREAD | v6_1_3 | Version of idlspec2d for pre-processing raw data |
+| VERSUTIL | 6.3.0 | Version of idlutils |
+| VERSREAD | v6_2_1 | Version of idlspec2d for pre-processing raw data |
 | VERSLOG | trunk 27531 | Version of SPECLOG product |
-| VERSFLAT | v1_35 | SPECFLAT version |
-| VERS2D | v6_1_3 | Version of idlspec2d for 2D reduction |
+| VERSFLAT | v1_36 | SPECFLAT version |
+| VERS2D | v6_2_1 | Version of idlspec2d for 2D reduction |
 |  |  |  |
 |  | APO WEATHER |  |
 | PRESSURE | 21.544 | APO SDSS 2.5m Air Pressure (inch Hg) |
@@ -3681,6 +3715,8 @@ Key | Value | Comment | |
 | HEAR | 0 0 0 0 | HeAr Arc lamps 1:On 0:off |
 | FF | 0 0 0 0 | Flat Field lamps 1:on 0:off |
 | FFS | 0 0 0 0 0 0 0 0 | Flatfield Screen 1:closed 0:open |
+| M2FF | 0 0 0 0 | LCO M2 Flat Field Lamps 1:on 0:off |
+| FFSPOS |  | FF screen position [deg] |
 | HARTMANN | Out | Hartmanns: Left,Right,Out,Closed |
 |  |  |  |
 |  | REDUCTION |  |
@@ -3692,10 +3728,10 @@ Key | Value | Comment | |
 | BADPIXEL | badpixels-59747-b1.fits.gz | Name of Badpixel mask used |
 |  |  |  |
 |  | PIPELINE OUTPUTS |  |
-| RUN2D | v6_1_3 | Spectro-2D reduction name |
+| RUN2D | v6_2_1 | Spectro-2D reduction name |
 | TAI-END | 5184024956.07 |  |
-| FRAMESN2 | 0.586255830856 | (S/N)^2 at fidicial magnitude |
-| DEREDSN2 | 0.586255830856 | Extinction corrected (S/N)^2 (like quick redux) |
+| FRAMESN2 | 0.621162702451 | (S/N)^2 at fidicial magnitude |
+| DEREDSN2 | 0.621162702451 | Extinction corrected (S/N)^2 (like quick redux) |
 | REDDEN01 | 0.0 | Median extinction in u-band |
 | REDDEN02 | 0.0 | Median extinction in g-band |
 | REDDEN03 | 0.0 | Median extinction in r-band |
@@ -3711,20 +3747,21 @@ Key | Value | Comment | |
 | LAMPLIST | lamphgcdne.dat |  |
 | SKYLIST | skylines.dat |  |
 | OBSMODE | dark_rm |  |
-| SIGBS0 | 0.082 | 5577.3 line gaussian fit sigma position before |
-| CENBS0 | -0.919 | 5577.3 line gaussian fit center position before |
+| SIGBS0 | 0.063 | 5577.3 line gaussian fit sigma position before |
+| CENBS0 | -0.910 | 5577.3 line gaussian fit center position before |
 | AVGBS0 | -1.007 | 5577.3 line average position before shift (pixe |
 | STDBS0 | 0.136 | 5577.3 line std position before shift (pixels) |
 | SIGAS0 | 0.025 | 5577.3 line gaussian fit sigma position after s |
 | CENAS0 | 0.006 | 5577.3 line gaussian fit center position after |
-| AVGAS0 | 0.005 | 5577.3 line average position after shift (pixel |
-| STDAS0 | 0.022 | 5577.3 line std position after shift (pixels) |
+| AVGAS0 | 0.004 | 5577.3 line average position after shift (pixel |
+| STDAS0 | 0.024 | 5577.3 line std position after shift (pixels) |
 | HELIO_RV | 2.09728177056 | V_RAD for backwards compatibility |
 | V_RAD | 2.09728177056 | radial velocity relative to the barycenter (add |
 | VACUUM | True | Wavelengths are in vacuum |
 | SFLATTEN | True | Superflat has been applied |
+| SFLATMIN | 0.005 | Superflat Minimum |
 | PSFSKY | 3 | Order of PSF skysubtraction |
-| SKYCHI2 | 0.884233507493 | Mean chi^2 of sky-subtraction |
+| SKYCHI2 | 0.884843342117 | Mean chi^2 of sky-subtraction |
 | PREJECT | 0.2 | Profile area rejection threshold |
 | LOWREJ | 4 | Extraction: low rejection |
 | HIGHREJ | 50 | Extraction: high rejection |
@@ -3739,13 +3776,13 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** Column names *** |  |
 | COMMENT |  |  |
-| TUNIT1 | FLUX | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT2 | LOGLAM | log10(Angs) |
-| TUNIT6 | WDISP | Pixels |
-| TUNIT7 | SKY | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT8 | WRESL | Angs |
-| CHECKSUM | 1nCa2l9Y1lAa1l9W | HDU checksum updated 2024-04-12T22:35:55 |
-| DATASUM | 488027204 | data unit checksum updated 2024-04-12T22:35:55 |
+| TUNIT1 | 10^-17 ergs/s/cm^2/Angs | FLUX |
+| TUNIT2 | log10(Angs) | LOGLAM |
+| TUNIT6 | Pixels | WDISP |
+| TUNIT7 | 10^-17 ergs/s/cm^2/Angs | SKY |
+| TUNIT8 | Angs | WRESL |
+| CHECKSUM | WfPHWfMEWfMEWfME | HDU checksum updated 2025-06-09T16:02:45 |
+| DATASUM | 12780303 | data unit checksum updated 2025-06-09T16:02:45 |
 
 ##### Binary Table Caption for HDU14
 Name | Type | Unit | Description |
@@ -3928,11 +3965,11 @@ Key | Value | Comment | |
 | CAMDAQ | 1.5.0:37 | Camera Data Acquisition Version |
 | BOSSVER |  | ICC version |
 | VERSIDL | 8.8.0 | Version of IDL |
-| VERSUTIL | 6.0.0dev | Version of idlutils |
-| VERSREAD | v6_1_3 | Version of idlspec2d for pre-processing raw data |
+| VERSUTIL | 6.3.0 | Version of idlutils |
+| VERSREAD | v6_2_1 | Version of idlspec2d for pre-processing raw data |
 | VERSLOG | trunk 27531 | Version of SPECLOG product |
-| VERSFLAT | v1_35 | SPECFLAT version |
-| VERS2D | v6_1_3 | Version of idlspec2d for 2D reduction |
+| VERSFLAT | v1_36 | SPECFLAT version |
+| VERS2D | v6_2_1 | Version of idlspec2d for 2D reduction |
 |  |  |  |
 |  | APO WEATHER |  |
 | PRESSURE | 21.544 | APO SDSS 2.5m Air Pressure (inch Hg) |
@@ -3963,6 +4000,8 @@ Key | Value | Comment | |
 | HEAR | 0 0 0 0 | HeAr Arc lamps 1:On 0:off |
 | FF | 0 0 0 0 | Flat Field lamps 1:on 0:off |
 | FFS | 0 0 0 0 0 0 0 0 | Flatfield Screen 1:closed 0:open |
+| M2FF | 0 0 0 0 | LCO M2 Flat Field Lamps 1:on 0:off |
+| FFSPOS |  | FF screen position [deg] |
 | HARTMANN | Out | Hartmanns: Left,Right,Out,Closed |
 |  |  |  |
 |  | REDUCTION |  |
@@ -3974,10 +4013,10 @@ Key | Value | Comment | |
 | BADPIXEL | badpixels-59747-b1.fits.gz | Name of Badpixel mask used |
 |  |  |  |
 |  | PIPELINE OUTPUTS |  |
-| RUN2D | v6_1_3 | Spectro-2D reduction name |
+| RUN2D | v6_2_1 | Spectro-2D reduction name |
 | TAI-END | 5184025944.08 |  |
-| FRAMESN2 | 0.509498123146 | (S/N)^2 at fidicial magnitude |
-| DEREDSN2 | 0.509498123146 | Extinction corrected (S/N)^2 (like quick redux) |
+| FRAMESN2 | 0.535321020465 | (S/N)^2 at fidicial magnitude |
+| DEREDSN2 | 0.535321020465 | Extinction corrected (S/N)^2 (like quick redux) |
 | REDDEN01 | 0.0 | Median extinction in u-band |
 | REDDEN02 | 0.0 | Median extinction in g-band |
 | REDDEN03 | 0.0 | Median extinction in r-band |
@@ -3993,20 +4032,21 @@ Key | Value | Comment | |
 | LAMPLIST | lamphgcdne.dat |  |
 | SKYLIST | skylines.dat |  |
 | OBSMODE | dark_rm |  |
-| SIGBS0 | 0.036 | 5577.3 line gaussian fit sigma position before |
-| CENBS0 | -0.874 | 5577.3 line gaussian fit center position before |
+| SIGBS0 | 0.033 | 5577.3 line gaussian fit sigma position before |
+| CENBS0 | -0.872 | 5577.3 line gaussian fit center position before |
 | AVGBS0 | -0.952 | 5577.3 line average position before shift (pixe |
 | STDBS0 | 0.115 | 5577.3 line std position before shift (pixels) |
-| SIGAS0 | 0.025 | 5577.3 line gaussian fit sigma position after s |
+| SIGAS0 | 0.026 | 5577.3 line gaussian fit sigma position after s |
 | CENAS0 | 0.001 | 5577.3 line gaussian fit center position after |
 | AVGAS0 | 0.001 | 5577.3 line average position after shift (pixel |
-| STDAS0 | 0.021 | 5577.3 line std position after shift (pixels) |
+| STDAS0 | 0.022 | 5577.3 line std position after shift (pixels) |
 | HELIO_RV | 2.13118888483 | V_RAD for backwards compatibility |
 | V_RAD | 2.13118888483 | radial velocity relative to the barycenter (add |
 | VACUUM | True | Wavelengths are in vacuum |
 | SFLATTEN | True | Superflat has been applied |
+| SFLATMIN | 0.005 | Superflat Minimum |
 | PSFSKY | 3 | Order of PSF skysubtraction |
-| SKYCHI2 | 0.873505077303 | Mean chi^2 of sky-subtraction |
+| SKYCHI2 | 0.901115172679 | Mean chi^2 of sky-subtraction |
 | PREJECT | 0.2 | Profile area rejection threshold |
 | LOWREJ | 4 | Extraction: low rejection |
 | HIGHREJ | 50 | Extraction: high rejection |
@@ -4021,13 +4061,13 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** Column names *** |  |
 | COMMENT |  |  |
-| TUNIT1 | FLUX | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT2 | LOGLAM | log10(Angs) |
-| TUNIT6 | WDISP | Pixels |
-| TUNIT7 | SKY | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT8 | WRESL | Angs |
-| CHECKSUM | beVPeZVNbbVNbZVN | HDU checksum updated 2024-04-12T22:35:55 |
-| DATASUM | 2012806474 | data unit checksum updated 2024-04-12T22:35:55 |
+| TUNIT1 | 10^-17 ergs/s/cm^2/Angs | FLUX |
+| TUNIT2 | log10(Angs) | LOGLAM |
+| TUNIT6 | Pixels | WDISP |
+| TUNIT7 | 10^-17 ergs/s/cm^2/Angs | SKY |
+| TUNIT8 | Angs | WRESL |
+| CHECKSUM | dn49gk27dk27dk27 | HDU checksum updated 2025-06-09T16:02:45 |
+| DATASUM | 3530780795 | data unit checksum updated 2025-06-09T16:02:45 |
 
 ##### Binary Table Caption for HDU15
 Name | Type | Unit | Description |
@@ -4210,11 +4250,11 @@ Key | Value | Comment | |
 | CAMDAQ | 1.5.0:37 | Camera Data Acquisition Version |
 | BOSSVER |  | ICC version |
 | VERSIDL | 8.8.0 | Version of IDL |
-| VERSUTIL | 6.0.0dev | Version of idlutils |
-| VERSREAD | v6_1_3 | Version of idlspec2d for pre-processing raw data |
+| VERSUTIL | 6.3.0 | Version of idlutils |
+| VERSREAD | v6_2_1 | Version of idlspec2d for pre-processing raw data |
 | VERSLOG | trunk 27531 | Version of SPECLOG product |
-| VERSFLAT | v1_35 | SPECFLAT version |
-| VERS2D | v6_1_3 | Version of idlspec2d for 2D reduction |
+| VERSFLAT | v1_36 | SPECFLAT version |
+| VERS2D | v6_2_1 | Version of idlspec2d for 2D reduction |
 |  |  |  |
 |  | APO WEATHER |  |
 | PRESSURE | 21.54 | APO SDSS 2.5m Air Pressure (inch Hg) |
@@ -4245,6 +4285,8 @@ Key | Value | Comment | |
 | HEAR | 0 0 0 0 | HeAr Arc lamps 1:On 0:off |
 | FF | 0 0 0 0 | Flat Field lamps 1:on 0:off |
 | FFS | 0 0 0 0 0 0 0 0 | Flatfield Screen 1:closed 0:open |
+| M2FF | 0 0 0 0 | LCO M2 Flat Field Lamps 1:on 0:off |
+| FFSPOS |  | FF screen position [deg] |
 | HARTMANN | Out | Hartmanns: Left,Right,Out,Closed |
 |  |  |  |
 |  | REDUCTION |  |
@@ -4256,10 +4298,10 @@ Key | Value | Comment | |
 | BADPIXEL | badpixels-59747-b1.fits.gz | Name of Badpixel mask used |
 |  |  |  |
 |  | PIPELINE OUTPUTS |  |
-| RUN2D | v6_1_3 | Spectro-2D reduction name |
+| RUN2D | v6_2_1 | Spectro-2D reduction name |
 | TAI-END | 5184027013.07 |  |
-| FRAMESN2 | 0.723692753529 | (S/N)^2 at fidicial magnitude |
-| DEREDSN2 | 0.723692753529 | Extinction corrected (S/N)^2 (like quick redux) |
+| FRAMESN2 | 0.770444658604 | (S/N)^2 at fidicial magnitude |
+| DEREDSN2 | 0.770444658604 | Extinction corrected (S/N)^2 (like quick redux) |
 | REDDEN01 | 0.0 | Median extinction in u-band |
 | REDDEN02 | 0.0 | Median extinction in g-band |
 | REDDEN03 | 0.0 | Median extinction in r-band |
@@ -4275,7 +4317,7 @@ Key | Value | Comment | |
 | LAMPLIST | lamphgcdne.dat |  |
 | SKYLIST | skylines.dat |  |
 | OBSMODE | dark_rm |  |
-| SIGBS0 | 0.045 | 5577.3 line gaussian fit sigma position before |
+| SIGBS0 | 0.042 | 5577.3 line gaussian fit sigma position before |
 | CENBS0 | -0.760 | 5577.3 line gaussian fit center position before |
 | AVGBS0 | -0.793 | 5577.3 line average position before shift (pixe |
 | STDBS0 | 0.071 | 5577.3 line std position before shift (pixels) |
@@ -4285,8 +4327,9 @@ Key | Value | Comment | |
 | V_RAD | 2.16773687452 | radial velocity relative to the barycenter (add |
 | VACUUM | True | Wavelengths are in vacuum |
 | SFLATTEN | True | Superflat has been applied |
+| SFLATMIN | 0.005 | Superflat Minimum |
 | PSFSKY | 3 | Order of PSF skysubtraction |
-| SKYCHI2 | 0.881761187856 | Mean chi^2 of sky-subtraction |
+| SKYCHI2 | 0.920925300631 | Mean chi^2 of sky-subtraction |
 | PREJECT | 0.2 | Profile area rejection threshold |
 | LOWREJ | 4 | Extraction: low rejection |
 | HIGHREJ | 50 | Extraction: high rejection |
@@ -4301,13 +4344,13 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** Column names *** |  |
 | COMMENT |  |  |
-| TUNIT1 | FLUX | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT2 | LOGLAM | log10(Angs) |
-| TUNIT6 | WDISP | Pixels |
-| TUNIT7 | SKY | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT8 | WRESL | Angs |
-| CHECKSUM | HA5aH74UHA4ZH54Z | HDU checksum updated 2024-04-12T22:35:55 |
-| DATASUM | 1250873922 | data unit checksum updated 2024-04-12T22:35:55 |
+| TUNIT1 | 10^-17 ergs/s/cm^2/Angs | FLUX |
+| TUNIT2 | log10(Angs) | LOGLAM |
+| TUNIT6 | Pixels | WDISP |
+| TUNIT7 | 10^-17 ergs/s/cm^2/Angs | SKY |
+| TUNIT8 | Angs | WRESL |
+| CHECKSUM | gI0HhH0HgH0HgH0H | HDU checksum updated 2025-06-09T16:02:45 |
+| DATASUM | 3281724912 | data unit checksum updated 2025-06-09T16:02:45 |
 
 ##### Binary Table Caption for HDU16
 Name | Type | Unit | Description |
@@ -4490,11 +4533,11 @@ Key | Value | Comment | |
 | CAMDAQ | 1.5.0:37 | Camera Data Acquisition Version |
 | BOSSVER |  | ICC version |
 | VERSIDL | 8.8.0 | Version of IDL |
-| VERSUTIL | 6.0.0dev | Version of idlutils |
-| VERSREAD | v6_1_3 | Version of idlspec2d for pre-processing raw data |
+| VERSUTIL | 6.3.0 | Version of idlutils |
+| VERSREAD | v6_2_1 | Version of idlspec2d for pre-processing raw data |
 | VERSLOG | trunk 27531 | Version of SPECLOG product |
-| VERSFLAT | v1_35 | SPECFLAT version |
-| VERS2D | v6_1_3 | Version of idlspec2d for 2D reduction |
+| VERSFLAT | v1_36 | SPECFLAT version |
+| VERS2D | v6_2_1 | Version of idlspec2d for 2D reduction |
 |  |  |  |
 |  | APO WEATHER |  |
 | PRESSURE | 21.54 | APO SDSS 2.5m Air Pressure (inch Hg) |
@@ -4525,6 +4568,8 @@ Key | Value | Comment | |
 | HEAR | 0 0 0 0 | HeAr Arc lamps 1:On 0:off |
 | FF | 0 0 0 0 | Flat Field lamps 1:on 0:off |
 | FFS | 0 0 0 0 0 0 0 0 | Flatfield Screen 1:closed 0:open |
+| M2FF | 0 0 0 0 | LCO M2 Flat Field Lamps 1:on 0:off |
+| FFSPOS |  | FF screen position [deg] |
 | HARTMANN | Out | Hartmanns: Left,Right,Out,Closed |
 |  |  |  |
 |  | REDUCTION |  |
@@ -4536,10 +4581,10 @@ Key | Value | Comment | |
 | BADPIXEL | badpixels-59747-b1.fits.gz | Name of Badpixel mask used |
 |  |  |  |
 |  | PIPELINE OUTPUTS |  |
-| RUN2D | v6_1_3 | Spectro-2D reduction name |
+| RUN2D | v6_2_1 | Spectro-2D reduction name |
 | TAI-END | 5184028003.08 |  |
-| FRAMESN2 | 0.995988043079 | (S/N)^2 at fidicial magnitude |
-| DEREDSN2 | 0.995988043079 | Extinction corrected (S/N)^2 (like quick redux) |
+| FRAMESN2 | 1.0677350239 | (S/N)^2 at fidicial magnitude |
+| DEREDSN2 | 1.0677350239 | Extinction corrected (S/N)^2 (like quick redux) |
 | REDDEN01 | 0.0 | Median extinction in u-band |
 | REDDEN02 | 0.0 | Median extinction in g-band |
 | REDDEN03 | 0.0 | Median extinction in r-band |
@@ -4555,18 +4600,21 @@ Key | Value | Comment | |
 | LAMPLIST | lamphgcdne.dat |  |
 | SKYLIST | skylines.dat |  |
 | OBSMODE | dark_rm |  |
-| SIGBS0 | 0.065 | 5577.3 line gaussian fit sigma position before |
-| CENBS0 | -0.612 | 5577.3 line gaussian fit center position before |
-| AVGBS0 | -0.635 | 5577.3 line average position before shift (pixe |
+| SIGBS0 | 0.030 | 5577.3 line gaussian fit sigma position before |
+| CENBS0 | -0.593 | 5577.3 line gaussian fit center position before |
+| AVGBS0 | -0.634 | 5577.3 line average position before shift (pixe |
 | STDBS0 | 0.062 | 5577.3 line std position before shift (pixels) |
-| AVGAS0 | 0.002 | 5577.3 line average position after shift (pixel |
-| STDAS0 | 0.017 | 5577.3 line std position after shift (pixels) |
+| SIGAS0 | 0.025 | 5577.3 line gaussian fit sigma position after s |
+| CENAS0 | 0.002 | 5577.3 line gaussian fit center position after |
+| AVGAS0 | 0.003 | 5577.3 line average position after shift (pixel |
+| STDAS0 | 0.020 | 5577.3 line std position after shift (pixels) |
 | HELIO_RV | 2.2011639478 | V_RAD for backwards compatibility |
 | V_RAD | 2.2011639478 | radial velocity relative to the barycenter (add |
 | VACUUM | True | Wavelengths are in vacuum |
 | SFLATTEN | True | Superflat has been applied |
+| SFLATMIN | 0.005 | Superflat Minimum |
 | PSFSKY | 3 | Order of PSF skysubtraction |
-| SKYCHI2 | 0.884973444945 | Mean chi^2 of sky-subtraction |
+| SKYCHI2 | 0.901761725881 | Mean chi^2 of sky-subtraction |
 | PREJECT | 0.2 | Profile area rejection threshold |
 | LOWREJ | 4 | Extraction: low rejection |
 | HIGHREJ | 50 | Extraction: high rejection |
@@ -4581,13 +4629,13 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** Column names *** |  |
 | COMMENT |  |  |
-| TUNIT1 | FLUX | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT2 | LOGLAM | log10(Angs) |
-| TUNIT6 | WDISP | Pixels |
-| TUNIT7 | SKY | 10^-17 ergs/s/cm^2/Angs |
-| TUNIT8 | WRESL | Angs |
-| CHECKSUM | EfAeHe8ZEeAdEe7Z | HDU checksum updated 2024-04-12T22:35:55 |
-| DATASUM | 2457920492 | data unit checksum updated 2024-04-12T22:35:55 |
+| TUNIT1 | 10^-17 ergs/s/cm^2/Angs | FLUX |
+| TUNIT2 | log10(Angs) | LOGLAM |
+| TUNIT6 | Pixels | WDISP |
+| TUNIT7 | 10^-17 ergs/s/cm^2/Angs | SKY |
+| TUNIT8 | Angs | WRESL |
+| CHECKSUM | ODUdO9UcOCUcO9Uc | HDU checksum updated 2025-06-09T16:02:45 |
+| DATASUM | 2613817329 | data unit checksum updated 2025-06-09T16:02:45 |
 
 ##### Binary Table Caption for HDU17
 Name | Type | Unit | Description |

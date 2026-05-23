@@ -19,7 +19,7 @@ This file contains information about fiberflats, X-centers of fibers, fibermask,
 $BOSS_SPECTRO_REDUX/[RUN2D]/trace/[MJD]/spTraceFlat-[BR][ID]-[FRAME].fits
 
 ### Releases
-IPL4
+IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,7 +39,7 @@ False
 ### Data Level
 1.2.1
 
-### HDUS List for release IPL4
+### HDUS List for release DR20
   - [HDU0: FFLAT](#hdu0-fflat)
   - [HDU1: TSET](#hdu1-tset)
   - [HDU2: FIBERMASK](#hdu2-fibermask)
@@ -54,6 +54,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
 
 ---
 ## Example HDUS List

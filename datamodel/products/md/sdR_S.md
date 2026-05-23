@@ -19,7 +19,7 @@ This file contains raw spectro data from the BHM+MWM spectro CCDs from LCO. Simu
 sdR-[br][id]-[FRAME].fit, indicating which blue or red spectrograph (1 or 2), and the frame number.
 
 ### Releases
-IPL4
+IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_DATA_S
@@ -39,7 +39,7 @@ False
 ### Data Level
 0.1.2
 
-### HDUS List for release IPL4
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
 
 ---

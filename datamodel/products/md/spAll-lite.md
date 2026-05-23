@@ -19,7 +19,7 @@ This file contains a summary of the BOSS idlspec2d and spectro-1d pipeline outpu
 $BOSS_SPECTRO_REDUX/[RUN2D]/summary/daily/spAll-lite-[RUN2D].fits.gz
 
 ### Releases
-IPL3, DR19, IPL4
+IPL3, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.2
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: SPALL](#hdu1-spall)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
    - note: No changes
@@ -70,11 +73,11 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 0 | number of array dimensions |
 | EXTEND | True |  |
-| RUN2D | v6_1_3 | IDLSPEC2D RUN2D |
-| DATE | Tue May 28 20:27:32 2024 | Date Created |
+| RUN2D | v6_2_1 | IDLSPEC2D RUN2D |
+| DATE | Wed Jun 18 11:29:10 2025 | Date Created |
 | SDSSC2BV | 1 | SDSS5_TARGET_FLAG Carton to Bit Version |
-| CHECKSUM | X9YbX6VaX6VaX6Va | HDU checksum updated 2024-05-28T20:27:32 |
-| DATASUM | 0 | data unit checksum updated 2024-05-28T20:27:32 |
+| CHECKSUM | Y7adY4VZY4abY4UZ | HDU checksum updated 2025-08-08T14:03:37 |
+| DATASUM | 0 | data unit checksum updated 2025-08-08T14:03:37 |
 
 
 
@@ -82,7 +85,7 @@ Key | Value | Comment | |
 Spectral Summary Table
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  4 GB
+#### HDU Size:  9 GB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -90,44 +93,46 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 1126 | length of dimension 1 |
-| NAXIS2 | 4210422 | length of dimension 2 |
+| NAXIS1 | 1189 | length of dimension 1 |
+| NAXIS2 | 8656670 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 122 | number of table fields |
+| TFIELDS | 125 | number of table fields |
 | TNULL1 | 0 |  |
-| TNULL2 | 0 |  |
-| TNULL7 | 0 |  |
+| TNULL2 | -999 |  |
+| TNULL7 | -999 |  |
 | TNULL9 | -1 |  |
-| TDIM15 | (57) |  |
+| TDIM15 | (69) |  |
 | TNULL17 | -999 |  |
 | TNULL18 | -999 |  |
 | TNULL19 | -999 |  |
 | TNULL20 | -999 |  |
-| TNULL21 | -1 |  |
-| TNULL30 | -999 |  |
-| TNULL33 | 0 |  |
-| TNULL51 | -999 |  |
-| TNULL53 | -999 |  |
+| TNULL21 | -999 |  |
+| TNULL22 | -999 |  |
+| TNULL23 | -999 |  |
+| TNULL33 | -999 |  |
+| TNULL36 | -999 |  |
 | TNULL54 | -999 |  |
-| TNULL72 | -999 |  |
-| TNULL73 | -999 |  |
-| TNULL74 | -999 |  |
+| TNULL56 | -999 |  |
+| TNULL57 | -999 |  |
 | TNULL75 | -999 |  |
 | TNULL76 | -999 |  |
 | TNULL77 | -999 |  |
 | TNULL78 | -999 |  |
 | TNULL79 | -999 |  |
 | TNULL80 | -999 |  |
-| TNULL81 | 0 |  |
-| TNULL94 | -999 |  |
-| TNULL96 | -999 |  |
-| TNULL105 | -1 |  |
-| TNULL109 | 0 |  |
-| TNULL110 | -999 |  |
+| TNULL81 | -999 |  |
+| TNULL82 | -999 |  |
+| TNULL83 | -999 |  |
+| TNULL84 | -999 |  |
+| TNULL97 | -999 |  |
+| TNULL99 | -999 |  |
+| TNULL108 | -1 |  |
+| TNULL112 | -999 |  |
+| TNULL113 | -999 |  |
 | EXTNAME | SPALL | extension name |
-| CHECKSUM | FrDkGo9hFoAhFo9h | HDU checksum updated 2024-05-28T20:29:16 |
-| DATASUM | 1576458680 | data unit checksum updated 2024-05-28T20:29:16 |
+| CHECKSUM | 37BI37AG37AG37AG | HDU checksum updated 2025-08-08T14:04:41 |
+| DATASUM | 1432630733 | data unit checksum updated 2025-08-08T14:04:41 |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
@@ -145,14 +150,17 @@ Name | Type | Unit | Description |
  | PROGRAMNAME | char[14] |  | Program name within a given survey |
  | SURVEY | char[13] |  | Survey that field is part of |
  | CADENCE | char[19] |  | Requested Target Cadence |
- | FIRSTCARTON | char[48] |  | Primary SDSS Carton for target |
- | SDSS5_TARGET_FLAGS | bool[57] |  | Targeting Flags for SSDSV Targeting |
+ | FIRSTCARTON | char[54] |  | Primary SDSS Carton for target |
+ | SDSS5_TARGET_FLAGS | bool[69] |  | Targeting Flags for SSDSV Targeting |
  | OBJTYPE | char[16] |  | Why this object was targeted.  Note that if this field says QSO, it could be the case that this object would have been targetted as a GALAXY or any number of other categories as well. The PRIMTARGET and SECTARGET flags in the plug-map structure (in the spField file) gives this full information. |
+ | TOO | int64 |  | the fiber is allocated to a TOO |
+ | TOO_ID | int64 |  | SDSS-V Target of Opportunity ID (only if TOO) |
  | CATALOGID | int64 |  | SDSS-V CatalogID used in naming |
  | CATALOGID_V0 | int64 |  | SDSS-V CatalogID from Catalog v0 |
  | CATALOGID_V0P5 | int64 |  | SDSS-V CatalogID from Catalog v0.5 |
+ | CATALOGID_V1 | int64 |  | SDSS-V CatalogID from Catalog v1 |
  | SDSS_ID | int64 |  | Unified SDSS Target Identifier |
- | SPECOBJID | char[30] |  | Unique ID based on Field, MJD, SDSSID, RUN2D, COADD type |
+ | SPECOBJID | char[29] |  | Unique ID based on Field, MJD, SDSSID, RUN2D, COADD type |
  | CALIBFLUX | float32[5] | nanomaggy | Broad-band flux in SDSS-{ugriz} from PSFmag |
  | CALIBFLUX_IVAR | float32[5] | nanomaggy | Inverse var flux SDSS-{ugriz} from PSFmag |
  | OPTICAL_PROV | char[26] |  | The source of the optical CATDB_MAG magnitudes |

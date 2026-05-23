@@ -6,6 +6,7 @@ general:
   filesize: 355 bytes
   releases:
   - IPL4
+  - DR20
   environments:
   - SDSSCORE_DIR
   surveys:
@@ -19,9 +20,71 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR20:
+      from: IPL4
+      note: No changes
 releases:
   IPL4:
+    template: $SDSSCORE_DIR/[OBS]/sdHdrfix/sdHdrFix-[MJD].par
+    example: lco/sdHdrfix/sdHdrFix-60006.par
+    location: '{obs}/sdHdrfix/sdHdrFix-{mjd}.par'
+    environment: SDSSCORE_DIR
+    access:
+      in_sdss_access: true
+      path_name: sdHdrFix
+      path_template: $SDSSCORE_DIR/{obs}/sdHdrfix/sdHdrFix-{mjd}.par
+      path_kwargs:
+      - mjd
+      - obs
+      access_string: sdHdrFix = $SDSSCORE_DIR/{obs}/sdHdrfix/sdHdrFix-{mjd}.par
+    survey: SDSS
+    par:
+      comments: |-
+        #%yanny
+        #
+        # sdHdrFix-60006.par
+        #
+        # Created by pydl.pydlutils.yanny.yanny
+        #
+        # 2023-03-06 22:28:13 UTC
+        #
+      header:
+      - key: MJD
+        value: '60006'
+        comment: MJD of observation
+      - key: OBS
+        value: LCO
+        comment: Observatory of observation
+      tables:
+        OPHDRFIX:
+          name: OPHDRFIX
+          description: Table of header fixes for SDSS BOSS observations
+          n_rows: 2
+          structure:
+          - name: fileroot
+            type: char[20]
+            description: BOSS sdR raw fits file root name (with potential wildcards
+              for camera and spectrograph)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: sdR-??-00009453
+          - name: keyword
+            type: char[9]
+            description: Fits header keyword to be fixed
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: HEAR
+          - name: value
+            type: char[80]
+            description: New value for the keyword
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 1 1 1 1
+  DR20:
     template: $SDSSCORE_DIR/[OBS]/sdHdrfix/sdHdrFix-[MJD].par
     example: lco/sdHdrfix/sdHdrFix-60006.par
     location: '{obs}/sdHdrfix/sdHdrFix-{mjd}.par'

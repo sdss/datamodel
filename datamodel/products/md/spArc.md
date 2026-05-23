@@ -19,7 +19,7 @@ This file contains information about flux density, wavelength solution, fibermas
 $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/spArc-[BR][ID]-[FRAME].fits.gz
 
 ### Releases
-DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19, IPL4
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,26 +39,29 @@ False
 ### Data Level
 1.2.2
 
-### HDUS List for release DR19
-  - [HDU0: flux](#hdu0-flux)
-  - [HDU1](#hdu1)
-  - [HDU2](#hdu2)
-  - [HDU3](#hdu3)
-  - [HDU4](#hdu4)
-  - [HDU5](#hdu5)
-  - [HDU6: rejline](#hdu6-rejline)
+### HDUS List for release DR20
+  - [HDU0: FLUX](#hdu0-flux)
+  - [HDU1: LAMBDA](#hdu1-lambda)
+  - [HDU2: WSET](#hdu2-wset)
+  - [HDU3: FIBERMASK](#hdu3-fibermask)
+  - [HDU4: DISPSET](#hdu4-dispset)
+  - [HDU5: RESLSET](#hdu5-reslset)
+  - [HDU6: REJLINE](#hdu6-rejline)
   - [HDU7: XDIF_TSET](#hdu7-xdif_tset)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
-   - added_hdus: ['FIBERMASK', 'RESLSET', 'DISPSET', 'LAMBDA', 'WSET', 'REJLINE', 'FLUX']
+   - added_hdus: ['LAMBDA', 'FLUX', 'RESLSET', 'REJLINE', 'WSET', 'DISPSET', 'FIBERMASK']
    - removed_hdus: ['flux', 'rejline']
    - primary_delta_nkeys: 1
-   - added_primary_header_kwargs: ['M2FF', 'FFSPOS']
+   - added_primary_header_kwargs: ['FFSPOS', 'M2FF']
    - removed_primary_header_kwargs: ['NAXIS1']
  - DR19
    - from: IPL3
@@ -66,13 +69,13 @@ Describes changes to the datamodel product and/or file structure from one releas
  - IPL3
    - from: DR18
    - primary_delta_nkeys: 79
-   - added_primary_header_kwargs: ['VERS2D', 'OBSERVAT', 'OFFDEC', 'MECHORIX', 'SLITID', 'TAI', 'T_FLOOR', 'ARCHBVER', 'MCHUMHT', 'VJAEGER', 'INTSTART', 'CONFID', 'EQUINOX', 'BOSSVER', 'VCALIBS', 'MECHORIY', 'CCDID', 'MCTBCT', 'INTEND', 'B2CAMH', 'T_PRIM', 'MCTRCB', 'MCTBCB', 'MEDREX0', 'MEDWIDT2', 'HA', 'SPEC', 'MCHUMCO', 'NMATCH', 'MEDWIDT3', 'MECHORIZ', 'T_CELL', 'HEAR', 'CCDTYPE', 'DAQVER', 'VCOORDIO', 'MCTRCT', 'COLLT', 'VKAIJU', 'T_TRUSS', 'ARCHACF', 'OFFRA', 'R2CAMH', 'T_OUT', 'FLATNAME', 'EXTNAME', 'MEDWIDT1', 'V_ARCHON', 'DESIGNID', 'CCDSUM', 'FIELDID', 'MEDWIDT0', 'ARCHBACK', 'MEDREX1', 'BUFFER', 'B2CAMT', 'T_IN', 'CCD', 'OFFPA', 'COLLH', 'R2CAMT', 'AIRMASS', 'ARCNAME', 'MCTEMDN', 'GSEEING', 'SPECMT', 'TSEP', 'MEDREX2', 'MEDREX3', 'ARCHTEMP', 'MCTHT']
-   - removed_primary_header_kwargs: ['CAMCOL', 'MC1TRCT', 'MGDDEC', 'MC1TBCB', 'CAMROW', 'MC1TBCT', 'MC1TEMDN', 'TWOPHASE', 'SLITID1', 'MGDPOS', 'MC1HUMHT', 'MGDRA', 'MC1THT', 'MC1TRCB', 'MC1HUMCO', 'AUTHOR']
+   - added_primary_header_kwargs: ['MEDREX1', 'T_FLOOR', 'HA', 'OFFDEC', 'MECHORIY', 'ARCNAME', 'COLLT', 'ARCHACF', 'HEAR', 'CCDTYPE', 'OBSERVAT', 'T_IN', 'MEDREX3', 'AIRMASS', 'OFFPA', 'MECHORIX', 'ARCHTEMP', 'MCTBCB', 'INTEND', 'TAI', 'SLITID', 'T_OUT', 'INTSTART', 'CCDID', 'MCHUMCO', 'B2CAMT', 'MCTHT', 'DAQVER', 'VCALIBS', 'OFFRA', 'NMATCH', 'MCHUMHT', 'EQUINOX', 'V_ARCHON', 'SPEC', 'ARCHBVER', 'SPECMT', 'R2CAMT', 'TSEP', 'CONFID', 'GSEEING', 'MEDREX0', 'CCD', 'MEDWIDT0', 'FLATNAME', 'MEDWIDT2', 'VCOORDIO', 'MCTEMDN', 'T_CELL', 'EXTNAME', 'MCTRCB', 'CCDSUM', 'VJAEGER', 'B2CAMH', 'BUFFER', 'COLLH', 'FIELDID', 'BOSSVER', 'DESIGNID', 'MECHORIZ', 'T_TRUSS', 'MEDWIDT3', 'ARCHBACK', 'R2CAMH', 'MCTRCT', 'MCTBCT', 'VERS2D', 'T_PRIM', 'MEDREX2', 'MEDWIDT1', 'VKAIJU']
+   - removed_primary_header_kwargs: ['CAMROW', 'MC1HUMCO', 'MGDPOS', 'MC1TRCB', 'MC1THT', 'MGDDEC', 'AUTHOR', 'MC1TRCT', 'SLITID1', 'CAMCOL', 'TWOPHASE', 'MGDRA', 'MC1HUMHT', 'MC1TBCT', 'MC1TBCB', 'MC1TEMDN']
  - DR18
    - from: DR17
    - primary_delta_nkeys: 38
-   - added_primary_header_kwargs: ['HUMIDITY', 'LN2TEMP', 'DUSTB', 'WINDS', 'DUSTA', 'PRESSURE', 'M1ZROT', 'WINDS25M', 'IONPUMP', 'REQTIME', 'MC1HUMCO', 'V_APO', 'TRUSTEMP', 'MC1TRCT', 'MC1TBCT', 'GUSTS', 'MC1TEMDN', 'MC1HUMHT', 'V_SOP', 'WINDD25M', 'M2ZROT', 'V_BOSS', 'MC1TRCB', 'PLATETYP', 'SRVYMODE', 'PFERR', 'SUBFRAME', 'MGDDEC', 'WINDD', 'MGDRA', 'SHCLOTIM', 'AIRTEMP', 'MC1THT', 'DIDFLUSH', 'SHOPETIM', 'SLITID1', 'MC1TBCB', 'DEWPOINT', 'MGDPOS', 'CCDTEMP', 'DARKTIME', 'V_GUIDER', 'GUSTD']
-   - removed_primary_header_kwargs: ['DAQVER', 'PIXBIAS', 'OBJOFFY', 'BOSSVER', 'OBJOFFX']
+   - added_primary_header_kwargs: ['MGDPOS', 'MC1TRCB', 'DIDFLUSH', 'SLITID1', 'DEWPOINT', 'PRESSURE', 'REQTIME', 'AIRTEMP', 'DUSTB', 'MC1TBCB', 'V_APO', 'MC1TRCT', 'GUSTD', 'SHOPETIM', 'IONPUMP', 'MGDRA', 'M1ZROT', 'MC1TBCT', 'MC1HUMCO', 'MGDDEC', 'SHCLOTIM', 'TRUSTEMP', 'WINDD25M', 'CCDTEMP', 'LN2TEMP', 'V_BOSS', 'HUMIDITY', 'GUSTS', 'WINDD', 'SRVYMODE', 'V_SOP', 'M2ZROT', 'DARKTIME', 'MC1THT', 'DUSTA', 'WINDS', 'PLATETYP', 'SUBFRAME', 'PFERR', 'MC1TEMDN', 'V_GUIDER', 'MC1HUMHT', 'WINDS25M']
+   - removed_primary_header_kwargs: ['OBJOFFX', 'BOSSVER', 'PIXBIAS', 'DAQVER', 'OBJOFFY']
  - DR17
    - from: DR16
    - added_hdus: ['flux']
@@ -102,7 +105,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 ---
 ## Example HDUS List
 
-### HDU0: flux
+### HDU0: FLUX
 The data attribute of Primary HDU stores the extracted flux for the entire image.
 
 #### HDU Type: IMAGE
@@ -111,12 +114,11 @@ The data attribute of Primary HDU stores the extracted flux for the entire image
 ##### Header Table Caption for HDU0
 Key | Value | Comment | |
 | --- | --- | --- | --- |
-| SIMPLE | True | Written by IDL:  Wed Apr  3 01:57:45 2024 |
-| BITPIX | 8 | Number of bits per data pixel |
-| NAXIS | 0 | Number of data axes |
-| NAXIS1 | 4096 |  |
+| SIMPLE | True | Primary Header created by MWRFITS v1.13 |
+| BITPIX | 8 |  |
+| NAXIS | 0 |  |
 | NAXIS2 | 4112 |  |
-| EXTEND | True |  |
+| EXTEND | True | Extensions may be present |
 |  |  |  |
 |  | INSTRUMENT INFO |  |
 | TELESCOP | SDSS 2.5-M | Telescope |
@@ -128,20 +130,20 @@ Key | Value | Comment | |
 | CCDTYPE |  | CCD type |
 |  |  |  |
 |  | EXPOSURE INFO |  |
-| FILENAME | sdR-b1-00353047.fit | File basename |
-| EXPOSURE | 353047 | Exposure number |
+| FILENAME | sdR-b1-00366940.fit | File basename |
+| EXPOSURE | 366940 | Exposure number |
 | FLAVOR | arc | exposure type, SDSS spectro style |
 | QUALITY | excellent | Exposure Quality |
-| MJD | 60000 | Modified Julian Date at start of exposure |
-| TAI-BEG | 5184019586.0 | MJD(TAI) seconds at start of integration |
-| DATE-OBS | 2023-02-25T05:26:26 | TAI date at start of integration |
+| MJD | 60407 | Modified Julian Date at start of exposure |
+| TAI-BEG | 5219174030.0 | MJD(TAI) seconds at start of integration |
+| DATE-OBS | 2024-04-07T02:33:50 | TAI date at start of integration |
 | INTSTART |  | Start of the integration |
 | INTEND |  | End of the integration |
 | REQTIME | 4.0 | requested exposure time |
-| EXPTIME | 4.08 | requested exposure time |
-| DARKTIME | 22.8705377579 | time between flush end and readout start |
-| SHOPETIM | 0.75 | open shutter transit time (s) |
-| SHCLOTIM | 0.57 | close shutter transit time (s) |
+| EXPTIME | 4.09 | requested exposure time |
+| DARKTIME | 20.472684145 | time between flush end and readout start |
+| SHOPETIM | 0.74 | open shutter transit time (s) |
+| SHCLOTIM | 0.56 | close shutter transit time (s) |
 | GUIDER1 |  | The first guider image for plates |
 | GUIDERN |  | The last guider image for plates |
 |  |  |  |
@@ -166,66 +168,66 @@ Key | Value | Comment | |
 | POINTING |  | The currently specified pointing |
 | PLATETYP | BHM&MWM | Type of plate (e.g. BOSS, MANGA, APOGEE, APOGEE) |
 | SRVYMODE |  | Survey leading this observation and its mode |
-| CONFID | 8872 | FPS configuration |
-| DESIGNID | 108452 | FPS design |
+| CONFID | 13554 | FPS configuration |
+| DESIGNID | 404386 | FPS design |
 | FIELDID | 112360 | FPS field |
 | SLITID | 0 | spectrograph Normalized slithead ID. |
 |  |  |  |
 |  | TELESCOPE INFO |  |
-| RA | 150.013708 | RA of telescope boresight (deg) |
-| DEC | 2.183954 | Dec of telescope boresight (deg) |
+| RA | 150.017819 | RA of telescope boresight (deg) |
+| DEC | 2.199494 | Dec of telescope boresight (deg) |
 | RADEG | 150.01675 | RA of telescope pointing(deg) |
 | DECDEG | 2.18325 | Dec of telescope pointing (deg) |
 | EQUINOX |  | Equinox of celestial coordinate system |
 | OFFRA | 0.0 | Absolute guider offset in RA |
-| OFFDEC | -0.1 | Absolute guider offset in DEC |
-| OFFPA | -432.0 | Absolute guider offset in PA |
-| GSEEING | 1.16 | Seeing from the guider (arcsec) |
+| OFFDEC | 0.0 | Absolute guider offset in DEC |
+| OFFPA | -420.0 | Absolute guider offset in PA |
+| GSEEING | 2.06 | Seeing from the guider (arcsec) |
 | AIRMASS |  | AIRMASS |
 | HA |  | HA axis pos. (approx, deg) |
-| SPA | 42.674532 | TCC SpiderInstAng |
+| SPA | 45.09618 | TCC SpiderInstAng |
 | ROTPOS | 13.5 | Rotator request position (deg) |
-| AZ | 35.354609 | Azimuth axis pos. (approx, deg) |
-| ALT | 54.130311 | Altitude axis pos. (approx, deg) |
-| IPA | 222.473488 | Rotator axis pos. (approx, deg) |
-| FOCUS | 205.0 | User-specified focus offset (um) |
+| AZ | 38.45038 | Azimuth axis pos. (approx, deg) |
+| ALT | 53.023159 | Altitude axis pos. (approx, deg) |
+| IPA | 224.867534 | Rotator axis pos. (approx, deg) |
+| FOCUS | 570.33 | User-specified focus offset (um) |
 | SCALE | 1.0 | User-specified scale factor |
 | OBJSYS | ICRS | The TCC objSys |
 | BOREOFFX | 0.0 | TCC Boresight offset (deg) |
 | BOREOFFY | 0.0 | TCC Boresight offset (deg) |
-| ARCOFFX | -0.00304 | TCC ObjArcOff (deg) |
-| ARCOFFY | 0.000704 | TCC ObjArcOff (deg) |
+| ARCOFFX | 0.001068 | TCC ObjArcOff (deg) |
+| ARCOFFY | 0.016244 | TCC ObjArcOff (deg) |
 | CALOFFX | 0.0 | TCC CalibOff (deg) |
 | CALOFFY | 0.0 | TCC CalibOff (deg) |
 | CALOFFR | 0.0 | TCC CalibOff (deg) |
 | GUIDOFFX | 0.0 | TCC GuideOff (deg) |
 | GUIDOFFY | 0.0 | TCC GuideOff (deg) |
-| GUIDOFFR | 0.153533 | TCC GuideOff (deg) |
-| M2PISTON | 3973.3 | TCC SecOrient |
-| M2XTILT | -0.01 | TCC SecOrient |
-| M2YTILT | -0.02 | TCC SecOrient |
-| M2XTRAN | -0.01 | TCC SecOrient |
-| M2YTRAN | -63.73 | TCC SecOrient |
-| M2ZROT | -11.12 | TCC SecOrient |
-| M1PISTON | 1.07 | TCC PrimOrient |
-| M1XTILT | -59.51 | TCC PrimOrient |
-| M1YTILT | -9.21 | TCC PrimOrient |
-| M1XTRAN | -512.13 | TCC PrimOrient |
-| M1YTRAN | 1906.31 | TCC PrimOrient |
-| M1ZROT | 0.03 | TCC PrimOrient |
+| GUIDOFFR | -0.351333 | TCC GuideOff (deg) |
+| M2PISTON | 5141.84 | TCC SecOrient |
+| M2XTILT | -24.52 | TCC SecOrient |
+| M2YTILT | -17.52 | TCC SecOrient |
+| M2XTRAN | 18.04 | TCC SecOrient |
+| M2YTRAN | 6.71 | TCC SecOrient |
+| M2ZROT | -35.16 | TCC SecOrient |
+| M1PISTON | 0.0 | TCC PrimOrient |
+| M1XTILT | -18.23 | TCC PrimOrient |
+| M1YTILT | -7.9 | TCC PrimOrient |
+| M1XTRAN | -427.17 | TCC PrimOrient |
+| M1YTRAN | -999.0 | TCC PrimOrient |
+| M1ZROT | 0.0 | TCC PrimOrient |
 |  |  |  |
 |  | SPECTROGRAPH STATUS |  |
 | MECHORIX |  | Orientation in X axis (cm/s2) |
 | MECHORIY |  | Orientation in Y axis (cm/s2) |
 | MECHORIZ |  | Orientation in Z axis (cm/s2) |
-| MCHUMHT | 4.0 | spec mech Hartmann humidity (%) |
-| MCHUMCO | 2.0 | spec mech Central optics humidity (%) |
-| MCTEMDN | 3.1 | spec mech Median temp (deg C) |
-| MCTHT | 3.1 | spec mech Hartmann Top Temp (deg C) |
-| MCTRCB | 3.1 | spec mech Red Cam Bottom Temp (deg C) |
-| MCTRCT | 3.4 | spec mech Red Cam Top Temp (deg C) |
-| MCTBCB | 3.2 | spec mech Blue Cam Bottom Temp (deg C) |
-| MCTBCT | 3.1 | spec mech Blue Cam Top Temp (deg C) |
+| MCHUMHT | -0.4 | spec mech Hartmann humidity (%) |
+| MCHUMCO | 0.1 | spec mech Central optics humidity (%) |
+| MCTEMDN | 0.8 | spec mech Median temp (deg C) |
+| MCTHT | 0.6 | spec mech Hartmann Top Temp (deg C) |
+| MCTRCB | 0.8 | spec mech Red Cam Bottom Temp (deg C) |
+| MCTRCT | 1.6 | spec mech Red Cam Top Temp (deg C) |
+| MCTBCB | 0.7 | spec mech Blue Cam Bottom Temp (deg C) |
+| MCTBCT | 1.1 | spec mech Blue Cam Top Temp (deg C) |
 | B2CAMT |  | B2 camera temperature (deg C) |
 | B2CAMH |  | B2 camera RH (%) |
 | R2CAMT |  | R2 camera temperature (deg C) |
@@ -235,19 +237,19 @@ Key | Value | Comment | |
 | SPECMT |  | specMech temperature (deg C) |
 | ARCHTEMP |  | Archon backplane temperature (deg C) |
 | LN2TEMP | 94.922 | LN2 can temperature |
-| CCDTEMP | -99.609 | Temperature of the sensor |
-| IONPUMP | -7.76 | log10(Ion_Pump_pressure/torr) |
-| COLLA | 1742 | The position of the A collimator motor |
-| COLLB | 1740 | The position of the B collimator motor |
-| COLLC | 1759 | The position of the C collimator motor |
+| CCDTEMP | -100.0 | Temperature of the sensor |
+| IONPUMP | -6.44 | log10(Ion_Pump_pressure/torr) |
+| COLLA | 832 | The position of the A collimator motor |
+| COLLB | 808 | The position of the B collimator motor |
+| COLLC | 795 | The position of the C collimator motor |
 |  |  |  |
 |  | VERSIONS |  |
-| VJAEGER | 1.3.4a0 | Version of Jaeger |
-| VKAIJU | 1.2.4-alpha.0 | Version of Kaiju |
-| VCOORDIO | 1.6.2a0 | Version of coordIO |
-| VCALIBS | 2023.01.05 | Version of FPS calibrations |
-| V_APO | 3.0.1 | Version of the current apoActor |
-| V_BOSS | 6.0.2-alpha.0 | Active version of the BOSS ICC |
+| VJAEGER | 1.6.4a0 | Version of Jaeger |
+| VKAIJU | 1.3.1 | Version of Kaiju |
+| VCOORDIO | 1.10.0 | Version of coordIO |
+| VCALIBS | 2024.04.01 | Version of FPS calibrations |
+| V_APO | 4.0.0 | Version of the current apoActor |
+| V_BOSS | 6.0.2 | Active version of the BOSS ICC |
 | V_ARCHON |  | Active version of the BOSS ARCHON Controller |
 | ARCHBACK |  | Archon backplane ID |
 | ARCHBVER |  | Archon backplane version |
@@ -257,24 +259,24 @@ Key | Value | Comment | |
 | CAMDAQ | 1.5.0:37 | Camera Data Acquisition Version |
 | BOSSVER |  | ICC version |
 | VERSIDL | 8.8.0 | Version of IDL |
-| VERSUTIL | 6.0.0dev | Version of idlutils |
-| VERSREAD | v6_1_3 | Version of idlspec2d for pre-processing raw data |
+| VERSUTIL | 6.3.0 | Version of idlutils |
+| VERSREAD | v6_2_1 | Version of idlspec2d for pre-processing raw data |
 | VERSLOG | trunk 27531 | Version of SPECLOG product |
-| VERSFLAT | v1_35 | SPECFLAT version |
+| VERSFLAT | v1_36 | SPECFLAT version |
 | VERS2D |  | Version of idlspec2d for 2D reduction |
 |  |  |  |
 |  | APO WEATHER |  |
-| PRESSURE | 21.549 | APO SDSS 2.5m Air Pressure (inch Hg) |
-| WINDD | 204.8 | APO SDSS 2.5m Wind Direction (deg) |
-| WINDS | 19.4 | APO SDSS 2.5m Wind Speed (mph) |
-| GUSTD | 212.6 | APO SDSS 2.5m Wind Gust Direction (deg) |
-| GUSTS | 22.0 | APO SDSS 2.5m Wind Gust Speed (mph) |
+| PRESSURE | -999.0 | APO SDSS 2.5m Air Pressure (inch Hg) |
+| WINDD | 300.5 | APO SDSS 2.5m Wind Direction (deg) |
+| WINDS | 16.9 | APO SDSS 2.5m Wind Speed (mph) |
+| GUSTD | 291.5 | APO SDSS 2.5m Wind Gust Direction (deg) |
+| GUSTS | 24.5 | APO SDSS 2.5m Wind Gust Speed (mph) |
 | AIRTEMP | 0.0 | APO SDSS 2.5m Outside temperature (deg C) |
 | DEWPOINT | 0.0 | APO SDSS 2.5m Dewpoint (deg C) |
-| TRUSTEMP | 3.0 | APO SDSS 2.5m Truss Temperature (deg C) |
-| HUMIDITY | NaN | APO SDSS 2.5m Humidity (percent) |
-| DUSTA | 13771.0 | APO SDSS 2.5m dust (count of 0.3mu/particles/vol |
-| DUSTB | 1479.0 | APO SDSS 2.5m dust (count of 1mu/particles/vol/t |
+| TRUSTEMP | -2.58 | APO SDSS 2.5m Truss Temperature (deg C) |
+| HUMIDITY | 30.1 | APO SDSS 2.5m Humidity (percent) |
+| DUSTA | 6298.0 | APO SDSS 2.5m dust (count of 0.3mu/particles/vol |
+| DUSTB | 1660.0 | APO SDSS 2.5m dust (count of 1mu/particles/vol/t |
 | WINDD25M | -999.0 | Wind Direction at APO SDSS 2.5m (deg) |
 | WINDS25M | -999.0 | Wind Speed at APO SDSS 2.5m (deg) |
 |  |  |  |
@@ -292,37 +294,39 @@ Key | Value | Comment | |
 | HEAR | 0 0 0 0 | HeAr Arc lamps 1:On 0:off |
 | FF | 0 0 0 0 | Flat Field lamps 1:on 0:off |
 | FFS | 1 1 1 1 1 1 1 1 | Flatfield Screen 1:closed 0:open |
+| M2FF | 0 0 0 0 | LCO M2 Flat Field Lamps 1:on 0:off |
+| FFSPOS |  | FF screen position [deg] |
 | HARTMANN | Out | Hartmanns: Left,Right,Out,Closed |
 |  |  |  |
 |  | REDUCTION |  |
-| RDNOISE0 | 2.038 | CCD read noise amp 0 [electrons] |
-| RDNOISE1 | 1.91376 | CCD read noise amp 1 [electrons] |
-| RDNOISE2 | 1.87194 | CCD read noise amp 2 [electrons] |
-| RDNOISE3 | 1.96313 | CCD read noise amp 3 [electrons] |
+| RDNOISE0 | 2.02412 | CCD read noise amp 0 [electrons] |
+| RDNOISE1 | 1.92259 | CCD read noise amp 1 [electrons] |
+| RDNOISE2 | 2.03535 | CCD read noise amp 2 [electrons] |
+| RDNOISE3 | 1.87047 | CCD read noise amp 3 [electrons] |
 | PIXFLAT | pixflatave-59768-b1.fits.gz | Name of Pixel Flat used |
 | BADPIXEL | badpixels-59747-b1.fits.gz | Name of Badpixel mask used |
 |  |  |  |
 |  | PIPELINE OUTPUTS |  |
-| FBADPIX | 4.05516e-05 | Fraction of bad pixels in raw image |
-| BESTCORR | 0.776129 | Best Correlation coefficient |
-| TAI | 5184019588.04 | Tai of arc |
-| TSEP | 213.5 | Tai seperation from associated flat |
-| FLATNAME | sdR-b1-00353044.fit | Name of associated flat |
-| ARCNAME | sdR-b1-00353047.fit | Name of arc |
+| FBADPIX | 3.69892e-05 | Fraction of bad pixels in raw image |
+| BESTCORR | 0.751498 | Best Correlation coefficient |
+| TAI | 5219174032.05 | Tai of arc |
+| TSEP | 204.5 | Tai seperation from associated flat |
+| FLATNAME | sdR-b1-00366937.fit | Name of associated flat |
+| ARCNAME | sdR-b1-00366940.fit | Name of arc |
 | NMATCH | 28 | Number of lamp lines traced |
-| MEDWIDT0 | 0.980685 | Median spectral dispersion widths in LL quadran |
-| MEDWIDT1 | 1.00468 | Median spectral dispersion widths in LR quadran |
-| MEDWIDT2 | 1.06296 | Median spectral dispersion widths in UL quadran |
-| MEDWIDT3 | 1.08981 | Median spectral dispersion widths in UR quadran |
-| MEDREX0 | 2.66438 | Median resolution widths in LL quadrant |
-| MEDREX1 | 2.70836 | Median resolution widths in LR quadrant |
-| MEDREX2 | 3.01527 | Median resolution widths in UL quadrant |
-| MEDREX3 | 3.10333 | Median resolution widths in UR quadrant |
-| EXTNAME | flux |  |
+| MEDWIDT0 | 0.998587 | Median spectral dispersion width in LL quadrant |
+| MEDWIDT1 | 1.01635 | Median spectral dispersion width in LR quadrant |
+| MEDWIDT2 | 1.09375 | Median spectral dispersion width in UL quadrant |
+| MEDWIDT3 | 1.12619 | Median spectral dispersion width in UR quadrant |
+| MEDREX0 | 2.73099 | Median resolution widths in LL quadrant |
+| MEDREX1 | 2.79663 | Median resolution widths in LR quadrant |
+| MEDREX2 | 3.08863 | Median resolution widths in UL quadrant |
+| MEDREX3 | 3.1695 | Median resolution widths in UR quadrant |
+| EXTNAME | FLUX |  |
 
 
 
-### HDU1: 
+### HDU1: LAMBDA
 The data attribute of HDU 1 stores the wavelengths of good lamp lines (in Angstroms) and the Y position of each fiber on the CCD for the corresponding wavelengths.
 
 #### HDU Type: IMAGE
@@ -336,12 +340,13 @@ Key | Value | Comment | |
 | NAXIS | 2 |  |
 | NAXIS1 | 501 |  |
 | NAXIS2 | 28 |  |
+| EXTNAME | LAMBDA |  |
 | PCOUNT | 0 |  |
 | GCOUNT | 1 |  |
 
 
 
-### HDU2: 
+### HDU2: WSET
 The HDU 2 data is a binary table whose fields are used to calculate wavelength solution (units of log10 Angstroms) for the arc calibration frames. The Y-positions on the CCD, which is the independent variable and corresponding wavelength solutions (in Angstroms) which is the dependent variable, are fitted to a functional form and the resulting coefficients are stored in the binary table. The use of these coefficients is described in the notes below
 
 #### HDU Type: BINARY TABLE
@@ -361,6 +366,7 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** End of mandatory fields *** |  |
 | COMMENT |  |  |
+| EXTNAME | WSET |  |
 | COMMENT |  |  |
 | COMMENT |  *** Column formats *** |  |
 | COMMENT |  |  |
@@ -378,11 +384,11 @@ Name | Type | Unit | Description |
  | FUNC | char[8] |  | describes the function used to fit the wavelength solutions (units of log-10 Angstroms) and Y-positions to a functional form. Chebyshev or Legendre functions are used. The default value is taken as Legendre function. |
  | XMIN | float64 |  | minimum value of the independent variable which is used along with the fitting coefficients, in the fitting function to get the value of dependent variable, which is the wavelength solution. |
  | XMAX | float64 |  | maximum value of the independent variable used by fitting function. |
- | COEFF | float64[3000] |  | fit coefficents |
+ | COEFF | float64[3000] |  | fit coefficients |
 
 
 
-### HDU3: 
+### HDU3: FIBERMASK
 The HDU 3 data stores the fibermask. These are fiber status bits and are set to non-zero to indicate bad status. The status bits used for masking are documented in $IDLUTILS/$IDLUTILS_VER/data/sdss/sdssMaskbits.par.
 
 #### HDU Type: IMAGE
@@ -395,12 +401,13 @@ Key | Value | Comment | |
 | BITPIX | 64 |  |
 | NAXIS | 1 |  |
 | NAXIS1 | 500 |  |
+| EXTNAME | FIBERMASK |  |
 | PCOUNT | 0 |  |
 | GCOUNT | 1 |  |
 
 
 
-### HDU4: 
+### HDU4: DISPSET
 The data attribute of HDU 4 gives the line width (in the dispersion axis) for each fiber. This Gaussian sigma is in units of pixels. The Y-positions on the CCD, which is the independent variable and the corresponding line width, which is the dependent variable are fitted to a functional form and the resulting coefficients are stored in a binary table. For instructions on how to use these tracesets, see HDU2 description of this file.
 
 #### HDU Type: BINARY TABLE
@@ -420,6 +427,7 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** End of mandatory fields *** |  |
 | COMMENT |  |  |
+| EXTNAME | DISPSET |  |
 | COMMENT |  |  |
 | COMMENT |  *** Column formats *** |  |
 | COMMENT |  |  |
@@ -437,11 +445,11 @@ Name | Type | Unit | Description |
  | FUNC | char[8] |  | describes the function used to fit the line width (units of pixels) and Y-positions to a functional form. Chebyshev or Legendre functions are used. Default value is taken as Legendre function. |
  | XMIN | float64 |  | minimum value of the independent variable which is used along with the fitting coefficients, in the fitting function to get the value of dependent variable, which is the line width of fibers. |
  | XMAX | float64 |  | maximum value of the independent variable used by fitting function. |
- | COEFF | float64[2000] |  | fit coefficents |
+ | COEFF | float64[2000] |  | fit coefficients |
 
 
 
-### HDU5: 
+### HDU5: RESLSET
 Traceset structure containing fit coefficients to the emission line wavelength width for each arc fiber bundle
 
 #### HDU Type: BINARY TABLE
@@ -461,6 +469,7 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** End of mandatory fields *** |  |
 | COMMENT |  |  |
+| EXTNAME | RESLSET |  |
 | COMMENT |  |  |
 | COMMENT |  *** Column formats *** |  |
 | COMMENT |  |  |
@@ -478,24 +487,25 @@ Name | Type | Unit | Description |
  | FUNC | char[8] |  | describes the function used to fit the line width (units of pixels) and Y-positions to a functional form. Chebyshev or Legendre functions are used. Default value is taken as Legendre function. |
  | XMIN | float64 |  | minimum value of the independent variable which is used along with the fitting coefficients, in the fitting function to get the value of dependent variable, which is the line width of fibers. |
  | XMAX | float64 |  | maximum value of the independent variable used by fitting function. |
- | COEFF | float64[2000] |  | fit coefficents |
+ | COEFF | float64[2000] |  | fit coefficients |
 
 
 
-### HDU6: rejline
+### HDU6: REJLINE
 String set to non-zero for any rejected arc lines
 
 #### HDU Type: IMAGE
-#### HDU Size:  109 KB
+#### HDU Size:  364 bytes
 
 ##### Header Table Caption for HDU6
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | Image Extension created by MWRFITS v1.13 |
-| BITPIX | -64 |  |
+| BITPIX | 8 |  |
 | NAXIS | 2 |  |
-| NAXIS1 | 500 |  |
+| NAXIS1 | 13 |  |
 | NAXIS2 | 28 |  |
+| EXTNAME | REJLINE |  |
 | PCOUNT | 0 |  |
 | GCOUNT | 1 |  |
 
@@ -505,15 +515,17 @@ Key | Value | Comment | |
 Fit residual of lamp lines to fit positions [pixels]
 
 #### HDU Type: IMAGE
-#### HDU Size:  3 KB
+#### HDU Size:  109 KB
 
 ##### Header Table Caption for HDU7
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | IMAGE | Image Extension created by MWRFITS v1.13 |
-| BITPIX | 64 |  |
-| NAXIS | 1 |  |
+| BITPIX | -64 |  |
+| NAXIS | 2 |  |
 | NAXIS1 | 500 |  |
+| NAXIS2 | 28 |  |
+| EXTNAME | XDIF_TSET |  |
 | PCOUNT | 0 |  |
 | GCOUNT | 1 |  |
 
