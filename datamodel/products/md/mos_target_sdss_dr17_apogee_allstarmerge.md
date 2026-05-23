@@ -13,6 +13,8 @@ MOS Target Table: sdss_dr17_apogee_allstarmerge
 ---
 
 ## Basic Information
+The APOGEE-2 all-star merge table from DR17.
+
 In the SDSS-IV APOGEE-2, if a star was observed in multiple fields or multiple survey modes (e.g., observed at APO vs. LCO), then the star would end up with multiple entries in the summary allStar file. This table merges all multiple entries for stars in the DR17 APOGEE allStar file. This file was primarily used for target selection for the mwm_bin_rv_long carton.
 
 ### Naming Convention

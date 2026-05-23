@@ -1,0 +1,436 @@
+{
+  "general": {
+    "name": "boss_clam_lite_fits",
+    "short": "Stellar Parameters from BOSS Spectra with The CLAM",
+    "description": "BOSS-CLAM is a data driven method that maps labels to NMF basis weights to forward model continuum normalized BOSS spectra. This model was training with labels from ASPCAP, BOSS-MINESweeper, wide binaries and a validation set of hot stars. This is the lite version of the VAC includes the inferened stellar parameters from all mwmStar BOSS spectra with snr > 10, a series of flags to clean the dataset, and a subset of meta-data from mwmAllStar.",
+    "environments": [
+      "MWM_STELLAR_PARAMS"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "674 MB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-30"
+      }
+    ],
+    "naming_convention": "$MWM_STELLAR_PARAMS/boss_clam/boss_clam_lite-[V_VAC].fits",
+    "generated_by": "https://github.com/andycasey/clam-boss",
+    "design": false,
+    "vac": true,
+    "recommended_science_product": true,
+    "data_level": "3.3.0"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MWM_STELLAR_PARAMS/boss_clam/boss_clam_lite-[V_VAC].[FTYPE]",
+      "example": "boss_clam/boss_clam_lite-1.0.0.fits",
+      "location": "boss_clam/boss_clam_lite-{v_vac}.{ftype}",
+      "environment": "MWM_STELLAR_PARAMS",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "boss_clam_lite",
+        "path_template": "$MWM_STELLAR_PARAMS/boss_clam/boss_clam_lite-{v_vac}.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "v_vac"
+        ],
+        "access_string": "boss_clam_lite = $MWM_STELLAR_PARAMS/boss_clam/boss_clam_lite-{v_vac}.{ftype}"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Stellar Parameters from BOSS Spectra with The CLAM",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "BOSS_CLAM",
+          "is_image": false,
+          "description": "BOSS-CLAM results and meta-data",
+          "size": "674 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "414",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "1708214",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "45",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "BOSS_CLAM",
+              "comment": "extension name"
+            },
+            {
+              "key": "TDIM4",
+              "value": "(71)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM41",
+              "value": "(4,4)",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "sdss_id": {
+              "name": "sdss_id",
+              "description": "SDSS-5 unique identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "gaia_dr2_source_id": {
+              "name": "gaia_dr2_source_id",
+              "description": "Gaia DR2 source identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "gaia_dr3_source_id": {
+              "name": "gaia_dr3_source_id",
+              "description": "Gaia DR3 source identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "sdss5_target_flags": {
+              "name": "sdss5_target_flags",
+              "description": "SDSS-5 targeting flags",
+              "type": "bool[71]",
+              "unit": ""
+            },
+            "ra": {
+              "name": "ra",
+              "description": "Right ascension ",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "dec": {
+              "name": "dec",
+              "description": "Declination ",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "l": {
+              "name": "l",
+              "description": "Galactic longitude ",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "b": {
+              "name": "b",
+              "description": "Galactic latitude ",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "plx": {
+              "name": "plx",
+              "description": "Parallax ",
+              "type": "float32",
+              "unit": "mas"
+            },
+            "e_plx": {
+              "name": "e_plx",
+              "description": "Error on parallax ",
+              "type": "float32",
+              "unit": "mas"
+            },
+            "pmra": {
+              "name": "pmra",
+              "description": "Proper motion in RA ",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "e_pmra": {
+              "name": "e_pmra",
+              "description": "Error on proper motion in RA ",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "pmde": {
+              "name": "pmde",
+              "description": "Proper motion in DEC ",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "e_pmde": {
+              "name": "e_pmde",
+              "description": "Error on proper motion in DEC ",
+              "type": "float32",
+              "unit": "mas/yr"
+            },
+            "g_mag": {
+              "name": "g_mag",
+              "description": "Gaia DR3 mean G band magnitude ",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "bp_mag": {
+              "name": "bp_mag",
+              "description": "Gaia DR3 mean BP band magnitude ",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "rp_mag": {
+              "name": "rp_mag",
+              "description": "Gaia DR3 mean RP band magnitude ",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "j_mag": {
+              "name": "j_mag",
+              "description": "2MASS J band magnitude ",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "h_mag": {
+              "name": "h_mag",
+              "description": "2MASS H band magnitude ",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "k_mag": {
+              "name": "k_mag",
+              "description": "2MASS K band magnitude ",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "r_med_geo": {
+              "name": "r_med_geo",
+              "description": "Median geometric distance ",
+              "type": "float32",
+              "unit": "pc"
+            },
+            "r_med_photogeo": {
+              "name": "r_med_photogeo",
+              "description": "50th percentile of photogeometric distance ",
+              "type": "float32",
+              "unit": "pc"
+            },
+            "bailer_jones_flags": {
+              "name": "bailer_jones_flags",
+              "description": "Bailer-Jones quality flags",
+              "type": "char[8]",
+              "unit": ""
+            },
+            "ebv": {
+              "name": "ebv",
+              "description": "E(B-V) ",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "e_ebv": {
+              "name": "e_ebv",
+              "description": "Error on E(B-V) ",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "ebv_flags": {
+              "name": "ebv_flags",
+              "description": "Flags indicating the source of E(B-V)",
+              "type": "int64",
+              "unit": ""
+            },
+            "n_boss_visits": {
+              "name": "n_boss_visits",
+              "description": "Number of BOSS visits",
+              "type": "int32",
+              "unit": ""
+            },
+            "boss_min_mjd": {
+              "name": "boss_min_mjd",
+              "description": "Minimum MJD of BOSS visits",
+              "type": "int32",
+              "unit": ""
+            },
+            "boss_max_mjd": {
+              "name": "boss_max_mjd",
+              "description": "Maximum MJD of BOSS visits",
+              "type": "int32",
+              "unit": ""
+            },
+            "telescope": {
+              "name": "telescope",
+              "description": "Short telescope name",
+              "type": "char[9]",
+              "unit": ""
+            },
+            "n_good_visits": {
+              "name": "n_good_visits",
+              "description": "Number of 'good' BOSS visits",
+              "type": "int32",
+              "unit": ""
+            },
+            "n_good_rvs": {
+              "name": "n_good_rvs",
+              "description": "Number of 'good' BOSS radial velocities",
+              "type": "int32",
+              "unit": ""
+            },
+            "v_rad": {
+              "name": "v_rad",
+              "description": "Barycentric rest frame radial velocity ",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "e_v_rad": {
+              "name": "e_v_rad",
+              "description": "Error on radial velocity ",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "std_v_rad": {
+              "name": "std_v_rad",
+              "description": "Standard deviation of visit V_RAD ",
+              "type": "float32",
+              "unit": "km/s"
+            },
+            "snr": {
+              "name": "snr",
+              "description": "Signal-to-noise ratio",
+              "type": "float32",
+              "unit": ""
+            },
+            "teff": {
+              "name": "teff",
+              "description": "BOSS-CLAM effective temperature",
+              "type": "float64",
+              "unit": "K"
+            },
+            "logg": {
+              "name": "logg",
+              "description": "BOSS-CLAM log(g)",
+              "type": "float64",
+              "unit": ""
+            },
+            "fe_h": {
+              "name": "fe_h",
+              "description": "BOSS-CLAM [Fe/H]",
+              "type": "float64",
+              "unit": ""
+            },
+            "alpha_m": {
+              "name": "alpha_m",
+              "description": "BOSS-CLAM [alpha/M]",
+              "type": "float64",
+              "unit": ""
+            },
+            "param_covariance": {
+              "name": "param_covariance",
+              "description": "Covariance matrix for the parameters. Order is [teff, logg, fe_h, alpha_m]",
+              "type": "float64[16]",
+              "unit": ""
+            },
+            "rchi2": {
+              "name": "rchi2",
+              "description": "Reduced chi^2 between BOSS spectrum and forward modeled CLAM spectrum",
+              "type": "float64",
+              "unit": ""
+            },
+            "clam_flags": {
+              "name": "clam_flags",
+              "description": "Bitmask indicating potentially unreliable or out-of-distribution BOSS-CLAM results. Flags include:\n  - IN_WD (0): likely white dwarf in mwm_wd not represented in the training set\n  - IN_YSO (1): likely young stellar object in mwm_yso not represented in the training set\n  - IN_OB (2): likely hot star in mwm_ob with unreliable [Fe/H] or [alpha/M] training coverage\n  - FE_H_ALPHA_SUSPECT (3): Teff > 6500 K, where [Fe/H] and [alpha/M] are poorly constrained\n  - BAD_SPEC_FIT (4): reduced chi^2 > 1 indicating poor forward-model fit\n  - LOW_MASS_SUSPECT (5): Teff < 4000 K and [Fe/H] < -1 in sparsely sampled low-mass regime\n  - FE_H_ALPHA_CORR (6): atypical correlation between [Fe/H], [alpha/M], and Teff\n  - TEFF_LOGG_CORR (7): unphysical negative correlation between Teff and logg\n  - LOW_MASS_TEFF_LOGG_CORR (8): weak Teff-logg correlation in low-mass stars (Teff < 4200 K)\n  - EXTREME_CORR (9): extreme correlations involving [alpha/M]\n  - ALTER_CORR (10): alternating correlation structure relative to the bulk population\n",
+              "type": "int64",
+              "unit": ""
+            },
+            "flag_warn": {
+              "name": "flag_warn",
+              "description": "If IN_OB or FE_H_ALPHA_SUSPECT is set",
+              "type": "bool",
+              "unit": ""
+            },
+            "flag_bad": {
+              "name": "flag_bad",
+              "description": "If IN_WD, IN_YSO, BAD_SPEC_FIT, LOW_MASS_SUSPECT, FE_H_ALPHA_CORR, TEFF_LOGG_CORR, LOW_MASS_TEFF_LOGG_CORR, EXTREME_CORR or ALTER_CORR is set",
+              "type": "bool",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null,
+      "dataframe": null
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

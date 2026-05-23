@@ -19,7 +19,7 @@ Parameters and elemental abundances for each target obtained by combining result
 $MWM_ASTRA/0.6.0/summary/astraMWMLite-0.6.0.fits.gz
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 MWM_ASTRA
@@ -36,7 +36,10 @@ astra
 ### Is a VAC
 False
 
-### HDUS List for release DR19
+### Data Level
+2.3.0
+
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1](#hdu1)
 
@@ -44,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - primary_delta_nkeys: 3
 
 ---
 ## Example HDUS List
@@ -61,8 +67,11 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 0 | number of array dimensions |
 | EXTEND | True |  |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-10-31 16:50:29 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| CREATED | 25-04-01 22:35:55 | File creation time (UTC %y-%m-%d %H:%M:%S) |
 
 
 
@@ -78,19 +87,112 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 1743 | length of dimension 1 |
-| NAXIS2 | 1474582 | length of dimension 2 |
+| NAXIS1 | 1740 | length of dimension 1 |
+| NAXIS2 | 1365769 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
 | TFIELDS | 332 | number of table fields |
+|  |  |  |
+|  | Metadata |  |
+|  |  |  |
 | V_ASTRA | 0.6.0 | Astra version |
-| CREATED | 24-10-31 16:50:29 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+| CREATED | 25-04-01 22:35:55 | File creation time (UTC %y-%m-%d %H:%M:%S) |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Targeting Provenance |  |
+|  |  |  |
 | TDIM15 | (57) |  |
+|  |  |  |
+|  | Astrometry |  |
+|  |  |  |
+|  |  |  |
+|  | Gaia Photometry |  |
+|  |  |  |
+|  |  |  |
+|  | 2MASS Photometry |  |
+|  |  |  |
 | COMMENT | See https://www.ipac.caltech.edu/2mass/releases/allsky/doc/sec2_2a.html |  |
+|  |  |  |
+|  | unWISE Photometry |  |
+|  |  |  |
 | COMMENT | See https://catalog.unwise.me/catalogs.html |  |
+|  |  |  |
+|  | GLIMPSE Photometry |  |
+|  |  |  |
 | COMMENT | See https://irsa.ipac.caltech.edu/data/SPITZER/GLIMPSE/gator_docs/ |  |
-| CHECKSUM | 92aKI2VH92aHG2UH | HDU checksum updated 2024-10-31T10:58:03 |
-| DATASUM | 2830592206 | data unit checksum updated 2024-10-31T10:58:03 |
+|  |  |  |
+|  | Gaia XP Stellar Parameters (Zhang, Green & Rix 2023) |  |
+|  |  |  |
+|  |  |  |
+|  | Bailer-Jones Distance Estimates (EDR3; 2021) |  |
+|  |  |  |
+|  |  |  |
+|  | Reddening |  |
+|  |  |  |
+|  |  |  |
+|  | Synthetic Photometry from Gaia XP Spectra |  |
+|  |  |  |
+|  |  |  |
+|  | Observations Summary |  |
+|  |  |  |
+|  |  |  |
+|  | Identifiers |  |
+|  |  |  |
+|  |  |  |
+|  | Astra Metadata |  |
+|  |  |  |
+|  |  |  |
+|  | Common Spectrum Path Fields |  |
+|  |  |  |
+|  |  |  |
+|  | APOGEE Spectrum Metadata |  |
+|  |  |  |
+|  |  |  |
+|  | BOSS Spectrum Metadata |  |
+|  |  |  |
+|  |  |  |
+|  | Spectrum Metadata |  |
+|  |  |  |
+|  |  |  |
+|  | Observing Span |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (XCSAO) |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (Doppler) |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (X-Correlation) |  |
+|  |  |  |
+|  |  |  |
+|  | Radial Velocity (BOSSNet) |  |
+|  |  |  |
+|  |  |  |
+|  | Stellar Parameters |  |
+|  |  |  |
+|  |  |  |
+|  | Chemical Abundances |  |
+|  |  |  |
+|  |  |  |
+|  | White Dwarf Classifications |  |
+|  |  |  |
+|  |  |  |
+|  | M-Dwarf Classifications |  |
+|  |  |  |
+|  |  |  |
+|  | Summary Statistics |  |
+|  |  |  |
+|  |  |  |
+|  | DATA INTEGRITY |  |
+|  |  |  |
+| CHECKSUM | iZ5BjW39iW3AiW37 | HDU checksum updated 2025-04-01T16:44:20 |
+| DATASUM | 492668965 | data unit checksum updated 2025-04-01T16:44:20 |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
@@ -234,7 +336,7 @@ Name | Type | Unit | Description |
  | v_astra | char[5] |  | Astra version |
  | created | char[26] |  | Datetime when task record was created |
  | modified | char[26] |  |  |
- | pipeline | char[13] |  |  |
+ | pipeline | char[10] |  |  |
  | task_pk | int64 |  | Task model primary key |
  | release | char[5] |  | SDSS release |
  | filetype | char[7] |  | SDSS file type that stores this spectrum |

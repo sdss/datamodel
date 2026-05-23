@@ -1,0 +1,187 @@
+general:
+  name: payne4GAIN_modelSpectra
+  short: the payne4GAIN model spectra used to generate the lte, nlte, and corrected
+    abundances in this VAC
+  description: 'We trained Payne models on grids of Turbospectrum_NLTE synthetic spectra:
+    one in LTE and one in NLTE, using departure coefficient grids calculated in MULTI.
+    These are the model spectra that come from our Paynes, after chi-squared fitting
+    the APOGEE DR19 spectra that fall within our training range (according to ASPCAP).
+    In addition to the 15-label Payne, we also fit each spectrum with 9 continuum
+    parameters (2nd order Chebyshev polynomials for each chip), radial velocity and
+    gaussian broadening.'
+  datatype: FITS
+  filesize: 21 GB
+  releases:
+  - DR20
+  environments:
+  - MWM_RGB
+  surveys:
+  - SDSS
+  naming_convention: '$MWM_RGB/apogee_rgb_nlte_abundances/payne4GAIN_modelSpectra-[V_VAC].fits
+
+    where V_VAC=1.1.1 for DR20
+
+    '
+  generated_by: Thibodeaux et al (in prep).
+  data_level: 3.2.0
+  design: false
+  vac: true
+  recommended_science_product: true
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MWM_RGB/apogee_rgb_nlte_abundances/payne4GAIN_modelSpectra-[V_VAC].fits
+    example: apogee_rgb_nlte_abundances/payne4GAIN_modelSpectra-1.1.1.fits
+    location: apogee_rgb_nlte_abundances/payne4GAIN_modelSpectra-{v_vac}.fits
+    environment: MWM_RGB
+    access:
+      in_sdss_access: true
+      path_name: payne4GAIN_modelSpectra
+      path_template: $MWM_RGB/apogee_rgb_nlte_abundances/payne4GAIN_modelSpectra-{v_vac}.fits
+      path_kwargs:
+      - v_vac
+      access_string: payne4GAIN_modelSpectra = $MWM_RGB/apogee_rgb_nlte_abundances/payne4GAIN_modelSpectra-{v_vac}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Empty primary HDU conforming to FITS standard.
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: DATECREA
+          value: '2026-05-15'
+          comment: Creation date
+        - key: DATEMOD
+          value: '2026-05-16'
+          comment: Modification date
+        - key: VACVER
+          value: 1.1.1
+          comment: VAC version
+        - key: SDSSDR
+          value: 20
+          comment: SDSS data release
+        - key: MAPPER
+          value: MWM
+          comment: Mapper
+        - key: SURVEY
+          value: APOGEE
+          comment: Survey
+        - key: CHECKSUM
+          value: BAGTC79SBAGSB79S
+          comment: HDU checksum updated 2026-05-15T21:19:04
+        - key: DATASUM
+          value: '0'
+          comment: data unit checksum updated 2026-05-15T21:19:04
+      hdu1:
+        name: MODEL SPECTRA
+        description: The model spectra generated during fitting of APOGEE spectra.
+          This HDU contains the sdssids, which can be used to crossmatch with original
+          data, and the LTE and NLTE model spectra. The wavelength solution is stored
+          in hdu2.
+        is_image: false
+        size: 21 GB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 62620
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 360451
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 3
+          comment: number of table fields
+        - key: EXTNAME
+          value: MODEL SPECTRA
+          comment: extension name
+        - key: CHECKSUM
+          value: JQLgKNLZJNLfJNLZ
+          comment: HDU checksum updated 2026-05-15T21:20:40
+        - key: DATASUM
+          value: '212644391'
+          comment: data unit checksum updated 2026-05-15T21:20:40
+        columns:
+          sdssid:
+            name: sdssid
+            type: int64
+            unit: ''
+            description: SDSS-V unique source identifier
+          p4g_lte_spec:
+            name: p4g_lte_spec
+            type: float32[7827]
+            unit: ''
+            description: LTE Payne4GAIN model spectra, based on best fit to corresponding
+              APOGEE spectra. Normalized flux, so no physical units.
+          p4g_nlte_spec:
+            name: p4g_nlte_spec
+            type: float32[7827]
+            unit: ''
+            description: NLTE Payne4GAIN model spectra, based on best fit to corresponding
+              APOGEE spectra. Normalized flux, so no physical units.
+      hdu2:
+        name: WAVELENGTHS
+        description: Wavelength solution from DR19, in units of angstroms
+        is_image: true
+        size: 30 KB
+        header:
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 1
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 7827
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: EXTNAME
+          value: WAVELENGTHS
+          comment: extension name
+        - key: CHECKSUM
+          value: 6laI6jZF6jaF6jYF
+          comment: HDU checksum updated 2026-05-15T21:21:10
+        - key: DATASUM
+          value: '3099783558'
+          comment: data unit checksum updated 2026-05-15T21:21:10
+notes: |-
+  None
+regrets: |-
+  I have no regrets!

@@ -19,7 +19,7 @@ Processing plan to combine all spectroscopic reductions for a single field/plate
 $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/spPlancomb-[FIELD]-[MJD].par
 
 ### Releases
-IPL3, DR19, IPL4
+IPL3, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,13 +39,16 @@ False
 ### Data Level
 1.1
 
-### PAR List for release DR19
+### PAR List for release DR20
   - [SPEXP](#SPEXP)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
    - delta_nkeys: 2
@@ -69,16 +72,14 @@ Key | Value | Comment | |
 | fieldid | 112360 | FieldID (or PlateID) |
 | MJD | 60000 | Modified Julian Date of plan |
 | OBS | APO | Associated Observatory |
-| RUN2D | v6_1_3 | 2D reduction name |
+| RUN2D | v6_2_1 | 2D reduction name |
 | DITHER | F | Is the Field Dithered (T: True, F: False) |
-| planfile2d | spPlan2d-112360-60000.par | Plan file for 2D spectral reductions |
-| planfilecomb | spPlancomb-112360-60000.par | Plan file for coadding (this file) |
-| idlspec2dVersion | v6_1_3 | idlspec2d Version when building plan |
-| idlutilsVersion | 6.0.0dev | idlutils Version when building plan |
-| pydlVersion | 0.7.0 | Version of pydl when building plan |
-| speclogVersion | trunk 27531 | speclog Version when building plan |
-| SDSSCOREVersion | test | SDSSCORE Version when building plan |
-| SDSS_access_Ver | 3.0.4 | sdss_access Version when building plan |
+| planfile2d | 'spPlan2d-112360-60000.par' | Plan file for 2D spectral reductions |
+| planfilecomb | 'spPlancomb-112360-60000.par' | Plan file for coadding (this file) |
+| idlspec2dVersion | 'v6_2_1' | idlspec2d Version when building plan |
+| pydlVersion | '1.0.0' | Version of pydl when building plan |
+| SDSSCOREVersion | 'main' | SDSSCORE Version when building plan |
+| SDSS_access_Ver | '3.0.5' | sdss_access Version when building plan |
 | manual | F | Manually edited plan file (T: True, F: False) |
 
 
@@ -92,11 +93,11 @@ Key | Value | Comment | |
 #### Structure
 Name | Type | Unit | Description | Is Array | Example |
 | --- | --- | --- | --- | --- | --- |
- | confid | char[4] |  | FPS Configuration ID of exposure | False | 8872 |
+ | confid | char[5] |  | FPS Configuration ID of exposure | False | 8872 |
  | fieldid | char[6] |  | FieldID (or PlateID) of exposure | False | 112360 |
  | mjd | int |  | MJD of exposure | False | 60000 |
- | mapname | char[4] |  | Plate Map Name or FPS configuration ID | False | 8872 |
- | flavor | char[7] |  | Flavor of Exposure (flat, arc, science) | False | science |
+ | mapname | char[5] |  | Plate Map Name or FPS configuration ID | False | 8872 |
+ | flavor | char[9] |  | Flavor of Exposure (flat, arc, science) | False | science |
  | exptime | float | s | Exposure Length of exposure | False | 900.0900268554688 |
  | name | char[2][24] |  | Name of spFrame Exposure Files | True | ['spFrame-b1-00353048.fits', 'spFrame-r1-00353048.fits'] |
  | epoch_combine | int |  | Epoch MJD for coadd (last MJD in coadd) | False | 60000 |

@@ -13,6 +13,8 @@ MOS Target Table: gaia_dr3_astrophysical_parameters
 ---
 
 ## Basic Information
+The Gaia DR3 astrophysical parameters table contains the astrophysical parameters derived for sources in Gaia DR3.
+
 This is the main table containing the 1D astrophysical parameters produced by the Apsis processing chain developed in Gaia DPAC CU8. For more details refer to <a href="https://gea.esac.esa.int/archive/documentation/GDR3/Gaia_archive/chap_datamodel/sec_dm_astrophysical_parameter_tables/ssec_dm_astrophysical_parameters.html">https://gea.esac.esa.int/archive/documentation/GDR3/Gaia_archive/chap_datamodel/sec_dm_astrophysical_parameter_tables/ssec_dm_astrophysical_parameters.html</a>.
 
 ### Naming Convention

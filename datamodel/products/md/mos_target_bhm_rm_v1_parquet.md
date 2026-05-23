@@ -37,8 +37,6 @@ Values are set to -9.0 or -9 if null.
 
 The dr20_bhm_rm_v1 table corresponds to Version: v1, 11/29/2022
 
-[INCOMPLETE]: Tom to check summary and missing column descriptions.
-
 ### Naming Convention
 $MOS_TARGET/[V_TARG]/[FTYPE]/mos_bhm_rm_v1.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.
 
@@ -112,7 +110,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### rm_known_spec
 
 - Column Name: rm_known_spec
-- Description: N/A
+- Description: Boolen flag indicating if the object belongs to the bhm_rm_known_spec carton
 - Unit: N/A
 - Data Type: Boolean
 
@@ -120,7 +118,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### rm_core
 
 - Column Name: rm_core
-- Description: N/A
+- Description: Boolean flag indicating if the object belongs to the bhm_rm_core carton
 - Unit: N/A
 - Data Type: Boolean
 
@@ -128,7 +126,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### rm_var
 
 - Column Name: rm_var
-- Description: N/A
+- Description: Boolean flag indicating if the object belongs to the bhm_rm_var carton
 - Unit: N/A
 - Data Type: Boolean
 
@@ -136,7 +134,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### rm_ancillary
 
 - Column Name: rm_ancillary
-- Description: N/A
+- Description: Boolean flag indicating if the object belongs to the bhm_rm_ancillary carton
 - Unit: N/A
 - Data Type: Boolean
 
@@ -144,32 +142,32 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### mag_g
 
 - Column Name: mag_g
-- Description: N/A
-- Unit: N/A
+- Description: PS1 g-band magnitude
+- Unit: mag
 - Data Type: Float32
 
 
 #### mag_r
 
 - Column Name: mag_r
-- Description: N/A
-- Unit: N/A
+- Description: PS1 r-band magnitude
+- Unit: mag
 - Data Type: Float32
 
 
 #### mag_i
 
 - Column Name: mag_i
-- Description: N/A
-- Unit: N/A
+- Description: PS1 i-band magnitude
+- Unit: mag
 - Data Type: Float32
 
 
 #### mag_z
 
 - Column Name: mag_z
-- Description: N/A
-- Unit: N/A
+- Description: PS1 z-band magnitude
+- Unit: mag
 - Data Type: Float32
 
 
@@ -240,7 +238,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### rm_unsuitable
 
 - Column Name: rm_unsuitable
-- Description: N/A
+- Description: Whether the entry is consider unsuitable as a RM target
 - Unit: N/A
 - Data Type: Boolean
 
@@ -248,7 +246,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### rm_xrayqso
 
 - Column Name: rm_xrayqso
-- Description: N/A
+- Description: Whether to include the target in the bhm_rm_xrayqso carton
 - Unit: N/A
 - Data Type: Int32
 

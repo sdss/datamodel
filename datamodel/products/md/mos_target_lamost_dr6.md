@@ -15,8 +15,6 @@ MOS Target Table: lamost_dr6
 ## Basic Information
 Cross-match between the LAMOST DR6 low resolution spectral survey and Gaia eDR3. For more details on the LAMOS LRS survey, refer to <a href="https://dr6.lamost.org/doc/lr-data-production-description">https://dr6.lamost.org/doc/lr-data-production-description</a>.
 
-[INCOMPLETE] Missing column descriptions for what I think is the cross-match with eDR3.
-
 ### Naming Convention
 $MOS_TARGET/[V_TARG]/[FTYPE]/mos_lamost_dr6-[NUM].[FTYPE] with FTYPE='fits', V_TARG='2.0.0', and NUM=1..5 for DR20.
 
@@ -135,12 +133,12 @@ Name | Type | Unit | Description |
  | ra | float64 | degrees | Right Ascension from input catalog |
  | dec | float64 | degrees | Declination from input catalog |
  | fibermask | int16 |  | Possible fiber problems |
- | ra_x | float64 |  |  |
- | dec_x | float64 |  |  |
- | errhalfmaj | float32 |  |  |
- | errhalfmin | float32 |  |  |
- | errposang | float32 |  |  |
- | source_id | int64 |  |  |
+ | ra_x | float64 | degrees | Cross-matched Right Ascension from Gaia eDR3 |
+ | dec_x | float64 | degrees | Cross-matched Declination from Gaia eDR3 |
+ | errhalfmaj | float32 | deg | Error ellipse half major axis |
+ | errhalfmin | float32 | deg | Error ellipse half minor axis |
+ | errposang | float32 | deg | Error ellipse position angle |
+ | source_id | int64 |  | Gaia eDR3 source_id |
 
 
 

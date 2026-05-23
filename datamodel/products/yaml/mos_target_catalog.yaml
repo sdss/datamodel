@@ -1,10 +1,10 @@
 general:
   name: mos_target_catalog
   short: 'MOS Target Table: catalog'
-  description: The table stores the results of the cross-match used for DR18 targeting.
-    All entries in this table are expected to be unique physical objects drawn from
-    one or more parent catalogues. The mos_target_catalog_to_ tables provide the relationship
-    between mos_target_catalog objects and their parent catalogue counterparts.
+  description: The results of the cross-match used for DR20 targeting. Entries in
+    this table are expected to be unique physical objects drawn from one or more parent
+    catalogues. The dr20_catalog_to_ tables provide the relationships to their parent
+    catalogue counterparts.
   datatype: FITS
   filesize: 95 MB
   releases:
@@ -19,7 +19,7 @@ general:
   - SDSS
   naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_catalog-[NUM].[FTYPE] with FTYPE='fits',
     V_TARG='2.0.0', and NUM=1..137 for DR20.
-  generated_by: sdss5db> targetdb, operations database server
+  generated_by: sdss5db targeting database.
   design: false
   vac: false
   recommended_science_product: false
@@ -258,8 +258,8 @@ releases:
       path_name: mos_target_catalog
       path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_catalog@mos_target_num3|.{ftype}
       path_kwargs:
-      - ftype
       - v_targ
+      - ftype
       access_string: mos_target_catalog = $MOS_TARGET/{v_targ}/{ftype}/mos_catalog-{num}.{ftype}
     survey: SDSS
     hdus:

@@ -13,6 +13,8 @@ MOS Target Table: gaia_dr3_synthetic_photometry_gspc
 ---
 
 ## Basic Information
+The Gaia DR3 synthetic photometry GSPC table contains the synthetic photometry generated from the Gaia BP/RP mean spectra.
+
 The Gaia Synthetic Photometry Catalogue (GSPC) is a catalogue of synthetic photometry generated from the Gaia BP/RP mean spectra in Data Release 3 and standardised using wide and reliable sets of external standard stars. For more details, refer to <a href="https://gea.esac.esa.int/archive/documentation/GDR3/Gaia_archive/chap_datamodel/sec_dm_performance_verification/ssec_dm_synthetic_photometry_gspc.html">https://gea.esac.esa.int/archive/documentation/GDR3/Gaia_archive/chap_datamodel/sec_dm_performance_verification/ssec_dm_synthetic_photometry_gspc.html</a>.
 
 ### Naming Convention

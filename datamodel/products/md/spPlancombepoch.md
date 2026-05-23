@@ -19,7 +19,7 @@ Processing plan to combine all spectroscopic reductions for an epoch of field/pl
 $BOSS_SPECTRO_REDUX/[RUN2D]/[FIELD]/epoch/spPlancombepoch-[FIELD]-[MJD].par
 
 ### Releases
-IPL3, DR19, IPL4
+IPL3, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,13 +39,16 @@ False
 ### Data Level
 1.1
 
-### PAR List for release DR19
+### PAR List for release DR20
   - [SPEXP](#SPEXP)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
    - delta_nkeys: 1
@@ -76,9 +79,8 @@ Key | Value | Comment | |
 | N_MJD | 2 | Number of MJDs included in the Epoch |
 | planfile2d | 'spPlan2d-112360-59999.par' 'spPlan2d-112360-60000.par' | Plan file(s) for Daily 2D spectral reductions |
 | planfilecomb | spPlancombepoch-112360-60000.par | Plan file for Combine (this file) |
-| idlspec2dVersion | v6_1_3 | Version of idlspec2d when building plan file |
-| idlutilsVersion | 6.0.0dev | Version of idlutils when building plan file |
-| sdssdb_Version | 0.9.0a0 | Version of sdssdb when building this plan file |
+| idlspec2dVersion | v6_2_1 | Version of idlspec2d when building plan file |
+| sdssdb_Version | 0.9.0 | Version of sdssdb when building this plan file |
 | RS_Version | zeta-3 | Robostrategy Version for this field (or 'plates') |
 
 
@@ -92,11 +94,11 @@ Key | Value | Comment | |
 #### Structure
 Name | Type | Unit | Description | Is Array | Example |
 | --- | --- | --- | --- | --- | --- |
- | confid | char[4] |  | FPS Configuration ID of exposure | False | 8860 |
+ | confid | char[5] |  | FPS Configuration ID of exposure | False | 8860 |
  | fieldid | char[6] |  | FieldID (or PlateID) of exposure | False | 112360 |
  | mjd | int |  | MJD of exposure | False | 59999 |
- | mapname | char[4] |  | Plate Map Name or FPS configuration ID | False | 8860 |
- | flavor | char[7] |  | Flavor of Exposure (flat, arc, science) | False | science |
+ | mapname | char[5] |  | Plate Map Name or FPS configuration ID | False | 8860 |
+ | flavor | char[9] |  | Flavor of Exposure (flat, arc, science) | False | science |
  | exptime | float | s | Exposure Length of exposure | False | 900.0900268554688 |
  | name | char[2][30] |  | Name of spFrame Exposure Files | True | ['spFrame-b1-00352994.fits', 'spFrame-r1-00352994.fits'] |
  | epoch_combine | long |  | Epoch MJD for coadd (last MJD in coadd) | False | 60000 |

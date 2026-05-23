@@ -13,6 +13,8 @@ MOS Target Table: rave_dr6_gauguin_madera
 ---
 
 ## Basic Information
+Abundances from the GAUGUIN and MADERA pipelines for the RAVE DR6 data.
+
 The abundances of the non-iron group elements (Al, Fe, and Ni) and of the alpha enhancement [alpha/Fe] derived with the pipeline GAUGUIN and MADERA input for the Radial Velocity Experiment (RAVE) DR6. See <a href="https://www.rave-survey.org/metadata/ravedr6/dr6_gauguin_madera/">https://www.rave-survey.org/metadata/ravedr6/dr6_gauguin_madera/</a>.
 
 ### Naming Convention
@@ -96,18 +98,18 @@ Name | Type | Unit | Description |
  | fe_h_gauguin | float32 |  | [Fe/H] abundance of Fe |
  | fe_h_error_gauguin | float32 |  | Error of [Fe/H] abundance of Fe |
  | fe_h_chisq_gauguin | float32 |  | Chi-square of [Fe/H] abundance of Fe |
- | fe_h_nl_gauguin | int16 | Fe/H | Number of used spectral lines in calc. of |
+ | fe_h_nl_gauguin | int16 |  | Number of used spectral lines in calculation of [Fe/H] |
  | al_h_gauguin | float32 |  | [Al/H] abundance of Al |
  | al_h_error_gauguin | float32 |  | Error of [Al/H] abundance of Al |
  | al_h_chisq_gauguin | float32 |  | Chi-square of [Al/H] abundance of Al |
- | al_h_nl_gauguin | int16 | Al/H | Number of used spectral lines in calc. of |
+ | al_h_nl_gauguin | int16 |  | Number of used spectral lines in calculation of [Al/H] |
  | ni_h_gauguin | float32 |  | [Ni/H] abundance of Ni |
  | ni_h_error_gauguin | float32 |  | Error of [Ni/H] abundance of Ni |
  | ni_h_chisq_gauguin | float32 |  | Chi-square of [Ni/H] abundance of Ni |
- | ni_h_nl_gauguin | int16 | Ni/H | Number of used spectral lines in calc. of |
- | alpha_fe_gauguin | float32 | Alpha/Fe |  |
- | alpha_fe_error_gauguin | float32 | Alpha/Fe | Error of |
- | alpha_fe_chisq_gauguin | float32 | Alpha/Fe | Chi-square of |
+ | ni_h_nl_gauguin | int16 |  | Number of used spectral lines in calc. of [Ni/H] |
+ | alpha_fe_gauguin | float32 |  | [Alpha/Fe] |
+ | alpha_fe_error_gauguin | float32 |  | Error of [Alpha/Fe] |
+ | alpha_fe_chisq_gauguin | float32 |  | Chi-square of [Alpha/Fe] |
  | n_elements_gauguin | int16 |  | Number of used spectral lines in calculations |
 
 

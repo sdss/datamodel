@@ -1,7 +1,9 @@
 general:
   name: boss_vi_results
-  short: replace me - with a short one sentence summary of file
-  description: replace me - with a longer description of the data product
+  short: Results from visual inspection of BOSS spectra
+  description: Catalog of redshifts/classifications/and confidence flags derived from
+    visual inspections of BOSS allepoch spectra, supplemented with ML predictions
+    of pipeline redshift reliability.
   datatype: FITS
   filesize: 28 MB
   releases:
@@ -10,10 +12,8 @@ general:
   - BHM_VI
   surveys:
   - SDSS
-  naming_convention: replace me - with $BHM_VI/[V_VAC]/boss_vi_results-[V_VAC].fits
-    or boss_vi_results-1.0.3.fits but with regex pattern matches
-  generated_by: replace me - with the name(s) of any git or svn product(s) that produces
-    this product.
+  naming_convention: $BHM_VI/[V_VAC]/boss_vi_results-[V_VAC].fits
+  generated_by: ''
   data_level: 2.3.3
   design: false
   vac: false
@@ -39,7 +39,7 @@ releases:
     hdus:
       hdu0:
         name: PRIMARY
-        description: replace me description
+        description: Empty primary HDU
         is_image: true
         size: 0 bytes
         header:
@@ -57,7 +57,7 @@ releases:
           comment: ''
       hdu1:
         name: VI_RESULTS
-        description: replace me description
+        description: Results from visual inspection of BOSS spectra
         is_image: false
         size: 28 MB
         header:
@@ -151,68 +151,70 @@ releases:
           field:
             name: field
             type: int32
-            unit: replace me - with content
+            unit: ''
             description: SDSS field identifier
           mjd:
             name: mjd
             type: int32
-            unit: replace me - with content
+            unit: days
             description: SDSS MJD - last date the object was observed
           catalogid:
             name: catalogid
             type: int64
-            unit: replace me - with content
+            unit: ''
             description: SDSS unique catalog identifier
           sdss_id:
             name: sdss_id
             type: int64
-            unit: replace me - with content
+            unit: ''
             description: SDSS unique object identifer
           z_pipe:
             name: z_pipe
             type: float32
-            unit: replace me - with content
+            unit: ''
             description: True if spectrum was visually inspected
           has_vi:
             name: has_vi
             type: bool
-            unit: replace me - with content
+            unit: ''
             description: Pipeline redshift, copied from spAll
           z_vi:
             name: z_vi
             type: float32
-            unit: replace me - with content
+            unit: ''
             description: Visual inspection redshift, when available
           z_conf_vi:
             name: z_conf_vi
             type: int16
-            unit: replace me - with content
+            unit: ''
             description: The degree of confidence we have on z_vi
           z_best:
             name: z_best
             type: float32
-            unit: replace me - with content
-            description: Best redshift available (from VI when available
+            unit: ''
+            description: Best redshift available (from VI when available, from the
+              pipeline otherwise). NaN when z_conf_best < 2
           z_conf_best:
             name: z_conf_best
             type: int16
-            unit: replace me - with content
+            unit: ''
             description: The degree of confidence we have on z_best
           class_best:
             name: class_best
             type: char[15]
-            unit: replace me - with content
+            unit: ''
             description: The best classification for this spectrum
           z_pipe_reliable:
             name: z_pipe_reliable
             type: bool
-            unit: replace me - with content
+            unit: ''
             description: True when z_pipe is correct (via ML classifier)
           z_best_reliable:
             name: z_best_reliable
             type: bool
-            unit: replace me - with content
-            description: True if z_best is reliable, i.e. z_conf_best=3
+            unit: ''
+            description: True if z_best is reliable, i.e. z_conf_best=3 (when we have
+              a secure VI redshift, or the ML classifier says that z_pipe is reliable)
 notes: |-
   None
 regrets: |-

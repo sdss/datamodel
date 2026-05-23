@@ -15,8 +15,6 @@ MOS Target Table: lamost_dr6
 ## Basic Information
 Cross-match between the LAMOST DR6 low resolution spectral survey and Gaia eDR3. For more details on the LAMOS LRS survey, refer to <a href="https://dr6.lamost.org/doc/lr-data-production-description">https://dr6.lamost.org/doc/lr-data-production-description</a>.
 
-[INCOMPLETE] Missing column descriptions for what I think is the cross-match with eDR3.
-
 ### Naming Convention
 $MOS_TARGET/[V_TARG]/[FTYPE]/mos_lamost_dr6.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.
 
@@ -354,47 +352,47 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### ra_x
 
 - Column Name: ra_x
-- Description: N/A
-- Unit: N/A
+- Description: Cross-matched Right Ascension from Gaia eDR3
+- Unit: degrees
 - Data Type: Float64
 
 
 #### dec_x
 
 - Column Name: dec_x
-- Description: N/A
-- Unit: N/A
+- Description: Cross-matched Declination from Gaia eDR3
+- Unit: degrees
 - Data Type: Float64
 
 
 #### errhalfmaj
 
 - Column Name: errhalfmaj
-- Description: N/A
-- Unit: N/A
+- Description: Error ellipse half major axis
+- Unit: deg
 - Data Type: Float32
 
 
 #### errhalfmin
 
 - Column Name: errhalfmin
-- Description: N/A
-- Unit: N/A
+- Description: Error ellipse half minor axis
+- Unit: deg
 - Data Type: Float32
 
 
 #### errposang
 
 - Column Name: errposang
-- Description: N/A
-- Unit: N/A
+- Description: Error ellipse position angle
+- Unit: deg
 - Data Type: Float32
 
 
 #### source_id
 
 - Column Name: source_id
-- Description: N/A
+- Description: Gaia eDR3 source_id
 - Unit: N/A
 - Data Type: Int64
 

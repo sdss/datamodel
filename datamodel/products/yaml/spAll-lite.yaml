@@ -9,6 +9,7 @@ general:
   - IPL3
   - DR19
   - IPL4
+  - DR20
   environments:
   - BOSS_SPECTRO_REDUX
   surveys:
@@ -24,6 +25,9 @@ changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
   releases:
+    DR20:
+      from: IPL4
+      note: No changes
     IPL4:
       from: DR19
       note: No changes
@@ -1653,7 +1657,7 @@ releases:
             type: float32
             unit: soloar
             description: Uncertainty in interpolated metallicity
-  IPL4:
+  IPL4: &id001
     template: $BOSS_SPECTRO_REDUX/[RUN2D]/summary/daily/spAll-lite-[RUN2D].fits.gz
     example: v6_2_1/summary/daily/spAll-lite-v6_2_1.fits.gz
     location: '{run2d}/summary/daily/spAll-lite-{run2d}.fits.gz'
@@ -2485,7 +2489,6 @@ releases:
             type: float32
             unit: soloar
             description: Uncertainty in interpolated metallicity
-notes: |-
-  None
-regrets: |-
-  I have no regrets!
+  DR20: *id001
+notes: None
+regrets: I have no regrets!

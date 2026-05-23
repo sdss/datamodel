@@ -16,10 +16,7 @@ general:
     from publicly available eROSITA catalogs. The dr20_erosita_superset_v1* tables
     are derived from a combination of eROSITA''s first 6-month survey of of the West
     Galactic hemisphere (''eRASS1''), and from the eROSITA observations of the eROSITA
-    Final Equatorial Depth performance verification field (''eFEDS'').
-
-
-    [INCOMPLE]: Tom to check summary and missing column descriptions.'
+    Final Equatorial Depth performance verification field (''eFEDS'').'
   datatype: PARQUET
   filesize: 373 MB
   releases:
@@ -51,8 +48,8 @@ releases:
       path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_erosita_superset_v1_agn@mos_target_num|.{ftype}
       path_kwargs:
       - num
-      - ftype
       - v_targ
+      - ftype
       access_string: mos_target_erosita_superset_v1_agn = $MOS_TARGET/{v_targ}/{ftype}/mos_erosita_superset_v1_agn.{ftype}
     survey: SDSS
     dataframe:
@@ -73,32 +70,34 @@ releases:
           name: ero_flux
           dtype: Float32
           unit: erg/cm2/s
-          description: X-ray flux, usually in the main eROSITA detection band (0.2-2.3keV)
+          description: X-ray flux
         ero_flux_type:
           name: ero_flux_type
           dtype: String
           unit: ''
-          description: ''
+          description: Flux range used to compute ero_flux, e.g. '0.2-2.3keV', '0.5-2keV',
+            '0.5-8keV' etc
         ero_mjd:
           name: ero_mjd
           dtype: String
           unit: ''
-          description: ''
+          description: This column is empty
         ero_morph:
           name: ero_morph
           dtype: String
           unit: ''
-          description: ''
+          description: Morphological classification of X-ray source, e.g. 'pointlike',
+            'extended', 'unknown', ...
         ero_flags:
           name: ero_flags
           dtype: Int64
           unit: ''
-          description: ''
+          description: Flags indicating properties of the X-ray detection
         ero_det_like:
           name: ero_det_like
           dtype: Float32
-          unit: ''
-          description: ''
+          unit: '%'
+          description: Detection likelihood of X-ray source
         ero_ra:
           name: ero_ra
           dtype: Float64

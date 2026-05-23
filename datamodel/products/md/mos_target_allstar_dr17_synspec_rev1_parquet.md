@@ -624,7 +624,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### rv_chi2
 
 - Column Name: rv_chi2
-- Description: N/A
+- Description: Chi-square of RV fit (NOT ASPCAP!)
 - Unit: N/A
 - Data Type: Float32
 
@@ -864,7 +864,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### fparam_grid
 
 - Column Name: fparam_grid
-- Description: Raw FERRE parameters for each grid for which fit was performed (see GRIDS tag in HDU3 for grid names
+- Description: Raw FERRE parameters for each grid for which fit was performed
 - Unit: N/A
 - Data Type: String
 
@@ -872,7 +872,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### chi2_grid
 
 - Column Name: chi2_grid
-- Description: CHI2 for each grid for which fit was performed (see GRIDS tag in HDU3 for grid names
+- Description: CHI2 for each grid for which fit was performed
 - Unit: N/A
 - Data Type: String
 
@@ -1024,7 +1024,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### elemfrac
 
 - Column Name: elemfrac
-- Description: N/A
+- Description: Fractional contribution of good pixels
 - Unit: N/A
 - Data Type: String
 
@@ -1184,7 +1184,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### c_fe
 
 - Column Name: c_fe
-- Description: N/A
+- Description: [C/Fe] from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1192,7 +1192,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### c_fe_spec
 
 - Column Name: c_fe_spec
-- Description: N/A
+- Description: [C/Fe] raw value from the combined spectrum
 - Unit: N/A
 - Data Type: Float32
 
@@ -1200,7 +1200,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### c_fe_err
 
 - Column Name: c_fe_err
-- Description: N/A
+- Description: [C/Fe] uncertainty from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1208,7 +1208,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### c_fe_flag
 
 - Column Name: c_fe_flag
-- Description: N/A
+- Description: [C/Fe] flag
 - Unit: N/A
 - Data Type: Int32
 
@@ -1216,7 +1216,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### ci_fe
 
 - Column Name: ci_fe
-- Description: N/A
+- Description: [Ci/Fe] from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1224,7 +1224,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### ci_fe_spec
 
 - Column Name: ci_fe_spec
-- Description: N/A
+- Description: [Ci/Fe] raw value from the combined spectrum
 - Unit: N/A
 - Data Type: Float32
 
@@ -1232,7 +1232,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### ci_fe_err
 
 - Column Name: ci_fe_err
-- Description: N/A
+- Description: [Ci/Fe] uncertainty from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1240,7 +1240,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### ci_fe_flag
 
 - Column Name: ci_fe_flag
-- Description: N/A
+- Description: [Ci/Fe] flag
 - Unit: N/A
 - Data Type: Int32
 
@@ -1248,7 +1248,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### n_fe
 
 - Column Name: n_fe
-- Description: N/A
+- Description: [N/Fe] from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1256,7 +1256,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### n_fe_spec
 
 - Column Name: n_fe_spec
-- Description: N/A
+- Description: [N/Fe] raw value from the combined spectrum
 - Unit: N/A
 - Data Type: Float32
 
@@ -1264,7 +1264,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### n_fe_err
 
 - Column Name: n_fe_err
-- Description: N/A
+- Description: [N/Fe] uncertainty from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1272,7 +1272,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### n_fe_flag
 
 - Column Name: n_fe_flag
-- Description: N/A
+- Description: [N/Fe] flag
 - Unit: N/A
 - Data Type: Int32
 
@@ -1280,7 +1280,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### o_fe
 
 - Column Name: o_fe
-- Description: N/A
+- Description: [O/Fe] from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1288,7 +1288,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### o_fe_spec
 
 - Column Name: o_fe_spec
-- Description: N/A
+- Description: [O/Fe] raw value from the combined spectrum
 - Unit: N/A
 - Data Type: Float32
 
@@ -1296,7 +1296,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### o_fe_err
 
 - Column Name: o_fe_err
-- Description: N/A
+- Description: [O/Fe] uncertainty from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1304,7 +1304,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### o_fe_flag
 
 - Column Name: o_fe_flag
-- Description: N/A
+- Description: [O/Fe] flag
 - Unit: N/A
 - Data Type: Int32
 
@@ -1312,7 +1312,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### na_fe
 
 - Column Name: na_fe
-- Description: N/A
+- Description: [Na/Fe] from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1320,7 +1320,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### na_fe_spec
 
 - Column Name: na_fe_spec
-- Description: N/A
+- Description: [Na/Fe] raw value from the combined spectrum
 - Unit: N/A
 - Data Type: Float32
 
@@ -1328,7 +1328,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### na_fe_err
 
 - Column Name: na_fe_err
-- Description: N/A
+- Description: [Na/Fe] uncertainty from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1336,7 +1336,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### na_fe_flag
 
 - Column Name: na_fe_flag
-- Description: N/A
+- Description: [Na/Fe] flag
 - Unit: N/A
 - Data Type: Int32
 
@@ -1344,7 +1344,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### mg_fe
 
 - Column Name: mg_fe
-- Description: N/A
+- Description: [Mg/Fe] from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1352,7 +1352,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### mg_fe_spec
 
 - Column Name: mg_fe_spec
-- Description: N/A
+- Description: [Mg/Fe] raw value from the combined spectrum
 - Unit: N/A
 - Data Type: Float32
 
@@ -1360,7 +1360,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### mg_fe_err
 
 - Column Name: mg_fe_err
-- Description: N/A
+- Description: [Mg/Fe] uncertainty from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1368,7 +1368,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### mg_fe_flag
 
 - Column Name: mg_fe_flag
-- Description: N/A
+- Description: [Mg/Fe] flag
 - Unit: N/A
 - Data Type: Int32
 
@@ -1376,7 +1376,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### al_fe
 
 - Column Name: al_fe
-- Description: N/A
+- Description: [Al/Fe] from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1384,7 +1384,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### al_fe_spec
 
 - Column Name: al_fe_spec
-- Description: N/A
+- Description: [Al/Fe] raw value from the combined spectrum
 - Unit: N/A
 - Data Type: Float32
 
@@ -1392,7 +1392,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### al_fe_err
 
 - Column Name: al_fe_err
-- Description: N/A
+- Description: [Al/Fe] uncertainty from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1400,7 +1400,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### al_fe_flag
 
 - Column Name: al_fe_flag
-- Description: N/A
+- Description: [Al/Fe] flag
 - Unit: N/A
 - Data Type: Int32
 
@@ -1408,7 +1408,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### si_fe
 
 - Column Name: si_fe
-- Description: N/A
+- Description: [Si/Fe] from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1416,7 +1416,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### si_fe_spec
 
 - Column Name: si_fe_spec
-- Description: N/A
+- Description: [Si/Fe] raw value from the combined spectrum
 - Unit: N/A
 - Data Type: Float32
 
@@ -1424,7 +1424,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### si_fe_err
 
 - Column Name: si_fe_err
-- Description: N/A
+- Description: [Si/Fe] uncertainty from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1432,7 +1432,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### si_fe_flag
 
 - Column Name: si_fe_flag
-- Description: N/A
+- Description: [Si/Fe] flag
 - Unit: N/A
 - Data Type: Int32
 
@@ -1440,7 +1440,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### p_fe
 
 - Column Name: p_fe
-- Description: N/A
+- Description: [P/Fe] from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1448,7 +1448,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### p_fe_spec
 
 - Column Name: p_fe_spec
-- Description: N/A
+- Description: [P/Fe] raw value from the combined spectrum
 - Unit: N/A
 - Data Type: Float32
 
@@ -1456,7 +1456,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### p_fe_err
 
 - Column Name: p_fe_err
-- Description: N/A
+- Description: [P/Fe] uncertainty from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1464,7 +1464,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### p_fe_flag
 
 - Column Name: p_fe_flag
-- Description: N/A
+- Description: [P/Fe] flag
 - Unit: N/A
 - Data Type: Int32
 
@@ -1472,7 +1472,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### s_fe
 
 - Column Name: s_fe
-- Description: N/A
+- Description: [S/Fe] from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1480,7 +1480,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### s_fe_spec
 
 - Column Name: s_fe_spec
-- Description: N/A
+- Description: [S/Fe] raw value from the combined spectrum
 - Unit: N/A
 - Data Type: Float32
 
@@ -1488,7 +1488,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### s_fe_err
 
 - Column Name: s_fe_err
-- Description: N/A
+- Description: [S/Fe] uncertainty from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1496,7 +1496,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### s_fe_flag
 
 - Column Name: s_fe_flag
-- Description: N/A
+- Description: [S/Fe] flag
 - Unit: N/A
 - Data Type: Int32
 
@@ -1504,7 +1504,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### k_fe
 
 - Column Name: k_fe
-- Description: N/A
+- Description: [K/Fe] from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1512,7 +1512,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### k_fe_spec
 
 - Column Name: k_fe_spec
-- Description: N/A
+- Description: [K/Fe] raw value from the combined spectrum
 - Unit: N/A
 - Data Type: Float32
 
@@ -1520,7 +1520,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### k_fe_err
 
 - Column Name: k_fe_err
-- Description: N/A
+- Description: [K/Fe] uncertainty from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1528,7 +1528,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### k_fe_flag
 
 - Column Name: k_fe_flag
-- Description: N/A
+- Description: [K/Fe] flag
 - Unit: N/A
 - Data Type: Int32
 
@@ -1536,7 +1536,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### ca_fe
 
 - Column Name: ca_fe
-- Description: N/A
+- Description: [Ca/Fe] from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1544,7 +1544,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### ca_fe_spec
 
 - Column Name: ca_fe_spec
-- Description: N/A
+- Description: [Ca/Fe] raw value from the combined spectrum
 - Unit: N/A
 - Data Type: Float32
 
@@ -1552,7 +1552,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### ca_fe_err
 
 - Column Name: ca_fe_err
-- Description: N/A
+- Description: [Ca/Fe] uncertainty from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1560,7 +1560,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### ca_fe_flag
 
 - Column Name: ca_fe_flag
-- Description: N/A
+- Description: [Ca/Fe] flag
 - Unit: N/A
 - Data Type: Int32
 
@@ -1568,7 +1568,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### ti_fe
 
 - Column Name: ti_fe
-- Description: N/A
+- Description: [Ti/Fe] from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1576,7 +1576,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### ti_fe_spec
 
 - Column Name: ti_fe_spec
-- Description: N/A
+- Description: [Ti/Fe] raw value from the combined spectrum
 - Unit: N/A
 - Data Type: Float32
 
@@ -1584,7 +1584,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### ti_fe_err
 
 - Column Name: ti_fe_err
-- Description: N/A
+- Description: [Ti/Fe] uncertainty from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1592,7 +1592,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### ti_fe_flag
 
 - Column Name: ti_fe_flag
-- Description: N/A
+- Description: [Ti/Fe] flag
 - Unit: N/A
 - Data Type: Int32
 
@@ -1600,7 +1600,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### tiii_fe
 
 - Column Name: tiii_fe
-- Description: N/A
+- Description: [TiII/Fe] from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1608,7 +1608,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### tiii_fe_spec
 
 - Column Name: tiii_fe_spec
-- Description: N/A
+- Description: [TiII/Fe] raw value from the combined spectrum
 - Unit: N/A
 - Data Type: Float32
 
@@ -1616,7 +1616,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### tiii_fe_err
 
 - Column Name: tiii_fe_err
-- Description: N/A
+- Description: [TiII/Fe] uncertainty from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1624,7 +1624,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### tiii_fe_flag
 
 - Column Name: tiii_fe_flag
-- Description: N/A
+- Description: [TiII/Fe] flag
 - Unit: N/A
 - Data Type: Int32
 
@@ -1632,7 +1632,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### v_fe
 
 - Column Name: v_fe
-- Description: c_fe - [C/Fe] from ASPCAP analysis of combined spectrum (from X_M)
+- Description: [V/Fe] from ASPCAP analysis of combined spectrum (from X_M)
 - Unit: N/A
 - Data Type: Float32
 
@@ -1640,7 +1640,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### v_fe_spec
 
 - Column Name: v_fe_spec
-- Description: N/A
+- Description: [V/Fe] raw value from the combined spectrum
 - Unit: N/A
 - Data Type: Float32
 
@@ -1672,7 +1672,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### cr_fe_spec
 
 - Column Name: cr_fe_spec
-- Description: N/A
+- Description: [Cr/Fe] raw value from the combined spectrum
 - Unit: N/A
 - Data Type: Float32
 
@@ -1704,7 +1704,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### mn_fe_spec
 
 - Column Name: mn_fe_spec
-- Description: N/A
+- Description: [Mn/Fe] raw value from the combined spectrum
 - Unit: N/A
 - Data Type: Float32
 
@@ -1736,7 +1736,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### fe_h_spec
 
 - Column Name: fe_h_spec
-- Description: N/A
+- Description: [Fe/H] raw value from the combined spectrum
 - Unit: N/A
 - Data Type: Float32
 
@@ -1768,7 +1768,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### co_fe_spec
 
 - Column Name: co_fe_spec
-- Description: N/A
+- Description: [Co/Fe] raw value from the combined spectrum
 - Unit: N/A
 - Data Type: Float32
 
@@ -1800,7 +1800,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### ni_fe_spec
 
 - Column Name: ni_fe_spec
-- Description: N/A
+- Description: [Ni/Fe] raw value from the combined spectrum
 - Unit: N/A
 - Data Type: Float32
 
@@ -1832,7 +1832,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### cu_fe_spec
 
 - Column Name: cu_fe_spec
-- Description: N/A
+- Description: [Cu/Fe] raw value from the combined spectrum
 - Unit: N/A
 - Data Type: Float32
 
@@ -1864,7 +1864,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### ce_fe_spec
 
 - Column Name: ce_fe_spec
-- Description: N/A
+- Description: [Ce/Fe] raw value from the combined spectrum
 - Unit: N/A
 - Data Type: Float32
 
@@ -1896,7 +1896,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### yb_fe_spec
 
 - Column Name: yb_fe_spec
-- Description: N/A
+- Description: [Yb/Fe] raw value from the combined spectrum
 - Unit: N/A
 - Data Type: Float32
 

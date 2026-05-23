@@ -13,6 +13,8 @@ MOS Target Table: gaia_dr3_nss_two_body_orbit
 ---
 
 ## Basic Information
+The Gaia DR3 non-single-star (NSS) two-body orbit table.
+
 This table contains non-single-star orbital models for sources compatible with an orbital two-body solution, copied from the Gaia DR3 archive. Form more details refer to <a href="https://gea.esac.esa.int/archive/documentation/GDR3/Gaia_archive/chap_datamodel/sec_dm_non--single_stars_tables/ssec_dm_nss_two_body_orbit.html">https://gea.esac.esa.int/archive/documentation/GDR3/Gaia_archive/chap_datamodel/sec_dm_non--single_stars_tables/ssec_dm_nss_two_body_orbit.html</a>.
 
 ### Naming Convention

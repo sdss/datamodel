@@ -1,0 +1,159 @@
+general:
+  name: gyro_age_dwarf
+  short: Gyrochronology ages for dwarf stars in MWM
+  description: Gyrochronology ages (rotation based ages) for dwarf stars determined
+    using GPgyro (Lu. et al. 2024) and gyro-interp (Bouma et al. 2023). GPgyro is
+    suitable for stars > 1.5 Gyr, and gyrointerp is suitable for stars < 4 Gyr.
+  datatype: FITS
+  filesize: 641 KB
+  releases:
+  - DR20
+  environments:
+  - MWM_STELLAR_AGE
+  surveys:
+  - SDSS
+  naming_convention: $MWM_STELLAR_AGE/gyro_age/gyro_age_dwarf-[V_VAC].fits where V_VAC
+    = 1.0.0 for DR20.
+  generated_by: https://github.com/lyx12311/GPgyro, https://github.com/lgbouma/gyro-interp
+    this product.
+  data_level: 3.3.0
+  design: false
+  vac: false
+  recommended_science_product: true
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MWM_STELLAR_AGE/gyro_age/gyro_age_dwarf-[V_VAC].fits
+    example: gyro_age/gyro_age_dwarf-1.0.0.fits
+    location: gyro_age/gyro_age_dwarf-{v_vac}.fits
+    environment: MWM_STELLAR_AGE
+    access:
+      in_sdss_access: true
+      path_name: gyro_age_dwarf
+      path_template: $MWM_STELLAR_AGE/gyro_age/gyro_age_dwarf-{v_vac}.fits
+      path_kwargs:
+      - v_vac
+      access_string: gyro_age_dwarf = $MWM_STELLAR_AGE/gyro_age/gyro_age_dwarf-{v_vac}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Description of dimension
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: Main data entry
+        is_image: false
+        size: 633 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 88
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 7370
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 12
+          comment: number of table fields
+        - key: TNULL1
+          value: 999999
+          comment: ''
+        columns:
+          source_id:
+            name: source_id
+            type: int64
+            unit: NA
+            description: Gaia DR3 source ID
+          sdss_id:
+            name: sdss_id
+            type: float64
+            unit: NA
+            description: SDSS-V star ID
+          Prot:
+            name: Prot
+            type: float64
+            unit: Days
+            description: Rotation period measurements
+          Prot_survey:
+            name: Prot_survey
+            type: char[6]
+            unit: NA
+            description: Survey that provided the rotation period
+          gyrointerp_age:
+            name: gyrointerp_age
+            type: float64
+            unit: Gyr
+            description: Gyrochronology age output from gyro-interp
+          gyrointerp_age_p:
+            name: gyrointerp_age_p
+            type: float64
+            unit: Gyr
+            description: +1 sigma from gyro-interp
+          gyrointerp_age_m:
+            name: gyrointerp_age_m
+            type: float64
+            unit: Gyr
+            description: -1 sigma from gyro-interp
+          gyrointerp_flag:
+            name: gyrointerp_flag
+            type: char[5]
+            unit: NA
+            description: outside of the application limit for gyro-interp (> 4 Gyr)
+              if flag is set
+          GPgyro_age:
+            name: GPgyro_age
+            type: float64
+            unit: Gyr
+            description: Gyrochronology age output from GPgyro
+          GPgyro_age_p:
+            name: GPgyro_age_p
+            type: float64
+            unit: Gyr
+            description: +1 sigma from GPgyro
+          GPgyro_age_m:
+            name: GPgyro_age_m
+            type: float64
+            unit: Gyr
+            description: -1 sigma from GPgyro
+          GPgyro_flag:
+            name: GPgyro_flag
+            type: char[5]
+            unit: NA
+            description: outside of the application limit for GPgyro (< 1.5 Gyr) if
+              flag is set
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

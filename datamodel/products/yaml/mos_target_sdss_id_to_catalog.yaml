@@ -1,11 +1,14 @@
 general:
   name: mos_target_sdss_id_to_catalog
-  short: 'MOS Target table: mos_target_sdss_id_to_catalog'
-  description: This table contains the best matched associations between SDSS identifiers
+  short: 'MOS Target Table: sdss_id_to_catalog'
+  description: 'This table contains the best matched associations between SDSS identifiers
     (sdss_id, catalogid) and the unique identifiers in the parent catalogues used
-    for SDSS cross-matches. The format of the parent catalogue columns is <table_name>__<column_name>,
-    where <column_name> is the primary key/unique identifier column to which to join
-    in the dr19_<table_name> table.
+    for SDSS cross-matches.
+
+
+    The format of the parent catalogue columns is <table_name>__<column_name>, where
+    <column_name> is the primary key/unique identifier column to which to join in
+    the dr20_<table_name> table.'
   datatype: FITS
   filesize: 764 MB
   releases:
@@ -19,7 +22,7 @@ general:
   - SDSS
   naming_convention: $MOS_TARGET/[V_TARG]/[FTYPE]/mos_sdss_id_to_catalog-[NUM].[FTYPE]
     with FTYPE='fits', V_TARG='2.0.0', and NUM=1..140 for DR20.
-  generated_by: sdss5db> targetdb, operations database server
+  generated_by: sdss5db targeting database.
   data_level: 2.3.3
   design: false
   vac: false
@@ -348,8 +351,8 @@ releases:
       path_name: mos_target_sdss_id_to_catalog
       path_template: $MOS_TARGET/{v_targ}/{ftype}/mos_sdss_id_to_catalog@mos_target_num3|.{ftype}
       path_kwargs:
-      - ftype
       - v_targ
+      - ftype
       access_string: mos_target_sdss_id_to_catalog = $MOS_TARGET/{v_targ}/{ftype}/mos_sdss_id_to_catalog-{num}.{ftype}
     survey: SDSS
     hdus:

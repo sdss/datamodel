@@ -1,0 +1,540 @@
+{
+  "general": {
+    "name": "qms_hg_index",
+    "short": "The index diagram as a tool to disentangle the influence of the host galaxy in quasar spectra",
+    "description": "The FITS file consists of two tables. The first one includes the delivered\ncatalog comprising 28 parameters for 3082 quasars, with a single row per object.\nEach object is easily identified using the RA and DEC coordinates. Details of\nthe sample selection and performed analysis are described in <a href='https://ui.adsabs.harvard.edu/abs/2025MNRAS.543.4272N'>Negrete\net al. 2025</a>.\n\nThe spectral identifier (SI) of the first table is as follows:\n0.0  - No emission-line spectra; more likely a retired galaxy\n0.1  - Spectra showing strong sky-subtraction residuals\n0.2  - Sy2 objects, all at z < 0.5\n1.0  - Type-1 AGN showing both Ha and Hb BCs\n1.1  - Optical spectra with z correction\n1.9  - Sy 1.9 spectra without HbBC but with HaBC\n-1.0 - UV spectra with incorrectly assigned z.\n\nThe second table contains the measurements of the CaII-H and Hb indices for a \nmore comprehensive sample (6439 quasars), selected by having 0.01 < z < 0.8, \nSN_MEDIAN_ALL > 15, FIRSTCARTON containing 'bhm' in the label, and CLASS = QSO.\n",
+    "environments": [
+      "BHM_QSO_HOST"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "1 MB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-30"
+      }
+    ],
+    "naming_convention": "$BHM_QSO_HOST/qms_hg/qms_hg_index_diagram-[V_VAC].fits, where V_VAC=1.0.0 for DR20.",
+    "generated_by": "See <a href='https://ui.adsabs.harvard.edu/abs/2025MNRAS.543.4272N'>Negrete et al. 2025</a>.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": true,
+    "data_level": "3.3.0"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$BHM_QSO_HOST/qms_hg/qms_hg_index_diagram-[V_VAC].fits",
+      "example": "qms_hg/qms_hg_index_diagram-1.0.0.fits",
+      "location": "qms_hg/qms_hg_index_diagram-{v_vac}.fits",
+      "environment": "BHM_QSO_HOST",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "qms_hg_index",
+        "path_template": "$BHM_QSO_HOST/qms_hg/qms_hg_index_diagram-{v_vac}.fits",
+        "path_kwargs": [
+          "v_vac"
+        ],
+        "access_string": "qms_hg_index = $BHM_QSO_HOST/qms_hg/qms_hg_index_diagram-{v_vac}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "This is an empty HDU.",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "N25_INDEXDIAGRAM",
+          "is_image": false,
+          "description": "This table contains the measurements and products derived for the data \nsample used in <a href='https://ui.adsabs.harvard.edu/abs/2025MNRAS.543.4272N'>Negrete\net al. 2025</a>.",
+          "size": "704 KB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "234",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "3082",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "29",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "N25_INDEXDIAGRAM",
+              "comment": "extension name"
+            },
+            {
+              "key": "TUNIT2",
+              "value": "deg",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT3",
+              "value": "deg",
+              "comment": ""
+            },
+            {
+              "key": "TNULL4",
+              "value": "999999",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT7",
+              "value": "mag",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT8",
+              "value": "10^-17 cm-2 erg s-1",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT9",
+              "value": "10^-17 cm-2 erg s-1",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT11",
+              "value": "10^-17 cm-2 erg s-1",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT14",
+              "value": "Angstrom",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT15",
+              "value": "Angstrom",
+              "comment": ""
+            },
+            {
+              "key": "TNULL17",
+              "value": "999999",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT19",
+              "value": "km s-1",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT21",
+              "value": "solMass",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT23",
+              "value": "erg s-1",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT24",
+              "value": "erg s-1",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT25",
+              "value": "erg s-1",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT27",
+              "value": "erg s-1",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT28",
+              "value": "mag",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT29",
+              "value": "mag",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "N25_IndexDiagram",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "Object": {
+              "name": "Object",
+              "description": "Object name",
+              "type": "char[16]",
+              "unit": ""
+            },
+            "RA": {
+              "name": "RA",
+              "description": "RA of the object",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "DEC": {
+              "name": "DEC",
+              "description": "DEC of the object",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "CATALOGID": {
+              "name": "CATALOGID",
+              "description": "SDSS Catalog ID of the object",
+              "type": "int64",
+              "unit": ""
+            },
+            "z_TW": {
+              "name": "z_TW",
+              "description": "Redshift used in This Work",
+              "type": "float64",
+              "unit": ""
+            },
+            "z": {
+              "name": "z",
+              "description": "Redshift extracted from the DR20",
+              "type": "float64",
+              "unit": ""
+            },
+            "g_r": {
+              "name": "g_r",
+              "description": "g - r color",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "fcont_5100": {
+              "name": "fcont_5100",
+              "description": "Continuum flux at 5100 AA",
+              "type": "float64",
+              "unit": "10^-17 cm-2 erg s-1"
+            },
+            "fcont_5100_err": {
+              "name": "fcont_5100_err",
+              "description": "Continuum flux at 5100 AA error",
+              "type": "float64",
+              "unit": "10^-17 cm-2 erg s-1"
+            },
+            "fhb_c4750": {
+              "name": "fhb_c4750",
+              "description": "Flux ratio of the Hb blue band and the continuum at 4750 AA",
+              "type": "float64",
+              "unit": ""
+            },
+            "fcont_6400": {
+              "name": "fcont_6400",
+              "description": "Continuum flux at 6400 AA",
+              "type": "float64",
+              "unit": "10^-17 cm-2 erg s-1"
+            },
+            "fblue_fcont": {
+              "name": "fblue_fcont",
+              "description": "Flux ratio of the Ha blue band and the continuum at 6400 AA",
+              "type": "float64",
+              "unit": ""
+            },
+            "fred_fcont": {
+              "name": "fred_fcont",
+              "description": "Flux ratio of the Ha red band and the continuum at 6400 AA",
+              "type": "float64",
+              "unit": ""
+            },
+            "H_index": {
+              "name": "H_index",
+              "description": "CaII-H band index",
+              "type": "float64",
+              "unit": "Angstrom"
+            },
+            "Hb_index": {
+              "name": "Hb_index",
+              "description": "Hb Lick index",
+              "type": "float64",
+              "unit": "Angstrom"
+            },
+            "SI": {
+              "name": "SI",
+              "description": "Spectral Identifier of the object type",
+              "type": "float64",
+              "unit": ""
+            },
+            "Family": {
+              "name": "Family",
+              "description": "Identifier of the AGN-HG dominance AGND=1 INT=2 and HGD=3",
+              "type": "int64",
+              "unit": ""
+            },
+            "RFeII": {
+              "name": "RFeII",
+              "description": "Flux ratio of FeII and Hb broad component",
+              "type": "float64",
+              "unit": ""
+            },
+            "FWHM_1000": {
+              "name": "FWHM_1000",
+              "description": "FWHM of Hb broad component / 1000",
+              "type": "float64",
+              "unit": "km s-1"
+            },
+            "Pop": {
+              "name": "Pop",
+              "description": "Population designation in the Quasar Main Sequence",
+              "type": "char[2]",
+              "unit": ""
+            },
+            "logMBH": {
+              "name": "logMBH",
+              "description": "Logarithm of the Black Hole Mass",
+              "type": "float64",
+              "unit": "log(Msun)"
+            },
+            "REdd": {
+              "name": "REdd",
+              "description": "Eddington ratio",
+              "type": "float64",
+              "unit": ""
+            },
+            "L_bol": {
+              "name": "L_bol",
+              "description": "Bolometric luminosity",
+              "type": "float64",
+              "unit": "erg s-1"
+            },
+            "Lum_g": {
+              "name": "Lum_g",
+              "description": "Luminosity of the g band",
+              "type": "float64",
+              "unit": "erg s-1"
+            },
+            "Lum_20cm": {
+              "name": "Lum_20cm",
+              "description": "Luminosity of the emission at 20 cm",
+              "type": "float64",
+              "unit": "erg s-1"
+            },
+            "RK": {
+              "name": "RK",
+              "description": "Modified Kellerman's ratio",
+              "type": "float64",
+              "unit": ""
+            },
+            "Lum_W3": {
+              "name": "Lum_W3",
+              "description": "Luminosity of the wise W3 band",
+              "type": "float64",
+              "unit": "erg s-1"
+            },
+            "W1_W2": {
+              "name": "W1_W2",
+              "description": "W1-W2 Wise color",
+              "type": "float64",
+              "unit": "mag"
+            },
+            "W2_W3": {
+              "name": "W2_W3",
+              "description": "W2-W3 Wise color",
+              "type": "float64",
+              "unit": "mag"
+            }
+          }
+        },
+        "hdu2": {
+          "name": "DR20_H_HB_INDICES",
+          "is_image": false,
+          "description": "This table contains the measurements of the CaII-H and Hb indices for an \nextended sample.",
+          "size": "352 KB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "56",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "6439",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "6",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "DR20_H_HB_INDICES",
+              "comment": "extension name"
+            },
+            {
+              "key": "TUNIT2",
+              "value": "deg",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT3",
+              "value": "deg",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT5",
+              "value": "Angstrom",
+              "comment": ""
+            },
+            {
+              "key": "TUNIT6",
+              "value": "Angstrom",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "DR20_H_Hb_Indices",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "Object": {
+              "name": "Object",
+              "description": "Object name",
+              "type": "char[16]",
+              "unit": ""
+            },
+            "RA": {
+              "name": "RA",
+              "description": "RA of the object",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "DEC": {
+              "name": "DEC",
+              "description": "DEC of the object",
+              "type": "float64",
+              "unit": "deg"
+            },
+            "CATALOGID": {
+              "name": "CATALOGID",
+              "description": "SDSS Catalog ID of the object",
+              "type": "int64",
+              "unit": ""
+            },
+            "H_index": {
+              "name": "H_index",
+              "description": "CaII-H band index",
+              "type": "float64",
+              "unit": "Angstrom"
+            },
+            "Hb_index": {
+              "name": "Hb_index",
+              "description": "Hb Lick index",
+              "type": "float64",
+              "unit": "Angstrom"
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null,
+      "dataframe": null
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

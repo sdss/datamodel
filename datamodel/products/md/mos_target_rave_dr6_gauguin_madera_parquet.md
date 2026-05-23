@@ -13,6 +13,8 @@ MOS Target Table: rave_dr6_gauguin_madera
 ---
 
 ## Basic Information
+Abundances from the GAUGUIN and MADERA pipelines for the RAVE DR6 data.
+
 The abundances of the non-iron group elements (Al, Fe, and Ni) and of the alpha enhancement [alpha/Fe] derived with the pipeline GAUGUIN and MADERA input for the Radial Velocity Experiment (RAVE) DR6. See <a href="https://www.rave-survey.org/metadata/ravedr6/dr6_gauguin_madera/">https://www.rave-survey.org/metadata/ravedr6/dr6_gauguin_madera/</a>.
 
 ### Naming Convention
@@ -88,8 +90,8 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### fe_h_nl_gauguin
 
 - Column Name: fe_h_nl_gauguin
-- Description: Number of used spectral lines in calc. of
-- Unit: Fe/H
+- Description: Number of used spectral lines in calculation of [Fe/H]
+- Unit: N/A
 - Data Type: Int16
 
 
@@ -120,8 +122,8 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### al_h_nl_gauguin
 
 - Column Name: al_h_nl_gauguin
-- Description: Number of used spectral lines in calc. of
-- Unit: Al/H
+- Description: Number of used spectral lines in calculation of [Al/H]
+- Unit: N/A
 - Data Type: Int16
 
 
@@ -152,32 +154,32 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### ni_h_nl_gauguin
 
 - Column Name: ni_h_nl_gauguin
-- Description: Number of used spectral lines in calc. of
-- Unit: Ni/H
+- Description: Number of used spectral lines in calc. of [Ni/H]
+- Unit: N/A
 - Data Type: Int16
 
 
 #### alpha_fe_gauguin
 
 - Column Name: alpha_fe_gauguin
-- Description: N/A
-- Unit: Alpha/Fe
+- Description: [Alpha/Fe]
+- Unit: N/A
 - Data Type: Float32
 
 
 #### alpha_fe_error_gauguin
 
 - Column Name: alpha_fe_error_gauguin
-- Description: Error of
-- Unit: Alpha/Fe
+- Description: Error of [Alpha/Fe]
+- Unit: N/A
 - Data Type: Float32
 
 
 #### alpha_fe_chisq_gauguin
 
 - Column Name: alpha_fe_chisq_gauguin
-- Description: Chi-square of
-- Unit: Alpha/Fe
+- Description: Chi-square of [Alpha/Fe]
+- Unit: N/A
 - Data Type: Float32
 
 

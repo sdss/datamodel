@@ -18,8 +18,6 @@ X-ray sources identified via various methods.
 
 These tables contain a superset of potential targets from which the SDSS-V spectroscopic targets were drawn. The dr20_erosita_superset_v1_compactobjects table includes counterparts to point-like X-ray sources, chosen via algorithms optimised to select compact objects. Each row corresponds to one possible match between an X-ray source and a potential optical/IR counterpart. The X-ray columns (ero_*) record the eROSITA information known at the time of target selection and may differ from publicly available eROSITA catalogs. The dr20_erosita_superset_v1* tables are derived from a combination of eROSITA's first 6-month survey of of the West Galactic hemisphere ('eRASS1'), and from the eROSITA observations of the eROSITA Final Equatorial Depth performance verification field ('eFEDS').
 
-[INCOMPLE]: Tom to check summary and missing column descriptions.
-
 ### Naming Convention
 $MOS_TARGET/[V_TARG]/[FTYPE]/mos_erosita_superset_v1_compactobjects.[FTYPE] with FTYPE='parquet' and V_TARG='2.0.0' for DR20.
 
@@ -77,7 +75,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### ero_flux
 
 - Column Name: ero_flux
-- Description: X-ray flux, usually in the main eROSITA detection band (0.2-2.3keV)
+- Description: X-ray flux
 - Unit: erg/cm2/s
 - Data Type: Float32
 
@@ -85,7 +83,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### ero_flux_type
 
 - Column Name: ero_flux_type
-- Description: N/A
+- Description: Flux range used to compute ero_flux, e.g. '0.2-2.3keV', '0.5-2keV', '0.5-8keV' etc
 - Unit: N/A
 - Data Type: String
 
@@ -93,7 +91,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### ero_mjd
 
 - Column Name: ero_mjd
-- Description: N/A
+- Description: This column is empty
 - Unit: N/A
 - Data Type: String
 
@@ -101,7 +99,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### ero_morph
 
 - Column Name: ero_morph
-- Description: N/A
+- Description: Morphological classification of X-ray source, e.g. 'pointlike', 'extended', 'unknown', ...
 - Unit: N/A
 - Data Type: String
 
@@ -109,7 +107,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### ero_flags
 
 - Column Name: ero_flags
-- Description: N/A
+- Description: Flags indicating properties of the X-ray detection
 - Unit: N/A
 - Data Type: Int64
 
@@ -117,8 +115,8 @@ Describes changes to the datamodel product and/or file structure from one releas
 #### ero_det_like
 
 - Column Name: ero_det_like
-- Description: N/A
-- Unit: N/A
+- Description: Detection likelihood of X-ray source
+- Unit: %
 - Data Type: Float32
 
 
