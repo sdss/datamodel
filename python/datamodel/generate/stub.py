@@ -262,7 +262,8 @@ class BaseStub(abc.ABC):
         self._cache = content
 
         # instantiate the file object
-        self.selected_file = file_class(self._cache, datamodel=self.datamodel, stub=self)
+        try: self.selected_file = file_class(self._cache, datamodel=self.datamodel, stub=self)
+        except: self.selected_file = None
 
         # if release is the same, copy over entire cache
         if self.use_cache_release and self.full_cache:
@@ -274,7 +275,7 @@ class BaseStub(abc.ABC):
         self._update_cache_access()
 
         # check the filetype and generate proper YAML content
-        self.selected_file._set_cache(force=force)
+        if self.selected_file: self.selected_file._set_cache(force=force)
 
         # update the data level field
         if 'data_level' not in content['general']:
@@ -561,7 +562,8 @@ class AccessStub(BaseStub):
 
 def stub_iterator(format: str = None) -> Iterator[BaseStub]:
     """ Iterator for all stub formats """
-    for stub in [YamlStub, AccessStub, MdStub, JsonStub]:
+    #for stub in [YamlStub, AccessStub, MdStub, JsonStub]:
+    for stub in [AccessStub, JsonStub]:
         if format and format != stub.format:
             continue
         yield stub
