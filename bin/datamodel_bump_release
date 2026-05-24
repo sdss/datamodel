@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+import copy
+import yaml
+
+def bump_yaml(input_file_path):
+    if not os.path.exists(input_file_path):
+        print(f"Error: File '{input_file_path}' not found.")
+        return
+
+    print(f"Reading {input_file_path}...")
+    with open(input_file_path, 'r') as f:
+        data = yaml.safe_load(f)
+
+    # 1. Update the 'general' section
+    if 'general' in data and 'releases' in data['general']:
+        if 'DR20' not in data['general']['releases']:
+            data['general']['releases'].append('DR20')
+        else:
+            print(f"Error: File '{input_file_path}' already includes DR20.")
+            return
+    
+    # 2. Update 'changelog' -> 'releases'
+    if 'changelog' in data and 'releases' in data['changelog']:
+        old_changelog_releases = data['changelog']['releases']
+        data['changelog']['releases'] = {
+            'DR20': {'from': 'DR19', 'note': 'No changes'},
+            **old_changelog_releases
+        }
+
+    # 3. EFFICIENT COPY USING REFERENCE
+    if 'releases' in data and 'DR19' in data['releases']:
+        # By assigning the direct reference, PyYAML handles the anchor/alias automatically
+        data['releases']['DR20'] = data['releases']['DR19']
+
+    # Determine output path
+    base, _ = os.path.splitext(input_file_path)
+    bump_file_path = f"{base}.0.yaml" if input_file_path.endswith(('.yaml', '.yml')) else f"{input_file_path}.0.yaml"
+    output_file_path = f"{base}.bump-dr20.yaml" if input_file_path.endswith(('.yaml', '.yml')) else f"{input_file_path}.bump-dr20.yaml"
+
+    print(f"Writing optimized structure to {output_file_path}...")
+    with open(output_file_path, 'w') as f:
+        # sort_keys=False ensures DR19 stays first, meaning DR19 gets the anchor & and DR20 gets the alias *
+        yaml.dump(data, f, sort_keys=False, default_flow_style=False)
+
+    print("Update complete successfully with YAML anchors!")
+    os.rename(input_file_path, bump_file_path)
+    os.rename(output_file_path, input_file_path)
+    
+
+
+if __name__ == '__main__':
+
+    try: yaml_dir = os.path.join(os.environ['DATAMODEL_DIR'],'datamodel','products','yaml')
+    except: yaml_dir = None
+    file = sys.argv[1] if len(sys.argv) > 1 else None
+    path = os.path.join(yaml_dir, file) if yaml_dir and file else None
+    if path: bump_yaml(path)
+    else: print("Usage: datamodel_bump_release <yaml_filename>")
