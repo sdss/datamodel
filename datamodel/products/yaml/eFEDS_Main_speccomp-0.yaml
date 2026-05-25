@@ -1,8 +1,8 @@
 general:
-  name: eFEDS_Hard_speccomp
-  short: eROSITA/eFEDS Hard source catalogue counterparts with redshifts/classifications
+  name: eFEDS_Main_speccomp
+  short: eROSITA/eFEDS Main source catalogue counterparts with redshifts/classifications
     updated with SDSS-V information
-  description: A catalogue of hard X-ray (2.3-5 keV) selected sources detected in
+  description: A catalogue of soft X-ray (0.2-2.3 keV) selected sources detected in
     the eROSITA/eFEDS performance verification field (Brunner et al., 2022), with
     optical/IR counterpart associations (Salvato et al., 2022). This catalogue (Merloni
     et al., in prep) updates the spectroscopic redshift and classificaions (w.r.t.
@@ -11,19 +11,18 @@ general:
     derived from 37 dedicated SDSS-V plates, observed between Dec 2020-May 2021. We
     combine automated redshift and classifications, provided by the standard SDSS
     idlspec1d pipeline, with an extensive and targeted set of visual inspections,
-    which increase the reliability and completeness of the spectroscopic coverage.
+    which increases the reliability and completeness of the spectroscopic coverage.
   datatype: FITS
-  filesize: 106 KB
+  filesize: 9 MB
   releases:
   - DR18
   - DR19
-  - DR20
   environments:
   - BHM_EFEDS_SPECCOMP
   surveys:
   - BHM
   - SDSS
-  naming_convention: $BHM_EFEDS_SPECCOMP/[V_SPECCOMP]/eFEDS_Hard_speccomp-[V_SPECCOMP].fits,
+  naming_convention: $BHM_EFEDS_SPECCOMP/[V_SPECCOMP]/eFEDS_Main_speccomp-[V_SPECCOMP].fits,
     where V_SPECCOMP=v1.4.3 for DR18, DR19 and DR20.
   generated_by: https://gitlab.mpcdf.mpg.de/tdwelly/efeds_speccomp
   design: false
@@ -34,25 +33,22 @@ changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
   releases:
-    DR20:
-      from: DR19
-      note: No changes
     DR19:
       from: DR18
       note: No changes
 releases:
   DR18:
-    template: $BHM_EFEDS_SPECCOMP/[V_SPECCOMP]/eFEDS_Hard_speccomp-[V_SPECCOMP].fits
-    example: v1.4.3/eFEDS_Hard_speccomp-v1.4.3.fits
-    location: '{v_speccomp}/eFEDS_Hard_speccomp-{v_speccomp}.fits'
+    template: $BHM_EFEDS_SPECCOMP/[V_SPECCOMP]/eFEDS_Main_speccomp-[V_SPECCOMP].fits
+    example: v1.4.3/eFEDS_Main_speccomp-v1.4.3.fits
+    location: '{v_speccomp}/eFEDS_Main_speccomp-{v_speccomp}.fits'
     environment: BHM_EFEDS_SPECCOMP
     access:
       in_sdss_access: true
-      path_name: eFEDS_Hard_speccomp
-      path_template: $BHM_EFEDS_SPECCOMP/{v_speccomp}/eFEDS_Hard_speccomp-{v_speccomp}.fits
+      path_name: eFEDS_Main_speccomp
+      path_template: $BHM_EFEDS_SPECCOMP/{v_speccomp}/eFEDS_Main_speccomp-{v_speccomp}.fits
       path_kwargs:
       - v_speccomp
-      access_string: eFEDS_Hard_speccomp = $BHM_EFEDS_SPECCOMP/{v_speccomp}/eFEDS_Hard_speccomp-{v_speccomp}.fits
+      access_string: eFEDS_Main_speccomp = $BHM_EFEDS_SPECCOMP/{v_speccomp}/eFEDS_Main_speccomp-{v_speccomp}.fits
     survey: BHM
     hdus:
       hdu0:
@@ -77,11 +73,11 @@ releases:
           value: Dummy header; see following table extension
           comment: ''
       hdu1:
-        name: eFEDS_Hard_ctp_wspecz
-        description: eROSITA/eFEDS Hard source catalogue counterparts with redshifts/classifications
+        name: eFEDS_Main_ctp_wspecz
+        description: eROSITA/eFEDS Main source catalogue counterparts with redshifts/classifications
           updated with SDSS-V information
         is_image: false
-        size: 82 KB
+        size: 9 MB
         columns:
           ERO_Name:
             name: ERO_NAME
@@ -95,13 +91,13 @@ releases:
             description: From Brunner+22, ID of eROSITA source in the Main Sample
           ERO_RA_CORR:
             name: ERO_RA_CORR
-            type: float32
+            type: float64
             unit: deg
             description: From Brunner+22, J2000 Right Ascension of eROSITA source
               (corrected)
           ERO_DEC_CORR:
             name: ERO_DEC_CORR
-            type: float32
+            type: float64
             unit: deg
             description: From Brunner+22, J2000 Declination of eROSITA source (corrected)
           ERO_RADEC_ERR_CORR:
@@ -109,21 +105,21 @@ releases:
             type: float32
             unit: arcsec
             description: From Brunner+22, eROSITA positional uncertainty (corrected)
-          ERO_ML_FLUX_3:
-            name: ERO_ML_FLUX_3
+          ERO_ML_FLUX:
+            name: ERO_ML_FLUX
             type: float32
             unit: erg/cm^2/s
-            description: From Brunner+22, 2.3-5.0 keV source flux
-          ERO_ML_FLUX_ERR_3:
-            name: ERO_ML_FLUX_ERR_3
+            description: From Brunner+22, 0.2-2.3 keV source flux
+          ERO_ML_FLUX_ERR:
+            name: ERO_ML_FLUX_ERR
             type: float32
             unit: erg/cm^2/s
-            description: From Brunner+22, 2.3-5.0 keV source flux error (1 sigma)
-          ERO_DET_LIKE_3:
-            name: ERO_DET_LIKE_3
+            description: From Brunner+22, 0.2-2.3 keV source flux error (1 sigma)
+          ERO_DET_LIKE:
+            name: ERO_DET_LIKE
             type: float32
             unit: ''
-            description: From Brunner+22, 2.3-5.0 keV detection likelihood via PSF-fitting
+            description: From Brunner+22, 0.2-2.3 keV detection likelihood via PSF-fitting
           CTP_LS8_UNIQUE_OBJID:
             name: CTP_LS8_UNIQUE_OBJID
             type: char[11]
@@ -131,12 +127,12 @@ releases:
             description: From Salvato+22, LS8 unique id for ctp to the eROSITA source
           CTP_LS8_RA:
             name: CTP_LS8_RA
-            type: float32
+            type: float64
             unit: deg
             description: From Salvato+22, Right Ascension of the LS8 counterpart
           CTP_LS8_DEC:
             name: CTP_LS8_DEC
-            type: float32
+            type: float64
             unit: deg
             description: From Salvato+22, Declination of the best LS8 counterpart
           Dist_CTP_LS8_ERO:
@@ -375,18 +371,18 @@ releases:
             type: bool
             unit: ''
             description: Does this Salvato+22 counterpart have an informative spec-z?
-  DR19: &id001
-    template: $BHM_EFEDS_SPECCOMP/[V_SPECCOMP]/eFEDS_Hard_speccomp-[V_SPECCOMP].fits
-    example: v1.4.3/eFEDS_Hard_speccomp-v1.4.3.fits
-    location: '{v_speccomp}/eFEDS_Hard_speccomp-{v_speccomp}.fits'
+  DR19:
+    template: $BHM_EFEDS_SPECCOMP/[V_SPECCOMP]/eFEDS_Main_speccomp-[V_SPECCOMP].fits
+    example: v1.4.3/eFEDS_Main_speccomp-v1.4.3.fits
+    location: '{v_speccomp}/eFEDS_Main_speccomp-{v_speccomp}.fits'
     environment: BHM_EFEDS_SPECCOMP
     access:
       in_sdss_access: true
-      path_name: eFEDS_Hard_speccomp
-      path_template: $BHM_EFEDS_SPECCOMP/{v_speccomp}/eFEDS_Hard_speccomp-{v_speccomp}.fits
+      path_name: eFEDS_Main_speccomp
+      path_template: $BHM_EFEDS_SPECCOMP/{v_speccomp}/eFEDS_Main_speccomp-{v_speccomp}.fits
       path_kwargs:
       - v_speccomp
-      access_string: eFEDS_Hard_speccomp = $BHM_EFEDS_SPECCOMP/{v_speccomp}/eFEDS_Hard_speccomp-{v_speccomp}.fits
+      access_string: eFEDS_Main_speccomp = $BHM_EFEDS_SPECCOMP/{v_speccomp}/eFEDS_Main_speccomp-{v_speccomp}.fits
     survey: SDSS
     hdus:
       hdu0:
@@ -411,11 +407,11 @@ releases:
           value: Dummy header; see following table extension
           comment: ''
       hdu1:
-        name: eFEDS_Hard_ctp_wspecz
-        description: eROSITA/eFEDS Hard source catalogue counterparts with redshifts/classifications
+        name: eFEDS_Main_ctp_wspecz
+        description: eROSITA/eFEDS Main source catalogue counterparts with redshifts/classifications
           updated with SDSS-V information
         is_image: false
-        size: 82 KB
+        size: 9 MB
         header:
         - key: XTENSION
           value: BINTABLE
@@ -427,10 +423,10 @@ releases:
           value: 2
           comment: 2-dimensional table
         - key: NAXIS1
-          value: 344
+          value: 360
           comment: width of table in bytes
         - key: NAXIS2
-          value: 246
+          value: 27369
           comment: number of rows in table
         - key: PCOUNT
           value: 0
@@ -442,7 +438,7 @@ releases:
           value: 57
           comment: number of columns
         - key: EXTNAME
-          value: eFEDS_Hard_ctp_wspecz
+          value: eFEDS_Main_ctp_wspecz
           comment: table name
         - key: TCOMM1
           value: From Brunner+22, eROSITA official source Name
@@ -471,20 +467,23 @@ releases:
         - key: TCOMM5
           value: From Brunner+22, eROSITA positional uncertainty (corrected)
           comment: ''
+        - key: TUTYP5
+          value: float32
+          comment: ''
         - key: TUNIT6
           value: erg/cm^2/s
           comment: units for column 6
         - key: TCOMM6
-          value: From Brunner+22, 2.3-5.0 keV source flux
+          value: From Brunner+22, 0.2-2.3 keV source flux
           comment: ''
         - key: TUNIT7
           value: erg/cm^2/s
           comment: units for column 7
         - key: TCOMM7
-          value: From Brunner+22, 2.3-5.0 keV source flux error (1 sigma)
+          value: From Brunner+22, 0.2-2.3 keV source flux error (1 sigma)
           comment: ''
         - key: TCOMM8
-          value: From Brunner+22, 2.3-5.0 keV detection likelihood via PSF-fitting
+          value: From Brunner+22, 0.2-2.3 keV detection likelihood via PSF-fitting
           comment: ''
         - key: TCOMM9
           value: From Salvato+22, LS8 unique id for ctp to the eROSITA source
@@ -506,6 +505,9 @@ releases:
           comment: units for column 12
         - key: TCOMM12
           value: From Salvato+22, Separation between ctp and eROSITA position
+          comment: ''
+        - key: TUTYP12
+          value: float32
           comment: ''
         - key: TNULL13
           value: -32768
@@ -727,7 +729,7 @@ releases:
           value: Does this Salvato+22 counterpart have an informative spec-z?
           comment: ''
         - key: DATE-HDU
-          value: '2022-09-30T20:17:54'
+          value: '2022-09-30T20:18:02'
           comment: Date of HDU creation (UTC)
         - key: STILVERS
           value: 4.1-2
@@ -748,13 +750,13 @@ releases:
             description: From Brunner+22, ID of eROSITA source in the Main Sample
           ERO_RA_CORR:
             name: ERO_RA_CORR
-            type: float32
+            type: float64
             unit: deg
             description: From Brunner+22, J2000 Right Ascension of eROSITA source
               (corrected)
           ERO_DEC_CORR:
             name: ERO_DEC_CORR
-            type: float32
+            type: float64
             unit: deg
             description: From Brunner+22, J2000 Declination of eROSITA source (corrected)
           ERO_RADEC_ERR_CORR:
@@ -762,21 +764,21 @@ releases:
             type: float32
             unit: arcsec
             description: From Brunner+22, eROSITA positional uncertainty (corrected)
-          ERO_ML_FLUX_3:
-            name: ERO_ML_FLUX_3
+          ERO_ML_FLUX:
+            name: ERO_ML_FLUX
             type: float32
             unit: erg/cm^2/s
-            description: From Brunner+22, 2.3-5.0 keV source flux
-          ERO_ML_FLUX_ERR_3:
-            name: ERO_ML_FLUX_ERR_3
+            description: From Brunner+22, 0.2-2.3 keV source flux
+          ERO_ML_FLUX_ERR:
+            name: ERO_ML_FLUX_ERR
             type: float32
             unit: erg/cm^2/s
-            description: From Brunner+22, 2.3-5.0 keV source flux error (1 sigma)
-          ERO_DET_LIKE_3:
-            name: ERO_DET_LIKE_3
+            description: From Brunner+22, 0.2-2.3 keV source flux error (1 sigma)
+          ERO_DET_LIKE:
+            name: ERO_DET_LIKE
             type: float32
             unit: ''
-            description: From Brunner+22, 2.3-5.0 keV detection likelihood via PSF-fitting
+            description: From Brunner+22, 0.2-2.3 keV detection likelihood via PSF-fitting
           CTP_LS8_UNIQUE_OBJID:
             name: CTP_LS8_UNIQUE_OBJID
             type: char[11]
@@ -784,12 +786,12 @@ releases:
             description: From Salvato+22, LS8 unique id for ctp to the eROSITA source
           CTP_LS8_RA:
             name: CTP_LS8_RA
-            type: float32
+            type: float64
             unit: deg
             description: From Salvato+22, Right Ascension of the LS8 counterpart
           CTP_LS8_DEC:
             name: CTP_LS8_DEC
-            type: float32
+            type: float64
             unit: deg
             description: From Salvato+22, Declination of the best LS8 counterpart
           Dist_CTP_LS8_ERO:
@@ -1028,6 +1030,7 @@ releases:
             type: bool
             unit: ''
             description: Does this Salvato+22 counterpart have an informative spec-z?
-  DR20: *id001
-notes: None
-regrets: I have no regrets!
+notes: |-
+  None
+regrets: |-
+  I have no regrets!
