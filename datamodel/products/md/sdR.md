@@ -19,7 +19,7 @@ This file contains raw spectro data from the BOSS/eBOSS/BHM spectro CCDs. Simult
 sdR-[br][id]-[FRAME].fit, indicating which blue or red spectrograph (1 or 2), and the frame number.
 
 ### Releases
-DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, DR19
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, DR19, DR20
 
 ### Enviroments
 BOSS_SPECTRO_DATA, BOSS_SPECTRO_DATA_N
@@ -39,13 +39,16 @@ False
 ### Data Level
 0.1.1
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
  - DR19
    - from: DR18
    - note: No changes
