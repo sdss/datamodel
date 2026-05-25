@@ -16,7 +16,7 @@ Independent combinations of flux or fluxerr from APOGEE exposures used as visit 
 Independent combinations of flux or fluxerr from APOGEE exposures used as visit input for apMADGICS. Uses a Lanczos interpolation kernel the switches to linear around masked pixels.
 
 ### Naming Convention
-$APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/apMADGICS_out_flux[FLUX_TYPE].h5 where VERS = "v2024_03_16" for DR19, STAR_PRIOR_TYPE has one of the values ["th", "dd"], and FLUX_TYPE is either empty of "err2".
+$APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/apMADGICS_out_flux[FLUX_TYPE].h5 where VERS = "v2024_03_16" for DR19 and DR20, STAR_PRIOR_TYPE has one of the values ["th", "dd"], and FLUX_TYPE is either empty of "err2".
 
 ### Releases
 DR19
