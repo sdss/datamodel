@@ -16,11 +16,10 @@ Table of all spectroscopic plates or FPS fields
 Table of all spectroscopic plates or FPS fields across each SDSS instrument.
 
 ### Naming Convention
-$ALLSPEC/[VERS]/multiplex-[RELEASE]-[VERS].fits where RELEASE = dr19 and VERS=1.0.1 in DR19.
-
+$ALLSPEC/[VERS]/multiplex-[RELEASE]-[VERS].fits where RELEASE = dr20 and VERS=1.0.2 in DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 ALLSPEC
@@ -40,7 +39,7 @@ False
 ### Data Level
 2.3.0
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: multiplex](#hdu1-multiplex)
 
@@ -48,6 +47,9 @@ False
 
 ## Changelog
 DR19 is the first release of the multiplex table
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -72,7 +74,7 @@ Key | Value | Comment | |
 Multiplex (plate and FPS field) data table
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  6 MB
+#### HDU Size:  21 MB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -80,11 +82,11 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 252 | length of dimension 1 |
-| NAXIS2 | 28161 | length of dimension 2 |
+| NAXIS1 | 414 | length of dimension 1 |
+| NAXIS2 | 54297 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 23 | number of table fields |
+| TFIELDS | 25 | number of table fields |
 | TUNIT1 |  |  |
 | TUNIT2 |  |  |
 | TUNIT3 |  |  |
@@ -98,31 +100,35 @@ Key | Value | Comment | |
 | TUNIT11 |  |  |
 | TUNIT12 |  |  |
 | TUNIT13 |  |  |
-| TUNIT14 | deg |  |
-| TUNIT15 | deg |  |
-| TUNIT16 |  |  |
-| TUNIT17 |  |  |
+| TUNIT14 |  |  |
+| TUNIT15 |  |  |
+| TUNIT16 | deg |  |
+| TUNIT17 | deg |  |
 | TUNIT18 |  |  |
 | TUNIT19 |  |  |
 | TUNIT20 |  |  |
 | TUNIT21 |  |  |
 | TUNIT22 |  |  |
 | TUNIT23 |  |  |
+| TUNIT24 |  |  |
+| TUNIT25 |  |  |
 | NAME | multiplex |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | multiplex_id | char[34] |  | Unique multiplex ID |
+ | multiplex_id | char[40] |  | Unique multiplex ID |
  | design_id | int32 |  | design_id |
  | sdss_phase | int16 |  | SDSS Phase from 1 to 5 |
  | observatory | char[3] |  | observatory |
+ | telescope | char[6] |  | telescope |
  | instrument | char[6] |  | instrument |
  | plate | int32 |  | SDSS/BOSS/eBOSS/BHM plate (before FPS era) |
  | fps_field | int32 |  | Plate or FPS Field (merges pre/post Plate era) |
  | plate_or_fps_field | int32 |  | Plate or FPS Field (merges pre/post Plate era) |
  | mjd | int32 |  | MJD |
  | run2d | char[7] |  | idlspec2d version |
+ | coadd | char[5] |  | either epoch, daily |
  | apred_vers | char[4] |  | APOGEE DRP Version |
  | drpver | char[6] |  | MaNGA (for e.g.) DRP Version |
  | version | char[7] |  | All Pipeline Version |
@@ -134,8 +140,8 @@ Name | Type | Unit | Description |
  | quality | char[8] |  | Quality flag for spectroscopic reduction |
  | programname | char[35] |  | Spectroscopic program Name |
  | survey | char[14] |  | Spectroscopic survey or sub-survey |
- | cas_url | char[1] |  | CAS URL |
- | sas_url | char[75] |  | SAS URL |
+ | cas_url | char[118] |  | CAS URL |
+ | sas_url | char[103] |  | SAS URL |
 
 
 
