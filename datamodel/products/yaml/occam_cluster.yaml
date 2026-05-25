@@ -13,14 +13,15 @@ general:
   filesize: 120 KB
   releases:
   - DR19
+  - DR20
   environments:
   - APOGEE_OCCAM
   surveys:
   - MWM
   - APOGEE-2
   - SDSS
-  naming_convention: $APOGEE_OCCAM/occam_cluster-[VERS].fits where VERS is DR19-v2 in
-    the latest version
+  naming_convention: $APOGEE_OCCAM/occam_cluster-[VERS].fits where VERS is DR19-v2
+    in the latest version
   generated_by: OCCAM
   data_level: 3.3.0
   design: false
@@ -29,9 +30,12 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR20:
+      from: DR19
+      note: No changes
 releases:
-  DR19:
+  DR19: &id001
     template: $APOGEE_OCCAM/occam_cluster-[VERS].fits
     example: occam_cluster-DR19.fits
     location: occam_cluster-{vers}.fits
@@ -491,7 +495,6 @@ releases:
             type: float64
             unit: yr
             description: logAge of the cluster from Hunt & Reffert 2023 75
-notes: |-
-  None
-regrets: |-
-  I  have no regrets!
+  DR20: *id001
+notes: None
+regrets: I  have no regrets!
