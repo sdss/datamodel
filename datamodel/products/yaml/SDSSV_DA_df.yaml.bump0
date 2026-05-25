@@ -1,20 +1,19 @@
 general:
-  name: eSDSS_DA_df
+  name: SDSSV_DA_df
   short: Measurements of physical parameters for DA white dwarfs observed in SDSS
-    Data Releases 1 through 16.
+    Data Release 19.
   description: Measurements of radial velocities, spectroscopic effective temperatures
-    and surface gravities, and photometric effective temperatures and radii for 19,257
-    unique DA white dwarfs observed in SDSS Data Releases 1 through 16.
+    and surface gravities, and photometric effective temperatures and radii for 8,545
+    unique DA white dwarfs observed in SDSS Data Release 19.
   datatype: FITS
-  filesize: 46 MB
+  filesize: 32 MB
   releases:
   - DR19
-  - DR20
   environments:
   - MWM_WHITEDWARF
   surveys:
   - SDSS
-  naming_convention: $MWM_WHITEDWARF/da_white_dwarf_properties/[VERS]/eSDSS_DA_df.fits
+  naming_convention: $MWM_WHITEDWARF/da_white_dwarf_properties/[VERS]/SDSSV_DA_df.fits
   generated_by: WDparams, https://github.com/nicolecrumpler0230/WDparams
   design: false
   data_level: 3.3.0
@@ -23,23 +22,20 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases:
-    DR20:
-      from: DR19
-      note: No changes
+  releases: {}
 releases:
-  DR19: &id001
-    template: $MWM_WHITEDWARF/da_white_dwarf_properties/[VERS]/eSDSS_DA_df.fits
-    example: da_white_dwarf_properties/1.0.3/eSDSS_DA_df.fits
-    location: da_white_dwarf_properties/{vers}/eSDSS_DA_df.fits
+  DR19:
+    template: $MWM_WHITEDWARF/da_white_dwarf_properties/[VERS]/SDSSV_DA_df.fits
+    example: da_white_dwarf_properties/1.0.2/SDSSV_DA_df.fits
+    location: da_white_dwarf_properties/{vers}/SDSSV_DA_df.fits
     environment: MWM_WHITEDWARF
     access:
       in_sdss_access: true
-      path_name: eSDSS_DA_df
+      path_name: SDSSV_DA_df
       path_template: $MWM_WHITEDWARF/da_white_dwarf_properties/{vers}/eSDSS_DA_df.fits
       path_kwargs:
       - vers
-      access_string: eSDSS_DA_df = $MWM_WHITEDWARF/da_white_dwarf_properties/{vers}/eSDSS_DA_df.fits
+      access_string: SDSSV_DA_df = $MWM_WHITEDWARF/da_white_dwarf_properties/{vers}/SDSSV_DA_df.fits
     survey: SDSS
     hdus:
       hdu0:
@@ -64,10 +60,9 @@ releases:
         name: ''
         description: Measurements of radial velocities, spectroscopic effective temperatures
           and surface gravities, and photometric effective temperatures and radii
-          for 19,257 unique DA white dwarfs observed in SDSS Data Releases 1 through
-          16.
+          for 8,545 unique DA white dwarfs observed in SDSS Data Release 19.
         is_image: false
-        size: 46 MB
+        size: 32 MB
         header:
         - key: XTENSION
           value: BINTABLE
@@ -79,10 +74,10 @@ releases:
           value: 2
           comment: number of array dimensions
         - key: NAXIS1
-          value: 1935
+          value: 2074
           comment: length of dimension 1
         - key: NAXIS2
-          value: 25415
+          value: 16651
           comment: length of dimension 2
         - key: PCOUNT
           value: 0
@@ -91,7 +86,7 @@ releases:
           value: 1
           comment: number of groups
         - key: TFIELDS
-          value: 245
+          value: 268
           comment: number of table fields
         - key: TNULL1
           value: 999999
@@ -105,25 +100,25 @@ releases:
         - key: TNULL4
           value: 999999
           comment: ''
-        - key: TNULL172
+        - key: TNULL195
           value: 999999
           comment: ''
-        - key: TNULL205
+        - key: TNULL228
           value: 999999
           comment: ''
-        - key: TNULL206
+        - key: TNULL229
           value: 999999
           comment: ''
-        - key: TNULL209
+        - key: TNULL232
           value: 999999
           comment: ''
-        - key: TNULL210
+        - key: TNULL233
           value: 999999
           comment: ''
-        - key: TNULL213
+        - key: TNULL236
           value: 999999
           comment: ''
-        - key: TNULL214
+        - key: TNULL237
           value: 999999
           comment: ''
         columns:
@@ -132,39 +127,31 @@ releases:
             type: int64
             unit: ''
             description: Gaia DR3 source identifier
-          plate:
-            name: plate
+          fieldid:
+            name: fieldid
             type: int64
             unit: ''
-            description: SDSS plate identifier
+            description: Field identifier
           mjd:
             name: mjd
             type: int64
             unit: ''
             description: Modified Julian date of observation
-          fiber:
-            name: fiber
+          catalogid:
+            name: catalogid
             type: int64
             unit: ''
-            description: SDSS fiber identifier
+            description: SDSS-V catalog identifier
           snr:
             name: snr
             type: float64
             unit: ''
             description: Spectrum signal-to-noise ratio
-          spec_avail:
-            name: spec_avail
+          p_da:
+            name: p_da
             type: float64
             unit: ''
-            description: 'Flag indicating where the spectrum can be accessed: 0=https://dr18.sdss.org/sas/dr18/spectro/sdss/redux/26/spectra/lite/,
-              1=https://dr18.sdss.org/sas/dr18/spectro/sdss/redux/103/spectra/lite/,
-              2=https://dr18.sdss.org/sas/dr18/spectro/sdss/redux/104/spectra/lite/,
-              3=https://dr18.sdss.org/sas/dr18/spectro/sdss/redux/v5_13_2/spectra/lite,
-              4=https://dr18.sdss.org/sas/dr18/spectro/sdss/redux/v6_0_4/spectra/lite/,
-              5=https://dr18.sdss.org/sas/dr18/spectro/sdss/redux/eFEDS/spectra/lite/,
-              6=https://dr18.sdss.org/sas/dr18/spectro/boss/redux/eFEDS/spectra/lite/,
-              7=https://dr18.sdss.org/sas/dr18/spectro/boss/redux/v6_0_4/spectra/lite/,
-              8= available through SDSS.astroquery'
+            description: SnowWhite DA-type white dwarf probability
           ra:
             name: ra
             type: float64
@@ -438,6 +425,148 @@ releases:
             unit: ''
             description: Flag indicating if WD lacks or has non-physical SDSS u, r,
               or z magnitudes on the AB scale
+          rv_falcon:
+            name: rv_falcon
+            type: float64
+            unit: km/s
+            description: WD radial velocity in cross-matched Falcon et al. (2010)
+              catalog
+          e_rv_falcon:
+            name: e_rv_falcon
+            type: float64
+            unit: km/s
+            description: Error on WD radial velocity in cross-matched Falcon et al.
+              (2010) catalog
+          falcon_flag:
+            name: falcon_flag
+            type: bool
+            unit: ''
+            description: Flag indicating whether WD is contained in cross-matched
+              Falcon et al. (2010) catalog
+          logg_raddi:
+            name: logg_raddi
+            type: float64
+            unit: dex, log(cm/s^2)
+            description: WD surface gravity in cross-matched Raddi et al. (2022) catalog
+          e_logg_raddi:
+            name: e_logg_raddi
+            type: float64
+            unit: dex, log(cm/s^2)
+            description: Error on WD surface gravity in cross-matched Raddi et al.
+              (2022) catalog
+          mass_raddi:
+            name: mass_raddi
+            type: float64
+            unit: Msun
+            description: WD mass in cross-matched Raddi et al. (2022) catalog
+          e_mass_raddi:
+            name: e_mass_raddi
+            type: float64
+            unit: Msun
+            description: Error on WD mass in cross-matched Raddi et al. (2022) catalog
+          radius_raddi:
+            name: radius_raddi
+            type: float64
+            unit: Rsun
+            description: WD radius in cross-matched Raddi et al. (2022) catalog
+          rv_raddi:
+            name: rv_raddi
+            type: float64
+            unit: km/s
+            description: WD radial velocity in cross-matched Raddi et al. (2022) catalog
+          e_rv_raddi:
+            name: e_rv_raddi
+            type: float64
+            unit: km/s
+            description: Error on WD radial velocity in cross-matched Raddi et al.
+              (2022) catalog
+          teff_raddi:
+            name: teff_raddi
+            type: float64
+            unit: K
+            description: WD effective temperature in cross-matched Raddi et al. (2022)
+              catalog
+          e_teff_raddi:
+            name: e_teff_raddi
+            type: float64
+            unit: K
+            description: Error on WD effective temperature in cross-matched Raddi
+              et al. (2022) catalog
+          e_radius_raddi:
+            name: e_radius_raddi
+            type: float64
+            unit: Rsun
+            description: Error on WD radius in cross-matched Raddi et al. (2022) catalog
+          raddi_flag:
+            name: raddi_flag
+            type: bool
+            unit: ''
+            description: Flag indicating whether WD is contained in cross-matched
+              Raddi et al. (2022) catalog
+          teff_anguiano:
+            name: teff_anguiano
+            type: float64
+            unit: K
+            description: WD effective temperature in cross-matched Anguiano et al.
+              (2017) catalog
+          e_teff_anguiano:
+            name: e_teff_anguiano
+            type: float64
+            unit: K
+            description: Error on WD effective temperature in cross-matched Anguiano
+              et al. (2017) catalog
+          mass_anguiano:
+            name: mass_anguiano
+            type: float64
+            unit: Msun
+            description: WD mass in cross-matched Anguiano et al. (2017) catalog
+          e_mass_anguiano:
+            name: e_mass_anguiano
+            type: float64
+            unit: Msun
+            description: Error on WD mass in cross-matched Anguiano et al. (2017)
+              catalog
+          logg_anguiano:
+            name: logg_anguiano
+            type: float64
+            unit: dex, log(cm/s^2)
+            description: WD surface gravity in cross-matched Anguiano et al. (2017)
+              catalog
+          e_logg_anguiano:
+            name: e_logg_anguiano
+            type: float64
+            unit: dex, log(cm/s^2)
+            description: Error on WD surface gravity in cross-matched Anguiano et
+              al. (2017) catalog
+          rv_anguiano:
+            name: rv_anguiano
+            type: float64
+            unit: km/s
+            description: WD radial velocity in cross-matched Anguiano et al. (2017)
+              catalog
+          e_rv_anguiano:
+            name: e_rv_anguiano
+            type: float64
+            unit: km/s
+            description: Error on WD radial velocity in cross-matched Anguiano et
+              al. (2017) catalog
+          radius_anguiano:
+            name: radius_anguiano
+            type: float64
+            unit: Rsun
+            description: WD radius in cross-matched Anguiano et al. (2017) catalog
+          e_radius_anguiano:
+            name: e_radius_anguiano
+            type: float64
+            unit: Rsun
+            description: Error on WD radius in cross-matched Anguiano et al. (2017)
+              catalog
+          anguiano_flag:
+            name: anguiano_flag
+            type: bool
+            unit: ''
+            description: Flag indicating whether WD is contained in cross-matched
+              Anguiano et al. (2017) catalog
           teff_gentile:
             name: teff_gentile
             type: float64
@@ -485,109 +614,105 @@ releases:
             unit: Rsun
             description: Error on WD radius in cross-matched Gentile Fusillo et al.
               (2021) catalog
-          sdss_dr:
-            name: sdss_dr
-            type: char[11]
+          gentile_flag:
+            name: gentile_flag
+            type: bool
             unit: ''
-            description: Most recent published SDSS WD catalog containing this WD,
-              all listed measurements are from this data release
-          teff_sdss_dr:
-            name: teff_sdss_dr
+            description: Flag indicating whether WD is contained in cross-matched
+              Gentile Fusillo et al. (2021) catalog
+          teff_koester:
+            name: teff_koester
             type: float64
             unit: K
-            description: WD effective temperature in published SDSS catalog
-          e_teff_sdss_dr:
-            name: e_teff_sdss_dr
+            description: WD effective temperature in cross-matched Koester et al.
+              (2009) catalog
+          e_teff_koester:
+            name: e_teff_koester
             type: float64
             unit: K
-            description: Error on WD effective temperature in published SDSS catalog
-          logg_sdss_dr:
-            name: logg_sdss_dr
+            description: Error on WD effective temperature in cross-matched Koester
+              et al. (2009) catalog
+          logg_koester:
+            name: logg_koester
             type: float64
             unit: dex, log(cm/s^2)
-            description: WD surface gravity in published SDSS catalog
-          e_logg_sdss_dr:
-            name: e_logg_sdss_dr
+            description: WD surface gravity in cross-matched Koester et al. (2009)
+              catalog
+          e_logg_koester:
+            name: e_logg_koester
             type: float64
             unit: dex, log(cm/s^2)
-            description: Error on WD surface gravity in published SDSS catalog
-          teff1d_sdss_dr:
-            name: teff1d_sdss_dr
+            description: Error on WD surface gravity in cross-matched Koester et al.
+              (2009) catalog
+          koester_flag:
+            name: koester_flag
+            type: bool
+            unit: ''
+            description: Flag indicating whether WD is contained in cross-matched
+              Koester et al. (2009) catalog
+          teff_kepler:
+            name: teff_kepler
             type: float64
             unit: K
-            description: WD effective temperature in published SDSS catalog, not corrected
-              for 3D effects
-          e_teff1d_sdss_dr:
-            name: e_teff1d_sdss_dr
+            description: WD effective temperature in cross-matched Kepler et al. (2019)
+              catalog
+          e_teff_kepler:
+            name: e_teff_kepler
             type: float64
             unit: K
-            description: Error on WD effective temperature in published SDSS catalog,
-              not corrected for 3D effects
-          logg1d_sdss_dr:
-            name: logg1d_sdss_dr
+            description: Error on WD effective temperature in cross-matched Kepler
+              et al. (2019) catalog
+          logg_kepler:
+            name: logg_kepler
             type: float64
             unit: dex, log(cm/s^2)
-            description: WD surface gravity in published SDSS catalog, not corrected
-              for 3D effects
-          e_logg1d_sdss_dr:
-            name: e_logg1d_sdss_dr
+            description: WD surface gravity in cross-matched Kepler et al. (2019)
+              catalog
+          e_logg_kepler:
+            name: e_logg_kepler
             type: float64
             unit: dex, log(cm/s^2)
-            description: Error on WD surface gravity in published SDSS catalog, not
-              corrected for 3D effects
-          rv_sdss_dr:
-            name: rv_sdss_dr
+            description: Error on WD surface gravity in cross-matched Kepler et al.
+              (2019) catalog
+          rv_kepler:
+            name: rv_kepler
             type: float64
             unit: km/s
-            description: WD radial velocity in published SDSS catalog
-          e_rv_sdss_dr:
-            name: e_rv_sdss_dr
+            description: WD radial velocity in cross-matched Kepler et al. (2019)
+              catalog
+          e_rv_kepler:
+            name: e_rv_kepler
             type: float64
             unit: km/s
-            description: Error on WD radial velocity in published SDSS catalog
-          mass_sdss_dr:
-            name: mass_sdss_dr
+            description: Error on WD radial velocity in cross-matched Kepler et al.
+              (2019) catalog
+          mass_kepler:
+            name: mass_kepler
             type: float64
             unit: Msun
-            description: WD mass in published SDSS catalog
-          e_mass_sdss_dr:
-            name: e_mass_sdss_dr
+            description: WD mass in cross-matched Kepler et al. (2019) catalog
+          e_mass_kepler:
+            name: e_mass_kepler
             type: float64
             unit: Msun
-            description: Error on WD mass in published SDSS catalog
-          mass1d_sdss_dr:
-            name: mass1d_sdss_dr
-            type: float64
-            unit: Msun
-            description: WD mass in published SDSS catalog, not corrected for 3D effects
-          e_mass1d_sdss_dr:
-            name: e_mass1d_sdss_dr
-            type: float64
-            unit: Msun
-            description: Error on WD mass in published SDSS catalog, not corrected
-              for 3D effects
-          radius_sdss_dr:
-            name: radius_sdss_dr
+            description: Error on WD mass in cross-matched Kepler et al. (2019) catalog
+          radius_kepler:
+            name: radius_kepler
             type: float64
             unit: Rsun
-            description: WD radius in published SDSS catalog
-          e_radius_sdss_dr:
-            name: e_radius_sdss_dr
+            description: WD radius in cross-matched Kepler et al. (2019) catalog
+          e_radius_kepler:
+            name: e_radius_kepler
             type: float64
             unit: Rsun
-            description: Error on WD radius in published SDSS catalog
-          radius1d_sdss_dr:
-            name: radius1d_sdss_dr
-            type: float64
-            unit: Rsun
-            description: WD radius in published SDSS catalog, not corrected for 3D
-              effects
-          e_radius1d_sdss_dr:
-            name: e_radius1d_sdss_dr
-            type: float64
-            unit: Rsun
-            description: Error on WD radius in published SDSS catalog, not corrected
-              for 3D effects
+            description: Error on WD radius in cross-matched Kepler et al. (2019)
+              catalog
+          kepler_flag:
+            name: kepler_flag
+            type: bool
+            unit: ''
+            description: Flag indicating whether WD is contained in cross-matched
+              Kepler et al. (2019) catalog
           snr_coadd:
             name: snr_coadd
             type: float64
@@ -1460,12 +1585,12 @@ releases:
             type: float64
             unit: km/s
             description: WD total speed relative to the LSR
-          star_pop_flag:
-            name: star_pop_flag
+          thin_disk_flag:
+            name: thin_disk_flag
             type: bool
             unit: ''
-            description: 'Flag indicating whether WD likely belongs to the: 0= Thick
-              disk or uncertain designation, 1= Thin disk, 2= Halo'
-  DR20: *id001
-notes: None
-regrets: I  have no regrets!
+            description: 'Flag indicating whether WD likely belongs to the: 0= Thick disk or uncertain designation, 1= Thin disk, 2= Halo'
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!
