@@ -44,10 +44,16 @@
         "description": "SDSS public data release 19",
         "public": true,
         "release_date": "2025-07-11"
+      },
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-30"
       }
     ],
     "naming_convention": "$APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/apMADGICS_out_DIB_hess_var_[DIB_MODEL].h5",
-    "generated_by": "<a href=\"https://github.com/andrew-saydjari/apMADGICS.jl\">https://github.com/andrew-saydjari/apMADGICS.jl</a>",
+    "generated_by": "<a href=\\\"https://github.com/andrew-saydjari/apMADGICS.jl\\\">https://github.com/andrew-saydjari/apMADGICS.jl</a>",
     "design": false,
     "vac": false,
     "recommended_science_product": false,
@@ -55,7 +61,39 @@
   },
   "changelog": {
     "description": "DR19 is the first release of apMADGICS",
-    "releases": {}
+    "releases": {
+      "DR20": {
+        "from": "DR19",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null,
+        "delta_ncolumns": 0,
+        "added_columns": [],
+        "removed_columns": [],
+        "delta_nmetadata": 0,
+        "added_metadata": [],
+        "removed_metadata": []
+      }
+    }
   },
   "releases": {
     "DR19": {
@@ -69,8 +107,8 @@
         "path_name": "apMADGICS_out_DIB_hess",
         "path_template": "$APMADGICS/{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_DIB_hess_var_{dib_model}.h5",
         "path_kwargs": [
-          "vers",
           "star_prior_type",
+          "vers",
           "dib_model"
         ],
         "access_string": "apMADGICS_out_DIB_hess = $APMADGICS/{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_DIB_hess_var_{dib_model}.h5"
@@ -149,7 +187,102 @@
             "is_empty": false
           }
         }
-      }
+      },
+      "dataframe": null
+    },
+    "DR20": {
+      "template": "$APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/apMADGICS_out_DIB_hess_var_[DIB_MODEL].h5",
+      "example": "v2024_03_16/outdir_wu_th/apMADGICS_out_DIB_hess_var_1_15273.h5",
+      "location": "{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_DIB_hess_var_{dib_model}.h5",
+      "environment": "APMADGICS",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "apMADGICS_out_DIB_hess",
+        "path_template": "$APMADGICS/{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_DIB_hess_var_{dib_model}.h5",
+        "path_kwargs": [
+          "star_prior_type",
+          "vers",
+          "dib_model"
+        ],
+        "access_string": "apMADGICS_out_DIB_hess = $APMADGICS/{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_DIB_hess_var_{dib_model}.h5"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": {
+        "name": "/",
+        "parent": "/",
+        "object": "group",
+        "description": "MADGICS output describing curvature around DIB maximum likelihood estimator",
+        "pytables": false,
+        "attrs": [],
+        "n_members": 2,
+        "libver": [
+          "earliest",
+          "v114"
+        ],
+        "members": {
+          "DIB_hess_var_1_15273": {
+            "name": "DIB_hess_var_{dib_model}",
+            "parent": "/",
+            "object": "dataset",
+            "description": "This 5 element vector encodes information about the curvature of the delta chi2 surface around the optimum for the DIB component modeling. The 2D space of this search is pixel shift (which is related to the DIB velocity) and the DIB (gaussian) width. This file then encodes the covariance of those two parameters around the optimum (pixel shift and DIB width, which we will abbrievate as p and w). The first three entries are the diagonal elements and then offdiagonal element of this covariance matrix (sigma^2_p, sigma^2_w, sigma^2_wp). The second two entries are the conditional variances (variance of p, given a value of w), in the same p, w order.",
+            "pytables": null,
+            "attrs": [],
+            "shape": [
+              2641032,
+              5
+            ],
+            "size": 13205160,
+            "ndim": 2,
+            "dtype": "float64",
+            "nbytes": 105641280,
+            "is_virtual": false,
+            "is_empty": false
+          },
+          "hdr": {
+            "name": "hdr",
+            "parent": "/",
+            "object": "dataset",
+            "description": "header dataset used to hold global attributes of the file",
+            "pytables": null,
+            "attrs": [
+              {
+                "key": "git_branch",
+                "value": "b'2024_03_16'",
+                "comment": "name of the git_branch of apMADGICS that produced these outputs",
+                "dtype": "|S10",
+                "is_empty": false,
+                "shape": []
+              },
+              {
+                "key": "git_commit",
+                "value": "b'9035b0626e8eb53a5a06de5be462603ae5574e82'",
+                "comment": "git commit hash to specify the exact version of the apMADGICS.jl code that produced these outputs",
+                "dtype": "|S40",
+                "is_empty": false,
+                "shape": []
+              },
+              {
+                "key": "pipeline",
+                "value": "b'apMADGICS.jl'",
+                "comment": "name of the codebase that produced these outputs",
+                "dtype": "|S12",
+                "is_empty": false,
+                "shape": []
+              }
+            ],
+            "shape": [],
+            "size": 1,
+            "ndim": 0,
+            "dtype": "|S21",
+            "nbytes": 21,
+            "is_virtual": false,
+            "is_empty": false
+          }
+        }
+      },
+      "dataframe": null
     }
   },
   "notes": "None",

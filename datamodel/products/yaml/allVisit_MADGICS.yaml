@@ -9,13 +9,14 @@ general:
   filesize: 2 GB
   releases:
   - DR19
+  - DR20
   environments:
   - APMADGICS
   surveys:
   - MWM
   - SDSS
   naming_convention: $APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/allVisit_MADGICS_[VERS]_[STAR_PRIOR_TYPE].fits
-    where VERS = "v2024_03_16" for DR19 and STAR_PRIOR_TYPE has one of the values
+    where VERS = "v2024_03_16" for DR19 and DR20, and STAR_PRIOR_TYPE has one of the values
     ["th", "dd"]
   generated_by: <a href=\"https://github.com/andrew-saydjari/apMADGICS.jl\">https://github.com/andrew-saydjari/apMADGICS.jl</a>
   data_level: 3.3.0
@@ -24,9 +25,12 @@ general:
   recommended_science_product: false
 changelog:
   description: DR19 is the first release of apMADGICS
-  releases: {}
+  releases:
+    DR20:
+      from: DR19
+      note: No changes
 releases:
-  DR19:
+  DR19: &id001
     template: $APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/allVisit_MADGICS_[VERS]_[STAR_PRIOR_TYPE].fits
     example: v2024_03_16/outdir_wu_th/allVisit_MADGICS_v2024_03_16_th.fits
     location: '{vers}/outdir_wu_{star_prior_type}/allVisit_MADGICS_{vers}_{star_prior_type}.fits'
@@ -1079,7 +1083,6 @@ releases:
             description: Cart identifier for plate cart used during the visit observation
               (variations in total throughput can depend on the throughput of the
               fibers in a given cart)
-notes: |-
-  None
-regrets: |-
-  I  have no regrets!
+  DR20: *id001
+notes: None
+regrets: I  have no regrets!
