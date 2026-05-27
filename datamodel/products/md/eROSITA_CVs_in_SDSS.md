@@ -41,7 +41,7 @@ True
 
 ### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: Joined](#hdu1-joined)
+  - [HDU1: votable](#hdu1-votable)
 
 ---
 
@@ -55,7 +55,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 Header
 
 #### HDU Type: IMAGE
-#### HDU Size:  12 KB
+#### HDU Size:  4 KB
 
 ##### Header Table Caption for HDU0
 Key | Value | Comment | |
@@ -63,7 +63,7 @@ Key | Value | Comment | |
 | SIMPLE | True | Standard FITS format |
 | BITPIX | 8 | Character data |
 | NAXIS | 1 | Text string |
-| NAXIS1 | 12349 | Number of characters |
+| NAXIS1 | 4195 | Number of characters |
 | VOTMETA | True | Table metadata in VOTable format |
 | EXTEND | True | There are standard extensions |
 | COMMENT |  |  |
@@ -79,11 +79,11 @@ Key | Value | Comment | |
 
 
 
-### HDU1: Joined
+### HDU1: votable
 Column descriptions
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  149 KB
+#### HDU Size:  161 KB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -141,7 +141,9 @@ Name | Type | Unit | Description |
  | eRO_FLUX | float32 | erg s**(-1) cm**(-2) | eRASS:3 flux in 0.2 - 2.3 keV band |
  | eRO_FLUX_ERR | float32 | erg s**(-1) cm**(-2) | eRASS:3 flux error in 0.2 - 2.3 keV band |
  | Gmag | float64 | mag | Gaia DR3 G-band magnitude |
+ | Gmag_ERR | float64 | mag | Gaia DR3 error in G-band magnitude |
  | BP-RP | float64 | mag | Gaia DR3 BP - RP magnitude |
+ | BP-RP_err | float64 | mag | Gaia DR3 error in BP - RP magnitude |
  | DISTANCE | float64 | pc | Gaia DR3 rgeo nominal distance based on Bailer-Jones et al. (2018) |
  | DISTANCE_LOWER | float64 | pc | Gaia DR3 rgeo lower distance based on Bailer-Jones et al. (2018) |
  | DISTANCE_UPPER | float64 | pc | Gaia DR3 rgeo upper distance based on Bailer-Jones et al. (2018) |
