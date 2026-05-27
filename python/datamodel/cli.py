@@ -292,7 +292,7 @@ def update(file_species: str, release: str, verbose: bool):
         try:
             dm = DataModel.from_yaml(file.stem, release=release, verbose=verbose)
         except Exception as e:
-            log.error(f'DM update failed. Failed to instantiate datamodel {file.stem}.')
+            log.error(f'DM update failed. Failed to instantiate datamodel {file.stem}. Error: {e}')
         else:
             try:
                 dm.write_stubs()

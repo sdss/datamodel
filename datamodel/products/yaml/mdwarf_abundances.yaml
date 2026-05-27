@@ -1,17 +1,20 @@
 general:
   name: mdwarf_abundances
   short: Elemental abundances for ~17,000 M dwarfs in MWM.
-  description: Catalog of detailed elemental abundances for ~17,000 M dwarfs in MWM (Behmard et al. 2025, Table 2).
+  description: Catalog of detailed elemental abundances for ~17,000 M dwarfs in MWM
+    (Behmard et al. 2025, Table 2).
   datatype: FITS
   filesize: 3 MB
   releases:
   - DR19
+  - DR20
   environments:
   - MWM_MDWARF
   surveys:
   - SDSS
   naming_convention: $MWM_MDWARF/elemental_abundances/mdwarf_abundances-1.0.2.fits
-  generated_by: astra (abundance labels used in The Cannon model - see Behmard et al. 2025)
+  generated_by: astra (abundance labels used in The Cannon model - see Behmard et
+    al. 2025)
   data_level: 3.2.1
   design: false
   vac: true
@@ -19,9 +22,12 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR20:
+      from: DR19
+      note: No changes
 releases:
-  DR19:
+  DR19: &id001
     template: $MWM_MDWARF/elemental_abundances/mdwarf_abundances-[VERS].fits
     example: elemental_abundances/mdwarf_abundances-1.0.2.fits
     location: elemental_abundances/mdwarf_abundances-{vers}.fits
@@ -96,7 +102,7 @@ releases:
             name: name
             type: int64
             unit: ''
-            description: SDSS ID 
+            description: SDSS ID
           Teff_cannon:
             name: Teff_cannon
             type: float64
@@ -166,68 +172,68 @@ releases:
             name: temp_agree
             type: bool
             unit: ''
-            description: flag describing whether the photometric and The Cannon–inferred Teff agree to within 2σ
+            description: "flag describing whether the photometric and The Cannon\u2013\
+              inferred Teff agree to within 2\u03C3"
           Teff_err:
             name: Teff_err
             type: float64
             unit: Kelvin
-            description: M dwarf temperature uncertainties 
+            description: M dwarf temperature uncertainties
           fe_h_err:
             name: fe_h_err
             type: float64
             unit: dex
-            description: M dwarf [Fe/H] uncertainties 
+            description: M dwarf [Fe/H] uncertainties
           mg_h_err:
             name: mg_h_err
             type: float64
             unit: dex
-            description: M dwarf [Mg/H] uncertainties 
+            description: M dwarf [Mg/H] uncertainties
           al_h_err:
             name: al_h_err
             type: float64
             unit: dex
-            description: M dwarf [Al/H] uncertainties 
+            description: M dwarf [Al/H] uncertainties
           si_h_err:
             name: si_h_err
             type: float64
             unit: dex
-            description: M dwarf [Si/H] uncertainties 
+            description: M dwarf [Si/H] uncertainties
           c_h_err:
             name: c_h_err
             type: float64
             unit: dex
-            description: M dwarf [C/H] uncertainties 
+            description: M dwarf [C/H] uncertainties
           o_h_err:
             name: o_h_err
             type: float64
             unit: dex
-            description: M dwarf [O/H] uncertainties 
+            description: M dwarf [O/H] uncertainties
           ca_h_err:
             name: ca_h_err
             type: float64
             unit: dex
-            description: M dwarf [Ca/H] uncertainties 
+            description: M dwarf [Ca/H] uncertainties
           ti_h_err:
             name: ti_h_err
             type: float64
             unit: dex
-            description: M dwarf [Ti/H] uncertainties 
+            description: M dwarf [Ti/H] uncertainties
           cr_h_err:
             name: cr_h_err
             type: float64
             unit: dex
-            description: M dwarf [Cr/H] uncertainties 
+            description: M dwarf [Cr/H] uncertainties
           n_h_err:
             name: n_h_err
             type: float64
             unit: dex
-            description: M dwarf [N/H] uncertainties 
+            description: M dwarf [N/H] uncertainties
           ni_h_err:
             name: ni_h_err
             type: float64
             unit: dex
-            description: M dwarf [Ni/H] uncertainties 
-notes: |-
-  None
-regrets: |-
-  I have no regrets!
+            description: M dwarf [Ni/H] uncertainties
+  DR20: *id001
+notes: None
+regrets: I have no regrets!

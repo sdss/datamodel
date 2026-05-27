@@ -11,6 +11,7 @@ general:
   filesize: 91 MB
   releases:
   - DR19
+  - DR20
   environments:
   - MWM_STARFLOW
   surveys:
@@ -24,9 +25,12 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR20:
+      from: DR19
+      note: No changes
 releases:
-  DR19:
+  DR19: &id001
     template: $MWM_STARFLOW/[VERS]/StarFlow_summary_[VERS].fits
     example: v1_0_0/StarFlow_summary_v1_0_0.fits
     location: '{vers}/StarFlow_summary_{vers}.fits'
@@ -174,7 +178,6 @@ releases:
             type: int64
             unit: ''
             description: Contains flags to indicate notes about a given
-notes: |-
-  None
-regrets: |-
-  I  have no regrets!
+  DR20: *id001
+notes: None
+regrets: I  have no regrets!

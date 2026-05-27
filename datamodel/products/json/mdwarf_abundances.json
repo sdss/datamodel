@@ -30,18 +30,56 @@
         "description": "SDSS public data release 19",
         "public": true,
         "release_date": "2025-07-11"
+      },
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-30"
       }
     ],
     "naming_convention": "$MWM_MDWARF/elemental_abundances/mdwarf_abundances-1.0.2.fits",
     "generated_by": "astra (abundance labels used in The Cannon model - see Behmard et al. 2025)",
     "design": false,
-    "vac": false,
-    "recommended_science_product": false,
+    "vac": true,
+    "recommended_science_product": true,
     "data_level": "3.2.1"
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {}
+    "releases": {
+      "DR20": {
+        "from": "DR19",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null,
+        "delta_ncolumns": 0,
+        "added_columns": [],
+        "removed_columns": [],
+        "delta_nmetadata": 0,
+        "added_metadata": [],
+        "removed_metadata": []
+      }
+    }
   },
   "releases": {
     "DR19": {
@@ -314,7 +352,281 @@
         }
       },
       "par": null,
-      "hdfs": null
+      "hdfs": null,
+      "dataframe": null
+    },
+    "DR20": {
+      "template": "$MWM_MDWARF/elemental_abundances/mdwarf_abundances-1.0.2.fits",
+      "example": "elemental_abundances/mdwarf_abundances-1.0.2.fits",
+      "location": "elemental_abundances/mdwarf_abundances-1.0.2.fits",
+      "environment": "MWM_MDWARF",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "mdwarf_abundances",
+        "path_template": "$MWM_MDWARF/elemental_abundances/mdwarf_abundances-{vers}.fits",
+        "path_kwargs": [
+          "vers"
+        ],
+        "access_string": "mdwarf_abundances = $MWM_MDWARF/elemental_abundances/mdwarf_abundances-1.0.2.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Target information",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "ELEMENT ABUNDANCES",
+          "is_image": false,
+          "description": "M Dwarf elemental abundances",
+          "size": "3 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "217",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "16573",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "28",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "EXTNAME",
+              "value": "ELEMENT ABUNDANCES",
+              "comment": "extension name"
+            }
+          ],
+          "columns": {
+            "gaia_dr3_source_id": {
+              "name": "gaia_dr3_source_id",
+              "description": "Gaia DR3 source identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "name": {
+              "name": "name",
+              "description": "SDSS ID",
+              "type": "int64",
+              "unit": ""
+            },
+            "Teff_cannon": {
+              "name": "Teff_cannon",
+              "description": "M dwarf temperature",
+              "type": "float64",
+              "unit": "Kelvin"
+            },
+            "fe_h_cannon": {
+              "name": "fe_h_cannon",
+              "description": "M dwarf [Fe/H]",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "mg_h_cannon": {
+              "name": "mg_h_cannon",
+              "description": "M dwarf [Mg/H]",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "al_h_cannon": {
+              "name": "al_h_cannon",
+              "description": "M dwarf [Al/H]",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "si_h_cannon": {
+              "name": "si_h_cannon",
+              "description": "M dwarf [Si/H]",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "c_h_cannon": {
+              "name": "c_h_cannon",
+              "description": "M dwarf [C/H]",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "o_h_cannon": {
+              "name": "o_h_cannon",
+              "description": "M dwarf [O/H]",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "ca_h_cannon": {
+              "name": "ca_h_cannon",
+              "description": "M dwarf [Ca/H]",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "ti_h_cannon": {
+              "name": "ti_h_cannon",
+              "description": "M dwarf [Ti/H]",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "cr_h_cannon": {
+              "name": "cr_h_cannon",
+              "description": "M dwarf [Cr/H]",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "n_h_cannon": {
+              "name": "n_h_cannon",
+              "description": "M dwarf [N/H]",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "ni_h_cannon": {
+              "name": "ni_h_cannon",
+              "description": "M dwarf [Ni/H]",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "spec_chisq": {
+              "name": "spec_chisq",
+              "description": "Model-data spectral fit chi-squared",
+              "type": "float64",
+              "unit": ""
+            },
+            "temp_agree": {
+              "name": "temp_agree",
+              "description": "flag describing whether the photometric and The Cannon–inferred Teff agree to within 2σ",
+              "type": "bool",
+              "unit": ""
+            },
+            "Teff_err": {
+              "name": "Teff_err",
+              "description": "M dwarf temperature uncertainties",
+              "type": "float64",
+              "unit": "Kelvin"
+            },
+            "fe_h_err": {
+              "name": "fe_h_err",
+              "description": "M dwarf [Fe/H] uncertainties",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "mg_h_err": {
+              "name": "mg_h_err",
+              "description": "M dwarf [Mg/H] uncertainties",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "al_h_err": {
+              "name": "al_h_err",
+              "description": "M dwarf [Al/H] uncertainties",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "si_h_err": {
+              "name": "si_h_err",
+              "description": "M dwarf [Si/H] uncertainties",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "c_h_err": {
+              "name": "c_h_err",
+              "description": "M dwarf [C/H] uncertainties",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "o_h_err": {
+              "name": "o_h_err",
+              "description": "M dwarf [O/H] uncertainties",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "ca_h_err": {
+              "name": "ca_h_err",
+              "description": "M dwarf [Ca/H] uncertainties",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "ti_h_err": {
+              "name": "ti_h_err",
+              "description": "M dwarf [Ti/H] uncertainties",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "cr_h_err": {
+              "name": "cr_h_err",
+              "description": "M dwarf [Cr/H] uncertainties",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "n_h_err": {
+              "name": "n_h_err",
+              "description": "M dwarf [N/H] uncertainties",
+              "type": "float64",
+              "unit": "dex"
+            },
+            "ni_h_err": {
+              "name": "ni_h_err",
+              "description": "M dwarf [Ni/H] uncertainties",
+              "type": "float64",
+              "unit": "dex"
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null,
+      "dataframe": null
     }
   },
   "notes": "None",

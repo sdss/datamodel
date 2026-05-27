@@ -19,7 +19,7 @@ The spField files contain the single mjd combined spectra for all exposures of a
 $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/spField-[FIELD]-[MJD].fits
 
 ### Releases
-DR18, IPL3, DR19, IPL4
+DR18, IPL3, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,8 +39,8 @@ False
 ### Data Level
 2.2.3
 
-### HDUS List for release DR19
-  - [HDU0: PRIMARY](#hdu0-primary)
+### HDUS List for release DR20
+  - [HDU0: FLUX](#hdu0-flux)
   - [HDU1: IVAR](#hdu1-ivar)
   - [HDU2: ANDMASK](#hdu2-andmask)
   - [HDU3: ORMASK](#hdu3-ormask)
@@ -53,25 +53,28 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
    - added_hdus: ['FLUX']
    - removed_hdus: ['PRIMARY']
    - primary_delta_nkeys: 4
-   - added_primary_header_kwargs: ['DATE-OBS', 'SFLATMIN', 'PIXFLAT', 'EXTNAME']
+   - added_primary_header_kwargs: ['DATE-OBS', 'PIXFLAT', 'EXTNAME', 'SFLATMIN']
  - DR19
    - from: IPL3
    - note: No changes
  - IPL3
    - from: DR18
    - primary_delta_nkeys: 20
-   - added_primary_header_kwargs: ['SN2_2I01', 'SNC02R00', 'SNC12G00', 'SNC12G', 'SNC12R00', 'SN2EXT2I', 'SNC02R02', 'EXPT_B2', 'SN2_2I00', 'SNC12I', 'SNC12G05', 'EXPT_R2', 'SNC12I01', 'SPEC', 'SN2_2R02', 'FSPEC2_G', 'CENBS0', 'SPEC2_I', 'V_ARCHON', 'FSN2EX1R', 'SNC12R04', 'SNC12G04', 'SNC02I03', 'SN2_2R06', 'SN2_2R07', 'SNC12R06', 'SNC02R06', 'SN2_2G04', 'SNC02R04', 'SNC02G04', 'SN2EXT2R', 'SNC02I06', 'SN2_2R01', 'SIGBS0', 'SNC12R', 'SNC12G02', 'SN2_2I06', 'SNC02G07', 'FSPEC1_R', 'SNC12G03', 'SNC12I00', 'CONFIGS', 'FSN2EX2G', 'BOSSVER', 'SN2_2G06', 'SN2_2I04', 'SNC02I04', 'SNC12G07', 'FSPEC1_G', 'SNC02I02', 'SNC12I07', 'SNC12R07', 'SN2_2G05', 'SNC12I03', 'SNC12R05', 'SNC02I', 'VCOORDIO', 'SN2_2I02', 'OBSMODE', 'SNC12G06', 'DESIGNS', 'SNC02I05', 'SN2_2I05', 'FSPEC2_I', 'SN2_2G00', 'SNC02G05', 'SNC12I02', 'SNC12R02', 'SNC02G02', 'SN2_2G03', 'SNC12G01', 'OFFDEC', 'NEXP_B2', 'VJAEGER', 'SNC02R', 'SNC12R01', 'SNC12I05', 'AVGAS0', 'FSPEC2_R', 'SNC02I07', 'SNC02R01', 'MOONFRAC', 'SNC02G', 'CCDTYPE', 'VKAIJU', 'SN2_2R04', 'ARCHBACK', 'SN2_2I07', 'SNC12I06', 'OFFPA', 'SN2_2I03', 'FSPEC1_I', 'SNC12I04', 'STDBS0', 'SNC02G01', 'SN2EXT2G', 'FSN2EX1G', 'SN2_2R00', 'SNC02G03', 'SNC02I00', 'OBSERVAT', 'SN2_2G02', 'SLITID', 'TAI', 'FSN2EX2R', 'SNC02R03', 'ARCHBVER', 'VCALIBS', 'SNC02G06', 'CCDID', 'FSN2EX1I', 'SNC02R07', 'DAQVER', 'OFFRA', 'AVGBS0', 'FSN2EX2I', 'SPEC2_G', 'SN2_2G07', 'FIELDCAD', 'SNC02R05', 'SNC02I01', 'SNC02G00', 'NEXP_R2', 'SNC12R03', 'SPEC2_R', 'CCD', 'STDAS0', 'SN2_2R05', 'SN2_2R03', 'SN2_2G01']
-   - removed_primary_header_kwargs: ['SNC11R10', 'ERRCNT', 'WINDS', 'AZ', 'DUSTB', 'SN2RLIST', 'ALT', 'MC1TRCT', 'GUSTS', 'RDNOISE0', 'SNC01I09', 'AVGBSH0', 'GUIDOFFY', 'M2ZROT', 'SNC11R08', 'CENBSH0', 'SUBFRAME', 'SNC01R10', 'FOCUS', 'OBJSYS', 'MC1THT', 'DIDFLUSH', 'SNC01I08', 'PLINES', 'MC1TBCB', 'ROTPOS', 'SNC01R09', 'FLAVOR', 'SN2_1I09', 'GUSTD', 'M1XTILT', 'COLLA', 'M2YTRAN', 'SN2ILIST', 'IONPUMP', 'SN2_1R10', 'HARTMANN', 'M1PISTON', 'ARCOFFY', 'SN2_1G09', 'SNC01G09', 'EXPID20', 'PFERR', 'CALOFFX', 'MGDDEC', 'M2YTILT', 'M2PISTON', 'CALOFFR', 'SNC11I10', 'SNC01I10', 'BOREOFFX', 'SN2_1R09', 'AVGASH0', 'HELIO_RV', 'SN2_1I10', 'M1XTRAN', 'SNC11G10', 'COLLB', 'AUTHOR', 'STDASH0', 'SN2_1G10', 'HUMIDITY', 'EXPID19', 'EXPID22', 'M1YTILT', 'DUSTA', 'GUIDERN', 'PRESSURE', 'SNC01G10', 'CALOFFY', 'MC1TBCT', 'XCHI2', 'SIGBSH0', 'MC1TEMDN', 'GUIDER1', 'SLINES', 'WINDD25M', 'MC1TRCB', 'TWOPHASE', 'SNC11G09', 'MGDRA', 'SNC01G08', 'SLITID1', 'EXPID17', 'MGDPOS', 'SYNCERR', 'STDBSH0', 'COLLC', 'TAILIST', 'M2XTILT', 'SN2_1R08', 'SNC11I09', 'ARCOFFX', 'SNC11R09', 'GUIDOFFX', 'M2XTRAN', 'LN2TEMP', 'EXPID18', 'M1ZROT', 'GUIDOFFR', 'WINDS25M', 'SNC11I08', 'DATE-OBS', 'SCALE', 'SN2_1G08', 'MC1HUMCO', 'TRUSTEMP', 'SN2GLIST', 'BOREOFFY', 'MC1HUMHT', 'PLUGFILE', 'SNC01R08', 'PIXERR', 'WINDD', 'SN2_1I08', 'SHCLOTIM', 'TILEID', 'SNC11G08', 'SHOPETIM', 'EXPID21', 'M1YTRAN', 'DEWPOINT', 'CCDTEMP', 'AIRTEMP']
+   - added_primary_header_kwargs: ['SNC12G02', 'SNC02I00', 'FSN2EX1R', 'SNC02R', 'SNC02I02', 'SNC02R00', 'MOONFRAC', 'FSPEC1_I', 'SNC12G00', 'CCDID', 'OBSMODE', 'EXPT_R2', 'SNC12R03', 'DAQVER', 'SNC12R06', 'SNC12I06', 'SN2_2G03', 'FSN2EX2G', 'SN2_2R03', 'SNC12R00', 'SNC02G04', 'CCD', 'AVGBS0', 'SN2_2I01', 'SNC12G01', 'SNC12I', 'SN2_2R05', 'SNC12G07', 'SNC02G07', 'NEXP_B2', 'SPEC2_G', 'SNC02R03', 'FSPEC2_I', 'CONFIGS', 'OFFDEC', 'CCDTYPE', 'SNC02I', 'SNC02G', 'SN2_2I04', 'SNC02G06', 'FSPEC1_R', 'STDBS0', 'FSN2EX1G', 'TAI', 'FSN2EX2R', 'SN2_2R06', 'SPEC2_R', 'SNC12R04', 'SNC02G01', 'SNC02I05', 'VCALIBS', 'SPEC', 'SNC02G00', 'ARCHBVER', 'SNC02R02', 'SNC12I00', 'SNC12R07', 'SNC02G02', 'SN2_2R04', 'SNC12I03', 'SNC12I01', 'SNC12G', 'SNC12I07', 'VJAEGER', 'SN2_2R02', 'FIELDCAD', 'SNC12G06', 'VKAIJU', 'DESIGNS', 'SNC02I04', 'SN2_2G01', 'OBSERVAT', 'OFFPA', 'SNC12G03', 'SN2_2G04', 'SNC02I07', 'SNC12G04', 'SNC12R', 'SN2_2R07', 'SLITID', 'SN2_2G05', 'FSPEC1_G', 'AVGAS0', 'SN2_2G06', 'SNC12I05', 'SNC02G03', 'OFFRA', 'V_ARCHON', 'FSN2EX2I', 'SNC12R02', 'SNC12R05', 'SN2EXT2I', 'SNC02I01', 'SNC02G05', 'EXPT_B2', 'SN2_2G00', 'SN2EXT2R', 'STDAS0', 'SNC02R04', 'ARCHBACK', 'SNC12G05', 'SN2_2I00', 'FSPEC2_G', 'FSN2EX1I', 'SNC12I04', 'SIGBS0', 'SN2_2I03', 'SN2_2G02', 'SN2_2I02', 'SPEC2_I', 'SNC02R01', 'SN2_2G07', 'SN2_2I05', 'SN2_2I07', 'SNC12R01', 'SNC02R06', 'SN2_2I06', 'SN2_2R01', 'SNC02R07', 'VCOORDIO', 'SNC02R05', 'SN2EXT2G', 'FSPEC2_R', 'NEXP_R2', 'BOSSVER', 'SNC02I06', 'CENBS0', 'SNC12I02', 'SNC02I03', 'SN2_2R00']
+   - removed_primary_header_kwargs: ['MGDPOS', 'MC1TRCB', 'EXPID18', 'SNC11I10', 'DIDFLUSH', 'SCALE', 'EXPID22', 'ARCOFFX', 'SN2ILIST', 'SN2_1R10', 'DATE-OBS', 'FOCUS', 'GUSTD', 'MGDRA', 'SNC01I09', 'ROTPOS', 'MC1HUMCO', 'TRUSTEMP', 'HELIO_RV', 'M2XTILT', 'M1YTRAN', 'WINDD25M', 'TILEID', 'LN2TEMP', 'SN2_1G09', 'GUSTS', 'WINDD', 'SN2RLIST', 'M2ZROT', 'CALOFFY', 'SNC01R10', 'MC1HUMHT', 'SLINES', 'M1XTRAN', 'SNC11G10', 'BOREOFFY', 'COLLB', 'CALOFFX', 'M1PISTON', 'DEWPOINT', 'SN2_1R09', 'PRESSURE', 'STDASH0', 'SNC01R08', 'STDBSH0', 'FLAVOR', 'SN2_1I08', 'SN2_1I09', 'M2YTRAN', 'PLINES', 'ERRCNT', 'AVGASH0', 'EXPID17', 'M2PISTON', 'HARTMANN', 'SNC11R09', 'SNC11R08', 'CALOFFR', 'PIXERR', 'SUBFRAME', 'EXPID20', 'WINDS25M', 'ARCOFFY', 'SNC01G10', 'XCHI2', 'TAILIST', 'SNC11I08', 'CENBSH0', 'SNC11I09', 'COLLC', 'SN2_1R08', 'SNC11G09', 'SNC01I08', 'PLUGFILE', 'TWOPHASE', 'M1ZROT', 'M2XTRAN', 'GUIDOFFY', 'M2YTILT', 'MGDDEC', 'SHCLOTIM', 'COLLA', 'SNC11R10', 'CCDTEMP', 'HUMIDITY', 'BOREOFFX', 'SN2GLIST', 'MC1THT', 'SIGBSH0', 'SN2_1G10', 'WINDS', 'GUIDOFFX', 'PFERR', 'ALT', 'SNC11G08', 'MC1TEMDN', 'M1XTILT', 'SNC01R09', 'SNC01G08', 'AUTHOR', 'SLITID1', 'GUIDER1', 'SNC01G09', 'AVGBSH0', 'AIRTEMP', 'MC1TBCB', 'DUSTB', 'M1YTILT', 'RDNOISE0', 'SYNCERR', 'GUIDERN', 'MC1TRCT', 'SHOPETIM', 'IONPUMP', 'SN2_1G08', 'SN2_1I10', 'MC1TBCT', 'OBJSYS', 'SNC01I10', 'GUIDOFFR', 'AZ', 'EXPID21', 'EXPID19', 'DUSTA']
 
 ---
 ## Example HDUS List
 
-### HDU0: PRIMARY
+### HDU0: FLUX
 coadded calibrated flux
 
 #### HDU Type: IMAGE
@@ -80,12 +83,12 @@ coadded calibrated flux
 ##### Header Table Caption for HDU0
 Key | Value | Comment | |
 | --- | --- | --- | --- |
-| SIMPLE | True | Written by IDL:  Wed Apr  3 02:01:41 2024 |
-| BITPIX | -32 | Number of bits per data pixel |
-| NAXIS | 2 | Number of data axes |
+| SIMPLE | True | Primary Header created by MWRFITS v1.13 |
+| BITPIX | -32 |  |
+| NAXIS | 2 |  |
 | NAXIS1 | 4648 |  |
-| NAXIS2 | 503 |  |
-| EXTEND | True |  |
+| NAXIS2 | 487 |  |
+| EXTEND | True | Extensions may be present |
 |  |  |  |
 |  | INSTRUMENT INFO |  |
 | TELESCOP | SDSS 2.5-M | Telescope |
@@ -133,10 +136,11 @@ Key | Value | Comment | |
 | RMSOFF50 | 0.108217325 | 50% RMS offset of guide fibers (arcsec) |
 | RMSOFF80 | 0.150398875 | 80% RMS offset of guide fibers (arcsec) |
 | CONFIGS | 8872 8873 8874 8875 | List of configurations included |
+| DATE-OBS | 2023-02-25T05:29:17 | TAI date at start of integration |
 | TAI | 5184023416.75 | Mean MJD(TAI) seconds of integrations |
 | TAI-BEG | 5184019757.0 | MJD(TAI) seconds at start of integrations |
 | TAI-END | 5184028003.08 | MJD(TAI) seconds at End of integrations |
-| SPCOADD | Wed Apr  3 03:59:24 2024 | SPCOADD finished |
+| SPCOADD | Tue May 13 23:17:35 2025 | SPCOADD finished |
 |  |  |  |
 |  | FIELD/PLATE INFO |  |
 | NAME |  | The name of the currently loaded plate |
@@ -179,18 +183,19 @@ Key | Value | Comment | |
 | CAMDAQ | 1.5.0:37 | Camera Data Acquisition Version |
 | BOSSVER |  | ICC version |
 | VERSIDL | 8.8.0 | Version of IDL |
-| VERSUTIL | 6.0.0dev | Version of idlutils |
-| VERSREAD | v6_1_3 | Version of idlspec2d for pre-processing raw data |
+| VERSUTIL | 6.3.0 | Version of idlutils |
+| VERSREAD | v6_2_1 | Version of idlspec2d for pre-processing raw data |
 | VERSLOG | trunk 27531 | Version of SPECLOG product |
-| VERSFLAT | v1_35 | SPECFLAT version |
-| VERS2D | v6_1_3 | Version of idlspec2d for 2D reduction |
-| VERSCOMB | v6_1_3 | Version of idlspec2d for combining multiple spe |
+| VERSFLAT | v1_36 | SPECFLAT version |
+| VERS2D | v6_2_1 | Version of idlspec2d for 2D reduction |
+| VERSCOMB | v6_2_1 | Version of idlspec2d for combining multiple spe |
 |  |  |  |
 |  | REDUCTION |  |
+| PIXFLAT | pixflatave-59768-b1.fits.gz | Name of Pixel Flat used |
 | BADPIXEL | badpixels-59747-b1.fits.gz | Name of Badpixel mask used |
 |  |  |  |
 |  | PIPELINE OUTPUTS |  |
-| RUN2D | v6_1_3 | Spectro-2D reduction name |
+| RUN2D | v6_2_1 | Spectro-2D reduction name |
 | REDDEN01 | 0.0 | Median extinction in u-band |
 | REDDEN02 | 0.0 | Median extinction in g-band |
 | REDDEN03 | 0.0 | Median extinction in r-band |
@@ -201,58 +206,59 @@ Key | Value | Comment | |
 | SKYLIST | skylines.dat |  |
 | OBSMODE | dark_rm |  |
 | SIGBS0 | 0.034 | 5577.3 line gaussian fit sigma position before |
-| CENBS0 | -0.272 | 5577.3 line gaussian fit center position before |
+| CENBS0 | -0.271 | 5577.3 line gaussian fit center position before |
 | AVGBS0 | -0.289 | 5577.3 line average position before shift (pixe |
 | STDBS0 | 0.042 | 5577.3 line std position before shift (pixels) |
 | AVGAS0 | -0.001 | 5577.3 line average position after shift (pixel |
 | STDAS0 | 0.018 | 5577.3 line std position after shift (pixels) |
 | VACUUM | True | Wavelengths are in vacuum |
 | SFLATTEN | True | Superflat has been applied |
+| SFLATMIN | 0.005 | Superflat Minimum |
 | PSFSKY | 3 | Order of PSF skysubtraction |
 | PREJECT | 0.2 | Profile area rejection threshold |
-| SPEC1_G | 12.2219460607 | (S/N)^2 for spec  1 at mag 21.20 |
-| FSPEC1_G | 11.5277 | Fit (S/N)^2 for spec  1 at mag 21.20 |
-| SN2EXT1G | 12.2219460607 | Extinction corrected (S/N)^2 |
-| FSN2EX1G | 11.5277 | Extinction corrected Fit (S/N)^2 |
-| SPEC1_R | 41.3507530689 | (S/N)^2 for spec  1 at mag 20.20 |
-| FSPEC1_R | 40.1541 | Fit (S/N)^2 for spec  1 at mag 20.20 |
-| SN2EXT1R | 41.3507530689 | Extinction corrected (S/N)^2 |
-| FSN2EX1R | 40.1541 | Extinction corrected Fit (S/N)^2 |
-| SPEC1_I | 35.2351112366 | (S/N)^2 for spec  1 at mag 20.20 |
-| FSPEC1_I | 34.9911 | Fit (S/N)^2 for spec  1 at mag 20.20 |
-| SN2EXT1I | 35.2351112366 | Extinction corrected (S/N)^2 |
-| FSN2EX1I | 34.9911 | Extinction corrected Fit (S/N)^2 |
-| NSTD | 70 | Number of (good) std stars |
-| GOFFSTD | -0.0462443695068 | Spectrophoto offset for std stars in G-band |
-| GRMSSTD | 0.0694731947008 | Spectrophoto RMS for std stars in G-band |
-| ROFFSTD | -0.0365463638306 | Spectrophoto offset for std stars in R-band |
-| RRMSSTD | 0.0780497185281 | Spectrophoto RMS for std stars in R-band |
-| IOFFSTD | -0.0287823562622 | Spectrophoto offset for std stars in I-band |
-| IRMSSTD | 0.0997986278045 | Spectrophoto RMS for std stars in I-band |
-| GROFFSTD | -0.010221572876 | Spectrophoto offset for std stars in (GR) |
-| GRRMSSTD | 0.0954300118221 | Spectrophoto RMS for std stars in (GR) |
-| RIOFFSTD | -0.018508102417 | Spectrophoto offset for std stars in (RI) |
-| RIRMSSTD | 0.0464428145974 | Spectrophoto RMS for std stars in (RI) |
-| NGAL | 429 | Number of (good) main galaxies |
-| GOFFGAL | 0.0830795898437 | Spectrophoto offset for main galaxies in G-band |
-| GRMSGAL | 0.34546515523 | Spectrophoto RMS for main galaxies in G-band |
-| ROFFGAL | 0.0329774475098 | Spectrophoto offset for main galaxies in R-band |
-| RRMSGAL | 0.27751294513 | Spectrophoto RMS for main galaxies in R-band |
-| IOFFGAL | 0.0283188934326 | Spectrophoto offset for main galaxies in I-band |
-| IRMSGAL | 0.264328087927 | Spectrophoto RMS for main galaxies in I-band |
-| GROFFGAL | 0.0424164810181 | Spectrophoto offset for main galaxies in (GR) |
-| GRRMSGAL | 0.163503519386 | Spectrophoto RMS for main galaxies in (GR) |
-| RIOFFGAL | -0.0191127319336 | Spectrophoto offset for main galaxies in (RI) |
-| RIRMSGAL | 0.159432261406 | Spectrophoto RMS for main galaxies in (RI) |
-| SNC01G00 | 1.36618 | SN fit coeff for spec 1, exp 00 at G-band |
-| SNC11G00 | 17.8636 | SN fit coeff for spec 1, exp 00 at G-band |
-| SN2_1G00 | 0.966487 | (S/N)^2 for spec  1, exp 00 at mag 21.20 at G-b |
-| SNC01R00 | 1.34374 | SN fit coeff for spec 1, exp 00 at R-band |
-| SNC11R00 | 28.5096 | SN fit coeff for spec 1, exp 00 at R-band |
-| SN2_1R00 | 3.39203 | (S/N)^2 for spec  1, exp 00 at mag 20.20 at R-b |
-| SNC01I00 | 1.2843 | SN fit coeff for spec 1, exp 00 at I-band |
-| SNC11I00 | 33.4881 | SN fit coeff for spec 1, exp 00 at I-band |
-| SN2_1I00 | 2.72959 | (S/N)^2 for spec  1, exp 00 at mag 20.20 at I-b |
+| SPEC1_G | 12.6006065011 | (S/N)^2 for spec  1 at mag 21.20 |
+| FSPEC1_G | 11.8874 | Fit (S/N)^2 for spec  1 at mag 21.20 |
+| SN2EXT1G | 12.6006065011 | Extinction corrected (S/N)^2 |
+| FSN2EX1G | 11.8874 | Extinction corrected Fit (S/N)^2 |
+| SPEC1_R | 42.2657444477 | (S/N)^2 for spec  1 at mag 20.20 |
+| FSPEC1_R | 41.4315 | Fit (S/N)^2 for spec  1 at mag 20.20 |
+| SN2EXT1R | 42.2657444477 | Extinction corrected (S/N)^2 |
+| FSN2EX1R | 41.4315 | Extinction corrected Fit (S/N)^2 |
+| SPEC1_I | 36.2762145996 | (S/N)^2 for spec  1 at mag 20.20 |
+| FSPEC1_I | 36.1223 | Fit (S/N)^2 for spec  1 at mag 20.20 |
+| SN2EXT1I | 36.2762145996 | Extinction corrected (S/N)^2 |
+| FSN2EX1I | 36.1223 | Extinction corrected Fit (S/N)^2 |
+| NSTD | 69 | Number of (good) std stars |
+| GOFFSTD | -0.0444838867188 | Spectrophoto offset for std stars in G-band |
+| GRMSSTD | 0.0860753507049 | Spectrophoto RMS for std stars in G-band |
+| ROFFSTD | -0.0352121734619 | Spectrophoto offset for std stars in R-band |
+| RRMSSTD | 0.0760452325727 | Spectrophoto RMS for std stars in R-band |
+| IOFFSTD | -0.0354895477295 | Spectrophoto offset for std stars in I-band |
+| IRMSSTD | 0.0996857015415 | Spectrophoto RMS for std stars in I-band |
+| GROFFSTD | -0.0179959259033 | Spectrophoto offset for std stars in (GR) |
+| GRRMSSTD | 0.108455556989 | Spectrophoto RMS for std stars in (GR) |
+| RIOFFSTD | -0.0142041702271 | Spectrophoto offset for std stars in (RI) |
+| RIRMSSTD | 0.0483873259288 | Spectrophoto RMS for std stars in (RI) |
+| NGAL | 418 | Number of (good) main galaxies |
+| GOFFGAL | 0.0709841384888 | Spectrophoto offset for main galaxies in G-band |
+| GRMSGAL | 0.309306466853 | Spectrophoto RMS for main galaxies in G-band |
+| ROFFGAL | 0.0311254119873 | Spectrophoto offset for main galaxies in R-band |
+| RRMSGAL | 0.268970902025 | Spectrophoto RMS for main galaxies in R-band |
+| IOFFGAL | 0.0205683822632 | Spectrophoto offset for main galaxies in I-band |
+| IRMSGAL | 0.26502343751 | Spectrophoto RMS for main galaxies in I-band |
+| GROFFGAL | 0.0463828125 | Spectrophoto offset for main galaxies in (GR) |
+| GRRMSGAL | 0.16971402551 | Spectrophoto RMS for main galaxies in (GR) |
+| RIOFFGAL | -0.0144454498291 | Spectrophoto offset for main galaxies in (RI) |
+| RIRMSGAL | 0.158741462468 | Spectrophoto RMS for main galaxies in (RI) |
+| SNC01G00 | 1.36014 | SN fit coeff for spec 1, exp 00 at G-band |
+| SNC11G00 | 17.1157 | SN fit coeff for spec 1, exp 00 at G-band |
+| SN2_1G00 | 0.993031 | (S/N)^2 for spec  1, exp 00 at mag 21.20 at G-b |
+| SNC01R00 | 1.33787 | SN fit coeff for spec 1, exp 00 at R-band |
+| SNC11R00 | 27.5361 | SN fit coeff for spec 1, exp 00 at R-band |
+| SN2_1R00 | 3.45378 | (S/N)^2 for spec  1, exp 00 at mag 20.20 at R-b |
+| SNC01I00 | 1.28343 | SN fit coeff for spec 1, exp 00 at I-band |
+| SNC11I00 | 31.985 | SN fit coeff for spec 1, exp 00 at I-band |
+| SN2_1I00 | 2.82753 | (S/N)^2 for spec  1, exp 00 at mag 20.20 at I-b |
 | SNC02G00 | 0.0 | SN fit coeff for spec 2, exp 00 at G-band |
 | SNC12G00 | 0.0 | SN fit coeff for spec 2, exp 00 at G-band |
 | SN2_2G00 | 0.0 | (S/N)^2 for spec  2, exp 00 at mag 21.20 at G-b |
@@ -262,15 +268,15 @@ Key | Value | Comment | |
 | SNC02I00 | 0.0 | SN fit coeff for spec 2, exp 00 at I-band |
 | SNC12I00 | 0.0 | SN fit coeff for spec 2, exp 00 at I-band |
 | SN2_2I00 | 0.0 | (S/N)^2 for spec  2, exp 00 at mag 20.20 at I-b |
-| SNC01G01 | 1.51207 | SN fit coeff for spec 1, exp 01 at G-band |
-| SNC11G01 | 10.15 | SN fit coeff for spec 1, exp 01 at G-band |
-| SN2_1G01 | 1.86234 | (S/N)^2 for spec  1, exp 01 at mag 21.20 at G-b |
-| SNC01R01 | 1.488 | SN fit coeff for spec 1, exp 01 at R-band |
-| SNC11R01 | 15.4916 | SN fit coeff for spec 1, exp 01 at R-band |
-| SN2_1R01 | 6.43367 | (S/N)^2 for spec  1, exp 01 at mag 20.20 at R-b |
-| SNC01I01 | 1.42076 | SN fit coeff for spec 1, exp 01 at I-band |
-| SNC11I01 | 18.2216 | SN fit coeff for spec 1, exp 01 at I-band |
-| SN2_1I01 | 5.26198 | (S/N)^2 for spec  1, exp 01 at mag 20.20 at I-b |
+| SNC01G01 | 1.50712 | SN fit coeff for spec 1, exp 01 at G-band |
+| SNC11G01 | 9.67771 | SN fit coeff for spec 1, exp 01 at G-band |
+| SN2_1G01 | 1.91742 | (S/N)^2 for spec  1, exp 01 at mag 21.20 at G-b |
+| SNC01R01 | 1.48298 | SN fit coeff for spec 1, exp 01 at R-band |
+| SNC11R01 | 14.8286 | SN fit coeff for spec 1, exp 01 at R-band |
+| SN2_1R01 | 6.57342 | (S/N)^2 for spec  1, exp 01 at mag 20.20 at R-b |
+| SNC01I01 | 1.42123 | SN fit coeff for spec 1, exp 01 at I-band |
+| SNC11I01 | 17.3472 | SN fit coeff for spec 1, exp 01 at I-band |
+| SN2_1I01 | 5.44489 | (S/N)^2 for spec  1, exp 01 at mag 20.20 at I-b |
 | SNC02G01 | 0.0 | SN fit coeff for spec 2, exp 01 at G-band |
 | SNC12G01 | 0.0 | SN fit coeff for spec 2, exp 01 at G-band |
 | SN2_2G01 | 0.0 | (S/N)^2 for spec  2, exp 01 at mag 21.20 at G-b |
@@ -280,15 +286,15 @@ Key | Value | Comment | |
 | SNC02I01 | 0.0 | SN fit coeff for spec 2, exp 01 at I-band |
 | SNC12I01 | 0.0 | SN fit coeff for spec 2, exp 01 at I-band |
 | SN2_2I01 | 0.0 | (S/N)^2 for spec  2, exp 01 at mag 20.20 at I-b |
-| SNC01G02 | 1.58317 | SN fit coeff for spec 1, exp 02 at G-band |
-| SNC11G02 | 7.28166 | SN fit coeff for spec 1, exp 02 at G-band |
-| SN2_1G02 | 2.5944 | (S/N)^2 for spec  1, exp 02 at mag 21.20 at G-b |
-| SNC01R02 | 1.56459 | SN fit coeff for spec 1, exp 02 at R-band |
-| SNC11R02 | 10.8008 | SN fit coeff for spec 1, exp 02 at R-band |
-| SN2_1R02 | 8.85833 | (S/N)^2 for spec  1, exp 02 at mag 20.20 at R-b |
-| SNC01I02 | 1.49496 | SN fit coeff for spec 1, exp 02 at I-band |
-| SNC11I02 | 12.0777 | SN fit coeff for spec 1, exp 02 at I-band |
-| SN2_1I02 | 7.58106 | (S/N)^2 for spec  1, exp 02 at mag 20.20 at I-b |
+| SNC01G02 | 1.57871 | SN fit coeff for spec 1, exp 02 at G-band |
+| SNC11G02 | 6.92027 | SN fit coeff for spec 1, exp 02 at G-band |
+| SN2_1G02 | 2.67093 | (S/N)^2 for spec  1, exp 02 at mag 21.20 at G-b |
+| SNC01R02 | 1.56058 | SN fit coeff for spec 1, exp 02 at R-band |
+| SNC11R02 | 10.2798 | SN fit coeff for spec 1, exp 02 at R-band |
+| SN2_1R02 | 9.05979 | (S/N)^2 for spec  1, exp 02 at mag 20.20 at R-b |
+| SNC01I02 | 1.49528 | SN fit coeff for spec 1, exp 02 at I-band |
+| SNC11I02 | 11.5483 | SN fit coeff for spec 1, exp 02 at I-band |
+| SN2_1I02 | 7.7864 | (S/N)^2 for spec  1, exp 02 at mag 20.20 at I-b |
 | SNC02G02 | 0.0 | SN fit coeff for spec 2, exp 02 at G-band |
 | SNC12G02 | 0.0 | SN fit coeff for spec 2, exp 02 at G-band |
 | SN2_2G02 | 0.0 | (S/N)^2 for spec  2, exp 02 at mag 21.20 at G-b |
@@ -298,15 +304,15 @@ Key | Value | Comment | |
 | SNC02I02 | 0.0 | SN fit coeff for spec 2, exp 02 at I-band |
 | SNC12I02 | 0.0 | SN fit coeff for spec 2, exp 02 at I-band |
 | SN2_2I02 | 0.0 | (S/N)^2 for spec  2, exp 02 at mag 20.20 at I-b |
-| SNC01G03 | 1.51658 | SN fit coeff for spec 1, exp 03 at G-band |
-| SNC11G03 | 9.17908 | SN fit coeff for spec 1, exp 03 at G-band |
-| SN2_1G03 | 2.01908 | (S/N)^2 for spec  1, exp 03 at mag 21.20 at G-b |
-| SNC01R03 | 1.49993 | SN fit coeff for spec 1, exp 03 at R-band |
-| SNC11R03 | 13.548 | SN fit coeff for spec 1, exp 03 at R-band |
-| SN2_1R03 | 7.11832 | (S/N)^2 for spec  1, exp 03 at mag 20.20 at R-b |
-| SNC01I03 | 1.44129 | SN fit coeff for spec 1, exp 03 at I-band |
-| SNC11I03 | 14.633 | SN fit coeff for spec 1, exp 03 at I-band |
-| SN2_1I03 | 6.26192 | (S/N)^2 for spec  1, exp 03 at mag 20.20 at I-b |
+| SNC01G03 | 1.51183 | SN fit coeff for spec 1, exp 03 at G-band |
+| SNC11G03 | 8.73093 | SN fit coeff for spec 1, exp 03 at G-band |
+| SN2_1G03 | 2.08114 | (S/N)^2 for spec  1, exp 03 at mag 21.20 at G-b |
+| SNC01R03 | 1.49572 | SN fit coeff for spec 1, exp 03 at R-band |
+| SNC11R03 | 12.7874 | SN fit coeff for spec 1, exp 03 at R-band |
+| SN2_1R03 | 7.33349 | (S/N)^2 for spec  1, exp 03 at mag 20.20 at R-b |
+| SNC01I03 | 1.44151 | SN fit coeff for spec 1, exp 03 at I-band |
+| SNC11I03 | 13.9394 | SN fit coeff for spec 1, exp 03 at I-band |
+| SN2_1I03 | 6.45906 | (S/N)^2 for spec  1, exp 03 at mag 20.20 at I-b |
 | SNC02G03 | 0.0 | SN fit coeff for spec 2, exp 03 at G-band |
 | SNC12G03 | 0.0 | SN fit coeff for spec 2, exp 03 at G-band |
 | SN2_2G03 | 0.0 | (S/N)^2 for spec  2, exp 03 at mag 21.20 at G-b |
@@ -316,15 +322,15 @@ Key | Value | Comment | |
 | SNC02I03 | 0.0 | SN fit coeff for spec 2, exp 03 at I-band |
 | SNC12I03 | 0.0 | SN fit coeff for spec 2, exp 03 at I-band |
 | SN2_2I03 | 0.0 | (S/N)^2 for spec  2, exp 03 at mag 20.20 at I-b |
-| SNC01G04 | 1.3552 | SN fit coeff for spec 1, exp 04 at G-band |
-| SNC11G04 | 17.3612 | SN fit coeff for spec 1, exp 04 at G-band |
-| SN2_1G04 | 0.974117 | (S/N)^2 for spec  1, exp 04 at mag 21.20 at G-b |
-| SNC01R04 | 1.27939 | SN fit coeff for spec 1, exp 04 at R-band |
-| SNC11R04 | 25.1488 | SN fit coeff for spec 1, exp 04 at R-band |
-| SN2_1R04 | 3.38374 | (S/N)^2 for spec  1, exp 04 at mag 20.20 at R-b |
-| SNC01I04 | 1.21711 | SN fit coeff for spec 1, exp 04 at I-band |
-| SNC11I04 | 24.7165 | SN fit coeff for spec 1, exp 04 at I-band |
-| SN2_1I04 | 3.10237 | (S/N)^2 for spec  1, exp 04 at mag 20.20 at I-b |
+| SNC01G04 | 1.34786 | SN fit coeff for spec 1, exp 04 at G-band |
+| SNC11G04 | 16.529 | SN fit coeff for spec 1, exp 04 at G-band |
+| SN2_1G04 | 1.00402 | (S/N)^2 for spec  1, exp 04 at mag 21.20 at G-b |
+| SNC01R04 | 1.2733 | SN fit coeff for spec 1, exp 04 at R-band |
+| SNC11R04 | 24.3085 | SN fit coeff for spec 1, exp 04 at R-band |
+| SN2_1R04 | 3.4379 | (S/N)^2 for spec  1, exp 04 at mag 20.20 at R-b |
+| SNC01I04 | 1.21716 | SN fit coeff for spec 1, exp 04 at I-band |
+| SNC11I04 | 23.8134 | SN fit coeff for spec 1, exp 04 at I-band |
+| SN2_1I04 | 3.18983 | (S/N)^2 for spec  1, exp 04 at mag 20.20 at I-b |
 | SNC02G04 | 0.0 | SN fit coeff for spec 2, exp 04 at G-band |
 | SNC12G04 | 0.0 | SN fit coeff for spec 2, exp 04 at G-band |
 | SN2_2G04 | 0.0 | (S/N)^2 for spec  2, exp 04 at mag 21.20 at G-b |
@@ -334,15 +340,15 @@ Key | Value | Comment | |
 | SNC02I04 | 0.0 | SN fit coeff for spec 2, exp 04 at I-band |
 | SNC12I04 | 0.0 | SN fit coeff for spec 2, exp 04 at I-band |
 | SN2_2I04 | 0.0 | (S/N)^2 for spec  2, exp 04 at mag 20.20 at I-b |
-| SNC01G05 | 1.32026 | SN fit coeff for spec 1, exp 05 at G-band |
-| SNC11G05 | 19.2875 | SN fit coeff for spec 1, exp 05 at G-band |
-| SN2_1G05 | 0.845728 | (S/N)^2 for spec  1, exp 05 at mag 21.20 at G-b |
-| SNC01R05 | 1.23183 | SN fit coeff for spec 1, exp 05 at R-band |
-| SNC11R05 | 29.0726 | SN fit coeff for spec 1, exp 05 at R-band |
-| SN2_1R05 | 2.80763 | (S/N)^2 for spec  1, exp 05 at mag 20.20 at R-b |
-| SNC01I05 | 1.16085 | SN fit coeff for spec 1, exp 05 at I-band |
-| SNC11I05 | 29.1367 | SN fit coeff for spec 1, exp 05 at I-band |
-| SN2_1I05 | 2.48916 | (S/N)^2 for spec  1, exp 05 at mag 20.20 at I-b |
+| SNC01G05 | 1.31163 | SN fit coeff for spec 1, exp 05 at G-band |
+| SNC11G05 | 18.1404 | SN fit coeff for spec 1, exp 05 at G-band |
+| SN2_1G05 | 0.879346 | (S/N)^2 for spec  1, exp 05 at mag 21.20 at G-b |
+| SNC01R05 | 1.22489 | SN fit coeff for spec 1, exp 05 at R-band |
+| SNC11R05 | 28.1622 | SN fit coeff for spec 1, exp 05 at R-band |
+| SN2_1R05 | 2.84539 | (S/N)^2 for spec  1, exp 05 at mag 20.20 at R-b |
+| SNC01I05 | 1.16066 | SN fit coeff for spec 1, exp 05 at I-band |
+| SNC11I05 | 27.8975 | SN fit coeff for spec 1, exp 05 at I-band |
+| SN2_1I05 | 2.57345 | (S/N)^2 for spec  1, exp 05 at mag 20.20 at I-b |
 | SNC02G05 | 0.0 | SN fit coeff for spec 2, exp 05 at G-band |
 | SNC12G05 | 0.0 | SN fit coeff for spec 2, exp 05 at G-band |
 | SN2_2G05 | 0.0 | (S/N)^2 for spec  2, exp 05 at mag 21.20 at G-b |
@@ -352,15 +358,15 @@ Key | Value | Comment | |
 | SNC02I05 | 0.0 | SN fit coeff for spec 2, exp 05 at I-band |
 | SNC12I05 | 0.0 | SN fit coeff for spec 2, exp 05 at I-band |
 | SN2_2I05 | 0.0 | (S/N)^2 for spec  2, exp 05 at mag 20.20 at I-b |
-| SNC01G06 | 1.42431 | SN fit coeff for spec 1, exp 06 at G-band |
-| SNC11G06 | 14.7921 | SN fit coeff for spec 1, exp 06 at G-band |
-| SN2_1G06 | 1.22871 | (S/N)^2 for spec  1, exp 06 at mag 21.20 at G-b |
-| SNC01R06 | 1.32235 | SN fit coeff for spec 1, exp 06 at R-band |
-| SNC11R06 | 22.1714 | SN fit coeff for spec 1, exp 06 at R-band |
-| SN2_1R06 | 3.96781 | (S/N)^2 for spec  1, exp 06 at mag 20.20 at R-b |
-| SNC01I06 | 1.23542 | SN fit coeff for spec 1, exp 06 at I-band |
-| SNC11I06 | 23.013 | SN fit coeff for spec 1, exp 06 at I-band |
-| SN2_1I06 | 3.37024 | (S/N)^2 for spec  1, exp 06 at mag 20.20 at I-b |
+| SNC01G06 | 1.41718 | SN fit coeff for spec 1, exp 06 at G-band |
+| SNC11G06 | 14.0708 | SN fit coeff for spec 1, exp 06 at G-band |
+| SN2_1G06 | 1.2669 | (S/N)^2 for spec  1, exp 06 at mag 21.20 at G-b |
+| SNC01R06 | 1.31616 | SN fit coeff for spec 1, exp 06 at R-band |
+| SNC11R06 | 21.3335 | SN fit coeff for spec 1, exp 06 at R-band |
+| SN2_1R06 | 4.04181 | (S/N)^2 for spec  1, exp 06 at mag 20.20 at R-b |
+| SNC01I06 | 1.23649 | SN fit coeff for spec 1, exp 06 at I-band |
+| SNC11I06 | 22.1228 | SN fit coeff for spec 1, exp 06 at I-band |
+| SN2_1I06 | 3.4748 | (S/N)^2 for spec  1, exp 06 at mag 20.20 at I-b |
 | SNC02G06 | 0.0 | SN fit coeff for spec 2, exp 06 at G-band |
 | SNC12G06 | 0.0 | SN fit coeff for spec 2, exp 06 at G-band |
 | SN2_2G06 | 0.0 | (S/N)^2 for spec  2, exp 06 at mag 21.20 at G-b |
@@ -370,15 +376,15 @@ Key | Value | Comment | |
 | SNC02I06 | 0.0 | SN fit coeff for spec 2, exp 06 at I-band |
 | SNC12I06 | 0.0 | SN fit coeff for spec 2, exp 06 at I-band |
 | SN2_2I06 | 0.0 | (S/N)^2 for spec  2, exp 06 at mag 20.20 at I-b |
-| SNC01G07 | 1.51613 | SN fit coeff for spec 1, exp 07 at G-band |
-| SNC11G07 | 11.2484 | SN fit coeff for spec 1, exp 07 at G-band |
-| SN2_1G07 | 1.73108 | (S/N)^2 for spec  1, exp 07 at mag 21.20 at G-b |
-| SNC01R07 | 1.40697 | SN fit coeff for spec 1, exp 07 at R-band |
-| SNC11R07 | 17.0948 | SN fit coeff for spec 1, exp 07 at R-band |
-| SN2_1R07 | 5.38921 | (S/N)^2 for spec  1, exp 07 at mag 20.20 at R-b |
-| SNC01I07 | 1.30475 | SN fit coeff for spec 1, exp 07 at I-band |
-| SNC11I07 | 18.2156 | SN fit coeff for spec 1, exp 07 at I-band |
-| SN2_1I07 | 4.43878 | (S/N)^2 for spec  1, exp 07 at mag 20.20 at I-b |
+| SNC01G07 | 1.50989 | SN fit coeff for spec 1, exp 07 at G-band |
+| SNC11G07 | 10.6706 | SN fit coeff for spec 1, exp 07 at G-band |
+| SN2_1G07 | 1.78782 | (S/N)^2 for spec  1, exp 07 at mag 21.20 at G-b |
+| SNC01R07 | 1.40047 | SN fit coeff for spec 1, exp 07 at R-band |
+| SNC11R07 | 16.2633 | SN fit coeff for spec 1, exp 07 at R-band |
+| SN2_1R07 | 5.52015 | (S/N)^2 for spec  1, exp 07 at mag 20.20 at R-b |
+| SNC01I07 | 1.30587 | SN fit coeff for spec 1, exp 07 at I-band |
+| SNC11I07 | 17.7823 | SN fit coeff for spec 1, exp 07 at I-band |
+| SN2_1I07 | 4.52025 | (S/N)^2 for spec  1, exp 07 at mag 20.20 at I-b |
 | SNC02G07 | 0.0 | SN fit coeff for spec 2, exp 07 at G-band |
 | SNC12G07 | 0.0 | SN fit coeff for spec 2, exp 07 at G-band |
 | SN2_2G07 | 0.0 | (S/N)^2 for spec  2, exp 07 at mag 21.20 at G-b |
@@ -388,12 +394,12 @@ Key | Value | Comment | |
 | SNC02I07 | 0.0 | SN fit coeff for spec 2, exp 07 at I-band |
 | SNC12I07 | 0.0 | SN fit coeff for spec 2, exp 07 at I-band |
 | SN2_2I07 | 0.0 | (S/N)^2 for spec  2, exp 07 at mag 20.20 at I-b |
-| SNC01G | 4.0628 | Total SN fit coeff for spec 1 at G-band |
-| SNC11G | 12.389 | Total SN fit coeff for spec 1 at G-band |
-| SNC01R | 3.90343 | Total SN fit coeff for spec 1 at R-band |
-| SNC11R | 17.9343 | Total SN fit coeff for spec 1 at R-band |
-| SNC01I | 3.69055 | Total SN fit coeff for spec 1 at I-band |
-| SNC11I | 18.6115 | Total SN fit coeff for spec 1 at I-band |
+| SNC01G | 4.04593 | Total SN fit coeff for spec 1 at G-band |
+| SNC11G | 11.7876 | Total SN fit coeff for spec 1 at G-band |
+| SNC01R | 3.9142 | Total SN fit coeff for spec 1 at R-band |
+| SNC11R | 17.2656 | Total SN fit coeff for spec 1 at R-band |
+| SNC01I | 3.68964 | Total SN fit coeff for spec 1 at I-band |
+| SNC11I | 17.7554 | Total SN fit coeff for spec 1 at I-band |
 | SNC02G | 0.0 | Total SN fit coeff for spec 2 at G-band |
 | SNC12G | 0.0 | Total SN fit coeff for spec 2 at G-band |
 | SNC02R | 0.0 | Total SN fit coeff for spec 2 at R-band |
@@ -405,6 +411,7 @@ Key | Value | Comment | |
 | SCATPOLY | 0 | Extraction: Order of scattered light polynomial |
 | PROFTYPE | 1 | Extraction profile: 1=Gaussian |
 | NFITPOLY | 1 | Extraction: Number of parameters in each profil |
+| EXTNAME | FLUX |  |
 | SPEC2_G | 0.0 | (S/N)^2 for spec  2 at mag 21.20 |
 | FSPEC2_G | 0 | Fit (S/N)^2 for spec  2 at mag 21.20 |
 | SN2EXT2G | 0.0 | Extinction corrected (S/N)^2 |
@@ -420,9 +427,9 @@ Key | Value | Comment | |
 | NWORDER | 2 | Linear-log10 coefficients |
 | COEFF0 | 3.5523 | Central wavelength (log10) of first pixel |
 | COEFF1 | 0.0001 | Log10 dispersion per pixel |
-| UNAME | notch288 |  |
-| FBADPIX | 0.0110465 | Fraction of bad pixels |
-| FBADPIX1 | 0.0110465 | Fraction of bad pixels on spectro-1 |
+| UNAME | notch282 |  |
+| FBADPIX | 0.00758048 | Fraction of bad pixels |
+| FBADPIX1 | 0.00758048 | Fraction of bad pixels on spectro-1 |
 | FBADPIX2 | 0 | Fraction of bad pixels on spectro-2 |
 | WAT0_001 | system=linear |  |
 | WAT1_001 | wtype=linear label=Wavelength units=Angstroms |  |
@@ -431,15 +438,15 @@ Key | Value | Comment | |
 | CRPIX1 | 1 | Starting pixel (1-indexed) |
 | CTYPE1 | LINEAR |  |
 | DC-FLAG | 1 | Log-linear flag |
-| SKYCHI2 | 0.88294821029 | Mean chi^2 of sky-subtraction |
-| SCHI2MIN | 0.852563463649 | Minimim chi^2 of sky-subtraction |
-| SCHI2MAX | 0.98859987497 | Maximim chi^2 of sky-subtraction |
+| SKYCHI2 | 0.901830962406 | Mean chi^2 of sky-subtraction |
+| SCHI2MIN | 0.790885372837 | Minimim chi^2 of sky-subtraction |
+| SCHI2MAX | 1.1027420899 | Maximim chi^2 of sky-subtraction |
 | WSIGMA | 1.08981 |  |
 | WSIGMIN | 1.08981 |  |
 | WSIGMAX | 1.13388 |  |
 | XSIGMA | 1.06889 |  |
 | XSIGMIN | 1.06889 |  |
-| XSIGMAX | 1.10187 |  |
+| XSIGMAX | 1.1019 |  |
 | AIRMASS | 1.18051 | Mean airmass |
 | BUNIT | 1E-17 erg/cm^2/s/Ang |  |
 
@@ -454,13 +461,11 @@ inverse variance of flux
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
 | --- | --- | --- | --- |
-| XTENSION | IMAGE | IMAGE extension |
-| BITPIX | -32 | Number of bits per data pixel |
-| NAXIS | 2 | Number of data axes |
+| XTENSION | IMAGE | Image Extension created by MWRFITS v1.13 |
+| BITPIX | -32 |  |
+| NAXIS | 2 |  |
 | NAXIS1 | 4648 |  |
-| NAXIS2 | 503 |  |
-| PCOUNT | 0 | No Group Parameters |
-| GCOUNT | 1 | One Data Group |
+| NAXIS2 | 487 |  |
 | WAT0_001 | system=linear |  |
 | WAT1_001 | wtype=linear label=Wavelength units=Angstroms |  |
 | CRVAL1 | 3.5523 | Central wavelength (log10) of first pixel |
@@ -470,6 +475,8 @@ Key | Value | Comment | |
 | DC-FLAG | 1 | Log-linear flag |
 | BUNIT | 1/(1E-17 erg/cm^2/s/Ang)^2 |  |
 | EXTNAME | IVAR | Inverse variance |
+| PCOUNT | 0 |  |
+| GCOUNT | 1 |  |
 
 
 
@@ -482,13 +489,11 @@ AND Mask
 ##### Header Table Caption for HDU2
 Key | Value | Comment | |
 | --- | --- | --- | --- |
-| XTENSION | IMAGE | IMAGE extension |
-| BITPIX | 32 | Number of bits per data pixel |
-| NAXIS | 2 | Number of data axes |
+| XTENSION | IMAGE | Image Extension created by MWRFITS v1.13 |
+| BITPIX | 32 |  |
+| NAXIS | 2 |  |
 | NAXIS1 | 4648 |  |
-| NAXIS2 | 503 |  |
-| PCOUNT | 0 | No Group Parameters |
-| GCOUNT | 1 | One Data Group |
+| NAXIS2 | 487 |  |
 | WAT0_001 | system=linear |  |
 | WAT1_001 | wtype=linear label=Wavelength units=Angstroms |  |
 | CRVAL1 | 3.5523 | Central wavelength (log10) of first pixel |
@@ -497,6 +502,8 @@ Key | Value | Comment | |
 | CTYPE1 | LINEAR |  |
 | DC-FLAG | 1 | Log-linear flag |
 | EXTNAME | ANDMASK | AND Mask |
+| PCOUNT | 0 |  |
+| GCOUNT | 1 |  |
 
 
 
@@ -509,13 +516,11 @@ OR Mask
 ##### Header Table Caption for HDU3
 Key | Value | Comment | |
 | --- | --- | --- | --- |
-| XTENSION | IMAGE | IMAGE extension |
-| BITPIX | 32 | Number of bits per data pixel |
-| NAXIS | 2 | Number of data axes |
+| XTENSION | IMAGE | Image Extension created by MWRFITS v1.13 |
+| BITPIX | 32 |  |
+| NAXIS | 2 |  |
 | NAXIS1 | 4648 |  |
-| NAXIS2 | 503 |  |
-| PCOUNT | 0 | No Group Parameters |
-| GCOUNT | 1 | One Data Group |
+| NAXIS2 | 487 |  |
 | WAT0_001 | system=linear |  |
 | WAT1_001 | wtype=linear label=Wavelength units=Angstroms |  |
 | CRVAL1 | 3.5523 | Central wavelength (log10) of first pixel |
@@ -524,6 +529,8 @@ Key | Value | Comment | |
 | CTYPE1 | LINEAR |  |
 | DC-FLAG | 1 | Log-linear flag |
 | EXTNAME | ORMASK | OR Mask |
+| PCOUNT | 0 |  |
+| GCOUNT | 1 |  |
 
 
 
@@ -536,13 +543,11 @@ Wavelength dispersion in number of pixel
 ##### Header Table Caption for HDU4
 Key | Value | Comment | |
 | --- | --- | --- | --- |
-| XTENSION | IMAGE | IMAGE extension |
-| BITPIX | -32 | Number of bits per data pixel |
-| NAXIS | 2 | Number of data axes |
+| XTENSION | IMAGE | Image Extension created by MWRFITS v1.13 |
+| BITPIX | -32 |  |
+| NAXIS | 2 |  |
 | NAXIS1 | 4648 |  |
-| NAXIS2 | 503 |  |
-| PCOUNT | 0 | No Group Parameters |
-| GCOUNT | 1 | One Data Group |
+| NAXIS2 | 487 |  |
 | WAT0_001 | system=linear |  |
 | WAT1_001 | wtype=linear label=Wavelength units=Angstroms |  |
 | CRVAL1 | 3.5523 | Central wavelength (log10) of first pixel |
@@ -552,6 +557,8 @@ Key | Value | Comment | |
 | DC-FLAG | 1 | Log-linear flag |
 | BUNIT | pixels |  |
 | EXTNAME | WAVEDISP | Wavelength dispersion |
+| PCOUNT | 0 |  |
+| GCOUNT | 1 |  |
 
 
 
@@ -567,11 +574,11 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | Binary table written by MWRFITS v1.13 |
 | BITPIX | 8 | Required value |
 | NAXIS | 2 | Required value |
-| NAXIS1 | 2648 | Number of bytes per row |
-| NAXIS2 | 503 | Number of rows |
+| NAXIS1 | 2847 | Number of bytes per row |
+| NAXIS2 | 487 | Number of rows |
 | PCOUNT | 0 | Normally 0 (no varying arrays) |
 | GCOUNT | 1 | Required value |
-| TFIELDS | 134 | Number of columns in table |
+| TFIELDS | 152 | Number of columns in table |
 | COMMENT |  |  |
 | COMMENT |  *** End of mandatory fields *** |  |
 | COMMENT |  |  |
@@ -593,13 +600,17 @@ Name | Type | Unit | Description |
  | ON_TARGET | int64 |  | Whether this fibre is on target |
  | VALID | int64 |  | alpha and beta angles are valid |
  | DECOLLIDED | int64 |  | this positioner had to be moved to decollide it |
+ | TOO | int64 |  | the fiber is allocated to a TOO |
  | FIBERMASK | int64 |  | Fiber level bitmasks (maps to SPPIXMASK) |
  | BADSTDMASK | int64 |  | Standard rejected by magnitude range of design |
  | THROUGHPUT | int64 |  | Plate Fiber throughput (0-65535, 0=no light) |
  | SCI_EXPTIME | float64 | s | Rescaled Science Exposure Time for offset plate |
  | BLUEFIBER | int64 |  | BOSS to assign this target a 'blue' fiber |
- | XFOCAL | float64 |  | Hole x-axis position in focal plane per exposure |
- | YFOCAL | float64 |  | Hole y-axis position in focal plane per exposure |
+ | XWOK_PRE | float64 | mm | The XWOK pre FVC Loop |
+ | YWOK_PRE | float64 | mm | The YWOK pre FVC Loop |
+ | ZWOK_PRE | float64 | mm | The ZWOK pre FVC Loop |
+ | XFOCAL | float64 | mm | Hole x-axis position in focal plane per exposure |
+ | YFOCAL | float64 | mm | Hole y-axis position in focal plane per exposure |
  | ZOFFSET | float64 | micron | backstopping offset distance (from washers) |
  | RACAT | float64 | deg | Catalog RA in ICRS coordinates at coord_epoch |
  | DECCAT | float64 | deg | Catalog Dec in ICRS coordinates at coord_epoch |
@@ -611,10 +622,16 @@ Name | Type | Unit | Description |
  | DEC | float64 | deg | Calculated on sky fiber Dec including delta_DEC |
  | DELTA_RA | float64 | arcsec | The amount in RA this fiber has been offset |
  | DELTA_DEC | float64 | arcsec | The amount in Dec this fiber has been offset |
+ | RA_OBSERVED | float64 | deg | RA with correction for atmospheric refraction |
+ | DEC_OBSERVED | float64 | deg | dec with correction for atmospheric refraction |
+ | ALT_OBSERVED | float64 | deg | alt with correction for atmospheric refraction |
+ | AZ_OBSERVED | float64 | deg | Az with correction for atmospheric refraction |
  | FIBER_OFFSET | int64 |  | Flag identifying the fiber was offset by design |
+ | MEASUREDOFFSET | float64 | arcsec | Measured offset between Fiber & Catalog Coord |
+ | WOKOFFSET | float64 | mm | Measured offset in the Wok Coordinates |
  | LAMBDA_EFF | float64 | AA | Wavelength used for coordinate transformations |
  | SPECTROGRAPHID | int64 |  | Spectrograph to which the fibre is assigned. (SDSS-V: 1 = BOSS, 2 = APOGEE) or (SDSS-IV: 1=BOSS SP1, 2=BOSS SP2) |
- | OPTICAL_PROV | char[11] |  | The source of the CATDB_MAG optical magnitudes |
+ | OPTICAL_PROV | char[21] |  | The source of the CATDB_MAG optical magnitudes |
  | MAG | float64[5] |  | [u, g, r, i, z] optical magnitudes |
  | PSFMAG | float64[5] |  | [u, g, r, i, z] optical psf magnitudes |
  | FIBER2MAG | float64[5] |  | [u, g, r, i, z] optical Fiber2 magnitudes |
@@ -623,7 +640,7 @@ Name | Type | Unit | Description |
  | GAIA_G_MAG | float64 |  | Gaia G magnitude |
  | BP_MAG | float64 |  | Gaia BP magnitude |
  | RP_MAG | float64 |  | Gaia RP magnitude |
- | GAIA_ID | int64 |  | Gaia-DR2 ID |
+ | GAIA_ID | int64 |  | Gaia-DR3 ID |
  | H_MAG | float64 |  | 2MASS H magnitude |
  | WISE_MAG | float64[4] |  | WISE [W1, W2, W3, W4] band magnitudes |
  | TWOMASS_MAG | float64[3] |  | 2MASS [J, H, Ks] band magnitudes |
@@ -643,6 +660,9 @@ Name | Type | Unit | Description |
  | CATALOGID | char[18] |  | CatalogID or uHHMMSS.S+DDMMSS.S for unassigned |
  | ICATALOGID | int64 |  | Raw SDSS-V CatalogID |
  | SDSS_ID | int64 |  | SDSS_ID of Target |
+ | CATALOGID_V0 | int64 |  | V0 (Plate) Crossmatch CatalogID from SDSS_ID |
+ | CATALOGID_V0P5 | int64 |  | V0.5 (FPS) Crossmatch CatalogID from SDSS_ID |
+ | CATALOGID_V1 | int64 |  | V1 (FPS) Crossmatch CatalogID from SDSS_ID |
  | CATVERSION | char[5] |  | Catalog Version of SDSS-V CatalogID |
  | CARTON_TO_TARGET_PK | int64 |  | SDSS-V Carton_to_Target primary key for SDSSDB |
  | FIRSTCARTON | char[17] |  | Primary SDSS Carton for target |
@@ -650,6 +670,8 @@ Name | Type | Unit | Description |
  | PROGRAM | char[7] |  | Program for 'firstcarton' |
  | MAPPER | char[3] |  | SDSS-V Mapper for target |
  | SURVEY | char[3] |  | SDSS Survey for target |
+ | TOO_ID | int64 |  | SDSS-V Target of Opportunity ID (if TOO=1) |
+ | TOO_PROGRAM | char |  | SDSS-V Target of Opportunity Program (if TOO=1) |
  | SDSSC2BV | char |  | SDSS5_TARGET_FLAG Carton to Bit Version |
  | SDSSV_BOSS_TARGET0 | int64 |  | Targeting bitmask for SDSSV-BOSS |
  | SDSSV_APOGEE_TARGET0 | int64 |  | Targeting bitmask for SDSSV-APOGEE |
@@ -674,52 +696,55 @@ Name | Type | Unit | Description |
  | ID | int64 |  | SDSS imaging id, for SDSS imaging targets |
  | FIELDCADENCE | char[13] |  | SDSS-V FPS Field Cadence |
  | CADENCE | char[10] |  | rSDSS-V FPS target Cadence |
+ | DESIGN_VERS | char[6] |  | robostrategy Run or platedesign version |
+ | DESIGN_MODE | char[7] |  | SDSS-V DesignMode Mode |
  | EBV | float32 |  | dust extinction |
  | EBV_TYPE | char[3] |  | dust extinction source |
- | SDSS5_TARGET_FLAGS | bool[29] |  | Targeting Flags for SSDSV Targeting |
+ | SDSS5_TARGET_FLAGS | bool[69] |  | Targeting Flags for SSDSV Targeting |
  | TARGET_INDEX | int16 |  | Index of target on combined spField |
- | NEXP | int16 |  | Number of Included Exposures |
- | MJD_FINAL | float64 |  | Mean MJD of the Coadded Spectra |
- | MOON_DIST | char[47] | deg | Mean Moon-target separation of Coadded Spectra |
- | MOON_PHASE | char[39] |  | Mean Moon phase of the Coadded Spectra |
  | FIBERID_LIST | char[31] |  | List of FiberIDs contributing to Stack |
+ | FIBER_RA | float64 | deg | Fiber RA [J2000 for plate; at exp for FPS] |
+ | FIBER_DEC | float64 | deg | Fiber DEC [J2000 for plate; at exp for FPS] |
  | RA_LIST | char[87] |  | List of measured RA per exposure |
  | DEC_LIST | char[71] |  | List of measured DEC per exposure |
- | DELTA_RA_LIST | char[31] |  | List of designed RA offsets per exposure |
- | DELTA_DEC_LIST | char[31] |  | List of designed DEC offsets per exposure |
- | EXPTIME | int16 | s | Total Exposure time of Coadded Spectra |
- | FIRSTCARTON_LIST | char[17] |  | List of Primary SDSS Carton for target per exposure |
- | CARTON_TO_TARGET_PK_LIST | char[9] |  | List of SDSS-V Carton_to_Target primary key for SDSSDB per exposure |
+ | DELTA_RA_LIST | char[63] |  | List of designed RA offsets per exposure |
+ | DELTA_DEC_LIST | char[63] |  | List of designed DEC offsets per exposure |
+ | FIRSTCARTON_LIST | char[29] |  | List of Primary SDSS Carton for target per exposure |
+ | CARTON_TO_TARGET_PK_LIST | char[19] |  | List of SDSS-V Carton_to_Target primary key for SDSSDB per exposure |
  | ASSIGNED_LIST | char[15] |  | Whether this fibre was assigned to a target per exposure |
  | ON_TARGET_LIST | char[15] |  | Whether this fibre is on target per exposure |
  | VALID_LIST | char[15] |  | alpha and beta angles are valid per exposure |
  | DECOLLIDED_LIST | char[15] |  | this positioner had to be moved to decollide it per exposure |
+ | TOO_LIST | char[15] |  | the fiber is allocated to a TOO per exposure |
  | EXP_DISP_MED | float64 |  | Dispersion of Median Exposure Flux |
  | XFOCAL_LIST | char[71] |  | Hole/robot x-axis position in focal plane per exposure |
  | YFOCAL_LIST | char[71] |  | Hole/robot y-axis position in focal plane per exposure |
+ | EXPTIME | int16 | s | Total Exposure time of Coadded Spectra |
+ | NEXP | int16 |  | Number of Included Exposures |
+ | MJD_FINAL | float64 |  | Mean MJD of the Coadded Spectra |
  | TAI_LIST | char[87] | s | List Tai for each exposure (at midpoint) |
- | FIELDSNR2G_LIST | char[39] |  | Overall Field (S/N)^2 in g per exposure |
- | FIELDSNR2R_LIST | char[39] |  | Overall Field (S/N)^2 in r per exposure |
- | FIELDSNR2I_LIST | char[39] |  | Overall Field (S/N)^2 in i per exposure |
  | MJDLIST | char[47] |  | List of MJD of each included exposures |
  | DESIGNS | char[55] |  | List of Included Designs |
  | CONFIGS | char[39] |  | List of Included Configurations |
+ | MOON_DIST | char[47] | deg | Mean Moon-target separation of Coadded Spectra |
+ | MOON_PHASE | char[39] |  | Mean Moon phase of the Coadded Spectra |
  | AIRMASS | float64 |  | Airmass at time of observation |
  | AIRMASS_LIST | char[79] |  | Airmass at time of observation per exposure |
  | SEEING20 | float64 | arcsecs | Mean 20% seeing during exposures (arcsec) |
- | SEEING20_LIST | char[80] | arcsecs | 20% seeing during exposures (arcsec) per exposure |
+ | SEEING20_LIST | char[81] | arcsecs | 20% seeing during exposures (arcsec) per exposure |
  | SEEING50 | float64 | arcsecs | Mean 50% seeing during exposures (arcsec) |
  | SEEING50_LIST | char[79] | arcsecs | 50% seeing during exposures (arcsec) per exposure |
  | SEEING80 | float64 | arcsecs | Mean 80% seeing during exposures (arcsec) |
  | SEEING80_LIST | char[79] | arcsecs | 80% seeing during exposures (arcsec) per exposure |
  | RMSOFF20 | float64 | arcsecs | mean 20% of RMS offset of guide fibers |
- | RMSOFF20_LIST | char[94] | arcsecs | 20% of RMS offset of guide fibers per exposure |
+ | RMSOFF20_LIST | char[95] | arcsecs | 20% of RMS offset of guide fibers per exposure |
  | RMSOFF50 | float64 | arcsecs | mean 50% of RMS offset of guide fibers |
  | RMSOFF50_LIST | char[91] | arcsecs | 50% of RMS offset of guide fibers per exposure |
  | RMSOFF80 | float64 | arcesecs | mean 80% of RMS offset of guide fibers |
- | RMSOFF80_LIST | char[87] | arcsecs | 80% of RMS offset of guide fibers per exposure |
- | FIBER_RA | float64 | deg | Fiber RA [J2000 for plate; at exp for FPS] |
- | FIBER_DEC | float64 | deg | Fiber DEC [J2000 for plate; at exp for FPS] |
+ | RMSOFF80_LIST | char[7] | arcsecs | 80% of RMS offset of guide fibers per exposure |
+ | FIELDSNR2G_LIST | char[39] |  | Overall Field (S/N)^2 in g per exposure |
+ | FIELDSNR2R_LIST | char[39] |  | Overall Field (S/N)^2 in r per exposure |
+ | FIELDSNR2I_LIST | char[39] |  | Overall Field (S/N)^2 in i per exposure |
 
 
 
@@ -736,7 +761,7 @@ Key | Value | Comment | |
 | BITPIX | -32 |  |
 | NAXIS | 2 |  |
 | NAXIS1 | 4648 |  |
-| NAXIS2 | 503 |  |
+| NAXIS2 | 487 |  |
 | EXTNAME | SKY | Subtracted sky flux |
 | PCOUNT | 0 |  |
 | GCOUNT | 1 |  |
@@ -752,13 +777,11 @@ spectral resolution in A units
 ##### Header Table Caption for HDU7
 Key | Value | Comment | |
 | --- | --- | --- | --- |
-| XTENSION | IMAGE | IMAGE extension |
-| BITPIX | -32 | Number of bits per data pixel |
-| NAXIS | 2 | Number of data axes |
+| XTENSION | IMAGE | Image Extension created by MWRFITS v1.13 |
+| BITPIX | -32 |  |
+| NAXIS | 2 |  |
 | NAXIS1 | 4648 |  |
-| NAXIS2 | 503 |  |
-| PCOUNT | 0 | No Group Parameters |
-| GCOUNT | 1 | One Data Group |
+| NAXIS2 | 487 |  |
 | WAT0_001 | system=linear |  |
 | WAT1_001 | wtype=linear label=Wavelength units=Angstroms |  |
 | CRVAL1 | 3.5523 | Central wavelength (log10) of first pixel |
@@ -768,6 +791,8 @@ Key | Value | Comment | |
 | DC-FLAG | 1 | Log-linear flag |
 | BUNIT | angstroms |  |
 | EXTNAME | SPECRESL | Spectral resolution |
+| PCOUNT | 0 |  |
+| GCOUNT | 1 |  |
 
 
 

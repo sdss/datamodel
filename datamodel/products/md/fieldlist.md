@@ -19,7 +19,7 @@ This file contains the list of reduced BOSS plates and FPS Fields, with associat
 $BOSS_SPECTRO_REDUX/[RUN2D]/summary/daily/fieldlist-[RUN2D].fits
 
 ### Releases
-IPL3, DR19, IPL4
+IPL3, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.3.2
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: FIELDLIST](#hdu1-fieldlist)
 
@@ -47,6 +47,9 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
    - note: No changes
@@ -70,8 +73,8 @@ Key | Value | Comment | |
 | BITPIX | 8 | array data type |
 | NAXIS | 0 | number of array dimensions |
 | EXTEND | True |  |
-| RUN2D | v6_1_3 | IDLSPEC2D RUN2D |
-| DATE | Wed Apr  3 22:53:49 2024 | Date Created |
+| RUN2D | v6_2_1 | IDLSPEC2D RUN2D |
+| DATE | Wed Jun 25 17:44:34 2025 | Date Created |
 
 
 
@@ -79,7 +82,7 @@ Key | Value | Comment | |
 Field Summary Table
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  2 MB
+#### HDU Size:  11 MB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -87,11 +90,11 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 700 | length of dimension 1 |
-| NAXIS2 | 3924 | length of dimension 2 |
+| NAXIS1 | 761 | length of dimension 1 |
+| NAXIS2 | 15731 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 108 | number of table fields |
+| TFIELDS | 110 | number of table fields |
 | TNULL4 | 0 |  |
 | TNULL18 | -999 |  |
 | TNULL19 | -999 |  |
@@ -121,7 +124,7 @@ Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | FIELD | char[6] |  | SDSS FieldID (plateID for plate era data) |
  | DESIGNS | char[55] |  | List of Included Designs |
- | CONFIGS | char[47] |  | List of Included Configurations |
+ | CONFIGS | char[68] |  | List of Included Configurations |
  | MJD | int64 |  | Modified Julian date of combined Spectra |
  | OBSERVATORY | char[3] |  | Observatory of Observation |
  | RUN2D | char[6] |  | Spectro-2D reduction name |
@@ -220,10 +223,12 @@ Name | Type | Unit | Description |
  | SUCCESS_LRG2 | float32 |  | Success rate of LRG2s |
  | SUCCESS_ELG | float32 |  | Success rate of ELGs |
  | SUCCESS_QSO | float32 |  | Success rate of QSOs |
- | STATUS2D | char[7] |  | Status of 2d extraction |
+ | STATUS2D | char[6] |  | Status of 2d extraction |
  | STATUSCOMBINE | char[7] |  | Status of 1d combine |
  | STATUS1D | char[7] |  | Status of 1d analysis |
- | FIELD_CADENCE | char[21] |  | Planned Cadence of Observations |
+ | FIELD_CADENCE | char[25] |  | Planned Cadence of Observations |
+ | DESIGN_VERS | char[22] |  | robostrategy Run or platedesign version |
+ | DESIGN_MODE | char[15] |  | SDSS-V Design Mode |
  | PUBLIC | char[20] |  | Is this Plate Public |
  | QUALCOMMENTS | char[20] |  | Comments of Field Quality |
  | MOON_FRAC | float32 |  | Mean Moon phase of the Coadded Spectra |

@@ -15,6 +15,7 @@ general:
   filesize: 216 KB
   releases:
   - DR19
+  - DR20
   environments:
   - APOGEE_OCCAM
   surveys:
@@ -31,9 +32,12 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR20:
+      from: DR19
+      note: No changes
 releases:
-  DR19:
+  DR19: &id001
     template: $APOGEE_OCCAM/occam_member-[VERS].fits
     example: occam_member-DR19.fits
     location: occam_member-{vers}.fits
@@ -223,7 +227,6 @@ releases:
             description: An unsigned integer to indicate whether a individual star
               has been observed by Galah, GaiaESO or OCCASO. The first bit corresponds
               to Galah, second to GaiaESO, and the third to OCCASO.  23
-notes: |-
-  None
-regrets: |-
-  I  have no regrets!
+  DR20: *id001
+notes: None
+regrets: I  have no regrets!

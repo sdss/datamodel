@@ -19,7 +19,7 @@ Plug Plate Fiber to Object Mapping for Mapped Plates
 $SPECLOG_DIR/[MJD]/plPlugMapM-[PLATEID5]-[FSMJD]-[FSCANID2].par
 
 ### Releases
-IPL4
+IPL4, DR20
 
 ### Enviroments
 SPECLOG_DIR
@@ -39,164 +39,24 @@ False
 ### Data Level
 0.3.0
 
-### PAR List for release IPL4
-  - [PLUGMAPOBJ](#PLUGMAPOBJ)
+### PAR List for release DR20
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - delta_nkeys: 111
+   - removed_header_keys: ['instruments', 'plateinput4', 'idlutilsVersion', 'priority', 'mjdDesign', 'design_platescale_az', 'design_parallactic_angle', 'maxskyinblockboss_shared', 'plateinput19', 'minskyinblockboss_shared', 'platerun', 'platedesign_version', 'haMin', 'guidetype', 'buffersizeapogee_shared', 'ha_observable_min', 'napogee_shared_sky', 'reddeningMed', 'buffersizeboss_shared', 'design_platescale_alt', 'motorId3', 'completeTileVersion', 'guider_coeff_6', 'ferrulesizeboss_shared', 'plateId', 'platetype', 'plateinput7', 'guider_coeff_5', 'fscanVersion', 'nguidemax', 'nboss_shared_sky', 'guidemag_minmax', 'plateinput6', 'ferrulesizeguide', 'guider_coeff_7', 'ninputs', 'temp', 'plateinput9', 'fscanRows', 'relaxed_fiber_classes', 'napogee_shared_standard', 'buffersizeguide', 'pointing_name', 'targettypes', 'pluggers', 'fscanFile', 'EVILSCAN', 'bossmagtype', 'guider_coeff_1', 'plateinput17', 'platedesignstandards', 'plateinput2', 'fscanCols', 'fscanSpeed', 'guider_coeff_9', 'fscanMJD', 'pointing', 'raCen', 'fscanMode', 'defaultsurveymode', 'plugmapstyle', 'plateinput12', 'guider_coeff_8', 'plateinput16', 'plateinput3', 'locationId', 'ha_observable_max', 'fscanBias', 'motorId2', 'mag_quality', 'guider_coeff_2', 'nboss_shared_science', 'designid', 'cartridgeId', 'guider_coeff_4', 'fscanId', 'plateinput15', 'standardtype', 'skytype', 'fmapVersion', 'collectfactor', 'haMax', 'tileId', 'guider_coeff_3', 'npointings', 'skyinput18', 'programname', 'plateinput11', 'plateinput8', 'nboss_shared_standard', 'napogee_shared_science', 'theta', 'plateinput13', 'plateinput5', 'guide_lambda_eff', 'plateinput10', 'guidenums1', 'max_off_fiber_for_ha', 'gfibertype', 'noffsets', 'fscanDate', 'platedesignskies', 'idlVersion', 'ha', 'guider_coeff_0', 'decCen', 'motorId1', 'platedesignversion', 'plateinput1', 'ferrulesizeapogee_shared', 'plateinput14']
+   - delta_ntables: 1
+   - removed_tables: ['PLUGMAPOBJ']
 
 ---
 ## Example PAR List
-### Comments
-```
-# Following keywords meant for guider
-```
-
-### Header
-
-Key | Value | Comment | |
-| --- | --- | --- | --- |
-| completeTileVersion | none |  |
-| mjdDesign | 59153 | MJD of Plate Design |
-| pointing | A | which pointing (1-indexed) this target is associated with |
-| mag_quality | bad | Plate Input Magnitude Quality Flag |
-| plateId | 15090 | plate ID number |
-| ha | 30.000 0.000 0.000 0.000 0.000 0.000 | the hour angle for which each pointing is designed (negative = rising, positive = setting, given in degrees) |
-| ha_observable_min | -0.373 0.000 0.000 0.000 0.000 0.000 | the minimum observable hour angle to guarantee no hole offsets due to refraction greater than value given by MAX_OFF_FIBER_FOR_HA header keyword in plateDefaults file (negative = rising, positive = setting, given in degrees) |
-| ha_observable_max | 44.938 0.000 0.000 0.000 0.000 0.000 | the maximum observable hour angle to guarantee no hole offsets due to refraction greater than value given by MAX_OFF_FIBER_FOR_HA header keyword in plateDefaults file (negative = rising, positive = setting, given in degrees) |
-| programname | MWM_30min | SDSS Program Name for which plate is designed |
-| temp | 14.000 | temperature of design (deg C) |
-| design_platescale_alt | 217.8914049 | effective plate scale of the design (in altitude direction, mm per deg) |
-| design_platescale_az | 217.9256691 | effective plate scale of the design (in azimuth direction, mm per deg) |
-| design_parallactic_angle | 98.4312627 | parallactic angle (deg E of N) |
-| guider_coeff_0 | 0. | placeholders for guider coefficients, unused |
-| guider_coeff_1 | 0. | placeholders for guider coefficients, unused |
-| guider_coeff_2 | 0. | placeholders for guider coefficients, unused |
-| guider_coeff_3 | 0. | placeholders for guider coefficients, unused |
-| guider_coeff_4 | 0. | placeholders for guider coefficients, unused |
-| guider_coeff_5 | 0. | placeholders for guider coefficients, unused |
-| guider_coeff_6 | 0. | placeholders for guider coefficients, unused |
-| guider_coeff_7 | 0. | placeholders for guider coefficients, unused |
-| guider_coeff_8 | 0. | placeholders for guider coefficients, unused |
-| guider_coeff_9 | 0. | placeholders for guider coefficients, unused |
-| locationId | 50098 | Number identifying the physical location of the plate on the Sky for Apogee |
-| instruments | APOGEE_SHARED BOSS_SHARED | Instruments for which plate is designed |
-| npointings | 1 | number of pointings that the plate is designed to make; each pointing will correspond to one or more exposures during observation; number must be less than or equal to 6 |
-| noffsets | 0 | number of offsets to perform within each exposure |
-| maxskyinblockboss_shared | 4 | specify if we have a minimum number of standards we want to assign per Plate fiber block (default 0) |
-| gfibertype | gfiber2 | type of Plate guide fibers to assume (old "gfiber" or new "gfiber2") |
-| guidetype | GAIA | for each Plate pointing, the source to search for guide fibers from (can be "SDSS" or "2MASS") |
-| guidenums1 | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 | for each Plate pointing, the source to search for guide fibers from (can be "SDSS" or "2MASS") |
-| guidemag_minmax | 11. 15.0 | minimum and maximum g-band magnitudes for Plate guide stars (default - [13, 15.5]) |
-| guide_lambda_eff | 5400. | Guiding wavelength (in Angstroms) |
-| nguidemax | 600 | maximum number of possible plate guide stars to track, otherwise tracks 10s of thousands at low b (default - infinite) |
-| ferrulesizeboss_shared | 3.72231 | diameter of plate ferrule in mm for BOSS |
-| buffersizeboss_shared | 0.000 | buffer to include outside boss ferrule for checking for conflicts |
-| ferrulesizeapogee_shared | 3.72231 | diameter of plate ferrule in mm for APOGEE |
-| buffersizeapogee_shared | 0.300 | buffer to include outside apogee ferrule for checking for conflicts |
-| ferrulesizeguide | 6.9555 | diameter of plate ferrule in mm for guide fibers |
-| buffersizeguide | 0.3 | buffer to include outside guide ferrule for checking for conflicts |
-| platedesignstandards | NONE | specify what instruments we want plate design to find standards for |
-| standardtype | NONE | for each plate pointing, type of standard to find (can be "SDSS" or "2MASS", or "None" --- in fact, any value other than SDSS or 2MASS is equivalent to "None") |
-| platedesignskies | NONE | specify what instruments we want plate design to find skies for, if any |
-| skytype | NONE | for each pointing, type of skies to find (can be "SDSS" or "2MASS") |
-| plugmapstyle | plplugmap_apogee_boss | type of plugmap file to create (default "plplugmap") |
-| bossmagtype | fiber2mag | type of magnitude used for fiber magnitudes for BOSS targets |
-| pointing_name | A B C D E F | name of the plate pointings ('A B C D E F') |
-| max_off_fiber_for_ha | 0.3 | set HA limits (ha_observable_min, haobservable_max) to guarantee no offsets greater than this limit, in arcsec (platedesign v1_27 and above) |
-| collectfactor | 6 | oversampling factor for collecting skies and standards; to ensure pluggability, should be at least 5 (default - 5) |
-| designid | 15098 | plate design identification number |
-| platedesignversion | v2 | version of the plate design |
-| platetype | APOGEE-BOSS | type of plateDefault file to use |
-| defaultsurveymode | mwmLead | Which mapper leads the plate design (bhmLead or mwmLead). Ony set for plateID>=15072. |
-| ninputs | 19 | Number of PlateInput files used to create this plate design |
-| plateinput1 | mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_boss_SCI_mwm_cb_15098.par | Plate input file 1 |
-| plateinput2 | mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_boss_SCI_mwm_wd_15098.par | Plate input file 2 |
-| plateinput3 | mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_boss_SCI_mwm_snc_shared_15098.par | Plate input file 3 |
-| plateinput4 | mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_apogee_STA_15098.par | Plate input file 4 |
-| plateinput5 | mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_apogee_SCI_mwm_snc_shared_15098.par | Plate input file 5 |
-| plateinput6 | mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_apogee_SCI_mwm_planet_15098.par | Plate input file 6 |
-| plateinput7 | mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_apogee_SCI_mwm_yso_apo_15098.par | Plate input file 7 |
-| plateinput8 | mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_boss_SCI_mwm_yso_shared_15098.par | Plate input file 8 |
-| plateinput9 | mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_apogee_SCI_mwm_gg_15098.par | Plate input file 9 |
-| plateinput10 | mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_apogee_SCI_mwm_dust_15098.par | Plate input file 10 |
-| plateinput11 | mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_apogee_SCI_mwm_yso_shared_15098.par | Plate input file 11 |
-| plateinput12 | mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_boss_STA_15098.par | Plate input file 12 |
-| plateinput13 | mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_boss_SCI_mwm_ob_15098.par | Plate input file 13 |
-| plateinput14 | mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_boss_SCI_bhm_csc_bright_boss_15098.par | Plate |
-| plateinput15 | mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_apogee_SCI_bhm_csc_bright_apo_15098.par | Plate input file 15 |
-| plateinput16 | mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_boss_SCI_mwm_filler_15098.par | Plate input file 16 |
-| plateinput17 | mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_apogee_SCI_mwm_rv_fps_15098.par | Plate input file 17 |
-| skyinput18 | mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_boss_SKY_15098.par | Sky input file 18 |
-| plateinput19 | mwm-bhm/2020.10.x.mwm-bhm/plateInput_GG_046_apogee_SKY_15098.par | Plate input file 19 |
-| priority | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 | priority number assigned by the plateInput file; lower numbers indicate higher priority |
-| relaxed_fiber_classes | 1 | for APOGEE, do not break target classes up into bright/medium/faint. |
-| targettypes | standard science sky | types of targets which the file will specify a certain number of (allowed - "science", "sky", "standard") |
-| napogee_shared_standard | 15 | number of apogee standard fibers |
-| napogee_shared_science | 250 | number of apogee science fibers |
-| napogee_shared_sky | 35 | number of apogee sky fibers |
-| nboss_shared_standard | 50 | number of boss standard fibers |
-| nboss_shared_science | 400 | number of boss science fibers |
-| nboss_shared_sky | 50 | number of boss sky fibers |
-| minskyinblockboss_shared | 2 | specify if we have a minimum number of standards we want to assign per Plate fiber block (default 0) |
-| reddeningMed | 13.1472 10.2442 7.0869 5.2663 3.9172 | reddening values |
-| tileId | -1 | SDSS Plate Tiling ID |
-| theta | 0 | position angle of plate design (0 in practice) |
-| platerun | 2020.10.a.mwm-bhm | name of platerun this file was part of |
-| platedesign_version | $HeadURL$ | Plate design version |
-| haMin | 30.0000 | min design hour angle |
-| haMax | 30.0000 | max design hour angle (same as haMin) |
-| raCen | 304.54646000 | Right ascension of plate center |
-| decCen | 40.56630000 | Declination of plate center |
-| EVILSCAN |  |  |
-| fscanVersion | $HeadURL: https://svn.sdss.org/repo/operations/general/idlmapper/tags/v7_0_9/src/evilscan.c $ | version of scan software |
-| pluggers | cope/sanchez | who plugged the plate |
-| fscanMJD | 59392 | MJD when plugged plate was scanned |
-| fscanId | 1 | unique mapped-plugged-plate id |
-| fscanDate | Sat Jun 26 21:47:55 2021 | Date of Fiber Scan Run |
-| fscanFile | fiberScan-15090-59392-01.par | Name of Fiber Scan Parameter File |
-| fscanMode | interpolated | Fscan mode (slow, fast or extrema) |
-| fscanSpeed | 400 | Fscan motor scanning speed |
-| fscanRows | 960 |  |
-| fscanCols | 960 |  |
-| fscanBias | 41.000000 |  |
-| motorId1 | 41 |  |
-| motorId2 | 9 |  |
-| motorId3 | 31 |  |
-| cartridgeId | 9 | Cartridge ID |
-| fmapVersion | NOCVS:v7_0_9 | Fiber mapper version used to create this file |
-| idlutilsVersion | v5_5_17 | IDL utils version used to create this file |
-| idlVersion | 7.1 | IDL version used to create this file |
 
 
 ### Tables
-
-
-#### PLUGMAPOBJ
-- Description: Plate Plug Map Object Information
-- Number of Rows: 840
-
-#### Structure
-Name | Type | Unit | Description | Is Array | Example |
-| --- | --- | --- | --- | --- | --- |
- | objId | int[5] |  | Unique object id from SDSS imaging | True | [0, 0, 0, 0, 0] |
- | holeType | HOLETYPE |  | type of hole to be drilled; one of SDSS, BOSS, MARVELS, APOGEE, GUIDE, CENTER, TRAP, or ALIGNMENT; this really refers to the instrument to be used, so for example SEGUE targets should be either SDSS or BOSS | False | LIGHT_TRAP |
- | ra | double | degrees | Right ascension of object (J2000) | False | 304.23039 |
- | dec | double | degrees | declination of object (J2000) | False | 40.365043 |
- | mag | float[5] | mag | magnitude to use for the SOS software as the best known fiber magnitude for the object | True | [0.0, 0.0, 0.0, 0.0, 0.0] |
- | starL | float |  | likelihood object is star | False | 0.0 |
- | expL | float |  | likelihood object is exponential disk | False | 0.0 |
- | deVaucL | float |  | likelihood object is deVaucouleurs profile | False | 0.0 |
- | objType | OBJTYPE |  | Why object was targetted (QSO = Science Target) | False | NA |
- | xFocal | double | mm | The X value in focal plane coordinates. | False | -52.375185 |
- | yFocal | double | mm | The Y value in focal plane coordinates. | False | -43.679834 |
- | spectrographId | int |  | Spectrograph to which the fibre is assigned. | False | 0 |
- | fiberId | int |  | Fiber ID for the spectrograph | False | -9999 |
- | throughput | int |  | Plate Fiber throughput (0-65535, 0=no light) | False | 0 |
- | primTarget | int |  | Plate Primary target flags | False | 0 |
- | secTarget | int |  | Plate Secondary target flags | False | 0 |
 
 
 ---

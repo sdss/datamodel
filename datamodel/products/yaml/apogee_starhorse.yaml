@@ -24,6 +24,7 @@ general:
   filesize: 152 MB
   releases:
   - DR19
+  - DR20
   environments:
   - APOGEE_STARHORSE
   surveys:
@@ -39,9 +40,12 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR20:
+      from: DR19
+      note: No changes
 releases:
-  DR19:
+  DR19: &id001
     template: $APOGEE_STARHORSE/APOGEE_DR19_DR3_STARHORSE_[VERS].fits
     example: APOGEE_DR19_DR3_STARHORSE_v2.fits
     location: APOGEE_DR19_DR3_STARHORSE_{vers}.fits
@@ -286,7 +290,6 @@ releases:
             type: char[80]
             unit: ''
             description: StarHorse Output flags (Queiroz et al. 2023)
-notes: |-
-  None
-regrets: |-
-  I  have no regrets!
+  DR20: *id001
+notes: None
+regrets: I  have no regrets!

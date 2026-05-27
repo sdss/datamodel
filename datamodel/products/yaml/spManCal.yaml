@@ -9,6 +9,7 @@ general:
   filesize: 550 bytes
   releases:
   - IPL4
+  - DR20
   environments:
   - SDSSCORE_DIR
   surveys:
@@ -22,9 +23,77 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR20:
+      from: IPL4
+      note: No changes
 releases:
   IPL4:
+    template: $SDSSCORE_DIR/[OBS]/sdHdrfix/spManCal.par
+    example: lco/sdHdrfix/spManCal.par
+    location: '{obs}/sdHdrfix/spManCal.par'
+    environment: SDSSCORE_DIR
+    access:
+      in_sdss_access: true
+      path_name: spManCal
+      path_template: $SDSSCORE_DIR/{obs}/sdHdrfix/spManCal.par
+      path_kwargs:
+      - obs
+      access_string: spManCal = $SDSSCORE_DIR/{obs}/sdHdrfix/spManCal.par
+    survey: SDSS
+    par:
+      comments: |-
+        #%yanny
+        #
+        # spManCal.par
+        #
+        # Created by pydl.pydlutils.yanny.yanny
+        #
+        # 2025-03-13 14:57:10 UTC
+        #
+      header:
+      - key: MJD
+        value: '60747'
+        comment: Modified Julian Date of latest edit
+      - key: OBS
+        value: lco
+        comment: Observatory
+      tables:
+        OPMANCAL:
+          name: OPMANCAL
+          description: Field-MJD-ExposureID combinations for manual calibration frames
+          n_rows: 9
+          structure:
+          - name: type
+            type: char[4]
+            description: calibration type (arc, flat)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: arc
+          - name: field
+            type: char[7]
+            description: SDSS-V FieldID of observation
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: '027633'
+          - name: mjd
+            type: long
+            description: Modified Julian Date of observation
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: 60131
+          - name: expid
+            type: long
+            description: Exposure ID of calibration exposure (??? for allowing any
+              non-associated calibration frame)
+            unit: ''
+            is_array: false
+            is_enum: false
+            example: -999
+  DR20:
     template: $SDSSCORE_DIR/[OBS]/sdHdrfix/spManCal.par
     example: lco/sdHdrfix/spManCal.par
     location: '{obs}/sdHdrfix/spManCal.par'

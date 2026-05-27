@@ -1,0 +1,151 @@
+general:
+  name: lvm_dap_model
+  short: LVM DR20 DAP model FITS file containing the observed spectra, reconstructed
+    stellar and gas models, joint models, and residual spectra for one analyzed exposure.
+  description: 'The LVM DR20 DAP model file is a companion product to the standard
+    DAP file for a single analyzed exposure. It contains a single three-dimensional
+    image array in the PRIMARY HDU with dimensions Nwave x Nspec x 9, where Nwave
+    is the number of wavelength pixels, Nspec is the number of analyzed science fibers,
+    and the third axis stores nine reconstructed spectral components. The wavelength
+    solution is stored in the standard FITS keywords CRPIX1, CRVAL1, and CDELT1. The
+    component planes are identified by the NAME0--NAME8 header keywords: org_spec,
+    model_spec, mod_joint_spec, gas_spec, res_joint_spec, no_gas_spec, gas_model_NP,
+    gas_model_PEK, and mod_joint_spec_PEK. These planes provide the observed spectrum,
+    the stellar-continuum model, the joint stellar-plus-gas model, the gas-only spectrum,
+    the residual after subtracting the joint model, the spectrum with the non-parametric
+    gas model removed, the non-parametric gas model, the refined parametric emission-line
+    model, and the joint model built with the refined parametric gas model. The spectra
+    are sampled from 3600 to 9800 Angstrom with 0.5 Angstrom pixels in the DR20 example,
+    and the spectral values use the LVM per-fiber spectral flux-density convention,
+    10^-16 erg/s/cm^2/Angstrom measured in one fiber area.'
+  datatype: FITS
+  filesize: 746 MB
+  releases:
+  - DR20
+  environments:
+  - LVM_SPECTRO_ANALYSIS
+  surveys:
+  - SDSS
+  naming_convention: $LVM_SPECTRO_ANALYSIS/[DRPVER]/[DAPVER]/[TILEGRP]/[TILEID]/[MJD]/[EXPNUM]/dap-[RSPID]-[SNLEVEL]-[EXPNUM].model.fits
+  generated_by: lvmdap
+  data_level: 2.3.3
+  design: false
+  vac: false
+  recommended_science_product: true
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $LVM_SPECTRO_ANALYSIS/[DRPVER]/[DAPVER]/[TILEGRP]/[TILEID]/[MJD]/[EXPNUM]/dap-[RSPID]-[SNLEVEL]-[EXPNUM].model.fits
+    example: 1.2.0/1.2.0.251218/0011XX/11111/60191/00004297/dap-rsp108-sn20-00004297.model.fits
+    location: '{drpver}/{dapver}/{tilegrp}/{tileid}/{mjd}/{expnum}/dap-{rspid}-{snlevel}-{expnum}.{daptype}.fits'
+    environment: LVM_SPECTRO_ANALYSIS
+    access:
+      in_sdss_access: true
+      path_name: lvm_lv_dap
+      path_template: $LVM_SPECTRO_ANALYSIS/{drpver}/{dapver}/@tilegrp|/{tileid}/{mjd}/{expnum:0>8}/LV_dap-{rspid}-{snlevel}-{expnum:0>8}.{daptype}.fits
+      path_kwargs:
+      - tileid
+      - dapver
+      - daptype
+      - rspid
+      - snlevel
+      - expnum
+      - drpver
+      - mjd
+      access_string: lvm_lv_dap = $LVM_SPECTRO_ANALYSIS/{drpver}/{dapver}/{tilegrp}/{tileid}/{mjd}/{expnum}/dap-{rspid}-{snlevel}-{expnum}.{daptype}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'Primary HDU containing the complete DAP model cube for one exposure.
+          The image has dimensions Nwave x Nspec x 9 and stores nine spectral-component
+          planes identified by the NAME0--NAME8 header keywords. The first axis is
+          wavelength, defined by CRPIX1, CRVAL1, and CDELT1; the second axis is the
+          analyzed fiber index; and the third axis is the model-component index. The
+          planes are: NAME0=org_spec, the original observed spectrum; NAME1=model_spec,
+          the reconstructed stellar-continuum model; NAME2=mod_joint_spec, the joint
+          stellar-plus-non-parametric-gas model; NAME3=gas_spec, the gas-only spectrum
+          after subtracting the stellar model; NAME4=res_joint_spec, the residual
+          after subtracting the joint model; NAME5=no_gas_spec, the observed spectrum
+          with the non-parametric gas model removed; NAME6=gas_model_NP, the non-parametric
+          emission-line gas model; NAME7=gas_model_PEK, the refined parametric emission-line
+          gas model; and NAME8=mod_joint_spec_PEK, the joint model built with the
+          refined parametric emission-line model. All planes are stored as spectral
+          flux densities in the LVM per-fiber convention, 10^-16 erg/s/cm^2/Angstrom
+          measured in one fiber area.'
+        is_image: true
+        size: 746 MB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 12401
+          comment: ''
+        - key: NAXIS2
+          value: 1754
+          comment: ''
+        - key: NAXIS3
+          value: 9
+          comment: ''
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: PIPELINE
+          value: pyPipe3D v1.1.5
+          comment: ''
+        - key: UNIXTIME
+          value: 1775501008
+          comment: '2026-04-06 13:43:28.719157'
+        - key: CRPIX1
+          value: 1
+          comment: ''
+        - key: CRVAL1
+          value: 3600.0
+          comment: ''
+        - key: CDELT1
+          value: 0.5
+          comment: ''
+        - key: NAME0
+          value: org_spec
+          comment: ''
+        - key: NAME1
+          value: model_spec
+          comment: ''
+        - key: NAME2
+          value: mod_joint_spec
+          comment: ''
+        - key: NAME3
+          value: gas_spec
+          comment: ''
+        - key: NAME4
+          value: res_joint_spec
+          comment: ''
+        - key: NAME5
+          value: no_gas_spec
+          comment: ''
+        - key: NAME6
+          value: gas_model_NP
+          comment: ''
+        - key: NAME7
+          value: gas_model_PEK
+          comment: ''
+        - key: NAME8
+          value: mod_joint_spec_PEK
+          comment: ''
+        - key: FILENAME
+          value: /mnt/NASfilemon/LVM/sdsswork/analysis/LVMDAP/1.2.0//0011XX/11111/60191/00004297/dap-rsp108-sn20-00004297.output.fits.gz
+          comment: ''
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!
