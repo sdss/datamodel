@@ -13,7 +13,7 @@ The BOSS OCCAM member summary table provides positional, identification, and mem
 ---
 
 ## Basic Information
-The BOSS OCCAM member summary table provides the proper motion membership probabilities from Hunt and Reffert 2023 alongside the radial velocity and [Fe/H] membership probabilities from BOSS/CLAM. Basic positional information is included with source IDs from Gaia DR3 and SDSS for each star in the table.
+The BOSS OCCAM member summary table provides the proper motion membership probabilities from <a href="https://ui.adsabs.harvard.edu/abs/2024A%26A...686A..42H">Hunt & Reffert 2024</a> alongside the radial velocity and [Fe/H] membership probabilities from BOSS/CLAM. Basic positional information is included with source IDs from Gaia DR3 and SDSS for each star in the table.
 
 ### Naming Convention
 $BOSS_OCCAM/BOSS_occam_member-[V_VAC].fits where V_VAC=DR20-v1 in DR20.
@@ -94,9 +94,9 @@ Name | Type | Unit | Description |
  | GaiaDR3_ID | int64 |  | Gaia DR3 source ID |
  | GLON | float32 | deg | Galactic longitude |
  | GLAT | float32 | deg | Galactic latitude |
- | RAdeg | float64 | deg | Right ascension |
- | DEdeg | float64 | deg | Declination |
- | V_RAD | float32 | km/s | Average radial velocity |
+ | RAdeg | float64 | deg | Right ascension in degrees |
+ | DEdeg | float64 | deg | Declination in degrees |
+ | V_RAD | float32 | km/s | Radial velocity from pyXCSAO (<a href="https://ui.adsabs.harvard.edu/abs/2022yCat..51640137K">Kounkel 2022</a>) |
  | E_V_RAD | float32 | km/s | Standard error in radial velocity measurements |
  | PMRA | float32 | mas/yr | Proper motion in RA |
  | E_PMRA | float32 | mas/yr | Standard error of proper motion in RA |
@@ -104,9 +104,9 @@ Name | Type | Unit | Description |
  | E_PMDE | float32 | mas/yr | Standard error of proper motion in declination |
  | FeH_CLAM | float64 | dex | [Fe/H] from the CLAM pipeline |
  | E_FeH_CLAM | float64 | dex | 1-sigma [Fe/H] dispersion from the CLAM pipeline |
- | alpha_M_CLAM | float64 | dex | [alpha/M] from the CLAM pipeline |
+ | alpha_M_CLAM | float64 | dex | [Fe/H] from the CLAM pipeline |
  | E_alpha_M_CLAM | float64 | dex | 1-sigma [alpha/M] dispersion from the CLAM pipeline |
- | EH_Prob | float64 |  | Membership probability from Hunt & Reffert 2023 |
+ | EH_Prob | float64 |  | Membership probability from <a href="https://ui.adsabs.harvard.edu/abs/2024A%26A...686A..42H">Hunt & Reffert 2024</a> |
  | RV_Prob | float64 |  | OCCAM RV membership probability |
  | FeH_Prob_CLAM | float64 |  | OCCAM CLAM [Fe/H] membership probability |
  | Teff | float64 | K | Effective temperature |

@@ -13,7 +13,7 @@ The BOSS OCCAM cluster summary table provides mean cluster parameters for open c
 ---
 
 ## Basic Information
-The BOSS OCCAM cluster summary table provides a comprehensive, uniform dataset for open clusters. It contains mean 5-D astrometry from Gaia (Cantat-Gaudin et al. 2020, Hunt & Reffert 2023), mean orbital parameters calculated using Gala (Adrian M. Price-Whelan 2017), an orbital dynamics code, and mean radial velocities and chemical abundances from MWM/BOSS.
+The BOSS OCCAM cluster summary table provides a comprehensive, uniform dataset for open clusters. It contains mean 5-D astrometry from Gaia (<a href="https://ui.adsabs.harvard.edu/abs/2024A%26A...686A..42H">Hunt & Reffert 2024</a>), age and distance information (<a href="https://ui.adsabs.harvard.edu/abs/2024AJ....167...12C">Cavallo et al. 2024</a> and <a href="https://ui.adsabs.harvard.edu/abs/2024A%26A...686A..42H">Hunt & Reffert 2024</a>), mean orbital parameters calculated using Gala (Adrian M. Price-Whelan 2017), an orbital dynamics code, and mean radial velocities and chemical abundances from MWM/BOSS.
 
 
 ### Naming Convention
@@ -100,20 +100,20 @@ Name | Type | Unit | Description |
  | GLAT | float64 | deg | Galactic latitude |
  | RAdeg | float64 | deg | Right ascension in degrees |
  | DEdeg | float64 | deg | Declination in degrees |
- | EH_Radius | float64 | deg | Total radius of the cluster including tidal tails from Hunt and Reffert 2023 |
- | EH_PMRA | float64 | mas/yr | Mean proper motion in RA multiplied by cos(DE) from Hunt & Reffert 2023 |
- | EH_PMRA_ERR | float64 | mas/yr | Standard error of EH_PMRA from Hunt & Reffert 2023 |
- | EH_PMDE | float64 | mas/yr | Mean proper motion in DE from Hunt & Reffert 2023 |
- | EH_PMDE_ERR | float64 | mas/yr | Standard error in EH_PMDE from Hunt & Reffert 2023 |
+ | EH_Radius | float64 | deg | Total radius of the cluster including tidal tails from <a href="https://ui.adsabs.harvard.edu/abs/2024A%26A...686A..42H">Hunt & Reffert 2024</a> |
+ | EH_PMRA | float64 | mas/yr | Mean proper motion in RA multiplied by cos(DE) from <a href="https://ui.adsabs.harvard.edu/abs/2024A%26A...686A..42H">Hunt & Reffert 2024</a> |
+ | EH_PMRA_ERR | float64 | mas/yr | Standard error of EH_PMRA from <a href="https://ui.adsabs.harvard.edu/abs/2024A%26A...686A..42H">Hunt & Reffert 2024</a> |
+ | EH_PMDE | float64 | mas/yr | Mean proper motion in DE from <a href="https://ui.adsabs.harvard.edu/abs/2024A%26A...686A..42H">Hunt & Reffert 2024</a> |
+ | EH_PMDE_ERR | float64 | mas/yr | Standard error in EH_PMDE from <a href="https://ui.adsabs.harvard.edu/abs/2024A%26A...686A..42H">Hunt & Reffert 2024</a> |
  | V_RAD | float64 | km/s | Mean radial velocity of cluster members |
  | V_RAD_ERR | float64 | km/s | 1-sigma V_RAD dispersion |
- | R_GC_EH | float64 | kpc | Distance from the Galactic center using distances from Hunt & Reffert 2023 |
- | R_GC_Cav | float64 | kpc | Distance from the Galactic center from Cantat-Gaudin et al. 2020 |
- | EH_logAge | float64 | yr | logAge of the cluster from Hunt & Reffert 2023 |
- | Cav_logAge | float64 | yr | logAge of the cluster from Cantat-Gaudin et al. 2020 |
+ | R_GC_EH | float64 | kpc | Distance from the Galactic center using distances from <a href="https://ui.adsabs.harvard.edu/abs/2024A%26A...686A..42H">Hunt & Reffert 2024</a> |
+ | R_GC_Cav | float64 | kpc | Distance from the Galactic center from <a href="https://ui.adsabs.harvard.edu/abs/2024AJ....167...12C">Cavallo et al. 2024</a> |
+ | EH_logAge | float64 | yr | logAge of the cluster from <a href="https://ui.adsabs.harvard.edu/abs/2024A%26A...686A..42H">Hunt & Reffert 2024</a> |
+ | Cav_logAge | float64 | yr | logAge of the cluster from <a href="https://ui.adsabs.harvard.edu/abs/2024AJ....167...12C">Cavallo et al. 2024</a> |
  | R_Guide | float64 | kpc | Guiding Center radius |
- | Z_Height | float64 | kpc | Current Z position in X,Y,Z Galactocentric coordinates |
- | Z_Max | float64 | kpc | Maximum Z position |
+ | Z_Height | float64 | kpc | Current Z position from orbit calculations |
+ | Z_Max | float64 | kpc | Maximum Z position from orbit calculations |
  | Azimuth_Angle | float64 | deg | Azimuthal angle relative to Galactic center |
  | Eccentricity | float64 |  | Average eccentricity of calculated cluster orbits |
  | Z_Period_Avg | float64 | Myr | Average period in the Z coordinate |
@@ -122,15 +122,15 @@ Name | Type | Unit | Description |
  | Fe_H_ERR | float64 | dex | 1-sigma [Fe/H] dispersion |
  | alpha_M | float64 | dex | Mean [alpha/M] |
  | alpha_M_ERR | float64 | dex | 1-sigma [alpha/M] dispersion |
- | Num_Full_Members | int64 |  | Number of full cluster members |
- | Num_PMRV_Members | int64 |  | Number of cluster members with proper motion and radial velocity |
- | OCCAM_Qual | int64 |  | Visual CMD quality Flag; 4: calibration, 3: high quality >5 stars, 2: high quality 2-4 stars, 1: good 1 star |
- | Cav_Qual | int64 |  | Quality flag for Cantat-Gaudin data |
- | EH_Dist | float64 | pc | Distance from solar neighborhood from Hunt & Reffert 2023 |
- | Cav_Dist | float64 | pc | Distance from solar neighborhood from Cantat-Gaudin et al. 2020 |
- | X | float64 | kpc | Galactocentric X coordinate |
- | Y | float64 | kpc | Galactocentric Y coordinate |
- | Z | float64 | kpc | Galactocentric Z coordinate |
+ | Num_Full_Members | int64 |  | Number of full cluster members (PM, RV and [Fe/H]) |
+ | Num_PMRV_Members | int64 |  | Number of cluster proper motion and radial velocity members |
+ | OCCAM_Qual | int64 |  | Visual CMD quality Flag; 1: less than 5 stars 2: 5 or more stars |
+ | Cav_Qual | int64 |  | Quality flag from <a href="https://ui.adsabs.harvard.edu/abs/2024AJ....167...12C">Cavallo et al. 2024</a> |
+ | EH_Dist | float64 | pc | Distance from solar neighborhood from <a href="https://ui.adsabs.harvard.edu/abs/2024A%26A...686A..42H">Hunt & Reffert 2024</a> |
+ | Cav_Dist | float64 | pc | Distance from solar neighborhood from <a href="https://ui.adsabs.harvard.edu/abs/2024AJ....167...12C">Cavallo et al. 2024</a> |
+ | X | float64 | pc | Galactocentric X coordinate |
+ | Y | float64 | pc | Galactocentric Y coordinate |
+ | Z | float64 | pc | Galactocentric Z coordinate |
 
 
 
