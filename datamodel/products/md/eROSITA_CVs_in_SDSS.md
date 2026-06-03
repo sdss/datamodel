@@ -144,9 +144,9 @@ Name | Type | Unit | Description |
  | Gmag_ERR | float64 | mag | Gaia DR3 error in G-band magnitude |
  | BP-RP | float64 | mag | Gaia DR3 BP - RP magnitude |
  | BP-RP_err | float64 | mag | Gaia DR3 error in BP - RP magnitude |
- | DISTANCE | float64 | pc | Gaia DR3 rgeo nominal distance based on Bailer-Jones et al. (2018) |
- | DISTANCE_LOWER | float64 | pc | Gaia DR3 rgeo lower distance based on Bailer-Jones et al. (2018) |
- | DISTANCE_UPPER | float64 | pc | Gaia DR3 rgeo upper distance based on Bailer-Jones et al. (2018) |
+ | DISTANCE | float64 | pc | Gaia DR3 rgeo nominal distance based on Bailer-Jones et al. (2021) |
+ | DISTANCE_LOWER | float64 | pc | Gaia DR3 rgeo lower distance based on Bailer-Jones et al. (2021) |
+ | DISTANCE_UPPER | float64 | pc | Gaia DR3 rgeo upper distance based on Bailer-Jones et al. (2021) |
  | Gabs | float64 | mag | Absolute magnitude based on Gmag and DISTANCE |
  | logLx | float64 | erg s**(-1)  | logarithm of X-ray luminosity in eRASS:3 0.2 - 2.3 keV band |
  | log(Fx/Fopt) | float64 |  | logarithm of X-ray to flux ratio given by: log(Fx/Fopt) = log10(eRO_FLUX) + (Gmag/2.5) + 4.86 |
