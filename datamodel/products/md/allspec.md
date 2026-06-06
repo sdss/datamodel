@@ -16,7 +16,7 @@ Table of all spectroscopic reductions
 Table of all spectroscopic reductions across each SDSS instrument.
 
 ### Naming Convention
-$ALLSPEC/[VERS]/allspec-[RELEASE]-[VERS].fits where RELEASE = dr20 and VERS=1.0.2 in DR20.
+$ALLSPEC/[VERS]/allspec-[RELEASE]-[VERS].fits.gz where RELEASE = dr20 and VERS=1.0.2 in DR20.
 
 ### Releases
 DR19, DR20
