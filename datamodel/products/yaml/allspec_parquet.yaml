@@ -28,13 +28,208 @@ releases:
     location: '{vers}/allspec-{release}-{vers}.parquet'
     environment: ALLSPEC
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
-      access_string: allspec_parquet = $ALLSPEC/{vers}/allspec-{release}-{vers}.parquet
+      in_sdss_access: true
+      path_name: allspec
+      path_template: $ALLSPEC/{vers}/allspec-{release}-{vers}.{ftype}
+      path_kwargs:
+      - ftype
+      - vers
+      - release
+      access_string: allspec = $ALLSPEC/{vers}/allspec-{release}-{vers}.parquet
     survey: SDSS
-    dataframe: {}
+    dataframe:
+      columns:
+        allspec_id:
+          name: allspec_id
+          dtype: String
+          unit: ''
+          description: Unique allspec ID
+        multiplex_id:
+          name: multiplex_id
+          dtype: String
+          unit: ''
+          description: multiplex ID
+        sdss_phase:
+          name: sdss_phase
+          dtype: Int16
+          unit: ''
+          description: SDSS Phase from 1 to 5
+        observatory:
+          name: observatory
+          dtype: String
+          unit: ''
+          description: observatory
+        instrument:
+          name: instrument
+          dtype: String
+          unit: ''
+          description: instrument
+        sdss_id:
+          name: sdss_id
+          dtype: Int64
+          unit: ''
+          description: sdss_id
+        catalogid:
+          name: catalogid
+          dtype: Int64
+          unit: ''
+          description: BHM catalogid
+        fiberid:
+          name: fiberid
+          dtype: Int32
+          unit: ''
+          description: SDSS/BOSS/eBOSS fiberid
+        ifudsgn:
+          name: ifudsgn
+          dtype: Int16
+          unit: ''
+          description: MaNGA IFU DESIGN ID
+        plate:
+          name: plate
+          dtype: Int32
+          unit: ''
+          description: SDSS/BOSS/eBOSS/BHM plate (before FPS era)
+        fps_field:
+          name: fps_field
+          dtype: Int32
+          unit: ''
+          description: FPS Field (post Plate era)
+        plate_or_fps_field:
+          name: plate_or_fps_field
+          dtype: Int32
+          unit: ''
+          description: Plate or FPS Field (merges pre/post Plate era)
+        mjd:
+          name: mjd
+          dtype: Int32
+          unit: ''
+          description: MJD
+        run2d:
+          name: run2d
+          dtype: String
+          unit: ''
+          description: idlspec2d version
+        run1d:
+          name: run1d
+          dtype: String
+          unit: ''
+          description: idlspec1d version
+        coadd:
+          name: coadd
+          dtype: String
+          unit: ''
+          description: either epoch, daily, or custom=allepoch
+        apred_vers:
+          name: apred_vers
+          dtype: String
+          unit: ''
+          description: APOGEE DRP Version
+        drpver:
+          name: drpver
+          dtype: String
+          unit: ''
+          description: MaNGA (for e.g.) DRP Version
+        version:
+          name: version
+          dtype: String
+          unit: ''
+          description: All Pipeline Version
+        programname:
+          name: programname
+          dtype: String
+          unit: ''
+          description: Spectroscopic program Name
+        survey:
+          name: survey
+          dtype: String
+          unit: ''
+          description: Spectroscopic survey or sub-survey
+        sas_file:
+          name: sas_file
+          dtype: String
+          unit: ''
+          description: SAS File
+        cas_url:
+          name: cas_url
+          dtype: String
+          unit: ''
+          description: CAS URL
+        sas_url:
+          name: sas_url
+          dtype: String
+          unit: ''
+          description: SAS URL
+        ra:
+          name: ra
+          dtype: Float64
+          unit: deg
+          description: Right ascension
+        dec:
+          name: dec
+          dtype: Float64
+          unit: deg
+          description: Declination
+        healpix:
+          name: healpix
+          dtype: Int32
+          unit: ''
+          description: healpix
+        healpixgrp:
+          name: healpixgrp
+          dtype: Int16
+          unit: ''
+          description: healpixgrp
+        apogee_id:
+          name: apogee_id
+          dtype: String
+          unit: ''
+          description: APOGEE ID
+        apogee_field:
+          name: apogee_field
+          dtype: String
+          unit: ''
+          description: APOGEE Field (prior to SDSS-V)
+        telescope:
+          name: telescope
+          dtype: String
+          unit: ''
+          description: 2.5m Telescope
+        file_spec:
+          name: file_spec
+          dtype: String
+          unit: ''
+          description: sdss_access file species name
+        apstar_id:
+          name: apstar_id
+          dtype: String
+          unit: ''
+          description: APOGEE (combined) star ID
+        visit_id:
+          name: visit_id
+          dtype: String
+          unit: ''
+          description: APOGEE visit ID
+        has_mwmstar:
+          name: has_mwmstar
+          dtype: Int64
+          unit: ''
+          description: Has MWM Star
+        astra_versions:
+          name: astra_versions
+          dtype: String
+          unit: ''
+          description: list of v_astra values if sdss_id has MWM Star
+        mangaid:
+          name: mangaid
+          dtype: String
+          unit: ''
+          description: MaNGA ID
+        specobjid:
+          name: specobjid
+          dtype: String
+          unit: ''
+          description: spectroscopic object id
+      metadata: {}
 notes: |-
   None
 regrets: |-

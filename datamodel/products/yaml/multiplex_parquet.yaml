@@ -28,13 +28,143 @@ releases:
     location: '{vers}/multiplex-{release}-{vers}.parquet'
     environment: ALLSPEC
     access:
-      in_sdss_access: false
-      path_name: null
-      path_template: null
-      path_kwargs: null
-      access_string: multiplex_parquet = $ALLSPEC/{vers}/multiplex-{release}-{vers}.parquet
+      in_sdss_access: true
+      path_name: multiplex
+      path_template: $ALLSPEC/{vers}/multiplex-{release}-{vers}.{ftype}
+      path_kwargs:
+      - ftype
+      - release
+      - vers
+      access_string: multiplex = $ALLSPEC/{vers}/multiplex-{release}-{vers}.parquet
     survey: SDSS
-    dataframe: {}
+    dataframe:
+      columns:
+        multiplex_id:
+          name: multiplex_id
+          dtype: String
+          unit: ''
+          description: Unique multiplex ID
+        design_id:
+          name: design_id
+          dtype: Int32
+          unit: ''
+          description: design_id
+        sdss_phase:
+          name: sdss_phase
+          dtype: Int16
+          unit: ''
+          description: SDSS Phase from 1 to 5
+        observatory:
+          name: observatory
+          dtype: String
+          unit: ''
+          description: observatory
+        telescope:
+          name: telescope
+          dtype: String
+          unit: ''
+          description: telescope
+        instrument:
+          name: instrument
+          dtype: String
+          unit: ''
+          description: instrument
+        plate:
+          name: plate
+          dtype: Int32
+          unit: ''
+          description: SDSS/BOSS/eBOSS/BHM plate (before FPS era)
+        fps_field:
+          name: fps_field
+          dtype: Int32
+          unit: ''
+          description: Plate or FPS Field (merges pre/post Plate era)
+        plate_or_fps_field:
+          name: plate_or_fps_field
+          dtype: Int32
+          unit: ''
+          description: Plate or FPS Field (merges pre/post Plate era)
+        mjd:
+          name: mjd
+          dtype: Int32
+          unit: ''
+          description: MJD
+        run2d:
+          name: run2d
+          dtype: String
+          unit: ''
+          description: idlspec2d version
+        coadd:
+          name: coadd
+          dtype: String
+          unit: ''
+          description: either epoch, daily
+        apred_vers:
+          name: apred_vers
+          dtype: String
+          unit: ''
+          description: APOGEE DRP Version
+        drpver:
+          name: drpver
+          dtype: String
+          unit: ''
+          description: MaNGA (for e.g.) DRP Version
+        version:
+          name: version
+          dtype: String
+          unit: ''
+          description: All Pipeline Version
+        racen:
+          name: racen
+          dtype: Float64
+          unit: deg
+          description: Multiplex center's right ascension
+        deccen:
+          name: deccen
+          dtype: Float64
+          unit: deg
+          description: Multiplex center's declination
+        position_angle:
+          name: position_angle
+          dtype: Float64
+          unit: ''
+          description: Multiplex position angle
+        healpix:
+          name: healpix
+          dtype: Int32
+          unit: ''
+          description: healpix
+        healpixgrp:
+          name: healpixgrp
+          dtype: Int16
+          unit: ''
+          description: healpixgrp
+        quality:
+          name: quality
+          dtype: String
+          unit: ''
+          description: Quality flag for spectroscopic reduction
+        programname:
+          name: programname
+          dtype: String
+          unit: ''
+          description: Spectroscopic program Name
+        survey:
+          name: survey
+          dtype: String
+          unit: ''
+          description: Spectroscopic survey or sub-survey
+        cas_url:
+          name: cas_url
+          dtype: String
+          unit: ''
+          description: CAS URL
+        sas_url:
+          name: sas_url
+          dtype: String
+          unit: ''
+          description: SAS URL
+      metadata: {}
 notes: |-
   None
 regrets: |-
