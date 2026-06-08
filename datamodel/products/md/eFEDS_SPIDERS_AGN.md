@@ -1983,7 +1983,7 @@ Name | Type | Unit | Description |
  | Stellar_mass_flux_Msun_r | float64 | Msun | Stellar mass within aperture from the spectral flux in DECam r |
  | apcorr_factor | float64 |  | Aperture correction factor (Aydar+2026a) |
  | Stellar_mass_Msun_r_apcorr | float64 | Msun | Aperture corrected stellar mass from the spectral flux in DECam r |
- | Stellar_mass_flux_Msun_g | float64 | Msun | Stellar mass within aperture from the spectral flux in DECam r |
+ | Stellar_mass_flux_Msun_g | float64 | Msun | Stellar mass within aperture from the spectral flux in DECam g |
  | velocity_dispersion_stars | float64 | km/s | Stellar velocity dispersion (second term of kinematic fit) |
  | velocity_dispersion_stars_error | float64 | km/s | Stellar velocity dispersion error |
  | velocity_stars | float64 | km/s | Stellar velocity (first term of kinematic fit) |

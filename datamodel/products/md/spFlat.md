@@ -19,7 +19,7 @@ This file contains information about fiberflats, X-centers of fibers, fibermask,
 $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[FIELDGRP]/[FIELD]/spFlat-[BR][ID]-[FRAME].fits.gz
 
 ### Releases
-DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19, IPL4
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, IPL3, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,24 +39,27 @@ False
 ### Data Level
 1.2.1
 
-### HDUS List for release DR19
-  - [HDU0: fflat](#hdu0-fflat)
-  - [HDU1: tset](#hdu1-tset)
-  - [HDU2: fibermask](#hdu2-fibermask)
-  - [HDU3: widthset](#hdu3-widthset)
-  - [HDU4: superflatset](#hdu4-superflatset)
-  - [HDU5: xsol](#hdu5-xsol)
+### HDUS List for release DR20
+  - [HDU0: FFLAT](#hdu0-fflat)
+  - [HDU1: TSET](#hdu1-tset)
+  - [HDU2: FIBERMASK](#hdu2-fibermask)
+  - [HDU3: WIDTHSET](#hdu3-widthset)
+  - [HDU4: SUPERFLATSET](#hdu4-superflatset)
+  - [HDU5: XSOL](#hdu5-xsol)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
-   - added_hdus: ['XSOL', 'WIDTHSET', 'FIBERMASK', 'TSET', 'SUPERFLATSET', 'FFLAT']
-   - removed_hdus: ['widthset', 'fibermask', 'superflatset', 'tset', 'xsol', 'fflat']
+   - added_hdus: ['WIDTHSET', 'TSET', 'FFLAT', 'SUPERFLATSET', 'XSOL', 'FIBERMASK']
+   - removed_hdus: ['xsol', 'widthset', 'fflat', 'fibermask', 'tset', 'superflatset']
    - primary_delta_nkeys: 6
-   - added_primary_header_kwargs: ['FFSPOS', 'FFREDMAS', 'M2FF', 'MASTERFL', 'SFLATMIN', 'FFBLUEMA']
+   - added_primary_header_kwargs: ['FFREDMAS', 'FFBLUEMA', 'FFSPOS', 'MASTERFL', 'SFLATMIN', 'M2FF']
  - DR19
    - from: IPL3
    - note: No changes
@@ -64,13 +67,13 @@ Describes changes to the datamodel product and/or file structure from one releas
    - from: DR18
    - added_hdus: ['xsol']
    - primary_delta_nkeys: 73
-   - added_primary_header_kwargs: ['VERS2D', 'OBSERVAT', 'OFFDEC', 'MECHORIX', 'SLITID', 'T_FLOOR', 'ARCHBVER', 'MCHUMHT', 'VJAEGER', 'INTSTART', 'CONFID', 'EQUINOX', 'BOSSVER', 'VCALIBS', 'MECHORIY', 'CCDID', 'MCTBCT', 'INTEND', 'B2CAMH', 'T_PRIM', 'MCTRCB', 'MCTBCB', 'MEDWIDT2', 'HA', 'SPEC', 'MCHUMCO', 'MEDWIDT3', 'MECHORIZ', 'T_CELL', 'HEAR', 'CCDTYPE', 'DAQVER', 'VCOORDIO', 'MCTRCT', 'COLLT', 'VKAIJU', 'T_TRUSS', 'ARCHACF', 'OFFRA', 'R2CAMH', 'T_OUT', 'FLATNAME', 'EXTNAME', 'MEDWIDT1', 'V_ARCHON', 'DESIGNID', 'PROFTYPE', 'FIELDID', 'MEDWIDT0', 'ARCHBACK', 'BUFFER', 'B2CAMT', 'T_IN', 'CCD', 'OFFPA', 'COLLH', 'R2CAMT', 'AIRMASS', 'ARCNAME', 'MCTEMDN', 'GSEEING', 'SPECMT', 'CCDSUM', 'ARCHTEMP', 'MCTHT']
-   - removed_primary_header_kwargs: ['CAMCOL', 'MC1TRCT', 'MGDDEC', 'MC1TBCB', 'CAMROW', 'MC1TBCT', 'MC1TEMDN', 'TWOPHASE', 'SLITID1', 'MGDPOS', 'MC1HUMHT', 'MGDRA', 'MC1THT', 'MC1TRCB', 'MC1HUMCO', 'AUTHOR']
+   - added_primary_header_kwargs: ['T_FLOOR', 'HA', 'MECHORIY', 'OFFDEC', 'ARCNAME', 'COLLT', 'ARCHACF', 'HEAR', 'CCDTYPE', 'OBSERVAT', 'T_IN', 'AIRMASS', 'OFFPA', 'MECHORIX', 'ARCHTEMP', 'MCTBCB', 'INTEND', 'SLITID', 'T_OUT', 'INTSTART', 'CCDID', 'MCHUMCO', 'B2CAMT', 'MCTHT', 'DAQVER', 'VCALIBS', 'OFFRA', 'MCHUMHT', 'EQUINOX', 'V_ARCHON', 'SPEC', 'ARCHBVER', 'SPECMT', 'R2CAMT', 'CONFID', 'GSEEING', 'CCD', 'MEDWIDT0', 'FLATNAME', 'MEDWIDT2', 'PROFTYPE', 'VCOORDIO', 'MCTEMDN', 'T_CELL', 'EXTNAME', 'MCTRCB', 'CCDSUM', 'VJAEGER', 'B2CAMH', 'BUFFER', 'COLLH', 'FIELDID', 'BOSSVER', 'DESIGNID', 'MECHORIZ', 'T_TRUSS', 'MEDWIDT3', 'ARCHBACK', 'R2CAMH', 'MCTRCT', 'MCTBCT', 'VERS2D', 'T_PRIM', 'MEDWIDT1', 'VKAIJU']
+   - removed_primary_header_kwargs: ['CAMROW', 'MC1HUMCO', 'MGDPOS', 'MC1TRCB', 'MC1THT', 'MGDDEC', 'AUTHOR', 'MC1TRCT', 'SLITID1', 'CAMCOL', 'TWOPHASE', 'MGDRA', 'MC1HUMHT', 'MC1TBCT', 'MC1TBCB', 'MC1TEMDN']
  - DR18
    - from: DR17
    - primary_delta_nkeys: 38
-   - added_primary_header_kwargs: ['HUMIDITY', 'LN2TEMP', 'DUSTB', 'WINDS', 'DUSTA', 'PRESSURE', 'M1ZROT', 'WINDS25M', 'IONPUMP', 'REQTIME', 'MC1HUMCO', 'V_APO', 'TRUSTEMP', 'MC1TRCT', 'MC1TBCT', 'GUSTS', 'MC1TEMDN', 'MC1HUMHT', 'V_SOP', 'WINDD25M', 'M2ZROT', 'V_BOSS', 'MC1TRCB', 'PLATETYP', 'SRVYMODE', 'PFERR', 'SUBFRAME', 'MGDDEC', 'WINDD', 'MGDRA', 'SHCLOTIM', 'AIRTEMP', 'MC1THT', 'DIDFLUSH', 'SHOPETIM', 'SLITID1', 'MC1TBCB', 'DEWPOINT', 'MGDPOS', 'CCDTEMP', 'DARKTIME', 'V_GUIDER', 'GUSTD']
-   - removed_primary_header_kwargs: ['DAQVER', 'PIXBIAS', 'OBJOFFY', 'BOSSVER', 'OBJOFFX']
+   - added_primary_header_kwargs: ['MGDPOS', 'MC1TRCB', 'DIDFLUSH', 'SLITID1', 'DEWPOINT', 'PRESSURE', 'REQTIME', 'AIRTEMP', 'DUSTB', 'MC1TBCB', 'V_APO', 'MC1TRCT', 'GUSTD', 'SHOPETIM', 'IONPUMP', 'MGDRA', 'M1ZROT', 'MC1TBCT', 'MC1HUMCO', 'MGDDEC', 'SHCLOTIM', 'TRUSTEMP', 'WINDD25M', 'CCDTEMP', 'LN2TEMP', 'V_BOSS', 'HUMIDITY', 'GUSTS', 'WINDD', 'SRVYMODE', 'V_SOP', 'M2ZROT', 'DARKTIME', 'MC1THT', 'DUSTA', 'WINDS', 'PLATETYP', 'SUBFRAME', 'PFERR', 'MC1TEMDN', 'V_GUIDER', 'MC1HUMHT', 'WINDS25M']
+   - removed_primary_header_kwargs: ['OBJOFFX', 'BOSSVER', 'PIXBIAS', 'DAQVER', 'OBJOFFY']
  - DR17
    - from: DR16
    - note: No changes
@@ -99,7 +102,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 ---
 ## Example HDUS List
 
-### HDU0: fflat
+### HDU0: FFLAT
 The primary HDU data is an array of flat-field vectors for each fiber that removes relative flat-field variations as a function of wavelength between fibers. These are referred as fiberflats.
 
 #### HDU Type: IMAGE
@@ -108,12 +111,12 @@ The primary HDU data is an array of flat-field vectors for each fiber that remov
 ##### Header Table Caption for HDU0
 Key | Value | Comment | |
 | --- | --- | --- | --- |
-| SIMPLE | True | Written by IDL:  Wed Apr  3 01:53:45 2024 |
-| BITPIX | -32 | Number of bits per data pixel |
-| NAXIS | 2 | Number of data axes |
+| SIMPLE | True | Primary Header created by MWRFITS v1.13 |
+| BITPIX | -32 |  |
+| NAXIS | 2 |  |
 | NAXIS1 | 4112 |  |
 | NAXIS2 | 500 |  |
-| EXTEND | True |  |
+| EXTEND | True | Extensions may be present |
 |  |  |  |
 |  | INSTRUMENT INFO |  |
 | TELESCOP | SDSS 2.5-M | Telescope |
@@ -254,10 +257,10 @@ Key | Value | Comment | |
 | CAMDAQ | 1.5.0:37 | Camera Data Acquisition Version |
 | BOSSVER |  | ICC version |
 | VERSIDL | 8.8.0 | Version of IDL |
-| VERSUTIL | 6.0.0dev | Version of idlutils |
-| VERSREAD | v6_1_3 | Version of idlspec2d for pre-processing raw data |
+| VERSUTIL | 6.3.0 | Version of idlutils |
+| VERSREAD | v6_2_1 | Version of idlspec2d for pre-processing raw data |
 | VERSLOG | trunk 27531 | Version of SPECLOG product |
-| VERSFLAT | v1_35 | SPECFLAT version |
+| VERSFLAT | v1_36 | SPECFLAT version |
 | VERS2D |  | Version of idlspec2d for 2D reduction |
 |  |  |  |
 |  | APO WEATHER |  |
@@ -289,6 +292,8 @@ Key | Value | Comment | |
 | HEAR | 0 0 0 0 | HeAr Arc lamps 1:On 0:off |
 | FF | 1 1 1 1 | Flat Field lamps 1:on 0:off |
 | FFS | 1 1 1 1 1 1 1 1 | Flatfield Screen 1:closed 0:open |
+| M2FF | 0 0 0 0 | LCO M2 Flat Field Lamps 1:on 0:off |
+| FFSPOS |  | FF screen position [deg] |
 | HARTMANN | Out | Hartmanns: Left,Right,Out,Closed |
 |  |  |  |
 |  | REDUCTION |  |
@@ -304,15 +309,19 @@ Key | Value | Comment | |
 | FLATNAME | sdR-b1-00353044.fit | Name of flat |
 | ARCNAME | sdR-b1-00353047.fit | Name of associated arc |
 | PROFTYPE | 1 | Extract Profile (1:guass 2:ExpCubic 3:DoubleGaus |
-| MEDWIDT0 | 0.970656 | Median spatial dispersion widths in LL quadrant |
+| MASTERFL | spTraceFlat-b1-00353026.fits.gz | Flat used to pad FFLAT |
+| FFBLUEMA | 3490.97284086 | Raw FFLAT Blue padded |
+| FFREDMAS | 6374.35181086 | Raw FFLAT Red padded |
+| SFLATMIN | 0.005 | Superflat Minimum |
+| MEDWIDT0 | 0.9708 | Median spatial dispersion widths in LL quadrant |
 | MEDWIDT1 | 1.0265 | Median spatial dispersion widths in LR quadrant |
 | MEDWIDT2 | 1.03808 | Median spatial dispersion widths in UL quadrant |
 | MEDWIDT3 | 1.06889 | Median spatial dispersion widths in UR quadrant |
-| EXTNAME | fflat |  |
+| EXTNAME | FFLAT |  |
 
 
 
-### HDU1: tset
+### HDU1: TSET
 The HDU 1 data is a binary table whose fields are used to calculate the X-centers, for all fibers in the flat-field calibration frames. The Y-pixel positions on the CCD, which is the independent variable and the corresponding X-centers, which is the dependent variable are fitted to a functional form and the resulting coefficients are stored in the binary table.
 
 #### HDU Type: BINARY TABLE
@@ -332,7 +341,7 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** End of mandatory fields *** |  |
 | COMMENT |  |  |
-| EXTNAME | tset |  |
+| EXTNAME | TSET |  |
 | COMMENT |  |  |
 | COMMENT |  *** Column formats *** |  |
 | COMMENT |  |  |
@@ -354,7 +363,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU2: fibermask
+### HDU2: FIBERMASK
 The HDU 2 data stores the fibermask. These are fiber status bits and are set to non-zero to indicate bad status. The status bits used for masking are documented in $IDLUTILS/$IDLUTILS_VER/data/sdss/sdssMaskbits.par.
 
 #### HDU Type: IMAGE
@@ -363,32 +372,17 @@ The HDU 2 data stores the fibermask. These are fiber status bits and are set to 
 ##### Header Table Caption for HDU2
 Key | Value | Comment | |
 | --- | --- | --- | --- |
-| XTENSION | IMAGE | Binary table written by MWRFITS v1.13 |
-| BITPIX | 64 | Required value |
-| NAXIS | 1 | Required value |
-| NAXIS1 | 500 | Number of bytes per row |
-| NAXIS2 | 1 | Number of rows |
-| PCOUNT | 0 | Normally 0 (no varying arrays) |
-| GCOUNT | 1 | Required value |
-| TFIELDS | 4 | Number of columns in table |
-| COMMENT |  |  |
-| COMMENT |  *** End of mandatory fields *** |  |
-| COMMENT |  |  |
-| EXTNAME | fibermask |  |
-| COMMENT |  |  |
-| COMMENT |  *** Column formats *** |  |
-| COMMENT |  |  |
-| COMMENT |  |  |
-| COMMENT |  *** Column dimensions (2 D or greater) *** |  |
-| COMMENT |  |  |
-| TDIM4 | ( 7, 500) |  |
-| COMMENT |  |  |
-| COMMENT |  *** Column names *** |  |
-| COMMENT |  |  |
+| XTENSION | IMAGE | Image Extension created by MWRFITS v1.13 |
+| BITPIX | 64 |  |
+| NAXIS | 1 |  |
+| NAXIS1 | 500 |  |
+| EXTNAME | FIBERMASK |  |
+| PCOUNT | 0 |  |
+| GCOUNT | 1 |  |
 
 
 
-### HDU3: widthset
+### HDU3: WIDTHSET
 The data attribute of HDU 3 gives the first-order corrected profile width for each fiber bundle. This Gaussian sigma is in units of pixels. The X-positions on the CCD and their corresponding profile width are fitted to a functional form and the resulting coefficients are stored in a binary table. The X-position is the independent variable and the width is the dependent variable for the fitting function.
 
 #### HDU Type: BINARY TABLE
@@ -408,26 +402,14 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** End of mandatory fields *** |  |
 | COMMENT |  |  |
-| COMMENT |  |  |
-| COMMENT |  *** End of mandatory fields *** |  |
-| COMMENT |  |  |
-| EXTNAME | widthset |  |
+| EXTNAME | WIDTHSET |  |
 | COMMENT |  |  |
 | COMMENT |  *** Column formats *** |  |
-| COMMENT |  |  |
-| COMMENT |  |  |
-| COMMENT |  *** Column formats *** |  |
-| COMMENT |  |  |
-| COMMENT |  |  |
-| COMMENT |  *** Column dimensions (2 D or greater) *** |  |
 | COMMENT |  |  |
 | COMMENT |  |  |
 | COMMENT |  *** Column dimensions (2 D or greater) *** |  |
 | COMMENT |  |  |
 | TDIM4 | ( 3, 500) |  |
-| COMMENT |  |  |
-| COMMENT |  *** Column names *** |  |
-| COMMENT |  |  |
 | COMMENT |  |  |
 | COMMENT |  *** Column names *** |  |
 | COMMENT |  |  |
@@ -442,7 +424,7 @@ Name | Type | Unit | Description |
 
 
 
-### HDU4: superflatset
+### HDU4: SUPERFLATSET
 The data attribute of HDU 4 contains superflat which is constructed from extracted flat-field image and is stored in a bspline set structure form. A superflat is a bspline average across all fibers of the flat spectrum in raw counts as a function of wavelength.
 
 #### HDU Type: BINARY TABLE
@@ -454,7 +436,7 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | Binary table written by MWRFITS v1.13 |
 | BITPIX | 8 | Required value |
 | NAXIS | 2 | Required value |
-| NAXIS1 | 25396 | Number of bytes per row |
+| NAXIS1 | 25410 | Number of bytes per row |
 | NAXIS2 | 1 | Number of rows |
 | PCOUNT | 0 | Normally 0 (no varying arrays) |
 | GCOUNT | 1 | Required value |
@@ -462,34 +444,9 @@ Key | Value | Comment | |
 | COMMENT |  |  |
 | COMMENT |  *** End of mandatory fields *** |  |
 | COMMENT |  |  |
-| COMMENT |  |  |
-| COMMENT |  *** End of mandatory fields *** |  |
-| COMMENT |  |  |
-| COMMENT |  |  |
-| COMMENT |  *** End of mandatory fields *** |  |
-| COMMENT |  |  |
-| EXTNAME | superflatset |  |
+| EXTNAME | SUPERFLATSET |  |
 | COMMENT |  |  |
 | COMMENT |  *** Column formats *** |  |
-| COMMENT |  |  |
-| COMMENT |  |  |
-| COMMENT |  *** Column formats *** |  |
-| COMMENT |  |  |
-| COMMENT |  |  |
-| COMMENT |  *** Column formats *** |  |
-| COMMENT |  |  |
-| COMMENT |  |  |
-| COMMENT |  *** Column dimensions (2 D or greater) *** |  |
-| COMMENT |  |  |
-| COMMENT |  |  |
-| COMMENT |  *** Column dimensions (2 D or greater) *** |  |
-| COMMENT |  |  |
-| TDIM4 | ( 3, 500) |  |
-| COMMENT |  |  |
-| COMMENT |  *** Column names *** |  |
-| COMMENT |  |  |
-| COMMENT |  |  |
-| COMMENT |  *** Column names *** |  |
 | COMMENT |  |  |
 | COMMENT |  |  |
 | COMMENT |  *** Column names *** |  |
@@ -498,15 +455,15 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU4
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | FULLBKPT | float32[1816] |  | Breakpoint vector |
- | BKMASK | int16[1816] |  | mask of the breakpoint vector |
+ | FULLBKPT | float32[1817] |  | Breakpoint vector |
+ | BKMASK | int16[1817] |  | mask of the breakpoint vector |
  | NORD | int32 |  | Number of orders for Bspline fit |
- | COEFF | float32[1812] |  | The bspline coefficients |
- | ICOEFF | float32[1812] |  | inversion bspline coefficients |
+ | COEFF | float32[1813] |  | The bspline coefficients |
+ | ICOEFF | float32[1813] |  | inversion bspline coefficients |
 
 
 
-### HDU5: xsol
+### HDU5: XSOL
 X centers for all traces
 
 #### HDU Type: IMAGE
@@ -515,49 +472,14 @@ X centers for all traces
 ##### Header Table Caption for HDU5
 Key | Value | Comment | |
 | --- | --- | --- | --- |
-| XTENSION | IMAGE | Binary table written by MWRFITS v1.13 |
-| BITPIX | -32 | Required value |
-| NAXIS | 2 | Required value |
-| NAXIS1 | 4112 | Number of bytes per row |
-| NAXIS2 | 500 | Number of rows |
-| PCOUNT | 0 | Normally 0 (no varying arrays) |
-| GCOUNT | 1 | Required value |
-| TFIELDS | 5 | Number of columns in table |
-| COMMENT |  |  |
-| COMMENT |  *** End of mandatory fields *** |  |
-| COMMENT |  |  |
-| COMMENT |  |  |
-| COMMENT |  *** End of mandatory fields *** |  |
-| COMMENT |  |  |
-| COMMENT |  |  |
-| COMMENT |  *** End of mandatory fields *** |  |
-| COMMENT |  |  |
-| EXTNAME | xsol |  |
-| COMMENT |  |  |
-| COMMENT |  *** Column formats *** |  |
-| COMMENT |  |  |
-| COMMENT |  |  |
-| COMMENT |  *** Column formats *** |  |
-| COMMENT |  |  |
-| COMMENT |  |  |
-| COMMENT |  *** Column formats *** |  |
-| COMMENT |  |  |
-| COMMENT |  |  |
-| COMMENT |  *** Column dimensions (2 D or greater) *** |  |
-| COMMENT |  |  |
-| COMMENT |  |  |
-| COMMENT |  *** Column dimensions (2 D or greater) *** |  |
-| COMMENT |  |  |
-| TDIM4 | ( 3, 500) |  |
-| COMMENT |  |  |
-| COMMENT |  *** Column names *** |  |
-| COMMENT |  |  |
-| COMMENT |  |  |
-| COMMENT |  *** Column names *** |  |
-| COMMENT |  |  |
-| COMMENT |  |  |
-| COMMENT |  *** Column names *** |  |
-| COMMENT |  |  |
+| XTENSION | IMAGE | Image Extension created by MWRFITS v1.13 |
+| BITPIX | -32 |  |
+| NAXIS | 2 |  |
+| NAXIS1 | 4112 |  |
+| NAXIS2 | 500 |  |
+| EXTNAME | XSOL |  |
+| PCOUNT | 0 |  |
+| GCOUNT | 1 |  |
 
 
 

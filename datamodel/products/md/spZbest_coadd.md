@@ -19,7 +19,7 @@ The spZbest files contain the spectroscopic classifications and redshifts from t
 $BOSS_SPECTRO_REDUX/[RUN2D]/fields/[COADD]/[COADD]_[OBS]/[RUN1D]/spZbest-[COADD]_[OBS]-[MJD].fits
 
 ### Releases
-IPL3, DR19, IPL4
+IPL3, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_REDUX
@@ -39,21 +39,24 @@ False
 ### Data Level
 1.3
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1](#hdu1)
-  - [HDU2](#hdu2)
-  - [HDU3](#hdu3)
+  - [HDU1: ZANS](#hdu1-zans)
+  - [HDU2: SYNFLUX](#hdu2-synflux)
+  - [HDU3: DISPFLUX](#hdu3-dispflux)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
-   - added_hdus: ['DISPFLUX', 'SYNFLUX', 'ZANS']
+   - added_hdus: ['ZANS', 'DISPFLUX', 'SYNFLUX']
    - primary_delta_nkeys: 18
-   - added_primary_header_kwargs: ['IRMSSTD', 'SN2EXT2G', 'SPEC2_I', 'RRMSSTD', 'EXTNAME', 'GRRMSSTD', 'SPEC2_G', 'IOFFSTD', 'GOFFSTD', 'RIRMSSTD', 'RIOFFSTD', 'SN2EXT2I', 'GRMSSTD', 'GROFFSTD', 'NSTD', 'SN2EXT2R', 'ROFFSTD', 'SPEC2_R']
+   - added_primary_header_kwargs: ['NSTD', 'IOFFSTD', 'RRMSSTD', 'EXTNAME', 'GRRMSSTD', 'GOFFSTD', 'RIOFFSTD', 'IRMSSTD', 'RIRMSSTD', 'GRMSSTD', 'SN2EXT2R', 'ROFFSTD', 'SPEC2_I', 'SN2EXT2I', 'SPEC2_R', 'SN2EXT2G', 'GROFFSTD', 'SPEC2_G']
  - DR19
    - from: IPL3
    - note: No changes
@@ -81,40 +84,58 @@ Key | Value | Comment | |
 | CRPIX1 | 1 | Starting pixel (1-indexed) |
 | CTYPE1 | LINEAR |  |
 | MJD | 60000 | Modified Julian Date |
-| RUNMJD | 60407 | Modified Julian Date of RUN |
-| RUN2D | v6_1_3 | IDLSpec2D Run2d |
-| RUN1D | v6_1_3 | Spectro-1D reduction name |
-| VERS1D | v6_1_3 | Version of idlspec2d for 1D reduction |
+| RUNMJD | 60844 | Modified Julian Date of RUN |
+| RUN2D | v6_2_1 | IDLSpec2D Run2d |
+| RUN1D | v6_2_1 | Spectro-1D reduction name |
+| VERS1D | v6_2_1 | Version of idlspec2d for 1D reduction |
 | TILEID |  | Tile ID for SDSS BOSS plates (-1 for SDSS) |
 | MOON_FRA | 0.270368403284 | Moon Phase |
-| SPEC1_G | 6.62995 | (S/N)^2 for spec  1 at mag 21.20 |
-| SN2EXT1G | 6.62995 | Extinction corrected (S/N)^2 |
-| SPEC1_R | 21.791 | (S/N)^2 for spec  1 at mag 20.20 |
-| SN2EXT1R | 21.791 | Extinction corrected (S/N)^2 |
-| SPEC1_I | 16.2032 | (S/N)^2 for spec  1 at mag 20.20 |
-| SN2EXT1I | 16.2032 | Extinction corrected (S/N)^2 |
-| NGAL | 359 | Number of (good) main galaxies |
-| GOFFGAL | 0.0602238311768 | Spectrophoto offset for main galaxies in G-band |
-| GRMSGAL | 0.358758642181 | Spectrophoto RMS for main galaxies in G-band |
-| ROFFGAL | 0.0581752210299 | Spectrophoto offset for main galaxies in R-band |
-| RRMSGAL | 0.339271579636 | Spectrophoto RMS for main galaxies in R-band |
-| IOFFGAL | 0.10673924994 | Spectrophoto offset for main galaxies in I-band |
-| IRMSGAL | 0.382877112938 | Spectrophoto RMS for main galaxies in I-band |
-| GROFFGAL | 0.00221052551269 | Spectrophoto offset for main galaxies in (GR) |
-| GRRMSGAL | 0.230922157945 | Spectrophoto RMS for main galaxies in (GR) |
-| RIOFFGAL | -0.0356044439901 | Spectrophoto offset for main galaxies in (RI) |
-| RIRMSGAL | 0.161101424416 | Spectrophoto RMS for main galaxies in (RI) |
-| UNAME | notch283 |  |
+| SPEC1_G | 9.01189 | (S/N)^2 for spec  1 at mag 21.20 |
+| SN2EXT1G | 9.01189 | Extinction corrected (S/N)^2 |
+| SPEC1_R | 27.9471 | (S/N)^2 for spec  1 at mag 20.20 |
+| SN2EXT1R | 27.9471 | Extinction corrected (S/N)^2 |
+| SPEC1_I | 21.8242 | (S/N)^2 for spec  1 at mag 20.20 |
+| SN2EXT1I | 21.8242 | Extinction corrected (S/N)^2 |
+| NSTD | 1 | Number of (good) std stars |
+| GOFFSTD | -0.134940849304 | Spectrophoto offset for std stars in G-band |
+| GRMSSTD | 0.0 | Spectrophoto RMS for std stars in G-band |
+| ROFFSTD | -0.119622840881 | Spectrophoto offset for std stars in R-band |
+| RRMSSTD | 0.0 | Spectrophoto RMS for std stars in R-band |
+| IOFFSTD | -0.066560256958 | Spectrophoto offset for std stars in I-band |
+| IRMSSTD | 0.0 | Spectrophoto RMS for std stars in I-band |
+| GROFFSTD | -0.0153180084229 | Spectrophoto offset for std stars in (GR) |
+| GRRMSSTD | 0.0 | Spectrophoto RMS for std stars in (GR) |
+| RIOFFSTD | -0.0530625839233 | Spectrophoto offset for std stars in (RI) |
+| RIRMSSTD | 0.0 | Spectrophoto RMS for std stars in (RI) |
+| NGAL | 311 | Number of (good) main galaxies |
+| GOFFGAL | 0.0431625976562 | Spectrophoto offset for main galaxies in G-band |
+| GRMSGAL | 0.323619649076 | Spectrophoto RMS for main galaxies in G-band |
+| ROFFGAL | 0.0413135147095 | Spectrophoto offset for main galaxies in R-band |
+| RRMSGAL | 0.320567314294 | Spectrophoto RMS for main galaxies in R-band |
+| IOFFGAL | 0.0522980804443 | Spectrophoto offset for main galaxies in I-band |
+| IRMSGAL | 0.351960156341 | Spectrophoto RMS for main galaxies in I-band |
+| GROFFGAL | 0.00508108520508 | Spectrophoto offset for main galaxies in (GR) |
+| GRRMSGAL | 0.212627674117 | Spectrophoto RMS for main galaxies in (GR) |
+| RIOFFGAL | -0.0199691314697 | Spectrophoto offset for main galaxies in (RI) |
+| RIRMSGAL | 0.153159320558 | Spectrophoto RMS for main galaxies in (RI) |
+| SPEC2_G | 0.0 | (S/N)^2 for spec  2 at mag 21.20 |
+| SN2EXT2G | 0.0 | Extinction corrected (S/N)^2 |
+| SPEC2_R | 0.0 | (S/N)^2 for spec  2 at mag 20.20 |
+| SN2EXT2R | 0.0 | Extinction corrected (S/N)^2 |
+| SPEC2_I | 0.0 | (S/N)^2 for spec  2 at mag 20.20 |
+| SN2EXT2I | 0.0 | Extinction corrected (S/N)^2 |
+| EXTNAME | FLUX |  |
+| UNAME | notch292 |  |
 | CHOP_MIN | 3600.0 |  |
 | CHOP_MAX | 10400.0 |  |
 
 
 
-### HDU1: 
+### HDU1: ZANS
 Object classifications and redshifts
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  463 KB
+#### HDU Size:  402 KB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -122,19 +143,15 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | Binary table written by MWRFITS v1.13 |
 | BITPIX | 8 | Required value |
 | NAXIS | 2 | Required value |
-| NAXIS1 | 1149 | Number of bytes per row |
-| NAXIS2 | 413 | Number of rows |
+| NAXIS1 | 1141 | Number of bytes per row |
+| NAXIS2 | 361 | Number of rows |
 | PCOUNT | 0 | Normally 0 (no varying arrays) |
 | GCOUNT | 1 | Required value |
-| TFIELDS | 76 | Number of columns in table |
+| TFIELDS | 75 | Number of columns in table |
 | COMMENT |  |  |
 | COMMENT |  *** End of mandatory fields *** |  |
 | COMMENT |  |  |
-| COMMENT |  |  |
-| COMMENT |  *** Unsigned integer column scalings * |  |
-| COMMENT |  |  |
-| TSCAL76 | 1 |  |
-| TZERO76 | 9223372036854775808 |  |
+| EXTNAME | ZANS |  |
 | COMMENT |  |  |
 | COMMENT |  *** Column formats *** |  |
 | COMMENT |  |  |
@@ -155,7 +172,7 @@ Name | Type | Unit | Description |
  | TARGET_INDEX | int32 |  | Index of target on combined spField |
  | CATALOGID | int64 |  | SDSS-V CatalogID used in naming |
  | SDSS_ID | int64 |  | Unified SDSS Target Identifier |
- | FIBERID_LIST | char[31] |  | List of FiberIDs contributing to Stack |
+ | FIBERID_LIST | char[51] |  | List of FiberIDs contributing to Stack |
  | RUN2D | char[6] |  | Spectro-2D reduction name |
  | RUN1D | char[6] |  | Spectro-1D reduction name |
  | OBJTYPE | char[16] |  | Why this object was targetted. QSO=SCIENCE |
@@ -171,7 +188,7 @@ Name | Type | Unit | Description |
  | DOF | int32 |  | Degrees of freedom for best fit |
  | RCHI2DIFF | float32 |  | Diff in reduced chi^2 of 2 best solutions |
  | TFILE | char[24] |  | Template file in $IDLSPEC2D_DIR/templates |
- | TCOLUMN | int32[10] |  | Column to use in template file (0-indexed); unused value set to -1 |
+ | TCOLUMN | int32[10] |  | Column to use in template file (0-indexed); unused value |
  | NPOLY | int32 |  | # of polynomial terms with TFILE |
  | THETA | float32[10] |  | Eigenvalue coeff for template file + polynomial |
  | THETA_COVAR | float32[100] |  | Covariance matrix for THETA |
@@ -224,15 +241,14 @@ Name | Type | Unit | Description |
  | CLASS_NOQSO | char[6] |  | Spectro classification of best-fit non-QSO model (recommended for CMASS and LOZ). |
  | SUBCLASS_NOQSO | char[21] |  | Spectro sub-classification of best-fit non-QSO model (recommended for CMASS and LOZ). |
  | RCHI2DIFF_NOQSO | float32 |  | Reduced chi-squared difference to next-best non-QSO model (recommended for CMASS and LOZ) |
- | SPECOBJID | int64 |  | SAS-style SPECID based upon plate, mjd, fiber, run2d |
 
 
 
-### HDU2: 
+### HDU2: SYNFLUX
 the best fit eigenspectrum for each object.
 
 #### HDU Type: IMAGE
-#### HDU Size:  7 MB
+#### HDU Size:  6 MB
 
 ##### Header Table Caption for HDU2
 Key | Value | Comment | |
@@ -241,17 +257,18 @@ Key | Value | Comment | |
 | BITPIX | -32 |  |
 | NAXIS | 2 |  |
 | NAXIS1 | 4648 |  |
-| NAXIS2 | 413 |  |
+| NAXIS2 | 361 |  |
+| EXTNAME | SYNFLUX |  |
 | PCOUNT | 0 |  |
 | GCOUNT | 1 |  |
 
 
 
-### HDU3: 
+### HDU3: DISPFLUX
 Best fit velocity dispersions for galaxy spectra
 
 #### HDU Type: IMAGE
-#### HDU Size:  7 MB
+#### HDU Size:  6 MB
 
 ##### Header Table Caption for HDU3
 Key | Value | Comment | |
@@ -260,7 +277,8 @@ Key | Value | Comment | |
 | BITPIX | -32 |  |
 | NAXIS | 2 |  |
 | NAXIS1 | 4648 |  |
-| NAXIS2 | 413 |  |
+| NAXIS2 | 361 |  |
+| EXTNAME | DISPFLUX |  |
 | PCOUNT | 0 |  |
 | GCOUNT | 1 |  |
 

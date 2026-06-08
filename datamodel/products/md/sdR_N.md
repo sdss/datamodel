@@ -19,7 +19,7 @@ This file contains raw spectro data from the BOSS/eBOSS/BHM spectro CCDs from AP
 sdR-[br][id]-[FRAME].fit, indicating which blue or red spectrograph (1 or 2), and the frame number.
 
 ### Releases
-DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, DR19, IPL4
+DR9, DR10, DR12, DR11, DR13, DR14, DR15, DR16, DR17, DR18, DR19, IPL4, DR20
 
 ### Enviroments
 BOSS_SPECTRO_DATA, BOSS_SPECTRO_DATA_N
@@ -39,26 +39,29 @@ False
 ### Data Level
 0.1.1
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
 
 ---
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: IPL4
+   - note: No changes
  - IPL4
    - from: DR19
    - primary_delta_nkeys: 8
-   - added_primary_header_kwargs: ['OFFDEC', 'VJAEGER', 'GUIDOFFR', 'CONFID', 'VCALIBS', 'CALOFFY', 'ARCOFFY', 'BOREOFFY', 'GUIDOFFY', 'VCOORDIO', 'CALOFFX', 'VKAIJU', 'OFFRA', 'DESIGNID', 'SHCLOTIM', 'FIELDID', 'CALOFFR', 'SHOPETIM', 'BOREOFFX', 'OFFPA', 'ROTPOS', 'ARCOFFX', 'SEEING', 'GUIDOFFX']
-   - removed_primary_header_kwargs: ['POINTING', 'MAPID', 'PLATEID', 'COMMENT', 'NAME', 'PLATETYP']
+   - added_primary_header_kwargs: ['ARCOFFY', 'OFFDEC', 'CALOFFX', 'ARCOFFX', 'OFFPA', 'SHOPETIM', 'OFFRA', 'VCALIBS', 'ROTPOS', 'GUIDOFFY', 'SHCLOTIM', 'CONFID', 'VCOORDIO', 'BOREOFFX', 'GUIDOFFR', 'CALOFFR', 'VJAEGER', 'CALOFFY', 'FIELDID', 'DESIGNID', 'SEEING', 'GUIDOFFX', 'VKAIJU', 'BOREOFFY']
+   - removed_primary_header_kwargs: ['NAME', 'PLATETYP', 'POINTING', 'PLATEID', 'COMMENT', 'MAPID']
  - DR19
    - from: DR18
    - note: No changes
  - DR18
    - from: DR17
    - primary_delta_nkeys: 84
-   - added_primary_header_kwargs: ['HUMIDITY', 'WINDS', 'AZ', 'DUSTB', 'M1YTILT', 'DUSTA', 'ALT', 'PRESSURE', 'CHECKSUM', 'REQTIME', 'V_APO', 'MC1TRCT', 'TAI-BEG', 'MC1TBCT', 'GUSTS', 'MC1TEMDN', 'PLATEID', 'SPA', 'WINDD25M', 'M2ZROT', 'MC1TRCB', 'PLATETYP', 'FFS', 'SUBFRAME', 'FOCUS', 'OBJSYS', 'COMMENT', 'MC1THT', 'DIDFLUSH', 'MC1TBCB', 'SLITID1', 'MAPID', 'COLLC', 'M2XTILT', 'FLAVOR', 'GUSTD', 'M2XTRAN', 'LN2TEMP', 'M1XTILT', 'COLLA', 'DECDEG', 'M2YTRAN', 'RADEG', 'M1ZROT', 'CARTID', 'WINDS25M', 'IONPUMP', 'DATE-OBS', 'IPA', 'SCALE', 'MC1HUMCO', 'HARTMANN', 'EXPOSURE', 'TRUSTEMP', 'M1PISTON', 'MC1HUMHT', 'V_BOSS', 'PFERR', 'FF', 'HGCD', 'M2YTILT', 'DEC', 'CAMERAS', 'WINDD', 'M2PISTON', 'MJD', 'RA', 'M1YTRAN', 'EXPTIME', 'DEWPOINT', 'POINTING', 'CCDTEMP', 'DARKTIME', 'NAME', 'M1XTRAN', 'NE', 'COLLB', 'AIRTEMP']
-   - removed_primary_header_kwargs: ['DAQVER', 'OBSID', 'DATASEC', 'CAMERA']
+   - added_primary_header_kwargs: ['MC1TRCB', 'EXPTIME', 'DIDFLUSH', 'SCALE', 'POINTING', 'EXPOSURE', 'COLLC', 'CAMERAS', 'DATE-OBS', 'V_APO', 'FOCUS', 'GUSTD', 'IPA', 'MJD', 'M1ZROT', 'MAPID', 'M2XTRAN', 'MC1HUMCO', 'M2YTILT', 'TRUSTEMP', 'M2XTILT', 'M1YTRAN', 'CHECKSUM', 'COLLA', 'WINDD25M', 'CCDTEMP', 'LN2TEMP', 'HUMIDITY', 'GUSTS', 'WINDD', 'M2ZROT', 'DARKTIME', 'MC1THT', 'NAME', 'WINDS', 'PFERR', 'ALT', 'COMMENT', 'MC1TEMDN', 'MC1HUMHT', 'M1XTILT', 'FF', 'M1XTRAN', 'NE', 'COLLB', 'SLITID1', 'M1PISTON', 'DEWPOINT', 'PRESSURE', 'REQTIME', 'DEC', 'AIRTEMP', 'DUSTB', 'M1YTILT', 'MC1TBCB', 'DECDEG', 'FFS', 'MC1TRCT', 'FLAVOR', 'PLATEID', 'IONPUMP', 'M2YTRAN', 'MC1TBCT', 'RA', 'RADEG', 'HGCD', 'OBJSYS', 'M2PISTON', 'V_BOSS', 'HARTMANN', 'TAI-BEG', 'AZ', 'SPA', 'DUSTA', 'PLATETYP', 'SUBFRAME', 'CARTID', 'WINDS25M']
+   - removed_primary_header_kwargs: ['OBSID', 'CAMERA', 'DAQVER', 'DATASEC']
  - DR17
    - from: DR16
    - note: No changes
@@ -96,111 +99,119 @@ Example header
 ##### Header Table Caption for HDU0
 Key | Value | Comment | |
 | --- | --- | --- | --- |
-| SIMPLE | True | This file conforms to FITS standard |
-| BITPIX | 16 | Number of bits per data pixel |
-| NAXIS | 2 | Number of data axes |
-| NAXIS1 | 4352 | Length of data axis 1 |
-| NAXIS2 | 4224 | Length of data axis 2 |
-| EXTEND | True | FITS dataset may contain extensions |
-| BSCALE | 1 | Linear scaling factor for pixel values |
-| BZERO | 32768 | Zero-point offset for pixel values |
-| TELESCOP | SDSS 2-5m | Telescope |
-| FILENAME | sdR-b1-00333993.fit | File basename |
-| CAMERAS | b1 | BOSS CAMERA |
-| EXPOSURE | 333993 | Exposure number |
-| V_BOSS | 6.0.0 | Active version of the BOSS ICC |
-| CAMDAQ | 1.5.0:37 | Camera Data Acquisition Version |
+| SIMPLE | True | conforms to FITS standard |
+| BITPIX | 16 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 4352 |  |
+| NAXIS2 | 4224 |  |
+| EXTEND | True |  |
+| BSCALE | 1 |  |
+| BZERO | 32768 |  |
+| TELESCOP | SDSS 2-5m |  |
+| FILENAME | sdR-b1-00380717.fit |  |
+| CAMERAS | b1 |  |
+| EXPOSURE | 380717 |  |
+| V_BOSS | 6.0.2 | Active version of the BOSS ICC |
+| CAMDAQ | 1.5.0:37 |  |
 | SUBFRAME |  | the subframe readout command |
-| ERRCNT | NONE | BOSSDAQ Error Count |
-| SYNCERR | NONE | BOSSDAQ Sync Error Count |
-| SLINES | NONE | BOSSDAQ Sync Error Lines |
-| PIXERR | NONE | BOSSDAQ Pixel Error Count |
-| PLINES | NONE | Pixel Error Lines |
-| PFERR | NONE | Pixel Frame Error |
+| ERRCNT | NONE |  |
+| SYNCERR | NONE |  |
+| SLINES | NONE |  |
+| PIXERR | NONE |  |
+| PLINES | NONE |  |
+| PFERR | NONE |  |
 | DIDFLUSH | True | CCD was flushed before integration |
-| FLAVOR | bias | exposure type, SDSS spectro style |
-| MJD | 59501 | Modified Julian Date at telescope at start of exposure |
-| TAI-BEG | 5140891130.0 | MJD(TAI) seconds at start of integration |
-| DATE-OBS | 2021-10-14T01:18:50 | TAI date at start of integration |
-| NAME | 0000-00000-00 | The name of the currently loaded plate |
-| PLATEID | -1 | The currently loaded plate |
-| CARTID | -1 | The currently loaded cartridge/instrument |
-| MAPID | -1 | The mapping version of the loaded plate |
-| POINTING | ? | The currently specified pointing |
-| PLATETYP | sop.survey KeyError: 'sop' | Type of plate (e.g. BOSS, MANGA, APOGEE, APOGEE) |
-| OBJSYS | Mount | The TCC objSys |
-| RA | NaN | RA of telescope boresight (deg) |
-| DEC | NaN | Dec of telescope boresight (deg) |
-| RADEG | NaN | RA of telescope pointing(deg) |
-| DECDEG | NaN | Dec of telescope pointing (deg) |
-| SPA | NaN | TCC SpiderInstAng |
-| AZ | 121.003459 | Azimuth axis pos. (approx, deg) |
-| ALT | 90.048973 | Altitude axis pos. (approx, deg) |
-| IPA | -0.005637 | Rotator axis pos. (approx, deg) |
-| FOCUS | 0.0 | User-specified focus offset (um) |
-| M2PISTON | 3536.67 | TCC SecOrient |
-| M2XTILT | -2.26 | TCC SecOrient |
-| M2YTILT | 0.96 | TCC SecOrient |
-| M2XTRAN | 0.63 | TCC SecOrient |
-| M2YTRAN | -154.91 | TCC SecOrient |
-| M2ZROT | -8.72 | TCC SecOrient |
-| M1PISTON | 0.01 | TCC PrimOrient |
-| M1XTILT | -59.26 | TCC PrimOrient |
-| M1YTILT | -8.77 | TCC PrimOrient |
-| M1XTRAN | -512.68 | TCC PrimOrient |
-| M1YTRAN | 1906.6 | TCC PrimOrient |
-| M1ZROT | 0.03 | TCC PrimOrient |
+| FLAVOR | arc | exposure type, SDSS spectro style |
+| MJD | 60708 | APO fMJD day at start of exposure |
+| TAI-BEG | 5245217920.0 | MJD(TAI) seconds at start of integration |
+| DATE-OBS | 2025-02-02T12:58:40 | TAI date at start of integration |
+| CARTID | FPS-N | Cart/instrument |
+| CONFID | 19024 | FPS configuration |
+| DESIGNID | 671546 | FPS design |
+| FIELDID | 101528 | FPS field |
+| VJAEGER | 1.7.8a0 | Version of Jaeger |
+| VKAIJU | 1.4.0 | Version of Kaiju |
+| VCOORDIO | 1.13.0 | Version of coordIO |
+| VCALIBS | 2024.10.16+008b5e2 | Version of FPS calibrations |
+| OBJSYS | ICRS | The TCC objSys |
+| RA | 163.658368 | RA of telescope boresight (deg) |
+| DEC | 20.515672 | Dec of telescope boresight (deg) |
+| RADEG | 163.659606 | RA of telescope pointing(deg) |
+| DECDEG | 20.51513 | Dec of telescope pointing (deg) |
+| SPA | -15.988515 | TCC SpiderInstAng |
+| ROTPOS | 47.6814 | Rotator request position (deg) |
+| BOREOFFX | 0.0 | TCC Boresight offset, deg |
+| BOREOFFY | 0.0 | TCC Boresight offset, deg |
+| ARCOFFX | -0.00116 | TCC ObjArcOff, deg |
+| ARCOFFY | 0.000541999999999999 | TCC ObjArcOff, deg |
+| CALOFFX | 0.0 | TCC CalibOff, deg |
+| CALOFFY | 0.0 | TCC CalibOff, deg |
+| CALOFFR | 0.0 | TCC CalibOff, deg |
+| GUIDOFFX | 0.0 | TCC GuideOff, deg |
+| GUIDOFFY | 0.0 | TCC GuideOff, deg |
+| GUIDOFFR | -0.262598 | TCC GuideOff, deg |
+| AZ | -91.564348 | Azimuth axis pos. (approx, deg) |
+| ALT | 37.661503 | Altitude axis pos. (approx, deg) |
+| IPA | 163.841737 | Rotator axis pos. (approx, deg) |
+| FOCUS | -55.93 | User-specified focus offset (um) |
+| M2PISTON | 4569.22 | TCC SecOrient |
+| M2XTILT | -24.47 | TCC SecOrient |
+| M2YTILT | -17.53 | TCC SecOrient |
+| M2XTRAN | 18.25 | TCC SecOrient |
+| M2YTRAN | 92.01 | TCC SecOrient |
+| M2ZROT | -31.31 | TCC SecOrient |
+| M1PISTON | 0.0 | TCC PrimOrient |
+| M1XTILT | -18.23 | TCC PrimOrient |
+| M1YTILT | -7.9 | TCC PrimOrient |
+| M1XTRAN | -427.17 | TCC PrimOrient |
+| M1YTRAN | -999.0 | TCC PrimOrient |
+| M1ZROT | 0.0 | TCC PrimOrient |
 | SCALE | 1.0 | User-specified scale factor |
-| V_APO | 3.0.0 | Version of the current apoActor |
-| PRESSURE | 21.361 | APO SDSS 2.5m Air Pressure (inch Hg) |
-| WINDD | 239.3 | APO SDSS 2.5m Wind Direction (deg) |
-| WINDS | 12.5 | APO SDSS 2.5m Wind Speed (mph) |
-| GUSTD | 241.5 | APO SDSS 2.5m Wind Gust Direction (deg) |
-| GUSTS | 16.9 | APO SDSS 2.5m Wind Gust Speed (mph) |
-| AIRTEMP | 7.9 | APO SDSS 2.5m Outside temperature (deg C) |
-| DEWPOINT | -2.1 | APO SDSS 2.5m Dewpoint (deg C) |
-| TRUSTEMP | -23.1 | APO SDSS 2.5m Truss Temperature (deg C) |
-| HUMIDITY | 50.8 | APO SDSS 2.5m Humidity (percent) |
-| DUSTA | 19645.0 | APO SDSS 2.5m dust (count of 0.3mu/particles/vol/time) |
-| DUSTB | 2921.0 | APO SDSS 2.5m dust (count of 1mu/particles/vol/time) |
-| WINDD25M | -999.0 | Wind Direction at APO SDSS 2.5m (deg) |
-| WINDS25M | -999.0 | Wind Speed at APO SDSS 2.5m (deg) |
-| FF | 0 0 0 0 | Flat Field lamps 1:on 0:off |
-| NE | 0 0 0 0 | Ne Arc lamps 1:on 0:off |
-| HGCD | 0 0 0 0 | HgCd Arc lamps 1:on 0:off |
+| V_APO | 4.1.0 | version of the current apoActor |
+| PRESSURE | 21.507 |  |
+| WINDD | 16.0 |  |
+| WINDS | 13.8 |  |
+| GUSTD | 2.8 |  |
+| GUSTS | 23.0 |  |
+| AIRTEMP | 0.0 |  |
+| DEWPOINT | 0.0 |  |
+| TRUSTEMP | -24.5 |  |
+| HUMIDITY | 37.2 |  |
+| DUSTA | 27622.0 |  |
+| DUSTB | 241.0 |  |
+| WINDD25M | -999.0 |  |
+| WINDS25M | -999.0 |  |
+| FF | 0 0 0 0 | FF lamps 1:on 0:0ff |
+| NE | 1 1 1 1 | NE lamps 1:on 0:0ff |
+| HGCD | 1 1 1 1 | HGCD lamps 1:on 0:0ff |
 | FFS | 1 1 1 1 1 1 1 1 | Flatfield Screen 1:closed 0:open |
-| SLITID1 | 0 | spectrograph Normalized slithead ID. |
-| COLLA | 0 | The position of the A collimator motor |
-| COLLB | 0 | The position of the B collimator motor |
-| COLLC | 0 | The position of the C collimator motor |
-| HARTMANN | Closed, Closed | Hartmanns: Left,Right,Out,Closed |
-| MC1HUMHT | 5.2 | sp1 mech Hartmann humidity, % |
-| MC1HUMCO | -3.8 | sp1 mech Central optics humidity, % |
-| MC1TEMDN | 7.4 | sp1 mech Median temp, C |
-| MC1THT | 6.8 | sp1 mech Hartmann Top Temp, C |
-| MC1TRCB | 7.5 | sp1 mech Red Cam Bottom Temp, C |
-| MC1TRCT | 7.6 | sp1 mech Red Cam Top Temp, C |
-| MC1TBCB | 7.4 | sp1 mech Blue Cam Bottom Temp, C |
-| MC1TBCT | 7.4 | sp1 mech Blue Cam Top Temp, C |
-| REQTIME | 0 | requested exposure time |
-| EXPTIME | 0 | requested exposure time |
-| DARKTIME | 8.432867765426636 | time between flush end and readout start |
-| LN2TEMP | 95.312 | LN2 can temperature |
-| CCDTEMP | -99.609 | Temperature of the sensor |
-| IONPUMP | -6.32 | log10(Ion_Pump_pressure/torr) |
-| CHECKSUM | 9eDDGcC99cCCEcC9 | HDU checksum |
-| DATASUM | 1783492906 | DATA checksum |
-| COMMENT | failed to make ROTPOS card from nan |  |
-| COMMENT | failed to make BOREOFFX card from nan |  |
-| COMMENT | failed to make BOREOFFY card from nan |  |
-| COMMENT | failed to make ARCOFFX card from nan |  |
-| COMMENT | failed to make ARCOFFY card from nan |  |
-| COMMENT | failed to make CALOFFX card from nan |  |
-| COMMENT | failed to make CALOFFY card from nan |  |
-| COMMENT | failed to make CALOFFR card from nan |  |
-| COMMENT | failed to make GUIDOFFX card from nan |  |
-| COMMENT | failed to make GUIDOFFY card from nan |  |
-| COMMENT | failed to make GUIDOFFR card from nan |  |
+| SLITID1 | 0 | Normalized slithead ID. sp1&2 should match. |
+| COLLA | -58 | The position of the A collimator motor |
+| COLLB | 78 | The position of the B collimator motor |
+| COLLC | 63 | The position of the C collimator motor |
+| HARTMANN | Out | Hartmanns: Left,Right,Out |
+| MC1HUMHT | 0.8 | sp1 mech Hartmann humidity, % |
+| MC1HUMCO | -0.1 | sp1 mech Central optics humidity, % |
+| MC1TEMDN | 3.9 | sp1 mech Median temp, C |
+| MC1THT | 3.9 | sp1 mech Hartmann Top Temp, C |
+| MC1TRCB | 3.7 | sp1 mech Red Cam Bottom Temp, C |
+| MC1TRCT | 4.0 | sp1 mech Red Cam Top Temp, C |
+| MC1TBCB | 3.7 | sp1 mech Blue Cam Bottom Temp, C |
+| MC1TBCT | 3.9 | sp1 mech Blue Cam Top Temp, C |
+| REQTIME | 4.0 | requested exposure time |
+| EXPTIME | 4.09 | measured exposure time, s |
+| SHOPETIM | 0.73 | open shutter transit time, s |
+| SHCLOTIM | 0.54 | close shutter transit time, s |
+| DARKTIME | 15.81032562255859 | time between flush end and readout start |
+| LN2TEMP | 94.922 |  |
+| CCDTEMP | -99.609 |  |
+| IONPUMP | -6.38 |  |
+| OFFRA | 0.0 | Guider offset in RA |
+| OFFDEC | 0.0 | Guider offset in DEC |
+| OFFPA | -420.0 | Guider offset in PA |
+| SEEING | 1.96 | Seeing from the guider [arcsec] |
+| CHECKSUM | iE8ckE8ZiE8biE8Z | HDU checksum updated 2025-02-02T12:59:50 |
+| DATASUM | 3810825493 | data unit checksum updated 2025-02-02T12:59:50 |
 
 
 

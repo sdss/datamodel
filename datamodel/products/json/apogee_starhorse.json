@@ -44,6 +44,12 @@
         "description": "SDSS public data release 19",
         "public": true,
         "release_date": "2025-07-11"
+      },
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-30"
       }
     ],
     "naming_convention": "$APOGEE_STARHORSE/APOGEE_DR19_DR3_STARHORSE_[VERS].fits where VERS=v2 for DR19",
@@ -55,7 +61,39 @@
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {}
+    "releases": {
+      "DR20": {
+        "from": "DR19",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null,
+        "delta_ncolumns": 0,
+        "added_columns": [],
+        "removed_columns": [],
+        "delta_nmetadata": 0,
+        "added_metadata": [],
+        "removed_metadata": []
+      }
+    }
   },
   "releases": {
     "DR19": {
@@ -347,7 +385,300 @@
         }
       },
       "par": null,
-      "hdfs": null
+      "hdfs": null,
+      "dataframe": null
+    },
+    "DR20": {
+      "template": "$APOGEE_STARHORSE/APOGEE_DR19_DR3_STARHORSE_[VERS].fits",
+      "example": "APOGEE_DR19_DR3_STARHORSE_v2.fits",
+      "location": "APOGEE_DR19_DR3_STARHORSE_{vers}.fits",
+      "environment": "APOGEE_STARHORSE",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "apogee_starhorse",
+        "path_template": "$APOGEE_STARHORSE/APOGEE_DR19_DR3_STARHORSE_{vers}.fits",
+        "path_kwargs": [
+          "vers"
+        ],
+        "access_string": "apogee_starhorse = $APOGEE_STARHORSE/APOGEE_DR19_DR3_STARHORSE_{vers}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "Primary HDU",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "Data Table",
+          "is_image": false,
+          "description": "Main table of the SDSS-V DR19 Value Added Catalog",
+          "size": "152 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "288",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "556141",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "32",
+              "comment": "number of table fields"
+            }
+          ],
+          "columns": {
+            "sdss_id": {
+              "name": "sdss_id",
+              "description": "SDSS-5 unique identifier",
+              "type": "int64",
+              "unit": ""
+            },
+            "DR3_source_id": {
+              "name": "DR3_source_id",
+              "description": "Gaia-DR3 source id",
+              "type": "int64",
+              "unit": ""
+            },
+            "GLON": {
+              "name": "GLON",
+              "description": "Galactic Longitude",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "GLAT": {
+              "name": "GLAT",
+              "description": "Galactic Latitude",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "RA": {
+              "name": "RA",
+              "description": "Right Ascention J2000",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "DEC": {
+              "name": "DEC",
+              "description": "Declination J2000",
+              "type": "float32",
+              "unit": "deg"
+            },
+            "LOGG_SHcalib": {
+              "name": "LOGG_SHcalib",
+              "description": "StarHorse calibrated spectroscopic surface gravity",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "TEFF_SHcalib": {
+              "name": "TEFF_SHcalib",
+              "description": "StarHorse calibrated spectroscopic effective temperature",
+              "type": "float32",
+              "unit": "K"
+            },
+            "mass16": {
+              "name": "mass16",
+              "description": "StarHorse 16th astro-spectro-photometric mass percentile (Queiroz et al. 2018)",
+              "type": "float32",
+              "unit": "solar masses"
+            },
+            "mass50": {
+              "name": "mass50",
+              "description": "StarHorse median astro-spectro-photometric mass (Queiroz et al. 2018)",
+              "type": "float32",
+              "unit": "solar masses"
+            },
+            "mass84": {
+              "name": "mass84",
+              "description": "StarHorse 84th astro-spectro-photometric mass percentile (Queiroz et al. 2018)",
+              "type": "float32",
+              "unit": "solar masses"
+            },
+            "teff16": {
+              "name": "teff16",
+              "description": "StarHorse 16th astro-spectro-photometric effective temperature percentile (Queiroz et al. 2018)",
+              "type": "float32",
+              "unit": "K"
+            },
+            "teff50": {
+              "name": "teff50",
+              "description": "StarHorse median astro-spectro-photometric effective temperature (Queiroz et al. 2018)",
+              "type": "float32",
+              "unit": "K"
+            },
+            "teff84": {
+              "name": "teff84",
+              "description": "StarHorse 84th astro-spectro-photometric effective temperature percentile (Queiroz et al. 2018)",
+              "type": "float32",
+              "unit": "K"
+            },
+            "logg16": {
+              "name": "logg16",
+              "description": "StarHorse 16th astro-spectro-photometric surface gravity percentile (Queiroz et al. 2018)",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "logg50": {
+              "name": "logg50",
+              "description": "StarHorse median astro-spectro-photometric surface gravity (Queiroz et al. 2018)",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "logg84": {
+              "name": "logg84",
+              "description": "StarHorse 84th astro-spectro-photometric surface gravity percentile (Queiroz et al. 2018)",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "met16": {
+              "name": "met16",
+              "description": "StarHorse 16th astro-spectro-photometric metallicity percentile (Queiroz et al. 2018)",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "met50": {
+              "name": "met50",
+              "description": "StarHorse median astro-spectro-photometric metallicity (Queiroz et al. 2018)",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "met84": {
+              "name": "met84",
+              "description": "StarHorse 84th astro-spectro-photometric metallicity percentile (Queiroz et al. 2018)",
+              "type": "float32",
+              "unit": "dex"
+            },
+            "dist05": {
+              "name": "dist05",
+              "description": "StarHorse 5th astro-spectro-photometric distance percentile (Queiroz et al. 2018)",
+              "type": "float32",
+              "unit": "kpc"
+            },
+            "dist16": {
+              "name": "dist16",
+              "description": "StarHorse 16th astro-spectro-photometric distance percentile (Queiroz et al. 2018)",
+              "type": "float32",
+              "unit": "kpc"
+            },
+            "dist50": {
+              "name": "dist50",
+              "description": "StarHorse median astro-spectro-photometric distance (Queiroz et al. 2018)",
+              "type": "float32",
+              "unit": "kpc"
+            },
+            "dist84": {
+              "name": "dist84",
+              "description": "StarHorse 84th astro-spectro-photometric distance percentile (Queiroz et al. 2018)",
+              "type": "float32",
+              "unit": "kpc"
+            },
+            "dist95": {
+              "name": "dist95",
+              "description": "StarHorse 95th astro-spectro-photometric distance percentile (Queiroz et al. 2018)",
+              "type": "float32",
+              "unit": "kpc"
+            },
+            "AV05": {
+              "name": "AV05",
+              "description": "StarHorse 5th posterior extinction (at 542 nm) percentile (Queiroz et al. 2018)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "AV16": {
+              "name": "AV16",
+              "description": "StarHorse 16th posterior extinction (at 542 nm) percentile (Queiroz et al. 2018)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "AV50": {
+              "name": "AV50",
+              "description": "StarHorse median posterior extinction (at 542 nm) (Queiroz et al. 2018)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "AV84": {
+              "name": "AV84",
+              "description": "StarHorse 84th posterior extinction (at 542 nm) percentile (Queiroz et al. 2018)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "AV95": {
+              "name": "AV95",
+              "description": "StarHorse 95th posterior extinction (at 542 nm) percentile (Queiroz et al. 2018)",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "StarHorse_INPUTFLAGS": {
+              "name": "StarHorse_INPUTFLAGS",
+              "description": "StarHorse Input flags (Queiroz et al. 2023)",
+              "type": "char[80]",
+              "unit": ""
+            },
+            "StarHorse_OUTPUTFLAGS": {
+              "name": "StarHorse_OUTPUTFLAGS",
+              "description": "StarHorse Output flags (Queiroz et al. 2023)",
+              "type": "char[80]",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null,
+      "dataframe": null
     }
   },
   "notes": "None",

@@ -1,0 +1,191 @@
+{
+  "general": {
+    "name": "DA_DWD",
+    "short": "This file includes the measured RV variability parameter of selected DA WDs in SDSS-V DR19 that is used to identify DA double WD binary candidates.",
+    "description": "In this value added catalog file, we summarise the result of the analysis to discover DA double white dwarf binary candidates in SDSS-V DR19. We report the SDSS-ID, Gaia DR3 ID, RV, RV error, observation time, and the RV variability parameter (eta). Full details of the target selection, analysis, binary candidates, and the subsequent constraints on the binary population are presented in <a href=\"https://ui.adsabs.harvard.edu/abs/2026ApJ..1002..207A\">Adamane Pallathadka et al. (2026)</a>.",
+    "environments": [
+      "MWM_WHITEDWARF"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "FITS",
+    "filesize": "1 MB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-30"
+      }
+    ],
+    "naming_convention": "$MWM_WHITEDWARF/da_white_dwarf_binaries/[V_VAC]/DA_DWD_DR19-[V_VAC].fits where V_VAC=1.0.0 in DR20.",
+    "generated_by": "MWM_WHITEDWARF",
+    "design": false,
+    "vac": true,
+    "recommended_science_product": true,
+    "data_level": "3.3.0"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$MWM_WHITEDWARF/da_white_dwarf_binaries/[V_VAC]/DA_DWD_DR19-[V_VAC].fits",
+      "example": "da_white_dwarf_binaries/1.0.0/DA_DWD_DR19-1.0.0.fits",
+      "location": "da_white_dwarf_binaries/{v_vac}/DA_DWD_DR19-{v_vac}.fits",
+      "environment": "MWM_WHITEDWARF",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "DA_DWD",
+        "path_template": "$MWM_WHITEDWARF/da_white_dwarf_binaries/{v_vac}/DA_DWD_DR19-{v_vac}.fits",
+        "path_kwargs": [
+          "v_vac"
+        ],
+        "access_string": "DA_DWD = $MWM_WHITEDWARF/da_white_dwarf_binaries/{v_vac}/DA_DWD_DR19-{v_vac}.fits"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "empty header",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "conforms to FITS standard"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": ""
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "DA double white dwarf binary candidates",
+          "size": "1 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "binary table extension"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "array data type"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "number of array dimensions"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "48",
+              "comment": "length of dimension 1"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "5818",
+              "comment": "length of dimension 2"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "1021824",
+              "comment": "number of group parameters"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "number of groups"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "6",
+              "comment": "number of table fields"
+            },
+            {
+              "key": "TDISP3",
+              "value": "F11.2",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "sdss_id": {
+              "name": "sdss_id",
+              "description": "SDSS ID of the WD",
+              "type": "int64",
+              "unit": ""
+            },
+            "gaia_dr3_id": {
+              "name": "gaia_dr3_id",
+              "description": "Gaia DR3 ID of the WD",
+              "type": "int64",
+              "unit": ""
+            },
+            "eta": {
+              "name": "eta",
+              "description": "Radial Velocity variability parameter",
+              "type": "float64",
+              "unit": ""
+            },
+            "RV": {
+              "name": "RV",
+              "description": "Radial Velocity measured using different SDSS-V exposures",
+              "type": "float64[PD(155]",
+              "unit": "km/s"
+            },
+            "eRV": {
+              "name": "eRV",
+              "description": "Measured error in the radial velocity",
+              "type": "float64[PD(155]",
+              "unit": "km/s"
+            },
+            "TAI": {
+              "name": "TAI",
+              "description": "Mid-exposure observation time",
+              "type": "float64[PD(155]",
+              "unit": "s"
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null,
+      "dataframe": null
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

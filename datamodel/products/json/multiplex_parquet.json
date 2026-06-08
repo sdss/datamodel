@@ -1,0 +1,251 @@
+{
+  "general": {
+    "name": "multiplex_parquet",
+    "short": "Table of all spectroscopic plates or FPS fields",
+    "description": "Table of all spectroscopic plates or FPS fields across each SDSS instrument.",
+    "environments": [
+      "ALLSPEC"
+    ],
+    "surveys": [
+      {
+        "name": "SDSS",
+        "long": "Sloan Digital Sky Survey",
+        "description": "General SDSS Survey",
+        "phase": {
+          "name": "Phase-V",
+          "id": 5,
+          "start": 2020,
+          "end": null,
+          "active": true
+        },
+        "id": "sdss",
+        "aliases": []
+      }
+    ],
+    "datatype": "PARQUET",
+    "filesize": "2 MB",
+    "releases": [
+      {
+        "name": "DR20",
+        "description": "SDSS public data release 20",
+        "public": true,
+        "release_date": "2026-07-30"
+      }
+    ],
+    "naming_convention": "$ALLSPEC/[VERS]/multiplex-[RELEASE]-[VERS].parquet where RELEASE = dr20 and VERS=1.0.2 in DR20.",
+    "generated_by": "http://github.com/sdss/allspec this product.",
+    "design": false,
+    "vac": false,
+    "recommended_science_product": true,
+    "data_level": "2.3.0"
+  },
+  "changelog": {
+    "description": "Describes changes to the datamodel product and/or file structure from one release to another",
+    "releases": {}
+  },
+  "releases": {
+    "DR20": {
+      "template": "$ALLSPEC/[VERS]/multiplex-[RELEASE]-[VERS].parquet",
+      "example": "1.0.2/multiplex-dr20-1.0.2.parquet",
+      "location": "{vers}/multiplex-{release}-{vers}.parquet",
+      "environment": "ALLSPEC",
+      "survey": "SDSS",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "multiplex",
+        "path_template": "$ALLSPEC/{vers}/multiplex-{release}-{vers}.{ftype}",
+        "path_kwargs": [
+          "ftype",
+          "release",
+          "vers"
+        ],
+        "access_string": "multiplex = $ALLSPEC/{vers}/multiplex-{release}-{vers}.parquet"
+      },
+      "hdus": null,
+      "par": null,
+      "hdfs": null,
+      "dataframe": {
+        "columns": {
+          "multiplex_id": {
+            "name": "multiplex_id",
+            "description": "Unique multiplex ID",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "design_id": {
+            "name": "design_id",
+            "description": "design_id",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "sdss_phase": {
+            "name": "sdss_phase",
+            "description": "SDSS Phase from 1 to 5",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "observatory": {
+            "name": "observatory",
+            "description": "observatory",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "telescope": {
+            "name": "telescope",
+            "description": "telescope",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "instrument": {
+            "name": "instrument",
+            "description": "instrument",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "plate": {
+            "name": "plate",
+            "description": "SDSS/BOSS/eBOSS/BHM plate (before FPS era)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "fps_field": {
+            "name": "fps_field",
+            "description": "Plate or FPS Field (merges pre/post Plate era)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "plate_or_fps_field": {
+            "name": "plate_or_fps_field",
+            "description": "Plate or FPS Field (merges pre/post Plate era)",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "mjd": {
+            "name": "mjd",
+            "description": "MJD",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "run2d": {
+            "name": "run2d",
+            "description": "idlspec2d version",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "coadd": {
+            "name": "coadd",
+            "description": "either epoch, daily",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "apred_vers": {
+            "name": "apred_vers",
+            "description": "APOGEE DRP Version",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "drpver": {
+            "name": "drpver",
+            "description": "MaNGA (for e.g.) DRP Version",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "version": {
+            "name": "version",
+            "description": "All Pipeline Version",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "racen": {
+            "name": "racen",
+            "description": "Multiplex center's right ascension",
+            "unit": "deg",
+            "dtype": "Float64",
+            "value": null
+          },
+          "deccen": {
+            "name": "deccen",
+            "description": "Multiplex center's declination",
+            "unit": "deg",
+            "dtype": "Float64",
+            "value": null
+          },
+          "position_angle": {
+            "name": "position_angle",
+            "description": "Multiplex position angle",
+            "unit": "",
+            "dtype": "Float64",
+            "value": null
+          },
+          "healpix": {
+            "name": "healpix",
+            "description": "healpix",
+            "unit": "",
+            "dtype": "Int32",
+            "value": null
+          },
+          "healpixgrp": {
+            "name": "healpixgrp",
+            "description": "healpixgrp",
+            "unit": "",
+            "dtype": "Int16",
+            "value": null
+          },
+          "quality": {
+            "name": "quality",
+            "description": "Quality flag for spectroscopic reduction",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "programname": {
+            "name": "programname",
+            "description": "Spectroscopic program Name",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "survey": {
+            "name": "survey",
+            "description": "Spectroscopic survey or sub-survey",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "cas_url": {
+            "name": "cas_url",
+            "description": "CAS URL",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          },
+          "sas_url": {
+            "name": "sas_url",
+            "description": "SAS URL",
+            "unit": "",
+            "dtype": "String",
+            "value": null
+          }
+        },
+        "metadata": {}
+      }
+    }
+  },
+  "notes": "None",
+  "regrets": "I  have no regrets!"
+}

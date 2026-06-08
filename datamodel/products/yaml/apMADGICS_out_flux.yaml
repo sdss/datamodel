@@ -9,14 +9,15 @@ general:
   filesize: 171 GB
   releases:
   - DR19
+  - DR20
   environments:
   - APMADGICS
   surveys:
   - MWM
   - SDSS
   naming_convention: $APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/apMADGICS_out_flux[FLUX_TYPE].h5
-    where VERS = "v2024_03_16" for DR19, STAR_PRIOR_TYPE has one of the values ["th",
-    "dd"], and FLUX_TYPE is either empty of "err2".
+    where VERS = "v2024_03_16" for DR19 and DR20, STAR_PRIOR_TYPE has one of the values
+    ["th", "dd"], and FLUX_TYPE is either empty of "err2".
   generated_by: <a href=\"https://github.com/andrew-saydjari/apMADGICS.jl\">https://github.com/andrew-saydjari/apMADGICS.jl</a>
   data_level: 3.3.0
   design: false
@@ -24,9 +25,12 @@ general:
   recommended_science_product: false
 changelog:
   description: DR19 is the first release of apMADGICS
-  releases: {}
+  releases:
+    DR20:
+      from: DR19
+      note: No changes
 releases:
-  DR19:
+  DR19: &id001
     template: $APMADGICS/[VERS]/outdir_wu_[STAR_PRIOR_TYPE]/apMADGICS_out_flux[FLUX_TYPE].h5
     example: v2024_03_16/outdir_wu_th/apMADGICS_out_flux.h5
     location: '{vers}/outdir_wu_{star_prior_type}/apMADGICS_out_flux{flux_type}.h5'
@@ -103,7 +107,6 @@ releases:
           nbytes: 21
           is_virtual: false
           is_empty: false
-notes: |-
-  None
-regrets: |-
-  I  have no regrets!
+  DR20: *id001
+notes: None
+regrets: I  have no regrets!

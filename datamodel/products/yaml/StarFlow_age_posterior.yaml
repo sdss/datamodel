@@ -9,6 +9,7 @@ general:
   filesize: 1 GB
   releases:
   - DR19
+  - DR20
   environments:
   - MWM_STARFLOW
   surveys:
@@ -22,9 +23,12 @@ general:
 changelog:
   description: Describes changes to the datamodel product and/or file structure from
     one release to another
-  releases: {}
+  releases:
+    DR20:
+      from: DR19
+      note: No changes
 releases:
-  DR19:
+  DR19: &id001
     template: $MWM_STARFLOW/[VERS]/StarFlow_age_posterior_[VERS].fits
     example: v1_0_0/StarFlow_age_posterior_v1_0_0.fits
     location: '{vers}/StarFlow_age_posterior_{vers}.fits'
@@ -1378,5 +1382,6 @@ releases:
             type: float64
             unit: ''
             description: Likelihood at 14.00 Gyr.
+  DR20: *id001
 notes: None
 regrets: I  have no regrets!

@@ -16,11 +16,10 @@ Table of all spectroscopic reductions
 Table of all spectroscopic reductions across each SDSS instrument.
 
 ### Naming Convention
-$ALLSPEC/[VERS]/allspec-[RELEASE]-[VERS].fits where RELEASE = dr19 and VERS=1.0.1 in DR19.
-
+$ALLSPEC/[VERS]/allspec-[RELEASE]-[VERS].fits.gz where RELEASE = dr20 and VERS=1.0.2 in DR20.
 
 ### Releases
-DR19
+DR19, DR20
 
 ### Enviroments
 ALLSPEC
@@ -40,7 +39,7 @@ False
 ### Data Level
 2.3.0
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: allspec](#hdu1-allspec)
 
@@ -48,6 +47,9 @@ False
 
 ## Changelog
 DR19 is the first release of the allspec table
+ - DR20
+   - from: DR19
+   - note: No changes
 
 ---
 ## Example HDUS List
@@ -72,7 +74,7 @@ Key | Value | Comment | |
 All spectra data table
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  9 GB
+#### HDU Size:  20 GB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -80,11 +82,11 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 664 | length of dimension 1 |
-| NAXIS2 | 14619487 | length of dimension 2 |
+| NAXIS1 | 800 | length of dimension 1 |
+| NAXIS2 | 27671504 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 36 | number of table fields |
+| TFIELDS | 38 | number of table fields |
 | TUNIT1 |  |  |
 | TUNIT2 |  |  |
 | TUNIT3 |  |  |
@@ -109,9 +111,9 @@ Key | Value | Comment | |
 | TUNIT22 |  |  |
 | TUNIT23 |  |  |
 | TUNIT24 |  |  |
-| TUNIT25 |  |  |
+| TUNIT25 | deg |  |
 | TUNIT26 | deg |  |
-| TUNIT27 | deg |  |
+| TUNIT27 |  |  |
 | TUNIT28 |  |  |
 | TUNIT29 |  |  |
 | TUNIT30 |  |  |
@@ -120,15 +122,17 @@ Key | Value | Comment | |
 | TUNIT33 |  |  |
 | TUNIT34 |  |  |
 | TUNIT35 |  |  |
+| TZERO35 | 9223372036854775808 |  |
 | TUNIT36 |  |  |
+| TUNIT37 |  |  |
+| TUNIT38 |  |  |
 | NAME | allspec |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | specobjid | char[29] |  | spectroscopic object id |
  | allspec_id | char[79] |  | Unique allspec ID |
- | multiplex_id | char[34] |  | multiplex ID |
+ | multiplex_id | char[40] |  | multiplex ID |
  | sdss_phase | int16 |  | SDSS Phase from 1 to 5 |
  | observatory | char[3] |  | observatory |
  | instrument | char[6] |  | instrument |
@@ -148,9 +152,9 @@ Name | Type | Unit | Description |
  | version | char[7] |  | All Pipeline Version |
  | programname | char[35] |  | Spectroscopic program Name |
  | survey | char[32] |  | Spectroscopic survey or sub-survey |
- | sas_file | char[42] |  | SAS File |
- | cas_url | char[3] |  | CAS URL |
- | sas_url | char[143] |  | SAS URL |
+ | sas_file | char[46] |  | SAS File |
+ | cas_url | char[95] |  | CAS URL |
+ | sas_url | char[153] |  | SAS URL |
  | ra | float64 | deg | Right ascension |
  | dec | float64 | deg | Declination |
  | healpix | int32 |  | healpix |
@@ -158,10 +162,13 @@ Name | Type | Unit | Description |
  | apogee_id | char[19] |  | APOGEE ID |
  | apogee_field | char[22] |  | APOGEE Field (prior to SDSS-V) |
  | telescope | char[6] |  | 2.5m Telescope |
- | file_spec | char[9] |  | sdss_access file species name |
+ | file_spec | char[14] |  | sdss_access file species name |
  | apstar_id | char[58] |  | APOGEE (combined) star ID |
  | visit_id | char[34] |  | APOGEE visit ID |
+ | has_mwmstar | int64 |  | Has MWM Star |
+ | astra_versions | char[11] |  | list of v_astra values if sdss_id has MWM Star |
  | mangaid | char[9] |  | MaNGA ID |
+ | specobjid | char[29] |  | spectroscopic object id |
 
 
 
