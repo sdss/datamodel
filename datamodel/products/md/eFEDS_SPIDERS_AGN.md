@@ -1223,7 +1223,7 @@ Key | Value | Comment | |
 | TUNIT629 | A | units for column 629 |
 | TCOMM629 | Line equivalent width error |  |
 | TCOMM630 | True: host-galaxy emission subtracted; False: quasar-dominated |  |
-| DATE-HDU | 2026-06-05T14:50:28 | Date of HDU creation (UTC) |
+| DATE-HDU | 2026-06-11T09:50:04 | Date of HDU creation (UTC) |
 | STILVERS | 4.3-5 | Version of STIL software |
 | STILCLAS | uk.ac.starlink.votable.UnifiedFitsTableWriter | STIL Author class |
 
@@ -1729,16 +1729,16 @@ Name | Type | Unit | Description |
  | AlIII1857_FWHM_error | float64 | km/s | Line full width at half maximum error |
  | AlIII1857_EW | float64 | A | Line equivalent width |
  | AlIII1857_EW_error | float64 | A | Line equivalent width error |
- | SiIII1816_Peak_wavelength | float64 | A | Line peak wavelength |
- | SiIII1816_Peak_wavelength_error | float64 | A | Line peak wavelength error |
- | SiIII1816_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
- | SiIII1816_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
- | SiIII1816_LogL | float64 |  | Line luminosity (log, erg/s) |
- | SiIII1816_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
- | SiIII1816_FWHM | float64 | km/s | Line full width at half maximum |
- | SiIII1816_FWHM_error | float64 | km/s | Line full width at half maximum error |
- | SiIII1816_EW | float64 | A | Line equivalent width |
- | SiIII1816_EW_error | float64 | A | Line equivalent width error |
+ | SiII1816_Peak_wavelength | float64 | A | Line peak wavelength |
+ | SiII1816_Peak_wavelength_error | float64 | A | Line peak wavelength error |
+ | SiII1816_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
+ | SiII1816_Flux_error | float64 | 1e-17 erg/s/cm^2 | Line flux error |
+ | SiII1816_LogL | float64 |  | Line luminosity (log, erg/s) |
+ | SiII1816_LogL_error | float64 |  | Line luminosity error (log, erg/s) |
+ | SiII1816_FWHM | float64 | km/s | Line full width at half maximum |
+ | SiII1816_FWHM_error | float64 | km/s | Line full width at half maximum error |
+ | SiII1816_EW | float64 | A | Line equivalent width |
+ | SiII1816_EW_error | float64 | A | Line equivalent width error |
  | NIII1750_Peak_wavelength | float64 | A | Line peak wavelength |
  | NIII1750_Peak_wavelength_error | float64 | A | Line peak wavelength error |
  | NIII1750_Flux | float64 | 1e-17 erg/s/cm^2 | Line flux |
@@ -1899,7 +1899,7 @@ Key | Value | Comment | |
 | TUNIT13 | Msun | units for column 13 |
 | TCOMM13 | Aperture corrected stellar mass from the spectral flux in DECam r |  |
 | TUNIT14 | Msun | units for column 14 |
-| TCOMM14 | Stellar mass within aperture from the spectral flux in DECam r |  |
+| TCOMM14 | Stellar mass within aperture from the spectral flux in DECam g |  |
 | TUNIT15 | km/s | units for column 15 |
 | TCOMM15 | Stellar velocity dispersion (second term of kinematic fit) |  |
 | TUNIT16 | km/s | units for column 16 |
@@ -1963,7 +1963,7 @@ Key | Value | Comment | |
 | TUNIT58 | Zsun | units for column 58 |
 | TCOMM58 | Metallicity of SSP with third highest weight |  |
 | TCOMM59 | Weight of SSP with third highest weight |  |
-| DATE-HDU | 2026-06-05T14:50:28 | Date of HDU creation (UTC) |
+| DATE-HDU | 2026-06-11T09:50:04 | Date of HDU creation (UTC) |
 | STILVERS | 4.3-5 | Version of STIL software |
 | STILCLAS | uk.ac.starlink.votable.UnifiedFitsTableWriter | STIL Author class |
 
@@ -2200,7 +2200,7 @@ Key | Value | Comment | |
 | TCOMM139 | Flag for considering a reliable detection of the broad component |  |
 | TCOMM140 | Flag for considering a reliable detection of the line |  |
 | TCOMM141 | Flag for considering a reliable detection of the line |  |
-| DATE-HDU | 2026-06-05T14:50:28 | Date of HDU creation (UTC) |
+| DATE-HDU | 2026-06-11T09:50:04 | Date of HDU creation (UTC) |
 | STILVERS | 4.3-5 | Version of STIL software |
 | STILCLAS | uk.ac.starlink.votable.UnifiedFitsTableWriter | STIL Author class |
 
@@ -2331,7 +2331,7 @@ Name | Type | Unit | Description |
  | CIII_BR_detected | bool |  | Flag for considering a reliable detection of the line |
  | SiIII1892_detected | bool |  | Flag for considering a reliable detection of the line |
  | AlIII1857_detected | bool |  | Flag for considering a reliable detection of the line |
- | SiIII1816_detected | bool |  | Flag for considering a reliable detection of the line |
+ | SiII1816_detected | bool |  | Flag for considering a reliable detection of the line |
  | NIII1750_detected | bool |  | Flag for considering a reliable detection of the line |
  | NIV1718_detected | bool |  | Flag for considering a reliable detection of the line |
  | OIII1663_detected | bool |  | Flag for considering a reliable detection of the line |
@@ -2837,7 +2837,7 @@ Key | Value | Comment | |
 | TCOMM450 | Fifth local line complex number of pixels |  |
 | TCOMM451 | Fifth local line complex number of degrees of freedom |  |
 | TCOMM452 | True: host-galaxy emission subtracted; False: quasar-dominated |  |
-| DATE-HDU | 2026-06-05T14:50:29 | Date of HDU creation (UTC) |
+| DATE-HDU | 2026-06-11T09:50:04 | Date of HDU creation (UTC) |
 | STILVERS | 4.3-5 | Version of STIL software |
 | STILCLAS | uk.ac.starlink.votable.UnifiedFitsTableWriter | STIL Author class |
 
@@ -3628,7 +3628,7 @@ Key | Value | Comment | |
 | TCOMM165 | Poisson probability of being background fluctuation; 0.5-2 keV |  |
 | TCOMM166 | Poisson probability of being background fluctuation; 2.3-5 keV |  |
 | TCOMM167 | Poisson probability of being background fluctuation; 5-8 keV |  |
-| DATE-HDU | 2026-06-05T14:50:29 | Date of HDU creation (UTC) |
+| DATE-HDU | 2026-06-11T09:50:04 | Date of HDU creation (UTC) |
 | STILVERS | 4.3-5 | Version of STIL software |
 | STILCLAS | uk.ac.starlink.votable.UnifiedFitsTableWriter | STIL Author class |
 
@@ -4183,7 +4183,7 @@ Key | Value | Comment | |
 | TCOMM191 | Poisson probability of being background fluctuation; 0.5-2 keV |  |
 | TCOMM192 | Poisson probability of being background fluctuation; 2.3-5 keV |  |
 | TCOMM193 | Poisson probability of being background fluctuation; 5-8 keV |  |
-| DATE-HDU | 2026-06-05T14:50:29 | Date of HDU creation (UTC) |
+| DATE-HDU | 2026-06-11T09:50:04 | Date of HDU creation (UTC) |
 | STILVERS | 4.3-5 | Version of STIL software |
 | STILCLAS | uk.ac.starlink.votable.UnifiedFitsTableWriter | STIL Author class |
 
@@ -4515,7 +4515,7 @@ Key | Value | Comment | |
 | TCOMM63 | SDSS right ascension (J2000) |  |
 | TUNIT64 | deg | units for column 64 |
 | TCOMM64 | SDSS declination (J2000) |  |
-| DATE-HDU | 2026-06-05T14:50:29 | Date of HDU creation (UTC) |
+| DATE-HDU | 2026-06-11T09:50:04 | Date of HDU creation (UTC) |
 | STILVERS | 4.3-5 | Version of STIL software |
 | STILCLAS | uk.ac.starlink.votable.UnifiedFitsTableWriter | STIL Author class |
 
@@ -4919,7 +4919,7 @@ Key | Value | Comment | |
 | TCOMM176 | Number of spectra for the same eROSITA source |  |
 | TCOMM177 | SDSS class (STAR, GALAXY, QSO) in idlspec2d eFEDS v6_0_2 reductions |  |
 | TCOMM178 | SDSS subclass in idlspec2d eFEDS v6_0_2 reductions |  |
-| DATE-HDU | 2026-06-05T14:50:29 | Date of HDU creation (UTC) |
+| DATE-HDU | 2026-06-11T09:50:04 | Date of HDU creation (UTC) |
 | STILVERS | 4.3-5 | Version of STIL software |
 | STILCLAS | uk.ac.starlink.votable.UnifiedFitsTableWriter | STIL Author class |
 
