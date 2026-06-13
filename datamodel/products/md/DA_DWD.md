@@ -16,7 +16,7 @@ This file includes the measured RV variability parameter of selected DA WDs in S
 In this value added catalog file, we summarise the result of the analysis to discover DA double white dwarf binary candidates in SDSS-V DR19. We report the SDSS-ID, Gaia DR3 ID, RV, RV error, observation time, and the RV variability parameter (eta). Full details of the target selection, analysis, binary candidates, and the subsequent constraints on the binary population are presented in <a href="https://ui.adsabs.harvard.edu/abs/2026ApJ..1002..207A">Adamane Pallathadka et al. (2026)</a>.
 
 ### Naming Convention
-$MWM_WHITEDWARF/da_white_dwarf_binaries/[V_VAC]/DA_DWD_DR19-[V_VAC].fits where V_VAC=1.0.0 in DR20.
+$MWM_WHITEDWARF/da_white_dwarf_binaries/[V_VAC]/DA_DWD_DR19-[V_VAC].fits where V_VAC=1.0.1 in DR20.
 
 ### Releases
 DR20
@@ -41,7 +41,8 @@ True
 
 ### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1](#hdu1)
+  - [HDU1: FIRST_TABLE](#hdu1-first_table)
+  - [HDU2: SECOND_TABLE](#hdu2-second_table)
 
 ---
 
@@ -67,11 +68,11 @@ Key | Value | Comment | |
 
 
 
-### HDU1: 
+### HDU1: FIRST_TABLE
 DA double white dwarf binary candidates
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  1 MB
+#### HDU Size:  181 KB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -79,22 +80,53 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 48 | length of dimension 1 |
+| NAXIS1 | 32 | length of dimension 1 |
 | NAXIS2 | 5818 | length of dimension 2 |
-| PCOUNT | 1021824 | number of group parameters |
+| PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 6 | number of table fields |
-| TDISP3 | F11.2 |  |
+| TFIELDS | 5 | number of table fields |
+| EXTNAME | FIRST_TABLE | extension name |
+| TDISP5 | F11.2 |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | sdss_id | int64 |  | SDSS ID of the WD |
  | gaia_dr3_id | int64 |  | Gaia DR3 ID of the WD |
+ | RA | float32 | deg | Right Ascention J2000 |
+ | Dec | float32 | deg | Declination J2000 |
  | eta | float64 |  | Radial Velocity variability parameter |
- | RV | float64[PD(155] | km/s | Radial Velocity measured using different SDSS-V exposures |
- | eRV | float64[PD(155] | km/s | Measured error in the radial velocity |
- | TAI | float64[PD(155] | s | Mid-exposure observation time |
+
+
+
+### HDU2: SECOND_TABLE
+Radial Velocities for DA double white dwarf binary candidate observed exposures.
+
+#### HDU Type: BINARY TABLE
+#### HDU Size:  1 MB
+
+##### Header Table Caption for HDU2
+Key | Value | Comment | |
+| --- | --- | --- | --- |
+| XTENSION | BINTABLE | binary table extension |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 44 | length of dimension 1 |
+| NAXIS2 | 42576 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 6 | number of table fields |
+| EXTNAME | SECOND_TABLE | extension name |
+
+##### Binary Table Caption for HDU2
+Name | Type | Unit | Description |
+| --- | --- | --- | --- |
+ | exposure_num | int32 |  | exposure number as a sequential index |
+ | sdss_id | int64 |  | SDSS ID of the WD |
+ | gaia_dr3_id | int64 |  | Gaia DR3 ID of the WD |
+ | RV | float64 | km/s | Radial Velocity measured using different SDSS-V exposures |
+ | eRV | float64 | km/s | Measured error in the radial velocity |
+ | TAI | float64 | s | Mid-exposure observation time |
 
 
 
