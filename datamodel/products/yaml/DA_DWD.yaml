@@ -17,7 +17,7 @@ general:
   surveys:
   - SDSS
   naming_convention: $MWM_WHITEDWARF/da_white_dwarf_binaries/[V_VAC]/DA_DWD_DR19-[V_VAC].fits
-    where V_VAC=1.0.0 in DR20.
+    where V_VAC=1.0.1 in DR20.
   generated_by: MWM_WHITEDWARF
   data_level: 3.3.0
   design: false
@@ -30,7 +30,7 @@ changelog:
 releases:
   DR20:
     template: $MWM_WHITEDWARF/da_white_dwarf_binaries/[V_VAC]/DA_DWD_DR19-[V_VAC].fits
-    example: da_white_dwarf_binaries/1.0.0/DA_DWD_DR19-1.0.0.fits
+    example: da_white_dwarf_binaries/1.0.1/DA_DWD_DR19-1.0.1.fits
     location: da_white_dwarf_binaries/{v_vac}/DA_DWD_DR19-{v_vac}.fits
     environment: MWM_WHITEDWARF
     access:
@@ -61,10 +61,10 @@ releases:
           value: true
           comment: ''
       hdu1:
-        name: ''
+        name: FIRST_TABLE
         description: DA double white dwarf binary candidates
         is_image: false
-        size: 1 MB
+        size: 181 KB
         header:
         - key: XTENSION
           value: BINTABLE
@@ -76,21 +76,24 @@ releases:
           value: 2
           comment: number of array dimensions
         - key: NAXIS1
-          value: 48
+          value: 32
           comment: length of dimension 1
         - key: NAXIS2
           value: 5818
           comment: length of dimension 2
         - key: PCOUNT
-          value: 1021824
+          value: 0
           comment: number of group parameters
         - key: GCOUNT
           value: 1
           comment: number of groups
         - key: TFIELDS
-          value: 6
+          value: 5
           comment: number of table fields
-        - key: TDISP3
+        - key: EXTNAME
+          value: FIRST_TABLE
+          comment: extension name
+        - key: TDISP5
           value: F11.2
           comment: ''
         columns:
@@ -104,24 +107,84 @@ releases:
             type: int64
             unit: ''
             description: Gaia DR3 ID of the WD
+          RA:
+            name: RA
+            type: float32
+            unit: deg
+            description: Right Ascention J2000
+          Dec:
+            name: Dec
+            type: float32
+            unit: deg
+            description: Declination J2000
           eta:
             name: eta
             type: float64
             unit: ''
             description: Radial Velocity variability parameter
+      hdu2:
+        name: SECOND_TABLE
+        description: Radial Velocities for DA double white dwarf binary candidate
+          observed exposures.
+        is_image: false
+        size: 1 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 44
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 42576
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 6
+          comment: number of table fields
+        - key: EXTNAME
+          value: SECOND_TABLE
+          comment: extension name
+        columns:
+          exposure_num:
+            name: exposure_num
+            type: int32
+            unit: ''
+            description: exposure number as a sequential index
+          sdss_id:
+            name: sdss_id
+            type: int64
+            unit: ''
+            description: SDSS ID of the WD
+          gaia_dr3_id:
+            name: gaia_dr3_id
+            type: int64
+            unit: ''
+            description: Gaia DR3 ID of the WD
           RV:
             name: RV
-            type: float64[PD(155]
+            type: float64
             unit: km/s
             description: Radial Velocity measured using different SDSS-V exposures
           eRV:
             name: eRV
-            type: float64[PD(155]
+            type: float64
             unit: km/s
             description: Measured error in the radial velocity
           TAI:
             name: TAI
-            type: float64[PD(155]
+            type: float64
             unit: s
             description: Mid-exposure observation time
 notes: |-
