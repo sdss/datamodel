@@ -2,7 +2,7 @@
   "general": {
     "name": "fermi_blazar_redshifts",
     "short": "Multi-component spectral classifications and redshifts for Fermi-LAT blazars observed in SDSS-V DR20.",
-    "description": "Value-added catalogue (VAC) of 707 Fermi-LAT blazar candidates cross-matched with SDSS-V DR20 BOSS spectroscopy. Each source has been fitted with a multi-component spectral decomposition combining a flexible dual power-law jet continuum, elliptical galaxy templates (SWIRE), and synthetic QSO templates (Temple et al. 2021) over a logarithmic redshift grid z=0.01--5.0. Model selection uses the corrected Akaike Information Criterion (AICc). The catalogue provides improved spectroscopic redshifts, best model classification,  optical jet flux fractions, and power-law continuum shape parameters for sources previously misclassified or lacking reliable redshifts in the SDSS pipeline.\n",
+    "description": "Value-added catalogue (VAC) of 707 Fermi-LAT blazar candidates cross-matched with SDSS-V DR20 BOSS spectroscopy. Each source has been fitted with a multi-component spectral decomposition combining a flexible dual power-law jet continuum, elliptical galaxy templates (SWIRE), and synthetic QSO templates (Temple et al. 2021) over a logarithmic redshift grid z=0.01--5.0. Model selection uses the corrected Akaike Information Criterion (AICc). The catalogue provides improved spectroscopic redshifts, best model classification, optical jet flux fractions, and power-law continuum shape parameters for sources previously misclassified or lacking reliable redshifts in the SDSS pipeline. A reliability flag (Z_FLAG) is included to indicate the confidence level of each fitted redshift and classification.\n",
     "environments": [
       "BHM_BLAZAR"
     ],
@@ -23,7 +23,7 @@
       }
     ],
     "datatype": "FITS",
-    "filesize": "165 KB",
+    "filesize": "171 KB",
     "releases": [
       {
         "name": "DR20",
@@ -92,8 +92,8 @@
         "hdu1": {
           "name": "BLAZAR_VAC",
           "is_image": false,
-          "description": "Binary table containing 707 Fermi-LAT blazar candidates with multi-component spectral fit results, redshifts, blazar classifications, and continuum shape parameters derived from SDSS-V DR20 BOSS spectroscopy.\n",
-          "size": "155 KB",
+          "description": "Binary table containing 707 Fermi-LAT blazar candidates with multi-component spectral fit results, redshifts, blazar classifications, continuum shape parameters, and a redshift reliability flag derived from SDSS-V DR20 BOSS spectroscopy.\n",
+          "size": "160 KB",
           "header": [
             {
               "key": "XTENSION",
@@ -132,7 +132,7 @@
             },
             {
               "key": "TFIELDS",
-              "value": "15",
+              "value": "16",
               "comment": "number of table fields"
             }
           ],
@@ -157,13 +157,13 @@
             },
             "FGL_CLASS": {
               "name": "FGL_CLASS",
-              "description": "Fermi source classification from 4FGL-DR4. Blazar subclasses include bll (BL Lac), fsrq (flat-spectrum radio quasar), and bcu (blazar candidate of unknown type). \n",
+              "description": "Fermi source classification from 4FGL-DR4. Blazar subclasses include bll (BL Lac), fsrq (flat-spectrum radio quasar), and bcu (blazar candidate of unknown type).\n",
               "type": "char[5]",
               "unit": ""
             },
             "BEST_MODEL": {
               "name": "BEST_MODEL",
-              "description": "Best-fit spectral model family selected by AICc from six families: Galaxy, QSO, Powerlaw, Powerlaw+Galaxy, Powerlaw+QSO, and Powerlaw+Lines. Powerlaw+Galaxy and purePowerlaw sources are classified as BL Lac candidates; Powerlaw+QSO and Powerlaw+Lines as FSRQ candidates. \n",
+              "description": "Best-fit spectral model family selected by AICc from six families: Galaxy, QSO, Powerlaw, Powerlaw+Galaxy, Powerlaw+QSO, and Powerlaw+Lines. Powerlaw+Galaxy and pure Powerlaw sources are classified as BL Lac candidates; Powerlaw+QSO and Powerlaw+Lines as FSRQ candidates. Pure Powerlaw sources (7 in DR20) have no spectral features and their redshifts and classifications are unreliable (see Z_FLAG).\n",
               "type": "char[100]",
               "unit": ""
             },
@@ -181,7 +181,7 @@
             },
             "Z_fit": {
               "name": "Z_fit",
-              "description": "Best-fit spectroscopic redshift from the multi-component decomposition, derived from the maximum a posteriori (MAP) estimate over a logarithmic redshift grid z=0.01--5.0 with local refinement within dz=0.15 of the MAP solution.\n",
+              "description": "Best-fit spectroscopic redshift from the multi-component decomposition, derived from the maximum a posteriori (MAP) estimate over a logarithmic redshift grid z=0.01--5.0 with local refinement within dz=0.15 of the MAP solution. Sources with Z_FLAG > 0 have poorly constrained or unreliable redshifts.\n",
               "type": "float64",
               "unit": ""
             },
@@ -205,7 +205,7 @@
             },
             "Jet_Fraction": {
               "name": "Jet_Fraction",
-              "description": "Fraction of total optical flux attributed to the jet power-law component at the best-fit redshift, computed as F_jet / (F_jet + F_host), where F_host is the integrated flux of the galaxy or QSO template component. Values near 1.0 indicate a jet-dominated spectrum. For Powerlaw+Lines sources this is an upper limit as line emission contributes negligibly to the broadband continuum.\n",
+              "description": "Fraction of total optical flux attributed to the jet power-law component at the best-fit redshift, computed as F_jet / (F_jet + F_host), where F_host is the integrated flux of the galaxy or QSO template component. Values near 1.0 indicate a jet-dominated spectrum. For Powerlaw+Lines sources this is an upper limit as the power-law component may absorb a mixture of jet synchrotron and accretion-disc continuum emission.\n",
               "type": "float64",
               "unit": ""
             },
@@ -217,14 +217,20 @@
             },
             "PL_delta": {
               "name": "PL_delta",
-              "description": "Power-law curvature parameter delta controlling the spectral transition between two regimes in the dual power-law jet model. Positive delta produces a spectrum that is flatter at shorter wavelengths and steeper at longer wavelengths. Negative delta produces the opposite — steeper at shorter wavelengths and flatter at longer wavelengths. delta=0 recovers a simple single power-law. \n",
+              "description": "Power-law curvature parameter delta controlling the spectral transition between two regimes in the dual power-law jet model. Positive delta produces a spectrum that is flatter at shorter wavelengths and steeper at longer wavelengths. Negative delta produces the opposite. delta=0 recovers a simple single power-law.\n",
               "type": "float64",
               "unit": ""
             },
             "SNR": {
               "name": "SNR",
-              "description": "Median signal-to-noise ratio per pixel across all BOSS spectral bands as reported by the SDSS-V pipeline (SN_MEDIAN_ALL). Sources with SNR < 3 are retained in the catalogue but carry lower confidence in their redshift and jet fraction estimates.\n",
+              "description": "Median signal-to-noise ratio per pixel across all BOSS spectral bands as reported by the SDSS-V pipeline (SN_MEDIAN_ALL). Sources with SNR < 3 are retained in the catalogue but carry lower confidence in their redshift and jet fraction estimates (Z_FLAG=3).\n",
               "type": "float32",
+              "unit": ""
+            },
+            "Z_FLAG": {
+              "name": "Z_FLAG",
+              "description": "Redshift and classification reliability flag. Values are: 0 = reliable redshift and classification; 1 = unreliable, featureless power-law spectrum with no\n    spectral anchor for redshift determination (7 sources\n    in DR20) — fitted Z_fit and Jet_Fraction values are retained \n    but should be treaetd with caution;\n2 = low-confidence redshift, Powerlaw+Galaxy source at\n    z > 1.8 where the SDSS wavelength coverage provides\n    no strong rest-frame features to anchor the galaxy\n    template;\n3 = low spectral quality, SNR < 3, fitted parameters\n    carry greater uncertainty.\nUsers are advised to apply Z_FLAG == 0 for analyses requiring reliable redshifts and classifications.\n",
+              "type": "int16",
               "unit": ""
             }
           }
@@ -235,6 +241,6 @@
       "dataframe": null
     }
   },
-  "notes": "Sources are drawn from the cross-match of the Fermi-LAT 4FGL-DR4\ncatalogue with SDSS-V DR20 BOSS spectroscopy. Non-blazar Fermi\nclasses (pulsars, radio galaxies, binaries, etc.) were excluded.",
-  "regrets": "I  have no regrets!"
+  "notes": "Sources are drawn from the cross-match of the Fermi-LAT 4FGL-DR4\ncatalogue with SDSS-V DR20 BOSS spectroscopy. Non-blazar Fermi\nclasses (pulsars, radio galaxies, binaries, etc.) were excluded.\nThe Z_FLAG column should be used to filter sources for\nredshift-dependent analyses. Pure Powerlaw sources (Z_FLAG=1)\nlack reliable redshifts and blazar subclass assignments due to the\nabsence of any spectral features in their BOSS spectra.",
+  "regrets": "I have no regrets!"
 }
