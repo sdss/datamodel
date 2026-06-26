@@ -25,7 +25,7 @@ DR20
 MWM_ORBITS
 
 ### Approximate Size
-500 MB
+326 MB
 
 ### File Type
 FITS
@@ -55,7 +55,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 replace me description
 
 #### HDU Type: IMAGE
-#### HDU Size:  5 KB
+#### HDU Size:  3 KB
 
 ##### Header Table Caption for HDU0
 Key | Value | Comment | |
@@ -63,7 +63,7 @@ Key | Value | Comment | |
 | SIMPLE | True | Standard FITS format |
 | BITPIX | 8 | Character data |
 | NAXIS | 1 | Text string |
-| NAXIS1 | 5781 | Number of characters |
+| NAXIS1 | 3853 | Number of characters |
 | VOTMETA | True | Table metadata in VOTable format |
 | EXTEND | True | There are standard extensions |
 | COMMENT |  |  |
@@ -83,7 +83,7 @@ Key | Value | Comment | |
 replace me description
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  500 MB
+#### HDU Size:  326 MB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -91,102 +91,72 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | 8-bit bytes |
 | NAXIS | 2 | 2-dimensional table |
-| NAXIS1 | 346 | width of table in bytes |
+| NAXIS1 | 226 | width of table in bytes |
 | NAXIS2 | 1515648 | number of rows in table |
 | PCOUNT | 0 | size of special data area |
 | GCOUNT | 1 | one data group |
-| TFIELDS | 51 | number of columns |
+| TFIELDS | 53 | number of columns |
 | EXTNAME | Joined | table name |
-| TCOMM20 | (-999.) |  |
-| TCOMM21 | (-999.) |  |
-| TCOMM22 | (-999.) |  |
-| TCOMM23 | (-999.) |  |
-| TCOMM24 | (-999.) |  |
-| TCOMM25 | (-999.) |  |
-| TCOMM26 | (-999.) |  |
-| TCOMM27 | (-999.) |  |
-| TCOMM28 | (-999.) |  |
-| TCOMM29 | (-999.) |  |
-| TCOMM30 | (-999.) |  |
-| TCOMM31 | (-999.) |  |
-| TCOMM32 | (-999.) |  |
-| TCOMM33 | (-999.) |  |
-| TCOMM34 | (-999.) |  |
-| TCOMM35 | (-999.) |  |
-| TCOMM36 | (-999.) |  |
-| TCOMM37 | (-999.) |  |
-| TCOMM38 | (-999.) |  |
-| TCOMM39 | (-999.) |  |
-| TCOMM40 | (-999.) |  |
-| TCOMM41 | (-999.) |  |
-| TCOMM42 | (-999.) |  |
-| TCOMM43 | (-999.) |  |
-| TCOMM44 | (-999.) |  |
-| TCOMM45 | (-999.) |  |
-| TCOMM46 | (-999.) |  |
-| TCOMM47 | (-999.) |  |
-| TCOMM48 | (-999.) |  |
-| TCOMM49 | (-999.) |  |
-| TCOMM50 | (-999.) |  |
-| TCOMM51 | (-999.) |  |
-| DATE-HDU | 2026-06-12T19:29:05 | Date of HDU creation (UTC) |
+| DATE-HDU | 2026-06-26T03:24:05 | Date of HDU creation (UTC) |
 | STILVERS | 3.1-2 | Version of STIL software |
 | STILCLAS | uk.ac.starlink.votable.FitsPlusTableWriter | Author class in STIL so |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | Ids | int32 | replace me - with content | label for column 1 |
- | RUWE | float32 | replace me - with content | label for column 2 |
- | peri_c | float64 | replace me - with content | label for column 3 |
- | apo_c | float64 | replace me - with content | label for column 4 |
- | Zmax_c | float64 | replace me - with content | label for column 5 |
- | eccentricity_c | float64 | replace me - with content | label for column 6 |
- | Ej_c | float64 | replace me - with content | label for column 7 |
- | Emean_c | float64 | replace me - with content | label for column 8 |
- | Emin_c | float64 | replace me - with content | label for column 9 |
- | Emax_c | float64 | replace me - with content | label for column 10 |
- | Lxmin_c | int16 | replace me - with content | label for column 11 |
- | Lxmax_c | int16 | replace me - with content | label for column 12 |
- | Lymin_c | int16 | replace me - with content | label for column 13 |
- | Lymax_c | int16 | replace me - with content | label for column 14 |
- | Lzmin_c | int16 | replace me - with content | label for column 15 |
- | Lzmax_c | int16 | replace me - with content | label for column 16 |
- | Lx_mean_c | int16 | replace me - with content | label for column 17 |
- | Ly_mean_c | int16 | replace me - with content | label for column 18 |
- | Lz_mean_c | int16 | replace me - with content | label for column 19 |
- | peri_50perc_ps41 | float64 | replace me - with content | label for column 20 |
- | error_peri_50perc_ps41 | float64 | replace me - with content | label for column 21 |
- | Zmax_50perc_ps41 | float64 | replace me - with content | label for column 22 |
- | error_Zmax_50perc_ps41 | float64 | replace me - with content | label for column 23 |
- | eccentricity_50perc_ps41 | float64 | replace me - with content | label for column 24 |
- | error_eccentricity_50perc_ps41 | float64 | replace me - with content | label for column 25 |
- | Ej_50perc_ps41 | float64 | replace me - with content | label for column 26 |
- | error_Ej_50perc_ps41 | float64 | replace me - with content | label for column 27 |
- | Emean_50perc_ps41 | float64 | replace me - with content | label for column 28 |
- | error_Emean_50perc_ps41 | float64 | replace me - with content | label for column 29 |
- | Emin_50perc_ps41 | float64 | replace me - with content | label for column 30 |
- | error_Emin_50perc_ps41 | float64 | replace me - with content | label for column 31 |
- | Emax_50perc_ps41 | float64 | replace me - with content | label for column 32 |
- | error_Emax_50perc_ps41 | float64 | replace me - with content | label for column 33 |
- | Lxmin_50perc_ps41 | float64 | replace me - with content | label for column 34 |
- | error_Lxmin_50perc_ps41 | float64 | replace me - with content | label for column 35 |
- | Lxmax_50perc_ps41 | float64 | replace me - with content | label for column 36 |
- | error_Lxmax_50perc_ps41 | float64 | replace me - with content | label for column 37 |
- | Lymin_50perc_ps41 | float64 | replace me - with content | label for column 38 |
- | error_Lymin_50perc_ps41 | float64 | replace me - with content | label for column 39 |
- | Lymax_50perc_ps41 | float64 | replace me - with content | label for column 40 |
- | error_Lymax_50perc_ps41 | float64 | replace me - with content | label for column 41 |
- | Lzmin_50perc_ps41 | float64 | replace me - with content | label for column 42 |
- | error_Lzmin_50perc_ps41 | float64 | replace me - with content | label for column 43 |
- | Lzmax_50perc_ps41 | float64 | replace me - with content | label for column 44 |
- | error_Lzmax_50perc_ps41 | float64 | replace me - with content | label for column 45 |
- | Lx_mean_50perc_ps41 | float64 | replace me - with content | label for column 46 |
- | error_Lx_mean_50perc_ps41 | float64 | replace me - with content | label for column 47 |
- | Ly_mean_50perc_ps41 | float64 | replace me - with content | label for column 48 |
- | error_Ly_mean_50perc_ps41 | float64 | replace me - with content | label for column 49 |
- | Lz_mean_50perc_ps41 | float64 | replace me - with content | label for column 50 |
- | error_Lz_mean_50perc_ps41 | float64 | replace me - with content | label for column 51 |
+ | Ids | int32 | replace me - with content | replace me - with description for column 1 |
+ | RUWE | float32 | replace me - with content | replace me - with description for column 2 |
+ | peri_c | float64 | replace me - with content | replace me - with description for column 3 |
+ | apo_c | float64 | replace me - with content | replace me - with description for column 4 |
+ | Zmax_c | float64 | replace me - with content | replace me - with description for column 5 |
+ | eccentricity_c | float64 | replace me - with content | replace me - with description for column 6 |
+ | Ej_c | float64 | replace me - with content | replace me - with description for column 7 |
+ | Emean_c | float64 | replace me - with content | replace me - with description for column 8 |
+ | Emin_c | float64 | replace me - with content | replace me - with description for column 9 |
+ | Emax_c | float64 | replace me - with content | replace me - with description for column 10 |
+ | Lxmin_c | int16 | replace me - with content | replace me - with description for column 11 |
+ | Lxmax_c | int16 | replace me - with content | replace me - with description for column 12 |
+ | Lymin_c | int16 | replace me - with content | replace me - with description for column 13 |
+ | Lymax_c | int16 | replace me - with content | replace me - with description for column 14 |
+ | Lzmin_c | int16 | replace me - with content | replace me - with description for column 15 |
+ | Lzmax_c | int16 | replace me - with content | replace me - with description for column 16 |
+ | Lx_mean_c | int16 | replace me - with content | replace me - with description for column 17 |
+ | Ly_mean_c | int16 | replace me - with content | replace me - with description for column 18 |
+ | Lz_mean_c | int16 | replace me - with content | replace me - with description for column 19 |
+ | peri_ps41 | float32 | replace me - with content | replace me - with description for column 20 |
+ | Error_peri_ps41 | float32 | replace me - with content | replace me - with description for column 21 |
+ | apo_ps41 | float32 | replace me - with content | replace me - with description for column 22 |
+ | Error_apo_ps41 | float32 | replace me - with content | replace me - with description for column 23 |
+ | Zmax_ps41 | float32 | replace me - with content | replace me - with description for column 24 |
+ | Error_Zmax_ps41 | float32 | replace me - with content | replace me - with description for column 25 |
+ | e_ps41 | float32 | replace me - with content | replace me - with description for column 26 |
+ | Error_e_ps41 | float32 | replace me - with content | replace me - with description for column 27 |
+ | Ej_ps41 | float32 | replace me - with content | replace me - with description for column 28 |
+ | Error_Ej_ps41 | float32 | replace me - with content | replace me - with description for column 29 |
+ | Emean_ps41 | float32 | replace me - with content | replace me - with description for column 30 |
+ | Error_Emean_ps41 | float32 | replace me - with content | replace me - with description for column 31 |
+ | Emin_ps41 | float32 | replace me - with content | replace me - with description for column 32 |
+ | Error_Emin_ps41 | float32 | replace me - with content | replace me - with description for column 33 |
+ | Emax_ps41 | float32 | replace me - with content | replace me - with description for column 34 |
+ | Error_Emax_ps41 | float32 | replace me - with content | replace me - with description for column 35 |
+ | Lxmin_ps41 | float32 | replace me - with content | replace me - with description for column 36 |
+ | Error_Lxmin_ps41 | float32 | replace me - with content | replace me - with description for column 37 |
+ | Lxmax_ps41 | float32 | replace me - with content | replace me - with description for column 38 |
+ | Error_Lxmax_ps41 | float32 | replace me - with content | replace me - with description for column 39 |
+ | Lymin_ps41 | float32 | replace me - with content | replace me - with description for column 40 |
+ | Error_Lymin_ps41 | float32 | replace me - with content | replace me - with description for column 41 |
+ | Lymax_ps41 | float32 | replace me - with content | replace me - with description for column 42 |
+ | Error_Lymax_ps41 | float32 | replace me - with content | replace me - with description for column 43 |
+ | Lzmin_ps41 | float32 | replace me - with content | replace me - with description for column 44 |
+ | Error_Lzmin_ps41 | float32 | replace me - with content | replace me - with description for column 45 |
+ | Lzmax_ps41 | float32 | replace me - with content | replace me - with description for column 46 |
+ | Error_Lzmax_ps41 | float32 | replace me - with content | replace me - with description for column 47 |
+ | Lxmean_ps41 | float32 | replace me - with content | replace me - with description for column 48 |
+ | Error_Lxmean_ps41 | float32 | replace me - with content | replace me - with description for column 49 |
+ | Lymean_ps41 | float32 | replace me - with content | replace me - with description for column 50 |
+ | Error_Lymean_ps41 | float32 | replace me - with content | replace me - with description for column 51 |
+ | Lzmean_ps41 | float32 | replace me - with content | replace me - with description for column 52 |
+ | Error_Lzmean_ps41 | float32 | replace me - with content | replace me - with description for column 53 |
 
 
 
