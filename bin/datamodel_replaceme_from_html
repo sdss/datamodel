@@ -1,0 +1,104 @@
+import yaml
+from bs4 import BeautifulSoup
+import re
+
+def update_yaml_from_html(yaml_path, html_path, output_path):
+    # 1. Read and parse the HTML file
+    with open(html_path, 'r', encoding='utf-8') as f:
+        html_content = f.read()
+    soup = BeautifulSoup(html_content, 'html.parser')
+
+    # Extract General Info
+    gen_desc_dt = soup.find('dt', string=re.compile('General Description', re.I))
+    full_description = gen_desc_dt.find_next_sibling('dd').get_text(strip=True) if gen_desc_dt else ""
+    # Extract the first sentence for the 'short' description
+    short_description = full_description.split('. ') + '.' if full_description else ""
+
+    naming_conv_dt = soup.find('dt', string=re.compile('Naming Convention', re.I))
+    naming_convention = naming_conv_dt.find_next_sibling('dd').get_text(strip=True) if naming_conv_dt else ""
+
+    written_by_dt = soup.find('dt', string=re.compile('Written by Products', re.I))
+    generated_by = written_by_dt.find_next_sibling('dd').get_text(strip=True) if written_by_dt else ""
+
+    # Extract HDU Descriptions
+    hdu0_div = soup.find('div', id='hdu0')
+    hdu0_desc = hdu0_div.find_all('p').get_text(strip=True) if hdu0_div else ""
+
+    hdu1_div = soup.find('div', id='hdu1')
+    hdu1_desc = hdu1_div.find_all('p').get_text(strip=True) if hdu1_div else ""
+
+    # Extract Columns Data
+    columns_table = soup.find('table', class_='columns')
+    columns_data = {}
+    if columns_table:
+        rows = columns_table.find_all('tr')[1:] # Skip header row
+        for row in rows:
+            cols = row.find_all('td')
+            if len(cols) >= 4:
+                col_name = cols.get_text(strip=True)
+                col_unit = cols.get_text(strip=True)
+                col_desc = cols.get_text(strip=True)
+                columns_data[col_name] = {
+                    'unit': col_unit,
+                    'description': col_desc
+                }
+
+    # 2. Read and parse the YAML file
+    with open(yaml_path, 'r', encoding='utf-8') as f:
+        # Use sort_keys=False to preserve order when writing later
+        yaml_data = yaml.safe_load(f)
+
+    # 3. Update the YAML dictionary where "replace me" is present
+    
+    # Update General Section
+    general = yaml_data.get('general', {})
+    if 'replace me' in str(general.get('short', '')).lower():
+        general['short'] = short_description
+    if 'replace me' in str(general.get('description', '')).lower():
+        general['description'] = full_description
+    if 'replace me' in str(general.get('naming_convention', '')).lower():
+        general['naming_convention'] = naming_convention
+    if 'replace me' in str(general.get('generated_by', '')).lower():
+        general['generated_by'] = generated_by
+
+    # Update HDU Section
+    try:
+        hdus = yaml_data['releases']['DR16']['hdus']
+        
+        # HDU0
+        if 'replace me' in str(hdus.get('hdu0', {}).get('description', '')).lower():
+            hdus['hdu0']['description'] = hdu0_desc
+            
+        # HDU1
+        if 'replace me' in str(hdus.get('hdu1', {}).get('description', '')).lower():
+            hdus['hdu1']['description'] = hdu1_desc
+            
+        # Columns in HDU1
+        yaml_columns = hdus.get('hdu1', {}).get('columns', {})
+        for col_name, col_info in yaml_columns.items():
+            if col_name in columns_data:
+                html_col_info = columns_data[col_name]
+                
+                if 'replace me' in str(col_info.get('unit', '')).lower():
+                    col_info['unit'] = html_col_info['unit']
+                    
+                if 'replace me' in str(col_info.get('description', '')).lower():
+                    col_info['description'] = html_col_info['description']
+                    
+    except KeyError as e:
+        print(f"Warning: Expected key path not found in YAML for HDUs. Missing: {e}")
+
+    # 4. Write the updated data to the new output YAML file
+    with open(output_path, 'w', encoding='utf-8') as f:
+        yaml.dump(yaml_data, f, sort_keys=False, default_flow_style=False, allow_unicode=True)
+    
+    print(f"Successfully processed files. Output saved to: {output_path}")
+
+# Run the function
+if __name__ == "__main__":
+    # Ensure these point to your specific file locations
+    update_yaml_from_html(
+        yaml_path='manga_alfalfa.yaml',
+        html_path='manga_alfalfa.html',
+        output_path='manga_alfalfa_updated.yaml'
+    )
