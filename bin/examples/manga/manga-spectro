@@ -1,0 +1,70 @@
+export MANGA_HI=/data/sdss/dr16/manga/HI
+pip install --upgrade git+https://github.com/sdss/tree.git@manga
+rsync -avz /private/software/github/sdss/tree/manga/data/ /software/pkg/miniconda/3.13.11/lib/python3.13/site-packages/tree/data/
+
+[sdssadmin@archive:~]$ for dr in {13..17}; do echo "dr$dr"; ll  /uufs/chpc.utah.edu/common/home/sdss43/dr$dr/manga/spectro/redux/v*/7341/56693/ | grep cogimg; done
+dr13
+-rw-r--r-- 1 sdssadmin sdss   2436480 Mar 11  2016 cogimg-56693-00174697.fits
+dr14
+-rw-r--r-- 1 sdssadmin sdss   2436480 Apr  4  2017 cogimg-56693-00174697.fits
+dr15
+-rw-r--r-- 1 sdssadmin sdss   2436480 Mar 16  2018 cogimg-56693-00174697.fits
+dr16
+-rw-r--r-- 1 sdssadmin sdss   2436480 Mar 16  2018 cogimg-56693-00174697.fits
+dr17
+-rw-r--r-- 1 sdssadmin sdss   2436480 Nov 27  2020 cogimg-56693-00174697.fits
+
+[sdssadmin@archive:~]$ for dr in {13..17}; do echo "dr$dr"; ll  /uufs/chpc.utah.edu/common/home/sdss43/dr$dr/manga/spectro/redux/v*/7341/56693/ | grep fluxcal; done
+dr13
+-rw-r--r-- 1 sdssadmin sdss    923287 Mar 11  2016 fluxcal-sp1-00174697.fits.gz
+-rw-r--r-- 1 sdssadmin sdss    924198 Mar 11  2016 fluxcal-sp2-00174697.fits.gz
+dr14
+-rw-r--r-- 1 sdssadmin sdss    923444 Apr  4  2017 fluxcal-sp1-00174697.fits.gz
+-rw-r--r-- 1 sdssadmin sdss    923530 Apr  4  2017 fluxcal-sp2-00174697.fits.gz
+dr15
+-rw-r--r-- 1 sdssadmin sdss    924330 Mar 16  2018 fluxcal-sp1-00174697.fits.gz
+-rw-r--r-- 1 sdssadmin sdss    924858 Mar 16  2018 fluxcal-sp2-00174697.fits.gz
+dr16
+-rw-r--r-- 1 sdssadmin sdss    924330 Mar 16  2018 fluxcal-sp1-00174697.fits.gz
+-rw-r--r-- 1 sdssadmin sdss    924858 Mar 16  2018 fluxcal-sp2-00174697.fits.gz
+dr17
+-rw-r--r-- 1 sdssadmin sdss    978398 Nov 27  2020 fluxcal-sp1-00174697.fits.gz
+-rw-r--r-- 1 sdssadmin sdss    980076 Nov 27  2020 fluxcal-sp2-00174697.fits.gz
+
+declare -A releases
+releases=(
+    ["dr13"]="v1_5_4"
+    ["dr14"]="v2_1_2"
+    ["dr15"]="v2_4_3"
+    ["dr16"]="v2_4_3"
+    ["dr17"]="v3_1_1"
+)
+for key in "${!releases[@]}"; do
+    echo "Key: $key, Value: ${releases[$key]}"
+done
+
+typeset -A releases
+releases=(
+    dr13 v1_5_4
+    dr14 v2_1_2
+    dr15 v2_4_3
+    dr16 v2_4_3
+    dr17 v3_1_1
+)
+for key value in "${(@kv)releases}"; do
+    print "Key: $key, Value: $value"
+done
+
+export MANGA_SPECTRO_REDUX=/data/sdss/dr13/manga/spectro/redux
+datamodel_generate -f fluxcal -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure}.fits.gz -k drpver=v1_5_4 -k plate=7341 -k mjd=56693 -k camera=sp1 -k exposure=00174697 -r DR13
+datamodel_generate -f fluxcal -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure}.fits.gz -k drpver=v2_1_2 -k plate=7341 -k mjd=56693 -k camera=sp1 -k exposure=00174697 -r DR14 -c DR13 -h
+datamodel_generate -f fluxcal -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure}.fits.gz -k drpver=v2_4_3 -k plate=7341 -k mjd=56693 -k camera=sp1 -k exposure=00174697 -r DR15 -c DR14 -h
+datamodel_generate -f fluxcal -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure}.fits.gz -k drpver=v2_4_3 -k plate=7341 -k mjd=56693 -k camera=sp1 -k exposure=00174697 -r DR16 -c DR15 -h
+datamodel_generate -f fluxcal -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure}.fits.gz -k drpver=v3_1_1 -k plate=7341 -k mjd=56693 -k camera=sp1 -k exposure=00174697 -r DR17 -c DR16 -h
+
+datamodel_generate -f cogimg -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/cogimg-{mjd}-{exposure}.fits -k drpver=v1_5_4 -k plate=7341 -k mjd=56693 -k exposure=00174697 -r DR13
+datamodel_generate -f cogimg -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/cogimg-{mjd}-{exposure}.fits -k drpver=v2_1_2 -k plate=7341 -k mjd=56693 -k exposure=00174697 -r DR14 -c DR13 -h
+datamodel_generate -f cogimg -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/cogimg-{mjd}-{exposure}.fits -k drpver=v2_4_3 -k plate=7341 -k mjd=56693 -k exposure=00174697 -r DR15 -c DR14 -h
+datamodel_generate -f cogimg -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/cogimg-{mjd}-{exposure}.fits -k drpver=v2_4_3 -k plate=7341 -k mjd=56693 -k exposure=00174697 -r DR16 -c DR15 -h
+datamodel_generate -f cogimg -p MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/cogimg-{mjd}-{exposure}.fits -k drpver=v3_1_1 -k plate=7341 -k mjd=56693 -k exposure=00174697 -r DR17 -c DR16 -h
+

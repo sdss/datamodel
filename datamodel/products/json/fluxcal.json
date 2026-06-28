@@ -30,6 +30,30 @@
         "description": "SDSS public data release 13",
         "public": true,
         "release_date": "2016-07-31"
+      },
+      {
+        "name": "DR14",
+        "description": "SDSS public data release 14",
+        "public": true,
+        "release_date": "2017-07-31"
+      },
+      {
+        "name": "DR15",
+        "description": "SDSS public data release 15",
+        "public": true,
+        "release_date": "2018-12-10"
+      },
+      {
+        "name": "DR16",
+        "description": "SDSS public data release 16",
+        "public": true,
+        "release_date": "2019-12-09"
+      },
+      {
+        "name": "DR17",
+        "description": "SDSS public data release 17",
+        "public": true,
+        "release_date": "2021-12-06"
       }
     ],
     "naming_convention": "fluxcal-[camera]-[exposure].fits.gz where [camera] is one of the four cameras on the instrument, b1, r1, or b2, r2, for the blue and red cameras on each SDSS spectrograph, and [exposure] is the (zero-padded) 8-digit exposure number.",
@@ -41,7 +65,132 @@
   },
   "changelog": {
     "description": "Describes changes to the datamodel product and/or file structure from one release to another",
-    "releases": {}
+    "releases": {
+      "DR17": {
+        "from": "DR16",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null,
+        "delta_ncolumns": 0,
+        "added_columns": [],
+        "removed_columns": [],
+        "delta_nmetadata": 0,
+        "added_metadata": [],
+        "removed_metadata": []
+      },
+      "DR16": {
+        "from": "DR15",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null,
+        "delta_ncolumns": 0,
+        "added_columns": [],
+        "removed_columns": [],
+        "delta_nmetadata": 0,
+        "added_metadata": [],
+        "removed_metadata": []
+      },
+      "DR15": {
+        "from": "DR14",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null,
+        "delta_ncolumns": 0,
+        "added_columns": [],
+        "removed_columns": [],
+        "delta_nmetadata": 0,
+        "added_metadata": [],
+        "removed_metadata": []
+      },
+      "DR14": {
+        "from": "DR13",
+        "note": "No changes",
+        "delta_nhdus": null,
+        "added_hdus": null,
+        "removed_hdus": null,
+        "primary_delta_nkeys": null,
+        "added_primary_header_kwargs": null,
+        "removed_primary_header_kwargs": null,
+        "delta_nkeys": null,
+        "addead_header_keys": null,
+        "removed_header_keys": null,
+        "delta_ntables": null,
+        "addead_tables": null,
+        "removed_tables": null,
+        "tables": null,
+        "new_libver": null,
+        "delta_nattrs": null,
+        "addead_attrs": null,
+        "removed_attrs": null,
+        "delta_nmembers": null,
+        "addead_members": null,
+        "removed_members": null,
+        "members": null,
+        "delta_ncolumns": 0,
+        "added_columns": [],
+        "removed_columns": [],
+        "delta_nmetadata": 0,
+        "added_metadata": [],
+        "removed_metadata": []
+      }
+    }
   },
   "releases": {
     "DR13": {
@@ -57,9 +206,9 @@
         "path_kwargs": [
           "plate",
           "exposure",
-          "camera",
           "mjd",
-          "drpver"
+          "drpver",
+          "camera"
         ],
         "access_string": "fluxcal = $MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure}.fits.gz"
       },
@@ -494,6 +643,1911 @@
               "name": "SN_MEDIAN",
               "description": "Median S/N of the spectrum.",
               "type": "float64",
+              "unit": ""
+            },
+            "LINESN_MEDIAN": {
+              "name": "LINESN_MEDIAN",
+              "description": "Median S/N in the absorption lines of interests",
+              "type": "float64",
+              "unit": ""
+            },
+            "LINECHI2": {
+              "name": "LINECHI2",
+              "description": "Chi-squared of the fit in the absorption lines of interests",
+              "type": "float32",
+              "unit": ""
+            },
+            "LINEDOF": {
+              "name": "LINEDOF",
+              "description": "Degree of Freedom for the absorption lines of interests.",
+              "type": "float32",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null,
+      "dataframe": null
+    },
+    "DR14": {
+      "template": "$MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/[MJD]/fluxcal-[CAMERA]-[EXPOSURE].fits.gz",
+      "example": "v2_1_2/7341/56693/fluxcal-sp1-00174697.fits.gz",
+      "location": "{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure}.fits.gz",
+      "environment": "MANGA_SPECTRO_REDUX",
+      "survey": "MaNGA",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "fluxcal",
+        "path_template": "$MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure:0>8}.fits",
+        "path_kwargs": [
+          "mjd",
+          "plate",
+          "drpver",
+          "exposure",
+          "camera"
+        ],
+        "access_string": "fluxcal = $MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure}.fits.gz"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "HDU0 is empty except for the global header.",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "Dummy Created by MWRFITS v1.11"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "Dummy primary header created by MWRFITS"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "No data is associated with this header"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "Extensions may (will!) be present"
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "Structure array containing intermediate products for flux calibration. There is one entry for each star.",
+          "size": "1 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "Binary table written by MWRFITS v1.11"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "Required value"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "Required value"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "432133",
+              "comment": "Number of bytes per row"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "3",
+              "comment": "Number of rows"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "Normally 0 (no varying arrays)"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "Required value"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "44",
+              "comment": "Number of columns in table"
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** End of mandatory fields ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column names ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column formats ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column dimensions (2 D or greater) ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "TDIM22",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM23",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM24",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM25",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM26",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM27",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM28",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM29",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM30",
+              "value": "( 8, 2, 7)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM31",
+              "value": "( 8, 2, 7)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM32",
+              "value": "( 8, 2, 7)",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "PLATE": {
+              "name": "PLATE",
+              "description": "The Plate ID",
+              "type": "int32",
+              "unit": ""
+            },
+            "MJD": {
+              "name": "MJD",
+              "description": "Modified julian date",
+              "type": "int32",
+              "unit": ""
+            },
+            "EXPOSURE": {
+              "name": "EXPOSURE",
+              "description": "Exposure number",
+              "type": "int32",
+              "unit": ""
+            },
+            "DCNRA": {
+              "name": "DCNRA",
+              "description": "Intended dither offset in RA as reported by the guider",
+              "type": "float32",
+              "unit": ""
+            },
+            "DCNDEC": {
+              "name": "DCNDEC",
+              "description": "Intended dither offset in Dec as reported by the guider",
+              "type": "float32",
+              "unit": ""
+            },
+            "FRLPLUG": {
+              "name": "FRLPLUG",
+              "description": "frlplug hardware code",
+              "type": "int32",
+              "unit": ""
+            },
+            "RA": {
+              "name": "RA",
+              "description": "RA of the target star",
+              "type": "float64",
+              "unit": ""
+            },
+            "DEC": {
+              "name": "DEC",
+              "description": "Dec of the target star",
+              "type": "float64",
+              "unit": ""
+            },
+            "FIBERID": {
+              "name": "FIBERID",
+              "description": "fiberids for the 7 fibers on and around the star",
+              "type": "int32[7]",
+              "unit": ""
+            },
+            "FNUM": {
+              "name": "FNUM",
+              "description": "fiber numbers internal to the IFU for the 7 fibers on and around the star.",
+              "type": "int32[7]",
+              "unit": ""
+            },
+            "PSFMAG": {
+              "name": "PSFMAG",
+              "description": "PSF magnitudes for the star",
+              "type": "float32[5]",
+              "unit": ""
+            },
+            "FACTOR": {
+              "name": "FACTOR",
+              "description": "Best-fit scaling factor for the size of the PSF",
+              "type": "float32",
+              "unit": ""
+            },
+            "XBEST": {
+              "name": "XBEST",
+              "description": "Best-fit x offset",
+              "type": "float32",
+              "unit": ""
+            },
+            "YBEST": {
+              "name": "YBEST",
+              "description": "Best-fit y offset",
+              "type": "float32",
+              "unit": ""
+            },
+            "FIBEROFFX": {
+              "name": "FIBEROFFX",
+              "description": "Represents the fiber's displacement along the x-direction",
+              "type": "float64[7]",
+              "unit": "arcsec"
+            },
+            "FIBEROFFY": {
+              "name": "FIBEROFFY",
+              "description": "Represents the fiber's displacement along the y-direction",
+              "type": "float64[7]",
+              "unit": "arcsec"
+            },
+            "OFFSETX": {
+              "name": "OFFSETX",
+              "description": "The bulk offest along the x-direction",
+              "type": "float32[142]",
+              "unit": "arcsec"
+            },
+            "OFFSETY": {
+              "name": "OFFSETY",
+              "description": "The bulk offest along the y-direction",
+              "type": "float32[142]",
+              "unit": "arcsec"
+            },
+            "SCALEBEST": {
+              "name": "SCALEBEST",
+              "description": "Scale factor for the DAR vector",
+              "type": "float32",
+              "unit": ""
+            },
+            "ROTATIONBEST": {
+              "name": "ROTATIONBEST",
+              "description": "rotation for the DAR vector",
+              "type": "float32",
+              "unit": ""
+            },
+            "FLUXRATIO_CHI2": {
+              "name": "FLUXRATIO_CHI2",
+              "description": "Chi-squared from the flux ratio fitting among the 7 fibers and in 8 wavelength bins.",
+              "type": "float32",
+              "unit": ""
+            },
+            "MODELSPEC": {
+              "name": "MODELSPEC",
+              "description": "Model spectrum for this star multiplied with the derived PSF-covering fraction as a function of wavelength.",
+              "type": "float32[8256]",
+              "unit": ""
+            },
+            "MODFLUX": {
+              "name": "MODFLUX",
+              "description": "Model spectrum for this star.",
+              "type": "float32[8256]",
+              "unit": ""
+            },
+            "FLUX": {
+              "name": "FLUX",
+              "description": "Flux for the reference fiber (first element in the fiberid and fnum arrays) in the bundle.",
+              "type": "float64[8256]",
+              "unit": ""
+            },
+            "IVAR": {
+              "name": "IVAR",
+              "description": "Inverse variance for the reference fiber (first elements in the fiberid and fnum arrays).",
+              "type": "float64[8256]",
+              "unit": ""
+            },
+            "DISP": {
+              "name": "DISP",
+              "description": "Instrumental dispersion for the reference fiber",
+              "type": "float32[8256]",
+              "unit": ""
+            },
+            "MRATIO": {
+              "name": "MRATIO",
+              "description": "The ratio between FLUX and MODELSPEC; this is the correction vector derived from each star.",
+              "type": "float64[8256]",
+              "unit": ""
+            },
+            "MRATIVAR": {
+              "name": "MRATIVAR",
+              "description": "The inverse variance on MRATIO.",
+              "type": "float64[8256]",
+              "unit": ""
+            },
+            "LOGLAM": {
+              "name": "LOGLAM",
+              "description": "Log10 wavelengths of the blue and red spectra of the star.",
+              "type": "float64[8256]",
+              "unit": ""
+            },
+            "FLUXRATIO": {
+              "name": "FLUXRATIO",
+              "description": "The empirically observed ratio of the flux in a target fiber compared to a reference fiber within a given wavelength slice.",
+              "type": "float32[112]",
+              "unit": ""
+            },
+            "FLUXRATIOERR": {
+              "name": "FLUXRATIOERR",
+              "description": "The error in FLUXRATIO.",
+              "type": "float32[112]",
+              "unit": ""
+            },
+            "PREDICTRATIO": {
+              "name": "PREDICTRATIO",
+              "description": "The predicted model ratio of the fiber-to-reference flux generated by the pipeline's Point Spread Function (PSF) model",
+              "type": "float32[112]",
+              "unit": ""
+            },
+            "USED": {
+              "name": "USED",
+              "description": "Used for Flux Calibration",
+              "type": "int16",
+              "unit": ""
+            },
+            "MODEL": {
+              "name": "MODEL",
+              "description": "The Kurucz model adopted for this star.",
+              "type": "char[19]",
+              "unit": ""
+            },
+            "FEH": {
+              "name": "FEH",
+              "description": "The [Fe/H] for the adopted model",
+              "type": "float32",
+              "unit": ""
+            },
+            "TEFF": {
+              "name": "TEFF",
+              "description": "The effective temperature for the adopted model.",
+              "type": "float32",
+              "unit": ""
+            },
+            "G": {
+              "name": "G",
+              "description": "Log g for the adopted model",
+              "type": "float32",
+              "unit": ""
+            },
+            "MAG": {
+              "name": "MAG",
+              "description": "Synthetic magnitudes for the model in ugriz bands, normalized to the PSFmag in r-band.",
+              "type": "float32[5]",
+              "unit": ""
+            },
+            "IMODEL": {
+              "name": "IMODEL",
+              "description": "The index of the model",
+              "type": "int32",
+              "unit": ""
+            },
+            "Z": {
+              "name": "Z",
+              "description": "Redshift of the star",
+              "type": "float64",
+              "unit": ""
+            },
+            "SN_MEDIAN": {
+              "name": "SN_MEDIAN",
+              "description": "Median S/N of the spectrum.",
+              "type": "float64",
+              "unit": ""
+            },
+            "LINESN_MEDIAN": {
+              "name": "LINESN_MEDIAN",
+              "description": "Median S/N in the absorption lines of interests",
+              "type": "float64",
+              "unit": ""
+            },
+            "LINECHI2": {
+              "name": "LINECHI2",
+              "description": "Chi-squared of the fit in the absorption lines of interests",
+              "type": "float32",
+              "unit": ""
+            },
+            "LINEDOF": {
+              "name": "LINEDOF",
+              "description": "Degree of Freedom for the absorption lines of interests.",
+              "type": "float32",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null,
+      "dataframe": null
+    },
+    "DR15": {
+      "template": "$MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/[MJD]/fluxcal-[CAMERA]-[EXPOSURE].fits.gz",
+      "example": "v2_4_3/7341/56693/fluxcal-sp1-00174697.fits.gz",
+      "location": "{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure}.fits.gz",
+      "environment": "MANGA_SPECTRO_REDUX",
+      "survey": "MaNGA",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "fluxcal",
+        "path_template": "$MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure:0>8}.fits",
+        "path_kwargs": [
+          "plate",
+          "drpver",
+          "exposure",
+          "mjd",
+          "camera"
+        ],
+        "access_string": "fluxcal = $MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure}.fits.gz"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "HDU0 is empty except for the global header.",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "Dummy Created by MWRFITS v1.11"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "Dummy primary header created by MWRFITS"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "No data is associated with this header"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "Extensions may (will!) be present"
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "Structure array containing intermediate products for flux calibration. There is one entry for each star.",
+          "size": "1 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "Binary table written by MWRFITS v1.11"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "Required value"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "Required value"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "432146",
+              "comment": "Number of bytes per row"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "3",
+              "comment": "Number of rows"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "Normally 0 (no varying arrays)"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "Required value"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "45",
+              "comment": "Number of columns in table"
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** End of mandatory fields ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column names ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column formats ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column dimensions (2 D or greater) ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "TDIM22",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM23",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM24",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM25",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM26",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM27",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM28",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM29",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM30",
+              "value": "( 8, 2, 7)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM31",
+              "value": "( 8, 2, 7)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM32",
+              "value": "( 8, 2, 7)",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "PLATE": {
+              "name": "PLATE",
+              "description": "The Plate ID",
+              "type": "int32",
+              "unit": ""
+            },
+            "MJD": {
+              "name": "MJD",
+              "description": "Modified julian date",
+              "type": "int32",
+              "unit": ""
+            },
+            "EXPOSURE": {
+              "name": "EXPOSURE",
+              "description": "Exposure number",
+              "type": "int32",
+              "unit": ""
+            },
+            "DCNRA": {
+              "name": "DCNRA",
+              "description": "Intended dither offset in RA as reported by the guider",
+              "type": "float32",
+              "unit": ""
+            },
+            "DCNDEC": {
+              "name": "DCNDEC",
+              "description": "Intended dither offset in Dec as reported by the guider",
+              "type": "float32",
+              "unit": ""
+            },
+            "FRLPLUG": {
+              "name": "FRLPLUG",
+              "description": "frlplug hardware code",
+              "type": "int32",
+              "unit": ""
+            },
+            "RA": {
+              "name": "RA",
+              "description": "RA of the target star",
+              "type": "float64",
+              "unit": ""
+            },
+            "DEC": {
+              "name": "DEC",
+              "description": "Dec of the target star",
+              "type": "float64",
+              "unit": ""
+            },
+            "FIBERID": {
+              "name": "FIBERID",
+              "description": "fiberids for the 7 fibers on and around the star",
+              "type": "int32[7]",
+              "unit": ""
+            },
+            "FNUM": {
+              "name": "FNUM",
+              "description": "fiber numbers internal to the IFU for the 7 fibers on and around the star.",
+              "type": "int32[7]",
+              "unit": ""
+            },
+            "PSFMAG": {
+              "name": "PSFMAG",
+              "description": "PSF magnitudes for the star",
+              "type": "float32[5]",
+              "unit": ""
+            },
+            "FACTOR": {
+              "name": "FACTOR",
+              "description": "Best-fit scaling factor for the size of the PSF",
+              "type": "float32",
+              "unit": ""
+            },
+            "XBEST": {
+              "name": "XBEST",
+              "description": "Best-fit x offset",
+              "type": "float32",
+              "unit": ""
+            },
+            "YBEST": {
+              "name": "YBEST",
+              "description": "Best-fit y offset",
+              "type": "float32",
+              "unit": ""
+            },
+            "FIBEROFFX": {
+              "name": "FIBEROFFX",
+              "description": "Represents the fiber's displacement along the x-direction",
+              "type": "float64[7]",
+              "unit": "arcsec"
+            },
+            "FIBEROFFY": {
+              "name": "FIBEROFFY",
+              "description": "Represents the fiber's displacement along the y-direction",
+              "type": "float64[7]",
+              "unit": "arcsec"
+            },
+            "OFFSETX": {
+              "name": "OFFSETX",
+              "description": "The bulk offest along the x-direction",
+              "type": "float32[142]",
+              "unit": "arcsec"
+            },
+            "OFFSETY": {
+              "name": "OFFSETY",
+              "description": "The bulk offest along the y-direction",
+              "type": "float32[142]",
+              "unit": "arcsec"
+            },
+            "SCALEBEST": {
+              "name": "SCALEBEST",
+              "description": "Scale factor for the DAR vector",
+              "type": "float32",
+              "unit": ""
+            },
+            "ROTATIONBEST": {
+              "name": "ROTATIONBEST",
+              "description": "rotation for the DAR vector",
+              "type": "float32",
+              "unit": ""
+            },
+            "FLUXRATIO_CHI2": {
+              "name": "FLUXRATIO_CHI2",
+              "description": "Chi-squared from the flux ratio fitting among the 7 fibers and in 8 wavelength bins.",
+              "type": "float32",
+              "unit": ""
+            },
+            "MODELSPEC": {
+              "name": "MODELSPEC",
+              "description": "Model spectrum for this star multiplied with the derived PSF-covering fraction as a function of wavelength.",
+              "type": "float32[8256]",
+              "unit": ""
+            },
+            "MODFLUX": {
+              "name": "MODFLUX",
+              "description": "Model spectrum for this star.",
+              "type": "float32[8256]",
+              "unit": ""
+            },
+            "FLUX": {
+              "name": "FLUX",
+              "description": "Flux for the reference fiber (first element in the fiberid and fnum arrays) in the bundle.",
+              "type": "float64[8256]",
+              "unit": ""
+            },
+            "IVAR": {
+              "name": "IVAR",
+              "description": "Inverse variance for the reference fiber (first elements in the fiberid and fnum arrays).",
+              "type": "float64[8256]",
+              "unit": ""
+            },
+            "DISP": {
+              "name": "DISP",
+              "description": "Instrumental dispersion for the reference fiber",
+              "type": "float32[8256]",
+              "unit": ""
+            },
+            "MRATIO": {
+              "name": "MRATIO",
+              "description": "The ratio between FLUX and MODELSPEC; this is the correction vector derived from each star.",
+              "type": "float64[8256]",
+              "unit": ""
+            },
+            "MRATIVAR": {
+              "name": "MRATIVAR",
+              "description": "The inverse variance on MRATIO.",
+              "type": "float64[8256]",
+              "unit": ""
+            },
+            "LOGLAM": {
+              "name": "LOGLAM",
+              "description": "Log10 wavelengths of the blue and red spectra of the star.",
+              "type": "float64[8256]",
+              "unit": ""
+            },
+            "FLUXRATIO": {
+              "name": "FLUXRATIO",
+              "description": "The empirically observed ratio of the flux in a target fiber compared to a reference fiber within a given wavelength slice.",
+              "type": "float32[112]",
+              "unit": ""
+            },
+            "FLUXRATIOERR": {
+              "name": "FLUXRATIOERR",
+              "description": "The error in FLUXRATIO.",
+              "type": "float32[112]",
+              "unit": ""
+            },
+            "PREDICTRATIO": {
+              "name": "PREDICTRATIO",
+              "description": "The predicted model ratio of the fiber-to-reference flux generated by the pipeline's Point Spread Function (PSF) model",
+              "type": "float32[112]",
+              "unit": ""
+            },
+            "USED": {
+              "name": "USED",
+              "description": "Used for Flux Calibration",
+              "type": "int16",
+              "unit": ""
+            },
+            "MODEL": {
+              "name": "MODEL",
+              "description": "The Kurucz model adopted for this star.",
+              "type": "char[28]",
+              "unit": ""
+            },
+            "TEFF": {
+              "name": "TEFF",
+              "description": "The effective temperature for the adopted model.",
+              "type": "float32",
+              "unit": ""
+            },
+            "G": {
+              "name": "G",
+              "description": "Log g for the adopted model",
+              "type": "float32",
+              "unit": ""
+            },
+            "FEH": {
+              "name": "FEH",
+              "description": "The [Fe/H] for the adopted model",
+              "type": "float32",
+              "unit": ""
+            },
+            "ALPHA": {
+              "name": "ALPHA",
+              "description": "power-law index",
+              "type": "float32",
+              "unit": ""
+            },
+            "MAG": {
+              "name": "MAG",
+              "description": "Synthetic magnitudes for the model in ugriz bands, normalized to the PSFmag in r-band.",
+              "type": "float32[5]",
+              "unit": ""
+            },
+            "IMODEL": {
+              "name": "IMODEL",
+              "description": "The index of the model",
+              "type": "int32",
+              "unit": ""
+            },
+            "Z": {
+              "name": "Z",
+              "description": "Redshift of the star",
+              "type": "float64",
+              "unit": ""
+            },
+            "SN_MEDIAN": {
+              "name": "SN_MEDIAN",
+              "description": "Median S/N of the spectrum.",
+              "type": "float64",
+              "unit": ""
+            },
+            "LINESN_MEDIAN": {
+              "name": "LINESN_MEDIAN",
+              "description": "Median S/N in the absorption lines of interests",
+              "type": "float64",
+              "unit": ""
+            },
+            "LINECHI2": {
+              "name": "LINECHI2",
+              "description": "Chi-squared of the fit in the absorption lines of interests",
+              "type": "float32",
+              "unit": ""
+            },
+            "LINEDOF": {
+              "name": "LINEDOF",
+              "description": "Degree of Freedom for the absorption lines of interests.",
+              "type": "float32",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null,
+      "dataframe": null
+    },
+    "DR16": {
+      "template": "$MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/[MJD]/fluxcal-[CAMERA]-[EXPOSURE].fits.gz",
+      "example": "v2_4_3/7341/56693/fluxcal-sp1-00174697.fits.gz",
+      "location": "{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure}.fits.gz",
+      "environment": "MANGA_SPECTRO_REDUX",
+      "survey": "MaNGA",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "fluxcal",
+        "path_template": "$MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure:0>8}.fits",
+        "path_kwargs": [
+          "drpver",
+          "mjd",
+          "camera",
+          "plate",
+          "exposure"
+        ],
+        "access_string": "fluxcal = $MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure}.fits.gz"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "HDU0 is empty except for the global header.",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "Dummy Created by MWRFITS v1.11"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "Dummy primary header created by MWRFITS"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "No data is associated with this header"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "Extensions may (will!) be present"
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "Structure array containing intermediate products for flux calibration. There is one entry for each star.",
+          "size": "1 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "Binary table written by MWRFITS v1.11"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "Required value"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "Required value"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "432146",
+              "comment": "Number of bytes per row"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "3",
+              "comment": "Number of rows"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "Normally 0 (no varying arrays)"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "Required value"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "45",
+              "comment": "Number of columns in table"
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** End of mandatory fields ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column names ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column formats ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column dimensions (2 D or greater) ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "TDIM22",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM23",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM24",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM25",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM26",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM27",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM28",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM29",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM30",
+              "value": "( 8, 2, 7)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM31",
+              "value": "( 8, 2, 7)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM32",
+              "value": "( 8, 2, 7)",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "PLATE": {
+              "name": "PLATE",
+              "description": "The Plate ID",
+              "type": "int32",
+              "unit": ""
+            },
+            "MJD": {
+              "name": "MJD",
+              "description": "Modified julian date",
+              "type": "int32",
+              "unit": ""
+            },
+            "EXPOSURE": {
+              "name": "EXPOSURE",
+              "description": "Exposure number",
+              "type": "int32",
+              "unit": ""
+            },
+            "DCNRA": {
+              "name": "DCNRA",
+              "description": "Intended dither offset in RA as reported by the guider",
+              "type": "float32",
+              "unit": ""
+            },
+            "DCNDEC": {
+              "name": "DCNDEC",
+              "description": "Intended dither offset in Dec as reported by the guider",
+              "type": "float32",
+              "unit": ""
+            },
+            "FRLPLUG": {
+              "name": "FRLPLUG",
+              "description": "frlplug hardware code",
+              "type": "int32",
+              "unit": ""
+            },
+            "RA": {
+              "name": "RA",
+              "description": "RA of the target star",
+              "type": "float64",
+              "unit": ""
+            },
+            "DEC": {
+              "name": "DEC",
+              "description": "Dec of the target star",
+              "type": "float64",
+              "unit": ""
+            },
+            "FIBERID": {
+              "name": "FIBERID",
+              "description": "fiberids for the 7 fibers on and around the star",
+              "type": "int32[7]",
+              "unit": ""
+            },
+            "FNUM": {
+              "name": "FNUM",
+              "description": "fiber numbers internal to the IFU for the 7 fibers on and around the star.",
+              "type": "int32[7]",
+              "unit": ""
+            },
+            "PSFMAG": {
+              "name": "PSFMAG",
+              "description": "PSF magnitudes for the star",
+              "type": "float32[5]",
+              "unit": ""
+            },
+            "FACTOR": {
+              "name": "FACTOR",
+              "description": "Best-fit scaling factor for the size of the PSF",
+              "type": "float32",
+              "unit": ""
+            },
+            "XBEST": {
+              "name": "XBEST",
+              "description": "Best-fit x offset",
+              "type": "float32",
+              "unit": ""
+            },
+            "YBEST": {
+              "name": "YBEST",
+              "description": "Best-fit y offset",
+              "type": "float32",
+              "unit": ""
+            },
+            "FIBEROFFX": {
+              "name": "FIBEROFFX",
+              "description": "Represents the fiber's displacement along the x-direction",
+              "type": "float64[7]",
+              "unit": "arcsec"
+            },
+            "FIBEROFFY": {
+              "name": "FIBEROFFY",
+              "description": "Represents the fiber's displacement along the y-direction",
+              "type": "float64[7]",
+              "unit": "arcsec"
+            },
+            "OFFSETX": {
+              "name": "OFFSETX",
+              "description": "The bulk offest along the x-direction",
+              "type": "float32[142]",
+              "unit": "arcsec"
+            },
+            "OFFSETY": {
+              "name": "OFFSETY",
+              "description": "The bulk offest along the y-direction",
+              "type": "float32[142]",
+              "unit": "arcsec"
+            },
+            "SCALEBEST": {
+              "name": "SCALEBEST",
+              "description": "Scale factor for the DAR vector",
+              "type": "float32",
+              "unit": ""
+            },
+            "ROTATIONBEST": {
+              "name": "ROTATIONBEST",
+              "description": "rotation for the DAR vector",
+              "type": "float32",
+              "unit": ""
+            },
+            "FLUXRATIO_CHI2": {
+              "name": "FLUXRATIO_CHI2",
+              "description": "Chi-squared from the flux ratio fitting among the 7 fibers and in 8 wavelength bins.",
+              "type": "float32",
+              "unit": ""
+            },
+            "MODELSPEC": {
+              "name": "MODELSPEC",
+              "description": "Model spectrum for this star multiplied with the derived PSF-covering fraction as a function of wavelength.",
+              "type": "float32[8256]",
+              "unit": ""
+            },
+            "MODFLUX": {
+              "name": "MODFLUX",
+              "description": "Model spectrum for this star.",
+              "type": "float32[8256]",
+              "unit": ""
+            },
+            "FLUX": {
+              "name": "FLUX",
+              "description": "Flux for the reference fiber (first element in the fiberid and fnum arrays) in the bundle.",
+              "type": "float64[8256]",
+              "unit": ""
+            },
+            "IVAR": {
+              "name": "IVAR",
+              "description": "Inverse variance for the reference fiber (first elements in the fiberid and fnum arrays).",
+              "type": "float64[8256]",
+              "unit": ""
+            },
+            "DISP": {
+              "name": "DISP",
+              "description": "Instrumental dispersion for the reference fiber",
+              "type": "float32[8256]",
+              "unit": ""
+            },
+            "MRATIO": {
+              "name": "MRATIO",
+              "description": "The ratio between FLUX and MODELSPEC; this is the correction vector derived from each star.",
+              "type": "float64[8256]",
+              "unit": ""
+            },
+            "MRATIVAR": {
+              "name": "MRATIVAR",
+              "description": "The inverse variance on MRATIO.",
+              "type": "float64[8256]",
+              "unit": ""
+            },
+            "LOGLAM": {
+              "name": "LOGLAM",
+              "description": "Log10 wavelengths of the blue and red spectra of the star.",
+              "type": "float64[8256]",
+              "unit": ""
+            },
+            "FLUXRATIO": {
+              "name": "FLUXRATIO",
+              "description": "The empirically observed ratio of the flux in a target fiber compared to a reference fiber within a given wavelength slice.",
+              "type": "float32[112]",
+              "unit": ""
+            },
+            "FLUXRATIOERR": {
+              "name": "FLUXRATIOERR",
+              "description": "The error in FLUXRATIO.",
+              "type": "float32[112]",
+              "unit": ""
+            },
+            "PREDICTRATIO": {
+              "name": "PREDICTRATIO",
+              "description": "The predicted model ratio of the fiber-to-reference flux generated by the pipeline's Point Spread Function (PSF) model",
+              "type": "float32[112]",
+              "unit": ""
+            },
+            "USED": {
+              "name": "USED",
+              "description": "Used for Flux Calibration",
+              "type": "int16",
+              "unit": ""
+            },
+            "MODEL": {
+              "name": "MODEL",
+              "description": "The Kurucz model adopted for this star.",
+              "type": "char[28]",
+              "unit": ""
+            },
+            "TEFF": {
+              "name": "TEFF",
+              "description": "The effective temperature for the adopted model.",
+              "type": "float32",
+              "unit": ""
+            },
+            "G": {
+              "name": "G",
+              "description": "Log g for the adopted model",
+              "type": "float32",
+              "unit": ""
+            },
+            "FEH": {
+              "name": "FEH",
+              "description": "The [Fe/H] for the adopted model",
+              "type": "float32",
+              "unit": ""
+            },
+            "ALPHA": {
+              "name": "ALPHA",
+              "description": "power-law index",
+              "type": "float32",
+              "unit": ""
+            },
+            "MAG": {
+              "name": "MAG",
+              "description": "Synthetic magnitudes for the model in ugriz bands, normalized to the PSFmag in r-band.",
+              "type": "float32[5]",
+              "unit": ""
+            },
+            "IMODEL": {
+              "name": "IMODEL",
+              "description": "The index of the model",
+              "type": "int32",
+              "unit": ""
+            },
+            "Z": {
+              "name": "Z",
+              "description": "Redshift of the star",
+              "type": "float64",
+              "unit": ""
+            },
+            "SN_MEDIAN": {
+              "name": "SN_MEDIAN",
+              "description": "Median S/N of the spectrum.",
+              "type": "float64",
+              "unit": ""
+            },
+            "LINESN_MEDIAN": {
+              "name": "LINESN_MEDIAN",
+              "description": "Median S/N in the absorption lines of interests",
+              "type": "float64",
+              "unit": ""
+            },
+            "LINECHI2": {
+              "name": "LINECHI2",
+              "description": "Chi-squared of the fit in the absorption lines of interests",
+              "type": "float32",
+              "unit": ""
+            },
+            "LINEDOF": {
+              "name": "LINEDOF",
+              "description": "Degree of Freedom for the absorption lines of interests.",
+              "type": "float32",
+              "unit": ""
+            }
+          }
+        }
+      },
+      "par": null,
+      "hdfs": null,
+      "dataframe": null
+    },
+    "DR17": {
+      "template": "$MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/[MJD]/fluxcal-[CAMERA]-[EXPOSURE].fits.gz",
+      "example": "v3_1_1/7341/56693/fluxcal-sp1-00174697.fits.gz",
+      "location": "{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure}.fits.gz",
+      "environment": "MANGA_SPECTRO_REDUX",
+      "survey": "MaNGA",
+      "access": {
+        "in_sdss_access": true,
+        "path_name": "fluxcal",
+        "path_template": "$MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure:0>8}.fits",
+        "path_kwargs": [
+          "exposure",
+          "camera",
+          "mjd",
+          "plate",
+          "drpver"
+        ],
+        "access_string": "fluxcal = $MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure}.fits.gz"
+      },
+      "hdus": {
+        "hdu0": {
+          "name": "PRIMARY",
+          "is_image": true,
+          "description": "HDU0 is empty except for the global header.",
+          "size": "0 bytes",
+          "header": [
+            {
+              "key": "SIMPLE",
+              "value": "True",
+              "comment": "Dummy Created by MWRFITS v1.11"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "Dummy primary header created by MWRFITS"
+            },
+            {
+              "key": "NAXIS",
+              "value": "0",
+              "comment": "No data is associated with this header"
+            },
+            {
+              "key": "EXTEND",
+              "value": "True",
+              "comment": "Extensions may (will!) be present"
+            }
+          ],
+          "columns": null
+        },
+        "hdu1": {
+          "name": "",
+          "is_image": false,
+          "description": "Structure array containing intermediate products for flux calibration. There is one entry for each star.",
+          "size": "1 MB",
+          "header": [
+            {
+              "key": "XTENSION",
+              "value": "BINTABLE",
+              "comment": "Binary table written by MWRFITS v1.11"
+            },
+            {
+              "key": "BITPIX",
+              "value": "8",
+              "comment": "Required value"
+            },
+            {
+              "key": "NAXIS",
+              "value": "2",
+              "comment": "Required value"
+            },
+            {
+              "key": "NAXIS1",
+              "value": "429558",
+              "comment": "Number of bytes per row"
+            },
+            {
+              "key": "NAXIS2",
+              "value": "3",
+              "comment": "Number of rows"
+            },
+            {
+              "key": "PCOUNT",
+              "value": "0",
+              "comment": "Normally 0 (no varying arrays)"
+            },
+            {
+              "key": "GCOUNT",
+              "value": "1",
+              "comment": "Required value"
+            },
+            {
+              "key": "TFIELDS",
+              "value": "40",
+              "comment": "Number of columns in table"
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** End of mandatory fields ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column names ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column formats ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": " *** Column dimensions (2 D or greater) ***",
+              "comment": ""
+            },
+            {
+              "key": "COMMENT",
+              "value": "",
+              "comment": ""
+            },
+            {
+              "key": "TDIM19",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM20",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM21",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM22",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM23",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM24",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM25",
+              "value": "( 4128, 2)",
+              "comment": ""
+            },
+            {
+              "key": "TDIM26",
+              "value": "( 4128, 2)",
+              "comment": ""
+            }
+          ],
+          "columns": {
+            "PLATE": {
+              "name": "PLATE",
+              "description": "The Plate ID",
+              "type": "int32",
+              "unit": ""
+            },
+            "MJD": {
+              "name": "MJD",
+              "description": "Modified julian date",
+              "type": "int32",
+              "unit": ""
+            },
+            "EXPOSURE": {
+              "name": "EXPOSURE",
+              "description": "Exposure number",
+              "type": "int32",
+              "unit": ""
+            },
+            "DCNRA": {
+              "name": "DCNRA",
+              "description": "Intended dither offset in RA as reported by the guider",
+              "type": "float32",
+              "unit": ""
+            },
+            "DCNDEC": {
+              "name": "DCNDEC",
+              "description": "Intended dither offset in Dec as reported by the guider",
+              "type": "float32",
+              "unit": ""
+            },
+            "FRLPLUG": {
+              "name": "FRLPLUG",
+              "description": "frlplug hardware code",
+              "type": "int32",
+              "unit": ""
+            },
+            "RA": {
+              "name": "RA",
+              "description": "RA of the target star",
+              "type": "float64",
+              "unit": ""
+            },
+            "DEC": {
+              "name": "DEC",
+              "description": "Dec of the target star",
+              "type": "float64",
+              "unit": ""
+            },
+            "FIBERID": {
+              "name": "FIBERID",
+              "description": "fiberids for the 7 fibers on and around the star",
+              "type": "int32[7]",
+              "unit": ""
+            },
+            "FNUM": {
+              "name": "FNUM",
+              "description": "fiber numbers internal to the IFU for the 7 fibers on and around the star.",
+              "type": "int32[7]",
+              "unit": ""
+            },
+            "PSFMAG": {
+              "name": "PSFMAG",
+              "description": "PSF magnitudes for the star",
+              "type": "float32[5]",
+              "unit": ""
+            },
+            "MANGA_TARGET2": {
+              "name": "MANGA_TARGET2",
+              "description": "Bitmap identifier of non-galaxy target catalog",
+              "type": "int32",
+              "unit": ""
+            },
+            "FACTOR": {
+              "name": "FACTOR",
+              "description": "Best-fit scaling factor for the size of the PSF",
+              "type": "float32",
+              "unit": ""
+            },
+            "XBEST": {
+              "name": "XBEST",
+              "description": "Best-fit x offset",
+              "type": "float32",
+              "unit": ""
+            },
+            "YBEST": {
+              "name": "YBEST",
+              "description": "Best-fit y offset",
+              "type": "float32",
+              "unit": ""
+            },
+            "SCALEBEST": {
+              "name": "SCALEBEST",
+              "description": "Scale factor for the DAR vector",
+              "type": "float32",
+              "unit": ""
+            },
+            "ROTATIONBEST": {
+              "name": "ROTATIONBEST",
+              "description": "rotation for the DAR vector",
+              "type": "float32",
+              "unit": ""
+            },
+            "FLUXRATIO_CHI2": {
+              "name": "FLUXRATIO_CHI2",
+              "description": "Chi-squared from the flux ratio fitting among the 7 fibers and in 8 wavelength bins.",
+              "type": "float32",
+              "unit": ""
+            },
+            "MODELSPEC": {
+              "name": "MODELSPEC",
+              "description": "Model spectrum for this star multiplied with the derived PSF-covering fraction as a function of wavelength.",
+              "type": "float64[8256]",
+              "unit": ""
+            },
+            "MODFLUX": {
+              "name": "MODFLUX",
+              "description": "Model spectrum for this star.",
+              "type": "float64[8256]",
+              "unit": ""
+            },
+            "FLUX": {
+              "name": "FLUX",
+              "description": "Flux for the reference fiber (first element in the fiberid and fnum arrays) in the bundle.",
+              "type": "float64[8256]",
+              "unit": ""
+            },
+            "IVAR": {
+              "name": "IVAR",
+              "description": "Inverse variance for the reference fiber (first elements in the fiberid and fnum arrays).",
+              "type": "float64[8256]",
+              "unit": ""
+            },
+            "DISP": {
+              "name": "DISP",
+              "description": "Instrumental dispersion for the reference fiber",
+              "type": "float32[8256]",
+              "unit": ""
+            },
+            "MRATIO": {
+              "name": "MRATIO",
+              "description": "The ratio between FLUX and MODELSPEC; this is the correction vector derived from each star.",
+              "type": "float32[8256]",
+              "unit": ""
+            },
+            "MRATIVAR": {
+              "name": "MRATIVAR",
+              "description": "The inverse variance on MRATIO.",
+              "type": "float32[8256]",
+              "unit": ""
+            },
+            "LOGLAM": {
+              "name": "LOGLAM",
+              "description": "Log10 wavelengths of the blue and red spectra of the star.",
+              "type": "float64[8256]",
+              "unit": ""
+            },
+            "AV": {
+              "name": "AV",
+              "description": "V-Band Dust Attenuation",
+              "type": "float32",
+              "unit": "mag"
+            },
+            "USED": {
+              "name": "USED",
+              "description": "Used for Flux Calibration",
+              "type": "int16",
+              "unit": ""
+            },
+            "MODEL": {
+              "name": "MODEL",
+              "description": "The Kurucz model adopted for this star.",
+              "type": "char[28]",
+              "unit": ""
+            },
+            "TEFF": {
+              "name": "TEFF",
+              "description": "The effective temperature for the adopted model.",
+              "type": "float32",
+              "unit": ""
+            },
+            "G": {
+              "name": "G",
+              "description": "Log g for the adopted model",
+              "type": "float32",
+              "unit": ""
+            },
+            "FEH": {
+              "name": "FEH",
+              "description": "The [Fe/H] for the adopted model",
+              "type": "float32",
+              "unit": ""
+            },
+            "ALPHA": {
+              "name": "ALPHA",
+              "description": "power-law index",
+              "type": "float32",
+              "unit": ""
+            },
+            "MAG": {
+              "name": "MAG",
+              "description": "Synthetic magnitudes for the model in ugriz bands, normalized to the PSFmag in r-band.",
+              "type": "float32[5]",
+              "unit": ""
+            },
+            "IMODEL": {
+              "name": "IMODEL",
+              "description": "The index of the model",
+              "type": "int32",
+              "unit": ""
+            },
+            "Z": {
+              "name": "Z",
+              "description": "Redshift of the star",
+              "type": "float64",
+              "unit": ""
+            },
+            "SN_MEDIAN": {
+              "name": "SN_MEDIAN",
+              "description": "Median S/N of the spectrum.",
+              "type": "float32",
               "unit": ""
             },
             "LINESN_MEDIAN": {
