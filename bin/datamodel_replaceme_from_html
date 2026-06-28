@@ -53,7 +53,7 @@ def main():
     yaml_path = os.path.join(datamodel_dir, "datamodel", "products", "yaml", f"{filespec}.yaml")
     html_path = os.path.join(datamodels_dir, "python", "datamodels", "resources-datamodels", "html", "files", f"{html_file}")
     
-    # Saving the output as '_updated.yaml' in the same YAML directory to avoid accidental overwrites
+    # Saving the output as '.1.yaml' in the same YAML directory to avoid accidental overwrites
     output_path = os.path.join(datamodel_dir, "datamodel", "products", "yaml", f"{filespec}.1.yaml")
 
     # 4. Verify input files exist
@@ -81,31 +81,42 @@ def main():
     naming_conv_dt = soup.find('dt', string=re.compile('Naming Convention', re.I))
     naming_convention = naming_conv_dt.find_next_sibling('dd').get_text(strip=True) if naming_conv_dt else ""
 
-    written_by_dt = soup.find('dt', string=re.compile('Written by Products', re.I))
+    # Using a more generic regex to catch variations like "Written by Products" and "Written by"
+    written_by_dt = soup.find('dt', string=re.compile('Written by', re.I))
     generated_by = written_by_dt.find_next_sibling('dd').get_text(strip=True) if written_by_dt else ""
 
-    # Extract HDU Descriptions (FIXED: replaced find_all with find)
-    hdu0_div = soup.find('div', id='hdu0')
-    hdu0_desc = hdu0_div.find('p').get_text(strip=True) if hdu0_div and hdu0_div.find('p') else ""
-
-    hdu1_div = soup.find('div', id='hdu1')
-    hdu1_desc = hdu1_div.find('p').get_text(strip=True) if hdu1_div and hdu1_div.find('p') else ""
-
-    # Extract Columns Data (FIXED: targeting individual list indices)
+    # Extract Columns Data (Dynamically identifying column indices)
     columns_table = soup.find('table', class_='columns')
     columns_data = {}
     if columns_table:
-        rows = columns_table.find_all('tr')[1:]  # Skip header row
-        for row in rows:
-            cols = row.find_all('td')
-            if len(cols) >= 4:
-                col_name = cols[0].get_text(strip=True)
-                col_unit = cols[2].get_text(strip=True)
-                col_desc = cols[3].get_text(strip=True)
-                columns_data[col_name] = {
-                    'unit': col_unit,
-                    'description': col_desc
-                }
+        rows = columns_table.find_all('tr')
+        if rows:
+            # Parse the header row to find column indices
+            header_row = rows
+            headers = [th.get_text(strip=True).lower() for th in header_row.find_all(['th', 'td'])]
+            
+            name_idx, unit_idx, desc_idx = -1, -1, -1
+            for i, h in enumerate(headers):
+                if 'name' in h: name_idx = i
+                elif 'unit' in h: unit_idx = i
+                elif 'desc' in h: desc_idx = i
+            
+            # Fallback to defaults if headers can't be parsed properly
+            if name_idx == -1: name_idx = 0
+            if unit_idx == -1: unit_idx = 2
+            if desc_idx == -1: desc_idx = 3
+
+            # Iterate through data rows
+            for row in rows[1:]:
+                cols = row.find_all(['td', 'th'])
+                if len(cols) > max(name_idx, unit_idx, desc_idx):
+                    col_name = cols[name_idx].get_text(strip=True)
+                    col_unit = cols[unit_idx].get_text(strip=True)
+                    col_desc = cols[desc_idx].get_text(strip=True)
+                    columns_data[col_name] = {
+                        'unit': col_unit,
+                        'description': col_desc
+                    }
 
     # 6. Parse the YAML file
     with open(yaml_path, 'r', encoding='utf-8') as f:
@@ -122,24 +133,28 @@ def main():
     if 'replace me' in str(general.get('generated_by', '')).lower():
         general['generated_by'] = generated_by
 
-    # Update HDU Section
+    # Update HDU Section Dynamically
     try:
         hdus = yaml_data['releases'][release]['hdus']
         
-        if 'replace me' in str(hdus.get('hdu0', {}).get('description', '')).lower():
-            hdus['hdu0']['description'] = hdu0_desc
+        for hdu_key, hdu_info in hdus.items():
+            # Find matching HDU block in HTML
+            hdu_div = soup.find('div', id=hdu_key.lower())
+            if hdu_div:
+                p_tag = hdu_div.find('p')
+                hdu_desc = p_tag.get_text(strip=True) if p_tag else ""
+                if 'replace me' in str(hdu_info.get('description', '')).lower():
+                    hdu_info['description'] = hdu_desc
             
-        if 'replace me' in str(hdus.get('hdu1', {}).get('description', '')).lower():
-            hdus['hdu1']['description'] = hdu1_desc
-            
-        yaml_columns = hdus.get('hdu1', {}).get('columns', {})
-        for col_name, col_info in yaml_columns.items():
-            if col_name in columns_data:
-                html_col_info = columns_data[col_name]
-                if 'replace me' in str(col_info.get('unit', '')).lower():
-                    col_info['unit'] = html_col_info['unit']
-                if 'replace me' in str(col_info.get('description', '')).lower():
-                    col_info['description'] = html_col_info['description']
+            # Update Columns for this HDU (if it has any)
+            yaml_columns = hdu_info.get('columns', {})
+            for col_name, col_info in yaml_columns.items():
+                if col_name in columns_data:
+                    html_col_info = columns_data[col_name]
+                    if 'replace me' in str(col_info.get('unit', '')).lower():
+                        col_info['unit'] = html_col_info['unit']
+                    if 'replace me' in str(col_info.get('description', '')).lower():
+                        col_info['description'] = html_col_info['description']
                     
     except KeyError as e:
         print(f"Warning: Expected release key structure not found in YAML. Missing: {e}", file=sys.stderr)
