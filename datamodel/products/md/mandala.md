@@ -18,7 +18,7 @@ This file contains the list ofMaNGADwarf galaxy (MaNDala) Sample,
   along with various photometric and spectroscopic results derived usingDESI imagesin three bands (grz) and MaNGA data respectively. The details of our analysis can be found in:Cano-Díaz, et al. 2022.
 
 ### Naming Convention
-mandala_v[version].fitsversion: 1_0 = SDSS DR17 .
+MANGA_MANDALA/[MANDALA_VER]/mandala_[MANDALA_VER]}.fits where MANDALA_VER=v1_1 for DR17
 
 ### Releases
 DR17
@@ -39,7 +39,7 @@ Mariana Cano Díaz in collaboration with the MaNDala team.
 True
 
 ### Data Level
-2.3.3
+3.3.0
 
 ### HDUS List for release DR17
   - [HDU0: PRIMARY](#hdu0-primary)
