@@ -1,0 +1,1852 @@
+general:
+  name: fluxcal
+  short: The fluxcal files store intermediate products derived during the flux calibration
+    procedure.
+  description: The fluxcal files store intermediate products derived during the flux
+    calibration procedure.
+  datatype: FITS
+  filesize: 901 KB
+  releases:
+  - DR13
+  - DR14
+  - DR15
+  - DR16
+  - DR17
+  environments:
+  - MANGA_SPECTRO_REDUX
+  surveys:
+  - MaNGA
+  naming_convention: fluxcal-[camera]-[exposure].fits.gz where [camera] is one of
+    the four cameras on the instrument, b1, r1, or b2, r2, for the blue and red cameras
+    on each SDSS spectrograph, and [exposure] is the (zero-padded) 8-digit exposure
+    number.
+  generated_by: 'mangadrp: mdrp_fluxcal.pro'
+  data_level: 1.3.1
+  design: false
+  vac: false
+  recommended_science_product: false
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    DR17:
+      from: DR16
+      note: No changes
+    DR16:
+      from: DR15
+      note: No changes
+    DR15:
+      from: DR14
+      note: No changes
+    DR14:
+      from: DR13
+      note: No changes
+releases:
+  DR13:
+    template: $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/[MJD]/fluxcal-[CAMERA]-[EXPOSURE].fits.gz
+    example: v1_5_4/7341/56693/fluxcal-sp1-00174697.fits.gz
+    location: '{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure}.fits.gz'
+    environment: MANGA_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: fluxcal
+      path_template: $MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure:0>8}.fits
+      path_kwargs:
+      - plate
+      - exposure
+      - mjd
+      - drpver
+      - camera
+      access_string: fluxcal = $MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure}.fits.gz
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: HDU0 is empty except for the global header.
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Dummy Created by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Dummy primary header created by MWRFITS
+        - key: NAXIS
+          value: 0
+          comment: No data is associated with this header
+        - key: EXTEND
+          value: true
+          comment: Extensions may (will!) be present
+      hdu1:
+        name: ''
+        description: Structure array containing intermediate products for flux calibration.
+          There is one entry for each star.
+        is_image: false
+        size: 1 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 432131
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 3
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 43
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM22
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM23
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM24
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM25
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM26
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM27
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM28
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM29
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM30
+          value: ( 8, 2, 7)
+          comment: ''
+        - key: TDIM31
+          value: ( 8, 2, 7)
+          comment: ''
+        - key: TDIM32
+          value: ( 8, 2, 7)
+          comment: ''
+        columns:
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: ''
+            description: The Plate ID
+          MJD:
+            name: MJD
+            type: int32
+            unit: ''
+            description: Modified julian date
+          EXPOSURE:
+            name: EXPOSURE
+            type: int32
+            unit: ''
+            description: Exposure number
+          DCNRA:
+            name: DCNRA
+            type: float32
+            unit: ''
+            description: Intended dither offset in RA as reported by the guider
+          DCNDEC:
+            name: DCNDEC
+            type: float32
+            unit: ''
+            description: Intended dither offset in Dec as reported by the guider
+          FRLPLUG:
+            name: FRLPLUG
+            type: int32
+            unit: ''
+            description: frlplug hardware code
+          RA:
+            name: RA
+            type: float64
+            unit: ''
+            description: RA of the target star
+          DEC:
+            name: DEC
+            type: float64
+            unit: ''
+            description: Dec of the target star
+          FIBERID:
+            name: FIBERID
+            type: int32[7]
+            unit: ''
+            description: fiberids for the 7 fibers on and around the star
+          FNUM:
+            name: FNUM
+            type: int32[7]
+            unit: ''
+            description: fiber numbers internal to the IFU for the 7 fibers on and
+              around the star.
+          PSFMAG:
+            name: PSFMAG
+            type: float32[5]
+            unit: ''
+            description: PSF magnitudes for the star
+          FACTOR:
+            name: FACTOR
+            type: float32
+            unit: ''
+            description: Best-fit scaling factor for the size of the PSF
+          XBEST:
+            name: XBEST
+            type: float32
+            unit: ''
+            description: Best-fit x offset
+          YBEST:
+            name: YBEST
+            type: float32
+            unit: ''
+            description: Best-fit y offset
+          FIBEROFFX:
+            name: FIBEROFFX
+            type: float64[7]
+            unit: arcsec
+            description: Represents the fiber's displacement along the x-direction
+          FIBEROFFY:
+            name: FIBEROFFY
+            type: float64[7]
+            unit: arcsec
+            description: Represents the fiber's displacement along the y-direction
+          OFFSETX:
+            name: OFFSETX
+            type: float32[142]
+            unit: arcsec
+            description: The bulk offest along the x-direction
+          OFFSETY:
+            name: OFFSETY
+            type: float32[142]
+            unit: arcsec
+            description: The bulk offest along the y-direction
+          SCALEBEST:
+            name: SCALEBEST
+            type: float32
+            unit: ''
+            description: Scale factor for the DAR vector
+          ROTATIONBEST:
+            name: ROTATIONBEST
+            type: float32
+            unit: ''
+            description: rotation for the DAR vector
+          FLUXRATIO_CHI2:
+            name: FLUXRATIO_CHI2
+            type: float32
+            unit: ''
+            description: Chi-squared from the flux ratio fitting among the 7 fibers
+              and in 8 wavelength bins.
+          MODELSPEC:
+            name: MODELSPEC
+            type: float32[8256]
+            unit: ''
+            description: Model spectrum for this star multiplied with the derived
+              PSF-covering fraction as a function of wavelength.
+          MODFLUX:
+            name: MODFLUX
+            type: float32[8256]
+            unit: ''
+            description: Model spectrum for this star.
+          FLUX:
+            name: FLUX
+            type: float64[8256]
+            unit: ''
+            description: Flux for the reference fiber (first element in the fiberid
+              and fnum arrays) in the bundle.
+          IVAR:
+            name: IVAR
+            type: float64[8256]
+            unit: ''
+            description: Inverse variance for the reference fiber (first elements
+              in the fiberid and fnum arrays).
+          DISP:
+            name: DISP
+            type: float32[8256]
+            unit: ''
+            description: Instrumental dispersion for the reference fiber
+          MRATIO:
+            name: MRATIO
+            type: float64[8256]
+            unit: ''
+            description: The ratio between FLUX and MODELSPEC; this is the correction
+              vector derived from each star.
+          MRATIVAR:
+            name: MRATIVAR
+            type: float64[8256]
+            unit: ''
+            description: The inverse variance on MRATIO.
+          LOGLAM:
+            name: LOGLAM
+            type: float64[8256]
+            unit: ''
+            description: Log10 wavelengths of the blue and red spectra of the star.
+          FLUXRATIO:
+            name: FLUXRATIO
+            type: float32[112]
+            unit: ''
+            description: The empirically observed ratio of the flux in a target fiber
+              compared to a reference fiber within a given wavelength slice.
+          FLUXRATIOERR:
+            name: FLUXRATIOERR
+            type: float32[112]
+            unit: ''
+            description: The error in FLUXRATIO.
+          PREDICTRATIO:
+            name: PREDICTRATIO
+            type: float32[112]
+            unit: ''
+            description: The predicted model ratio of the fiber-to-reference flux
+              generated by the pipeline's Point Spread Function (PSF) model
+          MODEL:
+            name: MODEL
+            type: char[19]
+            unit: ''
+            description: The Kurucz model adopted for this star.
+          FEH:
+            name: FEH
+            type: float32
+            unit: ''
+            description: The [Fe/H] for the adopted model
+          TEFF:
+            name: TEFF
+            type: float32
+            unit: ''
+            description: The effective temperature for the adopted model.
+          G:
+            name: G
+            type: float32
+            unit: ''
+            description: Log g for the adopted model
+          MAG:
+            name: MAG
+            type: float32[5]
+            unit: ''
+            description: Synthetic magnitudes for the model in ugriz bands, normalized
+              to the PSFmag in r-band.
+          IMODEL:
+            name: IMODEL
+            type: int32
+            unit: ''
+            description: The index of the model
+          Z:
+            name: Z
+            type: float64
+            unit: ''
+            description: Redshift of the star
+          SN_MEDIAN:
+            name: SN_MEDIAN
+            type: float64
+            unit: ''
+            description: Median S/N of the spectrum.
+          LINESN_MEDIAN:
+            name: LINESN_MEDIAN
+            type: float64
+            unit: ''
+            description: Median S/N in the absorption lines of interests
+          LINECHI2:
+            name: LINECHI2
+            type: float32
+            unit: ''
+            description: Chi-squared of the fit in the absorption lines of interests
+          LINEDOF:
+            name: LINEDOF
+            type: float32
+            unit: ''
+            description: Degree of Freedom for the absorption lines of interests.
+  DR14:
+    template: $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/[MJD]/fluxcal-[CAMERA]-[EXPOSURE].fits.gz
+    example: v2_1_2/7341/56693/fluxcal-sp1-00174697.fits.gz
+    location: '{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure}.fits.gz'
+    environment: MANGA_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: fluxcal
+      path_template: $MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure:0>8}.fits
+      path_kwargs:
+      - mjd
+      - plate
+      - drpver
+      - exposure
+      - camera
+      access_string: fluxcal = $MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure}.fits.gz
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: HDU0 is empty except for the global header.
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Dummy Created by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Dummy primary header created by MWRFITS
+        - key: NAXIS
+          value: 0
+          comment: No data is associated with this header
+        - key: EXTEND
+          value: true
+          comment: Extensions may (will!) be present
+      hdu1:
+        name: ''
+        description: Structure array containing intermediate products for flux calibration.
+          There is one entry for each star.
+        is_image: false
+        size: 1 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 432133
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 3
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 44
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM22
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM23
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM24
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM25
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM26
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM27
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM28
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM29
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM30
+          value: ( 8, 2, 7)
+          comment: ''
+        - key: TDIM31
+          value: ( 8, 2, 7)
+          comment: ''
+        - key: TDIM32
+          value: ( 8, 2, 7)
+          comment: ''
+        columns:
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: ''
+            description: The Plate ID
+          MJD:
+            name: MJD
+            type: int32
+            unit: ''
+            description: Modified julian date
+          EXPOSURE:
+            name: EXPOSURE
+            type: int32
+            unit: ''
+            description: Exposure number
+          DCNRA:
+            name: DCNRA
+            type: float32
+            unit: ''
+            description: Intended dither offset in RA as reported by the guider
+          DCNDEC:
+            name: DCNDEC
+            type: float32
+            unit: ''
+            description: Intended dither offset in Dec as reported by the guider
+          FRLPLUG:
+            name: FRLPLUG
+            type: int32
+            unit: ''
+            description: frlplug hardware code
+          RA:
+            name: RA
+            type: float64
+            unit: ''
+            description: RA of the target star
+          DEC:
+            name: DEC
+            type: float64
+            unit: ''
+            description: Dec of the target star
+          FIBERID:
+            name: FIBERID
+            type: int32[7]
+            unit: ''
+            description: fiberids for the 7 fibers on and around the star
+          FNUM:
+            name: FNUM
+            type: int32[7]
+            unit: ''
+            description: fiber numbers internal to the IFU for the 7 fibers on and
+              around the star.
+          PSFMAG:
+            name: PSFMAG
+            type: float32[5]
+            unit: ''
+            description: PSF magnitudes for the star
+          FACTOR:
+            name: FACTOR
+            type: float32
+            unit: ''
+            description: Best-fit scaling factor for the size of the PSF
+          XBEST:
+            name: XBEST
+            type: float32
+            unit: ''
+            description: Best-fit x offset
+          YBEST:
+            name: YBEST
+            type: float32
+            unit: ''
+            description: Best-fit y offset
+          FIBEROFFX:
+            name: FIBEROFFX
+            type: float64[7]
+            unit: arcsec
+            description: Represents the fiber's displacement along the x-direction
+          FIBEROFFY:
+            name: FIBEROFFY
+            type: float64[7]
+            unit: arcsec
+            description: Represents the fiber's displacement along the y-direction
+          OFFSETX:
+            name: OFFSETX
+            type: float32[142]
+            unit: arcsec
+            description: The bulk offest along the x-direction
+          OFFSETY:
+            name: OFFSETY
+            type: float32[142]
+            unit: arcsec
+            description: The bulk offest along the y-direction
+          SCALEBEST:
+            name: SCALEBEST
+            type: float32
+            unit: ''
+            description: Scale factor for the DAR vector
+          ROTATIONBEST:
+            name: ROTATIONBEST
+            type: float32
+            unit: ''
+            description: rotation for the DAR vector
+          FLUXRATIO_CHI2:
+            name: FLUXRATIO_CHI2
+            type: float32
+            unit: ''
+            description: Chi-squared from the flux ratio fitting among the 7 fibers
+              and in 8 wavelength bins.
+          MODELSPEC:
+            name: MODELSPEC
+            type: float32[8256]
+            unit: ''
+            description: Model spectrum for this star multiplied with the derived
+              PSF-covering fraction as a function of wavelength.
+          MODFLUX:
+            name: MODFLUX
+            type: float32[8256]
+            unit: ''
+            description: Model spectrum for this star.
+          FLUX:
+            name: FLUX
+            type: float64[8256]
+            unit: ''
+            description: Flux for the reference fiber (first element in the fiberid
+              and fnum arrays) in the bundle.
+          IVAR:
+            name: IVAR
+            type: float64[8256]
+            unit: ''
+            description: Inverse variance for the reference fiber (first elements
+              in the fiberid and fnum arrays).
+          DISP:
+            name: DISP
+            type: float32[8256]
+            unit: ''
+            description: Instrumental dispersion for the reference fiber
+          MRATIO:
+            name: MRATIO
+            type: float64[8256]
+            unit: ''
+            description: The ratio between FLUX and MODELSPEC; this is the correction
+              vector derived from each star.
+          MRATIVAR:
+            name: MRATIVAR
+            type: float64[8256]
+            unit: ''
+            description: The inverse variance on MRATIO.
+          LOGLAM:
+            name: LOGLAM
+            type: float64[8256]
+            unit: ''
+            description: Log10 wavelengths of the blue and red spectra of the star.
+          FLUXRATIO:
+            name: FLUXRATIO
+            type: float32[112]
+            unit: ''
+            description: The empirically observed ratio of the flux in a target fiber
+              compared to a reference fiber within a given wavelength slice.
+          FLUXRATIOERR:
+            name: FLUXRATIOERR
+            type: float32[112]
+            unit: ''
+            description: The error in FLUXRATIO.
+          PREDICTRATIO:
+            name: PREDICTRATIO
+            type: float32[112]
+            unit: ''
+            description: The predicted model ratio of the fiber-to-reference flux
+              generated by the pipeline's Point Spread Function (PSF) model
+          USED:
+            name: USED
+            type: int16
+            unit: replace me - with content
+            description: replace me - with content
+          MODEL:
+            name: MODEL
+            type: char[19]
+            unit: ''
+            description: The Kurucz model adopted for this star.
+          FEH:
+            name: FEH
+            type: float32
+            unit: ''
+            description: The [Fe/H] for the adopted model
+          TEFF:
+            name: TEFF
+            type: float32
+            unit: ''
+            description: The effective temperature for the adopted model.
+          G:
+            name: G
+            type: float32
+            unit: ''
+            description: Log g for the adopted model
+          MAG:
+            name: MAG
+            type: float32[5]
+            unit: ''
+            description: Synthetic magnitudes for the model in ugriz bands, normalized
+              to the PSFmag in r-band.
+          IMODEL:
+            name: IMODEL
+            type: int32
+            unit: ''
+            description: The index of the model
+          Z:
+            name: Z
+            type: float64
+            unit: ''
+            description: Redshift of the star
+          SN_MEDIAN:
+            name: SN_MEDIAN
+            type: float64
+            unit: ''
+            description: Median S/N of the spectrum.
+          LINESN_MEDIAN:
+            name: LINESN_MEDIAN
+            type: float64
+            unit: ''
+            description: Median S/N in the absorption lines of interests
+          LINECHI2:
+            name: LINECHI2
+            type: float32
+            unit: ''
+            description: Chi-squared of the fit in the absorption lines of interests
+          LINEDOF:
+            name: LINEDOF
+            type: float32
+            unit: ''
+            description: Degree of Freedom for the absorption lines of interests.
+  DR15:
+    template: $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/[MJD]/fluxcal-[CAMERA]-[EXPOSURE].fits.gz
+    example: v2_4_3/7341/56693/fluxcal-sp1-00174697.fits.gz
+    location: '{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure}.fits.gz'
+    environment: MANGA_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: fluxcal
+      path_template: $MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure:0>8}.fits
+      path_kwargs:
+      - plate
+      - drpver
+      - exposure
+      - mjd
+      - camera
+      access_string: fluxcal = $MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure}.fits.gz
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: HDU0 is empty except for the global header.
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Dummy Created by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Dummy primary header created by MWRFITS
+        - key: NAXIS
+          value: 0
+          comment: No data is associated with this header
+        - key: EXTEND
+          value: true
+          comment: Extensions may (will!) be present
+      hdu1:
+        name: ''
+        description: Structure array containing intermediate products for flux calibration.
+          There is one entry for each star.
+        is_image: false
+        size: 1 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 432146
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 3
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 45
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM22
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM23
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM24
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM25
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM26
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM27
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM28
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM29
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM30
+          value: ( 8, 2, 7)
+          comment: ''
+        - key: TDIM31
+          value: ( 8, 2, 7)
+          comment: ''
+        - key: TDIM32
+          value: ( 8, 2, 7)
+          comment: ''
+        columns:
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: ''
+            description: The Plate ID
+          MJD:
+            name: MJD
+            type: int32
+            unit: ''
+            description: Modified julian date
+          EXPOSURE:
+            name: EXPOSURE
+            type: int32
+            unit: ''
+            description: Exposure number
+          DCNRA:
+            name: DCNRA
+            type: float32
+            unit: ''
+            description: Intended dither offset in RA as reported by the guider
+          DCNDEC:
+            name: DCNDEC
+            type: float32
+            unit: ''
+            description: Intended dither offset in Dec as reported by the guider
+          FRLPLUG:
+            name: FRLPLUG
+            type: int32
+            unit: ''
+            description: frlplug hardware code
+          RA:
+            name: RA
+            type: float64
+            unit: ''
+            description: RA of the target star
+          DEC:
+            name: DEC
+            type: float64
+            unit: ''
+            description: Dec of the target star
+          FIBERID:
+            name: FIBERID
+            type: int32[7]
+            unit: ''
+            description: fiberids for the 7 fibers on and around the star
+          FNUM:
+            name: FNUM
+            type: int32[7]
+            unit: ''
+            description: fiber numbers internal to the IFU for the 7 fibers on and
+              around the star.
+          PSFMAG:
+            name: PSFMAG
+            type: float32[5]
+            unit: ''
+            description: PSF magnitudes for the star
+          FACTOR:
+            name: FACTOR
+            type: float32
+            unit: ''
+            description: Best-fit scaling factor for the size of the PSF
+          XBEST:
+            name: XBEST
+            type: float32
+            unit: ''
+            description: Best-fit x offset
+          YBEST:
+            name: YBEST
+            type: float32
+            unit: ''
+            description: Best-fit y offset
+          FIBEROFFX:
+            name: FIBEROFFX
+            type: float64[7]
+            unit: arcsec
+            description: Represents the fiber's displacement along the x-direction
+          FIBEROFFY:
+            name: FIBEROFFY
+            type: float64[7]
+            unit: arcsec
+            description: Represents the fiber's displacement along the y-direction
+          OFFSETX:
+            name: OFFSETX
+            type: float32[142]
+            unit: arcsec
+            description: The bulk offest along the x-direction
+          OFFSETY:
+            name: OFFSETY
+            type: float32[142]
+            unit: arcsec
+            description: The bulk offest along the y-direction
+          SCALEBEST:
+            name: SCALEBEST
+            type: float32
+            unit: ''
+            description: Scale factor for the DAR vector
+          ROTATIONBEST:
+            name: ROTATIONBEST
+            type: float32
+            unit: ''
+            description: rotation for the DAR vector
+          FLUXRATIO_CHI2:
+            name: FLUXRATIO_CHI2
+            type: float32
+            unit: ''
+            description: Chi-squared from the flux ratio fitting among the 7 fibers
+              and in 8 wavelength bins.
+          MODELSPEC:
+            name: MODELSPEC
+            type: float32[8256]
+            unit: ''
+            description: Model spectrum for this star multiplied with the derived
+              PSF-covering fraction as a function of wavelength.
+          MODFLUX:
+            name: MODFLUX
+            type: float32[8256]
+            unit: ''
+            description: Model spectrum for this star.
+          FLUX:
+            name: FLUX
+            type: float64[8256]
+            unit: ''
+            description: Flux for the reference fiber (first element in the fiberid
+              and fnum arrays) in the bundle.
+          IVAR:
+            name: IVAR
+            type: float64[8256]
+            unit: ''
+            description: Inverse variance for the reference fiber (first elements
+              in the fiberid and fnum arrays).
+          DISP:
+            name: DISP
+            type: float32[8256]
+            unit: ''
+            description: Instrumental dispersion for the reference fiber
+          MRATIO:
+            name: MRATIO
+            type: float64[8256]
+            unit: ''
+            description: The ratio between FLUX and MODELSPEC; this is the correction
+              vector derived from each star.
+          MRATIVAR:
+            name: MRATIVAR
+            type: float64[8256]
+            unit: ''
+            description: The inverse variance on MRATIO.
+          LOGLAM:
+            name: LOGLAM
+            type: float64[8256]
+            unit: ''
+            description: Log10 wavelengths of the blue and red spectra of the star.
+          FLUXRATIO:
+            name: FLUXRATIO
+            type: float32[112]
+            unit: ''
+            description: The empirically observed ratio of the flux in a target fiber
+              compared to a reference fiber within a given wavelength slice.
+          FLUXRATIOERR:
+            name: FLUXRATIOERR
+            type: float32[112]
+            unit: ''
+            description: The error in FLUXRATIO.
+          PREDICTRATIO:
+            name: PREDICTRATIO
+            type: float32[112]
+            unit: ''
+            description: The predicted model ratio of the fiber-to-reference flux
+              generated by the pipeline's Point Spread Function (PSF) model
+          USED:
+            name: USED
+            type: int16
+            unit: replace me - with content
+            description: replace me - with content
+          MODEL:
+            name: MODEL
+            type: char[28]
+            unit: ''
+            description: The Kurucz model adopted for this star.
+          TEFF:
+            name: TEFF
+            type: float32
+            unit: ''
+            description: The effective temperature for the adopted model.
+          G:
+            name: G
+            type: float32
+            unit: ''
+            description: Log g for the adopted model
+          FEH:
+            name: FEH
+            type: float32
+            unit: ''
+            description: The [Fe/H] for the adopted model
+          ALPHA:
+            name: ALPHA
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          MAG:
+            name: MAG
+            type: float32[5]
+            unit: ''
+            description: Synthetic magnitudes for the model in ugriz bands, normalized
+              to the PSFmag in r-band.
+          IMODEL:
+            name: IMODEL
+            type: int32
+            unit: ''
+            description: The index of the model
+          Z:
+            name: Z
+            type: float64
+            unit: ''
+            description: Redshift of the star
+          SN_MEDIAN:
+            name: SN_MEDIAN
+            type: float64
+            unit: ''
+            description: Median S/N of the spectrum.
+          LINESN_MEDIAN:
+            name: LINESN_MEDIAN
+            type: float64
+            unit: ''
+            description: Median S/N in the absorption lines of interests
+          LINECHI2:
+            name: LINECHI2
+            type: float32
+            unit: ''
+            description: Chi-squared of the fit in the absorption lines of interests
+          LINEDOF:
+            name: LINEDOF
+            type: float32
+            unit: ''
+            description: Degree of Freedom for the absorption lines of interests.
+  DR16:
+    template: $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/[MJD]/fluxcal-[CAMERA]-[EXPOSURE].fits.gz
+    example: v2_4_3/7341/56693/fluxcal-sp1-00174697.fits.gz
+    location: '{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure}.fits.gz'
+    environment: MANGA_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: fluxcal
+      path_template: $MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure:0>8}.fits
+      path_kwargs:
+      - drpver
+      - mjd
+      - camera
+      - plate
+      - exposure
+      access_string: fluxcal = $MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure}.fits.gz
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: HDU0 is empty except for the global header.
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Dummy Created by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Dummy primary header created by MWRFITS
+        - key: NAXIS
+          value: 0
+          comment: No data is associated with this header
+        - key: EXTEND
+          value: true
+          comment: Extensions may (will!) be present
+      hdu1:
+        name: ''
+        description: Structure array containing intermediate products for flux calibration.
+          There is one entry for each star.
+        is_image: false
+        size: 1 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 432146
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 3
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 45
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM22
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM23
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM24
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM25
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM26
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM27
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM28
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM29
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM30
+          value: ( 8, 2, 7)
+          comment: ''
+        - key: TDIM31
+          value: ( 8, 2, 7)
+          comment: ''
+        - key: TDIM32
+          value: ( 8, 2, 7)
+          comment: ''
+        columns:
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: ''
+            description: The Plate ID
+          MJD:
+            name: MJD
+            type: int32
+            unit: ''
+            description: Modified julian date
+          EXPOSURE:
+            name: EXPOSURE
+            type: int32
+            unit: ''
+            description: Exposure number
+          DCNRA:
+            name: DCNRA
+            type: float32
+            unit: ''
+            description: Intended dither offset in RA as reported by the guider
+          DCNDEC:
+            name: DCNDEC
+            type: float32
+            unit: ''
+            description: Intended dither offset in Dec as reported by the guider
+          FRLPLUG:
+            name: FRLPLUG
+            type: int32
+            unit: ''
+            description: frlplug hardware code
+          RA:
+            name: RA
+            type: float64
+            unit: ''
+            description: RA of the target star
+          DEC:
+            name: DEC
+            type: float64
+            unit: ''
+            description: Dec of the target star
+          FIBERID:
+            name: FIBERID
+            type: int32[7]
+            unit: ''
+            description: fiberids for the 7 fibers on and around the star
+          FNUM:
+            name: FNUM
+            type: int32[7]
+            unit: ''
+            description: fiber numbers internal to the IFU for the 7 fibers on and
+              around the star.
+          PSFMAG:
+            name: PSFMAG
+            type: float32[5]
+            unit: ''
+            description: PSF magnitudes for the star
+          FACTOR:
+            name: FACTOR
+            type: float32
+            unit: ''
+            description: Best-fit scaling factor for the size of the PSF
+          XBEST:
+            name: XBEST
+            type: float32
+            unit: ''
+            description: Best-fit x offset
+          YBEST:
+            name: YBEST
+            type: float32
+            unit: ''
+            description: Best-fit y offset
+          FIBEROFFX:
+            name: FIBEROFFX
+            type: float64[7]
+            unit: arcsec
+            description: Represents the fiber's displacement along the x-direction
+          FIBEROFFY:
+            name: FIBEROFFY
+            type: float64[7]
+            unit: arcsec
+            description: Represents the fiber's displacement along the y-direction
+          OFFSETX:
+            name: OFFSETX
+            type: float32[142]
+            unit: arcsec
+            description: The bulk offest along the x-direction
+          OFFSETY:
+            name: OFFSETY
+            type: float32[142]
+            unit: arcsec
+            description: The bulk offest along the y-direction
+          SCALEBEST:
+            name: SCALEBEST
+            type: float32
+            unit: ''
+            description: Scale factor for the DAR vector
+          ROTATIONBEST:
+            name: ROTATIONBEST
+            type: float32
+            unit: ''
+            description: rotation for the DAR vector
+          FLUXRATIO_CHI2:
+            name: FLUXRATIO_CHI2
+            type: float32
+            unit: ''
+            description: Chi-squared from the flux ratio fitting among the 7 fibers
+              and in 8 wavelength bins.
+          MODELSPEC:
+            name: MODELSPEC
+            type: float32[8256]
+            unit: ''
+            description: Model spectrum for this star multiplied with the derived
+              PSF-covering fraction as a function of wavelength.
+          MODFLUX:
+            name: MODFLUX
+            type: float32[8256]
+            unit: ''
+            description: Model spectrum for this star.
+          FLUX:
+            name: FLUX
+            type: float64[8256]
+            unit: ''
+            description: Flux for the reference fiber (first element in the fiberid
+              and fnum arrays) in the bundle.
+          IVAR:
+            name: IVAR
+            type: float64[8256]
+            unit: ''
+            description: Inverse variance for the reference fiber (first elements
+              in the fiberid and fnum arrays).
+          DISP:
+            name: DISP
+            type: float32[8256]
+            unit: ''
+            description: Instrumental dispersion for the reference fiber
+          MRATIO:
+            name: MRATIO
+            type: float64[8256]
+            unit: ''
+            description: The ratio between FLUX and MODELSPEC; this is the correction
+              vector derived from each star.
+          MRATIVAR:
+            name: MRATIVAR
+            type: float64[8256]
+            unit: ''
+            description: The inverse variance on MRATIO.
+          LOGLAM:
+            name: LOGLAM
+            type: float64[8256]
+            unit: ''
+            description: Log10 wavelengths of the blue and red spectra of the star.
+          FLUXRATIO:
+            name: FLUXRATIO
+            type: float32[112]
+            unit: ''
+            description: The empirically observed ratio of the flux in a target fiber
+              compared to a reference fiber within a given wavelength slice.
+          FLUXRATIOERR:
+            name: FLUXRATIOERR
+            type: float32[112]
+            unit: ''
+            description: The error in FLUXRATIO.
+          PREDICTRATIO:
+            name: PREDICTRATIO
+            type: float32[112]
+            unit: ''
+            description: The predicted model ratio of the fiber-to-reference flux
+              generated by the pipeline's Point Spread Function (PSF) model
+          USED:
+            name: USED
+            type: int16
+            unit: replace me - with content
+            description: replace me - with content
+          MODEL:
+            name: MODEL
+            type: char[28]
+            unit: ''
+            description: The Kurucz model adopted for this star.
+          TEFF:
+            name: TEFF
+            type: float32
+            unit: ''
+            description: The effective temperature for the adopted model.
+          G:
+            name: G
+            type: float32
+            unit: ''
+            description: Log g for the adopted model
+          FEH:
+            name: FEH
+            type: float32
+            unit: ''
+            description: The [Fe/H] for the adopted model
+          ALPHA:
+            name: ALPHA
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          MAG:
+            name: MAG
+            type: float32[5]
+            unit: ''
+            description: Synthetic magnitudes for the model in ugriz bands, normalized
+              to the PSFmag in r-band.
+          IMODEL:
+            name: IMODEL
+            type: int32
+            unit: ''
+            description: The index of the model
+          Z:
+            name: Z
+            type: float64
+            unit: ''
+            description: Redshift of the star
+          SN_MEDIAN:
+            name: SN_MEDIAN
+            type: float64
+            unit: ''
+            description: Median S/N of the spectrum.
+          LINESN_MEDIAN:
+            name: LINESN_MEDIAN
+            type: float64
+            unit: ''
+            description: Median S/N in the absorption lines of interests
+          LINECHI2:
+            name: LINECHI2
+            type: float32
+            unit: ''
+            description: Chi-squared of the fit in the absorption lines of interests
+          LINEDOF:
+            name: LINEDOF
+            type: float32
+            unit: ''
+            description: Degree of Freedom for the absorption lines of interests.
+  DR17:
+    template: $MANGA_SPECTRO_REDUX/[DRPVER]/[PLATE]/[MJD]/fluxcal-[CAMERA]-[EXPOSURE].fits.gz
+    example: v3_1_1/7341/56693/fluxcal-sp1-00174697.fits.gz
+    location: '{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure}.fits.gz'
+    environment: MANGA_SPECTRO_REDUX
+    access:
+      in_sdss_access: true
+      path_name: fluxcal
+      path_template: $MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure:0>8}.fits
+      path_kwargs:
+      - drpver
+      - plate
+      - exposure
+      - camera
+      - mjd
+      access_string: fluxcal = $MANGA_SPECTRO_REDUX/{drpver}/{plate}/{mjd}/fluxcal-{camera}-{exposure}.fits.gz
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: HDU0 is empty except for the global header.
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Dummy Created by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Dummy primary header created by MWRFITS
+        - key: NAXIS
+          value: 0
+          comment: No data is associated with this header
+        - key: EXTEND
+          value: true
+          comment: Extensions may (will!) be present
+      hdu1:
+        name: ''
+        description: Structure array containing intermediate products for flux calibration.
+          There is one entry for each star.
+        is_image: false
+        size: 1 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.11
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 429558
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 3
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 40
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column dimensions (2 D or greater) ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: TDIM19
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM20
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM21
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM22
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM23
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM24
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM25
+          value: ( 4128, 2)
+          comment: ''
+        - key: TDIM26
+          value: ( 4128, 2)
+          comment: ''
+        columns:
+          PLATE:
+            name: PLATE
+            type: int32
+            unit: ''
+            description: The Plate ID
+          MJD:
+            name: MJD
+            type: int32
+            unit: ''
+            description: Modified julian date
+          EXPOSURE:
+            name: EXPOSURE
+            type: int32
+            unit: ''
+            description: Exposure number
+          DCNRA:
+            name: DCNRA
+            type: float32
+            unit: ''
+            description: Intended dither offset in RA as reported by the guider
+          DCNDEC:
+            name: DCNDEC
+            type: float32
+            unit: ''
+            description: Intended dither offset in Dec as reported by the guider
+          FRLPLUG:
+            name: FRLPLUG
+            type: int32
+            unit: ''
+            description: frlplug hardware code
+          RA:
+            name: RA
+            type: float64
+            unit: ''
+            description: RA of the target star
+          DEC:
+            name: DEC
+            type: float64
+            unit: ''
+            description: Dec of the target star
+          FIBERID:
+            name: FIBERID
+            type: int32[7]
+            unit: ''
+            description: fiberids for the 7 fibers on and around the star
+          FNUM:
+            name: FNUM
+            type: int32[7]
+            unit: ''
+            description: fiber numbers internal to the IFU for the 7 fibers on and
+              around the star.
+          PSFMAG:
+            name: PSFMAG
+            type: float32[5]
+            unit: ''
+            description: PSF magnitudes for the star
+          MANGA_TARGET2:
+            name: MANGA_TARGET2
+            type: int32
+            unit: replace me - with content
+            description: replace me - with content
+          FACTOR:
+            name: FACTOR
+            type: float32
+            unit: ''
+            description: Best-fit scaling factor for the size of the PSF
+          XBEST:
+            name: XBEST
+            type: float32
+            unit: ''
+            description: Best-fit x offset
+          YBEST:
+            name: YBEST
+            type: float32
+            unit: ''
+            description: Best-fit y offset
+          SCALEBEST:
+            name: SCALEBEST
+            type: float32
+            unit: ''
+            description: Scale factor for the DAR vector
+          ROTATIONBEST:
+            name: ROTATIONBEST
+            type: float32
+            unit: ''
+            description: rotation for the DAR vector
+          FLUXRATIO_CHI2:
+            name: FLUXRATIO_CHI2
+            type: float32
+            unit: ''
+            description: Chi-squared from the flux ratio fitting among the 7 fibers
+              and in 8 wavelength bins.
+          MODELSPEC:
+            name: MODELSPEC
+            type: float64[8256]
+            unit: ''
+            description: Model spectrum for this star multiplied with the derived
+              PSF-covering fraction as a function of wavelength.
+          MODFLUX:
+            name: MODFLUX
+            type: float64[8256]
+            unit: ''
+            description: Model spectrum for this star.
+          FLUX:
+            name: FLUX
+            type: float64[8256]
+            unit: ''
+            description: Flux for the reference fiber (first element in the fiberid
+              and fnum arrays) in the bundle.
+          IVAR:
+            name: IVAR
+            type: float64[8256]
+            unit: ''
+            description: Inverse variance for the reference fiber (first elements
+              in the fiberid and fnum arrays).
+          DISP:
+            name: DISP
+            type: float32[8256]
+            unit: ''
+            description: Instrumental dispersion for the reference fiber
+          MRATIO:
+            name: MRATIO
+            type: float32[8256]
+            unit: ''
+            description: The ratio between FLUX and MODELSPEC; this is the correction
+              vector derived from each star.
+          MRATIVAR:
+            name: MRATIVAR
+            type: float32[8256]
+            unit: ''
+            description: The inverse variance on MRATIO.
+          LOGLAM:
+            name: LOGLAM
+            type: float64[8256]
+            unit: ''
+            description: Log10 wavelengths of the blue and red spectra of the star.
+          AV:
+            name: AV
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          USED:
+            name: USED
+            type: int16
+            unit: replace me - with content
+            description: replace me - with content
+          MODEL:
+            name: MODEL
+            type: char[28]
+            unit: ''
+            description: The Kurucz model adopted for this star.
+          TEFF:
+            name: TEFF
+            type: float32
+            unit: ''
+            description: The effective temperature for the adopted model.
+          G:
+            name: G
+            type: float32
+            unit: ''
+            description: Log g for the adopted model
+          FEH:
+            name: FEH
+            type: float32
+            unit: ''
+            description: The [Fe/H] for the adopted model
+          ALPHA:
+            name: ALPHA
+            type: float32
+            unit: replace me - with content
+            description: replace me - with content
+          MAG:
+            name: MAG
+            type: float32[5]
+            unit: ''
+            description: Synthetic magnitudes for the model in ugriz bands, normalized
+              to the PSFmag in r-band.
+          IMODEL:
+            name: IMODEL
+            type: int32
+            unit: ''
+            description: The index of the model
+          Z:
+            name: Z
+            type: float64
+            unit: ''
+            description: Redshift of the star
+          SN_MEDIAN:
+            name: SN_MEDIAN
+            type: float32
+            unit: ''
+            description: Median S/N of the spectrum.
+          LINESN_MEDIAN:
+            name: LINESN_MEDIAN
+            type: float64
+            unit: ''
+            description: Median S/N in the absorption lines of interests
+          LINECHI2:
+            name: LINECHI2
+            type: float32
+            unit: ''
+            description: Chi-squared of the fit in the absorption lines of interests
+          LINEDOF:
+            name: LINEDOF
+            type: float32
+            unit: ''
+            description: Degree of Freedom for the absorption lines of interests.
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!
