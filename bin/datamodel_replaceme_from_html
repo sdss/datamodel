@@ -14,7 +14,8 @@ def get_html_file(filespec = None):
             if filespec == fs:
                 html_file = content['html_file']
                 break
-        if html_file: break
+        if html_file: 
+            break
     return html_file
     
 def main():
@@ -24,10 +25,13 @@ def main():
     )
     parser.add_argument(
         '-f', '--filespec', 
+        required=True,
         help="The base name of the data product file (e.g., manga_alfalfa)"
     )
     parser.add_argument(
-        '-r', '--release'
+        '-r', '--release',
+        required=True,
+        help="The data release key (e.g., DR16, DR17)"
     )
     args = parser.parse_args()
     filespec = args.filespec
@@ -52,8 +56,6 @@ def main():
     # 3. Construct file paths
     yaml_path = os.path.join(datamodel_dir, "datamodel", "products", "yaml", f"{filespec}.yaml")
     html_path = os.path.join(datamodels_dir, "python", "datamodels", "resources-datamodels", "html", "files", f"{html_file}")
-    
-    # Saving the output as '.1.yaml' in the same YAML directory to avoid accidental overwrites
     output_path = os.path.join(datamodel_dir, "datamodel", "products", "yaml", f"{filespec}.1.yaml")
 
     # 4. Verify input files exist
@@ -64,7 +66,7 @@ def main():
         print(f"Error: HTML file not found at {html_path}", file=sys.stderr)
         sys.exit(1)
 
-    print(f"Processing '{filespec}'...")
+    print(f"Processing '{filespec}' for release '{release}'...")
     print(f"Reading HTML: {html_path}")
     print(f"Reading YAML: {yaml_path}")
 
@@ -76,39 +78,65 @@ def main():
     # Extract General Info
     gen_desc_dt = soup.find('dt', string=re.compile('General Description', re.I))
     full_description = gen_desc_dt.find_next_sibling('dd').get_text(strip=True) if gen_desc_dt else ""
-    short_description = full_description.split('. ')[0] + '.' if full_description else ""
+    full_description_parts = full_description.split('. ') if full_description else [] 
+    short_description = full_description_parts[0] + '.' if full_description_parts else ""
+    short_description = full_description_parts[0] + '.' if full_description_parts else ""
 
     naming_conv_dt = soup.find('dt', string=re.compile('Naming Convention', re.I))
     naming_convention = naming_conv_dt.find_next_sibling('dd').get_text(strip=True) if naming_conv_dt else ""
 
-    # Using a more generic regex to catch variations like "Written by Products" and "Written by"
-    written_by_dt = soup.find('dt', string=re.compile('Written by', re.I))
+    written_by_dt = soup.find('dt', string=re.compile('Written by Products|Written by', re.I))
     generated_by = written_by_dt.find_next_sibling('dd').get_text(strip=True) if written_by_dt else ""
 
-    # Extract Columns Data (Dynamically identifying column indices)
-    columns_table = soup.find('table', class_='columns')
+    # Extract HDU Descriptions
+    hdu0_div = soup.find('div', id='hdu0')
+    hdu0_desc = hdu0_div.find('p').get_text(strip=True) if hdu0_div and hdu0_div.find('p') else ""
+
+    hdu1_div = soup.find('div', id='hdu1')
+    hdu1_desc = hdu1_div.find('p').get_text(strip=True) if hdu1_div and hdu1_div.find('p') else ""
+
+    # Extract Columns Data (Adaptive Mapping for 4-column vs 5-column layouts)
+    hdu1_div = soup.find('div', id='hdu1')
+    columns_table = hdu1_div.find('table', class_='columns') if hdu1_div else None
+    if not columns_table:
+        columns_table = soup.find('table', class_='columns') or (hdu1_div.find('table') if hdu1_div else soup.find('table'))
+
     columns_data = {}
     if columns_table:
         rows = columns_table.find_all('tr')
         if rows:
-            # Parse the header row to find column indices
-            header_row = rows
-            headers = [th.get_text(strip=True).lower() for th in header_row.find_all(['th', 'td'])]
+            # Correctly extract the first element as a single Tag object
+            first_row = rows[0]
+            header_cells = first_row.find_all(['th', 'td'])
+            headers = [cell.get_text(strip=True).lower() for cell in header_cells]
             
-            name_idx, unit_idx, desc_idx = -1, -1, -1
-            for i, h in enumerate(headers):
-                if 'name' in h: name_idx = i
-                elif 'unit' in h: unit_idx = i
-                elif 'desc' in h: desc_idx = i
+            # Default fallback mapping indices (Standard 4-column format)
+            name_idx = 0
+            unit_idx = 2
+            desc_idx = 3
             
-            # Fallback to defaults if headers can't be parsed properly
-            if name_idx == -1: name_idx = 0
-            if unit_idx == -1: unit_idx = 2
-            if desc_idx == -1: desc_idx = 3
-
-            # Iterate through data rows
-            for row in rows[1:]:
-                cols = row.find_all(['td', 'th'])
+            # Identify if a layout header is actively present
+            is_header = any(h in headers for h in ['name', 'type', 'unit', 'units', 'description', 'column'])
+            
+            if is_header:
+                for idx, h in enumerate(headers):
+                    if 'name' in h:
+                        name_idx = idx
+                    elif 'unit' in h:
+                        unit_idx = idx
+                    elif 'desc' in h or 'comment' in h:
+                        desc_idx = idx
+                data_rows = rows[1:]  # Safely skip header row
+            else:
+                # Dynamic adjustment if first row contains dataset entries directly
+                if len(header_cells) >= 5:  # 5-column layout style
+                    name_idx = 1
+                    unit_idx = 3
+                    desc_idx = 4
+                data_rows = rows
+                
+            for row in data_rows:
+                cols = row.find_all('td')
                 if len(cols) > max(name_idx, unit_idx, desc_idx):
                     col_name = cols[name_idx].get_text(strip=True)
                     col_unit = cols[unit_idx].get_text(strip=True)
@@ -133,28 +161,27 @@ def main():
     if 'replace me' in str(general.get('generated_by', '')).lower():
         general['generated_by'] = generated_by
 
-    # Update HDU Section Dynamically
+    # Update HDU Section
     try:
         hdus = yaml_data['releases'][release]['hdus']
         
-        for hdu_key, hdu_info in hdus.items():
-            # Find matching HDU block in HTML
-            hdu_div = soup.find('div', id=hdu_key.lower())
-            if hdu_div:
-                p_tag = hdu_div.find('p')
-                hdu_desc = p_tag.get_text(strip=True) if p_tag else ""
-                if 'replace me' in str(hdu_info.get('description', '')).lower():
-                    hdu_info['description'] = hdu_desc
+        if 'replace me' in str(hdus.get('hdu0', {}).get('description', '')).lower():
+            hdus['hdu0']['description'] = hdu0_desc
             
-            # Update Columns for this HDU (if it has any)
-            yaml_columns = hdu_info.get('columns', {})
-            for col_name, col_info in yaml_columns.items():
-                if col_name in columns_data:
-                    html_col_info = columns_data[col_name]
-                    if 'replace me' in str(col_info.get('unit', '')).lower():
-                        col_info['unit'] = html_col_info['unit']
-                    if 'replace me' in str(col_info.get('description', '')).lower():
-                        col_info['description'] = html_col_info['description']
+        if 'replace me' in str(hdus.get('hdu1', {}).get('description', '')).lower():
+            hdus['hdu1']['description'] = hdu1_desc
+            
+        yaml_columns = hdus.get('hdu1', {}).get('columns', {})
+        for col_name, col_info in yaml_columns.items():
+            if col_name in columns_data:
+                html_col_info = columns_data[col_name]
+                if 'replace me' in str(col_info.get('unit', '')).lower():
+                    col_info['unit'] = html_col_info['unit']
+                
+                # Updates placeholders matching 'replace me' OR generic labels like 'Column 84'
+                current_desc = str(col_info.get('description', '')).lower().strip()
+                if 'replace me' in current_desc or re.match(r'^column\s+\d+$', current_desc):
+                    col_info['description'] = html_col_info['description']
                     
     except KeyError as e:
         print(f"Warning: Expected release key structure not found in YAML. Missing: {e}", file=sys.stderr)
