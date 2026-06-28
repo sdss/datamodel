@@ -80,14 +80,14 @@ def main():
     written_by_dt = soup.find('dt', string=re.compile('Written by Products', re.I))
     generated_by = written_by_dt.find_next_sibling('dd').get_text(strip=True) if written_by_dt else ""
 
-    # Extract HDU Descriptions
+    # Extract HDU Descriptions (FIXED: replaced find_all with find)
     hdu0_div = soup.find('div', id='hdu0')
-    hdu0_desc = hdu0_div.find_all('p').get_text(strip=True) if hdu0_div else ""
+    hdu0_desc = hdu0_div.find('p').get_text(strip=True) if hdu0_div and hdu0_div.find('p') else ""
 
     hdu1_div = soup.find('div', id='hdu1')
-    hdu1_desc = hdu1_div.find_all('p').get_text(strip=True) if hdu1_div else ""
+    hdu1_desc = hdu1_div.find('p').get_text(strip=True) if hdu1_div and hdu1_div.find('p') else ""
 
-    # Extract Columns Data
+    # Extract Columns Data (FIXED: targeting individual list indices)
     columns_table = soup.find('table', class_='columns')
     columns_data = {}
     if columns_table:
@@ -96,8 +96,8 @@ def main():
             cols = row.find_all('td')
             if len(cols) >= 4:
                 col_name = cols.get_text(strip=True)
-                col_unit = cols.get_text(strip=True)
-                col_desc = cols.get_text(strip=True)
+                col_unit = cols[2].get_text(strip=True)
+                col_desc = cols[3].get_text(strip=True)
                 columns_data[col_name] = {
                     'unit': col_unit,
                     'description': col_desc
