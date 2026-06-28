@@ -23,11 +23,15 @@ def main():
         description="Populate 'replace me' fields in a YAML datamodel using its corresponding HTML file."
     )
     parser.add_argument(
-        "filespec", 
+        '-f', '--filespec', 
         help="The base name of the data product file (e.g., manga_alfalfa)"
+    )
+    parser.add_argument(
+        '-r', '--release'
     )
     args = parser.parse_args()
     filespec = args.filespec
+    release = args.release
     
     html_file = get_html_file(filespec = filespec)
     if not html_file:
@@ -50,7 +54,7 @@ def main():
     html_path = os.path.join(datamodels_dir, "python", "datamodels", "resources-datamodels", "html", "files", f"{html_file}")
     
     # Saving the output as '_updated.yaml' in the same YAML directory to avoid accidental overwrites
-    output_path = os.path.join(datamodel_dir, "datamodel", "products", "yaml", f"{filespec}_updated.yaml")
+    output_path = os.path.join(datamodel_dir, "datamodel", "products", "yaml", f"{filespec}.1.yaml")
 
     # 4. Verify input files exist
     if not os.path.exists(yaml_path):
@@ -120,7 +124,7 @@ def main():
 
     # Update HDU Section
     try:
-        hdus = yaml_data['releases']['DR16']['hdus']
+        hdus = yaml_data['releases'][release]['hdus']
         
         if 'replace me' in str(hdus.get('hdu0', {}).get('description', '')).lower():
             hdus['hdu0']['description'] = hdu0_desc
