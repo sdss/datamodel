@@ -1,8 +1,7 @@
 # Data Model: mandala
 
 
-This file contains the list ofMaNGADwarf galaxy (MaNDala) Sample, 
-  along with various photometric and spectroscopic results derived usingDESI imagesin three bands (grz) and MaNGA data respectively.
+This file contains the list of MaN GA D warf g ala xy (MaNDala) Sample, along with various photometric and spectroscopic results derived using DESI images in three bands (grz) and MaNGA data respectively.
 
 
 ## Contents
@@ -14,8 +13,7 @@ This file contains the list ofMaNGADwarf galaxy (MaNDala) Sample,
 ---
 
 ## Basic Information
-This file contains the list ofMaNGADwarf galaxy (MaNDala) Sample, 
-  along with various photometric and spectroscopic results derived usingDESI imagesin three bands (grz) and MaNGA data respectively. The details of our analysis can be found in:Cano-Díaz, et al. 2022.
+This file contains the list of MaN GA D warf g ala xy (MaNDala) Sample, along with various photometric and spectroscopic results derived using DESI images in three bands (grz) and MaNGA data respectively. The details of our analysis can be found in: Cano-Díaz, et al. 2022 .
 
 ### Naming Convention
 MANGA_MANDALA/[MANDALA_VER]/mandala_[MANDALA_VER]}.fits where MANDALA_VER=v1_1 for DR17
@@ -39,7 +37,7 @@ Mariana Cano Díaz in collaboration with the MaNDala team.
 True
 
 ### Data Level
-3.3.0
+2.3.3
 
 ### HDUS List for release DR17
   - [HDU0: PRIMARY](#hdu0-primary)

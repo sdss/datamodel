@@ -5,11 +5,11 @@ general:
     This catalog is superseded by the most recent HI-MaNGA catalog which combines
     GBT and ALFALFA observations (mangaHIall.fits). Any MaNGA galaxy within 2 arcminutes
     (the beam radius of the final ALFALFA datacubes) and 200 km/s of an ALFALFA HI
-    source is assigned as a match to that source.  For this reason, a single ALFALFA
+    source is assigned as a match to that source. For this reason, a single ALFALFA
     detection can have multiple optical counterparts. Objects in the ALFALFA footprint
     that lack detections have their HI upper limits estimated using the noise level
     extracted from their location in the ALFALFA data cubes. For convenience, we use
-    the same column names as the mangaHIall.fits file where possible.  We also provide
+    the same column names as the mangaHIall.fits file where possible. We also provide
     additional information about the crossmatched sources for the user.'
   datatype: FITS
   filesize: 90 KB
@@ -19,10 +19,10 @@ general:
   - MANGA_HI
   surveys:
   - MaNGA
-  naming_convention: manga_alfalfa-dr[dr].fitswhere[dr]is the public data release
-    defining the sample for this catalog.
-  generated_by: sas(can be any set of product names)
-  data_level: 3.3.0
+  naming_convention: $MANGA_HI/[VER]/manga_alfalfa-[RELEASE].fits, where VER=v1_0_2
+    and RELEASE=dr15 in DR16.
+  generated_by: sas (can be any set of product names)
+  data_level: 2.3.3
   design: false
   vac: true
   recommended_science_product: true
@@ -41,8 +41,8 @@ releases:
       path_name: manga_alfalfa
       path_template: $MANGA_HI/{ver}/manga_alfalfa-{release}.fits
       path_kwargs:
-      - release
       - ver
+      - release
       access_string: manga_alfalfa = $MANGA_HI/{ver}/manga_alfalfa-{release}.fits
     survey: MaNGA
     hdus:
