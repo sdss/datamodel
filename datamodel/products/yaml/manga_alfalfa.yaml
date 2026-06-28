@@ -1,0 +1,221 @@
+general:
+  name: manga_alfalfa
+  short: ALFALFA data for the public MaNGA sample released in SDSS DR15.
+  description: 'ALFALFA data for the public MaNGA sample released in SDSS DR15. IMPORTANT:
+    This catalog is superseded by the most recent HI-MaNGA catalog which combines
+    GBT and ALFALFA observations (mangaHIall.fits). Any MaNGA galaxy within 2 arcminutes
+    (the beam radius of the final ALFALFA datacubes) and 200 km/s of an ALFALFA HI
+    source is assigned as a match to that source.  For this reason, a single ALFALFA
+    detection can have multiple optical counterparts. Objects in the ALFALFA footprint
+    that lack detections have their HI upper limits estimated using the noise level
+    extracted from their location in the ALFALFA data cubes. For convenience, we use
+    the same column names as the mangaHIall.fits file where possible.  We also provide
+    additional information about the crossmatched sources for the user.'
+  datatype: FITS
+  filesize: 90 KB
+  releases:
+  - DR16
+  environments:
+  - MANGA_HI
+  surveys:
+  - MaNGA
+  naming_convention: manga_alfalfa-dr[dr].fitswhere[dr]is the public data release
+    defining the sample for this catalog.
+  generated_by: sas(can be any set of product names)
+  data_level: 2.3.3
+  design: false
+  vac: true
+  recommended_science_product: true
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR16:
+    template: $MANGA_HI/[VER]/manga_alfalfa-[RELEASE].fits
+    example: v1_0_2/manga_alfalfa-dr15.fits
+    location: '{ver}/manga_alfalfa-{release}.fits'
+    environment: MANGA_HI
+    access:
+      in_sdss_access: true
+      path_name: manga_alfalfa
+      path_template: $MANGA_HI/{ver}/manga_alfalfa-{release}.fits
+      path_kwargs:
+      - ver
+      - release
+      access_string: manga_alfalfa = $MANGA_HI/{ver}/manga_alfalfa-{release}.fits
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: HDU0 contains no data and no relevant keyword information
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Dummy Created by MWRFITS v1.12b
+        - key: BITPIX
+          value: 8
+          comment: Dummy primary header created by MWRFITS
+        - key: NAXIS
+          value: 0
+          comment: No data is associated with this header
+        - key: EXTEND
+          value: true
+          comment: Extensions may (will!) be present
+      hdu1:
+        name: ''
+        description: This HDU contains the primary data table for the MaNGA - ALFALFA
+          crossmatch
+        is_image: false
+        size: 78 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.12b
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 79
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 1021
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 17
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        columns:
+          PLATEIFU:
+            name: PLATEIFU
+            type: char[10]
+            unit: ''
+            description: plate-ifu of MaNGA observation
+          MANGAID:
+            name: MANGAID
+            type: char[9]
+            unit: ''
+            description: MaNGA ID
+          OBJRA:
+            name: OBJRA
+            type: float64
+            unit: degrees
+            description: Right Ascension, J2000 (objra from DRPAll file)
+          OBJDEC:
+            name: OBJDEC
+            type: float64
+            unit: degrees
+            description: Declination, J2000 (objdec from DRPAll file)
+          VOPT:
+            name: VOPT
+            type: int16
+            unit: km/s
+            description: Optical velocity of MaNGA galaxy
+          RMS:
+            name: RMS
+            type: float32
+            unit: mJy
+            description: rms noise in signal free part of HI spectrum
+          LOGHILIM200KMS:
+            name: LOGHILIM200KMS
+            type: float32
+            unit: solar masses
+            description: For non-detections, the log of the HI mass limit (in solar
+              masses) assuming a width of 200 km/s and D = vopt/70 Mpc/km/s
+          SNR:
+            name: SNR
+            type: float32
+            unit: ''
+            description: Signal-to-noise ratio following Equation (4) in Haynes et
+              al. (2018)
+          FHI:
+            name: FHI
+            type: float32
+            unit: Jy km/s
+            description: The integrated flux of the HI line
+          LOGMHI:
+            name: LOGMHI
+            type: float32
+            unit: solar masses
+            description: Log of the HI mass (in solar masses) assuming D = vopt/70
+              Mpc/km/s
+          VHI:
+            name: VHI
+            type: int16
+            unit: km/s
+            description: Velocity centroid of the HI line detection
+          EV:
+            name: EV
+            type: float32
+            unit: km/s
+            description: Error on vHI
+          WP20:
+            name: WP20
+            type: int16
+            unit: km/s
+            description: Width of the HI line measured at 20% of the peak on fits
+              to the sides of the profile
+          WF50:
+            name: WF50
+            type: int16
+            unit: km/s
+            description: Width of the HI line measured at 50% of the peak on fits
+              to the sides of the profile
+          SEP:
+            name: SEP
+            type: float32
+            unit: arcseconds
+            description: Angular separation between the HI source and the optical
+              position of the MaNGA galaxy
+          DV:
+            name: DV
+            type: float32
+            unit: km/s
+            description: Difference between the recession velocity of the HI source
+              and the MaNGA galaxy measured using optical spectra
+          AGC:
+            name: AGC
+            type: int32
+            unit: ''
+            description: ALFALFA AGC number for this HI source
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!
