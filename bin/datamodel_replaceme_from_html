@@ -80,7 +80,6 @@ def main():
     full_description = gen_desc_dt.find_next_sibling('dd').get_text(strip=True) if gen_desc_dt else ""
     full_description_parts = full_description.split('. ') if full_description else [] 
     short_description = full_description_parts[0] + '.' if full_description_parts else ""
-    short_description = full_description_parts[0] + '.' if full_description_parts else ""
 
     naming_conv_dt = soup.find('dt', string=re.compile('Naming Convention', re.I))
     naming_convention = naming_conv_dt.find_next_sibling('dd').get_text(strip=True) if naming_conv_dt else ""
@@ -88,69 +87,77 @@ def main():
     written_by_dt = soup.find('dt', string=re.compile('Written by Products|Written by', re.I))
     generated_by = written_by_dt.find_next_sibling('dd').get_text(strip=True) if written_by_dt else ""
 
-    # Extract HDU Descriptions
-    hdu0_div = soup.find('div', id='hdu0')
-    hdu0_desc = hdu0_div.find('p').get_text(strip=True) if hdu0_div and hdu0_div.find('p') else ""
-
-    hdu1_div = soup.find('div', id='hdu1')
-    hdu1_desc = hdu1_div.find('p').get_text(strip=True) if hdu1_div and hdu1_div.find('p') else ""
-
-    # Extract Columns Data (Adaptive Mapping for 4-column vs 5-column layouts)
-    hdu1_div = soup.find('div', id='hdu1')
-    columns_table = hdu1_div.find('table', class_='columns') if hdu1_div else None
-    if not columns_table:
-        columns_table = soup.find('table', class_='columns') or (hdu1_div.find('table') if hdu1_div else soup.find('table'))
-
-    columns_data = {}
+    # Locate the Data Columns Table
+    columns_table = soup.find('table', class_='columns') or soup.find('table')
+    
+    columns_by_name = {}
+    columns_by_num = {}
+    
     if columns_table:
         rows = columns_table.find_all('tr')
         if rows:
-            # Correctly extract the first element as a single Tag object
             first_row = rows[0]
             header_cells = first_row.find_all(['th', 'td'])
             headers = [cell.get_text(strip=True).lower() for cell in header_cells]
             
-            # Default fallback mapping indices (Standard 4-column format)
+            # Default fallbacks (Standard 4-column layout like manga_alfalfa)
+            num_idx = -1
             name_idx = 0
             unit_idx = 2
             desc_idx = 3
             
-            # Identify if a layout header is actively present
-            is_header = any(h in headers for h in ['name', 'type', 'unit', 'units', 'description', 'column'])
+            # Determine if an explicit header layout row exists
+            is_header = any(h in headers for h in ['name', 'type', 'unit', 'units', 'description', 'column', 'comment'])
             
             if is_header:
                 for idx, h in enumerate(headers):
-                    if 'name' in h:
+                    if 'column' in h or 'no.' in h or h == '#':
+                        num_idx = idx
+                    elif 'name' in h:
                         name_idx = idx
                     elif 'unit' in h:
                         unit_idx = idx
                     elif 'desc' in h or 'comment' in h:
                         desc_idx = idx
-                data_rows = rows[1:]  # Safely skip header row
+                data_rows = rows[1:]  # Skip header row
             else:
-                # Dynamic adjustment if first row contains dataset entries directly
-                if len(header_cells) >= 5:  # 5-column layout style
+                # Direct data fallback for 5-column schemas (like mandala if lacking explicit headers)
+                if len(header_cells) >= 5:
+                    num_idx = 0
                     name_idx = 1
                     unit_idx = 3
                     desc_idx = 4
                 data_rows = rows
                 
+            # Populate our adaptive dual-lookup dictionaries
             for row in data_rows:
-                cols = row.find_all('td')
+                cols = row.find_all(['td', 'th'])
                 if len(cols) > max(name_idx, unit_idx, desc_idx):
                     col_name = cols[name_idx].get_text(strip=True)
                     col_unit = cols[unit_idx].get_text(strip=True)
                     col_desc = cols[desc_idx].get_text(strip=True)
-                    columns_data[col_name] = {
+                    
+                    col_info_payload = {
                         'unit': col_unit,
-                        'description': col_desc
+                        'description': col_desc,
+                        'name': col_name
                     }
+                    
+                    # Store by name for standard matching
+                    columns_by_name[col_name] = col_info_payload
+                    
+                    # Store by clean column number if available for layout mapping fallbacks
+                    if num_idx != -1 and num_idx < len(cols):
+                        col_num_raw = cols[num_idx].get_text(strip=True)
+                        col_num_digits = ''.join(c for c in col_num_raw if c.isdigit())
+                        if col_num_digits:
+                            columns_by_num[col_num_digits] = col_info_payload
 
     # 6. Parse the YAML file
     with open(yaml_path, 'r', encoding='utf-8') as f:
         yaml_data = yaml.safe_load(f)
 
-    # 7. Update the YAML fields containing "replace me"
+    # 7. Update General Section metadata fields
     general = yaml_data.get('general', {})
     if 'replace me' in str(general.get('short', '')).lower():
         general['short'] = short_description
@@ -161,32 +168,56 @@ def main():
     if 'replace me' in str(general.get('generated_by', '')).lower():
         general['generated_by'] = generated_by
 
-    # Update HDU Section
+    # 8. Dynamically Iterate over ALL HDU metadata blocks inside the Release
     try:
         hdus = yaml_data['releases'][release]['hdus']
         
-        if 'replace me' in str(hdus.get('hdu0', {}).get('description', '')).lower():
-            hdus['hdu0']['description'] = hdu0_desc
+        for hdu_key, hdu_info in hdus.items():
+            # Dynamically fetch the matching HDU block description from HTML
+            if 'replace me' in str(hdu_info.get('description', '')).lower():
+                hdu_div = soup.find('div', id=hdu_key.lower())
+                if hdu_div and hdu_div.find('p'):
+                    hdu_info['description'] = hdu_div.find('p').get_text(strip=True)
             
-        if 'replace me' in str(hdus.get('hdu1', {}).get('description', '')).lower():
-            hdus['hdu1']['description'] = hdu1_desc
-            
-        yaml_columns = hdus.get('hdu1', {}).get('columns', {})
-        for col_name, col_info in yaml_columns.items():
-            if col_name in columns_data:
-                html_col_info = columns_data[col_name]
-                if 'replace me' in str(col_info.get('unit', '')).lower():
-                    col_info['unit'] = html_col_info['unit']
+            # Map columns inside this specific HDU
+            yaml_columns = hdu_info.get('columns', {})
+            for col_key, col_info in yaml_columns.items():
+                html_col_info = None
                 
-                # Updates placeholders matching 'replace me' OR generic labels like 'Column 84'
-                current_desc = str(col_info.get('description', '')).lower().strip()
-                if 'replace me' in current_desc or re.match(r'^column\s+\d+$', current_desc):
-                    col_info['description'] = html_col_info['description']
+                # Step A: Direct string matching strategies
+                if col_key in columns_by_name:
+                    html_col_info = columns_by_name[col_key]
+                elif col_info.get('name') in columns_by_name:
+                    html_col_info = columns_by_name[col_info.get('name')]
+                else:
+                    # Case-insensitive resilience match loop
+                    for k, info in columns_by_name.items():
+                        if k.lower() == col_key.lower() or k.lower() == str(col_info.get('name', '')).lower():
+                            html_col_info = info
+                            break
+                
+                # Step B: Fallback Strategy - Column number cross-referencing loop
+                if not html_col_info:
+                    desc_str = str(col_info.get('description', ''))
+                    num_match = re.search(r'column\s+(\d+)', desc_str, re.I)
+                    if num_match:
+                        col_num = num_match.group(1)
+                        if col_num in columns_by_num:
+                            html_col_info = columns_by_num[col_num]
+                
+                # Step C: Write values safely back into the YAML definition map
+                if html_col_info:
+                    if 'replace me' in str(col_info.get('unit', '')).lower():
+                        col_info['unit'] = html_col_info['unit']
                     
+                    current_desc = str(col_info.get('description', '')).lower().strip()
+                    if 'replace me' in current_desc or 'column' in current_desc:
+                        col_info['description'] = html_col_info['description']
+                        
     except KeyError as e:
         print(f"Warning: Expected release key structure not found in YAML. Missing: {e}", file=sys.stderr)
 
-    # 8. Save updated data to the new YAML file
+    # 9. Save updated data back out to the output target
     with open(output_path, 'w', encoding='utf-8') as f:
         yaml.dump(yaml_data, f, sort_keys=False, default_flow_style=False, allow_unicode=True)
     

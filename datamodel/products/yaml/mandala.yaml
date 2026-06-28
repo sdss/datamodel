@@ -1,0 +1,566 @@
+general:
+  name: mandala
+  short: "This file contains the list ofMaNGADwarf galaxy (MaNDala) Sample, \n  along\
+    \ with various photometric and spectroscopic results derived usingDESI imagesin\
+    \ three bands (grz) and MaNGA data respectively."
+  description: "This file contains the list ofMaNGADwarf galaxy (MaNDala) Sample,\
+    \ \n  along with various photometric and spectroscopic results derived usingDESI\
+    \ imagesin three bands (grz) and MaNGA data respectively. The details of our analysis\
+    \ can be found in:Cano-D\xEDaz, et al. 2022."
+  datatype: FITS
+  filesize: 469 KB
+  releases:
+  - DR17
+  environments:
+  - MANGA_MANDALA
+  surveys:
+  - MaNGA
+  naming_convention: 'mandala_v[version].fitsversion: 1_0 = SDSS DR17 .'
+  generated_by: "Mariana Cano D\xEDaz in collaboration with the MaNDala team."
+  data_level: 2.3.3
+  design: false
+  vac: true
+  recommended_science_product: true
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR17:
+    template: $MANGA_MANDALA/[MANDALA_VER]/mandala_[MANDALA_VER].fits
+    example: v1_1/mandala_v1_1.fits
+    location: '{mandala_ver}/mandala_{mandala_ver}.fits'
+    environment: MANGA_MANDALA
+    access:
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
+      access_string: mandala = $MANGA_MANDALA/{mandala_ver}/mandala_{mandala_ver}.fits
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: "This extension solely contains a header with information regarding\
+          \ the binary table and\n  the Data Releases (DR) of the observational data\
+          \ sets used to derive our results."
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+        - key: NTABLE
+          value: 1
+          comment: Total number of tables within this file
+        - key: TYPTABLE
+          value: BINARY
+          comment: Table(s) type
+        - key: RWTABLE1
+          value: 136
+          comment: Number of Rows in HDU 1 Table
+        - key: CLTABLE1
+          value: 84
+          comment: Number of Columns in HDU 1 Table
+        - key: DESIDR
+          value: DR9
+          comment: DESI DR used for phot results
+        - key: SDSSDR
+          value: DR17
+          comment: SDSS DR used for spectro results
+        - key: MANGAMPL
+          value: MPL-11
+          comment: Internal MANGA DR used for spectro results
+        - key: PIPE3DV
+          value: V3_1_1
+          comment: PIPE3D release version used for spectro results
+        - key: COMMENT
+          value: 'This file contains SDSS IV VAC MaNDala. Version: 1.0'
+          comment: ''
+        - key: COMMENT
+          value: 'File created: 2023-04-24 15:53:35.253783 @ IA-UNAM'
+          comment: ''
+      hdu1:
+        name: ''
+        description: "This extension contains the binary table with our results derived\
+          \ with photometric\n  (DESI) and spectroscopic (MaNGA) data. For all of\
+          \ them we have assumed the following cosmology: \n  H0 = 70, Omega_M= 0.3,\
+          \ Omega_Lambda = 0.7, unless otherwise is explicitly stated.\n  For the\
+          \ photometric results (up to column 54): \n  magnitudes are in AB system.\
+          \ The absolute magnitudes are calculated with the Distance Modulus:\n  M\
+          \ = m - 5 * log10(DL), where DL is the Luminosity Distance, which is estimated\
+          \ using theNSAredshifts.\n  For the Sersic fits we convolved the PSF with\
+          \ a Moffat function, and used the following\n  values of the FWHM in each\
+          \ band: g: 1.22, r: 1.12 and z: 1.10, all in arcsec.\n  The spectroscopic\
+          \ results (columns 55-84) were derived from the followingPipe3Ddata products:\
+          \ D4000, age, metallicity, \n  emission line fluxes and equivalent width\
+          \ maps, as well as stellar decompositions. \n  Note that the quantities\
+          \ reported in this VAC may differ from those presented \nin the Pipe3D VAC\
+          \ due to differences in aperture definitions."
+        is_image: false
+        size: 452 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 3407
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 136
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 84
+          comment: number of table fields
+        columns:
+          Plateifu:
+            name: Plateifu
+            type: char[15]
+            unit: ''
+            description: MaNGA Plate-IFU
+          MangaID:
+            name: MangaID
+            type: char[15]
+            unit: ''
+            description: MaNGA ID
+          R.A.:
+            name: R.A.
+            type: float32
+            unit: deg
+            description: NSARight Ascension (J2000)
+          Dec:
+            name: Dec
+            type: float32
+            unit: deg
+            description: NSADeclination (J2000)
+          IAUName:
+            name: IAUName
+            type: char[25]
+            unit: ''
+            description: IAU Name
+          NSA_ID:
+            name: NSA_ID
+            type: int64
+            unit: ''
+            description: NSAID
+          NSA_redshift:
+            name: NSA_redshift
+            type: float32
+            unit: ''
+            description: NSAredshift
+          NSA_LogSersicMass:
+            name: NSA_LogSersicMass
+            type: float32
+            unit: h^-2 Msun
+            description: Logarithm ofNSASersic mass (note that NSA quantities use
+              h=1)
+          Radius:
+            name: Radius
+            type: float32[64]
+            unit: arcsec
+            description: DESI Profiles radii
+          SB_g:
+            name: SB_g
+            type: float32[64]
+            unit: mag arcsec^-2
+            description: g-band DESI Surface Brightness profiles
+          SB_g_err:
+            name: SB_g_err
+            type: float32[64]
+            unit: mag arcsec^-2
+            description: g-band DESI Surface Brightness Profiles errors
+          SB_r:
+            name: SB_r
+            type: float32[64]
+            unit: mag arcsec^-2
+            description: r-band DESI Surface Brightness profiles
+          SB_r_err:
+            name: SB_r_err
+            type: float32[64]
+            unit: mag arcsec^-2
+            description: r-band DESI Surface Brightness Profiles errors
+          SB_z:
+            name: SB_z
+            type: float32[64]
+            unit: mag arcsec^-2
+            description: z-band DESI Surface Brightness profiles
+          SB_z_err:
+            name: SB_z_err
+            type: float32[64]
+            unit: mag arcsec^-2
+            description: z-band DESI Surface Brightness Profiles errors
+          P.A_r:
+            name: P.A_r
+            type: float32[64]
+            unit: degrees
+            description: r-band DESI Position Angle profiles
+          P.A_r_err:
+            name: P.A_r_err
+            type: float32[64]
+            unit: degrees
+            description: r-band DESI Position Angle profiles errors
+          Ellipticity_r:
+            name: Ellipticity_r
+            type: float32[64]
+            unit: ''
+            description: r-band DESI Ellipticity profiles
+          Ellipticity_r_err:
+            name: Ellipticity_r_err
+            type: float32[64]
+            unit: ''
+            description: r-band DESI Ellipticity profiles errors
+          Flux_r:
+            name: Flux_r
+            type: float32[64]
+            unit: nanomaggies
+            description: r-band DESI Accumulated flux profile
+          Interpolated_Reff_r:
+            name: Interpolated_Reff_r
+            type: float32
+            unit: arcsec
+            description: r-band Reff derived from the accumulated flux
+          Interpolated_R90_r:
+            name: Interpolated_R90_r
+            type: float32
+            unit: arcsec
+            description: r-band Radius at 90% of light derived from the accumulated
+              flux
+          Ellip_R90_r:
+            name: Ellip_R90_r
+            type: float32
+            unit: ''
+            description: r-band Ellipticity at Radius at 90% of light
+          P.A_R90_r:
+            name: P.A_R90_r
+            type: float32
+            unit: degrees
+            description: r-band P.A. at Radius at 90% of light
+          Sersic_SB_eff_g:
+            name: Sersic_SB_eff_g
+            type: float32
+            unit: mag arcsec^-2
+            description: g-band Sersic Surface Brightness at Reff
+          Sersic_SB_eff_g_err:
+            name: Sersic_SB_eff_g_err
+            type: float32
+            unit: mag arcsec^-2
+            description: g-band Sersic Surface Brightness at Reff error
+          Sersic_Reff_g:
+            name: Sersic_Reff_g
+            type: float32
+            unit: arcsec
+            description: g-band Sersic Reff
+          Sersic_Reff_g_err:
+            name: Sersic_Reff_g_err
+            type: float32
+            unit: arcsec
+            description: g-band Sersic Reff error
+          n_Sersic_g:
+            name: n_Sersic_g
+            type: float32
+            unit: ''
+            description: g-band n Sersic index
+          n_Sersic_g_err:
+            name: n_Sersic_g_err
+            type: float32
+            unit: ''
+            description: g-band n Sersic index error
+          Sersic_SB_0_g:
+            name: Sersic_SB_0_g
+            type: float32
+            unit: mag arcsec^-2
+            description: g-band Sersic central surface Brightness
+          Sersic_AppMag_g:
+            name: Sersic_AppMag_g
+            type: float32
+            unit: mag
+            description: g-band Sersic Apparent magnitude
+          Sersic_AbsMag_g:
+            name: Sersic_AbsMag_g
+            type: float32
+            unit: mag
+            description: g-band Sersic Absolute magnitude (h=1)
+          Sersic_Chi2_g:
+            name: Sersic_Chi2_g
+            type: float32
+            unit: ''
+            description: g-band Reduced Chi^2 for Sersic fit
+          Sersic_SB_eff_r:
+            name: Sersic_SB_eff_r
+            type: float32
+            unit: mag arcsec^-2
+            description: r-band Sersic Surface Brightness at Reff
+          Sersic_SB_eff_r_err:
+            name: Sersic_SB_eff_r_err
+            type: float32
+            unit: mag arcsec^-2
+            description: r-band Sersic Surface Brightness at Reff error
+          Sersic_Reff_r:
+            name: Sersic_Reff_r
+            type: float32
+            unit: arcsec
+            description: r-band Sersic Reff
+          Sersic_Reff_r_err:
+            name: Sersic_Reff_r_err
+            type: float32
+            unit: arcsec
+            description: r-band Sersic Reff error
+          n_Sersic_r:
+            name: n_Sersic_r
+            type: float32
+            unit: ''
+            description: r-band n Sersic index
+          n_Sersic_r_err:
+            name: n_Sersic_r_err
+            type: float32
+            unit: ''
+            description: r-band n Sersic index error
+          Sersic_SB_0_r:
+            name: Sersic_SB_0_r
+            type: float32
+            unit: mag arcsec^-2
+            description: r-band Sersic central surface Brightness
+          Sersic_AppMag_r:
+            name: Sersic_AppMag_r
+            type: float32
+            unit: mag
+            description: r-band Sersic Apparent magnitude
+          Sersic_AbsMag_r:
+            name: Sersic_AbsMag_r
+            type: float32
+            unit: mag
+            description: r-band Sersic Absolute magnitude (h=1)
+          Sersic_Chi2_r:
+            name: Sersic_Chi2_r
+            type: float32
+            unit: ''
+            description: r-band Reduced Chi^2 for Sersic fit
+          Sersic_SB_eff_z:
+            name: Sersic_SB_eff_z
+            type: float32
+            unit: mag arcsec^-2
+            description: z-band Sersic Surface Brightness at Reff
+          Sersic_SB_eff_z_err:
+            name: Sersic_SB_eff_z_err
+            type: float32
+            unit: mag arcsec^-2
+            description: z-band Sersic Surface Brightness at Reff error
+          Sersic_Reff_z:
+            name: Sersic_Reff_z
+            type: float32
+            unit: arcsec
+            description: z-band Sersic Reff
+          Sersic_Reff_z_err:
+            name: Sersic_Reff_z_err
+            type: float32
+            unit: arcsec
+            description: z-band Sersic Reff error
+          n_Sersic_z:
+            name: n_Sersic_z
+            type: float32
+            unit: ''
+            description: z-band n Sersic index
+          n_Sersic_z_err:
+            name: n_Sersic_z_err
+            type: float32
+            unit: ''
+            description: z-band n Sersic index error
+          Sersic_SB_0_z:
+            name: Sersic_SB_0_z
+            type: float32
+            unit: mag arcsec^-2
+            description: z-band Sersic central surface Brightness
+          Sersic_AppMag_z:
+            name: Sersic_AppMag_z
+            type: float32
+            unit: mag
+            description: z-band Sersic Apparent magnitude
+          Sersic_AbsMag_z:
+            name: Sersic_AbsMag_z
+            type: float32
+            unit: mag
+            description: z-band Sersic Absolute magnitude (h=1)
+          Sersic_Chi2_z:
+            name: Sersic_Chi2_z
+            type: float32
+            unit: ''
+            description: z-band Reduced Chi^2 for Sersic fit
+          StellarMass_FoV:
+            name: StellarMass_FoV
+            type: float32
+            unit: Msun
+            description: Log Stellar mass within the FoV*
+          StellarMass_Re:
+            name: StellarMass_Re
+            type: float32
+            unit: Msun
+            description: Log Stellar mass within one Reff**
+          SFR_ssp_FoV:
+            name: SFR_ssp_FoV
+            type: float32
+            unit: Msun yr^-1
+            description: Log SSP Star Formation Rate within the FoV*
+          SFR_ssp_Re:
+            name: SFR_ssp_Re
+            type: float32
+            unit: Msun yr^-1
+            description: Log SSP Star Formation Rate within one Reff**
+          T50_FoV:
+            name: T50_FoV
+            type: float32
+            unit: yr
+            description: Log formation time when the galaxy reached 50% of its total
+              stellar mass (calculated within FoV*)
+          T50_Re:
+            name: T50_Re
+            type: float32
+            unit: yr
+            description: Log formation time when the galaxy reached 50% of its total
+              stellar mass (calculated within Reff**)
+          T90_FoV:
+            name: T90_FoV
+            type: float32
+            unit: yr
+            description: Log formation time when the galaxy reached 90% of its total
+              stellar mass (calculated within FoV*)
+          T90_Re:
+            name: T90_Re
+            type: float32
+            unit: yr
+            description: Log formation time when the galaxy reached 90% of its total
+              stellar mass (calculated within Reff**)
+          D4000_Fov:
+            name: D4000_Fov
+            type: float32
+            unit: dex
+            description: Average D4000 value defined within one FoV*
+          D4000_Re:
+            name: D4000_Re
+            type: float32
+            unit: dex
+            description: Average D4000 value defined within one Reff**
+          AgeLum_FoV:
+            name: AgeLum_FoV
+            type: float32
+            unit: yr
+            description: Average Log Luminosity weighted age within the FoV*
+          AgeLum_Re:
+            name: AgeLum_Re
+            type: float32
+            unit: yr
+            description: Average Log Luminosity weighted age within one Reff**
+          AgeMass_FoV:
+            name: AgeMass_FoV
+            type: float32
+            unit: yr
+            description: Average Log Mass weighted age within one FoV*
+          AgeMass_Re:
+            name: AgeMass_Re
+            type: float32
+            unit: yr
+            description: Average Log Mass weighted age within the Re**
+          MetLum_FoV:
+            name: MetLum_FoV
+            type: float32
+            unit: ZH
+            description: Average Log Luminosity weighted metallicity within the FoV*
+          MetLum_Re:
+            name: MetLum_Re
+            type: float32
+            unit: ZH
+            description: Average Log Luminosity weighted metallicity within one Reff**
+          MetMass_FoV:
+            name: MetMass_FoV
+            type: float32
+            unit: ZH
+            description: Average Log Mass weighted metallicity within one FoV*
+          MetMass_Re:
+            name: MetMass_Re
+            type: float32
+            unit: ZH
+            description: Average Log Mass weighted metallicity within one Reff**
+          SFR_Halpha_FoV:
+            name: SFR_Halpha_FoV
+            type: float32
+            unit: Msun yr^-1
+            description: Log Halpha Star Formation Rate within the FoV*
+          SFR_Halpha_Re:
+            name: SFR_Halpha_Re
+            type: float32
+            unit: Msun yr^-1
+            description: Log Halpha Star Formation Rate within one Reff**
+          Flux_Halpha_FoV:
+            name: Flux_Halpha_FoV
+            type: float32
+            unit: erg s^-1 cm^-2
+            description: Log Halpha flux within the FoV*
+          Flux_Halpha_Re:
+            name: Flux_Halpha_Re
+            type: float32
+            unit: erg s^-1 cm^-2
+            description: Log Halpha flux within one Reff**
+          Flux_Hbeta_FoV:
+            name: Flux_Hbeta_FoV
+            type: float32
+            unit: erg s^-1 cm^-2
+            description: Log Hbeta flux within the FoV*
+          Flux_Hbeta_Re:
+            name: Flux_Hbeta_Re
+            type: float32
+            unit: erg s^-1 cm^-2
+            description: Log Hbeta flux within one Reff**
+          Flux_NII_FoV:
+            name: Flux_NII_FoV
+            type: float32
+            unit: erg s^-1 cm^-2
+            description: Log [NII]6583 flux within the FoV*
+          Flux_NII_Re:
+            name: Flux_NII_Re
+            type: float32
+            unit: erg s^-1 cm^-2
+            description: Log [NII]6583 flux within one Reff**
+          Flux_OIII_FoV:
+            name: Flux_OIII_FoV
+            type: float32
+            unit: erg s^-1 cm^-2
+            description: Log [OIII] 5007 flux within the FoV*
+          Flux_OIII_Re:
+            name: Flux_OIII_Re
+            type: float32
+            unit: erg s^-1 cm^-2
+            description: Log [OIII]5007 flux within one Reff**
+          EW_Halpha_FoV:
+            name: EW_Halpha_FoV
+            type: float32
+            unit: ''
+            description: Equivalent width of Halpha within the FoV*
+          EW_Halpha_Re:
+            name: EW_Halpha_Re
+            type: float32
+            unit: ''
+            description: Equivalent width of Halpha within one Reff**
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!
