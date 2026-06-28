@@ -1,0 +1,5 @@
+export MANGA_HI=/data/sdss/dr16/manga/HI
+pip install --upgrade git+https://github.com/sdss/tree.git@manga
+rsync -avz /private/software/github/sdss/tree/manga/data/ /software/pkg/miniconda/3.13.11/lib/python3.13/site-packages/tree/data/
+
+datamodel_generate -f manga_alfalfa -p MANGA_HI/{ver}/manga_alfalfa-{release}.fits -k ver=v1_0_2 -k release=dr15 -r DR16 -s
