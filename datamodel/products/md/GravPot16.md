@@ -1,7 +1,7 @@
 # Data Model: GravPot16
 
 
-replace me - with a short one sentence summary of file
+Main orbital elements of DR20 stars using GravPot16.
 
 
 ## Contents
@@ -13,7 +13,7 @@ replace me - with a short one sentence summary of file
 ---
 
 ## Basic Information
-replace me - with a longer description of the data product
+The VAC contains the median statistics of 50 ensemble of orbits for each star, integrated over a 3 Gyr timespan. Orbits were computed in a model configuration with bar patterns speed of 41 km/s/kpc (Sanders et al. 2019, MNRAS, 488, 4552-4564). To the Galactic orbits, we adopt a solar position of R_sun = 8.178 kpc (Gravity Collaboration et al. 2019, A&A, 625, L10), Z_sun = 25 pc (Jurić2008, ApJ, 673, 864), and solar motion of [U_sun, V_LSR + V_sun, W_sun] = [11.10, 248.5, 7.25] km/s, in line with (Brunthaler et al. 2011, AN, 332, 461) and (Reid & Brunthaler 2020, ApJ, 892, 39). We assumed a bar angle of 20 degrees, and a bar mass of 11 billions Solar mass, in line with Fernández Trincado (2017, PhD.-Thesis) and Fernández-Trincado et al. 2020, MNRAS, 495, 4113-4123.
 
 ### Naming Convention
 $MWM_ORBITS/GravPot16-[V_VAC].fits where V_VAC=1.0.0 for DR20
@@ -34,7 +34,7 @@ FITS
 https://gravpot.utinam.cnrs.fr
 
 ### Is a VAC
-True
+False
 
 ### Data Level
 3.3.0
@@ -52,7 +52,7 @@ Describes changes to the datamodel product and/or file structure from one releas
 ## Example HDUS List
 
 ### HDU0: PRIMARY
-replace me description
+Metadata
 
 #### HDU Type: IMAGE
 #### HDU Size:  3 KB
@@ -80,7 +80,7 @@ Key | Value | Comment | |
 
 
 ### HDU1: Joined
-replace me description
+GravPot16 Orbits
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  326 MB
@@ -104,59 +104,59 @@ Key | Value | Comment | |
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
- | Ids | int32 | replace me - with content | replace me - with description for column 1 |
- | RUWE | float32 | replace me - with content | replace me - with description for column 2 |
- | peri_c | float64 | replace me - with content | replace me - with description for column 3 |
- | apo_c | float64 | replace me - with content | replace me - with description for column 4 |
- | Zmax_c | float64 | replace me - with content | replace me - with description for column 5 |
- | eccentricity_c | float64 | replace me - with content | replace me - with description for column 6 |
- | Ej_c | float64 | replace me - with content | replace me - with description for column 7 |
- | Emean_c | float64 | replace me - with content | replace me - with description for column 8 |
- | Emin_c | float64 | replace me - with content | replace me - with description for column 9 |
- | Emax_c | float64 | replace me - with content | replace me - with description for column 10 |
- | Lxmin_c | int16 | replace me - with content | replace me - with description for column 11 |
- | Lxmax_c | int16 | replace me - with content | replace me - with description for column 12 |
- | Lymin_c | int16 | replace me - with content | replace me - with description for column 13 |
- | Lymax_c | int16 | replace me - with content | replace me - with description for column 14 |
- | Lzmin_c | int16 | replace me - with content | replace me - with description for column 15 |
- | Lzmax_c | int16 | replace me - with content | replace me - with description for column 16 |
- | Lx_mean_c | int16 | replace me - with content | replace me - with description for column 17 |
- | Ly_mean_c | int16 | replace me - with content | replace me - with description for column 18 |
- | Lz_mean_c | int16 | replace me - with content | replace me - with description for column 19 |
- | peri_ps41 | float32 | replace me - with content | replace me - with description for column 20 |
- | Error_peri_ps41 | float32 | replace me - with content | replace me - with description for column 21 |
- | apo_ps41 | float32 | replace me - with content | replace me - with description for column 22 |
- | Error_apo_ps41 | float32 | replace me - with content | replace me - with description for column 23 |
- | Zmax_ps41 | float32 | replace me - with content | replace me - with description for column 24 |
- | Error_Zmax_ps41 | float32 | replace me - with content | replace me - with description for column 25 |
- | e_ps41 | float32 | replace me - with content | replace me - with description for column 26 |
- | Error_e_ps41 | float32 | replace me - with content | replace me - with description for column 27 |
- | Ej_ps41 | float32 | replace me - with content | replace me - with description for column 28 |
- | Error_Ej_ps41 | float32 | replace me - with content | replace me - with description for column 29 |
- | Emean_ps41 | float32 | replace me - with content | replace me - with description for column 30 |
- | Error_Emean_ps41 | float32 | replace me - with content | replace me - with description for column 31 |
- | Emin_ps41 | float32 | replace me - with content | replace me - with description for column 32 |
- | Error_Emin_ps41 | float32 | replace me - with content | replace me - with description for column 33 |
- | Emax_ps41 | float32 | replace me - with content | replace me - with description for column 34 |
- | Error_Emax_ps41 | float32 | replace me - with content | replace me - with description for column 35 |
- | Lxmin_ps41 | float32 | replace me - with content | replace me - with description for column 36 |
- | Error_Lxmin_ps41 | float32 | replace me - with content | replace me - with description for column 37 |
- | Lxmax_ps41 | float32 | replace me - with content | replace me - with description for column 38 |
- | Error_Lxmax_ps41 | float32 | replace me - with content | replace me - with description for column 39 |
- | Lymin_ps41 | float32 | replace me - with content | replace me - with description for column 40 |
- | Error_Lymin_ps41 | float32 | replace me - with content | replace me - with description for column 41 |
- | Lymax_ps41 | float32 | replace me - with content | replace me - with description for column 42 |
- | Error_Lymax_ps41 | float32 | replace me - with content | replace me - with description for column 43 |
- | Lzmin_ps41 | float32 | replace me - with content | replace me - with description for column 44 |
- | Error_Lzmin_ps41 | float32 | replace me - with content | replace me - with description for column 45 |
- | Lzmax_ps41 | float32 | replace me - with content | replace me - with description for column 46 |
- | Error_Lzmax_ps41 | float32 | replace me - with content | replace me - with description for column 47 |
- | Lxmean_ps41 | float32 | replace me - with content | replace me - with description for column 48 |
- | Error_Lxmean_ps41 | float32 | replace me - with content | replace me - with description for column 49 |
- | Lymean_ps41 | float32 | replace me - with content | replace me - with description for column 50 |
- | Error_Lymean_ps41 | float32 | replace me - with content | replace me - with description for column 51 |
- | Lzmean_ps41 | float32 | replace me - with content | replace me - with description for column 52 |
- | Error_Lzmean_ps41 | float32 | replace me - with content | replace me - with description for column 53 |
+ | Ids | int32 |  | SDSS-5 unique identifier |
+ | RUWE | float32 |  | Renormalised Unit Weight Error |
+ | peri_c | float64 | kpc | Perigalactocentric distance computed using the central values of the observables. |
+ | apo_c | float64 | kpc | Apogalactocentric distance computed using the central values of the observables. |
+ | Zmax_c | float64 | kpc | Maximum vertical excursion from the Galactic plane computed using the central values of the observables. |
+ | eccentricity_c | float64 |  | Orbital eccentricity computed using the central values of the observables. |
+ | Ej_c | float64 | x100 km**2/s**2 | Orbital Jacobi constant computed using the central values of the observables. |
+ | Emean_c | float64 | x100 km**2/s**2 | Mean Total orbital energy computed using the central values of the observables. |
+ | Emin_c | float64 | x100 km**2/s**2 | Minimum Total orbital energy computed using the central values of the observables. |
+ | Emax_c | float64 | x100 km**2/s**2 | Maximum Total orbital energy computed using the central values of the observables. |
+ | Lxmin_c | int16 | x10 km/s kpc | Minimum x-component of the angular momentum computed using the central values of the observables. |
+ | Lxmax_c | int16 | x10 km/s kpc | Maximum x-component of the angular momentum computed using the central values of the observables. |
+ | Lymin_c | int16 | x10 km/s kpc | Minimum y-component of the angular momentum computed using the central values of the observables. |
+ | Lymax_c | int16 | x10 km/s kpc | Maximum y-component of the angular momentum computed using the central values of the observables. |
+ | Lzmin_c | int16 | x10 km/s kpc | Minimum z-component of the angular momentum computed using the central values of the observables. |
+ | Lzmax_c | int16 | x10 km/s kpc | Maximum z-component of the angular momentum computed using the central values of the observables. |
+ | Lx_mean_c | int16 | x10 km/s kpc | Mean x-component of the angular momentum computed using the central values of the observables. |
+ | Ly_mean_c | int16 | x10 km/s kpc | Mean y-component of the angular momentum computed using the central values of the observables. |
+ | Lz_mean_c | int16 | x10 km/s kpc | Mean z-component of the angular momentum computed using the central values of the observables. |
+ | peri_ps41 | float32 | kpc | Perigalactocentric distance computed using a Monte Carlo approach. |
+ | Error_peri_ps41 | float32 | kpc | Error - Perigalactocentric distance computed using a Monte Carlo approach. |
+ | apo_ps41 | float32 | kpc | Apogalactocentric distance computed using a Monte Carlo approach. |
+ | Error_apo_ps41 | float32 | kpc | Error - Apogalactocentric distance computed using a Monte Carlo approach. |
+ | Zmax_ps41 | float32 | kpc | Maximum vertical excursion from the Galactic plane computed using a Monte Carlo approach. |
+ | Error_Zmax_ps41 | float32 | kpc | Error - Maximum vertical excursion from the Galactic plane computed using a Monte Carlo approach. |
+ | e_ps41 | float32 |  | Orbital eccentricity computed using a Monte Carlo approach. |
+ | Error_e_ps41 | float32 |  | Error - Orbital eccentricity computed using a Monte Carlo approach. |
+ | Ej_ps41 | float32 | x100 km**2/s**2 | Orbital Jacobi constant computed using a Monte Carlo approach. |
+ | Error_Ej_ps41 | float32 | x100 km**2/s**2 | Error - Orbital Jacobi constant computed using a Monte Carlo approach. |
+ | Emean_ps41 | float32 | x100 km**2/s**2 | Mean Total orbital energy computed using a Monte Carlo approach. |
+ | Error_Emean_ps41 | float32 | x100 km**2/s**2 | Error - Mean Total orbital energy computed using a Monte Carlo approach. |
+ | Emin_ps41 | float32 | x100 km**2/s**2 | Minimum Total orbital energy computed using a Monte Carlo approach. |
+ | Error_Emin_ps41 | float32 | x100 km**2/s**2 | Error - Minimum Total orbital energy computed using a Monte Carlo approach. |
+ | Emax_ps41 | float32 | x100 km**2/s**2 | Maximum Total orbital energy using a Monte Carlo approach. |
+ | Error_Emax_ps41 | float32 | x100 km**2/s**2 | Error - Maximum Total orbital energy using a Monte Carlo approach. |
+ | Lxmin_ps41 | float32 | x10 km/s kpc | Minimum x-component of the angular momentum using a Monte Carlo approach. |
+ | Error_Lxmin_ps41 | float32 | x10 km/s kpc | Error - Minimum x-component of the angular momentum using a Monte Carlo approach. |
+ | Lxmax_ps41 | float32 | x10 km/s kpc | Maximum x-component of the angular momentum using a Monte Carlo approach. |
+ | Error_Lxmax_ps41 | float32 | x10 km/s kpc | Error - Maximum x-component of the angular momentum using a Monte Carlo approach. |
+ | Lymin_ps41 | float32 | x10 km/s kpc | Minimum y-component of the angular momentum using a Monte Carlo approach. |
+ | Error_Lymin_ps41 | float32 | x10 km/s kpc | Error - Minimum y-component of the angular momentum using a Monte Carlo approach. |
+ | Lymax_ps41 | float32 | x10 km/s kpc | Maximum y-component of the angular momentum using a Monte Carlo approach. |
+ | Error_Lymax_ps41 | float32 | x10 km/s kpc | Error - Maximum y-component of the angular momentum using a Monte Carlo approach. |
+ | Lzmin_ps41 | float32 | x10 km/s kpc | Minimum z-component of the angular momentum using a Monte Carlo approach. |
+ | Error_Lzmin_ps41 | float32 | x10 km/s kpc | Error - Minimum z-component of the angular momentum using a Monte Carlo approach. |
+ | Lzmax_ps41 | float32 | x10 km/s kpc | Maximum z-component of the angular momentum using a Monte Carlo approach. |
+ | Error_Lzmax_ps41 | float32 | x10 km/s kpc | Error - Maximum z-component of the angular momentum using a Monte Carlo approach. |
+ | Lxmean_ps41 | float32 | x10 km/s kpc | Mean x-component of the angular momentum computed using a Monte Carlo approach. |
+ | Error_Lxmean_ps41 | float32 | x10 km/s kpc | Error - Mean x-component of the angular momentum computed using a Monte Carlo approach. |
+ | Lymean_ps41 | float32 | x10 km/s kpc | Mean y-component of the angular momentum computed using a Monte Carlo approach. |
+ | Error_Lymean_ps41 | float32 | x10 km/s kpc | Error - Mean y-component of the angular momentum computed using a Monte Carlo approach. |
+ | Lzmean_ps41 | float32 | x10 km/s kpc | Mean z-component of the angular momentum computed using a Monte Carlo approach. |
+ | Error_Lzmean_ps41 | float32 | x10 km/s kpc | Error - Mean z-component of the angular momentum computed using a Monte Carlo approach. |
 
 
 
