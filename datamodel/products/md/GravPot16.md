@@ -34,7 +34,7 @@ FITS
 https://gravpot.utinam.cnrs.fr
 
 ### Is a VAC
-False
+True
 
 ### Data Level
 3.3.0
