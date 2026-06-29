@@ -6,3 +6,15 @@ datamodel_generate -f manga_alfalfa -p MANGA_HI/{ver}/manga_alfalfa-{release}.fi
 
 export MANGA_MANDALA=/data/sdss/dr17/manga/mandala
 datamodel_generate -f mandala -p MANGA_MANDALA/{mandala_ver}/mandala_{mandala_ver}.fits -k mandala_ver=v1_1 -k release=dr15 -r DR17 -s
+
+export MANGA_FIREFLY=/data/sdss/dr17/manga/spectro/firefly
+typeset -A releases
+releases=(
+    dr14 v1_0_3
+    dr15 v2_4_3
+    dr16 v2_4_3
+    dr17 v3_1_1
+)
+for release drpver in "${(@kv)releases}"; do
+    print "release: $release, drpver: $drpver"
+done
