@@ -1,0 +1,458 @@
+general:
+  name: GravPot16
+  short: Main orbital elements of DR20 stars using GravPot16.
+  description: "The VAC contains the median statistics of 50 ensemble of orbits for\
+    \ each star, integrated over a 3 Gyr timespan. Orbits were computed in a model\
+    \ configuration with bar patterns speed of 41 km/s/kpc (Sanders et al. 2019, MNRAS,\
+    \ 488, 4552-4564). To the Galactic orbits, we adopt a solar position of R_sun\
+    \ = 8.178 kpc (Gravity Collaboration et al. 2019, A&A, 625, L10), Z_sun = 25 pc\
+    \ (Juri\u01072008, ApJ, 673, 864), and solar motion of [U_sun, V_LSR + V_sun,\
+    \ W_sun] = [11.10, 248.5, 7.25] km/s, in line with (Brunthaler et al. 2011, AN,\
+    \ 332, 461) and (Reid & Brunthaler 2020, ApJ, 892, 39). We assumed a bar angle\
+    \ of 20 degrees, and a bar mass of 11 billions Solar mass, in line with Fern\xE1\
+    ndez Trincado (2017, PhD.-Thesis) and Fern\xE1ndez-Trincado et al. 2020, MNRAS,\
+    \ 495, 4113-4123."
+  datatype: FITS
+  filesize: 326 MB
+  releases:
+  - DR20
+  environments:
+  - MWM_ORBITS
+  surveys:
+  - SDSS
+  naming_convention: $MWM_ORBITS/GravPot16-[V_VAC].fits where V_VAC=1.0.0 for DR20
+  generated_by: https://gravpot.utinam.cnrs.fr
+  data_level: 3.3.0
+  design: false
+  vac: false
+  recommended_science_product: true
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR20:
+    template: $MWM_ORBITS/GravPot16-[V_VAC].fits
+    example: GravPot16-1.0.0.fits
+    location: GravPot16-{v_vac}.fits
+    environment: MWM_ORBITS
+    access:
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
+      access_string: GravPot16 = $MWM_ORBITS/GravPot16-{v_vac}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: Metadata
+        is_image: true
+        size: 3 KB
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Standard FITS format
+        - key: BITPIX
+          value: 8
+          comment: Character data
+        - key: NAXIS
+          value: 1
+          comment: Text string
+        - key: NAXIS1
+          value: 3853
+          comment: Number of characters
+        - key: VOTMETA
+          value: true
+          comment: Table metadata in VOTable format
+        - key: EXTEND
+          value: true
+          comment: There are standard extensions
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: The data in this primary HDU consists of bytes which
+          comment: ''
+        - key: COMMENT
+          value: comprise a VOTABLE document.
+          comment: ''
+        - key: COMMENT
+          value: The VOTable describes the metadata of the table contained
+          comment: ''
+        - key: COMMENT
+          value: in the following BINTABLE extension.
+          comment: ''
+        - key: COMMENT
+          value: Such a BINTABLE extension can be used on its own as a perfectly
+          comment: ''
+        - key: COMMENT
+          value: good table, but the information from this HDU may provide some
+          comment: ''
+        - key: COMMENT
+          value: useful additional metadata.
+          comment: ''
+        - key: COMMENT
+          value: There is one following BINTABLE.
+          comment: ''
+        - key: NTABLE
+          value: 1
+          comment: Number of following BINTABLE HDUs
+      hdu1:
+        name: Joined
+        description: GravPot16 Orbits
+        is_image: false
+        size: 326 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: 8-bit bytes
+        - key: NAXIS
+          value: 2
+          comment: 2-dimensional table
+        - key: NAXIS1
+          value: 226
+          comment: width of table in bytes
+        - key: NAXIS2
+          value: 1515648
+          comment: number of rows in table
+        - key: PCOUNT
+          value: 0
+          comment: size of special data area
+        - key: GCOUNT
+          value: 1
+          comment: one data group
+        - key: TFIELDS
+          value: 53
+          comment: number of columns
+        - key: EXTNAME
+          value: Joined
+          comment: table name
+        - key: DATE-HDU
+          value: '2026-06-26T03:24:05'
+          comment: Date of HDU creation (UTC)
+        - key: STILVERS
+          value: 3.1-2
+          comment: Version of STIL software
+        - key: STILCLAS
+          value: uk.ac.starlink.votable.FitsPlusTableWriter
+          comment: Author class in STIL so
+        columns:
+          Ids:
+            name: Ids
+            type: int32
+            unit: ''
+            description: SDSS-5 unique identifier
+          RUWE:
+            name: RUWE
+            type: float32
+            unit: ''
+            description: Renormalised Unit Weight Error
+          peri_c:
+            name: peri_c
+            type: float64
+            unit: kpc
+            description: Perigalactocentric distance computed using the central values
+              of the observables.
+          apo_c:
+            name: apo_c
+            type: float64
+            unit: kpc
+            description: Apogalactocentric distance computed using the central values
+              of the observables.
+          Zmax_c:
+            name: Zmax_c
+            type: float64
+            unit: kpc
+            description: Maximum vertical excursion from the Galactic plane computed
+              using the central values of the observables.
+          eccentricity_c:
+            name: eccentricity_c
+            type: float64
+            unit: ''
+            description: Orbital eccentricity computed using the central values of
+              the observables.
+          Ej_c:
+            name: Ej_c
+            type: float64
+            unit: x100 km**2/s**2
+            description: Orbital Jacobi constant computed using the central values
+              of the observables.
+          Emean_c:
+            name: Emean_c
+            type: float64
+            unit: x100 km**2/s**2
+            description: Mean Total orbital energy computed using the central values
+              of the observables.
+          Emin_c:
+            name: Emin_c
+            type: float64
+            unit: x100 km**2/s**2
+            description: Minimum Total orbital energy computed using the central values
+              of the observables.
+          Emax_c:
+            name: Emax_c
+            type: float64
+            unit: x100 km**2/s**2
+            description: Maximum Total orbital energy computed using the central values
+              of the observables.
+          Lxmin_c:
+            name: Lxmin_c
+            type: int16
+            unit: x10 km/s kpc
+            description: Minimum x-component of the angular momentum computed using
+              the central values of the observables.
+          Lxmax_c:
+            name: Lxmax_c
+            type: int16
+            unit: x10 km/s kpc
+            description: Maximum x-component of the angular momentum computed using
+              the central values of the observables.
+          Lymin_c:
+            name: Lymin_c
+            type: int16
+            unit: x10 km/s kpc
+            description: Minimum y-component of the angular momentum computed using
+              the central values of the observables.
+          Lymax_c:
+            name: Lymax_c
+            type: int16
+            unit: x10 km/s kpc
+            description: Maximum y-component of the angular momentum computed using
+              the central values of the observables.
+          Lzmin_c:
+            name: Lzmin_c
+            type: int16
+            unit: x10 km/s kpc
+            description: Minimum z-component of the angular momentum computed using
+              the central values of the observables.
+          Lzmax_c:
+            name: Lzmax_c
+            type: int16
+            unit: x10 km/s kpc
+            description: Maximum z-component of the angular momentum computed using
+              the central values of the observables.
+          Lx_mean_c:
+            name: Lx_mean_c
+            type: int16
+            unit: x10 km/s kpc
+            description: Mean x-component of the angular momentum computed using the
+              central values of the observables.
+          Ly_mean_c:
+            name: Ly_mean_c
+            type: int16
+            unit: x10 km/s kpc
+            description: Mean y-component of the angular momentum computed using the
+              central values of the observables.
+          Lz_mean_c:
+            name: Lz_mean_c
+            type: int16
+            unit: x10 km/s kpc
+            description: Mean z-component of the angular momentum computed using the
+              central values of the observables.
+          peri_ps41:
+            name: peri_ps41
+            type: float32
+            unit: kpc
+            description: Perigalactocentric distance computed using a Monte Carlo
+              approach.
+          Error_peri_ps41:
+            name: Error_peri_ps41
+            type: float32
+            unit: kpc
+            description: Error - Perigalactocentric distance computed using a Monte
+              Carlo approach.
+          apo_ps41:
+            name: apo_ps41
+            type: float32
+            unit: kpc
+            description: Apogalactocentric distance computed using a Monte Carlo approach.
+          Error_apo_ps41:
+            name: Error_apo_ps41
+            type: float32
+            unit: kpc
+            description: Error - Apogalactocentric distance computed using a Monte
+              Carlo approach.
+          Zmax_ps41:
+            name: Zmax_ps41
+            type: float32
+            unit: kpc
+            description: Maximum vertical excursion from the Galactic plane computed
+              using a Monte Carlo approach.
+          Error_Zmax_ps41:
+            name: Error_Zmax_ps41
+            type: float32
+            unit: kpc
+            description: Error - Maximum vertical excursion from the Galactic plane
+              computed using a Monte Carlo approach.
+          e_ps41:
+            name: e_ps41
+            type: float32
+            unit: ''
+            description: Orbital eccentricity computed using a Monte Carlo approach.
+          Error_e_ps41:
+            name: Error_e_ps41
+            type: float32
+            unit: ''
+            description: Error - Orbital eccentricity computed using a Monte Carlo
+              approach.
+          Ej_ps41:
+            name: Ej_ps41
+            type: float32
+            unit: x100 km**2/s**2
+            description: Orbital Jacobi constant computed using a Monte Carlo approach.
+          Error_Ej_ps41:
+            name: Error_Ej_ps41
+            type: float32
+            unit: x100 km**2/s**2
+            description: Error - Orbital Jacobi constant computed using a Monte Carlo
+              approach.
+          Emean_ps41:
+            name: Emean_ps41
+            type: float32
+            unit: x100 km**2/s**2
+            description: Mean Total orbital energy computed using a Monte Carlo approach.
+          Error_Emean_ps41:
+            name: Error_Emean_ps41
+            type: float32
+            unit: x100 km**2/s**2
+            description: Error - Mean Total orbital energy computed using a Monte
+              Carlo approach.
+          Emin_ps41:
+            name: Emin_ps41
+            type: float32
+            unit: x100 km**2/s**2
+            description: Minimum Total orbital energy computed using a Monte Carlo
+              approach.
+          Error_Emin_ps41:
+            name: Error_Emin_ps41
+            type: float32
+            unit: x100 km**2/s**2
+            description: Error - Minimum Total orbital energy computed using a Monte
+              Carlo approach.
+          Emax_ps41:
+            name: Emax_ps41
+            type: float32
+            unit: x100 km**2/s**2
+            description: Maximum Total orbital energy using a Monte Carlo approach.
+          Error_Emax_ps41:
+            name: Error_Emax_ps41
+            type: float32
+            unit: x100 km**2/s**2
+            description: Error - Maximum Total orbital energy using a Monte Carlo
+              approach.
+          Lxmin_ps41:
+            name: Lxmin_ps41
+            type: float32
+            unit: x10 km/s kpc
+            description: Minimum x-component of the angular momentum using a Monte
+              Carlo approach.
+          Error_Lxmin_ps41:
+            name: Error_Lxmin_ps41
+            type: float32
+            unit: x10 km/s kpc
+            description: Error - Minimum x-component of the angular momentum using
+              a Monte Carlo approach.
+          Lxmax_ps41:
+            name: Lxmax_ps41
+            type: float32
+            unit: x10 km/s kpc
+            description: Maximum x-component of the angular momentum using a Monte
+              Carlo approach.
+          Error_Lxmax_ps41:
+            name: Error_Lxmax_ps41
+            type: float32
+            unit: x10 km/s kpc
+            description: Error - Maximum x-component of the angular momentum using
+              a Monte Carlo approach.
+          Lymin_ps41:
+            name: Lymin_ps41
+            type: float32
+            unit: x10 km/s kpc
+            description: Minimum y-component of the angular momentum using a Monte
+              Carlo approach.
+          Error_Lymin_ps41:
+            name: Error_Lymin_ps41
+            type: float32
+            unit: x10 km/s kpc
+            description: Error - Minimum y-component of the angular momentum using
+              a Monte Carlo approach.
+          Lymax_ps41:
+            name: Lymax_ps41
+            type: float32
+            unit: x10 km/s kpc
+            description: Maximum y-component of the angular momentum using a Monte
+              Carlo approach.
+          Error_Lymax_ps41:
+            name: Error_Lymax_ps41
+            type: float32
+            unit: x10 km/s kpc
+            description: Error - Maximum y-component of the angular momentum using
+              a Monte Carlo approach.
+          Lzmin_ps41:
+            name: Lzmin_ps41
+            type: float32
+            unit: x10 km/s kpc
+            description: Minimum z-component of the angular momentum using a Monte
+              Carlo approach.
+          Error_Lzmin_ps41:
+            name: Error_Lzmin_ps41
+            type: float32
+            unit: x10 km/s kpc
+            description: Error - Minimum z-component of the angular momentum using
+              a Monte Carlo approach.
+          Lzmax_ps41:
+            name: Lzmax_ps41
+            type: float32
+            unit: x10 km/s kpc
+            description: Maximum z-component of the angular momentum using a Monte
+              Carlo approach.
+          Error_Lzmax_ps41:
+            name: Error_Lzmax_ps41
+            type: float32
+            unit: x10 km/s kpc
+            description: Error - Maximum z-component of the angular momentum using
+              a Monte Carlo approach.
+          Lxmean_ps41:
+            name: Lxmean_ps41
+            type: float32
+            unit: x10 km/s kpc
+            description: Mean x-component of the angular momentum computed using a
+              Monte Carlo approach.
+          Error_Lxmean_ps41:
+            name: Error_Lxmean_ps41
+            type: float32
+            unit: x10 km/s kpc
+            description: Error - Mean x-component of the angular momentum computed
+              using a Monte Carlo approach.
+          Lymean_ps41:
+            name: Lymean_ps41
+            type: float32
+            unit: x10 km/s kpc
+            description: Mean y-component of the angular momentum computed using a
+              Monte Carlo approach.
+          Error_Lymean_ps41:
+            name: Error_Lymean_ps41
+            type: float32
+            unit: x10 km/s kpc
+            description: Error - Mean y-component of the angular momentum computed
+              using a Monte Carlo approach.
+          Lzmean_ps41:
+            name: Lzmean_ps41
+            type: float32
+            unit: x10 km/s kpc
+            description: Mean z-component of the angular momentum computed using a
+              Monte Carlo approach.
+          Error_Lzmean_ps41:
+            name: Error_Lzmean_ps41
+            type: float32
+            unit: x10 km/s kpc
+            description: Error - Mean z-component of the angular momentum computed
+              using a Monte Carlo approach.
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!
