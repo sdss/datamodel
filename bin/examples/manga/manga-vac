@@ -43,4 +43,12 @@ for release drpver in "${(@kv)releases}"; do
 done
 export MANGA_MANDALA=/data/sdss/dr17/manga/mandala
 
+export MANGA_MORPHOLOGY=/data/sdss/dr15/manga/morphology
+datamodel_generate -f mangagalaxyzoo -p MANGA_MORPHOLOGY/galaxyzoo/MaNGA_gz-{ver}.fits -k ver=v1_0_1 -r DR15 -s
+export MANGA_MORPHOLOGY=/data/sdss/dr17/manga/morphology
+datamodel_generate -f mangagalaxyzoo -p MANGA_MORPHOLOGY/galaxyzoo/MaNGA_gz-{ver}.fits -k ver=v2_0_1 -r DR17 -s
+
+export MANGA_MORPHOLOGY=/data/sdss/dr16/manga/morphology
+datamodel_generate -f PawlikMorph -p MANGA_MORPHOLOGY/sedmorph/PawlikMorph_{release}.fits -k release=DR15 -r DR16 -s
+
 

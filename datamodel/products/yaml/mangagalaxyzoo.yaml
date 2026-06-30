@@ -1,0 +1,2283 @@
+general:
+  name: mangagalaxyzoo
+  short: This table contains the Galaxy Zoo classifications for all MaNGA target galaxies.
+  description: This table contains the Galaxy Zoo classifications for all MaNGA target
+    galaxies.
+  datatype: FITS
+  filesize: 43 MB
+  releases:
+  - DR15
+  - DR17
+  environments:
+  - MANGA_MORPHOLOGY
+  surveys:
+  - MaNGA
+  naming_convention: $MANGA_MORPHOLOGY/galaxyzoo/MaNGA_gz-[VER].fits where VER=v1_0_1
+    in DR15 and VER=v2_0_1 in DR17.
+  generated_by: sas
+  data_level: 3.3.0
+  design: false
+  vac: true
+  recommended_science_product: true
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases:
+    DR17:
+      from: DR15
+      added_hdus:
+      - /Users/Karen/Desktop/GalaxyZoo DR17 VAC/MaNGA_GZ2.csv
+      primary_delta_nkeys: 1
+      added_primary_header_kwargs:
+      - COMMENT
+releases:
+  DR15:
+    template: $MANGA_MORPHOLOGY/galaxyzoo/MaNGA_gz-[VER].fits
+    example: galaxyzoo/MaNGA_gz-v1_0_1.fits
+    location: galaxyzoo/MaNGA_gz-{ver}.fits
+    environment: MANGA_MORPHOLOGY
+    access:
+      in_sdss_access: true
+      path_name: mangagalaxyzoo
+      path_template: $MANGA_MORPHOLOGY/galaxyzoo/MaNGA_gz-{ver}.fits
+      path_kwargs:
+      - ver
+      access_string: mangagalaxyzoo = $MANGA_MORPHOLOGY/galaxyzoo/MaNGA_gz-{ver}.fits
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: "TheGalaxy Zoo(GZ) data for SDSS galaxies has been split over\
+          \ several iterations of the website, with the MaNGA\n  target galaxies being\
+          \ spread over 5 different GZ data sets. In this VAC we bring all of these\
+          \ galaxies into one\n  single catalog with the debiasing code run in a consistent\
+          \ manner across the all the galaxies. This\n  catalog includes previously\
+          \ published data from Galaxy Zoo 2 (Willett 2013)\n  and newer data from\
+          \ Galaxy Zoo 4 and 5 (previously unpublished)."
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
+      hdu1:
+        name: ''
+        description: "TheGalaxy Zoo(GZ) data for SDSS galaxies has been split over\
+          \ several iterations of the website, with the MaNGA\n  target galaxies being\
+          \ spread over 5 different GZ data sets. In this VAC we bring all of these\
+          \ galaxies into one\n  single catalog with the debiasing code run in a consistent\
+          \ manner across the all the galaxies. This\n  catalog includes previously\
+          \ published data from Galaxy Zoo 2 (Willett 2013)\n  and newer data from\
+          \ Galaxy Zoo 4 and 5 (previously unpublished)."
+        is_image: false
+        size: 43 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 1520
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 29811
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 180
+          comment: number of table fields
+        - key: TNULL1
+          value: 999999
+          comment: ''
+        columns:
+          nsa_id:
+            name: nsa_id
+            type: int64
+            unit: ''
+            description: NASA Slaon Atlas ID
+          IAUNAME:
+            name: IAUNAME
+            type: char[19]
+            unit: ''
+            description: IAU name
+          IFUDESIGNSIZE:
+            name: IFUDESIGNSIZE
+            type: float64
+            unit: ''
+            description: Design size for the IFU
+          IFU_DEC:
+            name: IFU_DEC
+            type: float64
+            unit: degrees
+            description: DEC of the IFU
+          IFU_RA:
+            name: IFU_RA
+            type: float64
+            unit: degrees
+            description: RA of the IFU
+          MANGAID:
+            name: MANGAID
+            type: char[8]
+            unit: ''
+            description: MaNGA ID
+          MANGA_TILEID:
+            name: MANGA_TILEID
+            type: float64
+            unit: ''
+            description: MaNGA tile ID
+          OBJECT_DEC:
+            name: OBJECT_DEC
+            type: float64
+            unit: degrees
+            description: DEC of the galaxy
+          OBJECT_RA:
+            name: OBJECT_RA
+            type: float64
+            unit: degrees
+            description: RA of the galaxy
+          survey:
+            name: survey
+            type: char[77]
+            unit: ''
+            description: The Galaxy Zoo data set(s) the galaxy was part of (comma
+              seperated)
+          t01_smooth_or_features_a01_smooth_count:
+            name: t01_smooth_or_features_a01_smooth_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t01_smooth_or_features_a01_smooth_count_fraction:
+            name: t01_smooth_or_features_a01_smooth_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t01_smooth_or_features_a01_smooth_debiased:
+            name: t01_smooth_or_features_a01_smooth_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t01_smooth_or_features_a01_smooth_weight:
+            name: t01_smooth_or_features_a01_smooth_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t01_smooth_or_features_a01_smooth_weight_fraction:
+            name: t01_smooth_or_features_a01_smooth_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t01_smooth_or_features_a02_features_or_disk_count:
+            name: t01_smooth_or_features_a02_features_or_disk_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t01_smooth_or_features_a02_features_or_disk_count_fraction:
+            name: t01_smooth_or_features_a02_features_or_disk_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t01_smooth_or_features_a02_features_or_disk_debiased:
+            name: t01_smooth_or_features_a02_features_or_disk_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t01_smooth_or_features_a02_features_or_disk_weight:
+            name: t01_smooth_or_features_a02_features_or_disk_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t01_smooth_or_features_a02_features_or_disk_weight_fraction:
+            name: t01_smooth_or_features_a02_features_or_disk_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t01_smooth_or_features_a03_star_or_artifact_count:
+            name: t01_smooth_or_features_a03_star_or_artifact_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count for
+          t01_smooth_or_features_a03_star_or_artifact_count_fraction:
+            name: t01_smooth_or_features_a03_star_or_artifact_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t01_smooth_or_features_a03_star_or_artifact_debiased:
+            name: t01_smooth_or_features_a03_star_or_artifact_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t01_smooth_or_features_a03_star_or_artifact_weight:
+            name: t01_smooth_or_features_a03_star_or_artifact_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t01_smooth_or_features_a03_star_or_artifact_weight_fraction:
+            name: t01_smooth_or_features_a03_star_or_artifact_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t01_smooth_or_features_count:
+            name: t01_smooth_or_features_count
+            type: float64
+            unit: ''
+            description: The raw number of GZ votes for task 1
+          t01_smooth_or_features_weight:
+            name: t01_smooth_or_features_weight
+            type: float64
+            unit: ''
+            description: The user weighted number of GZ votes for task 1
+          t02_edgeon_a04_yes_count:
+            name: t02_edgeon_a04_yes_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t02_edgeon_a04_yes_count_fraction:
+            name: t02_edgeon_a04_yes_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t02_edgeon_a04_yes_debiased:
+            name: t02_edgeon_a04_yes_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t02_edgeon_a04_yes_weight:
+            name: t02_edgeon_a04_yes_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t02_edgeon_a04_yes_weight_fraction:
+            name: t02_edgeon_a04_yes_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t02_edgeon_a05_no_count:
+            name: t02_edgeon_a05_no_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t02_edgeon_a05_no_count_fraction:
+            name: t02_edgeon_a05_no_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t02_edgeon_a05_no_debiased:
+            name: t02_edgeon_a05_no_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t02_edgeon_a05_no_weight:
+            name: t02_edgeon_a05_no_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t02_edgeon_a05_no_weight_fraction:
+            name: t02_edgeon_a05_no_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t02_edgeon_count:
+            name: t02_edgeon_count
+            type: float64
+            unit: ''
+            description: The raw number of GZ votes for task 2
+          t02_edgeon_weight:
+            name: t02_edgeon_weight
+            type: float64
+            unit: ''
+            description: The user weighted number of GZ votes for task 2
+          t03_bar_a06_bar_count:
+            name: t03_bar_a06_bar_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t03_bar_a06_bar_count_fraction:
+            name: t03_bar_a06_bar_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t03_bar_a06_bar_debiased:
+            name: t03_bar_a06_bar_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t03_bar_a06_bar_weight:
+            name: t03_bar_a06_bar_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t03_bar_a06_bar_weight_fraction:
+            name: t03_bar_a06_bar_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t03_bar_a07_no_bar_count:
+            name: t03_bar_a07_no_bar_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t03_bar_a07_no_bar_count_fraction:
+            name: t03_bar_a07_no_bar_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t03_bar_a07_no_bar_debiased:
+            name: t03_bar_a07_no_bar_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t03_bar_a07_no_bar_weight:
+            name: t03_bar_a07_no_bar_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t03_bar_a07_no_bar_weight_fraction:
+            name: t03_bar_a07_no_bar_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t03_bar_count:
+            name: t03_bar_count
+            type: float64
+            unit: ''
+            description: The raw number of GZ votes for task 3
+          t03_bar_weight:
+            name: t03_bar_weight
+            type: float64
+            unit: ''
+            description: The user weighted number of GZ votes for task 3
+          t04_spiral_a08_spiral_count:
+            name: t04_spiral_a08_spiral_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t04_spiral_a08_spiral_count_fraction:
+            name: t04_spiral_a08_spiral_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t04_spiral_a08_spiral_debiased:
+            name: t04_spiral_a08_spiral_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t04_spiral_a08_spiral_weight:
+            name: t04_spiral_a08_spiral_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t04_spiral_a08_spiral_weight_fraction:
+            name: t04_spiral_a08_spiral_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t04_spiral_a09_no_spiral_count:
+            name: t04_spiral_a09_no_spiral_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t04_spiral_a09_no_spiral_count_fraction:
+            name: t04_spiral_a09_no_spiral_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t04_spiral_a09_no_spiral_debiased:
+            name: t04_spiral_a09_no_spiral_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t04_spiral_a09_no_spiral_weight:
+            name: t04_spiral_a09_no_spiral_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t04_spiral_a09_no_spiral_weight_fraction:
+            name: t04_spiral_a09_no_spiral_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t04_spiral_count:
+            name: t04_spiral_count
+            type: float64
+            unit: ''
+            description: The raw number of GZ votes for task 4
+          t04_spiral_weight:
+            name: t04_spiral_weight
+            type: float64
+            unit: ''
+            description: The user weighted number of GZ votes for task 4
+          t05_bulge_prominence_a10_no_bulge_count:
+            name: t05_bulge_prominence_a10_no_bulge_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t05_bulge_prominence_a10_no_bulge_count_fraction:
+            name: t05_bulge_prominence_a10_no_bulge_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t05_bulge_prominence_a10_no_bulge_debiased:
+            name: t05_bulge_prominence_a10_no_bulge_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t05_bulge_prominence_a10_no_bulge_weight:
+            name: t05_bulge_prominence_a10_no_bulge_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t05_bulge_prominence_a10_no_bulge_weight_fraction:
+            name: t05_bulge_prominence_a10_no_bulge_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t05_bulge_prominence_a11_just_noticeable_count:
+            name: t05_bulge_prominence_a11_just_noticeable_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t05_bulge_prominence_a11_just_noticeable_count_fraction:
+            name: t05_bulge_prominence_a11_just_noticeable_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t05_bulge_prominence_a11_just_noticeable_debiased:
+            name: t05_bulge_prominence_a11_just_noticeable_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t05_bulge_prominence_a11_just_noticeable_weight:
+            name: t05_bulge_prominence_a11_just_noticeable_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t05_bulge_prominence_a11_just_noticeable_weight_fraction:
+            name: t05_bulge_prominence_a11_just_noticeable_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t05_bulge_prominence_a12_obvious_count:
+            name: t05_bulge_prominence_a12_obvious_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t05_bulge_prominence_a12_obvious_count_fraction:
+            name: t05_bulge_prominence_a12_obvious_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t05_bulge_prominence_a12_obvious_debiased:
+            name: t05_bulge_prominence_a12_obvious_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t05_bulge_prominence_a12_obvious_weight:
+            name: t05_bulge_prominence_a12_obvious_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t05_bulge_prominence_a12_obvious_weight_fraction:
+            name: t05_bulge_prominence_a12_obvious_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t05_bulge_prominence_a13_dominant_count:
+            name: t05_bulge_prominence_a13_dominant_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t05_bulge_prominence_a13_dominant_count_fraction:
+            name: t05_bulge_prominence_a13_dominant_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t05_bulge_prominence_a13_dominant_debiased:
+            name: t05_bulge_prominence_a13_dominant_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t05_bulge_prominence_a13_dominant_weight:
+            name: t05_bulge_prominence_a13_dominant_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t05_bulge_prominence_a13_dominant_weight_fraction:
+            name: t05_bulge_prominence_a13_dominant_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t05_bulge_prominence_count:
+            name: t05_bulge_prominence_count
+            type: float64
+            unit: ''
+            description: The raw number of GZ votes for task 5
+          t05_bulge_prominence_weight:
+            name: t05_bulge_prominence_weight
+            type: float64
+            unit: ''
+            description: The user weighted number of GZ votes for task 5
+          t06_odd_a14_yes_count:
+            name: t06_odd_a14_yes_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t06_odd_a14_yes_count_fraction:
+            name: t06_odd_a14_yes_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t06_odd_a14_yes_debiased:
+            name: t06_odd_a14_yes_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t06_odd_a14_yes_weight:
+            name: t06_odd_a14_yes_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t06_odd_a14_yes_weight_fraction:
+            name: t06_odd_a14_yes_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t06_odd_a15_no_count:
+            name: t06_odd_a15_no_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t06_odd_a15_no_count_fraction:
+            name: t06_odd_a15_no_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t06_odd_a15_no_debiased:
+            name: t06_odd_a15_no_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t06_odd_a15_no_weight:
+            name: t06_odd_a15_no_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t06_odd_a15_no_weight_fraction:
+            name: t06_odd_a15_no_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t06_odd_count:
+            name: t06_odd_count
+            type: float64
+            unit: ''
+            description: The raw number of GZ votes for task 6
+          t06_odd_weight:
+            name: t06_odd_weight
+            type: float64
+            unit: ''
+            description: The user weighted number of GZ votes for task 6
+          t07_rounded_a16_completely_round_count:
+            name: t07_rounded_a16_completely_round_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t07_rounded_a16_completely_round_count_fraction:
+            name: t07_rounded_a16_completely_round_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t07_rounded_a16_completely_round_debiased:
+            name: t07_rounded_a16_completely_round_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t07_rounded_a16_completely_round_weight:
+            name: t07_rounded_a16_completely_round_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t07_rounded_a16_completely_round_weight_fraction:
+            name: t07_rounded_a16_completely_round_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t07_rounded_a17_in_between_count:
+            name: t07_rounded_a17_in_between_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t07_rounded_a17_in_between_count_fraction:
+            name: t07_rounded_a17_in_between_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t07_rounded_a17_in_between_debiased:
+            name: t07_rounded_a17_in_between_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t07_rounded_a17_in_between_weight:
+            name: t07_rounded_a17_in_between_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t07_rounded_a17_in_between_weight_fraction:
+            name: t07_rounded_a17_in_between_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t07_rounded_a18_cigar_shaped_count:
+            name: t07_rounded_a18_cigar_shaped_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t07_rounded_a18_cigar_shaped_count_fraction:
+            name: t07_rounded_a18_cigar_shaped_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t07_rounded_a18_cigar_shaped_debiased:
+            name: t07_rounded_a18_cigar_shaped_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t07_rounded_a18_cigar_shaped_weight:
+            name: t07_rounded_a18_cigar_shaped_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t07_rounded_a18_cigar_shaped_weight_fraction:
+            name: t07_rounded_a18_cigar_shaped_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t07_rounded_count:
+            name: t07_rounded_count
+            type: float64
+            unit: ''
+            description: The raw number of GZ votes for task 7
+          t07_rounded_weight:
+            name: t07_rounded_weight
+            type: float64
+            unit: ''
+            description: The user weighted number of GZ votes for task 7
+          t09_bulge_shape_a25_rounded_count:
+            name: t09_bulge_shape_a25_rounded_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t09_bulge_shape_a25_rounded_count_fraction:
+            name: t09_bulge_shape_a25_rounded_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t09_bulge_shape_a25_rounded_debiased:
+            name: t09_bulge_shape_a25_rounded_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t09_bulge_shape_a25_rounded_weight:
+            name: t09_bulge_shape_a25_rounded_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t09_bulge_shape_a25_rounded_weight_fraction:
+            name: t09_bulge_shape_a25_rounded_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t09_bulge_shape_a26_boxy_count:
+            name: t09_bulge_shape_a26_boxy_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t09_bulge_shape_a26_boxy_count_fraction:
+            name: t09_bulge_shape_a26_boxy_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t09_bulge_shape_a26_boxy_debiased:
+            name: t09_bulge_shape_a26_boxy_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t09_bulge_shape_a26_boxy_weight:
+            name: t09_bulge_shape_a26_boxy_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t09_bulge_shape_a26_boxy_weight_fraction:
+            name: t09_bulge_shape_a26_boxy_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t09_bulge_shape_a27_no_bulge_count:
+            name: t09_bulge_shape_a27_no_bulge_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t09_bulge_shape_a27_no_bulge_count_fraction:
+            name: t09_bulge_shape_a27_no_bulge_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t09_bulge_shape_a27_no_bulge_debiased:
+            name: t09_bulge_shape_a27_no_bulge_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t09_bulge_shape_a27_no_bulge_weight:
+            name: t09_bulge_shape_a27_no_bulge_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t09_bulge_shape_a27_no_bulge_weight_fraction:
+            name: t09_bulge_shape_a27_no_bulge_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t09_bulge_shape_count:
+            name: t09_bulge_shape_count
+            type: float64
+            unit: ''
+            description: The raw number of GZ votes for task 9
+          t09_bulge_shape_weight:
+            name: t09_bulge_shape_weight
+            type: float64
+            unit: ''
+            description: The user weighted number of GZ votes for task 9
+          t10_arms_winding_a28_tight_count:
+            name: t10_arms_winding_a28_tight_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t10_arms_winding_a28_tight_count_fraction:
+            name: t10_arms_winding_a28_tight_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t10_arms_winding_a28_tight_debiased:
+            name: t10_arms_winding_a28_tight_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t10_arms_winding_a28_tight_weight:
+            name: t10_arms_winding_a28_tight_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t10_arms_winding_a28_tight_weight_fraction:
+            name: t10_arms_winding_a28_tight_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t10_arms_winding_a29_medium_count:
+            name: t10_arms_winding_a29_medium_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t10_arms_winding_a29_medium_count_fraction:
+            name: t10_arms_winding_a29_medium_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t10_arms_winding_a29_medium_debiased:
+            name: t10_arms_winding_a29_medium_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t10_arms_winding_a29_medium_weight:
+            name: t10_arms_winding_a29_medium_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t10_arms_winding_a29_medium_weight_fraction:
+            name: t10_arms_winding_a29_medium_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t10_arms_winding_a30_loose_count:
+            name: t10_arms_winding_a30_loose_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t10_arms_winding_a30_loose_count_fraction:
+            name: t10_arms_winding_a30_loose_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t10_arms_winding_a30_loose_debiased:
+            name: t10_arms_winding_a30_loose_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t10_arms_winding_a30_loose_weight:
+            name: t10_arms_winding_a30_loose_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t10_arms_winding_a30_loose_weight_fraction:
+            name: t10_arms_winding_a30_loose_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t10_arms_winding_count:
+            name: t10_arms_winding_count
+            type: float64
+            unit: ''
+            description: The raw number of GZ votes for task 10
+          t10_arms_winding_weight:
+            name: t10_arms_winding_weight
+            type: float64
+            unit: ''
+            description: The user weighted number of GZ votes for task 10
+          t11_arms_number_a31_1_count:
+            name: t11_arms_number_a31_1_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t11_arms_number_a31_1_count_fraction:
+            name: t11_arms_number_a31_1_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t11_arms_number_a31_1_debiased:
+            name: t11_arms_number_a31_1_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t11_arms_number_a31_1_weight:
+            name: t11_arms_number_a31_1_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t11_arms_number_a31_1_weight_fraction:
+            name: t11_arms_number_a31_1_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t11_arms_number_a32_2_count:
+            name: t11_arms_number_a32_2_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t11_arms_number_a32_2_count_fraction:
+            name: t11_arms_number_a32_2_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t11_arms_number_a32_2_debiased:
+            name: t11_arms_number_a32_2_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t11_arms_number_a32_2_weight:
+            name: t11_arms_number_a32_2_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t11_arms_number_a32_2_weight_fraction:
+            name: t11_arms_number_a32_2_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t11_arms_number_a33_3_count:
+            name: t11_arms_number_a33_3_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t11_arms_number_a33_3_count_fraction:
+            name: t11_arms_number_a33_3_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t11_arms_number_a33_3_debiased:
+            name: t11_arms_number_a33_3_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t11_arms_number_a33_3_weight:
+            name: t11_arms_number_a33_3_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t11_arms_number_a33_3_weight_fraction:
+            name: t11_arms_number_a33_3_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t11_arms_number_a34_4_count:
+            name: t11_arms_number_a34_4_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t11_arms_number_a34_4_count_fraction:
+            name: t11_arms_number_a34_4_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t11_arms_number_a34_4_debiased:
+            name: t11_arms_number_a34_4_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t11_arms_number_a34_4_weight:
+            name: t11_arms_number_a34_4_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t11_arms_number_a34_4_weight_fraction:
+            name: t11_arms_number_a34_4_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t11_arms_number_a36_more_than_4_count:
+            name: t11_arms_number_a36_more_than_4_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t11_arms_number_a36_more_than_4_count_fraction:
+            name: t11_arms_number_a36_more_than_4_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t11_arms_number_a36_more_than_4_debiased:
+            name: t11_arms_number_a36_more_than_4_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t11_arms_number_a36_more_than_4_weight:
+            name: t11_arms_number_a36_more_than_4_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t11_arms_number_a36_more_than_4_weight_fraction:
+            name: t11_arms_number_a36_more_than_4_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t11_arms_number_a37_cant_tell_count:
+            name: t11_arms_number_a37_cant_tell_count
+            type: float64
+            unit: ''
+            description: Raw GZ vote count
+          t11_arms_number_a37_cant_tell_count_fraction:
+            name: t11_arms_number_a37_cant_tell_count_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t11_arms_number_a37_cant_tell_debiased:
+            name: t11_arms_number_a37_cant_tell_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t11_arms_number_a37_cant_tell_weight:
+            name: t11_arms_number_a37_cant_tell_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t11_arms_number_a37_cant_tell_weight_fraction:
+            name: t11_arms_number_a37_cant_tell_weight_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t11_arms_number_count:
+            name: t11_arms_number_count
+            type: float64
+            unit: ''
+            description: The raw number of GZ votes for task 11
+          t11_arms_number_weight:
+            name: t11_arms_number_weight
+            type: float64
+            unit: ''
+            description: The user weighted number of GZ votes for task 11
+  DR17:
+    template: $MANGA_MORPHOLOGY/galaxyzoo/MaNGA_gz-[VER].fits
+    example: galaxyzoo/MaNGA_gz-v2_0_1.fits
+    location: galaxyzoo/MaNGA_gz-{ver}.fits
+    environment: MANGA_MORPHOLOGY
+    access:
+      in_sdss_access: true
+      path_name: mangagalaxyzoo
+      path_template: $MANGA_MORPHOLOGY/galaxyzoo/MaNGA_{file}-{ver}.fits
+      path_kwargs:
+      - file
+      - ver
+      access_string: mangagalaxyzoo = $MANGA_MORPHOLOGY/galaxyzoo/MaNGA_gz-{ver}.fits
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: This HDU contains the primary data table of theMaNGA_gz.fitsfile.
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Standard FITS format
+        - key: BITPIX
+          value: 8
+          comment: Character data
+        - key: NAXIS
+          value: 0
+          comment: No image, just extensions
+        - key: EXTEND
+          value: true
+          comment: There are standard extensions
+        - key: COMMENT
+          value: Dummy header; see following table extension
+          comment: ''
+      hdu1:
+        name: /Users/Karen/Desktop/GalaxyZoo DR17 VAC/MaNGA_GZ2.csv
+        description: This HDU contains the primary data table of theMaNGA_gz.fitsfile.
+        is_image: false
+        size: 13 MB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: 8-bit bytes
+        - key: NAXIS
+          value: 2
+          comment: 2-dimensional table
+        - key: NAXIS1
+          value: 1478
+          comment: width of table in bytes
+        - key: NAXIS2
+          value: 9622
+          comment: number of rows in table
+        - key: PCOUNT
+          value: 0
+          comment: size of special data area
+        - key: GCOUNT
+          value: 1
+          comment: one data group
+        - key: TFIELDS
+          value: 237
+          comment: number of columns
+        - key: EXTNAME
+          value: /Users/Karen/Desktop/GalaxyZoo DR17 VAC/MaNGA_GZ2.csv
+          comment: table name
+        - key: DATE-HDU
+          value: '2021-05-13T13:53:01'
+          comment: Date of HDU creation (UTC)
+        - key: STILVERS
+          value: '4.0'
+          comment: Version of STIL software
+        - key: STILCLAS
+          value: uk.ac.starlink.fits.FitsTableWriter
+          comment: STIL Author class
+        columns:
+          PLATEIFU:
+            name: PLATEIFU
+            type: char[11]
+            unit: ''
+            description: MaNGA PLATE-IFU
+          MANGAID:
+            name: MANGAID
+            type: char[9]
+            unit: ''
+            description: MaNGA ID
+          OBJRA:
+            name: OBJRA
+            type: float64
+            unit: deg
+            description: RA of the galaxy center in MaNGA (called OBJECT_RA in DR15
+              version)
+          OBJDEC:
+            name: OBJDEC
+            type: float64
+            unit: deg
+            description: DEC of the galaxy center in MaNGA (called OBJECT_DEC in DR15
+              version)
+          Z:
+            name: Z
+            type: float64
+            unit: ''
+            description: Redshift of the galaxy in MaNGA
+          MNGTARG1:
+            name: MNGTARG1
+            type: int16
+            unit: ''
+            description: Main survey targeting bit in MaNGA
+          MNGTARG2:
+            name: MNGTARG2
+            type: int16
+            unit: ''
+            description: Non-galaxy targeting bit in MaNGA
+          MNGTARG3:
+            name: MNGTARG3
+            type: int32
+            unit: ''
+            description: Ancillary targeting bit in MaNGA
+          IFUDESIGNSIZE:
+            name: IFUDESIGNSIZE
+            type: int16
+            unit: ''
+            description: Design size for the IFU in MaNGA
+          crossmatch_separation:
+            name: crossmatch_separation
+            type: float64
+            unit: arcsec
+            description: Separation on sky between MaNGA target and matched GZ2 target
+          dr7objid:
+            name: dr7objid
+            type: int64
+            unit: ''
+            description: Unique DR7 identifier composed from [skyVersion,rerun,run,camcol,field,obj]
+          gz2_class:
+            name: gz2_class
+            type: char[8]
+            unit: ''
+            description: Class in GZ2
+          total_classifications:
+            name: total_classifications
+            type: float32
+            unit: ''
+            description: Number of unique classifications in GZ2
+          total_votes:
+            name: total_votes
+            type: int16
+            unit: ''
+            description: Total number of votes in GZ2
+          t01_smooth_or_features_a01_smooth_count:
+            name: t01_smooth_or_features_a01_smooth_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t01_smooth_or_features_a01_smooth_weight:
+            name: t01_smooth_or_features_a01_smooth_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t01_smooth_or_features_a01_smooth_fraction:
+            name: t01_smooth_or_features_a01_smooth_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t01_smooth_or_features_a01_smooth_weighted_fraction:
+            name: t01_smooth_or_features_a01_smooth_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t01_smooth_or_features_a01_smooth_debiased:
+            name: t01_smooth_or_features_a01_smooth_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t01_smooth_or_features_a01_smooth_flag:
+            name: t01_smooth_or_features_a01_smooth_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t01_smooth_or_features_a02_features_or_disk_count:
+            name: t01_smooth_or_features_a02_features_or_disk_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t01_smooth_or_features_a02_features_or_disk_weight:
+            name: t01_smooth_or_features_a02_features_or_disk_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t01_smooth_or_features_a02_features_or_disk_fraction:
+            name: t01_smooth_or_features_a02_features_or_disk_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t01_smooth_or_features_a02_features_or_disk_weighted_fraction:
+            name: t01_smooth_or_features_a02_features_or_disk_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t01_smooth_or_features_a02_features_or_disk_debiased:
+            name: t01_smooth_or_features_a02_features_or_disk_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t01_smooth_or_features_a02_features_or_disk_flag:
+            name: t01_smooth_or_features_a02_features_or_disk_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t01_smooth_or_features_a03_star_or_artifact_count:
+            name: t01_smooth_or_features_a03_star_or_artifact_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t01_smooth_or_features_a03_star_or_artifact_weight:
+            name: t01_smooth_or_features_a03_star_or_artifact_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t01_smooth_or_features_a03_star_or_artifact_fraction:
+            name: t01_smooth_or_features_a03_star_or_artifact_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t01_smooth_or_features_a03_star_or_artifact_weighted_fraction:
+            name: t01_smooth_or_features_a03_star_or_artifact_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t01_smooth_or_features_a03_star_or_artifact_debiased:
+            name: t01_smooth_or_features_a03_star_or_artifact_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t01_smooth_or_features_a03_star_or_artifact_flag:
+            name: t01_smooth_or_features_a03_star_or_artifact_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t02_edgeon_a04_yes_count:
+            name: t02_edgeon_a04_yes_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t02_edgeon_a04_yes_weight:
+            name: t02_edgeon_a04_yes_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t02_edgeon_a04_yes_fraction:
+            name: t02_edgeon_a04_yes_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t02_edgeon_a04_yes_weighted_fraction:
+            name: t02_edgeon_a04_yes_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t02_edgeon_a04_yes_debiased:
+            name: t02_edgeon_a04_yes_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t02_edgeon_a04_yes_flag:
+            name: t02_edgeon_a04_yes_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t02_edgeon_a05_no_count:
+            name: t02_edgeon_a05_no_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t02_edgeon_a05_no_weight:
+            name: t02_edgeon_a05_no_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t02_edgeon_a05_no_fraction:
+            name: t02_edgeon_a05_no_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t02_edgeon_a05_no_weighted_fraction:
+            name: t02_edgeon_a05_no_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t02_edgeon_a05_no_debiased:
+            name: t02_edgeon_a05_no_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t02_edgeon_a05_no_flag:
+            name: t02_edgeon_a05_no_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t03_bar_a06_bar_count:
+            name: t03_bar_a06_bar_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t03_bar_a06_bar_weight:
+            name: t03_bar_a06_bar_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t03_bar_a06_bar_fraction:
+            name: t03_bar_a06_bar_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t03_bar_a06_bar_weighted_fraction:
+            name: t03_bar_a06_bar_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t03_bar_a06_bar_debiased:
+            name: t03_bar_a06_bar_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t03_bar_a06_bar_flag:
+            name: t03_bar_a06_bar_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t03_bar_a07_no_bar_count:
+            name: t03_bar_a07_no_bar_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t03_bar_a07_no_bar_weight:
+            name: t03_bar_a07_no_bar_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t03_bar_a07_no_bar_fraction:
+            name: t03_bar_a07_no_bar_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t03_bar_a07_no_bar_weighted_fraction:
+            name: t03_bar_a07_no_bar_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t03_bar_a07_no_bar_debiased:
+            name: t03_bar_a07_no_bar_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t03_bar_a07_no_bar_flag:
+            name: t03_bar_a07_no_bar_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t04_spiral_a08_spiral_count:
+            name: t04_spiral_a08_spiral_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t04_spiral_a08_spiral_weight:
+            name: t04_spiral_a08_spiral_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t04_spiral_a08_spiral_fraction:
+            name: t04_spiral_a08_spiral_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t04_spiral_a08_spiral_weighted_fraction:
+            name: t04_spiral_a08_spiral_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t04_spiral_a08_spiral_debiased:
+            name: t04_spiral_a08_spiral_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t04_spiral_a08_spiral_flag:
+            name: t04_spiral_a08_spiral_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t04_spiral_a09_no_spiral_count:
+            name: t04_spiral_a09_no_spiral_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t04_spiral_a09_no_spiral_weight:
+            name: t04_spiral_a09_no_spiral_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t04_spiral_a09_no_spiral_fraction:
+            name: t04_spiral_a09_no_spiral_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t04_spiral_a09_no_spiral_weighted_fraction:
+            name: t04_spiral_a09_no_spiral_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t04_spiral_a09_no_spiral_debiased:
+            name: t04_spiral_a09_no_spiral_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t04_spiral_a09_no_spiral_flag:
+            name: t04_spiral_a09_no_spiral_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t05_bulge_prominence_a10_no_bulge_count:
+            name: t05_bulge_prominence_a10_no_bulge_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t05_bulge_prominence_a10_no_bulge_weight:
+            name: t05_bulge_prominence_a10_no_bulge_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t05_bulge_prominence_a10_no_bulge_fraction:
+            name: t05_bulge_prominence_a10_no_bulge_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t05_bulge_prominence_a10_no_bulge_weighted_fraction:
+            name: t05_bulge_prominence_a10_no_bulge_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t05_bulge_prominence_a10_no_bulge_debiased:
+            name: t05_bulge_prominence_a10_no_bulge_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t05_bulge_prominence_a10_no_bulge_flag:
+            name: t05_bulge_prominence_a10_no_bulge_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t05_bulge_prominence_a11_just_noticeable_count:
+            name: t05_bulge_prominence_a11_just_noticeable_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t05_bulge_prominence_a11_just_noticeable_weight:
+            name: t05_bulge_prominence_a11_just_noticeable_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t05_bulge_prominence_a11_just_noticeable_fraction:
+            name: t05_bulge_prominence_a11_just_noticeable_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t05_bulge_prominence_a11_just_noticeable_weighted_fraction:
+            name: t05_bulge_prominence_a11_just_noticeable_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t05_bulge_prominence_a11_just_noticeable_debiased:
+            name: t05_bulge_prominence_a11_just_noticeable_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t05_bulge_prominence_a11_just_noticeable_flag:
+            name: t05_bulge_prominence_a11_just_noticeable_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t05_bulge_prominence_a12_obvious_count:
+            name: t05_bulge_prominence_a12_obvious_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t05_bulge_prominence_a12_obvious_weight:
+            name: t05_bulge_prominence_a12_obvious_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t05_bulge_prominence_a12_obvious_fraction:
+            name: t05_bulge_prominence_a12_obvious_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t05_bulge_prominence_a12_obvious_weighted_fraction:
+            name: t05_bulge_prominence_a12_obvious_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t05_bulge_prominence_a12_obvious_debiased:
+            name: t05_bulge_prominence_a12_obvious_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t05_bulge_prominence_a12_obvious_flag:
+            name: t05_bulge_prominence_a12_obvious_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t05_bulge_prominence_a13_dominant_count:
+            name: t05_bulge_prominence_a13_dominant_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t05_bulge_prominence_a13_dominant_weight:
+            name: t05_bulge_prominence_a13_dominant_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t05_bulge_prominence_a13_dominant_fraction:
+            name: t05_bulge_prominence_a13_dominant_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t05_bulge_prominence_a13_dominant_weighted_fraction:
+            name: t05_bulge_prominence_a13_dominant_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t05_bulge_prominence_a13_dominant_debiased:
+            name: t05_bulge_prominence_a13_dominant_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t05_bulge_prominence_a13_dominant_flag:
+            name: t05_bulge_prominence_a13_dominant_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t06_odd_a14_yes_count:
+            name: t06_odd_a14_yes_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t06_odd_a14_yes_weight:
+            name: t06_odd_a14_yes_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t06_odd_a14_yes_fraction:
+            name: t06_odd_a14_yes_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t06_odd_a14_yes_weighted_fraction:
+            name: t06_odd_a14_yes_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t06_odd_a14_yes_debiased:
+            name: t06_odd_a14_yes_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t06_odd_a14_yes_flag:
+            name: t06_odd_a14_yes_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t06_odd_a15_no_count:
+            name: t06_odd_a15_no_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t06_odd_a15_no_weight:
+            name: t06_odd_a15_no_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t06_odd_a15_no_fraction:
+            name: t06_odd_a15_no_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t06_odd_a15_no_weighted_fraction:
+            name: t06_odd_a15_no_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t06_odd_a15_no_debiased:
+            name: t06_odd_a15_no_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t06_odd_a15_no_flag:
+            name: t06_odd_a15_no_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t07_rounded_a16_completely_round_count:
+            name: t07_rounded_a16_completely_round_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t07_rounded_a16_completely_round_weight:
+            name: t07_rounded_a16_completely_round_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t07_rounded_a16_completely_round_fraction:
+            name: t07_rounded_a16_completely_round_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t07_rounded_a16_completely_round_weighted_fraction:
+            name: t07_rounded_a16_completely_round_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t07_rounded_a16_completely_round_debiased:
+            name: t07_rounded_a16_completely_round_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t07_rounded_a16_completely_round_flag:
+            name: t07_rounded_a16_completely_round_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t07_rounded_a17_in_between_count:
+            name: t07_rounded_a17_in_between_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t07_rounded_a17_in_between_weight:
+            name: t07_rounded_a17_in_between_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t07_rounded_a17_in_between_fraction:
+            name: t07_rounded_a17_in_between_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t07_rounded_a17_in_between_weighted_fraction:
+            name: t07_rounded_a17_in_between_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t07_rounded_a17_in_between_debiased:
+            name: t07_rounded_a17_in_between_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t07_rounded_a17_in_between_flag:
+            name: t07_rounded_a17_in_between_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t07_rounded_a18_cigar_shaped_count:
+            name: t07_rounded_a18_cigar_shaped_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t07_rounded_a18_cigar_shaped_weight:
+            name: t07_rounded_a18_cigar_shaped_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t07_rounded_a18_cigar_shaped_fraction:
+            name: t07_rounded_a18_cigar_shaped_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t07_rounded_a18_cigar_shaped_weighted_fraction:
+            name: t07_rounded_a18_cigar_shaped_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t07_rounded_a18_cigar_shaped_debiased:
+            name: t07_rounded_a18_cigar_shaped_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t07_rounded_a18_cigar_shaped_flag:
+            name: t07_rounded_a18_cigar_shaped_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t08_odd_feature_a19_ring_count:
+            name: t08_odd_feature_a19_ring_count
+            type: int16
+            unit: ''
+            description: Raw GZ vote count
+          t08_odd_feature_a19_ring_weight:
+            name: t08_odd_feature_a19_ring_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t08_odd_feature_a19_ring_fraction:
+            name: t08_odd_feature_a19_ring_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t08_odd_feature_a19_ring_weighted_fraction:
+            name: t08_odd_feature_a19_ring_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t08_odd_feature_a19_ring_debiased:
+            name: t08_odd_feature_a19_ring_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t08_odd_feature_a19_ring_flag:
+            name: t08_odd_feature_a19_ring_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t08_odd_feature_a20_lens_or_arc_count:
+            name: t08_odd_feature_a20_lens_or_arc_count
+            type: int16
+            unit: ''
+            description: Raw GZ vote count
+          t08_odd_feature_a20_lens_or_arc_weight:
+            name: t08_odd_feature_a20_lens_or_arc_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t08_odd_feature_a20_lens_or_arc_fraction:
+            name: t08_odd_feature_a20_lens_or_arc_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t08_odd_feature_a20_lens_or_arc_weighted_fraction:
+            name: t08_odd_feature_a20_lens_or_arc_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t08_odd_feature_a20_lens_or_arc_debiased:
+            name: t08_odd_feature_a20_lens_or_arc_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t08_odd_feature_a20_lens_or_arc_flag:
+            name: t08_odd_feature_a20_lens_or_arc_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t08_odd_feature_a21_disturbed_count:
+            name: t08_odd_feature_a21_disturbed_count
+            type: int16
+            unit: ''
+            description: Raw GZ vote count
+          t08_odd_feature_a21_disturbed_weight:
+            name: t08_odd_feature_a21_disturbed_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t08_odd_feature_a21_disturbed_fraction:
+            name: t08_odd_feature_a21_disturbed_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t08_odd_feature_a21_disturbed_weighted_fraction:
+            name: t08_odd_feature_a21_disturbed_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t08_odd_feature_a21_disturbed_debiased:
+            name: t08_odd_feature_a21_disturbed_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t08_odd_feature_a21_disturbed_flag:
+            name: t08_odd_feature_a21_disturbed_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t08_odd_feature_a22_irregular_count:
+            name: t08_odd_feature_a22_irregular_count
+            type: int16
+            unit: ''
+            description: Raw GZ vote count
+          t08_odd_feature_a22_irregular_weight:
+            name: t08_odd_feature_a22_irregular_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t08_odd_feature_a22_irregular_fraction:
+            name: t08_odd_feature_a22_irregular_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t08_odd_feature_a22_irregular_weighted_fraction:
+            name: t08_odd_feature_a22_irregular_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t08_odd_feature_a22_irregular_debiased:
+            name: t08_odd_feature_a22_irregular_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t08_odd_feature_a22_irregular_flag:
+            name: t08_odd_feature_a22_irregular_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t08_odd_feature_a23_other_count:
+            name: t08_odd_feature_a23_other_count
+            type: int16
+            unit: ''
+            description: Raw GZ vote count
+          t08_odd_feature_a23_other_weight:
+            name: t08_odd_feature_a23_other_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t08_odd_feature_a23_other_fraction:
+            name: t08_odd_feature_a23_other_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t08_odd_feature_a23_other_weighted_fraction:
+            name: t08_odd_feature_a23_other_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t08_odd_feature_a23_other_debiased:
+            name: t08_odd_feature_a23_other_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t08_odd_feature_a23_other_flag:
+            name: t08_odd_feature_a23_other_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t08_odd_feature_a24_merger_count:
+            name: t08_odd_feature_a24_merger_count
+            type: int16
+            unit: ''
+            description: Raw GZ vote count
+          t08_odd_feature_a24_merger_weight:
+            name: t08_odd_feature_a24_merger_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t08_odd_feature_a24_merger_fraction:
+            name: t08_odd_feature_a24_merger_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t08_odd_feature_a24_merger_weighted_fraction:
+            name: t08_odd_feature_a24_merger_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t08_odd_feature_a24_merger_debiased:
+            name: t08_odd_feature_a24_merger_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t08_odd_feature_a24_merger_flag:
+            name: t08_odd_feature_a24_merger_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t08_odd_feature_a38_dust_lane_count:
+            name: t08_odd_feature_a38_dust_lane_count
+            type: int16
+            unit: ''
+            description: Raw GZ vote count
+          t08_odd_feature_a38_dust_lane_weight:
+            name: t08_odd_feature_a38_dust_lane_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t08_odd_feature_a38_dust_lane_fraction:
+            name: t08_odd_feature_a38_dust_lane_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t08_odd_feature_a38_dust_lane_weighted_fraction:
+            name: t08_odd_feature_a38_dust_lane_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t08_odd_feature_a38_dust_lane_debiased:
+            name: t08_odd_feature_a38_dust_lane_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t08_odd_feature_a38_dust_lane_flag:
+            name: t08_odd_feature_a38_dust_lane_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t09_bulge_shape_a25_rounded_count:
+            name: t09_bulge_shape_a25_rounded_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t09_bulge_shape_a25_rounded_weight:
+            name: t09_bulge_shape_a25_rounded_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t09_bulge_shape_a25_rounded_fraction:
+            name: t09_bulge_shape_a25_rounded_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t09_bulge_shape_a25_rounded_weighted_fraction:
+            name: t09_bulge_shape_a25_rounded_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t09_bulge_shape_a25_rounded_debiased:
+            name: t09_bulge_shape_a25_rounded_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t09_bulge_shape_a25_rounded_flag:
+            name: t09_bulge_shape_a25_rounded_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t09_bulge_shape_a26_boxy_count:
+            name: t09_bulge_shape_a26_boxy_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t09_bulge_shape_a26_boxy_weight:
+            name: t09_bulge_shape_a26_boxy_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t09_bulge_shape_a26_boxy_fraction:
+            name: t09_bulge_shape_a26_boxy_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t09_bulge_shape_a26_boxy_weighted_fraction:
+            name: t09_bulge_shape_a26_boxy_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t09_bulge_shape_a26_boxy_debiased:
+            name: t09_bulge_shape_a26_boxy_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t09_bulge_shape_a26_boxy_flag:
+            name: t09_bulge_shape_a26_boxy_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t09_bulge_shape_a27_no_bulge_count:
+            name: t09_bulge_shape_a27_no_bulge_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t09_bulge_shape_a27_no_bulge_weight:
+            name: t09_bulge_shape_a27_no_bulge_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t09_bulge_shape_a27_no_bulge_fraction:
+            name: t09_bulge_shape_a27_no_bulge_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t09_bulge_shape_a27_no_bulge_weighted_fraction:
+            name: t09_bulge_shape_a27_no_bulge_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t09_bulge_shape_a27_no_bulge_debiased:
+            name: t09_bulge_shape_a27_no_bulge_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t09_bulge_shape_a27_no_bulge_flag:
+            name: t09_bulge_shape_a27_no_bulge_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t10_arms_winding_a28_tight_count:
+            name: t10_arms_winding_a28_tight_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t10_arms_winding_a28_tight_weight:
+            name: t10_arms_winding_a28_tight_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t10_arms_winding_a28_tight_fraction:
+            name: t10_arms_winding_a28_tight_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t10_arms_winding_a28_tight_weighted_fraction:
+            name: t10_arms_winding_a28_tight_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t10_arms_winding_a28_tight_debiased:
+            name: t10_arms_winding_a28_tight_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t10_arms_winding_a28_tight_flag:
+            name: t10_arms_winding_a28_tight_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t10_arms_winding_a29_medium_count:
+            name: t10_arms_winding_a29_medium_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t10_arms_winding_a29_medium_weight:
+            name: t10_arms_winding_a29_medium_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t10_arms_winding_a29_medium_fraction:
+            name: t10_arms_winding_a29_medium_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t10_arms_winding_a29_medium_weighted_fraction:
+            name: t10_arms_winding_a29_medium_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t10_arms_winding_a29_medium_debiased:
+            name: t10_arms_winding_a29_medium_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t10_arms_winding_a29_medium_flag:
+            name: t10_arms_winding_a29_medium_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t10_arms_winding_a30_loose_count:
+            name: t10_arms_winding_a30_loose_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t10_arms_winding_a30_loose_weight:
+            name: t10_arms_winding_a30_loose_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t10_arms_winding_a30_loose_fraction:
+            name: t10_arms_winding_a30_loose_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t10_arms_winding_a30_loose_weighted_fraction:
+            name: t10_arms_winding_a30_loose_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t10_arms_winding_a30_loose_debiased:
+            name: t10_arms_winding_a30_loose_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t10_arms_winding_a30_loose_flag:
+            name: t10_arms_winding_a30_loose_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t11_arms_number_a31_1_count:
+            name: t11_arms_number_a31_1_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t11_arms_number_a31_1_weight:
+            name: t11_arms_number_a31_1_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t11_arms_number_a31_1_fraction:
+            name: t11_arms_number_a31_1_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t11_arms_number_a31_1_weighted_fraction:
+            name: t11_arms_number_a31_1_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t11_arms_number_a31_1_debiased:
+            name: t11_arms_number_a31_1_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t11_arms_number_a31_1_flag:
+            name: t11_arms_number_a31_1_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t11_arms_number_a32_2_count:
+            name: t11_arms_number_a32_2_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t11_arms_number_a32_2_weight:
+            name: t11_arms_number_a32_2_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t11_arms_number_a32_2_fraction:
+            name: t11_arms_number_a32_2_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t11_arms_number_a32_2_weighted_fraction:
+            name: t11_arms_number_a32_2_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t11_arms_number_a32_2_debiased:
+            name: t11_arms_number_a32_2_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t11_arms_number_a32_2_flag:
+            name: t11_arms_number_a32_2_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t11_arms_number_a33_3_count:
+            name: t11_arms_number_a33_3_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t11_arms_number_a33_3_weight:
+            name: t11_arms_number_a33_3_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t11_arms_number_a33_3_fraction:
+            name: t11_arms_number_a33_3_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t11_arms_number_a33_3_weighted_fraction:
+            name: t11_arms_number_a33_3_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t11_arms_number_a33_3_debiased:
+            name: t11_arms_number_a33_3_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t11_arms_number_a33_3_flag:
+            name: t11_arms_number_a33_3_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t11_arms_number_a34_4_count:
+            name: t11_arms_number_a34_4_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t11_arms_number_a34_4_weight:
+            name: t11_arms_number_a34_4_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t11_arms_number_a34_4_fraction:
+            name: t11_arms_number_a34_4_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t11_arms_number_a34_4_weighted_fraction:
+            name: t11_arms_number_a34_4_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t11_arms_number_a34_4_debiased:
+            name: t11_arms_number_a34_4_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t11_arms_number_a34_4_flag:
+            name: t11_arms_number_a34_4_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t11_arms_number_a36_more_than_4_count:
+            name: t11_arms_number_a36_more_than_4_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t11_arms_number_a36_more_than_4_weight:
+            name: t11_arms_number_a36_more_than_4_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t11_arms_number_a36_more_than_4_fraction:
+            name: t11_arms_number_a36_more_than_4_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t11_arms_number_a36_more_than_4_weighted_fraction:
+            name: t11_arms_number_a36_more_than_4_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t11_arms_number_a36_more_than_4_debiased:
+            name: t11_arms_number_a36_more_than_4_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t11_arms_number_a36_more_than_4_flag:
+            name: t11_arms_number_a36_more_than_4_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          t11_arms_number_a37_cant_tell_count:
+            name: t11_arms_number_a37_cant_tell_count
+            type: float32
+            unit: ''
+            description: Raw GZ vote count
+          t11_arms_number_a37_cant_tell_weight:
+            name: t11_arms_number_a37_cant_tell_weight
+            type: float64
+            unit: ''
+            description: User weighted vote count
+          t11_arms_number_a37_cant_tell_fraction:
+            name: t11_arms_number_a37_cant_tell_fraction
+            type: float64
+            unit: ''
+            description: Raw GZ vote fraction
+          t11_arms_number_a37_cant_tell_weighted_fraction:
+            name: t11_arms_number_a37_cant_tell_weighted_fraction
+            type: float64
+            unit: ''
+            description: User weighted vote fraction
+          t11_arms_number_a37_cant_tell_debiased:
+            name: t11_arms_number_a37_cant_tell_debiased
+            type: float64
+            unit: ''
+            description: Debiased GZ vote fraction
+          t11_arms_number_a37_cant_tell_flag:
+            name: t11_arms_number_a37_cant_tell_flag
+            type: int16
+            unit: ''
+            description: GZ flag
+          in_GZ2:
+            name: in_GZ2
+            type: int16
+            unit: ''
+            description: 1 if from GZ2, 0 if from previous (DR15) VAC - most 1 flags
+              may also be in the DR15 VAC
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!
