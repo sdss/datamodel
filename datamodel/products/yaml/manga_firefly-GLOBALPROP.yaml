@@ -1,0 +1,1567 @@
+general:
+  name: manga_firefly-GLOBALPROP
+  short: "manga-firefly-globalprop-v3_1_1-miles.fits is one of the MaNGA FIREFLY
+    catalogues for the 17th data release of the Sloan Digital Sky Survey."
+  description: 'manga-firefly-globalprop-v3_1_1-miles.fits is one of the MaNGA FIREFLY
+    catalogues for the 17th data release of the Sloan Digital Sky Survey. It is a
+    light-weight version of the MaNGA FIREFLY VAC reduced to only the global stellar
+    population parameters. For spatially resolved parameters, please refer to the
+    main VAC. This file contains analysis for 10735 datacubes including 10010 unique
+    galaxies from the MaNGA survey, providing global stellar population parameters
+    such as gradients and values at the center and at 1 Re. For DR17, the version
+    of FIREFLY used was FIREFLY_VER=v1_0_1, and this was run on reduced and analysed
+    data from MANGADRP_VER=v3_1_1 and MANGADAP_VER=v3_1_0. This VAC is provided in
+    two versions: The first version employs the stellar population models of ​Maraston
+    & Stromback (2011) based on the ​ ​MILES stellar library (Sánchez-Blázquez et
+    al. 2006). The second version uses the ​​ ​MaStar models described in ​ ​Maraston
+    et al. (2020) . Both model libraries assume a Kroupa IMF (Kroupa 2001). We assume
+    a flat cosmology with H 0 = 67.8 km/s/Mpc and Ω m = 0.308 (Planck Collaboration
+    et al. 2016). Compared to the FIREFLY VAC in DR15, the radius in HDU4 is now given
+    in elliptical coordinates and the azmiuth is added, too. The catalogue is available
+    in FITS format at the following link. Please do not forget to cite Neumann et
+    al. (2022) and Goddard et al. (2017) if you use this catalogue in your work. https://data.sdss.org/sas/dr17/manga/spectro/firefly/v3_1_1/manga-firefly-globalprop-v3_1_1-miles.fits
+    https://data.sdss.org/sas/dr17/manga/spectro/firefly/v3_1_1/manga-firefly-globalprop-v3_1_1-mastar.fits
+    Naming Convention filename = manga-firefly-globalprop-MANGADRP_VER-MODELS.fits
+    where MANGADRP_VER=v3_1_1 for DR17 and MODELS either miles or mastar . Approximate
+    Size 2.8 MB File Type FITS Read by Products firefly Written by Products firefly
+    Sections HDU0 : The Primary Header HDU1 : BASIC GALAXY INFORMATION HDU2 : GLOBAL
+    PARAMETERS HDU3 : GRADIENT PARAMETERS'
+  datatype: FITS
+  filesize: 742 KB
+  releases:
+    - DR14
+    - DR15
+    - DR16
+    - DR17
+  environments:
+    - MANGA_FIREFLY
+  surveys:
+    - MaNGA
+  naming_convention: 
+    $MANGA_FIREFLY/[FIREFLY_VER]/manga_firefly-[DRPVER]-GLOBALPROP.fits where 
+    FIREFLY_VER=v1_1_2 in DR15 and DRPVER=v2_4_3.
+  generated_by: https://github.com/FireflySpectra/firefly_release this product.
+  data_level: 3.3.0
+  design: false
+  vac: true
+  recommended_science_product: true
+releases:
+  DR14:
+    template: $MANGA_FIREFLY/[FIREFLY_VER]/manga_firefly-[DRPVER]-[MODELS].fits
+    example: v1_0_3/manga_firefly-v2_1_2-GLOBALPROP.fits
+    location: '{firefly_ver}/manga_firefly-{drpver}-{models}.fits'
+    environment: MANGA_FIREFLY
+    access:
+      in_sdss_access: true
+      path_name: manga_firefly_models
+      path_template: 
+        $MANGA_FIREFLY/{firefly_ver}/manga_firefly-{drpver}-{models}.fits
+      path_kwargs:
+        - models
+        - drpver
+        - firefly_ver
+      access_string: manga_firefly_models = 
+        $MANGA_FIREFLY/{firefly_ver}/manga_firefly-{drpver}-{models}.fits
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: This HDU is left empty.
+        is_image: true
+        size: 0 bytes
+        header:
+          - key: SIMPLE
+            value: true
+            comment: conforms to FITS standard
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 0
+            comment: number of array dimensions
+          - key: EXTEND
+            value: true
+            comment: ''
+      hdu1:
+        name: GALAXY_INFO
+        description: This HDU is left empty.
+        is_image: false
+        size: 374 KB
+        header:
+          - key: XTENSION
+            value: BINTABLE
+            comment: binary table extension
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 2
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 138
+            comment: length of dimension 1
+          - key: NAXIS2
+            value: 2777
+            comment: length of dimension 2
+          - key: PCOUNT
+            value: 0
+            comment: number of group parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: TFIELDS
+            value: 11
+            comment: number of table fields
+          - key: EXTNAME
+            value: GALAXY_INFO
+            comment: extension name
+        columns:
+          MANGAID:
+            name: MANGAID
+            type: char[20]
+            unit: N/A
+            description: Unique MaNGA Identifier.
+          PLATEIFU:
+            name: PLATEIFU
+            type: char[20]
+            unit: N/A
+            description: Unique string containing MaNGA plate and IFU.
+          PLATE:
+            name: PLATE
+            type: int16[INT1]
+            unit: N/A
+            description: Plate which Galaxy was observed with.
+          IFUDSGN:
+            name: IFUDSGN
+            type: char[20]
+            unit: N/A
+            description: IFU which Galaxy was observed with.
+          OBJRA:
+            name: OBJRA
+            type: float32
+            unit: deg
+            description: "Right Ascension of\n  Galaxy (J2000)."
+          OBJDEC:
+            name: OBJDEC
+            type: float32
+            unit: deg
+            description: "Declination of\n  Galaxy (J2000)."
+          REDSHIFT:
+            name: REDSHIFT
+            type: float32
+            unit: N/A
+            description: Redshift of Galaxy.
+          PHOTOMETRIC_MASS:
+            name: PHOTOMETRIC_MASS
+            type: float32
+            unit: log(M⊙)
+            description: "Stellar\n  mass of galaxy fromNSA catalogueobtained from
+              K-correction fits to elliptical Petrosian photometric fluxes. Masses
+              are converted to the cosmology parameters that we assume in the Firefly
+              VAC with H0= 67.8 km/s/Mpc."
+          MANGADRP_ver:
+            name: MANGADRP_ver
+            type: char[20]
+            unit: N/A
+            description: Version of DRP that reduced the data.
+          MANGADAP_ver:
+            name: MANGADAP_ver
+            type: char[20]
+            unit: N/A
+            description: Version of DAP that analysed the data.
+          FIREFLY_ver:
+            name: FIREFLY_ver
+            type: char[20]
+            unit: N/A
+            description: Version of FIREFLY that analysed the data.
+      hdu2:
+        name: GLOBAL_PARAMETERS
+        description: This HDU is left empty.
+        is_image: false
+        size: 173 KB
+        header:
+          - key: XTENSION
+            value: BINTABLE
+            comment: binary table extension
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 2
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 64
+            comment: length of dimension 1
+          - key: NAXIS2
+            value: 2777
+            comment: length of dimension 2
+          - key: PCOUNT
+            value: 0
+            comment: number of group parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: TFIELDS
+            value: 16
+            comment: number of table fields
+          - key: EXTNAME
+            value: GLOBAL_PARAMETERS
+            comment: extension name
+        columns:
+          LW_AGE_1Re:
+            name: LW_AGE_1Re
+            type: float32
+            unit: log(Gyr)
+            description: Light-weighted age within a shell located at 1Re.
+          LW_AGE_1Re_ERROR:
+            name: LW_AGE_1Re_ERROR
+            type: float32
+            unit: log(Gyr)
+            description: Error on light-weighted age within a shell located at 
+              1Re.
+          MW_AGE_1Re:
+            name: MW_AGE_1Re
+            type: float32
+            unit: log(Gyr)
+            description: Mass-weighted age within a shell located at 1Re.
+          MW_AGE_1Re_ERROR:
+            name: MW_AGE_1Re_ERROR
+            type: float32
+            unit: log(Gyr)
+            description: Error on mass-weighted age within a shell located at 
+              1Re.
+          LW_Z_1Re:
+            name: LW_Z_1Re
+            type: float32
+            unit: ''
+            description: Light-weighted metallicity [Z/H] within a shell located
+              at 1Re.
+          LW_Z_1Re_ERROR:
+            name: LW_Z_1Re_ERROR
+            type: float32
+            unit: ''
+            description: Error on light-weighted metallicity [Z/H] within a 
+              shell located at 1Re.
+          MW_Z_1Re:
+            name: MW_Z_1Re
+            type: float32
+            unit: ''
+            description: Mass-weighted metallicity [Z/H] within a shell located 
+              at 1Re.
+          MW_Z_1Re_ERROR:
+            name: MW_Z_1Re_ERROR
+            type: float32
+            unit: ''
+            description: Error on mass-weighted metallicity [Z/H] within a shell
+              located at 1Re.
+          LW_AGE_3ARCSEC:
+            name: LW_AGE_3ARCSEC
+            type: float32
+            unit: log(Gyr)
+            description: Light-weighted age within 3arcsec diameter.
+          LW_AGE_3ARCSEC_ERROR:
+            name: LW_AGE_3ARCSEC_ERROR
+            type: float32
+            unit: log(Gyr)
+            description: Error on light-weighted age within 3arcsec.
+          MW_AGE_3ARCSEC:
+            name: MW_AGE_3ARCSEC
+            type: float32
+            unit: log(Gyr)
+            description: Mass-weighted age within 3arcsec diameter.
+          MW_AGE_3ARCSEC_ERROR:
+            name: MW_AGE_3ARCSEC_ERROR
+            type: float32
+            unit: log(Gyr)
+            description: Error on mass-weighted age within 3arcsec.
+          LW_Z_3ARCSEC:
+            name: LW_Z_3ARCSEC
+            type: float32
+            unit: ''
+            description: Light-weighted metallicity [Z/H] within 3arcsec 
+              diameter.
+          LW_Z_3ARCSEC_ERROR:
+            name: LW_Z_3ARCSEC_ERROR
+            type: float32
+            unit: ''
+            description: Error on light-weighted metallicity [Z/H] within 
+              3arcsec.
+          MW_Z_3ARCSEC:
+            name: MW_Z_3ARCSEC
+            type: float32
+            unit: ''
+            description: Mass-weighted metallicity [Z/H] within 3arcsec 
+              diameter.
+          MW_Z_3ARCSEC_ERROR:
+            name: MW_Z_3ARCSEC_ERROR
+            type: float32
+            unit: ''
+            description: Error on mass-weighted metallicity [Z/H] within 
+              3arcsec.
+      hdu3:
+        name: GRADIENT_PARAMETERS
+        description: This HDU is left empty.
+        is_image: false
+        size: 173 KB
+        header:
+          - key: XTENSION
+            value: BINTABLE
+            comment: binary table extension
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 2
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 64
+            comment: length of dimension 1
+          - key: NAXIS2
+            value: 2777
+            comment: length of dimension 2
+          - key: PCOUNT
+            value: 0
+            comment: number of group parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: TFIELDS
+            value: 16
+            comment: number of table fields
+          - key: EXTNAME
+            value: GRADIENT_PARAMETERS
+            comment: extension name
+        columns:
+          LW_AGE_GRADIENT:
+            name: LW_AGE_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Light-weighted age gradient of linear fit obtained 
+              within 1.5Re.
+          LW_AGE_GRADIENT_ERROR:
+            name: LW_AGE_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on light-weighted age gradient within 1.5Re.
+          LW_AGE_ZEROPOINT:
+            name: LW_AGE_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Light-weighted age zeropoint of linear fit obtained 
+              within 1.5Re.
+          LW_AGE_ZEROPOINT_ERROR:
+            name: LW_AGE_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on light-weighted age zeropoint obtained within 
+              1.5Re.
+          MW_AGE_GRADIENT:
+            name: MW_AGE_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Mass-weighted age gradient of linear fit obtained 
+              within 1.5Re.
+          MW_AGE_GRADIENT_ERROR:
+            name: MW_AGE_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on mass-weighted age gradient within 1.5Re.
+          MW_AGE_ZEROPOINT:
+            name: MW_AGE_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Mass-weighted age zeropoint of linear fit obtained 
+              within 1.5Re.
+          MW_AGE_ZEROPOINT_ERROR:
+            name: MW_AGE_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on mass-weighted age zeropoint obtained within 
+              1.5Re.
+          LW_Z_GRADIENT:
+            name: LW_Z_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Light-weighted metallicity [Z/H] gradient of linear fit
+              obtained within 1.5Re.
+          LW_Z_GRADIENT_ERROR:
+            name: LW_Z_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on light-weighted metallicity [Z/H] gradient 
+              within 1.5Re.
+          LW_Z_ZEROPOINT:
+            name: LW_Z_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Light-weighted metallicity [Z/H] zeropoint of linear 
+              fit obtained within 1.5Re.
+          LW_Z_ZEROPOINT_ERROR:
+            name: LW_Z_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on light-weighted metallicity [Z/H] zeropoint 
+              obtained within 1.5Re.
+          MW_Z_GRADIENT:
+            name: MW_Z_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Mass-weighted metallicity [Z/H] gradient of linear fit 
+              obtained within 1.5Re.
+          MW_Z_GRADIENT_ERROR:
+            name: MW_Z_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on mass-weighted metallicity [Z/H] gradient 
+              within 1.5Re.
+          MW_Z_ZEROPOINT:
+            name: MW_Z_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Mass-weighted metallicity [Z/H] zeropoint of linear fit
+              obtained within 1.5Re.
+          MW_Z_ZEROPOINT_ERROR:
+            name: MW_Z_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on mass-weighted metallicity [Z/H] zeropoint 
+              obtained within 1.5Re.
+  DR15:
+    template: $MANGA_FIREFLY/[FIREFLY_VER]/manga_firefly-[DRPVER]-[MODELS].fits
+    example: v1_1_2/manga_firefly-v2_4_3-GLOBALPROP.fits
+    location: '{firefly_ver}/manga_firefly-{drpver}-{models}.fits'
+    environment: MANGA_FIREFLY
+    access:
+      in_sdss_access: true
+      path_name: manga_firefly_models
+      path_template: 
+        $MANGA_FIREFLY/{firefly_ver}/manga_firefly-{drpver}-{models}.fits
+      path_kwargs:
+        - firefly_ver
+        - models
+        - drpver
+      access_string: manga_firefly_models = 
+        $MANGA_FIREFLY/{firefly_ver}/manga_firefly-{drpver}-{models}.fits
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: This HDU is left empty.
+        is_image: true
+        size: 0 bytes
+        header:
+          - key: SIMPLE
+            value: true
+            comment: conforms to FITS standard
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 0
+            comment: number of array dimensions
+          - key: EXTEND
+            value: true
+            comment: ''
+      hdu1:
+        name: GALAXY_INFO
+        description: This HDU is left empty.
+        is_image: false
+        size: 630 KB
+        header:
+          - key: XTENSION
+            value: BINTABLE
+            comment: binary table extension
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 2
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 138
+            comment: length of dimension 1
+          - key: NAXIS2
+            value: 4675
+            comment: length of dimension 2
+          - key: PCOUNT
+            value: 0
+            comment: number of group parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: TFIELDS
+            value: 11
+            comment: number of table fields
+          - key: EXTNAME
+            value: GALAXY_INFO
+            comment: extension name
+        columns:
+          MANGAID:
+            name: MANGAID
+            type: char[20]
+            unit: N/A
+            description: Unique MaNGA Identifier.
+          PLATEIFU:
+            name: PLATEIFU
+            type: char[20]
+            unit: N/A
+            description: Unique string containing MaNGA plate and IFU.
+          PLATE:
+            name: PLATE
+            type: int16
+            unit: N/A
+            description: Plate which Galaxy was observed with.
+          IFUDSGN:
+            name: IFUDSGN
+            type: char[20]
+            unit: N/A
+            description: IFU which Galaxy was observed with.
+          OBJRA:
+            name: OBJRA
+            type: float32
+            unit: deg
+            description: "Right Ascension of\n  Galaxy (J2000)."
+          OBJDEC:
+            name: OBJDEC
+            type: float32
+            unit: deg
+            description: "Declination of\n  Galaxy (J2000)."
+          REDSHIFT:
+            name: REDSHIFT
+            type: float32
+            unit: N/A
+            description: Redshift of Galaxy.
+          PHOTOMETRIC_MASS:
+            name: PHOTOMETRIC_MASS
+            type: float32
+            unit: log(M⊙)
+            description: "Stellar\n  mass of galaxy fromNSA catalogueobtained from
+              K-correction fits to elliptical Petrosian photometric fluxes. Masses
+              are converted to the cosmology parameters that we assume in the Firefly
+              VAC with H0= 67.8 km/s/Mpc."
+          MANGADRP_ver:
+            name: MANGADRP_ver
+            type: char[20]
+            unit: N/A
+            description: Version of DRP that reduced the data.
+          MANGADAP_ver:
+            name: MANGADAP_ver
+            type: char[20]
+            unit: N/A
+            description: Version of DAP that analysed the data.
+          FIREFLY_ver:
+            name: FIREFLY_ver
+            type: char[20]
+            unit: N/A
+            description: Version of FIREFLY that analysed the data.
+      hdu2:
+        name: GLOBAL_PARAMETERS
+        description: This HDU is left empty.
+        is_image: false
+        size: 292 KB
+        header:
+          - key: XTENSION
+            value: BINTABLE
+            comment: binary table extension
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 2
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 64
+            comment: length of dimension 1
+          - key: NAXIS2
+            value: 4675
+            comment: length of dimension 2
+          - key: PCOUNT
+            value: 0
+            comment: number of group parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: TFIELDS
+            value: 16
+            comment: number of table fields
+          - key: EXTNAME
+            value: GLOBAL_PARAMETERS
+            comment: extension name
+        columns:
+          LW_AGE_1Re:
+            name: LW_AGE_1Re
+            type: float32
+            unit: log(Gyr)
+            description: Light-weighted age within a shell located at 1Re.
+          LW_AGE_1Re_ERROR:
+            name: LW_AGE_1Re_ERROR
+            type: float32
+            unit: log(Gyr)
+            description: Error on light-weighted age within a shell located at 
+              1Re.
+          MW_AGE_1Re:
+            name: MW_AGE_1Re
+            type: float32
+            unit: log(Gyr)
+            description: Mass-weighted age within a shell located at 1Re.
+          MW_AGE_1Re_ERROR:
+            name: MW_AGE_1Re_ERROR
+            type: float32
+            unit: log(Gyr)
+            description: Error on mass-weighted age within a shell located at 
+              1Re.
+          LW_Z_1Re:
+            name: LW_Z_1Re
+            type: float32
+            unit: ''
+            description: Light-weighted metallicity [Z/H] within a shell located
+              at 1Re.
+          LW_Z_1Re_ERROR:
+            name: LW_Z_1Re_ERROR
+            type: float32
+            unit: ''
+            description: Error on light-weighted metallicity [Z/H] within a 
+              shell located at 1Re.
+          MW_Z_1Re:
+            name: MW_Z_1Re
+            type: float32
+            unit: ''
+            description: Mass-weighted metallicity [Z/H] within a shell located 
+              at 1Re.
+          MW_Z_1Re_ERROR:
+            name: MW_Z_1Re_ERROR
+            type: float32
+            unit: ''
+            description: Error on mass-weighted metallicity [Z/H] within a shell
+              located at 1Re.
+          LW_AGE_3ARCSEC:
+            name: LW_AGE_3ARCSEC
+            type: float32
+            unit: log(Gyr)
+            description: Light-weighted age within 3arcsec diameter.
+          LW_AGE_3ARCSEC_ERROR:
+            name: LW_AGE_3ARCSEC_ERROR
+            type: float32
+            unit: log(Gyr)
+            description: Error on light-weighted age within 3arcsec.
+          MW_AGE_3ARCSEC:
+            name: MW_AGE_3ARCSEC
+            type: float32
+            unit: log(Gyr)
+            description: Mass-weighted age within 3arcsec diameter.
+          MW_AGE_3ARCSEC_ERROR:
+            name: MW_AGE_3ARCSEC_ERROR
+            type: float32
+            unit: log(Gyr)
+            description: Error on mass-weighted age within 3arcsec.
+          LW_Z_3ARCSEC:
+            name: LW_Z_3ARCSEC
+            type: float32
+            unit: ''
+            description: Light-weighted metallicity [Z/H] within 3arcsec 
+              diameter.
+          LW_Z_3ARCSEC_ERROR:
+            name: LW_Z_3ARCSEC_ERROR
+            type: float32
+            unit: ''
+            description: Error on light-weighted metallicity [Z/H] within 
+              3arcsec.
+          MW_Z_3ARCSEC:
+            name: MW_Z_3ARCSEC
+            type: float32
+            unit: ''
+            description: Mass-weighted metallicity [Z/H] within 3arcsec 
+              diameter.
+          MW_Z_3ARCSEC_ERROR:
+            name: MW_Z_3ARCSEC_ERROR
+            type: float32
+            unit: ''
+            description: Error on mass-weighted metallicity [Z/H] within 
+              3arcsec.
+      hdu3:
+        name: GRADIENT_PARAMETERS
+        description: This HDU is left empty.
+        is_image: false
+        size: 292 KB
+        header:
+          - key: XTENSION
+            value: BINTABLE
+            comment: binary table extension
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 2
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 64
+            comment: length of dimension 1
+          - key: NAXIS2
+            value: 4675
+            comment: length of dimension 2
+          - key: PCOUNT
+            value: 0
+            comment: number of group parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: TFIELDS
+            value: 16
+            comment: number of table fields
+          - key: EXTNAME
+            value: GRADIENT_PARAMETERS
+            comment: extension name
+        columns:
+          LW_AGE_GRADIENT:
+            name: LW_AGE_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Light-weighted age gradient of linear fit obtained 
+              within 1.5Re.
+          LW_AGE_GRADIENT_ERROR:
+            name: LW_AGE_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on light-weighted age gradient within 1.5Re.
+          LW_AGE_ZEROPOINT:
+            name: LW_AGE_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Light-weighted age zeropoint of linear fit obtained 
+              within 1.5Re.
+          LW_AGE_ZEROPOINT_ERROR:
+            name: LW_AGE_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on light-weighted age zeropoint obtained within 
+              1.5Re.
+          MW_AGE_GRADIENT:
+            name: MW_AGE_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Mass-weighted age gradient of linear fit obtained 
+              within 1.5Re.
+          MW_AGE_GRADIENT_ERROR:
+            name: MW_AGE_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on mass-weighted age gradient within 1.5Re.
+          MW_AGE_ZEROPOINT:
+            name: MW_AGE_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Mass-weighted age zeropoint of linear fit obtained 
+              within 1.5Re.
+          MW_AGE_ZEROPOINT_ERROR:
+            name: MW_AGE_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on mass-weighted age zeropoint obtained within 
+              1.5Re.
+          LW_Z_GRADIENT:
+            name: LW_Z_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Light-weighted metallicity [Z/H] gradient of linear fit
+              obtained within 1.5Re.
+          LW_Z_GRADIENT_ERROR:
+            name: LW_Z_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on light-weighted metallicity [Z/H] gradient 
+              within 1.5Re.
+          LW_Z_ZEROPOINT:
+            name: LW_Z_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Light-weighted metallicity [Z/H] zeropoint of linear 
+              fit obtained within 1.5Re.
+          LW_Z_ZEROPOINT_ERROR:
+            name: LW_Z_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on light-weighted metallicity [Z/H] zeropoint 
+              obtained within 1.5Re.
+          MW_Z_GRADIENT:
+            name: MW_Z_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Mass-weighted metallicity [Z/H] gradient of linear fit 
+              obtained within 1.5Re.
+          MW_Z_GRADIENT_ERROR:
+            name: MW_Z_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on mass-weighted metallicity [Z/H] gradient 
+              within 1.5Re.
+          MW_Z_ZEROPOINT:
+            name: MW_Z_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Mass-weighted metallicity [Z/H] zeropoint of linear fit
+              obtained within 1.5Re.
+          MW_Z_ZEROPOINT_ERROR:
+            name: MW_Z_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on mass-weighted metallicity [Z/H] zeropoint 
+              obtained within 1.5Re.
+  DR16:
+    template: $MANGA_FIREFLY/[FIREFLY_VER]/manga_firefly-[DRPVER]-[MODELS].fits
+    example: v1_1_2/manga_firefly-v2_4_3-GLOBALPROP.fits
+    location: '{firefly_ver}/manga_firefly-{drpver}-{models}.fits'
+    environment: MANGA_FIREFLY
+    access:
+      in_sdss_access: true
+      path_name: manga_firefly_models
+      path_template: 
+        $MANGA_FIREFLY/{firefly_ver}/manga_firefly-{drpver}-{models}.fits
+      path_kwargs:
+        - firefly_ver
+        - drpver
+        - models
+      access_string: manga_firefly_models = 
+        $MANGA_FIREFLY/{firefly_ver}/manga_firefly-{drpver}-{models}.fits
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: This HDU is left empty.
+        is_image: true
+        size: 0 bytes
+        header:
+          - key: SIMPLE
+            value: true
+            comment: conforms to FITS standard
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 0
+            comment: number of array dimensions
+          - key: EXTEND
+            value: true
+            comment: ''
+      hdu1:
+        name: GALAXY_INFO
+        description: This HDU is left empty.
+        is_image: false
+        size: 630 KB
+        header:
+          - key: XTENSION
+            value: BINTABLE
+            comment: binary table extension
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 2
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 138
+            comment: length of dimension 1
+          - key: NAXIS2
+            value: 4675
+            comment: length of dimension 2
+          - key: PCOUNT
+            value: 0
+            comment: number of group parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: TFIELDS
+            value: 11
+            comment: number of table fields
+          - key: EXTNAME
+            value: GALAXY_INFO
+            comment: extension name
+        columns:
+          MANGAID:
+            name: MANGAID
+            type: char[20]
+            unit: N/A
+            description: Unique MaNGA Identifier.
+          PLATEIFU:
+            name: PLATEIFU
+            type: char[20]
+            unit: N/A
+            description: Unique string containing MaNGA plate and IFU.
+          PLATE:
+            name: PLATE
+            type: int16
+            unit: N/A
+            description: Plate which Galaxy was observed with.
+          IFUDSGN:
+            name: IFUDSGN
+            type: char[20]
+            unit: N/A
+            description: IFU which Galaxy was observed with.
+          OBJRA:
+            name: OBJRA
+            type: float32
+            unit: deg
+            description: "Right Ascension of\n  Galaxy (J2000)."
+          OBJDEC:
+            name: OBJDEC
+            type: float32
+            unit: deg
+            description: "Declination of\n  Galaxy (J2000)."
+          REDSHIFT:
+            name: REDSHIFT
+            type: float32
+            unit: N/A
+            description: Redshift of Galaxy.
+          PHOTOMETRIC_MASS:
+            name: PHOTOMETRIC_MASS
+            type: float32
+            unit: log(M⊙)
+            description: "Stellar\n  mass of galaxy fromNSA catalogueobtained from
+              K-correction fits to elliptical Petrosian photometric fluxes. Masses
+              are converted to the cosmology parameters that we assume in the Firefly
+              VAC with H0= 67.8 km/s/Mpc."
+          MANGADRP_ver:
+            name: MANGADRP_ver
+            type: char[20]
+            unit: N/A
+            description: Version of DRP that reduced the data.
+          MANGADAP_ver:
+            name: MANGADAP_ver
+            type: char[20]
+            unit: N/A
+            description: Version of DAP that analysed the data.
+          FIREFLY_ver:
+            name: FIREFLY_ver
+            type: char[20]
+            unit: N/A
+            description: Version of FIREFLY that analysed the data.
+      hdu2:
+        name: GLOBAL_PARAMETERS
+        description: This HDU is left empty.
+        is_image: false
+        size: 292 KB
+        header:
+          - key: XTENSION
+            value: BINTABLE
+            comment: binary table extension
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 2
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 64
+            comment: length of dimension 1
+          - key: NAXIS2
+            value: 4675
+            comment: length of dimension 2
+          - key: PCOUNT
+            value: 0
+            comment: number of group parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: TFIELDS
+            value: 16
+            comment: number of table fields
+          - key: EXTNAME
+            value: GLOBAL_PARAMETERS
+            comment: extension name
+        columns:
+          LW_AGE_1Re:
+            name: LW_AGE_1Re
+            type: float32
+            unit: log(Gyr)
+            description: Light-weighted age within a shell located at 1Re.
+          LW_AGE_1Re_ERROR:
+            name: LW_AGE_1Re_ERROR
+            type: float32
+            unit: log(Gyr)
+            description: Error on light-weighted age within a shell located at 
+              1Re.
+          MW_AGE_1Re:
+            name: MW_AGE_1Re
+            type: float32
+            unit: log(Gyr)
+            description: Mass-weighted age within a shell located at 1Re.
+          MW_AGE_1Re_ERROR:
+            name: MW_AGE_1Re_ERROR
+            type: float32
+            unit: log(Gyr)
+            description: Error on mass-weighted age within a shell located at 
+              1Re.
+          LW_Z_1Re:
+            name: LW_Z_1Re
+            type: float32
+            unit: ''
+            description: Light-weighted metallicity [Z/H] within a shell located
+              at 1Re.
+          LW_Z_1Re_ERROR:
+            name: LW_Z_1Re_ERROR
+            type: float32
+            unit: ''
+            description: Error on light-weighted metallicity [Z/H] within a 
+              shell located at 1Re.
+          MW_Z_1Re:
+            name: MW_Z_1Re
+            type: float32
+            unit: ''
+            description: Mass-weighted metallicity [Z/H] within a shell located 
+              at 1Re.
+          MW_Z_1Re_ERROR:
+            name: MW_Z_1Re_ERROR
+            type: float32
+            unit: ''
+            description: Error on mass-weighted metallicity [Z/H] within a shell
+              located at 1Re.
+          LW_AGE_3ARCSEC:
+            name: LW_AGE_3ARCSEC
+            type: float32
+            unit: log(Gyr)
+            description: Light-weighted age within 3arcsec diameter.
+          LW_AGE_3ARCSEC_ERROR:
+            name: LW_AGE_3ARCSEC_ERROR
+            type: float32
+            unit: log(Gyr)
+            description: Error on light-weighted age within 3arcsec.
+          MW_AGE_3ARCSEC:
+            name: MW_AGE_3ARCSEC
+            type: float32
+            unit: log(Gyr)
+            description: Mass-weighted age within 3arcsec diameter.
+          MW_AGE_3ARCSEC_ERROR:
+            name: MW_AGE_3ARCSEC_ERROR
+            type: float32
+            unit: log(Gyr)
+            description: Error on mass-weighted age within 3arcsec.
+          LW_Z_3ARCSEC:
+            name: LW_Z_3ARCSEC
+            type: float32
+            unit: ''
+            description: Light-weighted metallicity [Z/H] within 3arcsec 
+              diameter.
+          LW_Z_3ARCSEC_ERROR:
+            name: LW_Z_3ARCSEC_ERROR
+            type: float32
+            unit: ''
+            description: Error on light-weighted metallicity [Z/H] within 
+              3arcsec.
+          MW_Z_3ARCSEC:
+            name: MW_Z_3ARCSEC
+            type: float32
+            unit: ''
+            description: Mass-weighted metallicity [Z/H] within 3arcsec 
+              diameter.
+          MW_Z_3ARCSEC_ERROR:
+            name: MW_Z_3ARCSEC_ERROR
+            type: float32
+            unit: ''
+            description: Error on mass-weighted metallicity [Z/H] within 
+              3arcsec.
+      hdu3:
+        name: GRADIENT_PARAMETERS
+        description: This HDU is left empty.
+        is_image: false
+        size: 292 KB
+        header:
+          - key: XTENSION
+            value: BINTABLE
+            comment: binary table extension
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 2
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 64
+            comment: length of dimension 1
+          - key: NAXIS2
+            value: 4675
+            comment: length of dimension 2
+          - key: PCOUNT
+            value: 0
+            comment: number of group parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: TFIELDS
+            value: 16
+            comment: number of table fields
+          - key: EXTNAME
+            value: GRADIENT_PARAMETERS
+            comment: extension name
+        columns:
+          LW_AGE_GRADIENT:
+            name: LW_AGE_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Light-weighted age gradient of linear fit obtained 
+              within 1.5Re.
+          LW_AGE_GRADIENT_ERROR:
+            name: LW_AGE_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on light-weighted age gradient within 1.5Re.
+          LW_AGE_ZEROPOINT:
+            name: LW_AGE_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Light-weighted age zeropoint of linear fit obtained 
+              within 1.5Re.
+          LW_AGE_ZEROPOINT_ERROR:
+            name: LW_AGE_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on light-weighted age zeropoint obtained within 
+              1.5Re.
+          MW_AGE_GRADIENT:
+            name: MW_AGE_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Mass-weighted age gradient of linear fit obtained 
+              within 1.5Re.
+          MW_AGE_GRADIENT_ERROR:
+            name: MW_AGE_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on mass-weighted age gradient within 1.5Re.
+          MW_AGE_ZEROPOINT:
+            name: MW_AGE_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Mass-weighted age zeropoint of linear fit obtained 
+              within 1.5Re.
+          MW_AGE_ZEROPOINT_ERROR:
+            name: MW_AGE_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on mass-weighted age zeropoint obtained within 
+              1.5Re.
+          LW_Z_GRADIENT:
+            name: LW_Z_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Light-weighted metallicity [Z/H] gradient of linear fit
+              obtained within 1.5Re.
+          LW_Z_GRADIENT_ERROR:
+            name: LW_Z_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on light-weighted metallicity [Z/H] gradient 
+              within 1.5Re.
+          LW_Z_ZEROPOINT:
+            name: LW_Z_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Light-weighted metallicity [Z/H] zeropoint of linear 
+              fit obtained within 1.5Re.
+          LW_Z_ZEROPOINT_ERROR:
+            name: LW_Z_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on light-weighted metallicity [Z/H] zeropoint 
+              obtained within 1.5Re.
+          MW_Z_GRADIENT:
+            name: MW_Z_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Mass-weighted metallicity [Z/H] gradient of linear fit 
+              obtained within 1.5Re.
+          MW_Z_GRADIENT_ERROR:
+            name: MW_Z_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on mass-weighted metallicity [Z/H] gradient 
+              within 1.5Re.
+          MW_Z_ZEROPOINT:
+            name: MW_Z_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Mass-weighted metallicity [Z/H] zeropoint of linear fit
+              obtained within 1.5Re.
+          MW_Z_ZEROPOINT_ERROR:
+            name: MW_Z_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on mass-weighted metallicity [Z/H] zeropoint 
+              obtained within 1.5Re.
+  DR17:
+    template: 
+      $MANGA_FIREFLY/[DRPVER]/manga-firefly-globalprop-[DRPVER]-[MODELS].fits
+    example: v3_1_1/manga-firefly-globalprop-v3_1_1-mastar.fits
+    location: '{drpver}/manga-firefly-globalprop-{drpver}-{models}.fits'
+    environment: MANGA_FIREFLY
+    access:
+      in_sdss_access: false
+      path_name:
+      path_template:
+      path_kwargs:
+      access_string: manga_firefly-GLOBALPROP = 
+        $MANGA_FIREFLY/{drpver}/manga-firefly-globalprop-{drpver}-{models}.fits
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: This HDU is left empty.
+        is_image: true
+        size: 0 bytes
+        header:
+          - key: SIMPLE
+            value: true
+            comment: conforms to FITS standard
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 0
+            comment: number of array dimensions
+          - key: EXTEND
+            value: true
+            comment: ''
+      hdu1:
+        name: GALAXY_INFO
+        description: This HDU is left empty.
+        is_image: false
+        size: 1 MB
+        header:
+          - key: XTENSION
+            value: BINTABLE
+            comment: binary table extension
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 2
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 138
+            comment: length of dimension 1
+          - key: NAXIS2
+            value: 10735
+            comment: length of dimension 2
+          - key: PCOUNT
+            value: 0
+            comment: number of group parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: TFIELDS
+            value: 11
+            comment: number of table fields
+          - key: EXTNAME
+            value: GALAXY_INFO
+            comment: extension name
+        columns:
+          MANGAID:
+            name: MANGAID
+            type: char[20]
+            unit: N/A
+            description: Unique MaNGA Identifier.
+          PLATEIFU:
+            name: PLATEIFU
+            type: char[20]
+            unit: N/A
+            description: Unique string containing MaNGA plate and IFU.
+          PLATE:
+            name: PLATE
+            type: int16[INT1]
+            unit: N/A
+            description: Plate which Galaxy was observed with.
+          IFUDSGN:
+            name: IFUDSGN
+            type: char[20]
+            unit: N/A
+            description: IFU which Galaxy was observed with.
+          OBJRA:
+            name: OBJRA
+            type: float32
+            unit: deg
+            description: "Right Ascension of\n  Galaxy (J2000)."
+          OBJDEC:
+            name: OBJDEC
+            type: float32
+            unit: deg
+            description: "Declination of\n  Galaxy (J2000)."
+          REDSHIFT:
+            name: REDSHIFT
+            type: float32
+            unit: N/A
+            description: Redshift of Galaxy.
+          PHOTOMETRIC_MASS:
+            name: PHOTOMETRIC_MASS
+            type: float32
+            unit: log(M⊙)
+            description: "Stellar\n  mass of galaxy fromNSA catalogueobtained from
+              K-correction fits to elliptical Petrosian photometric fluxes. Masses
+              are converted to the cosmology parameters that we assume in the Firefly
+              VAC with H0= 67.8 km/s/Mpc."
+          MANGADRP_ver:
+            name: MANGADRP_ver
+            type: char[20]
+            unit: N/A
+            description: Version of DRP that reduced the data.
+          MANGADAP_ver:
+            name: MANGADAP_ver
+            type: char[20]
+            unit: N/A
+            description: Version of DAP that analysed the data.
+          FIREFLY_ver:
+            name: FIREFLY_ver
+            type: char[20]
+            unit: N/A
+            description: Version of FIREFLY that analysed the data.
+      hdu2:
+        name: GLOBAL_PARAMETERS
+        description: This HDU is left empty.
+        is_image: false
+        size: 670 KB
+        header:
+          - key: XTENSION
+            value: BINTABLE
+            comment: binary table extension
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 2
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 64
+            comment: length of dimension 1
+          - key: NAXIS2
+            value: 10735
+            comment: length of dimension 2
+          - key: PCOUNT
+            value: 0
+            comment: number of group parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: TFIELDS
+            value: 16
+            comment: number of table fields
+          - key: EXTNAME
+            value: GLOBAL_PARAMETERS
+            comment: extension name
+        columns:
+          LW_AGE_1Re:
+            name: LW_AGE_1Re
+            type: float32
+            unit: log(Gyr)
+            description: Light-weighted age within a shell located at 1Re.
+          LW_AGE_1Re_ERROR:
+            name: LW_AGE_1Re_ERROR
+            type: float32
+            unit: log(Gyr)
+            description: Error on light-weighted age within a shell located at 
+              1Re.
+          MW_AGE_1Re:
+            name: MW_AGE_1Re
+            type: float32
+            unit: log(Gyr)
+            description: Mass-weighted age within a shell located at 1Re.
+          MW_AGE_1Re_ERROR:
+            name: MW_AGE_1Re_ERROR
+            type: float32
+            unit: log(Gyr)
+            description: Error on mass-weighted age within a shell located at 
+              1Re.
+          LW_Z_1Re:
+            name: LW_Z_1Re
+            type: float32
+            unit: ''
+            description: Light-weighted metallicity [Z/H] within a shell located
+              at 1Re.
+          LW_Z_1Re_ERROR:
+            name: LW_Z_1Re_ERROR
+            type: float32
+            unit: ''
+            description: Error on light-weighted metallicity [Z/H] within a 
+              shell located at 1Re.
+          MW_Z_1Re:
+            name: MW_Z_1Re
+            type: float32
+            unit: ''
+            description: Mass-weighted metallicity [Z/H] within a shell located 
+              at 1Re.
+          MW_Z_1Re_ERROR:
+            name: MW_Z_1Re_ERROR
+            type: float32
+            unit: ''
+            description: Error on mass-weighted metallicity [Z/H] within a shell
+              located at 1Re.
+          LW_AGE_3ARCSEC:
+            name: LW_AGE_3ARCSEC
+            type: float32
+            unit: log(Gyr)
+            description: Light-weighted age within 3arcsec diameter.
+          LW_AGE_3ARCSEC_ERROR:
+            name: LW_AGE_3ARCSEC_ERROR
+            type: float32
+            unit: log(Gyr)
+            description: Error on light-weighted age within 3arcsec.
+          MW_AGE_3ARCSEC:
+            name: MW_AGE_3ARCSEC
+            type: float32
+            unit: log(Gyr)
+            description: Mass-weighted age within 3arcsec diameter.
+          MW_AGE_3ARCSEC_ERROR:
+            name: MW_AGE_3ARCSEC_ERROR
+            type: float32
+            unit: log(Gyr)
+            description: Error on mass-weighted age within 3arcsec.
+          LW_Z_3ARCSEC:
+            name: LW_Z_3ARCSEC
+            type: float32
+            unit: ''
+            description: Light-weighted metallicity [Z/H] within 3arcsec 
+              diameter.
+          LW_Z_3ARCSEC_ERROR:
+            name: LW_Z_3ARCSEC_ERROR
+            type: float32
+            unit: ''
+            description: Error on light-weighted metallicity [Z/H] within 
+              3arcsec.
+          MW_Z_3ARCSEC:
+            name: MW_Z_3ARCSEC
+            type: float32
+            unit: ''
+            description: Mass-weighted metallicity [Z/H] within 3arcsec 
+              diameter.
+          MW_Z_3ARCSEC_ERROR:
+            name: MW_Z_3ARCSEC_ERROR
+            type: float32
+            unit: ''
+            description: Error on mass-weighted metallicity [Z/H] within 
+              3arcsec.
+      hdu3:
+        name: GRADIENT_PARAMETERS
+        description: This HDU is left empty.
+        is_image: false
+        size: 670 KB
+        header:
+          - key: XTENSION
+            value: BINTABLE
+            comment: binary table extension
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 2
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 64
+            comment: length of dimension 1
+          - key: NAXIS2
+            value: 10735
+            comment: length of dimension 2
+          - key: PCOUNT
+            value: 0
+            comment: number of group parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: TFIELDS
+            value: 16
+            comment: number of table fields
+          - key: EXTNAME
+            value: GRADIENT_PARAMETERS
+            comment: extension name
+        columns:
+          LW_AGE_GRADIENT:
+            name: LW_AGE_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Light-weighted age gradient of linear fit obtained 
+              within 1.5Re.
+          LW_AGE_GRADIENT_ERROR:
+            name: LW_AGE_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on light-weighted age gradient within 1.5Re.
+          LW_AGE_ZEROPOINT:
+            name: LW_AGE_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Light-weighted age zeropoint of linear fit obtained 
+              within 1.5Re.
+          LW_AGE_ZEROPOINT_ERROR:
+            name: LW_AGE_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on light-weighted age zeropoint obtained within 
+              1.5Re.
+          MW_AGE_GRADIENT:
+            name: MW_AGE_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Mass-weighted age gradient of linear fit obtained 
+              within 1.5Re.
+          MW_AGE_GRADIENT_ERROR:
+            name: MW_AGE_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on mass-weighted age gradient within 1.5Re.
+          MW_AGE_ZEROPOINT:
+            name: MW_AGE_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Mass-weighted age zeropoint of linear fit obtained 
+              within 1.5Re.
+          MW_AGE_ZEROPOINT_ERROR:
+            name: MW_AGE_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on mass-weighted age zeropoint obtained within 
+              1.5Re.
+          LW_Z_GRADIENT:
+            name: LW_Z_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Light-weighted metallicity [Z/H] gradient of linear fit
+              obtained within 1.5Re.
+          LW_Z_GRADIENT_ERROR:
+            name: LW_Z_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on light-weighted metallicity [Z/H] gradient 
+              within 1.5Re.
+          LW_Z_ZEROPOINT:
+            name: LW_Z_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Light-weighted metallicity [Z/H] zeropoint of linear 
+              fit obtained within 1.5Re.
+          LW_Z_ZEROPOINT_ERROR:
+            name: LW_Z_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on light-weighted metallicity [Z/H] zeropoint 
+              obtained within 1.5Re.
+          MW_Z_GRADIENT:
+            name: MW_Z_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Mass-weighted metallicity [Z/H] gradient of linear fit 
+              obtained within 1.5Re.
+          MW_Z_GRADIENT_ERROR:
+            name: MW_Z_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on mass-weighted metallicity [Z/H] gradient 
+              within 1.5Re.
+          MW_Z_ZEROPOINT:
+            name: MW_Z_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Mass-weighted metallicity [Z/H] zeropoint of linear fit
+              obtained within 1.5Re.
+          MW_Z_ZEROPOINT_ERROR:
+            name: MW_Z_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on mass-weighted metallicity [Z/H] zeropoint 
+              obtained within 1.5Re.
+notes: None
+regrets: I  have no regrets!

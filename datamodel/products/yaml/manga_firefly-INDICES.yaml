@@ -1,0 +1,4341 @@
+general:
+  name: manga_firefly-INDICES
+  short: "manga-firefly-v2_4_3-GLOBALPROP.fits is one of the MaNGA FIREFLY catalogues for the the 15th data release of the Sloan Digital Sky Survey."
+  description: "manga-firefly-v2_4_3-GLOBALPROP.fits is one of the MaNGA FIREFLY catalogues for the the 15th data release of the Sloan Digital Sky Survey. The file contains analysis for 4675 galaxies from the MaNGA survey, providing global properties such as gradients and absorption. For DR15, the version of FIREFLY used was FIREFLY_VER=v1_1_0, and this was run on MANGADRP_VER=v2_4_3 reduced data.  The catalogue is available in FITS format at the following link: <dd> <dd> <a href=\"https://data.sdss.org/sas/dr15/manga/spectro/firefly/v1_1_2/manga_firefly-v2_4_3-INDICES.fits\" target=\"_blank\">https://data.sdss.org/sas/dr15/manga/spectro/firefly/v1_1_2/manga_firefly-v2_4_3-INDICES.fits</a> </dd> <dt>Naming Convention</dt> <dd id=\"filename\"><code> filename = manga_firefly-MANGADRP_VER-INDICES.fits where MANGADRP_VER=v2_4_3 for DR15 </code>.</dd> <dt>Approximate Size</dt> <dd id=\"filesize\">4 GB</dd> <dt>File Type</dt> <dd id=\"filetype\">FITS</dd> <dt>Read by Products</dt> <dd>firefly</dd> <dt>Written by Products</dt> <dd>firefly</dd> <dt>Sections</dt> <dd><p>This should contain internal links to parts of the file (if any).</p> <ul> <li><a href=\"#hdu0\">HDU0</a>: The Primary Header</li> <li><a href=\"#hdu1\">HDU1</a>: A Data Table</li> <li><a href=\"#example\">Examples</a></li> </ul> </dd> </dd>"
+  datatype: FITS
+  filesize: 3 GB
+  releases:
+    - DR14
+    - DR15
+    - DR16
+  environments:
+    - MANGA_FIREFLY
+  surveys:
+    - MaNGA
+  naming_convention: 
+    $MANGA_FIREFLY/[FIREFLY_VER]/manga_firefly-[DRPVER]-INDICES.fits where 
+    FIREFLY_VER=v1_1_2 in DR15 and DRPVER=v2_4_3.
+  generated_by: https://github.com/FireflySpectra/firefly_release this product.
+  data_level: 3.3.0
+  design: false
+  vac: true
+  recommended_science_product: true
+releases:
+  DR14:
+    template: $MANGA_FIREFLY/[FIREFLY_VER]/manga_firefly-[DRPVER]-[MODELS].fits
+    example: v1_0_3/manga_firefly-v2_1_2-INDICES.fits
+    location: '{firefly_ver}/manga_firefly-{drpver}-{models}.fits'
+    environment: MANGA_FIREFLY
+    access:
+      in_sdss_access: true
+      path_name: manga_firefly_models
+      path_template: 
+        $MANGA_FIREFLY/{firefly_ver}/manga_firefly-{drpver}-{models}.fits
+      path_kwargs:
+        - models
+        - drpver
+        - firefly_ver
+      access_string: manga_firefly_models = 
+        $MANGA_FIREFLY/{firefly_ver}/manga_firefly-{drpver}-{models}.fits
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 0 bytes
+        header:
+          - key: SIMPLE
+            value: true
+            comment: conforms to FITS standard
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 0
+            comment: number of array dimensions
+          - key: EXTEND
+            value: true
+            comment: ''
+      hdu1:
+        name: GALAXY_INFO
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: false
+        size: 374 KB
+        header:
+          - key: XTENSION
+            value: BINTABLE
+            comment: binary table extension
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 2
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 138
+            comment: length of dimension 1
+          - key: NAXIS2
+            value: 2777
+            comment: length of dimension 2
+          - key: PCOUNT
+            value: 0
+            comment: number of group parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: TFIELDS
+            value: 11
+            comment: number of table fields
+          - key: EXTNAME
+            value: GALAXY_INFO
+            comment: extension name
+        columns:
+          MANGAID:
+            name: MANGAID
+            type: char[20]
+            unit: N/A
+            description: Unique MaNGA Identifier.
+          PLATEIFU:
+            name: PLATEIFU
+            type: char[20]
+            unit: N/A
+            description: Unique string containing MaNGA plate and Ifu.
+          PLATE:
+            name: PLATE
+            type: int16[INT1]
+            unit: N/A
+            description: Plate which Galaxy was observed with.
+          IFUDSGN:
+            name: IFUDSGN
+            type: char[20]
+            unit: N/A
+            description: IFU which Galaxy was observed with.
+          OBJRA:
+            name: OBJRA
+            type: float32
+            unit: N/A
+            description: Right Ascension of Galaxy.
+          OBJDEC:
+            name: OBJDEC
+            type: float32
+            unit: N/A
+            description: Declination of Galaxy.
+          REDSHIFT:
+            name: REDSHIFT
+            type: float32
+            unit: N/A
+            description: Redshift of Galaxy.
+          PHOTOMETRIC_MASS:
+            name: PHOTOMETRIC_MASS
+            type: float32
+            unit: log(M/M⊙)
+            description: Stellar Mass from SED Fitting.
+          MANGADRP_ver:
+            name: MANGADRP_ver
+            type: char[20]
+            unit: N/A
+            description: Version of DRP that reduced the data.
+          MANGADAP_ver:
+            name: MANGADAP_ver
+            type: char[20]
+            unit: N/A
+            description: Version of DAP that analysed the data.
+          FIREFLY_ver:
+            name: FIREFLY_ver
+            type: char[20]
+            unit: N/A
+            description: Version of FIREFLY that analysed the data.
+      hdu2:
+        name: GLOBAL_PARAMETERS
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: false
+        size: 173 KB
+        header:
+          - key: XTENSION
+            value: BINTABLE
+            comment: binary table extension
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 2
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 64
+            comment: length of dimension 1
+          - key: NAXIS2
+            value: 2777
+            comment: length of dimension 2
+          - key: PCOUNT
+            value: 0
+            comment: number of group parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: TFIELDS
+            value: 16
+            comment: number of table fields
+          - key: EXTNAME
+            value: GLOBAL_PARAMETERS
+            comment: extension name
+        columns:
+          LW_AGE_1Re:
+            name: LW_AGE_1Re
+            type: float32
+            unit: log(Age(Gyr))
+            description: Median value of property within a shell located at 1Re 
+              of the galaxy.
+          LW_AGE_1Re_ERROR:
+            name: LW_AGE_1Re_ERROR
+            type: float32
+            unit: log(Age(Gyr))
+            description: Median error on property within a shell located at 1Re 
+              of the galaxy.
+          MW_AGE_1Re:
+            name: MW_AGE_1Re
+            type: float32
+            unit: log(Age(Gyr))
+            description: Median value of property within a shell located at 1Re 
+              of the galaxy.
+          MW_AGE_1Re_ERROR:
+            name: MW_AGE_1Re_ERROR
+            type: float32
+            unit: log(Age(Gyr))
+            description: Median error on property within a shell located at 1Re 
+              of the galaxy.
+          LW_Z_1Re:
+            name: LW_Z_1Re
+            type: float32
+            unit: '[Z/H]'
+            description: Median value of property within a shell located at 1Re 
+              of the galaxy.
+          LW_Z_1Re_ERROR:
+            name: LW_Z_1Re_ERROR
+            type: float32
+            unit: '[Z/H]'
+            description: Median error on property within a shell located at 1Re 
+              of the galaxy.
+          MW_Z_1Re:
+            name: MW_Z_1Re
+            type: float32
+            unit: '[Z/H]'
+            description: Median value of property within a shell located at 1Re 
+              of the galaxy.
+          MW_Z_1Re_ERROR:
+            name: MW_Z_1Re_ERROR
+            type: float32
+            unit: '[Z/H]'
+            description: Median error on property within a shell located at 1Re 
+              of the galaxy.
+          LW_AGE_3ARCSEC:
+            name: LW_AGE_3ARCSEC
+            type: float32
+            unit: log(Age(Gyr))
+            description: Value of property within diameter of Sloan Digitial Sky
+              Survey fibre.
+          LW_AGE_3ARCSEC_ERROR:
+            name: LW_AGE_3ARCSEC_ERROR
+            type: float32
+            unit: log(Age(Gyr))
+            description: Error on value of property within diameter of Sloan 
+              Digitial Sky Survey fibre.
+          MW_AGE_3ARCSEC:
+            name: MW_AGE_3ARCSEC
+            type: float32
+            unit: log(Age(Gyr))
+            description: Value of property within diameter of Sloan Digitial Sky
+              Survey fibre.
+          MW_AGE_3ARCSEC_ERROR:
+            name: MW_AGE_3ARCSEC_ERROR
+            type: float32
+            unit: log(Age(Gyr))
+            description: Error on value of property within diameter of Sloan 
+              Digitial Sky Survey fibre.
+          LW_Z_3ARCSEC:
+            name: LW_Z_3ARCSEC
+            type: float32
+            unit: '[Z/H]'
+            description: Value of property within diameter of Sloan Digitial Sky
+              Survey fibre.
+          LW_Z_3ARCSEC_ERROR:
+            name: LW_Z_3ARCSEC_ERROR
+            type: float32
+            unit: '[Z/H]'
+            description: Error on value of property within diameter of Sloan 
+              Digitial Sky Survey fibre.
+          MW_Z_3ARCSEC:
+            name: MW_Z_3ARCSEC
+            type: float32
+            unit: '[Z/H]'
+            description: Value of property within diameter of Sloan Digitial Sky
+              Survey fibre.
+          MW_Z_3ARCSEC_ERROR:
+            name: MW_Z_3ARCSEC_ERROR
+            type: float32
+            unit: '[Z/H]'
+            description: Error on value of property within diameter of Sloan 
+              Digitial Sky Survey fibre.
+      hdu3:
+        name: GRADIENT_PARAMETERS
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: false
+        size: 173 KB
+        header:
+          - key: XTENSION
+            value: BINTABLE
+            comment: binary table extension
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 2
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 64
+            comment: length of dimension 1
+          - key: NAXIS2
+            value: 2777
+            comment: length of dimension 2
+          - key: PCOUNT
+            value: 0
+            comment: number of group parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: TFIELDS
+            value: 16
+            comment: number of table fields
+          - key: EXTNAME
+            value: GRADIENT_PARAMETERS
+            comment: extension name
+        columns:
+          LW_AGE_GRADIENT:
+            name: LW_AGE_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Gradient of linear fit obtained within 1.5Re.
+          LW_AGE_GRADIENT_ERROR:
+            name: LW_AGE_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on gradient obtained within 1.5Re.
+          LW_AGE_ZEROPOINT:
+            name: LW_AGE_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Zeropoint of linear fit obtained within 1.5Re.
+          LW_AGE_ZEROPOINT_ERROR:
+            name: LW_AGE_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on zeropoint obtained within 1.5Re.
+          MW_AGE_GRADIENT:
+            name: MW_AGE_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Gradient of linear fit obtained within 1.5Re.
+          MW_AGE_GRADIENT_ERROR:
+            name: MW_AGE_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on gradient obtained within 1.5Re.
+          MW_AGE_ZEROPOINT:
+            name: MW_AGE_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Zeropoint of linear fit obtained within 1.5Re.
+          MW_AGE_ZEROPOINT_ERROR:
+            name: MW_AGE_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on zeropoint obtained within 1.5Re.
+          LW_Z_GRADIENT:
+            name: LW_Z_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Gradient of linear fit obtained within 1.5Re.
+          LW_Z_GRADIENT_ERROR:
+            name: LW_Z_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on gradient obtained within 1.5Re.
+          LW_Z_ZEROPOINT:
+            name: LW_Z_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Zeropoint of linear fit obtained within 1.5Re.
+          LW_Z_ZEROPOINT_ERROR:
+            name: LW_Z_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on zeropoint obtained within 1.5Re.
+          MW_Z_GRADIENT:
+            name: MW_Z_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Gradient of linear fit obtained within 1.5Re.
+          MW_Z_GRADIENT_ERROR:
+            name: MW_Z_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on gradient obtained within 1.5Re.
+          MW_Z_ZEROPOINT:
+            name: MW_Z_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Zeropoint of linear fit obtained within 1.5Re.
+          MW_Z_ZEROPOINT_ERROR:
+            name: MW_Z_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on zeropoint obtained within 1.5Re.
+      hdu4:
+        name: SPATIAL_INFO
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 118 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 4
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: SPATIAL_INFO
+            comment: extension name
+      hdu5:
+        name: SPAXEL_BINID
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 1 GB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -64
+            comment: array data type
+          - key: NAXIS
+            value: 4
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 6
+            comment: ''
+          - key: NAXIS2
+            value: 100
+            comment: ''
+          - key: NAXIS3
+            value: 100
+            comment: ''
+          - key: NAXIS4
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: SPAXEL_BINID
+            comment: extension name
+      hdu6:
+        name: SIGNAL_NOISE_VORONOI
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 29 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 2
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 2800
+            comment: ''
+          - key: NAXIS2
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: SIGNAL_NOISE_VORONOI
+            comment: extension name
+      hdu7:
+        name: D4000_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: D4000_INDEX
+            comment: extension name
+      hdu8:
+        name: DN4000_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: DN4000_INDEX
+            comment: extension name
+      hdu9:
+        name: CAHK_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: CAHK_INDEX
+            comment: extension name
+      hdu10:
+        name: HDELTA_A_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: HDELTA_A_INDEX
+            comment: extension name
+      hdu11:
+        name: HDELTA_F_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: HDELTA_F_INDEX
+            comment: extension name
+      hdu12:
+        name: CN1_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: CN1_INDEX
+            comment: extension name
+      hdu13:
+        name: CN2_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: CN2_INDEX
+            comment: extension name
+      hdu14:
+        name: CA4227_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: CA4227_INDEX
+            comment: extension name
+      hdu15:
+        name: G4300_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: G4300_INDEX
+            comment: extension name
+      hdu16:
+        name: HGAMMA_A_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: HGAMMA_A_INDEX
+            comment: extension name
+      hdu17:
+        name: HGAMMA_F_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: HGAMMA_F_INDEX
+            comment: extension name
+      hdu18:
+        name: FE4383_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: FE4383_INDEX
+            comment: extension name
+      hdu19:
+        name: CA4455_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: CA4455_INDEX
+            comment: extension name
+      hdu20:
+        name: FE4531_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: FE4531_INDEX
+            comment: extension name
+      hdu21:
+        name: C24668_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: C24668_INDEX
+            comment: extension name
+      hdu22:
+        name: H_BETA_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: H_BETA_INDEX
+            comment: extension name
+      hdu23:
+        name: FE5015_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: FE5015_INDEX
+            comment: extension name
+      hdu24:
+        name: MG1_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: MG1_INDEX
+            comment: extension name
+      hdu25:
+        name: MG2_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: MG2_INDEX
+            comment: extension name
+      hdu26:
+        name: MGB_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: MGB_INDEX
+            comment: extension name
+      hdu27:
+        name: FE5270_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: FE5270_INDEX
+            comment: extension name
+      hdu28:
+        name: FE5335_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: FE5335_INDEX
+            comment: extension name
+      hdu29:
+        name: FE5406_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: FE5406_INDEX
+            comment: extension name
+      hdu30:
+        name: FE5709_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: FE5709_INDEX
+            comment: extension name
+      hdu31:
+        name: FE5782_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: FE5782_INDEX
+            comment: extension name
+      hdu32:
+        name: NAD_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: NAD_INDEX
+            comment: extension name
+      hdu33:
+        name: TIO1_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: TIO1_INDEX
+            comment: extension name
+      hdu34:
+        name: TIO2_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 88 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 2777
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: TIO2_INDEX
+            comment: extension name
+  DR15:
+    template: $MANGA_FIREFLY/[FIREFLY_VER]/manga_firefly-[DRPVER]-[MODELS].fits
+    example: v1_1_2/manga_firefly-v2_4_3-INDICES.fits
+    location: '{firefly_ver}/manga_firefly-{drpver}-{models}.fits'
+    environment: MANGA_FIREFLY
+    access:
+      in_sdss_access: true
+      path_name: manga_firefly_models
+      path_template: 
+        $MANGA_FIREFLY/{firefly_ver}/manga_firefly-{drpver}-{models}.fits
+      path_kwargs:
+        - firefly_ver
+        - models
+        - drpver
+      access_string: manga_firefly_models = 
+        $MANGA_FIREFLY/{firefly_ver}/manga_firefly-{drpver}-{models}.fits
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 0 bytes
+        header:
+          - key: SIMPLE
+            value: true
+            comment: conforms to FITS standard
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 0
+            comment: number of array dimensions
+          - key: EXTEND
+            value: true
+            comment: ''
+      hdu1:
+        name: GALAXY_INFO
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: false
+        size: 630 KB
+        header:
+          - key: XTENSION
+            value: BINTABLE
+            comment: binary table extension
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 2
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 138
+            comment: length of dimension 1
+          - key: NAXIS2
+            value: 4675
+            comment: length of dimension 2
+          - key: PCOUNT
+            value: 0
+            comment: number of group parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: TFIELDS
+            value: 11
+            comment: number of table fields
+          - key: EXTNAME
+            value: GALAXY_INFO
+            comment: extension name
+        columns:
+          MANGAID:
+            name: MANGAID
+            type: char[20]
+            unit: N/A
+            description: Unique MaNGA Identifier.
+          PLATEIFU:
+            name: PLATEIFU
+            type: char[20]
+            unit: N/A
+            description: Unique string containing MaNGA plate and Ifu.
+          PLATE:
+            name: PLATE
+            type: int16
+            unit: N/A
+            description: Plate which Galaxy was observed with.
+          IFUDSGN:
+            name: IFUDSGN
+            type: char[20]
+            unit: N/A
+            description: IFU which Galaxy was observed with.
+          OBJRA:
+            name: OBJRA
+            type: float32
+            unit: N/A
+            description: Right Ascension of Galaxy.
+          OBJDEC:
+            name: OBJDEC
+            type: float32
+            unit: N/A
+            description: Declination of Galaxy.
+          REDSHIFT:
+            name: REDSHIFT
+            type: float32
+            unit: N/A
+            description: Redshift of Galaxy.
+          PHOTOMETRIC_MASS:
+            name: PHOTOMETRIC_MASS
+            type: float32
+            unit: log(M/M⊙)
+            description: Stellar Mass from SED Fitting.
+          MANGADRP_ver:
+            name: MANGADRP_ver
+            type: char[20]
+            unit: N/A
+            description: Version of DRP that reduced the data.
+          MANGADAP_ver:
+            name: MANGADAP_ver
+            type: char[20]
+            unit: N/A
+            description: Version of DAP that analysed the data.
+          FIREFLY_ver:
+            name: FIREFLY_ver
+            type: char[20]
+            unit: N/A
+            description: Version of FIREFLY that analysed the data.
+      hdu2:
+        name: GLOBAL_PARAMETERS
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: false
+        size: 292 KB
+        header:
+          - key: XTENSION
+            value: BINTABLE
+            comment: binary table extension
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 2
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 64
+            comment: length of dimension 1
+          - key: NAXIS2
+            value: 4675
+            comment: length of dimension 2
+          - key: PCOUNT
+            value: 0
+            comment: number of group parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: TFIELDS
+            value: 16
+            comment: number of table fields
+          - key: EXTNAME
+            value: GLOBAL_PARAMETERS
+            comment: extension name
+        columns:
+          LW_AGE_1Re:
+            name: LW_AGE_1Re
+            type: float32
+            unit: log(Age(Gyr))
+            description: Median value of property within a shell located at 1Re 
+              of the galaxy.
+          LW_AGE_1Re_ERROR:
+            name: LW_AGE_1Re_ERROR
+            type: float32
+            unit: log(Age(Gyr))
+            description: Median error on property within a shell located at 1Re 
+              of the galaxy.
+          MW_AGE_1Re:
+            name: MW_AGE_1Re
+            type: float32
+            unit: log(Age(Gyr))
+            description: Median value of property within a shell located at 1Re 
+              of the galaxy.
+          MW_AGE_1Re_ERROR:
+            name: MW_AGE_1Re_ERROR
+            type: float32
+            unit: log(Age(Gyr))
+            description: Median error on property within a shell located at 1Re 
+              of the galaxy.
+          LW_Z_1Re:
+            name: LW_Z_1Re
+            type: float32
+            unit: '[Z/H]'
+            description: Median value of property within a shell located at 1Re 
+              of the galaxy.
+          LW_Z_1Re_ERROR:
+            name: LW_Z_1Re_ERROR
+            type: float32
+            unit: '[Z/H]'
+            description: Median error on property within a shell located at 1Re 
+              of the galaxy.
+          MW_Z_1Re:
+            name: MW_Z_1Re
+            type: float32
+            unit: '[Z/H]'
+            description: Median value of property within a shell located at 1Re 
+              of the galaxy.
+          MW_Z_1Re_ERROR:
+            name: MW_Z_1Re_ERROR
+            type: float32
+            unit: '[Z/H]'
+            description: Median error on property within a shell located at 1Re 
+              of the galaxy.
+          LW_AGE_3ARCSEC:
+            name: LW_AGE_3ARCSEC
+            type: float32
+            unit: log(Age(Gyr))
+            description: Value of property within diameter of Sloan Digitial Sky
+              Survey fibre.
+          LW_AGE_3ARCSEC_ERROR:
+            name: LW_AGE_3ARCSEC_ERROR
+            type: float32
+            unit: log(Age(Gyr))
+            description: Error on value of property within diameter of Sloan 
+              Digitial Sky Survey fibre.
+          MW_AGE_3ARCSEC:
+            name: MW_AGE_3ARCSEC
+            type: float32
+            unit: log(Age(Gyr))
+            description: Value of property within diameter of Sloan Digitial Sky
+              Survey fibre.
+          MW_AGE_3ARCSEC_ERROR:
+            name: MW_AGE_3ARCSEC_ERROR
+            type: float32
+            unit: log(Age(Gyr))
+            description: Error on value of property within diameter of Sloan 
+              Digitial Sky Survey fibre.
+          LW_Z_3ARCSEC:
+            name: LW_Z_3ARCSEC
+            type: float32
+            unit: '[Z/H]'
+            description: Value of property within diameter of Sloan Digitial Sky
+              Survey fibre.
+          LW_Z_3ARCSEC_ERROR:
+            name: LW_Z_3ARCSEC_ERROR
+            type: float32
+            unit: '[Z/H]'
+            description: Error on value of property within diameter of Sloan 
+              Digitial Sky Survey fibre.
+          MW_Z_3ARCSEC:
+            name: MW_Z_3ARCSEC
+            type: float32
+            unit: '[Z/H]'
+            description: Value of property within diameter of Sloan Digitial Sky
+              Survey fibre.
+          MW_Z_3ARCSEC_ERROR:
+            name: MW_Z_3ARCSEC_ERROR
+            type: float32
+            unit: '[Z/H]'
+            description: Error on value of property within diameter of Sloan 
+              Digitial Sky Survey fibre.
+      hdu3:
+        name: GRADIENT_PARAMETERS
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: false
+        size: 292 KB
+        header:
+          - key: XTENSION
+            value: BINTABLE
+            comment: binary table extension
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 2
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 64
+            comment: length of dimension 1
+          - key: NAXIS2
+            value: 4675
+            comment: length of dimension 2
+          - key: PCOUNT
+            value: 0
+            comment: number of group parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: TFIELDS
+            value: 16
+            comment: number of table fields
+          - key: EXTNAME
+            value: GRADIENT_PARAMETERS
+            comment: extension name
+        columns:
+          LW_AGE_GRADIENT:
+            name: LW_AGE_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Gradient of linear fit obtained within 1.5Re.
+          LW_AGE_GRADIENT_ERROR:
+            name: LW_AGE_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on gradient obtained within 1.5Re.
+          LW_AGE_ZEROPOINT:
+            name: LW_AGE_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Zeropoint of linear fit obtained within 1.5Re.
+          LW_AGE_ZEROPOINT_ERROR:
+            name: LW_AGE_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on zeropoint obtained within 1.5Re.
+          MW_AGE_GRADIENT:
+            name: MW_AGE_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Gradient of linear fit obtained within 1.5Re.
+          MW_AGE_GRADIENT_ERROR:
+            name: MW_AGE_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on gradient obtained within 1.5Re.
+          MW_AGE_ZEROPOINT:
+            name: MW_AGE_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Zeropoint of linear fit obtained within 1.5Re.
+          MW_AGE_ZEROPOINT_ERROR:
+            name: MW_AGE_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on zeropoint obtained within 1.5Re.
+          LW_Z_GRADIENT:
+            name: LW_Z_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Gradient of linear fit obtained within 1.5Re.
+          LW_Z_GRADIENT_ERROR:
+            name: LW_Z_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on gradient obtained within 1.5Re.
+          LW_Z_ZEROPOINT:
+            name: LW_Z_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Zeropoint of linear fit obtained within 1.5Re.
+          LW_Z_ZEROPOINT_ERROR:
+            name: LW_Z_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on zeropoint obtained within 1.5Re.
+          MW_Z_GRADIENT:
+            name: MW_Z_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Gradient of linear fit obtained within 1.5Re.
+          MW_Z_GRADIENT_ERROR:
+            name: MW_Z_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on gradient obtained within 1.5Re.
+          MW_Z_ZEROPOINT:
+            name: MW_Z_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Zeropoint of linear fit obtained within 1.5Re.
+          MW_Z_ZEROPOINT_ERROR:
+            name: MW_Z_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on zeropoint obtained within 1.5Re.
+      hdu4:
+        name: SPATIAL_INFO
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 199 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 4
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: SPATIAL_INFO
+            comment: extension name
+      hdu5:
+        name: SPATIAL_BINID
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 51 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: 16
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 76
+            comment: ''
+          - key: NAXIS2
+            value: 76
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: SPATIAL_BINID
+            comment: extension name
+      hdu6:
+        name: D4000_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: D4000_INDEX
+            comment: extension name
+      hdu7:
+        name: DN4000_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: DN4000_INDEX
+            comment: extension name
+      hdu8:
+        name: CAHK_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: CAHK_INDEX
+            comment: extension name
+      hdu9:
+        name: HDELTA_A_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: HDELTA_A_INDEX
+            comment: extension name
+      hdu10:
+        name: HDELTA_F_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: HDELTA_F_INDEX
+            comment: extension name
+      hdu11:
+        name: CN1_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: CN1_INDEX
+            comment: extension name
+      hdu12:
+        name: CN2_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: CN2_INDEX
+            comment: extension name
+      hdu13:
+        name: CA4227_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: CA4227_INDEX
+            comment: extension name
+      hdu14:
+        name: G4300_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: G4300_INDEX
+            comment: extension name
+      hdu15:
+        name: HGAMMA_A_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: HGAMMA_A_INDEX
+            comment: extension name
+      hdu16:
+        name: HGAMMA_F_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: HGAMMA_F_INDEX
+            comment: extension name
+      hdu17:
+        name: FE4383_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: FE4383_INDEX
+            comment: extension name
+      hdu18:
+        name: CA4455_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: CA4455_INDEX
+            comment: extension name
+      hdu19:
+        name: FE4531_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: FE4531_INDEX
+            comment: extension name
+      hdu20:
+        name: C24668_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: C24668_INDEX
+            comment: extension name
+      hdu21:
+        name: H_BETA_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: H_BETA_INDEX
+            comment: extension name
+      hdu22:
+        name: FE5015_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: FE5015_INDEX
+            comment: extension name
+      hdu23:
+        name: MG1_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: MG1_INDEX
+            comment: extension name
+      hdu24:
+        name: MG2_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: MG2_INDEX
+            comment: extension name
+      hdu25:
+        name: MGB_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: MGB_INDEX
+            comment: extension name
+      hdu26:
+        name: FE5270_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: FE5270_INDEX
+            comment: extension name
+      hdu27:
+        name: FE5335_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: FE5335_INDEX
+            comment: extension name
+      hdu28:
+        name: FE5406_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: FE5406_INDEX
+            comment: extension name
+      hdu29:
+        name: FE5709_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: FE5709_INDEX
+            comment: extension name
+      hdu30:
+        name: FE5782_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: FE5782_INDEX
+            comment: extension name
+      hdu31:
+        name: NAD_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: NAD_INDEX
+            comment: extension name
+      hdu32:
+        name: TIO1_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: TIO1_INDEX
+            comment: extension name
+      hdu33:
+        name: TIO2_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: TIO2_INDEX
+            comment: extension name
+  DR16:
+    template: $MANGA_FIREFLY/[FIREFLY_VER]/manga_firefly-[DRPVER]-[MODELS].fits
+    example: v1_1_2/manga_firefly-v2_4_3-INDICES.fits
+    location: '{firefly_ver}/manga_firefly-{drpver}-{models}.fits'
+    environment: MANGA_FIREFLY
+    access:
+      in_sdss_access: true
+      path_name: manga_firefly_models
+      path_template: 
+        $MANGA_FIREFLY/{firefly_ver}/manga_firefly-{drpver}-{models}.fits
+      path_kwargs:
+        - firefly_ver
+        - models
+        - drpver
+      access_string: manga_firefly_models = 
+        $MANGA_FIREFLY/{firefly_ver}/manga_firefly-{drpver}-{models}.fits
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 0 bytes
+        header:
+          - key: SIMPLE
+            value: true
+            comment: conforms to FITS standard
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 0
+            comment: number of array dimensions
+          - key: EXTEND
+            value: true
+            comment: ''
+      hdu1:
+        name: GALAXY_INFO
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: false
+        size: 630 KB
+        header:
+          - key: XTENSION
+            value: BINTABLE
+            comment: binary table extension
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 2
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 138
+            comment: length of dimension 1
+          - key: NAXIS2
+            value: 4675
+            comment: length of dimension 2
+          - key: PCOUNT
+            value: 0
+            comment: number of group parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: TFIELDS
+            value: 11
+            comment: number of table fields
+          - key: EXTNAME
+            value: GALAXY_INFO
+            comment: extension name
+        columns:
+          MANGAID:
+            name: MANGAID
+            type: char[20]
+            unit: N/A
+            description: Unique MaNGA Identifier.
+          PLATEIFU:
+            name: PLATEIFU
+            type: char[20]
+            unit: N/A
+            description: Unique string containing MaNGA plate and Ifu.
+          PLATE:
+            name: PLATE
+            type: int16
+            unit: N/A
+            description: Plate which Galaxy was observed with.
+          IFUDSGN:
+            name: IFUDSGN
+            type: char[20]
+            unit: N/A
+            description: IFU which Galaxy was observed with.
+          OBJRA:
+            name: OBJRA
+            type: float32
+            unit: N/A
+            description: Right Ascension of Galaxy.
+          OBJDEC:
+            name: OBJDEC
+            type: float32
+            unit: N/A
+            description: Declination of Galaxy.
+          REDSHIFT:
+            name: REDSHIFT
+            type: float32
+            unit: N/A
+            description: Redshift of Galaxy.
+          PHOTOMETRIC_MASS:
+            name: PHOTOMETRIC_MASS
+            type: float32
+            unit: log(M/M⊙)
+            description: Stellar Mass from SED Fitting.
+          MANGADRP_ver:
+            name: MANGADRP_ver
+            type: char[20]
+            unit: N/A
+            description: Version of DRP that reduced the data.
+          MANGADAP_ver:
+            name: MANGADAP_ver
+            type: char[20]
+            unit: N/A
+            description: Version of DAP that analysed the data.
+          FIREFLY_ver:
+            name: FIREFLY_ver
+            type: char[20]
+            unit: N/A
+            description: Version of FIREFLY that analysed the data.
+      hdu2:
+        name: GLOBAL_PARAMETERS
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: false
+        size: 292 KB
+        header:
+          - key: XTENSION
+            value: BINTABLE
+            comment: binary table extension
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 2
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 64
+            comment: length of dimension 1
+          - key: NAXIS2
+            value: 4675
+            comment: length of dimension 2
+          - key: PCOUNT
+            value: 0
+            comment: number of group parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: TFIELDS
+            value: 16
+            comment: number of table fields
+          - key: EXTNAME
+            value: GLOBAL_PARAMETERS
+            comment: extension name
+        columns:
+          LW_AGE_1Re:
+            name: LW_AGE_1Re
+            type: float32
+            unit: log(Age(Gyr))
+            description: Median value of property within a shell located at 1Re 
+              of the galaxy.
+          LW_AGE_1Re_ERROR:
+            name: LW_AGE_1Re_ERROR
+            type: float32
+            unit: log(Age(Gyr))
+            description: Median error on property within a shell located at 1Re 
+              of the galaxy.
+          MW_AGE_1Re:
+            name: MW_AGE_1Re
+            type: float32
+            unit: log(Age(Gyr))
+            description: Median value of property within a shell located at 1Re 
+              of the galaxy.
+          MW_AGE_1Re_ERROR:
+            name: MW_AGE_1Re_ERROR
+            type: float32
+            unit: log(Age(Gyr))
+            description: Median error on property within a shell located at 1Re 
+              of the galaxy.
+          LW_Z_1Re:
+            name: LW_Z_1Re
+            type: float32
+            unit: '[Z/H]'
+            description: Median value of property within a shell located at 1Re 
+              of the galaxy.
+          LW_Z_1Re_ERROR:
+            name: LW_Z_1Re_ERROR
+            type: float32
+            unit: '[Z/H]'
+            description: Median error on property within a shell located at 1Re 
+              of the galaxy.
+          MW_Z_1Re:
+            name: MW_Z_1Re
+            type: float32
+            unit: '[Z/H]'
+            description: Median value of property within a shell located at 1Re 
+              of the galaxy.
+          MW_Z_1Re_ERROR:
+            name: MW_Z_1Re_ERROR
+            type: float32
+            unit: '[Z/H]'
+            description: Median error on property within a shell located at 1Re 
+              of the galaxy.
+          LW_AGE_3ARCSEC:
+            name: LW_AGE_3ARCSEC
+            type: float32
+            unit: log(Age(Gyr))
+            description: Value of property within diameter of Sloan Digitial Sky
+              Survey fibre.
+          LW_AGE_3ARCSEC_ERROR:
+            name: LW_AGE_3ARCSEC_ERROR
+            type: float32
+            unit: log(Age(Gyr))
+            description: Error on value of property within diameter of Sloan 
+              Digitial Sky Survey fibre.
+          MW_AGE_3ARCSEC:
+            name: MW_AGE_3ARCSEC
+            type: float32
+            unit: log(Age(Gyr))
+            description: Value of property within diameter of Sloan Digitial Sky
+              Survey fibre.
+          MW_AGE_3ARCSEC_ERROR:
+            name: MW_AGE_3ARCSEC_ERROR
+            type: float32
+            unit: log(Age(Gyr))
+            description: Error on value of property within diameter of Sloan 
+              Digitial Sky Survey fibre.
+          LW_Z_3ARCSEC:
+            name: LW_Z_3ARCSEC
+            type: float32
+            unit: '[Z/H]'
+            description: Value of property within diameter of Sloan Digitial Sky
+              Survey fibre.
+          LW_Z_3ARCSEC_ERROR:
+            name: LW_Z_3ARCSEC_ERROR
+            type: float32
+            unit: '[Z/H]'
+            description: Error on value of property within diameter of Sloan 
+              Digitial Sky Survey fibre.
+          MW_Z_3ARCSEC:
+            name: MW_Z_3ARCSEC
+            type: float32
+            unit: '[Z/H]'
+            description: Value of property within diameter of Sloan Digitial Sky
+              Survey fibre.
+          MW_Z_3ARCSEC_ERROR:
+            name: MW_Z_3ARCSEC_ERROR
+            type: float32
+            unit: '[Z/H]'
+            description: Error on value of property within diameter of Sloan 
+              Digitial Sky Survey fibre.
+      hdu3:
+        name: GRADIENT_PARAMETERS
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: false
+        size: 292 KB
+        header:
+          - key: XTENSION
+            value: BINTABLE
+            comment: binary table extension
+          - key: BITPIX
+            value: 8
+            comment: array data type
+          - key: NAXIS
+            value: 2
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 64
+            comment: length of dimension 1
+          - key: NAXIS2
+            value: 4675
+            comment: length of dimension 2
+          - key: PCOUNT
+            value: 0
+            comment: number of group parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: TFIELDS
+            value: 16
+            comment: number of table fields
+          - key: EXTNAME
+            value: GRADIENT_PARAMETERS
+            comment: extension name
+        columns:
+          LW_AGE_GRADIENT:
+            name: LW_AGE_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Gradient of linear fit obtained within 1.5Re.
+          LW_AGE_GRADIENT_ERROR:
+            name: LW_AGE_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on gradient obtained within 1.5Re.
+          LW_AGE_ZEROPOINT:
+            name: LW_AGE_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Zeropoint of linear fit obtained within 1.5Re.
+          LW_AGE_ZEROPOINT_ERROR:
+            name: LW_AGE_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on zeropoint obtained within 1.5Re.
+          MW_AGE_GRADIENT:
+            name: MW_AGE_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Gradient of linear fit obtained within 1.5Re.
+          MW_AGE_GRADIENT_ERROR:
+            name: MW_AGE_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on gradient obtained within 1.5Re.
+          MW_AGE_ZEROPOINT:
+            name: MW_AGE_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Zeropoint of linear fit obtained within 1.5Re.
+          MW_AGE_ZEROPOINT_ERROR:
+            name: MW_AGE_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on zeropoint obtained within 1.5Re.
+          LW_Z_GRADIENT:
+            name: LW_Z_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Gradient of linear fit obtained within 1.5Re.
+          LW_Z_GRADIENT_ERROR:
+            name: LW_Z_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on gradient obtained within 1.5Re.
+          LW_Z_ZEROPOINT:
+            name: LW_Z_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Zeropoint of linear fit obtained within 1.5Re.
+          LW_Z_ZEROPOINT_ERROR:
+            name: LW_Z_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on zeropoint obtained within 1.5Re.
+          MW_Z_GRADIENT:
+            name: MW_Z_GRADIENT
+            type: float32
+            unit: dex/Re
+            description: Gradient of linear fit obtained within 1.5Re.
+          MW_Z_GRADIENT_ERROR:
+            name: MW_Z_GRADIENT_ERROR
+            type: float32
+            unit: dex/Re
+            description: Error on gradient obtained within 1.5Re.
+          MW_Z_ZEROPOINT:
+            name: MW_Z_ZEROPOINT
+            type: float32
+            unit: ''
+            description: Zeropoint of linear fit obtained within 1.5Re.
+          MW_Z_ZEROPOINT_ERROR:
+            name: MW_Z_ZEROPOINT_ERROR
+            type: float32
+            unit: ''
+            description: Error on zeropoint obtained within 1.5Re.
+      hdu4:
+        name: SPATIAL_INFO
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 199 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 4
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: SPATIAL_INFO
+            comment: extension name
+      hdu5:
+        name: SPATIAL_BINID
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 51 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: 16
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 76
+            comment: ''
+          - key: NAXIS2
+            value: 76
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: SPATIAL_BINID
+            comment: extension name
+      hdu6:
+        name: D4000_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: D4000_INDEX
+            comment: extension name
+      hdu7:
+        name: DN4000_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: DN4000_INDEX
+            comment: extension name
+      hdu8:
+        name: CAHK_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: CAHK_INDEX
+            comment: extension name
+      hdu9:
+        name: HDELTA_A_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: HDELTA_A_INDEX
+            comment: extension name
+      hdu10:
+        name: HDELTA_F_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: HDELTA_F_INDEX
+            comment: extension name
+      hdu11:
+        name: CN1_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: CN1_INDEX
+            comment: extension name
+      hdu12:
+        name: CN2_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: CN2_INDEX
+            comment: extension name
+      hdu13:
+        name: CA4227_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: CA4227_INDEX
+            comment: extension name
+      hdu14:
+        name: G4300_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: G4300_INDEX
+            comment: extension name
+      hdu15:
+        name: HGAMMA_A_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: HGAMMA_A_INDEX
+            comment: extension name
+      hdu16:
+        name: HGAMMA_F_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: HGAMMA_F_INDEX
+            comment: extension name
+      hdu17:
+        name: FE4383_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: FE4383_INDEX
+            comment: extension name
+      hdu18:
+        name: CA4455_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: CA4455_INDEX
+            comment: extension name
+      hdu19:
+        name: FE4531_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: FE4531_INDEX
+            comment: extension name
+      hdu20:
+        name: C24668_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: C24668_INDEX
+            comment: extension name
+      hdu21:
+        name: H_BETA_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: H_BETA_INDEX
+            comment: extension name
+      hdu22:
+        name: FE5015_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: FE5015_INDEX
+            comment: extension name
+      hdu23:
+        name: MG1_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: MG1_INDEX
+            comment: extension name
+      hdu24:
+        name: MG2_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: MG2_INDEX
+            comment: extension name
+      hdu25:
+        name: MGB_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: MGB_INDEX
+            comment: extension name
+      hdu26:
+        name: FE5270_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: FE5270_INDEX
+            comment: extension name
+      hdu27:
+        name: FE5335_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: FE5335_INDEX
+            comment: extension name
+      hdu28:
+        name: FE5406_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: FE5406_INDEX
+            comment: extension name
+      hdu29:
+        name: FE5709_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: FE5709_INDEX
+            comment: extension name
+      hdu30:
+        name: FE5782_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: FE5782_INDEX
+            comment: extension name
+      hdu31:
+        name: NAD_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: NAD_INDEX
+            comment: extension name
+      hdu32:
+        name: TIO1_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: TIO1_INDEX
+            comment: extension name
+      hdu33:
+        name: TIO2_INDEX
+        description: "This section should contain any information related to the primary\n\
+          header. Keywords are listed in the table below.  There are three types\n\
+          of values for keywords:"
+        is_image: true
+        size: 149 MB
+        header:
+          - key: XTENSION
+            value: IMAGE
+            comment: Image extension
+          - key: BITPIX
+            value: -32
+            comment: array data type
+          - key: NAXIS
+            value: 3
+            comment: number of array dimensions
+          - key: NAXIS1
+            value: 3
+            comment: ''
+          - key: NAXIS2
+            value: 2800
+            comment: ''
+          - key: NAXIS3
+            value: 4675
+            comment: ''
+          - key: PCOUNT
+            value: 0
+            comment: number of parameters
+          - key: GCOUNT
+            value: 1
+            comment: number of groups
+          - key: EXTNAME
+            value: TIO2_INDEX
+            comment: extension name
+notes: None
+regrets: I  have no regrets!
