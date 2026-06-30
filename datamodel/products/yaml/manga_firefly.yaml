@@ -1,24 +1,47 @@
 general:
   name: manga_firefly
-  short: This is the MaNGA FIREFLY catalogue for the 17th data release of the 
-    Sloan Digital Sky Survey.
-  description: "This is the MaNGA FIREFLY catalogue for the 17th data release of the Sloan Digital Sky Survey. The VAC contains analysis for 10735 datacubes including 10010 unique galaxies from the MaNGA survey, providing both global and spatially resolved stellar population parameters. For DR17, the version of FIREFLY used was FIREFLY_VER=v1_0_1, and this was run on reduced and analysed data from MANGADRP_VER=v3_1_1 and MANGADAP_VER=v3_1_0. This VAC is provided in two versions: The first version employs the stellar population models of <a target='_blank' href='http://adsabs.harvard.edu/abs/2011MNRAS.418.2785M'>​Maraston & Stromback (2011)</a> based on the ​<a target='_blank' href='https://www.iac.es/proyecto/miles/pages/stellar-libraries/miles-library.php'>​MILES stellar library</a> (Sánchez-Blázquez et al. 2006). The second version uses the <a target='_blank' href='http://www.icg.port.ac.uk/mastar/'>​MaStar models</a>​ described in ​<a target='_blank' href='https://ui.adsabs.harvard.edu/abs/2020MNRAS.496.2962M%2F'>​Maraston et al. (2020)</a>. Both model libraries assume a Kroupa IMF (Kroupa 2001). We assume a flat cosmology with H<sub>0</sub> = 67.8 km/s/Mpc and &Omega;<sub>m</sub> = 0.308 (Planck Collaboration et al. 2016). Compared to the FIREFLY VAC in DR15, the radius in HDU4 is now given in elliptical coordinates and the azmiuth is added, too. Masses in HDU11 and HDU12 are given per spaxel and as total mass per Voronoi cell. We do not provide absoption index measurements anymore. The catalogue is available in FITS format at the following link. Please do not forget to cite <a target='_blank' href='https://ui.adsabs.harvard.edu/abs/2022MNRAS.513.5988N/abstract'>Neumann et al. (2022)</a> and <a target='_blank' href='http://adsabs.harvard.edu/abs/2017MNRAS.466.4731G'>Goddard et al. (2017)</a> if you use this catalogue in your work."
+  short: This is the MaNGA FIREFLY catalogue for the 17th data release of the Sloan
+    Digital Sky Survey.
+  description: "This is the MaNGA FIREFLY catalogue for the 17th data release of the\
+    \ Sloan Digital Sky Survey. The VAC contains analysis for 10735 datacubes including\
+    \ 10010 unique galaxies from the MaNGA survey, providing both global and spatially\
+    \ resolved stellar population parameters. For DR17, the version of FIREFLY used\
+    \ was FIREFLY_VER=v1_0_1, and this was run on reduced and analysed data from MANGADRP_VER=v3_1_1\
+    \ and MANGADAP_VER=v3_1_0. This VAC is provided in two versions: The first version\
+    \ employs the stellar population models of <a target='_blank' href='http://adsabs.harvard.edu/abs/2011MNRAS.418.2785M'>\u200B\
+    Maraston & Stromback (2011)</a> based on the \u200B<a target='_blank' href='https://www.iac.es/proyecto/miles/pages/stellar-libraries/miles-library.php'>\u200B\
+    MILES stellar library</a> (Sa\u0301nchez-Bla\u0301zquez et al. 2006). The second\
+    \ version uses the <a target='_blank' href='http://www.icg.port.ac.uk/mastar/'>\u200B\
+    MaStar models</a>\u200B described in \u200B<a target='_blank' href='https://ui.adsabs.harvard.edu/abs/2020MNRAS.496.2962M%2F'>\u200B\
+    Maraston et al. (2020)</a>. Both model libraries assume a Kroupa IMF (Kroupa 2001).\
+    \ We assume a flat cosmology with H<sub>0</sub> = 67.8 km/s/Mpc and &Omega;<sub>m</sub>\
+    \ = 0.308 (Planck Collaboration et al. 2016). Compared to the FIREFLY VAC in DR15,\
+    \ the radius in HDU4 is now given in elliptical coordinates and the azmiuth is\
+    \ added, too. Masses in HDU11 and HDU12 are given per spaxel and as total mass\
+    \ per Voronoi cell. We do not provide absoption index measurements anymore. The\
+    \ catalogue is available in FITS format at the following link. Please do not forget\
+    \ to cite <a target='_blank' href='https://ui.adsabs.harvard.edu/abs/2022MNRAS.513.5988N/abstract'>Neumann\
+    \ et al. (2022)</a> and <a target='_blank' href='http://adsabs.harvard.edu/abs/2017MNRAS.466.4731G'>Goddard\
+    \ et al. (2017)</a> if you use this catalogue in your work."
   datatype: FITS
   filesize: 6 GB
   releases:
-    - DR17
+  - DR17
   environments:
-    - MANGA_FIREFLY
+  - MANGA_FIREFLY
   surveys:
-    - MaNGA
-  naming_convention: 
-    $MANGA_FIREFLY/[DRPVER]/manga-firefly-[DRPVER]-[MODELS].fits where 
-    DRPVER=v3_1_1 for DR17 and MODELS in (mastar, miles).
+  - MaNGA
+  naming_convention: $MANGA_FIREFLY/[DRPVER]/manga-firefly-[DRPVER]-[MODELS].fits
+    where DRPVER=v3_1_1 for DR17 and MODELS in (mastar, miles).
   generated_by: https://github.com/FireflySpectra/firefly_release this product.
   data_level: 3.3.0
   design: false
   vac: true
   recommended_science_product: true
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
 releases:
   DR17:
     template: $MANGA_FIREFLY/[DRPVER]/manga-firefly-[DRPVER]-[MODELS].fits
@@ -28,13 +51,11 @@ releases:
     access:
       in_sdss_access: true
       path_name: manga_firefly
-      path_template: 
-        $MANGA_FIREFLY/{drpver}/manga-firefly-{drpver}-{models}.fits
+      path_template: $MANGA_FIREFLY/{drpver}/manga-firefly-{drpver}-{models}.fits
       path_kwargs:
-        - models
-        - drpver
-      access_string: manga_firefly = 
-        $MANGA_FIREFLY/{drpver}/manga-firefly-{drpver}-{models}.fits
+      - drpver
+      - models
+      access_string: manga_firefly = $MANGA_FIREFLY/{drpver}/manga-firefly-{drpver}-{models}.fits
     survey: MaNGA
     hdus:
       hdu0:
@@ -43,51 +64,51 @@ releases:
         is_image: true
         size: 0 bytes
         header:
-          - key: SIMPLE
-            value: true
-            comment: conforms to FITS standard
-          - key: BITPIX
-            value: 8
-            comment: array data type
-          - key: NAXIS
-            value: 0
-            comment: number of array dimensions
-          - key: EXTEND
-            value: true
-            comment: ''
+        - key: SIMPLE
+          value: true
+          comment: conforms to FITS standard
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 0
+          comment: number of array dimensions
+        - key: EXTEND
+          value: true
+          comment: ''
       hdu1:
         name: GALAXY_INFO
         description: This HDU is left empty.
         is_image: false
         size: 1 MB
         header:
-          - key: XTENSION
-            value: BINTABLE
-            comment: binary table extension
-          - key: BITPIX
-            value: 8
-            comment: array data type
-          - key: NAXIS
-            value: 2
-            comment: number of array dimensions
-          - key: NAXIS1
-            value: 138
-            comment: length of dimension 1
-          - key: NAXIS2
-            value: 10735
-            comment: length of dimension 2
-          - key: PCOUNT
-            value: 0
-            comment: number of group parameters
-          - key: GCOUNT
-            value: 1
-            comment: number of groups
-          - key: TFIELDS
-            value: 11
-            comment: number of table fields
-          - key: EXTNAME
-            value: GALAXY_INFO
-            comment: extension name
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 138
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 10735
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 11
+          comment: number of table fields
+        - key: EXTNAME
+          value: GALAXY_INFO
+          comment: extension name
         columns:
           MANGAID:
             name: MANGAID
@@ -127,11 +148,11 @@ releases:
           PHOTOMETRIC_MASS:
             name: PHOTOMETRIC_MASS
             type: float32
-            unit: log(M⊙)
-            description: Stellar mass of galaxy fromNSA catalogueobtained from 
-              K-correction fits to elliptical Petrosian photometric fluxes. 
-              Masses are converted to the cosmology parameters that we assume in
-              the Firefly VAC with H0= 67.8 km/s/Mpc.
+            unit: "log(M\u2299)"
+            description: Stellar mass of galaxy fromNSA catalogueobtained from K-correction
+              fits to elliptical Petrosian photometric fluxes. Masses are converted
+              to the cosmology parameters that we assume in the Firefly VAC with H0=
+              67.8 km/s/Mpc.
           MANGADRP_ver:
             name: MANGADRP_ver
             type: char[20]
@@ -153,33 +174,33 @@ releases:
         is_image: false
         size: 670 KB
         header:
-          - key: XTENSION
-            value: BINTABLE
-            comment: binary table extension
-          - key: BITPIX
-            value: 8
-            comment: array data type
-          - key: NAXIS
-            value: 2
-            comment: number of array dimensions
-          - key: NAXIS1
-            value: 64
-            comment: length of dimension 1
-          - key: NAXIS2
-            value: 10735
-            comment: length of dimension 2
-          - key: PCOUNT
-            value: 0
-            comment: number of group parameters
-          - key: GCOUNT
-            value: 1
-            comment: number of groups
-          - key: TFIELDS
-            value: 16
-            comment: number of table fields
-          - key: EXTNAME
-            value: GLOBAL_PARAMETERS
-            comment: extension name
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 64
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 10735
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 16
+          comment: number of table fields
+        - key: EXTNAME
+          value: GLOBAL_PARAMETERS
+          comment: extension name
         columns:
           LW_AGE_1Re:
             name: LW_AGE_1Re
@@ -190,8 +211,7 @@ releases:
             name: LW_AGE_1Re_ERROR
             type: float32
             unit: log(Gyr)
-            description: Error on light-weighted age within a shell located at 
-              1Re.
+            description: Error on light-weighted age within a shell located at 1Re.
           MW_AGE_1Re:
             name: MW_AGE_1Re
             type: float32
@@ -201,32 +221,31 @@ releases:
             name: MW_AGE_1Re_ERROR
             type: float32
             unit: log(Gyr)
-            description: Error on mass-weighted age within a shell located at 
-              1Re.
+            description: Error on mass-weighted age within a shell located at 1Re.
           LW_Z_1Re:
             name: LW_Z_1Re
             type: float32
             unit: ''
-            description: Light-weighted metallicity [Z/H] within a shell located
-              at 1Re.
+            description: Light-weighted metallicity [Z/H] within a shell located at
+              1Re.
           LW_Z_1Re_ERROR:
             name: LW_Z_1Re_ERROR
             type: float32
             unit: ''
-            description: Error on light-weighted metallicity [Z/H] within a 
-              shell located at 1Re.
+            description: Error on light-weighted metallicity [Z/H] within a shell
+              located at 1Re.
           MW_Z_1Re:
             name: MW_Z_1Re
             type: float32
             unit: ''
-            description: Mass-weighted metallicity [Z/H] within a shell located 
-              at 1Re.
+            description: Mass-weighted metallicity [Z/H] within a shell located at
+              1Re.
           MW_Z_1Re_ERROR:
             name: MW_Z_1Re_ERROR
             type: float32
             unit: ''
-            description: Error on mass-weighted metallicity [Z/H] within a shell
-              located at 1Re.
+            description: Error on mass-weighted metallicity [Z/H] within a shell located
+              at 1Re.
           LW_AGE_3ARCSEC:
             name: LW_AGE_3ARCSEC
             type: float32
@@ -251,66 +270,62 @@ releases:
             name: LW_Z_3ARCSEC
             type: float32
             unit: ''
-            description: Light-weighted metallicity [Z/H] within 3arcsec 
-              diameter.
+            description: Light-weighted metallicity [Z/H] within 3arcsec diameter.
           LW_Z_3ARCSEC_ERROR:
             name: LW_Z_3ARCSEC_ERROR
             type: float32
             unit: ''
-            description: Error on light-weighted metallicity [Z/H] within 
-              3arcsec.
+            description: Error on light-weighted metallicity [Z/H] within 3arcsec.
           MW_Z_3ARCSEC:
             name: MW_Z_3ARCSEC
             type: float32
             unit: ''
-            description: Mass-weighted metallicity [Z/H] within 3arcsec 
-              diameter.
+            description: Mass-weighted metallicity [Z/H] within 3arcsec diameter.
           MW_Z_3ARCSEC_ERROR:
             name: MW_Z_3ARCSEC_ERROR
             type: float32
             unit: ''
-            description: Error on mass-weighted metallicity [Z/H] within 
-              3arcsec.
+            description: Error on mass-weighted metallicity [Z/H] within 3arcsec.
       hdu3:
         name: GRADIENT_PARAMETERS
         description: This HDU is left empty.
         is_image: false
         size: 670 KB
         header:
-          - key: XTENSION
-            value: BINTABLE
-            comment: binary table extension
-          - key: BITPIX
-            value: 8
-            comment: array data type
-          - key: NAXIS
-            value: 2
-            comment: number of array dimensions
-          - key: NAXIS1
-            value: 64
-            comment: length of dimension 1
-          - key: NAXIS2
-            value: 10735
-            comment: length of dimension 2
-          - key: PCOUNT
-            value: 0
-            comment: number of group parameters
-          - key: GCOUNT
-            value: 1
-            comment: number of groups
-          - key: TFIELDS
-            value: 16
-            comment: number of table fields
-          - key: EXTNAME
-            value: GRADIENT_PARAMETERS
-            comment: extension name
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 64
+          comment: length of dimension 1
+        - key: NAXIS2
+          value: 10735
+          comment: length of dimension 2
+        - key: PCOUNT
+          value: 0
+          comment: number of group parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: TFIELDS
+          value: 16
+          comment: number of table fields
+        - key: EXTNAME
+          value: GRADIENT_PARAMETERS
+          comment: extension name
         columns:
           LW_AGE_GRADIENT:
             name: LW_AGE_GRADIENT
             type: float32
             unit: dex/Re
-            description: Light-weighted age gradient of linear fit obtained 
-              within 1.5Re.
+            description: Light-weighted age gradient of linear fit obtained within
+              1.5Re.
           LW_AGE_GRADIENT_ERROR:
             name: LW_AGE_GRADIENT_ERROR
             type: float32
@@ -320,20 +335,19 @@ releases:
             name: LW_AGE_ZEROPOINT
             type: float32
             unit: ''
-            description: Light-weighted age zeropoint of linear fit obtained 
-              within 1.5Re.
+            description: Light-weighted age zeropoint of linear fit obtained within
+              1.5Re.
           LW_AGE_ZEROPOINT_ERROR:
             name: LW_AGE_ZEROPOINT_ERROR
             type: float32
             unit: ''
-            description: Error on light-weighted age zeropoint obtained within 
-              1.5Re.
+            description: Error on light-weighted age zeropoint obtained within 1.5Re.
           MW_AGE_GRADIENT:
             name: MW_AGE_GRADIENT
             type: float32
             unit: dex/Re
-            description: Mass-weighted age gradient of linear fit obtained 
-              within 1.5Re.
+            description: Mass-weighted age gradient of linear fit obtained within
+              1.5Re.
           MW_AGE_GRADIENT_ERROR:
             name: MW_AGE_GRADIENT_ERROR
             type: float32
@@ -343,454 +357,455 @@ releases:
             name: MW_AGE_ZEROPOINT
             type: float32
             unit: ''
-            description: Mass-weighted age zeropoint of linear fit obtained 
-              within 1.5Re.
+            description: Mass-weighted age zeropoint of linear fit obtained within
+              1.5Re.
           MW_AGE_ZEROPOINT_ERROR:
             name: MW_AGE_ZEROPOINT_ERROR
             type: float32
             unit: ''
-            description: Error on mass-weighted age zeropoint obtained within 
-              1.5Re.
+            description: Error on mass-weighted age zeropoint obtained within 1.5Re.
           LW_Z_GRADIENT:
             name: LW_Z_GRADIENT
             type: float32
             unit: dex/Re
-            description: Light-weighted metallicity [Z/H] gradient of linear fit
-              obtained within 1.5Re.
+            description: Light-weighted metallicity [Z/H] gradient of linear fit obtained
+              within 1.5Re.
           LW_Z_GRADIENT_ERROR:
             name: LW_Z_GRADIENT_ERROR
             type: float32
             unit: dex/Re
-            description: Error on light-weighted metallicity [Z/H] gradient 
-              within 1.5Re.
+            description: Error on light-weighted metallicity [Z/H] gradient within
+              1.5Re.
           LW_Z_ZEROPOINT:
             name: LW_Z_ZEROPOINT
             type: float32
             unit: ''
-            description: Light-weighted metallicity [Z/H] zeropoint of linear 
-              fit obtained within 1.5Re.
+            description: Light-weighted metallicity [Z/H] zeropoint of linear fit
+              obtained within 1.5Re.
           LW_Z_ZEROPOINT_ERROR:
             name: LW_Z_ZEROPOINT_ERROR
             type: float32
             unit: ''
-            description: Error on light-weighted metallicity [Z/H] zeropoint 
-              obtained within 1.5Re.
+            description: Error on light-weighted metallicity [Z/H] zeropoint obtained
+              within 1.5Re.
           MW_Z_GRADIENT:
             name: MW_Z_GRADIENT
             type: float32
             unit: dex/Re
-            description: Mass-weighted metallicity [Z/H] gradient of linear fit 
-              obtained within 1.5Re.
+            description: Mass-weighted metallicity [Z/H] gradient of linear fit obtained
+              within 1.5Re.
           MW_Z_GRADIENT_ERROR:
             name: MW_Z_GRADIENT_ERROR
             type: float32
             unit: dex/Re
-            description: Error on mass-weighted metallicity [Z/H] gradient 
-              within 1.5Re.
+            description: Error on mass-weighted metallicity [Z/H] gradient within
+              1.5Re.
           MW_Z_ZEROPOINT:
             name: MW_Z_ZEROPOINT
             type: float32
             unit: ''
-            description: Mass-weighted metallicity [Z/H] zeropoint of linear fit
-              obtained within 1.5Re.
+            description: Mass-weighted metallicity [Z/H] zeropoint of linear fit obtained
+              within 1.5Re.
           MW_Z_ZEROPOINT_ERROR:
             name: MW_Z_ZEROPOINT_ERROR
             type: float32
             unit: ''
-            description: Error on mass-weighted metallicity [Z/H] zeropoint 
-              obtained within 1.5Re.
+            description: Error on mass-weighted metallicity [Z/H] zeropoint obtained
+              within 1.5Re.
       hdu4:
         name: SPATIAL_INFO
         description: This HDU is left empty.
         is_image: true
         size: 573 MB
         header:
-          - key: XTENSION
-            value: IMAGE
-            comment: Image extension
-          - key: BITPIX
-            value: -32
-            comment: array data type
-          - key: NAXIS
-            value: 3
-            comment: number of array dimensions
-          - key: NAXIS1
-            value: 5
-            comment: ''
-          - key: NAXIS2
-            value: 2800
-            comment: ''
-          - key: NAXIS3
-            value: 10735
-            comment: ''
-          - key: PCOUNT
-            value: 0
-            comment: number of parameters
-          - key: GCOUNT
-            value: 1
-            comment: number of groups
-          - key: EXTNAME
-            value: SPATIAL_INFO
-            comment: extension name
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 5
+          comment: ''
+        - key: NAXIS2
+          value: 2800
+          comment: ''
+        - key: NAXIS3
+          value: 10735
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: EXTNAME
+          value: SPATIAL_INFO
+          comment: extension name
       hdu5:
         name: SPATIAL_BINID
         description: This HDU is left empty.
         is_image: true
         size: 131 MB
         header:
-          - key: XTENSION
-            value: IMAGE
-            comment: Image extension
-          - key: BITPIX
-            value: 16
-            comment: array data type
-          - key: NAXIS
-            value: 3
-            comment: number of array dimensions
-          - key: NAXIS1
-            value: 80
-            comment: ''
-          - key: NAXIS2
-            value: 80
-            comment: ''
-          - key: NAXIS3
-            value: 10735
-            comment: ''
-          - key: PCOUNT
-            value: 0
-            comment: number of parameters
-          - key: GCOUNT
-            value: 1
-            comment: number of groups
-          - key: EXTNAME
-            value: SPATIAL_BINID
-            comment: extension name
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: 16
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 80
+          comment: ''
+        - key: NAXIS2
+          value: 80
+          comment: ''
+        - key: NAXIS3
+          value: 10735
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: EXTNAME
+          value: SPATIAL_BINID
+          comment: extension name
       hdu6:
         name: LW_AGE_VORONOI
         description: This HDU is left empty.
         is_image: true
         size: 229 MB
         header:
-          - key: XTENSION
-            value: IMAGE
-            comment: Image extension
-          - key: BITPIX
-            value: -32
-            comment: array data type
-          - key: NAXIS
-            value: 3
-            comment: number of array dimensions
-          - key: NAXIS1
-            value: 2
-            comment: ''
-          - key: NAXIS2
-            value: 2800
-            comment: ''
-          - key: NAXIS3
-            value: 10735
-            comment: ''
-          - key: PCOUNT
-            value: 0
-            comment: number of parameters
-          - key: GCOUNT
-            value: 1
-            comment: number of groups
-          - key: EXTNAME
-            value: LW_AGE_VORONOI
-            comment: extension name
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 2
+          comment: ''
+        - key: NAXIS2
+          value: 2800
+          comment: ''
+        - key: NAXIS3
+          value: 10735
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: EXTNAME
+          value: LW_AGE_VORONOI
+          comment: extension name
       hdu7:
         name: MW_AGE_VORONOI
         description: This HDU is left empty.
         is_image: true
         size: 229 MB
         header:
-          - key: XTENSION
-            value: IMAGE
-            comment: Image extension
-          - key: BITPIX
-            value: -32
-            comment: array data type
-          - key: NAXIS
-            value: 3
-            comment: number of array dimensions
-          - key: NAXIS1
-            value: 2
-            comment: ''
-          - key: NAXIS2
-            value: 2800
-            comment: ''
-          - key: NAXIS3
-            value: 10735
-            comment: ''
-          - key: PCOUNT
-            value: 0
-            comment: number of parameters
-          - key: GCOUNT
-            value: 1
-            comment: number of groups
-          - key: EXTNAME
-            value: MW_AGE_VORONOI
-            comment: extension name
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 2
+          comment: ''
+        - key: NAXIS2
+          value: 2800
+          comment: ''
+        - key: NAXIS3
+          value: 10735
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: EXTNAME
+          value: MW_AGE_VORONOI
+          comment: extension name
       hdu8:
         name: LW_Z_VORONOI
         description: This HDU is left empty.
         is_image: true
         size: 229 MB
         header:
-          - key: XTENSION
-            value: IMAGE
-            comment: Image extension
-          - key: BITPIX
-            value: -32
-            comment: array data type
-          - key: NAXIS
-            value: 3
-            comment: number of array dimensions
-          - key: NAXIS1
-            value: 2
-            comment: ''
-          - key: NAXIS2
-            value: 2800
-            comment: ''
-          - key: NAXIS3
-            value: 10735
-            comment: ''
-          - key: PCOUNT
-            value: 0
-            comment: number of parameters
-          - key: GCOUNT
-            value: 1
-            comment: number of groups
-          - key: EXTNAME
-            value: LW_Z_VORONOI
-            comment: extension name
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 2
+          comment: ''
+        - key: NAXIS2
+          value: 2800
+          comment: ''
+        - key: NAXIS3
+          value: 10735
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: EXTNAME
+          value: LW_Z_VORONOI
+          comment: extension name
       hdu9:
         name: MW_Z_VORONOI
         description: This HDU is left empty.
         is_image: true
         size: 229 MB
         header:
-          - key: XTENSION
-            value: IMAGE
-            comment: Image extension
-          - key: BITPIX
-            value: -32
-            comment: array data type
-          - key: NAXIS
-            value: 3
-            comment: number of array dimensions
-          - key: NAXIS1
-            value: 2
-            comment: ''
-          - key: NAXIS2
-            value: 2800
-            comment: ''
-          - key: NAXIS3
-            value: 10735
-            comment: ''
-          - key: PCOUNT
-            value: 0
-            comment: number of parameters
-          - key: GCOUNT
-            value: 1
-            comment: number of groups
-          - key: EXTNAME
-            value: MW_Z_VORONOI
-            comment: extension name
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 2
+          comment: ''
+        - key: NAXIS2
+          value: 2800
+          comment: ''
+        - key: NAXIS3
+          value: 10735
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: EXTNAME
+          value: MW_Z_VORONOI
+          comment: extension name
       hdu10:
         name: E(B_V)_VORONOI
         description: This HDU is left empty.
         is_image: true
         size: 114 MB
         header:
-          - key: XTENSION
-            value: IMAGE
-            comment: Image extension
-          - key: BITPIX
-            value: -32
-            comment: array data type
-          - key: NAXIS
-            value: 2
-            comment: number of array dimensions
-          - key: NAXIS1
-            value: 2800
-            comment: ''
-          - key: NAXIS2
-            value: 10735
-            comment: ''
-          - key: PCOUNT
-            value: 0
-            comment: number of parameters
-          - key: GCOUNT
-            value: 1
-            comment: number of groups
-          - key: EXTNAME
-            value: E(B_V)_VORONOI
-            comment: extension name
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 2800
+          comment: ''
+        - key: NAXIS2
+          value: 10735
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: EXTNAME
+          value: E(B_V)_VORONOI
+          comment: extension name
       hdu11:
         name: STELLAR_MASS_VORONOI
         description: This HDU is left empty.
         is_image: true
         size: 458 MB
         header:
-          - key: XTENSION
-            value: IMAGE
-            comment: Image extension
-          - key: BITPIX
-            value: -32
-            comment: array data type
-          - key: NAXIS
-            value: 3
-            comment: number of array dimensions
-          - key: NAXIS1
-            value: 4
-            comment: ''
-          - key: NAXIS2
-            value: 2800
-            comment: ''
-          - key: NAXIS3
-            value: 10735
-            comment: ''
-          - key: PCOUNT
-            value: 0
-            comment: number of parameters
-          - key: GCOUNT
-            value: 1
-            comment: number of groups
-          - key: EXTNAME
-            value: STELLAR_MASS_VORONOI
-            comment: extension name
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 4
+          comment: ''
+        - key: NAXIS2
+          value: 2800
+          comment: ''
+        - key: NAXIS3
+          value: 10735
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: EXTNAME
+          value: STELLAR_MASS_VORONOI
+          comment: extension name
       hdu12:
         name: STELLAR_MASS_REMNANT
         description: This HDU is left empty.
         is_image: true
         size: 917 MB
         header:
-          - key: XTENSION
-            value: IMAGE
-            comment: Image extension
-          - key: BITPIX
-            value: -32
-            comment: array data type
-          - key: NAXIS
-            value: 3
-            comment: number of array dimensions
-          - key: NAXIS1
-            value: 8
-            comment: ''
-          - key: NAXIS2
-            value: 2800
-            comment: ''
-          - key: NAXIS3
-            value: 10735
-            comment: ''
-          - key: PCOUNT
-            value: 0
-            comment: number of parameters
-          - key: GCOUNT
-            value: 1
-            comment: number of groups
-          - key: EXTNAME
-            value: STELLAR_MASS_REMNANT
-            comment: extension name
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 8
+          comment: ''
+        - key: NAXIS2
+          value: 2800
+          comment: ''
+        - key: NAXIS3
+          value: 10735
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: EXTNAME
+          value: STELLAR_MASS_REMNANT
+          comment: extension name
       hdu13:
         name: SURFACE_MASS_DENSITY_VORONOI
         description: This HDU is left empty.
         is_image: true
         size: 229 MB
         header:
-          - key: XTENSION
-            value: IMAGE
-            comment: Image extension
-          - key: BITPIX
-            value: -32
-            comment: array data type
-          - key: NAXIS
-            value: 3
-            comment: number of array dimensions
-          - key: NAXIS1
-            value: 2
-            comment: ''
-          - key: NAXIS2
-            value: 2800
-            comment: ''
-          - key: NAXIS3
-            value: 10735
-            comment: ''
-          - key: PCOUNT
-            value: 0
-            comment: number of parameters
-          - key: GCOUNT
-            value: 1
-            comment: number of groups
-          - key: EXTNAME
-            value: SURFACE_MASS_DENSITY_VORONOI
-            comment: extension name
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 3
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 2
+          comment: ''
+        - key: NAXIS2
+          value: 2800
+          comment: ''
+        - key: NAXIS3
+          value: 10735
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: EXTNAME
+          value: SURFACE_MASS_DENSITY_VORONOI
+          comment: extension name
       hdu14:
         name: STAR_FORMATION_HISTORY
         description: This HDU is left empty.
         is_image: true
         size: 2 GB
         header:
-          - key: XTENSION
-            value: IMAGE
-            comment: Image extension
-          - key: BITPIX
-            value: -32
-            comment: array data type
-          - key: NAXIS
-            value: 4
-            comment: number of array dimensions
-          - key: NAXIS1
-            value: 3
-            comment: ''
-          - key: NAXIS2
-            value: 8
-            comment: ''
-          - key: NAXIS3
-            value: 2800
-            comment: ''
-          - key: NAXIS4
-            value: 10735
-            comment: ''
-          - key: PCOUNT
-            value: 0
-            comment: number of parameters
-          - key: GCOUNT
-            value: 1
-            comment: number of groups
-          - key: EXTNAME
-            value: STAR_FORMATION_HISTORY
-            comment: extension name
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 4
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 3
+          comment: ''
+        - key: NAXIS2
+          value: 8
+          comment: ''
+        - key: NAXIS3
+          value: 2800
+          comment: ''
+        - key: NAXIS4
+          value: 10735
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: EXTNAME
+          value: STAR_FORMATION_HISTORY
+          comment: extension name
       hdu15:
         name: SIGNAL_NOISE_VORONOI
         description: This HDU is left empty.
         is_image: true
         size: 114 MB
         header:
-          - key: XTENSION
-            value: IMAGE
-            comment: Image extension
-          - key: BITPIX
-            value: -32
-            comment: array data type
-          - key: NAXIS
-            value: 2
-            comment: number of array dimensions
-          - key: NAXIS1
-            value: 2800
-            comment: ''
-          - key: NAXIS2
-            value: 10735
-            comment: ''
-          - key: PCOUNT
-            value: 0
-            comment: number of parameters
-          - key: GCOUNT
-            value: 1
-            comment: number of groups
-          - key: EXTNAME
-            value: SIGNAL_NOISE_VORONOI
-            comment: extension name
-notes: None
-regrets: I  have no regrets!
+        - key: XTENSION
+          value: IMAGE
+          comment: Image extension
+        - key: BITPIX
+          value: -32
+          comment: array data type
+        - key: NAXIS
+          value: 2
+          comment: number of array dimensions
+        - key: NAXIS1
+          value: 2800
+          comment: ''
+        - key: NAXIS2
+          value: 10735
+          comment: ''
+        - key: PCOUNT
+          value: 0
+          comment: number of parameters
+        - key: GCOUNT
+          value: 1
+          comment: number of groups
+        - key: EXTNAME
+          value: SIGNAL_NOISE_VORONOI
+          comment: extension name
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!

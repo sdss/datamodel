@@ -7,7 +7,30 @@ datamodel_generate -f manga_alfalfa -p MANGA_HI/{ver}/manga_alfalfa-{release}.fi
 export MANGA_MANDALA=/data/sdss/dr17/manga/mandala
 datamodel_generate -f mandala -p MANGA_MANDALA/{mandala_ver}/mandala_{mandala_ver}.fits -k mandala_ver=v1_1 -k release=dr15 -r DR17 -s
 
+export MANGA_FIREFLY=/data/sdss/dr14/manga/spectro/firefly
+datamodel_generate -f manga_firefly-dr15 -a manga_firefly -p MANGA_FIREFLY/{firefly_ver}/manga_firefly-{drpver}.fits -k firefly_ver=v1_0_3 -k drpver=v2_1_2 -r DR14 -s
+datamodel_generate -f manga_firefly-GLOBALPROP -a manga_firefly_models -p MANGA_FIREFLY/{firefly_ver}/manga_firefly-{drpver}-{models}.fits -k firefly_ver=v1_0_3 -k drpver=v2_1_2 -k models=GLOBALPROP -r DR14 -s
+datamodel_generate -f manga_firefly-INDICES -a manga_firefly_models -p MANGA_FIREFLY/{firefly_ver}/manga_firefly-{drpver}-{models}.fits -k firefly_ver=v1_0_3 -k drpver=v2_1_2 -k models=INDICES -r DR14 -s
+datamodel_generate -f manga_firefly-STELLARPOP -a manga_firefly_models -p MANGA_FIREFLY/{firefly_ver}/manga_firefly-{drpver}-{models}.fits -k firefly_ver=v1_0_3 -k drpver=v2_1_2 -k models=STELLARPOP -r DR14 -s
+
+export MANGA_FIREFLY=/data/sdss/dr15/manga/spectro/firefly
+datamodel_generate -f manga_firefly-dr15 -a manga_firefly -p MANGA_FIREFLY/{firefly_ver}/manga_firefly-{drpver}.fits -k firefly_ver=v1_1_2 -k drpver=v2_4_3 -r DR15 -s
+datamodel_generate -f manga_firefly-GLOBALPROP -a manga_firefly_models -p MANGA_FIREFLY/{firefly_ver}/manga_firefly-{drpver}-{models}.fits -k firefly_ver=v1_1_2 -k drpver=v2_4_3 -k models=GLOBALPROP -r DR15 -s
+datamodel_generate -f manga_firefly-INDICES -a manga_firefly_models -p MANGA_FIREFLY/{firefly_ver}/manga_firefly-{drpver}-{models}.fits -k firefly_ver=v1_1_2 -k drpver=v2_4_3 -k models=INDICES -r DR15 -s
+datamodel_generate -f manga_firefly-STELLARPOP -a manga_firefly_models -p MANGA_FIREFLY/{firefly_ver}/manga_firefly-{drpver}-{models}.fits -k firefly_ver=v1_1_2 -k drpver=v2_4_3 -k models=STELLARPOP -r DR15 -s
+
+export MANGA_FIREFLY=/data/sdss/dr16/manga/spectro/firefly
+datamodel_generate -f manga_firefly-dr15 -a manga_firefly -p MANGA_FIREFLY/{firefly_ver}/manga_firefly-{drpver}.fits -k firefly_ver=v1_1_2 -k drpver=v2_4_3 -r DR16 -s
+datamodel_generate -f manga_firefly-GLOBALPROP -a manga_firefly_models -p MANGA_FIREFLY/{firefly_ver}/manga_firefly-{drpver}-{models}.fits -k firefly_ver=v1_1_2 -k drpver=v2_4_3 -k models=GLOBALPROP -r DR16 -s
+datamodel_generate -f manga_firefly-INDICES -a manga_firefly_models -p MANGA_FIREFLY/{firefly_ver}/manga_firefly-{drpver}-{models}.fits -k firefly_ver=v1_1_2 -k drpver=v2_4_3 -k models=INDICES -r DR16 -s
+datamodel_generate -f manga_firefly-STELLARPOP -a manga_firefly_models -p MANGA_FIREFLY/{firefly_ver}/manga_firefly-{drpver}-{models}.fits -k firefly_ver=v1_1_2 -k drpver=v2_4_3 -k models=STELLARPOP -r DR16 -s
+
+
 export MANGA_FIREFLY=/data/sdss/dr17/manga/spectro/firefly
+datamodel_generate -f manga_firefly -p MANGA_FIREFLY/{drpver}/manga-firefly-{drpver}-{models}.fits -k drpver=v3_1_1 -k models=mastar -r DR17 -s
+datamodel_generate -f manga_firefly-GLOBALPROP -p MANGA_FIREFLY/{drpver}/manga-firefly-globalprop-{drpver}-{models}.fits -k drpver=v3_1_1 -k models=mastar -r DR17 -s
+
+
 typeset -A releases
 releases=(
     dr14 v1_0_3
@@ -18,3 +41,6 @@ releases=(
 for release drpver in "${(@kv)releases}"; do
     print "release: $release, drpver: $drpver"
 done
+export MANGA_MANDALA=/data/sdss/dr17/manga/mandala
+
+
