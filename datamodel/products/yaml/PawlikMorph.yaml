@@ -1,0 +1,355 @@
+general:
+  name: PawlikMorph
+  short: This table provides the CAS, gini, M20, shape asymmetry, curve of growth
+    radii, sersic fits and associated parameters measured from SDSS DR7 imaging using
+    the 8-connected structure detection algorithm to define the edges of the galaxies
+    presented in Pawlik et al.
+  description: 'This table provides the CAS, gini, M20, shape asymmetry, curve of
+    growth radii, sersic fits and associated parameters measured from SDSS DR7 imaging
+    using the 8-connected structure detection algorithm to define the edges of the
+    galaxies presented in Pawlik et al. (2016) for all galaxies in MaNGA DR15. This
+    is the original implementation of the Shape Asymmetry algorithm. The code is available
+    here: https://github.com/SEDMORPH/PawlikMorph'
+  datatype: FITS
+  filesize: 717 KB
+  releases:
+  - DR16
+  environments:
+  - MANGA_MORPHOLOGY
+  surveys:
+  - MaNGA
+  naming_convention: $MANGA_MORPHOLOGY/sedmorph/PawlikMorph_[RELEASE].fits where RELEASE=DR15
+  generated_by: Vivienne Wild, Yanmei Chen, Milena Pawlik
+  data_level: 3.3.0
+  design: false
+  vac: true
+  recommended_science_product: true
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR16:
+    template: $MANGA_MORPHOLOGY/sedmorph/PawlikMorph_[RELEASE].fits
+    example: sedmorph/PawlikMorph_DR15.fits
+    location: sedmorph/PawlikMorph_{release}.fits
+    environment: MANGA_MORPHOLOGY
+    access:
+      in_sdss_access: true
+      path_name: PawlikMorph
+      path_template: $MANGA_MORPHOLOGY/sedmorph/PawlikMorph_{release}.fits
+      path_kwargs:
+      - release
+      access_string: PawlikMorph = $MANGA_MORPHOLOGY/sedmorph/PawlikMorph_{release}.fits
+    survey: MaNGA
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: 'HDU0: Empty Primary'
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: Dummy Created by MWRFITS v1.13
+        - key: BITPIX
+          value: 8
+          comment: Dummy primary header created by MWRFITS
+        - key: NAXIS
+          value: 0
+          comment: No data is associated with this header
+        - key: EXTEND
+          value: true
+          comment: Extensions may (will!) be present
+      hdu1:
+        name: ''
+        description: 'HDU0: Empty Primary'
+        is_image: false
+        size: 703 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: Binary table written by MWRFITS v1.13
+        - key: BITPIX
+          value: 8
+          comment: Required value
+        - key: NAXIS
+          value: 2
+          comment: Required value
+        - key: NAXIS1
+          value: 156
+          comment: Number of bytes per row
+        - key: NAXIS2
+          value: 4619
+          comment: Number of rows
+        - key: PCOUNT
+          value: 0
+          comment: Normally 0 (no varying arrays)
+        - key: GCOUNT
+          value: 1
+          comment: Required value
+        - key: TFIELDS
+          value: 42
+          comment: Number of columns in table
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** End of mandatory fields ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column formats ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        - key: COMMENT
+          value: ' *** Column names ***'
+          comment: ''
+        - key: COMMENT
+          value: ''
+          comment: ''
+        columns:
+          MANGAID:
+            name: MANGAID
+            type: char[9]
+            unit: ''
+            description: MaNGA ID string
+          PLATEIFU:
+            name: PLATEIFU
+            type: char[11]
+            unit: ''
+            description: String combination of PLATE-IFU to ease searching
+          RUN:
+            name: RUN
+            type: int16
+            unit: ''
+            description: Run number
+          RERUN:
+            name: RERUN
+            type: int16
+            unit: ''
+            description: Rerun number
+          CAMCOL:
+            name: CAMCOL
+            type: int16
+            unit: ''
+            description: Camera column
+          FIELD:
+            name: FIELD
+            type: int16
+            unit: ''
+            description: Field number
+          IMGSIZE:
+            name: IMGSIZE
+            type: int16
+            unit: pixels
+            description: image size
+          IMGMIN:
+            name: IMGMIN
+            type: float32
+            unit: counts
+            description: minimum pixel value in the image
+          IMGMAX:
+            name: IMGMAX
+            type: float32
+            unit: counts
+            description: maximum pixel value in the image
+          SKYBGR:
+            name: SKYBGR
+            type: float32
+            unit: counts/pixel
+            description: sky background estimate
+          SKYBGRERR:
+            name: SKYBGRERR
+            type: float32
+            unit: counts/pixel
+            description: standard deviation in the sky background
+          SKYBGRFLAG:
+            name: SKYBGRFLAG
+            type: int16
+            unit: ''
+            description: flag indicating unreliable measurement of the sky background
+              (0 if everthing is ok)
+          BPIXX:
+            name: BPIXX
+            type: int16
+            unit: pixels
+            description: x position of the brightest pixel
+          BPIXY:
+            name: BPIXY
+            type: int16
+            unit: pixels
+            description: y position of the brightest pixel
+          APIXX:
+            name: APIXX
+            type: int16
+            unit: pixels
+            description: x position yielding minimum value of the rotational light-weighted
+              asymmetry parameter
+          APIXY:
+            name: APIXY
+            type: int16
+            unit: pixels
+            description: y position yielding minimum value of the rotational light-weighted
+              asymmetry parameter
+          MPIXX:
+            name: MPIXX
+            type: int16
+            unit: pixels
+            description: x position yielding minimum value of the second order moment
+              of light
+          MPIXY:
+            name: MPIXY
+            type: int16
+            unit: pixels
+            description: y position yielding minimum value of the second order moment
+              of light
+          RMAX:
+            name: RMAX
+            type: float32
+            unit: pixels
+            description: "the `maximum\u2019 radius of the galaxy, defined as the\
+              \ distance between the furthest pixel in the object\u2019s pixel map,\
+              \ with respect to the central brightest pixel"
+          R20:
+            name: R20
+            type: float32
+            unit: pixels
+            description: curve of growth radii defining a circular aperture that contains
+              20% of the total flux
+          R50:
+            name: R50
+            type: float32
+            unit: pixels
+            description: curve of growth radii defining a circular aperture that contains
+              50% of the total flux
+          R80:
+            name: R80
+            type: float32
+            unit: pixels
+            description: curve of growth radii defining a circular aperture that contains
+              80% of the total flux
+          R90:
+            name: R90
+            type: float32
+            unit: pixels
+            description: curve of growth radii defining a circular aperture that contains
+              90% of the total flux
+          C2080:
+            name: C2080
+            type: float32
+            unit: ''
+            description: the concentration index defined by the logarithmic ratio
+              of  r20 and r80
+          C5090:
+            name: C5090
+            type: float32
+            unit: ''
+            description: the concentration index defined by the logarithmic ratio
+              of  r50 and r90
+          A:
+            name: A
+            type: float32
+            unit: ''
+            description: the asymmetry of light under image rotation about 180 degrees
+              around [apixx,apixy] (background corrected)
+          ABGR:
+            name: ABGR
+            type: float32
+            unit: ''
+            description: "the `background\u2019 asymmetry associated with A"
+          AS:
+            name: AS
+            type: float32
+            unit: ''
+            description: the shape asymmetry under image rotation about 180 degrees
+              around [apixx,apixy]
+          AS90:
+            name: AS90
+            type: float32
+            unit: ''
+            description: the shape asymmetry under image rotation about 90 degrees
+              around [apixx,apixy]
+          S:
+            name: S
+            type: float32
+            unit: ''
+            description: "the `clumpiness\u2019 of the light distribution (background\
+              \ corrected)"
+          SBGR:
+            name: SBGR
+            type: float32
+            unit: ''
+            description: "the `background\u2019 clumpiness associated with S"
+          G:
+            name: G
+            type: float32
+            unit: ''
+            description: the Gini index
+          M20:
+            name: M20
+            type: float32
+            unit: ''
+            description: the second-order moment of the brightest 20% of the total
+              light
+          MAG:
+            name: MAG
+            type: float32
+            unit: mag
+            description: total magnitude within the boundaries of the pixel map
+          MAGERR:
+            name: MAGERR
+            type: float32
+            unit: mag
+            description: the error associated with mag
+          SB0:
+            name: SB0
+            type: float32
+            unit: counts
+            description: "Sersic model\u2019s best-fit parameter: the central surface\
+              \ brightness"
+          SB0ERR:
+            name: SB0ERR
+            type: float32
+            unit: counts
+            description: error associated with sb0
+          REFF:
+            name: REFF
+            type: float32
+            unit: pixels
+            description: "Sersic model\u2019s best-fit parameter: the effective radius"
+          REFFERR:
+            name: REFFERR
+            type: float32
+            unit: pixels
+            description: error associated with reff
+          N:
+            name: N
+            type: float32
+            unit: ''
+            description: "Sersic model\u2019s best-fit parameter: the Sersic index"
+          NERR:
+            name: NERR
+            type: float32
+            unit: ''
+            description: error associated with n
+          WARNINGFLAG:
+            name: WARNINGFLAG
+            type: int32
+            unit: ''
+            description: flag indicating unreliable measurement (0 if everything is
+              OK)
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!
