@@ -139,8 +139,14 @@ Users are advised to apply Z_FLAG == 0 for analyses requiring reliable redshifts
 
 ---
 ## Notes
-None
+Sources are drawn from the cross-match of the Fermi-LAT 4FGL-DR4
+catalogue with SDSS-V DR20 BOSS spectroscopy. Non-blazar Fermi
+classes (pulsars, radio galaxies, binaries, etc.) were excluded.
+The Z_FLAG column should be used to filter sources for
+redshift-dependent analyses. Pure Powerlaw sources (Z_FLAG=1)
+lack reliable redshifts and blazar subclass assignments due to the
+absence of any spectral features in their BOSS spectra.
 
 ---
 ## Regrets
-I  have no regrets!
+I have no regrets!
