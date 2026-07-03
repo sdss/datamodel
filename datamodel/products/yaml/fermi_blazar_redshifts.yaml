@@ -15,7 +15,7 @@ general:
 
     '
   datatype: FITS
-  filesize: 171 KB
+  filesize: 177 KB
   releases:
   - DR20
   environments:
@@ -23,7 +23,6 @@ general:
   surveys:
   - SDSS
   naming_convention: $BHM_BLAZAR/boss_fermi_redshifts/fermi_blazar-[V_VAC].fits where
-    V_VAC=1.0.0 for DR20
   generated_by: Nlowie et al. (in prep); multi-component blazar spectral fitting pipeline
     using lmfit, SpectRes, and SDSS-V DR20 BOSS spectra.
   data_level: 3.3.0
@@ -68,7 +67,7 @@ releases:
           value: true
           comment: ''
       hdu1:
-        name: BLAZAR_VAC
+        name: ''
         description: 'Binary table containing 707 Fermi-LAT blazar candidates with
           multi-component spectral fit results, redshifts, blazar classifications,
           continuum shape parameters, and a redshift reliability flag derived from
@@ -76,7 +75,7 @@ releases:
 
           '
         is_image: false
-        size: 160 KB
+        size: 166 KB
         header:
         - key: XTENSION
           value: BINTABLE
@@ -88,7 +87,7 @@ releases:
           value: 2
           comment: number of array dimensions
         - key: NAXIS1
-          value: 225
+          value: 241
           comment: length of dimension 1
         - key: NAXIS2
           value: 707
@@ -100,7 +99,7 @@ releases:
           value: 1
           comment: number of groups
         - key: TFIELDS
-          value: 16
+          value: 17
           comment: number of table fields
         columns:
           SDSS_ID:
@@ -109,6 +108,15 @@ releases:
             unit: ''
             description: 'SDSS-V unique source identifier (sdss_id) from the SDSS-V
               catalogue database, cross-matched to the 4FGL-DR4 Fermi source.
+
+              '
+          MJD:
+            name: MJD
+            type: int64
+            unit: ''
+            description: 'Modified Julian Date of the SDSS-V BOSS spectrum used for
+              the multi-component spectral fitting. This is used to uniquely identify
+              the spectrum in cases where multiple spectra exist for a single source.
 
               '
           SDSS_NAME:
@@ -250,7 +258,7 @@ releases:
               '
           Z_FLAG:
             name: Z_FLAG
-            type: int16
+            type: int64
             unit: ''
             description: "Redshift and classification reliability flag. Values are:\
               \ 0 = reliable redshift and classification; 1 = unreliable, featureless\
@@ -263,12 +271,6 @@ releases:
               \    carry greater uncertainty.\nUsers are advised to apply Z_FLAG ==\
               \ 0 for analyses requiring reliable redshifts and classifications.\n"
 notes: |-
-  Sources are drawn from the cross-match of the Fermi-LAT 4FGL-DR4
-  catalogue with SDSS-V DR20 BOSS spectroscopy. Non-blazar Fermi
-  classes (pulsars, radio galaxies, binaries, etc.) were excluded.
-  The Z_FLAG column should be used to filter sources for
-  redshift-dependent analyses. Pure Powerlaw sources (Z_FLAG=1)
-  lack reliable redshifts and blazar subclass assignments due to the
-  absence of any spectral features in their BOSS spectra.
+  None
 regrets: |-
-  I have no regrets!
+  I  have no regrets!
