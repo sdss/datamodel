@@ -17,7 +17,7 @@ Value-added catalogue (VAC) of 707 Fermi-LAT blazar candidates cross-matched wit
 
 
 ### Naming Convention
-$BHM_BLAZAR/boss_fermi_redshifts/fermi_blazar-[V_VAC].fits where V_VAC=1.0.0 for DR20
+$BHM_BLAZAR/boss_fermi_redshifts/fermi_blazar-[V_VAC].fits where
 
 ### Releases
 DR20
@@ -26,7 +26,7 @@ DR20
 BHM_BLAZAR
 
 ### Approximate Size
-171 KB
+177 KB
 
 ### File Type
 FITS
@@ -42,7 +42,7 @@ True
 
 ### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: BLAZAR_VAC](#hdu1-blazar_vac)
+  - [HDU1](#hdu1)
 
 ---
 
@@ -68,12 +68,12 @@ Key | Value | Comment | |
 
 
 
-### HDU1: BLAZAR_VAC
+### HDU1: 
 Binary table containing 707 Fermi-LAT blazar candidates with multi-component spectral fit results, redshifts, blazar classifications, continuum shape parameters, and a redshift reliability flag derived from SDSS-V DR20 BOSS spectroscopy.
 
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  160 KB
+#### HDU Size:  166 KB
 
 ##### Header Table Caption for HDU1
 Key | Value | Comment | |
@@ -81,16 +81,18 @@ Key | Value | Comment | |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | array data type |
 | NAXIS | 2 | number of array dimensions |
-| NAXIS1 | 225 | length of dimension 1 |
+| NAXIS1 | 241 | length of dimension 1 |
 | NAXIS2 | 707 | length of dimension 2 |
 | PCOUNT | 0 | number of group parameters |
 | GCOUNT | 1 | number of groups |
-| TFIELDS | 16 | number of table fields |
+| TFIELDS | 17 | number of table fields |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | SDSS_ID | int64 |  | SDSS-V unique source identifier (sdss_id) from the SDSS-V catalogue database, cross-matched to the 4FGL-DR4 Fermi source.
+ |
+ | MJD | int64 |  | Modified Julian Date of the SDSS-V BOSS spectrum used for the multi-component spectral fitting. This is used to uniquely identify the spectrum in cases where multiple spectra exist for a single source.
  |
  | SDSS_NAME | char[24] |  | IAU-format SDSS designation constructed from J2000 right ascension and declination (SDSS JHHMMSS.SS+DDMMSS.S).
  |
@@ -120,7 +122,7 @@ Name | Type | Unit | Description |
  |
  | SNR | float32 |  | Median signal-to-noise ratio per pixel across all BOSS spectral bands as reported by the SDSS-V pipeline (SN_MEDIAN_ALL). Sources with SNR < 3 are retained in the catalogue but carry lower confidence in their redshift and jet fraction estimates (Z_FLAG=3).
  |
- | Z_FLAG | int16 |  | Redshift and classification reliability flag. Values are: 0 = reliable redshift and classification; 1 = unreliable, featureless power-law spectrum with no
+ | Z_FLAG | int64 |  | Redshift and classification reliability flag. Values are: 0 = reliable redshift and classification; 1 = unreliable, featureless power-law spectrum with no
     spectral anchor for redshift determination (7 sources
     in DR20) — fitted Z_fit and Jet_Fraction values are retained 
     but should be treaetd with caution;
