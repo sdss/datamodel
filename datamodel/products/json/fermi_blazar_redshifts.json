@@ -23,7 +23,7 @@
       }
     ],
     "datatype": "FITS",
-    "filesize": "171 KB",
+    "filesize": "177 KB",
     "releases": [
       {
         "name": "DR20",
@@ -32,7 +32,7 @@
         "release_date": "2026-07-30"
       }
     ],
-    "naming_convention": "$BHM_BLAZAR/boss_fermi_redshifts/fermi_blazar-[V_VAC].fits where V_VAC=1.0.0 for DR20",
+    "naming_convention": "$BHM_BLAZAR/boss_fermi_redshifts/fermi_blazar-[V_VAC].fits where",
     "generated_by": "Nlowie et al. (in prep); multi-component blazar spectral fitting pipeline using lmfit, SpectRes, and SDSS-V DR20 BOSS spectra.",
     "design": false,
     "vac": true,
@@ -90,10 +90,10 @@
           "columns": null
         },
         "hdu1": {
-          "name": "BLAZAR_VAC",
+          "name": "",
           "is_image": false,
           "description": "Binary table containing 707 Fermi-LAT blazar candidates with multi-component spectral fit results, redshifts, blazar classifications, continuum shape parameters, and a redshift reliability flag derived from SDSS-V DR20 BOSS spectroscopy.\n",
-          "size": "160 KB",
+          "size": "166 KB",
           "header": [
             {
               "key": "XTENSION",
@@ -112,7 +112,7 @@
             },
             {
               "key": "NAXIS1",
-              "value": "225",
+              "value": "241",
               "comment": "length of dimension 1"
             },
             {
@@ -132,7 +132,7 @@
             },
             {
               "key": "TFIELDS",
-              "value": "16",
+              "value": "17",
               "comment": "number of table fields"
             }
           ],
@@ -140,6 +140,12 @@
             "SDSS_ID": {
               "name": "SDSS_ID",
               "description": "SDSS-V unique source identifier (sdss_id) from the SDSS-V catalogue database, cross-matched to the 4FGL-DR4 Fermi source.\n",
+              "type": "int64",
+              "unit": ""
+            },
+            "MJD": {
+              "name": "MJD",
+              "description": "Modified Julian Date of the SDSS-V BOSS spectrum used for the multi-component spectral fitting. This is used to uniquely identify the spectrum in cases where multiple spectra exist for a single source.\n",
               "type": "int64",
               "unit": ""
             },
@@ -230,7 +236,7 @@
             "Z_FLAG": {
               "name": "Z_FLAG",
               "description": "Redshift and classification reliability flag. Values are: 0 = reliable redshift and classification; 1 = unreliable, featureless power-law spectrum with no\n    spectral anchor for redshift determination (7 sources\n    in DR20) — fitted Z_fit and Jet_Fraction values are retained \n    but should be treaetd with caution;\n2 = low-confidence redshift, Powerlaw+Galaxy source at\n    z > 1.8 where the SDSS wavelength coverage provides\n    no strong rest-frame features to anchor the galaxy\n    template;\n3 = low spectral quality, SNR < 3, fitted parameters\n    carry greater uncertainty.\nUsers are advised to apply Z_FLAG == 0 for analyses requiring reliable redshifts and classifications.\n",
-              "type": "int16",
+              "type": "int64",
               "unit": ""
             }
           }
@@ -241,6 +247,6 @@
       "dataframe": null
     }
   },
-  "notes": "Sources are drawn from the cross-match of the Fermi-LAT 4FGL-DR4\ncatalogue with SDSS-V DR20 BOSS spectroscopy. Non-blazar Fermi\nclasses (pulsars, radio galaxies, binaries, etc.) were excluded.\nThe Z_FLAG column should be used to filter sources for\nredshift-dependent analyses. Pure Powerlaw sources (Z_FLAG=1)\nlack reliable redshifts and blazar subclass assignments due to the\nabsence of any spectral features in their BOSS spectra.",
-  "regrets": "I have no regrets!"
+  "notes": "None",
+  "regrets": "I  have no regrets!"
 }
