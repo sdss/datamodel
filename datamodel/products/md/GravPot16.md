@@ -13,7 +13,7 @@ Main orbital elements of DR20 stars using GravPot16.
 ---
 
 ## Basic Information
-The VAC contains the median statistics of 50 ensemble of orbits for each star, integrated over a 3 Gyr timespan. Orbits were computed in a model configuration with bar patterns speed of 41 km/s/kpc (<a href="https://ui.adsabs.harvard.edu/abs/2019MNRAS.488.4552S">Sanders et al. 2019</a>). To the Galactic orbits, we adopt a solar position of R_sun = 8.178 kpc (<a href="https://ui.adsabs.harvard.edu/abs/2019A&A...625L..10G">Gravity Collaboration et al. 2019</a>), Z_sun = 25 pc (<a href="https://ui.adsabs.harvard.edu/abs/2008ApJ...673..864J">Jurić 2008</a>), and solar motion of [U_sun, V_LSR + V_sun, W_sun] = [11.10, 248.5, 7.25] km/s, in line with (<a href="https://ui.adsabs.harvard.edu/abs/2011AN....332..461B">Brunthaler et al. 2011</a>) and (<a href="https://ui.adsabs.harvard.edu/abs/2020ApJ...892...39R">Reid & Brunthaler 2020</a>). We assumed a bar angle of 20 degrees, and a bar mass of 11 billions Solar mass, in line with Fernández Trincado (2017, PhD.-Thesis) and <a href="https://https://ui.adsabs.harvard.edu/abs/2020MNRAS.495.4113F">Fernández-Trincado et al. 2020</a>.
+The VAC contains the median statistics of 50 ensemble of orbits for each star, integrated over a 3 Gyr timespan. Orbits were computed in a model configuration with bar patterns speed of 41 km/s/kpc (<a href="https://ui.adsabs.harvard.edu/abs/2019MNRAS.488.4552S">Sanders et al. 2019</a>). To the Galactic orbits, we adopt a solar position of R_sun = 8.178 kpc (<a href="https://ui.adsabs.harvard.edu/abs/2019A&A...625L..10G">Gravity Collaboration et al. 2019</a>), Z_sun = 25 pc (<a href="https://ui.adsabs.harvard.edu/abs/2008ApJ...673..864J">Jurić 2008</a>), and solar motion of [U_sun, V_LSR + V_sun, W_sun] = [11.10, 248.5, 7.25] km/s, in line with <a href="https://ui.adsabs.harvard.edu/abs/2011AN....332..461B">Brunthaler et al. 2011</a> and <a href="https://ui.adsabs.harvard.edu/abs/2020ApJ...892...39R">Reid & Brunthaler 2020</a>. We assumed a bar angle of 20 degrees, and a bar mass of 11 billions Solar mass, in line with Fernández Trincado (2017, PhD.-Thesis) and <a href="https://https://ui.adsabs.harvard.edu/abs/2020MNRAS.495.4113F">Fernández-Trincado et al. 2020</a>.
 
 ### Naming Convention
 $MWM_ORBITS/GravPot16-[V_VAC].fits where V_VAC=1.0.0 for DR20
@@ -34,7 +34,7 @@ FITS
 https://gravpot.utinam.cnrs.fr
 
 ### Is a VAC
-True
+False
 
 ### Data Level
 3.3.0
