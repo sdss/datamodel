@@ -25,7 +25,7 @@ DR20
 SPIDERS_AGN
 
 ### Approximate Size
-159 MB
+151 MB
 
 ### File Type
 FITS
@@ -43,12 +43,11 @@ True
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: PYQSOFIT_LINE_PROPERTIES](#hdu1-pyqsofit_line_properties)
   - [HDU2: PPXF_HOST_DECOMPOSITION_RESULTS](#hdu2-ppxf_host_decomposition_results)
-  - [HDU3: CLASSIFICATION_AND_DERIVED_PROPERTIES](#hdu3-classification_and_derived_properties)
-  - [HDU4: PYQSOFIT_FIT_PARAMETERS](#hdu4-pyqsofit_fit_parameters)
-  - [HDU5: MAIN_X_RAY_CATALOGUE_BRUNNER2022](#hdu5-main_x_ray_catalogue_brunner2022)
-  - [HDU6: HARD_X_RAY_CATALOGUE_BRUNNER2022](#hdu6-hard_x_ray_catalogue_brunner2022)
-  - [HDU7: X_RAY_SPECTRAL_PROPERTIES_LIU2022](#hdu7-x_ray_spectral_properties_liu2022)
-  - [HDU8: CTP_SALVATO2022](#hdu8-ctp_salvato2022)
+  - [HDU3: PYQSOFIT_FIT_PARAMETERS](#hdu3-pyqsofit_fit_parameters)
+  - [HDU4: MAIN_X_RAY_CATALOGUE_BRUNNER2022](#hdu4-main_x_ray_catalogue_brunner2022)
+  - [HDU5: HARD_X_RAY_CATALOGUE_BRUNNER2022](#hdu5-hard_x_ray_catalogue_brunner2022)
+  - [HDU6: X_RAY_SPECTRAL_PROPERTIES_LIU2022](#hdu6-x_ray_spectral_properties_liu2022)
+  - [HDU7: CTP_SALVATO2022](#hdu7-ctp_salvato2022)
 
 ---
 
@@ -1223,7 +1222,7 @@ Key | Value | Comment | |
 | TUNIT629 | A | units for column 629 |
 | TCOMM629 | Line equivalent width error |  |
 | TCOMM630 | True: host-galaxy emission subtracted; False: quasar-dominated |  |
-| DATE-HDU | 2026-06-11T09:50:04 | Date of HDU creation (UTC) |
+| DATE-HDU | 2026-07-10T10:28:33 | Date of HDU creation (UTC) |
 | STILVERS | 4.3-5 | Version of STIL software |
 | STILCLAS | uk.ac.starlink.votable.UnifiedFitsTableWriter | STIL Author class |
 
@@ -1963,7 +1962,7 @@ Key | Value | Comment | |
 | TUNIT58 | Zsun | units for column 58 |
 | TCOMM58 | Metallicity of SSP with third highest weight |  |
 | TCOMM59 | Weight of SSP with third highest weight |  |
-| DATE-HDU | 2026-06-11T09:50:04 | Date of HDU creation (UTC) |
+| DATE-HDU | 2026-07-10T10:28:34 | Date of HDU creation (UTC) |
 | STILVERS | 4.3-5 | Version of STIL software |
 | STILCLAS | uk.ac.starlink.votable.UnifiedFitsTableWriter | STIL Author class |
 
@@ -2032,332 +2031,13 @@ Name | Type | Unit | Description |
 
 
 
-### HDU3: CLASSIFICATION_AND_DERIVED_PROPERTIES
-AGN classification, emission line detection flags, and derived physical properties
-
-#### HDU Type: BINARY TABLE
-#### HDU Size:  7 MB
-
-##### Header Table Caption for HDU3
-Key | Value | Comment | |
-| --- | --- | --- | --- |
-| XTENSION | BINTABLE | binary table extension |
-| BITPIX | 8 | 8-bit bytes |
-| NAXIS | 2 | 2-dimensional table |
-| NAXIS1 | 613 | width of table in bytes |
-| NAXIS2 | 13143 | number of rows in table |
-| PCOUNT | 0 | size of special data area |
-| GCOUNT | 1 | one data group |
-| TFIELDS | 141 | number of columns |
-| EXTNAME | CLASSIFICATION_AND_DERIVED_PROPERTIES | table name |
-| TCOMM1 | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |  |
-| TCOMM2 | eROSITA official source Name (Brunner+2022) |  |
-| TNULL3 | -2147483648 | blank value for column 3 |
-| TCOMM3 | ID of Hard sample eROSITA source (Brunner+2022) |  |
-| TNULL4 | -2147483648 | blank value for column 4 |
-| TCOMM4 | ID of Main sample eROSITA source (Brunner+2022) |  |
-| TCOMM5 | Main or Hard sample from eROSITA (Brunner+2022) |  |
-| TUNIT6 | deg | units for column 6 |
-| TCOMM6 | SDSS right ascension (J2000) |  |
-| TUNIT7 | deg | units for column 7 |
-| TCOMM7 | SDSS declination (J2000) |  |
-| TCOMM8 | True: host-galaxy emission subtracted; False: quasar-dominated |  |
-| TCOMM9 | Spectroscopic redshift from visual inspection (Aydar+2025) |  |
-| TCOMM10 | SDSS Median S/N per pix in spectrum (idlspec2d v6_0_2 reductions) |  |
-| TCOMM11 | Classification onto Broad, Narrow or No (emission) lines |  |
-| TCOMM12 | AGN continuum (PL+Fe II+Balmer) weight to continuum fit |  |
-| TCOMM13 | Types 1-2; c for candidates; SF from BPT or WHAN |  |
-| TCOMM14 | Narrow Line Seyfert 1; for Type 1.9, if Mg II or Ha are broad |  |
-| TCOMM15 | Obscuration according to nH=21.5; c for candidates |  |
-| TCOMM16 | Candidates of having an outflow in [O III], red- or blueshifted |  |
-| TCOMM17 | Candidates of having a coronal line ([Ne V], [Fe VII], or [Fe X]) |  |
-| TCOMM18 | Ratio between UV and X-ray luminosities, Tananbaum+1979 |  |
-| TCOMM19 | Ratio between UV and X-ray luminosities error, Tananbaum+1979 |  |
-| TCOMM20 | Black hole mass (log, Msun): Hb or Ha z<0.7; Mg II 0.7<z<2; C IV z>2 |  |
-| TCOMM21 | Black hole mass error (log, Msun): line as LogBHmass |  |
-| TCOMM22 | Bolometric luminosity (log, erg/s): 5100 z<0.7; 3000 0.7<z<2; 1350 z |  |
-| TCOMM23 | Bolometric luminosity error (log, erg/s): luminosities as LogLbol |  |
-| TCOMM24 | Eddington ratio: Hb,Ha,5100 z<0.7; MgII,3000 0.7<z<2; CIV,1350 z>2 |  |
-| TCOMM25 | Eddington ratio error: lines and luminosities as LogEdd_ratio |  |
-| TCOMM26 | Continuum luminosity at 2500 A (log, erg/s) |  |
-| TCOMM27 | Uncertainty of the continuum luminosity at 2500 A (log, erg/s) |  |
-| TCOMM28 | Balmer decrement from the total lines (Ha/Hb) |  |
-| TCOMM29 | Balmer decrement from the total lines error |  |
-| TCOMM30 | Balmer decrement from the narrow lines (Ha_na/Hb_na) |  |
-| TCOMM31 | Balmer decrement from the narrow lines error |  |
-| TCOMM32 | Balmer decrement from the broad lines (Ha_br/Hb_br) |  |
-| TCOMM33 | Balmer decrement from the broad lines error |  |
-| TUNIT34 | K | units for column 34 |
-| TCOMM34 | Electron temperature from [O III], Dors+2020 |  |
-| TUNIT35 | K | units for column 35 |
-| TCOMM35 | Electron temperature from [O II], Dors+2020 |  |
-| TUNIT36 | cm-3 | units for column 36 |
-| TCOMM36 | Electron density from [S II], Dors+2020 |  |
-| TCOMM37 | 12+log(O/H) from the direct method, Dors+2020 |  |
-| TUNIT38 | Zsun | units for column 38 |
-| TCOMM38 | Z in solar metallicity from [N II]/Ha, Carvalho+2020 |  |
-| TCOMM39 | Ionization parameter, Morisset+2016 |  |
-| TUNIT40 | kpc | units for column 40 |
-| TCOMM40 | Physical size within the fiber |  |
-| TCOMM41 | Black hole mass estimated from Ha, Shen+2011 (log, Msun) |  |
-| TCOMM42 | Black hole mass error estimated from Ha, Shen+2011 (log, Msun) |  |
-| TCOMM43 | Black hole mass estimated from Hb, Shen+2011 (log, Msun) |  |
-| TCOMM44 | Black hole mass error estimated from Hb, Shen+2011 (log, Msun) |  |
-| TCOMM45 | Black hole mass estimated from Mg II, Shen+2011 (log, Msun) |  |
-| TCOMM46 | Black hole mass error estimated from Mg II, Shen+2011 (log, Msun) |  |
-| TCOMM47 | Black hole mass estimated from C IV, Shen+2011 (log, Msun) |  |
-| TCOMM48 | Black hole mass error estimated from C IV, Shen+2011 (log, Msun) |  |
-| TCOMM49 | Bolometric luminosity estimated from 5100A, Runnoe+2012 (log, erg/s) |  |
-| TCOMM50 | Bolometric luminosity error from 5100A, Runnoe+2012 (log, erg/s) |  |
-| TCOMM51 | Bolometric luminosity estimated from 3000A, Runnoe+2012 (log, erg/s) |  |
-| TCOMM52 | Bolometric luminosity error from 3000A, Runnoe+2012 (log, erg/s) |  |
-| TCOMM53 | Bolometric luminosity estimated from 1350A, Runnoe+2012 (log, erg/s) |  |
-| TCOMM54 | Bolometric luminosity error from 1350A, Runnoe+2012 (log, erg/s) |  |
-| TCOMM55 | Bolometric luminosity estimated from Lx, Duras+2020 (log, erg/s) |  |
-| TCOMM56 | Bolometric luminosity error from Lx, Duras+2020 (log, erg/s) |  |
-| TCOMM57 | Eddington ratio estimated from Ha and Lbol_5100 |  |
-| TCOMM58 | Eddington ratio error estimated from Ha and Lbol_5100 |  |
-| TCOMM59 | Eddington ratio estimated from Hb and Lbol_5100 |  |
-| TCOMM60 | Eddington ratio error estimated from Hb and Lbol_5100 |  |
-| TCOMM61 | Eddington ratio estimated from Mg II and Lbol_3000 |  |
-| TCOMM62 | Eddington ratio error estimated from Mg II and Lbol_3000 |  |
-| TCOMM63 | Eddington ratio estimated from C IV and Lbol_1350 |  |
-| TCOMM64 | Eddington ratio error estimated from C IV and Lbol_1350 |  |
-| TCOMM65 | Flag for considering a reliable detection of the line |  |
-| TCOMM66 | Flag for considering a reliable detection of the line |  |
-| TCOMM67 | Flag for considering a reliable detection of the line |  |
-| TCOMM68 | Flag for considering a reliable detection of the line |  |
-| TCOMM69 | Flag for considering a reliable detection of the line |  |
-| TCOMM70 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM71 | Flag for considering a reliable detection of the line |  |
-| TCOMM72 | Flag for considering a reliable detection of the line |  |
-| TCOMM73 | Flag for considering a reliable detection of the line |  |
-| TCOMM74 | Flag for considering a reliable detection of the line |  |
-| TCOMM75 | Flag for considering a reliable detection of the line |  |
-| TCOMM76 | Flag for considering a reliable detection of the line |  |
-| TCOMM77 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM78 | Flag for considering a reliable detection of the line |  |
-| TCOMM79 | Flag for considering a reliable detection of the line |  |
-| TCOMM80 | Flag for considering a reliable detection of the line |  |
-| TCOMM81 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM82 | Flag for considering a reliable detection of the line |  |
-| TCOMM83 | Flag for considering a reliable detection of the line |  |
-| TCOMM84 | Flag for considering a reliable detection of the line |  |
-| TCOMM85 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM86 | Flag for considering a reliable detection of the line |  |
-| TCOMM87 | Flag for considering a reliable detection of the line |  |
-| TCOMM88 | Flag for considering a reliable detection of the line |  |
-| TCOMM89 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM90 | Flag for considering a reliable detection of the line |  |
-| TCOMM91 | Flag for considering a reliable detection of the line |  |
-| TCOMM92 | Flag for considering a reliable detection of the line |  |
-| TCOMM93 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM94 | Flag for considering a reliable detection of the line |  |
-| TCOMM95 | Flag for considering a reliable detection of the line |  |
-| TCOMM96 | Flag for considering a reliable detection of the line |  |
-| TCOMM97 | Flag for considering a reliable detection of the line |  |
-| TCOMM98 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM99 | Flag for considering a reliable detection of the line |  |
-| TCOMM100 | Flag for considering a reliable detection of the line |  |
-| TCOMM101 | Flag for considering a reliable detection of the line |  |
-| TCOMM102 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM103 | Flag for considering a reliable detection of the line |  |
-| TCOMM104 | Flag for considering a reliable detection of the line |  |
-| TCOMM105 | Flag for considering a reliable detection of the line |  |
-| TCOMM106 | Flag for considering a reliable detection of the line |  |
-| TCOMM107 | Flag for considering a reliable detection of the line |  |
-| TCOMM108 | Flag for considering a reliable detection of the line |  |
-| TCOMM109 | Flag for considering a reliable detection of the line |  |
-| TCOMM110 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM111 | Flag for considering a reliable detection of the line |  |
-| TCOMM112 | Flag for considering a reliable detection of the line |  |
-| TCOMM113 | Flag for considering a reliable detection of the line |  |
-| TCOMM114 | Flag for considering a reliable detection of the line |  |
-| TCOMM115 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM116 | Flag for considering a reliable detection of the line |  |
-| TCOMM117 | Flag for considering a reliable detection of the line |  |
-| TCOMM118 | Flag for considering a reliable detection of the line |  |
-| TCOMM119 | Flag for considering a reliable detection of the line |  |
-| TCOMM120 | Flag for considering a reliable detection of the line |  |
-| TCOMM121 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM122 | Flag for considering a reliable detection of the line |  |
-| TCOMM123 | Flag for considering a reliable detection of the line |  |
-| TCOMM124 | Flag for considering a reliable detection of the line |  |
-| TCOMM125 | Flag for considering a reliable detection of the line |  |
-| TCOMM126 | Flag for considering a reliable detection of the line |  |
-| TCOMM127 | Flag for considering a reliable detection of the line |  |
-| TCOMM128 | Flag for considering a reliable detection of the line |  |
-| TCOMM129 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM130 | Flag for considering a reliable detection of the line |  |
-| TCOMM131 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM132 | Flag for considering a reliable detection of the line |  |
-| TCOMM133 | Flag for considering a reliable detection of the line |  |
-| TCOMM134 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM135 | Flag for considering a reliable detection of the line |  |
-| TCOMM136 | Flag for considering a reliable detection of the line |  |
-| TCOMM137 | Flag for considering a reliable detection of the line |  |
-| TCOMM138 | Flag for considering a reliable detection of the line |  |
-| TCOMM139 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM140 | Flag for considering a reliable detection of the line |  |
-| TCOMM141 | Flag for considering a reliable detection of the line |  |
-| DATE-HDU | 2026-06-11T09:50:04 | Date of HDU creation (UTC) |
-| STILVERS | 4.3-5 | Version of STIL software |
-| STILCLAS | uk.ac.starlink.votable.UnifiedFitsTableWriter | STIL Author class |
-
-##### Binary Table Caption for HDU3
-Name | Type | Unit | Description |
-| --- | --- | --- | --- |
- | ObjID | char[23] |  | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |
- | ERO_Name | char[22] |  | eROSITA official source Name (Brunner+2022) |
- | ERO_ID_HARD | int32 |  | ID of Hard sample eROSITA source (Brunner+2022) |
- | ERO_ID_MAIN | int32 |  | ID of Main sample eROSITA source (Brunner+2022) |
- | SAMPLE | char[4] |  | Main or Hard sample from eROSITA (Brunner+2022) |
- | RA | float64 | deg | SDSS right ascension (J2000) |
- | DEC | float64 | deg | SDSS declination (J2000) |
- | HG_subtraction | bool |  | True: host-galaxy emission subtracted; False: quasar-dominated |
- | SPECZ_REDSHIFT | float32 |  | Spectroscopic redshift from visual inspection (Aydar+2025) |
- | SN_MEDIAN_ALL | float64 |  | SDSS Median S/N per pix in spectrum (idlspec2d v6_0_2 reductions) |
- | class_line | char[10] |  | Classification onto Broad, Narrow or No (emission) lines |
- | f_AGN | float64 |  | AGN continuum (PL+Fe II+Balmer) weight to continuum fit |
- | type | char[15] |  | Types 1-2; c for candidates; SF from BPT or WHAN |
- | subtype | char[15] |  | Narrow Line Seyfert 1; for Type 1.9, if Mg II or Ha are broad |
- | Xray_obscuration | char[20] |  | Obscuration according to nH=21.5; c for candidates |
- | OIII_outflow | char[5] |  | Candidates of having an outflow in [O III], red- or blueshifted |
- | Coronal_line | bool |  | Candidates of having a coronal line ([Ne V], [Fe VII], or [Fe X]) |
- | a_ox | float64 |  | Ratio between UV and X-ray luminosities, Tananbaum+1979 |
- | a_ox_error | float64 |  | Ratio between UV and X-ray luminosities error, Tananbaum+1979 |
- | LogBHmass | float64 |  | Black hole mass (log, Msun): Hb or Ha z<0.7; Mg II 0.7<z<2; C IV z>2 |
- | LogBHmass_error | float64 |  | Black hole mass error (log, Msun): line as LogBHmass |
- | LogLbol | float64 |  | Bolometric luminosity (log, erg/s): 5100 z<0.7; 3000 0.7<z<2; 1350 z |
- | LogLbol_error | float64 |  | Bolometric luminosity error (log, erg/s): luminosities as LogLbol |
- | LogEdd_ratio | float64 |  | Eddington ratio: Hb,Ha,5100 z<0.7; MgII,3000 0.7<z<2; CIV,1350 z>2 |
- | LogEdd_ratio_error | float64 |  | Eddington ratio error: lines and luminosities as LogEdd_ratio |
- | LogL2500 | float64 |  | Continuum luminosity at 2500 A (log, erg/s) |
- | LogL2500_error | float64 |  | Uncertainty of the continuum luminosity at 2500 A (log, erg/s) |
- | BalmDec | float64 |  | Balmer decrement from the total lines (Ha/Hb) |
- | BalmDec_error | float64 |  | Balmer decrement from the total lines error |
- | BalmDec_na | float64 |  | Balmer decrement from the narrow lines (Ha_na/Hb_na) |
- | BalmDec_na_error | float64 |  | Balmer decrement from the narrow lines error |
- | BalmDec_br | float64 |  | Balmer decrement from the broad lines (Ha_br/Hb_br) |
- | BalmDec_br_error | float64 |  | Balmer decrement from the broad lines error |
- | T_e_OIII | float64 | K | Electron temperature from [O III], Dors+2020 |
- | T_e_OII | float64 | K | Electron temperature from [O II], Dors+2020 |
- | n_e_SII | float64 | cm-3 | Electron density from [S II], Dors+2020 |
- | metallicity_OH_direct | float64 |  | 12+log(O/H) from the direct method, Dors+2020 |
- | metallicity_Zsun_N2 | float64 | Zsun | Z in solar metallicity from [N II]/Ha, Carvalho+2020 |
- | ionization_U | float64 |  | Ionization parameter, Morisset+2016 |
- | aperture_physical_size_kpc | float64 | kpc | Physical size within the fiber |
- | LogBHmass_Ha | float64 |  | Black hole mass estimated from Ha, Shen+2011 (log, Msun) |
- | LogBHmass_Ha_error | float64 |  | Black hole mass error estimated from Ha, Shen+2011 (log, Msun) |
- | LogBHmass_Hb | float64 |  | Black hole mass estimated from Hb, Shen+2011 (log, Msun) |
- | LogBHmass_Hb_error | float64 |  | Black hole mass error estimated from Hb, Shen+2011 (log, Msun) |
- | LogBHmass_Mg | float64 |  | Black hole mass estimated from Mg II, Shen+2011 (log, Msun) |
- | LogBHmass_Mg_error | float64 |  | Black hole mass error estimated from Mg II, Shen+2011 (log, Msun) |
- | LogBHmass_CIV | float64 |  | Black hole mass estimated from C IV, Shen+2011 (log, Msun) |
- | LogBHmass_CIV_error | float64 |  | Black hole mass error estimated from C IV, Shen+2011 (log, Msun) |
- | LogLbol_5100 | float64 |  | Bolometric luminosity estimated from 5100A, Runnoe+2012 (log, erg/s) |
- | LogLbol_5100_error | float64 |  | Bolometric luminosity error from 5100A, Runnoe+2012 (log, erg/s) |
- | LogLbol_3000 | float64 |  | Bolometric luminosity estimated from 3000A, Runnoe+2012 (log, erg/s) |
- | LogLbol_3000_error | float64 |  | Bolometric luminosity error from 3000A, Runnoe+2012 (log, erg/s) |
- | LogLbol_1350 | float64 |  | Bolometric luminosity estimated from 1350A, Runnoe+2012 (log, erg/s) |
- | LogLbol_1350_error | float64 |  | Bolometric luminosity error from 1350A, Runnoe+2012 (log, erg/s) |
- | Lbol_x | float64 |  | Bolometric luminosity estimated from Lx, Duras+2020 (log, erg/s) |
- | Lbol_x_error | float64 |  | Bolometric luminosity error from Lx, Duras+2020 (log, erg/s) |
- | LogEdd_ratio_Ha | float64 |  | Eddington ratio estimated from Ha and Lbol_5100 |
- | LogEdd_ratio_Ha_error | float64 |  | Eddington ratio error estimated from Ha and Lbol_5100 |
- | LogEdd_ratio_Hb | float64 |  | Eddington ratio estimated from Hb and Lbol_5100 |
- | LogEdd_ratio_Hb_error | float64 |  | Eddington ratio error estimated from Hb and Lbol_5100 |
- | LogEdd_ratio_Mg | float64 |  | Eddington ratio estimated from Mg II and Lbol_3000 |
- | LogEdd_ratio_Mg_error | float64 |  | Eddington ratio error estimated from Mg II and Lbol_3000 |
- | LogEdd_ratio_CIV | float64 |  | Eddington ratio estimated from C IV and Lbol_1350 |
- | LogEdd_ratio_CIV_error | float64 |  | Eddington ratio error estimated from C IV and Lbol_1350 |
- | SII6732_detected | bool |  | Flag for considering a reliable detection of the line |
- | SII6718_detected | bool |  | Flag for considering a reliable detection of the line |
- | NII6585_detected | bool |  | Flag for considering a reliable detection of the line |
- | NII6549_detected | bool |  | Flag for considering a reliable detection of the line |
- | HALPHA_detected | bool |  | Flag for considering a reliable detection of the line |
- | HALPHA_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | HALPHA_BR_detected | bool |  | Flag for considering a reliable detection of the line |
- | HALPHA_NA_detected | bool |  | Flag for considering a reliable detection of the line |
- | FeX6376_detected | bool |  | Flag for considering a reliable detection of the line |
- | OI6300_detected | bool |  | Flag for considering a reliable detection of the line |
- | FeVII6088_detected | bool |  | Flag for considering a reliable detection of the line |
- | HeI5877_detected | bool |  | Flag for considering a reliable detection of the line |
- | HeI5877_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | HeI5877_BR_detected | bool |  | Flag for considering a reliable detection of the line |
- | HeI5877_NA_detected | bool |  | Flag for considering a reliable detection of the line |
- | HeII4685_detected | bool |  | Flag for considering a reliable detection of the line |
- | HeII4685_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | HeII4685_BR_detected | bool |  | Flag for considering a reliable detection of the line |
- | HeII4685_NA_detected | bool |  | Flag for considering a reliable detection of the line |
- | OIII5007_detected | bool |  | Flag for considering a reliable detection of the line |
- | OIII5007_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | OIII5007C_detected | bool |  | Flag for considering a reliable detection of the line |
- | OIII5007W_detected | bool |  | Flag for considering a reliable detection of the line |
- | OIII4959_detected | bool |  | Flag for considering a reliable detection of the line |
- | OIII4959_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | OIII4959C_detected | bool |  | Flag for considering a reliable detection of the line |
- | OIII4959W_detected | bool |  | Flag for considering a reliable detection of the line |
- | HBETA_detected | bool |  | Flag for considering a reliable detection of the line |
- | HBETA_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | HBETA_BR_detected | bool |  | Flag for considering a reliable detection of the line |
- | HBETA_NA_detected | bool |  | Flag for considering a reliable detection of the line |
- | OIII4363_detected | bool |  | Flag for considering a reliable detection of the line |
- | HGAMMA_detected | bool |  | Flag for considering a reliable detection of the line |
- | HGAMMA_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | HGAMMA_BR_detected | bool |  | Flag for considering a reliable detection of the line |
- | HGAMMA_NA_detected | bool |  | Flag for considering a reliable detection of the line |
- | HDELTA_detected | bool |  | Flag for considering a reliable detection of the line |
- | HDELTA_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | HDELTA_BR_detected | bool |  | Flag for considering a reliable detection of the line |
- | HDELTA_NA_detected | bool |  | Flag for considering a reliable detection of the line |
- | NeIII3967_detected | bool |  | Flag for considering a reliable detection of the line |
- | NeIII3869_detected | bool |  | Flag for considering a reliable detection of the line |
- | FeVII3759_detected | bool |  | Flag for considering a reliable detection of the line |
- | OII3728_detected | bool |  | Flag for considering a reliable detection of the line |
- | NeV3426_detected | bool |  | Flag for considering a reliable detection of the line |
- | NeV3426_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | NeV3426_BR_detected | bool |  | Flag for considering a reliable detection of the line |
- | NeV3426_NA_detected | bool |  | Flag for considering a reliable detection of the line |
- | NeV3346_detected | bool |  | Flag for considering a reliable detection of the line |
- | MgII_detected | bool |  | Flag for considering a reliable detection of the line |
- | MgII_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | MgII_BR_detected | bool |  | Flag for considering a reliable detection of the line |
- | MgII_NA_detected | bool |  | Flag for considering a reliable detection of the line |
- | NeIV2422_detected | bool |  | Flag for considering a reliable detection of the line |
- | CII2326_detected | bool |  | Flag for considering a reliable detection of the line |
- | CIII_ALL_detected | bool |  | Flag for considering a reliable detection of the line |
- | CIII_ALL_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | CIII_BR_detected | bool |  | Flag for considering a reliable detection of the line |
- | SiIII1892_detected | bool |  | Flag for considering a reliable detection of the line |
- | AlIII1857_detected | bool |  | Flag for considering a reliable detection of the line |
- | SiII1816_detected | bool |  | Flag for considering a reliable detection of the line |
- | NIII1750_detected | bool |  | Flag for considering a reliable detection of the line |
- | NIV1718_detected | bool |  | Flag for considering a reliable detection of the line |
- | OIII1663_detected | bool |  | Flag for considering a reliable detection of the line |
- | OIII1663_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | HeII1640_detected | bool |  | Flag for considering a reliable detection of the line |
- | HeII1640_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | HeII1640_BR_detected | bool |  | Flag for considering a reliable detection of the line |
- | CIV_detected | bool |  | Flag for considering a reliable detection of the line |
- | CIV_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | SiIV_OIV_detected | bool |  | Flag for considering a reliable detection of the line |
- | CII1335_detected | bool |  | Flag for considering a reliable detection of the line |
- | OI1304_detected | bool |  | Flag for considering a reliable detection of the line |
- | LyA_detected | bool |  | Flag for considering a reliable detection of the line |
- | LyA_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | NV1240_detected | bool |  | Flag for considering a reliable detection of the line |
- | OIV1035_detected | bool |  | Flag for considering a reliable detection of the line |
-
-
-
-### HDU4: PYQSOFIT_FIT_PARAMETERS
+### HDU3: PYQSOFIT_FIT_PARAMETERS
 PyQSOFit continuum and emission line Gaussian fit parametersn
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  45 MB
 
-##### Header Table Caption for HDU4
+##### Header Table Caption for HDU3
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | BINTABLE | binary table extension |
@@ -2837,11 +2517,11 @@ Key | Value | Comment | |
 | TCOMM450 | Fifth local line complex number of pixels |  |
 | TCOMM451 | Fifth local line complex number of degrees of freedom |  |
 | TCOMM452 | True: host-galaxy emission subtracted; False: quasar-dominated |  |
-| DATE-HDU | 2026-06-11T09:50:04 | Date of HDU creation (UTC) |
+| DATE-HDU | 2026-07-10T10:28:34 | Date of HDU creation (UTC) |
 | STILVERS | 4.3-5 | Version of STIL software |
 | STILCLAS | uk.ac.starlink.votable.UnifiedFitsTableWriter | STIL Author class |
 
-##### Binary Table Caption for HDU4
+##### Binary Table Caption for HDU3
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | ObjID | char[23] |  | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |
@@ -3299,13 +2979,13 @@ Name | Type | Unit | Description |
 
 
 
-### HDU5: MAIN_X_RAY_CATALOGUE_BRUNNER2022
+### HDU4: MAIN_X_RAY_CATALOGUE_BRUNNER2022
 eROSITA Main Sample X-ray catalogue from Brunner et al. (2022)
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  15 MB
 
-##### Header Table Caption for HDU5
+##### Header Table Caption for HDU4
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | BINTABLE | binary table extension |
@@ -3628,11 +3308,11 @@ Key | Value | Comment | |
 | TCOMM165 | Poisson probability of being background fluctuation; 0.5-2 keV |  |
 | TCOMM166 | Poisson probability of being background fluctuation; 2.3-5 keV |  |
 | TCOMM167 | Poisson probability of being background fluctuation; 5-8 keV |  |
-| DATE-HDU | 2026-06-11T09:50:04 | Date of HDU creation (UTC) |
+| DATE-HDU | 2026-07-10T10:28:34 | Date of HDU creation (UTC) |
 | STILVERS | 4.3-5 | Version of STIL software |
 | STILCLAS | uk.ac.starlink.votable.UnifiedFitsTableWriter | STIL Author class |
 
-##### Binary Table Caption for HDU5
+##### Binary Table Caption for HDU4
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | ObjID | char[23] |  | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |
@@ -3805,13 +3485,13 @@ Name | Type | Unit | Description |
 
 
 
-### HDU6: HARD_X_RAY_CATALOGUE_BRUNNER2022
+### HDU5: HARD_X_RAY_CATALOGUE_BRUNNER2022
 eROSITA Hard Sample X-ray catalogue from Brunner et al. (2022)
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  369 KB
 
-##### Header Table Caption for HDU6
+##### Header Table Caption for HDU5
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | BINTABLE | binary table extension |
@@ -4183,11 +3863,11 @@ Key | Value | Comment | |
 | TCOMM191 | Poisson probability of being background fluctuation; 0.5-2 keV |  |
 | TCOMM192 | Poisson probability of being background fluctuation; 2.3-5 keV |  |
 | TCOMM193 | Poisson probability of being background fluctuation; 5-8 keV |  |
-| DATE-HDU | 2026-06-11T09:50:04 | Date of HDU creation (UTC) |
+| DATE-HDU | 2026-07-10T10:28:34 | Date of HDU creation (UTC) |
 | STILVERS | 4.3-5 | Version of STIL software |
 | STILCLAS | uk.ac.starlink.votable.UnifiedFitsTableWriter | STIL Author class |
 
-##### Binary Table Caption for HDU6
+##### Binary Table Caption for HDU5
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | ObjID | char[23] |  | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |
@@ -4386,13 +4066,13 @@ Name | Type | Unit | Description |
 
 
 
-### HDU7: X_RAY_SPECTRAL_PROPERTIES_LIU2022
+### HDU6: X_RAY_SPECTRAL_PROPERTIES_LIU2022
 AGN X-ray spectral properties from Liu et al. (2022)
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  3 MB
 
-##### Header Table Caption for HDU7
+##### Header Table Caption for HDU6
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | BINTABLE | binary table extension |
@@ -4408,7 +4088,6 @@ Key | Value | Comment | |
 | TCOMM2 | eROSITA official source Name (Brunner+2022) |  |
 | TNULL3 | -2147483648 | blank value for column 3 |
 | TCOMM3 | ID of Hard sample eROSITA source (Brunner+2022) |  |
-| TNULL4 | -2147483648 | blank value for column 4 |
 | TCOMM4 | ID of Main sample eROSITA source (Brunner+2022) |  |
 | TCOMM5 | Spectroscopic redshift from visual inspection (Aydar+2025) |  |
 | TCOMM6 | Main or Hard sample from eROSITA (Brunner+2022) |  |
@@ -4515,11 +4194,11 @@ Key | Value | Comment | |
 | TCOMM63 | SDSS right ascension (J2000) |  |
 | TUNIT64 | deg | units for column 64 |
 | TCOMM64 | SDSS declination (J2000) |  |
-| DATE-HDU | 2026-06-11T09:50:04 | Date of HDU creation (UTC) |
+| DATE-HDU | 2026-07-10T10:28:34 | Date of HDU creation (UTC) |
 | STILVERS | 4.3-5 | Version of STIL software |
 | STILCLAS | uk.ac.starlink.votable.UnifiedFitsTableWriter | STIL Author class |
 
-##### Binary Table Caption for HDU7
+##### Binary Table Caption for HDU6
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | ObjID | char[23] |  | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |
@@ -4589,353 +4268,351 @@ Name | Type | Unit | Description |
 
 
 
-### HDU8: CTP_SALVATO2022
+### HDU7: CTP_SALVATO2022
 Photometric counterpart catalogue and multi-wavelength photometry from Salvato et al. (2022)
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  16 MB
 
-##### Header Table Caption for HDU8
+##### Header Table Caption for HDU7
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | BINTABLE | binary table extension |
 | BITPIX | 8 | 8-bit bytes |
 | NAXIS | 2 | 2-dimensional table |
-| NAXIS1 | 1355 | width of table in bytes |
+| NAXIS1 | 1351 | width of table in bytes |
 | NAXIS2 | 13143 | number of rows in table |
 | PCOUNT | 0 | size of special data area |
 | GCOUNT | 1 | one data group |
-| TFIELDS | 178 | number of columns |
+| TFIELDS | 177 | number of columns |
 | EXTNAME | CTP_SALVATO2022 | table name |
 | TCOMM1 | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |  |
 | TCOMM2 | eROSITA official source Name (Brunner+2022) |  |
 | TNULL3 | -2147483648 | blank value for column 3 |
-| TCOMM3 | ID of eROSITA source in the Hard Sample |  |
+| TCOMM3 | ID of Main sample eROSITA source (Brunner+2022) |  |
 | TNULL4 | -2147483648 | blank value for column 4 |
-| TCOMM4 | ID of Main sample eROSITA source (Brunner+2022) |  |
+| TCOMM4 | ID of eROSITA source in the Hard Sample |  |
 | TCOMM5 | Main or Hard sample from eROSITA (Brunner+2022) |  |
 | TCOMM6 | LS8 unique identifier for the counterpart to the eROSITA source (Exp |  |
 | TUNIT7 | deg | units for column 7 |
 | TCOMM7 | J2000 Right Ascension of the LS8 counterpart |  |
 | TUNIT8 | deg | units for column 8 |
 | TCOMM8 | J2000 Declination of the LS8 counterpart |  |
-| TNULL9 | 999999 | blank value for column 9 |
+| TNULL9 | -2147483648 | blank value for column 9 |
 | TCOMM9 | Total number of spec_z associated with this Legacy Survey DR9 object |  |
-| TCOMM10 | Spectroscopic redshift from Visual Inspection (Aydar+2025) |  |
-| TNULL11 | 999999 | blank value for column 11 |
-| TCOMM11 | Normalised quality of spectroscopic redshift: 3=secure, 2=not secure |  |
-| TCOMM12 | Final normalised classification determined for this object |  |
-| TCOMM13 | True if best spec-z for this object has a visual inspection |  |
-| TCOMM14 | Catalogue code of best spec-z for this object |  |
-| TNULL15 | 999999 | blank value for column 15 |
-| TCOMM15 | Bitmask encoding catalogues containing spec-z for this object. Bit e |  |
+| TNULL10 | -2147483648 | blank value for column 10 |
+| TCOMM10 | Normalised quality of spectroscopic redshift: 3=secure, 2=not secure |  |
+| TCOMM11 | Final normalised classification determined for this object |  |
+| TCOMM12 | True if best spec-z for this object has a visual inspection |  |
+| TCOMM13 | Catalogue code of best spec-z for this object |  |
+| TNULL14 | -9223372036854775808 | blank value for column 14 |
+| TCOMM14 | Bitmask encoding catalogues containing spec-z for this object. Bit e |  |
+| TUNIT15 | deg | units for column 15 |
+| TCOMM15 | SDSS right ascension sky coordinate of spectroscopic fibre |  |
 | TUNIT16 | deg | units for column 16 |
-| TCOMM16 | SDSS right ascension sky coordinate of spectroscopic fibre |  |
-| TUNIT17 | deg | units for column 17 |
-| TCOMM17 | SDSS declination sky coordinate of spectroscopic fibre |  |
-| TNULL18 | 999999 | blank value for column 18 |
-| TCOMM18 | SDSS plate |  |
-| TNULL19 | 999999 | blank value for column 19 |
-| TCOMM19 | SDSS modified Julian date of observation |  |
-| TNULL20 | 999999 | blank value for column 20 |
-| TCOMM20 | SDSS FIBER ID |  |
-| TNULL21 | 999999 | blank value for column 21 |
-| TCOMM21 | SDSS field sequence number |  |
-| TUTYP21 | Integer | VO Utype for column 21 |
-| TNULL22 | 999999 | blank value for column 22 |
-| TCOMM22 | SDSS CATALOGID (used before the unification with SDSS_ID) |  |
-| TUTYP22 | Long | VO Utype for column 22 |
-| TCOMM23 | Tagged version of idlspec2d used to reduce the SDSS BOSS spectra |  |
-| TCOMM24 | SDSS Data Release version |  |
-| TCOMM25 | SDSS url to (internal) access observed spectrum |  |
-| TUNIT26 | arcsec | units for column 26 |
-| TCOMM26 | Distance between matched objects along a great circle |  |
-| TUCD26 | pos.angDistance | VO Unified Content Descriptor for column 26 |
-| TCOMM27 | SDSS Median S/N per pix in spectrum (idlspec2d v6_0_2 reductions) |  |
-| TCOMM28 | SDSS Pipeline redshift in idlspec2d eFEDS v6_0_2 reductions |  |
-| TCOMM29 | SDSS Pipeline redshift uncertainty in idlspec2d eFEDS v6_0_2 reducti |  |
-| TCOMM30 | SDSS Pipeline redshift warning flags in idlspec2d eFEDS v6_0_2 reduc |  |
+| TCOMM16 | SDSS declination sky coordinate of spectroscopic fibre |  |
+| TNULL17 | -2147483648 | blank value for column 17 |
+| TCOMM17 | SDSS plate |  |
+| TNULL18 | -2147483648 | blank value for column 18 |
+| TCOMM18 | SDSS modified Julian date of observation |  |
+| TNULL19 | -2147483648 | blank value for column 19 |
+| TCOMM19 | SDSS FIBER ID |  |
+| TNULL20 | -2147483648 | blank value for column 20 |
+| TCOMM20 | SDSS field sequence number |  |
+| TUTYP20 | Integer | VO Utype for column 20 |
+| TNULL21 | -9223372036854775808 | blank value for column 21 |
+| TCOMM21 | SDSS CATALOGID (used before the unification with SDSS_ID) |  |
+| TUTYP21 | Long | VO Utype for column 21 |
+| TCOMM22 | Tagged version of idlspec2d used to reduce the SDSS BOSS spectra |  |
+| TCOMM23 | SDSS Data Release version |  |
+| TCOMM24 | SDSS url to (internal) access observed spectrum |  |
+| TUNIT25 | arcsec | units for column 25 |
+| TCOMM25 | Distance between matched objects along a great circle |  |
+| TUCD25 | pos.angDistance | VO Unified Content Descriptor for column 25 |
+| TCOMM26 | SDSS Median S/N per pix in spectrum (idlspec2d v6_0_2 reductions) |  |
+| TCOMM27 | SDSS Pipeline redshift in idlspec2d eFEDS v6_0_2 reductions |  |
+| TCOMM28 | SDSS Pipeline redshift uncertainty in idlspec2d eFEDS v6_0_2 reducti |  |
+| TCOMM29 | SDSS Pipeline redshift warning flags in idlspec2d eFEDS v6_0_2 reduc |  |
+| TUNIT30 | deg | units for column 30 |
+| TCOMM30 | J2000 Right Ascension of the eROSITA source (corrected) |  |
 | TUNIT31 | deg | units for column 31 |
-| TCOMM31 | J2000 Right Ascension of the eROSITA source (corrected) |  |
+| TCOMM31 | J2000 Declination of the eROSITA source (corrected) |  |
 | TUNIT32 | deg | units for column 32 |
-| TCOMM32 | J2000 Declination of the eROSITA source (corrected) |  |
-| TUNIT33 | deg | units for column 33 |
-| TCOMM33 | eROSITA positional uncertainty (corrected) |  |
+| TCOMM32 | eROSITA positional uncertainty (corrected) |  |
+| TUNIT33 | erg / (cm2 s) | units for column 33 |
+| TCOMM33 | 0.2-2.3 keV source flux converted from count rate assuming ECF=1.074 |  |
 | TUNIT34 | erg / (cm2 s) | units for column 34 |
-| TCOMM34 | 0.2-2.3 keV source flux converted from count rate assuming ECF=1.074 |  |
-| TUNIT35 | erg / (cm2 s) | units for column 35 |
-| TCOMM35 | 2.3-5 keV source flux error (1 sigma) |  |
-| TCOMM36 | X-ray detection likelihood measured by PSF-fitting |  |
-| TCOMM37 | True if in the 0.2-2.3keV exp>500s region, which comprises 90% |  |
-| TUNIT38 | arcsec | units for column 38 |
-| TCOMM38 | Separation between selected counterpart and eROSITA (corrected) posi |  |
-| TCOMM39 | Unique OBJECTID of the best LS8 counterpart from NWAY (Expression: t |  |
+| TCOMM34 | 2.3-5 keV source flux error (1 sigma) |  |
+| TCOMM35 | X-ray detection likelihood measured by PSF-fitting |  |
+| TCOMM36 | True if in the 0.2-2.3keV exp>500s region, which comprises 90% |  |
+| TUNIT37 | arcsec | units for column 37 |
+| TCOMM37 | Separation between selected counterpart and eROSITA (corrected) posi |  |
+| TCOMM38 | Unique OBJECTID of the best LS8 counterpart from NWAY (Expression: t |  |
+| TUNIT39 | deg | units for column 39 |
+| TCOMM39 | J2000 Right Ascension of the best LS8 counterpart from NWAY |  |
 | TUNIT40 | deg | units for column 40 |
-| TCOMM40 | J2000 Right Ascension of the best LS8 counterpart from NWAY |  |
-| TUNIT41 | deg | units for column 41 |
-| TCOMM41 | J2000 Declination of the best LS8 counterpart from NWAY |  |
-| TCOMM42 | Logarithm of ratio between prior and posterior, from separation, pos |  |
-| TCOMM43 | Distance probability comparing this association vs. no association ( |  |
-| TCOMM44 | Same as dist_post, but weighted by the prior (see Appx. in Salvato e |  |
-| TCOMM45 | For each entry in the X-ray catalogue, the probability that there is |  |
-| TCOMM46 | Relative probability of the eROSITA/LS8 match (see Appx. in Salvato |  |
-| TUNIT47 | arcsec | units for column 47 |
-| TCOMM47 | Separation between the X-ray position and the best LS8 counterparts |  |
-| TCOMM48 | LS8 unique identifier of the LS8 counterpart from Maximum Likelihood |  |
+| TCOMM40 | J2000 Declination of the best LS8 counterpart from NWAY |  |
+| TCOMM41 | Logarithm of ratio between prior and posterior, from separation, pos |  |
+| TCOMM42 | Distance probability comparing this association vs. no association ( |  |
+| TCOMM43 | Same as dist_post, but weighted by the prior (see Appx. in Salvato e |  |
+| TCOMM44 | For each entry in the X-ray catalogue, the probability that there is |  |
+| TCOMM45 | Relative probability of the eROSITA/LS8 match (see Appx. in Salvato |  |
+| TUNIT46 | arcsec | units for column 46 |
+| TCOMM46 | Separation between the X-ray position and the best LS8 counterparts |  |
+| TCOMM47 | LS8 unique identifier of the LS8 counterpart from Maximum Likelihood |  |
+| TUNIT48 | deg | units for column 48 |
+| TCOMM48 | J2000 Right Ascension of the LS8 counterpart |  |
 | TUNIT49 | deg | units for column 49 |
-| TCOMM49 | J2000 Right Ascension of the LS8 counterpart |  |
-| TUNIT50 | deg | units for column 50 |
-| TCOMM50 | J2000 Declination of the best LS8 counterpart |  |
-| TCOMM51 | Likelihood Ratio value from Maximum Likelihood Ratio technique |  |
-| TCOMM52 | Reliability of the identification from Maximum Likelihood Ratio tech |  |
-| TUNIT53 | arcsec | units for column 53 |
-| TCOMM53 | Separation between the X-ray position and the best LS8 counterparts |  |
+| TCOMM49 | J2000 Declination of the best LS8 counterpart |  |
+| TCOMM50 | Likelihood Ratio value from Maximum Likelihood Ratio technique |  |
+| TCOMM51 | Reliability of the identification from Maximum Likelihood Ratio tech |  |
+| TUNIT52 | arcsec | units for column 52 |
+| TCOMM52 | Separation between the X-ray position and the best LS8 counterparts |  |
+| TNULL53 | -32768 | blank value for column 53 |
+| TCOMM53 | Comparison NWAY/MLR: true if the counterpart selected by the two met |  |
 | TNULL54 | -32768 | blank value for column 54 |
-| TCOMM54 | Comparison NWAY/MLR: true if the counterpart selected by the two met |  |
-| TNULL55 | -32768 | blank value for column 55 |
-| TCOMM55 | Comparison NWAY/MLR: true if the counterpart from NWAY/MLR has p_any |  |
-| TCOMM56 | Match to Hamstar: 1=same counterpart, 0=different counterpart, -99=n |  |
+| TCOMM54 | Comparison NWAY/MLR: true if the counterpart from NWAY/MLR has p_any |  |
+| TCOMM55 | Match to Hamstar: 1=same counterpart, 0=different counterpart, -99=n |  |
+| TUNIT56 | arcsec | units for column 56 |
+| TCOMM56 | probability of association from Hamstar |  |
 | TUNIT57 | arcsec | units for column 57 |
-| TCOMM57 | probability of association from Hamstar |  |
-| TUNIT58 | arcsec | units for column 58 |
-| TCOMM58 | Separation between Hamstar ctp and NWAY/MLR ctp |  |
-| TCOMM59 | colour: 1=best, 4=best, 3=good, 2=with secondary, 1/0=unreliable. (s |  |
-| TNULL60 | -9223372036854775808 | blank value for column 60 |
-| TCOMM60 | ID in Gaia EDR3 source catalog |  |
+| TCOMM57 | Separation between Hamstar ctp and NWAY/MLR ctp |  |
+| TCOMM58 | colour: 1=best, 4=best, 3=good, 2=with secondary, 1/0=unreliable. (s |  |
+| TNULL59 | -9223372036854775808 | blank value for column 59 |
+| TCOMM59 | ID in Gaia EDR3 source catalog |  |
+| TUNIT60 | mas | units for column 60 |
+| TCOMM60 | Parallax from Gaia EDR3 |  |
+| TUCD60 | pos.parallax.trig | VO Unified Content Descriptor for column 60 |
 | TUNIT61 | mas | units for column 61 |
-| TCOMM61 | Parallax from Gaia EDR3 |  |
-| TUCD61 | pos.parallax.trig | VO Unified Content Descriptor for column 61 |
-| TUNIT62 | mas | units for column 62 |
-| TCOMM62 | Parallax error from Gaia EDR3 |  |
-| TUCD62 | stat.error;pos.parallax.trig | VO Unified Content Descriptor for col |
-| TCOMM63 | Parallax/Parallax error, ratio >5 SECURE GALACTIC |  |
-| TUCD63 | arith.ratio | VO Unified Content Descriptor for column 63 |
+| TCOMM61 | Parallax error from Gaia EDR3 |  |
+| TUCD61 | stat.error;pos.parallax.trig | VO Unified Content Descriptor for col |
+| TCOMM62 | Parallax/Parallax error, ratio >5 SECURE GALACTIC |  |
+| TUCD62 | arith.ratio | VO Unified Content Descriptor for column 62 |
+| TUNIT63 | mas / yr | units for column 63 |
+| TCOMM63 | Proper motion in RA from Gaia EDR3 |  |
+| TUCD63 | pos.pm;pos.eq.ra | VO Unified Content Descriptor for column 63 |
 | TUNIT64 | mas / yr | units for column 64 |
-| TCOMM64 | Proper motion in RA from Gaia EDR3 |  |
-| TUCD64 | pos.pm;pos.eq.ra | VO Unified Content Descriptor for column 64 |
+| TCOMM64 | Proper motion error in RA from Gaia EDR3 |  |
+| TUCD64 | stat.error;pos.pm;pos.eq.ra | VO Unified Content Descriptor for colu |
 | TUNIT65 | mas / yr | units for column 65 |
-| TCOMM65 | Proper motion error in RA from Gaia EDR3 |  |
-| TUCD65 | stat.error;pos.pm;pos.eq.ra | VO Unified Content Descriptor for colu |
+| TCOMM65 | Proper motion in Dec from Gaia EDR3 |  |
+| TUCD65 | pos.pm;pos.eq.dec | VO Unified Content Descriptor for column 65 |
 | TUNIT66 | mas / yr | units for column 66 |
-| TCOMM66 | Proper motion in Dec from Gaia EDR3 |  |
-| TUCD66 | pos.pm;pos.eq.dec | VO Unified Content Descriptor for column 66 |
-| TUNIT67 | mas / yr | units for column 67 |
-| TCOMM67 | Proper motion error in Dec from Gaia EDR3 |  |
-| TUCD67 | stat.error;pos.pm;pos.eq.dec | VO Unified Content Descriptor for col |
+| TCOMM66 | Proper motion error in Dec from Gaia EDR3 |  |
+| TUCD66 | stat.error;pos.pm;pos.eq.dec | VO Unified Content Descriptor for col |
+| TUNIT67 | mag | units for column 67 |
+| TCOMM67 | g band magnitude (VEGA) from Gaia EDR3 |  |
+| TUCD67 | phot.mag;em.opt | VO Unified Content Descriptor for column 67 |
 | TUNIT68 | mag | units for column 68 |
-| TCOMM68 | g band magnitude (VEGA) from Gaia EDR3 |  |
-| TUCD68 | phot.mag;em.opt | VO Unified Content Descriptor for column 68 |
+| TCOMM68 | Error g band magnitude from Gaia EDR3 |  |
+| TUCD68 | stat.error;phot.mag;stat.mean;em.opt | VO Unified Content Descriptor |
 | TUNIT69 | mag | units for column 69 |
-| TCOMM69 | Error g band magnitude from Gaia EDR3 |  |
-| TUCD69 | stat.error;phot.mag;stat.mean;em.opt | VO Unified Content Descriptor |
+| TCOMM69 | bp band magnitude from Gaia EDR3 |  |
+| TUCD69 | phot.mag;em.opt.B | VO Unified Content Descriptor for column 69 |
 | TUNIT70 | mag | units for column 70 |
-| TCOMM70 | bp band magnitude from Gaia EDR3 |  |
-| TUCD70 | phot.mag;em.opt.B | VO Unified Content Descriptor for column 70 |
+| TCOMM70 | Error bp band magnitude from Gaia EDR3 |  |
+| TUCD70 | stat.error;phot.mag;stat.mean;em.opt.B | VO Unified Content Descript |
 | TUNIT71 | mag | units for column 71 |
-| TCOMM71 | Error bp band magnitude from Gaia EDR3 |  |
-| TUCD71 | stat.error;phot.mag;stat.mean;em.opt.B | VO Unified Content Descript |
+| TCOMM71 | rp band magnitude (VEGA) from Gaia EDR3 |  |
+| TUCD71 | phot.mag;em.opt.R | VO Unified Content Descriptor for column 71 |
 | TUNIT72 | mag | units for column 72 |
-| TCOMM72 | rp band magnitude (VEGA) from Gaia EDR3 |  |
-| TUCD72 | phot.mag;em.opt.R | VO Unified Content Descriptor for column 72 |
+| TCOMM72 | Error rp band magnitude from Gaia EDR3 |  |
+| TUCD72 | stat.error;phot.mag;stat.mean;em.opt.R | VO Unified Content Descript |
 | TUNIT73 | mag | units for column 73 |
-| TCOMM73 | Error rp band magnitude from Gaia EDR3 |  |
-| TUCD73 | stat.error;phot.mag;stat.mean;em.opt.R | VO Unified Content Descript |
+| TCOMM73 | Galex Far UV magnitude (AB) |  |
 | TUNIT74 | mag | units for column 74 |
-| TCOMM74 | Galex Far UV magnitude (AB) |  |
+| TCOMM74 | Galex Far UV magnitude error (AB) |  |
 | TUNIT75 | mag | units for column 75 |
-| TCOMM75 | Galex Far UV magnitude error (AB) |  |
+| TCOMM75 | Galex Near UV magnitude (AB) |  |
 | TUNIT76 | mag | units for column 76 |
-| TCOMM76 | Galex Near UV magnitude (AB) |  |
+| TCOMM76 | Galex Near UV magnitude error (AB) |  |
 | TUNIT77 | mag | units for column 77 |
-| TCOMM77 | Galex Near UV magnitude error (AB) |  |
+| TCOMM77 | KIDS u-band magnitude |  |
 | TUNIT78 | mag | units for column 78 |
-| TCOMM78 | KIDS u-band magnitude |  |
+| TCOMM78 | KIDS u-band magnitude error |  |
 | TUNIT79 | mag | units for column 79 |
-| TCOMM79 | KIDS u-band magnitude error |  |
+| TCOMM79 | KIDS g-band magnitude |  |
 | TUNIT80 | mag | units for column 80 |
-| TCOMM80 | KIDS g-band magnitude |  |
+| TCOMM80 | KIDS g-band magnitude error |  |
 | TUNIT81 | mag | units for column 81 |
-| TCOMM81 | KIDS g-band magnitude error |  |
+| TCOMM81 | KIDS r-band magnitude |  |
 | TUNIT82 | mag | units for column 82 |
-| TCOMM82 | KIDS r-band magnitude |  |
+| TCOMM82 | KIDS r-band magnitude error |  |
 | TUNIT83 | mag | units for column 83 |
-| TCOMM83 | KIDS r-band magnitude error |  |
+| TCOMM83 | KIDS i-band magnitude |  |
 | TUNIT84 | mag | units for column 84 |
-| TCOMM84 | KIDS i-band magnitude |  |
+| TCOMM84 | KIDS i-band magnitude error |  |
 | TUNIT85 | mag | units for column 85 |
-| TCOMM85 | KIDS i-band magnitude error |  |
+| TNULL85 | -32768 | blank value for column 85 |
+| TCOMM85 | OmegaCAM z-band magnitude (AB) |  |
 | TUNIT86 | mag | units for column 86 |
-| TNULL86 | -32768 | blank value for column 86 |
-| TCOMM86 | OmegaCAM z-band magnitude (AB) |  |
+| TCOMM86 | OmegaCAM z-band magnitude error |  |
 | TUNIT87 | mag | units for column 87 |
-| TCOMM87 | OmegaCAM z-band magnitude error |  |
+| TCOMM87 | HSC g-band magnitude (AB) |  |
 | TUNIT88 | mag | units for column 88 |
-| TCOMM88 | HSC g-band magnitude (AB) |  |
+| TCOMM88 | HSC g-band magnitude error |  |
 | TUNIT89 | mag | units for column 89 |
-| TCOMM89 | HSC g-band magnitude error |  |
+| TCOMM89 | HSC r-band magnitude (AB) when images are mostly from r-filter (see |  |
 | TUNIT90 | mag | units for column 90 |
-| TCOMM90 | HSC r-band magnitude (AB) when images are mostly from r-filter (see |  |
+| TCOMM90 | HSC r-band magnitude error |  |
 | TUNIT91 | mag | units for column 91 |
-| TCOMM91 | HSC r-band magnitude error |  |
+| TCOMM91 | HSC r2-band magnitude (AB) when images are mostly from r2-filter (se |  |
 | TUNIT92 | mag | units for column 92 |
-| TCOMM92 | HSC r2-band magnitude (AB) when images are mostly from r2-filter (se |  |
+| TCOMM92 | HSC r2-band magnitude error |  |
 | TUNIT93 | mag | units for column 93 |
-| TCOMM93 | HSC r2-band magnitude error |  |
+| TCOMM93 | HSC i-band magnitude (AB) when images are mostly from i-filter (see |  |
 | TUNIT94 | mag | units for column 94 |
-| TCOMM94 | HSC i-band magnitude (AB) when images are mostly from i-filter (see |  |
+| TCOMM94 | HSC i-band magnitude error |  |
 | TUNIT95 | mag | units for column 95 |
-| TCOMM95 | HSC i-band magnitude error |  |
+| TCOMM95 | HSC i2-band magnitude (AB) when images are mostly from i2-filter (se |  |
 | TUNIT96 | mag | units for column 96 |
-| TCOMM96 | HSC i2-band magnitude (AB) when images are mostly from i2-filter (se |  |
+| TCOMM96 | HSC i2-band magnitude error |  |
 | TUNIT97 | mag | units for column 97 |
-| TCOMM97 | HSC i2-band magnitude error |  |
+| TCOMM97 | HSC z-band magnitude (AB) |  |
 | TUNIT98 | mag | units for column 98 |
-| TCOMM98 | HSC z-band magnitude (AB) |  |
+| TCOMM98 | HSC z-band magnitude error |  |
 | TUNIT99 | mag | units for column 99 |
-| TCOMM99 | HSC z-band magnitude error |  |
+| TCOMM99 | HSC Y-band magnitude (AB) |  |
 | TUNIT100 | mag | units for column 100 |
-| TCOMM100 | HSC Y-band magnitude (AB) |  |
+| TCOMM100 | HSC Y-band magnitude error |  |
 | TUNIT101 | mag | units for column 101 |
-| TCOMM101 | HSC Y-band magnitude error |  |
+| TCOMM101 | VISTA/VIKING z-band magnitude (AB) |  |
 | TUNIT102 | mag | units for column 102 |
-| TCOMM102 | VISTA/VIKING z-band magnitude (AB) |  |
+| TCOMM102 | VISTA/VIKING z-band magnitude error |  |
 | TUNIT103 | mag | units for column 103 |
-| TCOMM103 | VISTA/VIKING z-band magnitude error |  |
+| TCOMM103 | VISTA/VIKING Y-band magnitude (AB) |  |
 | TUNIT104 | mag | units for column 104 |
-| TCOMM104 | VISTA/VIKING Y-band magnitude (AB) |  |
+| TCOMM104 | VISTA/VIKING Y-band magnitude error |  |
 | TUNIT105 | mag | units for column 105 |
-| TCOMM105 | VISTA/VIKING Y-band magnitude error |  |
+| TCOMM105 | VISTA/VIKING J-band magnitude (AB) |  |
 | TUNIT106 | mag | units for column 106 |
-| TCOMM106 | VISTA/VIKING J-band magnitude (AB) |  |
+| TCOMM106 | VISTA/VIKING J-band magnitude error |  |
 | TUNIT107 | mag | units for column 107 |
-| TCOMM107 | VISTA/VIKING J-band magnitude error |  |
+| TCOMM107 | VISTA/VIKING H-band magnitude (AB) |  |
 | TUNIT108 | mag | units for column 108 |
-| TCOMM108 | VISTA/VIKING H-band magnitude (AB) |  |
+| TCOMM108 | VISTA/VIKING H-band magnitude error |  |
 | TUNIT109 | mag | units for column 109 |
-| TCOMM109 | VISTA/VIKING H-band magnitude error |  |
+| TCOMM109 | VISTA/VIKING Ks-band magnitude (AB) |  |
 | TUNIT110 | mag | units for column 110 |
-| TCOMM110 | VISTA/VIKING Ks-band magnitude (AB) |  |
+| TCOMM110 | VISTA/VIKING Ks-band magnitude error |  |
 | TUNIT111 | mag | units for column 111 |
-| TCOMM111 | VISTA/VIKING Ks-band magnitude error |  |
+| TCOMM111 | LS8/Wise W1 magnitude (AB) |  |
 | TUNIT112 | mag | units for column 112 |
-| TCOMM112 | LS8/Wise W1 magnitude (AB) |  |
+| TCOMM112 | LS8/Wise W1 magnitude error |  |
 | TUNIT113 | mag | units for column 113 |
-| TCOMM113 | LS8/Wise W1 magnitude error |  |
+| TCOMM113 | LS8/Wise W2 magnitude (AB) |  |
 | TUNIT114 | mag | units for column 114 |
-| TCOMM114 | LS8/Wise W2 magnitude (AB) |  |
+| TCOMM114 | LS8/Wise W2 magnitude error |  |
 | TUNIT115 | mag | units for column 115 |
-| TCOMM115 | LS8/Wise W2 magnitude error |  |
+| TCOMM115 | LS8/Wise W3 magnitude (AB) |  |
 | TUNIT116 | mag | units for column 116 |
-| TCOMM116 | LS8/Wise W3 magnitude (AB) |  |
+| TCOMM116 | LS8/Wise W3 magnitude error |  |
 | TUNIT117 | mag | units for column 117 |
-| TCOMM117 | LS8/Wise W3 magnitude error |  |
+| TCOMM117 | LS8/Wise W4 magnitude (AB) |  |
 | TUNIT118 | mag | units for column 118 |
-| TCOMM118 | LS8/Wise W4 magnitude (AB) |  |
+| TCOMM118 | LS8/Wise W4 magnitude error |  |
 | TUNIT119 | mag | units for column 119 |
-| TCOMM119 | LS8/Wise W4 magnitude error |  |
+| TCOMM119 | LS8 g-band magnitude (AB) |  |
 | TUNIT120 | mag | units for column 120 |
-| TCOMM120 | LS8 g-band magnitude (AB) |  |
+| TCOMM120 | LS8 g-band magnitude error |  |
 | TUNIT121 | mag | units for column 121 |
-| TCOMM121 | LS8 g-band magnitude error |  |
+| TCOMM121 | LS8 r-band magnitude (AB) |  |
 | TUNIT122 | mag | units for column 122 |
-| TCOMM122 | LS8 r-band magnitude (AB) |  |
+| TCOMM122 | LS8 r-band magnitude error |  |
 | TUNIT123 | mag | units for column 123 |
-| TCOMM123 | LS8 r-band magnitude error |  |
+| TCOMM123 | LS8 z-band magnitude (AB) |  |
 | TUNIT124 | mag | units for column 124 |
-| TCOMM124 | LS8 z-band magnitude (AB) |  |
+| TCOMM124 | LS8 z-band magnitude error |  |
 | TUNIT125 | mag | units for column 125 |
-| TCOMM125 | LS8 z-band magnitude error |  |
+| TCOMM125 | VISTA/VHS Y-band magnitude (AB) |  |
 | TUNIT126 | mag | units for column 126 |
-| TCOMM126 | VISTA/VHS Y-band magnitude (AB) |  |
+| TCOMM126 | VISTA/VHS Y-band magnitude error |  |
 | TUNIT127 | mag | units for column 127 |
-| TCOMM127 | VISTA/VHS Y-band magnitude error |  |
+| TCOMM127 | VISTA/VHS H-band magnitude (AB) |  |
 | TUNIT128 | mag | units for column 128 |
-| TCOMM128 | VISTA/VHS H-band magnitude (AB) |  |
+| TCOMM128 | VISTA/VHS H-band magnitude error |  |
 | TUNIT129 | mag | units for column 129 |
-| TCOMM129 | VISTA/VHS H-band magnitude error |  |
+| TCOMM129 | VISTA/VHS Ks-band magnitude (AB) |  |
 | TUNIT130 | mag | units for column 130 |
-| TCOMM130 | VISTA/VHS Ks-band magnitude (AB) |  |
+| TCOMM130 | VISTA/VHS Ks-band magnitude error |  |
 | TUNIT131 | mag | units for column 131 |
-| TCOMM131 | VISTA/VHS Ks-band magnitude error |  |
+| TCOMM131 | Difference between psf and Kron magnitude in HSC g-band |  |
 | TUNIT132 | mag | units for column 132 |
-| TCOMM132 | Difference between psf and Kron magnitude in HSC g-band |  |
+| TCOMM132 | Distance between pfron and Kron magnitude in HSC r-band |  |
 | TUNIT133 | mag | units for column 133 |
-| TCOMM133 | Distance between pfron and Kron magnitude in HSC r-band |  |
+| TCOMM133 | Distance between pfron and Kron magnitude in HSC i-band |  |
 | TUNIT134 | mag | units for column 134 |
-| TCOMM134 | Distance between pfron and Kron magnitude in HSC i-band |  |
-| TUNIT135 | mag | units for column 135 |
-| TCOMM135 | Distance between pfron and Kron magnitude in HSC z-band |  |
-| TCOMM136 | Extension in HSC griz bands. 1=extended; -99=data missing; 0=other f |  |
-| TCOMM137 | Flag for LS8 photometry: true when the source has simultaneously g,r |  |
-| TCOMM138 | Morphological model from LS8 |  |
+| TCOMM134 | Distance between pfron and Kron magnitude in HSC z-band |  |
+| TCOMM135 | Extension in HSC griz bands. 1=extended; -99=data missing; 0=other f |  |
+| TCOMM136 | Flag for LS8 photometry: true when the source has simultaneously g,r |  |
+| TCOMM137 | Morphological model from LS8 |  |
+| TNULL138 | -32768 | blank value for column 138 |
+| TCOMM138 | Source is in KIDS area |  |
 | TNULL139 | -32768 | blank value for column 139 |
-| TCOMM139 | Source is in KIDS area |  |
-| TNULL140 | -32768 | blank value for column 140 |
-| TCOMM140 | Source is in HSC area |  |
+| TCOMM139 | Source is in HSC area |  |
+| TUNIT140 | deg | units for column 140 |
+| TCOMM140 | J2000 Right Ascension of the spectroscopic redshift entry in the ori |  |
 | TUNIT141 | deg | units for column 141 |
-| TCOMM141 | J2000 Right Ascension of the spectroscopic redshift entry in the ori |  |
-| TUNIT142 | deg | units for column 142 |
-| TCOMM142 | J2000 Declination of the spectroscopic redshift entry in the origina |  |
-| TCOMM143 | Spectroscopic redshift from the original catalogue |  |
-| TNULL144 | -2147483648 | blank value for column 144 |
-| TCOMM144 | Normalised quality of spectroscopic redshift: 3=secure, 2=not secure |  |
-| TCOMM145 | Catalogue which provided this spectroscopic redshift |  |
-| TCOMM146 | Original ID of this spec-z in ORIGIN catalogue |  |
-| TCOMM147 | True when the CTP has a reliable redshift above 0.002 |  |
-| TCOMM148 | True when the CTP has a reliable redshift below 0.002 |  |
-| TCOMM149 | SECURE/LIKELY GALACTIC/EXTRAGALACTIC, as from flowchart (Salvato+202 |  |
-| TCOMM150 | Photoz from Le PHARE, but set to 0 for GALACTIC sources |  |
-| TCOMM151 | Le PHARE zphot min at 1 sigma |  |
-| TCOMM152 | Le PHARE zphot max at 1 sigma |  |
-| TCOMM153 | Le PHARE zphot min at 2 sigma |  |
-| TCOMM154 | Le PHARE zphot max at 2 sigma |  |
-| TCOMM155 | Le PHARE zphot min at 3 sigma |  |
-| TCOMM156 | Le PHARE zphot max at 3 sigma |  |
-| TCOMM157 | Le PHARE chi2 value for best fitting galaxy/AGN template |  |
+| TCOMM141 | J2000 Declination of the spectroscopic redshift entry in the origina |  |
+| TCOMM142 | Spectroscopic redshift from the original catalogue |  |
+| TNULL143 | -2147483648 | blank value for column 143 |
+| TCOMM143 | Normalised quality of spectroscopic redshift: 3=secure, 2=not secure |  |
+| TCOMM144 | Catalogue which provided this spectroscopic redshift |  |
+| TCOMM145 | Original ID of this spec-z in ORIGIN catalogue |  |
+| TCOMM146 | True when the CTP has a reliable redshift above 0.002 |  |
+| TCOMM147 | True when the CTP has a reliable redshift below 0.002 |  |
+| TCOMM148 | SECURE/LIKELY GALACTIC/EXTRAGALACTIC, as from flowchart (Salvato+202 |  |
+| TCOMM149 | Photoz from Le PHARE, but set to 0 for GALACTIC sources |  |
+| TCOMM150 | Le PHARE zphot min at 1 sigma |  |
+| TCOMM151 | Le PHARE zphot max at 1 sigma |  |
+| TCOMM152 | Le PHARE zphot min at 2 sigma |  |
+| TCOMM153 | Le PHARE zphot max at 2 sigma |  |
+| TCOMM154 | Le PHARE zphot min at 3 sigma |  |
+| TCOMM155 | Le PHARE zphot max at 3 sigma |  |
+| TCOMM156 | Le PHARE chi2 value for best fitting galaxy/AGN template |  |
+| TNULL157 | -32768 | blank value for column 157 |
+| TCOMM157 | Le PHARE model number for best template fitting the data (for PLIKE |  |
 | TNULL158 | -32768 | blank value for column 158 |
-| TCOMM158 | Le PHARE model number for best template fitting the data (for PLIKE |  |
-| TNULL159 | -32768 | blank value for column 159 |
-| TCOMM159 | Le PHARE Extinction Law applied to the template: Prevot (1) or none |  |
-| TCOMM160 | Le PHARE E(B-V) applied to the template |  |
-| TCOMM161 | Le Phare probability distribution: Photoz more reliable when value i |  |
-| TNULL162 | -32768 | blank value for column 162 |
-| TCOMM162 | Le Phare number of bands used for the computation of photoz |  |
-| TCOMM163 | Le Phare best photoz from LePhare, if existing |  |
-| TCOMM164 | Le Phare chi2 value for second best fitting template, if existing |  |
-| TCOMM165 | Le Phare second best template fitting the data, if existing |  |
-| TCOMM166 | Le Phare distribution of photoz for secondary solution, if existing |  |
-| TCOMM167 | Photoz from DNNZ (from Nishizawa et al.), but set to 0 for GALACTIC |  |
-| TCOMM168 | DNNZ zphot min at 1 sigma |  |
-| TCOMM169 | DNNZ zphot max at 1 sigma |  |
-| TCOMM170 | DNNZ zphot min at 2 sigma |  |
-| TCOMM171 | DNNZ zphot max at 2 sigma |  |
-| TCOMM172 | Final redshift: zspec when available, else photo-z from Le PHARE; 0 |  |
+| TCOMM158 | Le PHARE Extinction Law applied to the template: Prevot (1) or none |  |
+| TCOMM159 | Le PHARE E(B-V) applied to the template |  |
+| TCOMM160 | Le Phare probability distribution: Photoz more reliable when value i |  |
+| TNULL161 | -32768 | blank value for column 161 |
+| TCOMM161 | Le Phare number of bands used for the computation of photoz |  |
+| TCOMM162 | Le Phare best photoz from LePhare, if existing |  |
+| TCOMM163 | Le Phare chi2 value for second best fitting template, if existing |  |
+| TCOMM164 | Le Phare second best template fitting the data, if existing |  |
+| TCOMM165 | Le Phare distribution of photoz for secondary solution, if existing |  |
+| TCOMM166 | Photoz from DNNZ (from Nishizawa et al.), but set to 0 for GALACTIC |  |
+| TCOMM167 | DNNZ zphot min at 1 sigma |  |
+| TCOMM168 | DNNZ zphot max at 1 sigma |  |
+| TCOMM169 | DNNZ zphot min at 2 sigma |  |
+| TCOMM170 | DNNZ zphot max at 2 sigma |  |
+| TCOMM171 | Final redshift: zspec when available, else photo-z from Le PHARE; 0 |  |
+| TNULL172 | -32768 | blank value for column 172 |
+| TCOMM172 | In a range from 5 (spectroscopy) to 0 (unreliable photo-z) |  |
 | TNULL173 | -32768 | blank value for column 173 |
-| TCOMM173 | In a range from 5 (spectroscopy) to 0 (unreliable photo-z) |  |
-| TNULL174 | -32768 | blank value for column 174 |
-| TCOMM174 | Range from 5 (most likely a cluster) to 1 (not a cluster) (see Salva |  |
-| TCOMM175 | same as CTP_classification, but with numbers: 3: SECURE EXTRAGALACTI |  |
-| TNULL176 | -2147483648 | blank value for column 176 |
-| TCOMM176 | Number of spectra for the same eROSITA source |  |
-| TCOMM177 | SDSS class (STAR, GALAXY, QSO) in idlspec2d eFEDS v6_0_2 reductions |  |
-| TCOMM178 | SDSS subclass in idlspec2d eFEDS v6_0_2 reductions |  |
-| DATE-HDU | 2026-06-11T09:50:04 | Date of HDU creation (UTC) |
+| TCOMM173 | Range from 5 (most likely a cluster) to 1 (not a cluster) (see Salva |  |
+| TCOMM174 | same as CTP_classification, but with numbers: 3: SECURE EXTRAGALACTI |  |
+| TNULL175 | -2147483648 | blank value for column 175 |
+| TCOMM175 | Number of spectra for the same eROSITA source |  |
+| TCOMM176 | SDSS class (STAR, GALAXY, QSO) in idlspec2d eFEDS v6_0_2 reductions |  |
+| TCOMM177 | SDSS subclass in idlspec2d eFEDS v6_0_2 reductions |  |
+| DATE-HDU | 2026-07-10T10:28:34 | Date of HDU creation (UTC) |
 | STILVERS | 4.3-5 | Version of STIL software |
 | STILCLAS | uk.ac.starlink.votable.UnifiedFitsTableWriter | STIL Author class |
 
-##### Binary Table Caption for HDU8
+##### Binary Table Caption for HDU7
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | ObjID | char[23] |  | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |
  | ERO_Name | char[22] |  | eROSITA official source Name (Brunner+2022) |
- | ERO_ID_HARD | int32 |  | ID of eROSITA source in the Hard Sample |
  | ERO_ID_MAIN | int32 |  | ID of Main sample eROSITA source (Brunner+2022) |
+ | ERO_ID_HARD | int32 |  | ID of eROSITA source in the Hard Sample |
  | SAMPLE | char[4] |  | Main or Hard sample from eROSITA (Brunner+2022) |
  | CTP_LS8_UNIQUE_OBJID | char[11] |  | LS8 unique identifier for the counterpart to the eROSITA source (Exp |
  | CTP_LS8_RA | float64 | deg | J2000 Right Ascension of the LS8 counterpart |
  | CTP_LS8_DEC | float64 | deg | J2000 Declination of the LS8 counterpart |
  | SPECZ_N_specz | int32 |  | Total number of spec_z associated with this Legacy Survey DR9 object |
- | SPECZ_REDSHIFT_specz | float32 |  | Spectroscopic redshift from Visual Inspection (Aydar+2025) |
  | SPECZ_NORMQ_specz | int32 |  | Normalised quality of spectroscopic redshift: 3=secure, 2=not secure |
  | SPECZ_NORMC_specz | char[8] |  | Final normalised classification determined for this object |
  | SPECZ_HASVI_specz | bool |  | True if best spec-z for this object has a visual inspection |
