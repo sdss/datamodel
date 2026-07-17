@@ -165,7 +165,7 @@ Name | Type | Unit | Description |
  | file_spec | char[14] |  | sdss_access file species name |
  | apstar_id | char[58] |  | APOGEE (combined) star ID |
  | visit_id | char[34] |  | APOGEE visit ID |
- | has_mwmstar | int64 |  | Has MWM Star |
+ | has_mwmstar | bool |  | Has MWM Star |
  | astra_versions | char[11] |  | list of v_astra values if sdss_id has MWM Star |
  | mangaid | char[9] |  | MaNGA ID |
  | specobjid | char[29] |  | spectroscopic object id |

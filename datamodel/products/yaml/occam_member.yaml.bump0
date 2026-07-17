@@ -1,0 +1,229 @@
+general:
+  name: occam_member
+  short: 'The OCCAM member summary table provides positional, identification, and
+    membership information for 1196 candidate open cluster member stars.
+
+    '
+  description: 'The OCCAM member summary table provides the proper motion membership
+    probabilities from Cantat-Gaudin et al. 2020 and Hunt and Reffert 2023 alongside
+    the radial velocity and [Fe/H] membership probabilities from MWM/APOGEE. Basic
+    postional information is included with source IDs from Gaia DR2/3 and SDSS-V DR19
+    for each star in the table.
+
+    '
+  datatype: FITS
+  filesize: 216 KB
+  releases:
+  - DR19
+  environments:
+  - APOGEE_OCCAM
+  surveys:
+  - MWM
+  - APOGEE-2
+  - SDSS
+  naming_convention: $APOGEE_OCCAM/occam_member-[VERS].fits where VERS is DR19 in
+    the latest version
+  generated_by: OCCAM
+  data_level: 3.3.0
+  design: false
+  vac: true
+  recommended_science_product: true
+changelog:
+  description: Describes changes to the datamodel product and/or file structure from
+    one release to another
+  releases: {}
+releases:
+  DR19:
+    template: $APOGEE_OCCAM/occam_member-[VERS].fits
+    example: occam_member-DR19.fits
+    location: occam_member-{vers}.fits
+    environment: APOGEE_OCCAM
+    access:
+      in_sdss_access: false
+      path_name: null
+      path_template: null
+      path_kwargs: null
+      access_string: occam_member = $APOGEE_OCCAM/occam_member-{vers}.fits
+    survey: SDSS
+    hdus:
+      hdu0:
+        name: PRIMARY
+        description: The primary HDU, in accordance with the FITS file standard. No
+          useful information is stored here
+        is_image: true
+        size: 0 bytes
+        header:
+        - key: SIMPLE
+          value: true
+          comment: file does conform to FITS standard
+        - key: BITPIX
+          value: 16
+          comment: number of bits per data pixel
+        - key: NAXIS
+          value: 0
+          comment: number of data axes
+        - key: EXTEND
+          value: true
+          comment: FITS dataset may contain extensions
+        - key: COMMENT
+          value: '  FITS (Flexible Image Transport System) format is defined in ''Astronomy'
+          comment: ''
+        - key: COMMENT
+          value: '  and Astrophysics'', volume 376, page 359; bibcode: 2001A&A...376..359H'
+          comment: ''
+      hdu1:
+        name: OCCAM data
+        description: 'The data reported are as follows:
+
+          '
+        is_image: false
+        size: 206 KB
+        header:
+        - key: XTENSION
+          value: BINTABLE
+          comment: binary table extension
+        - key: BITPIX
+          value: 8
+          comment: 8-bit bytes
+        - key: NAXIS
+          value: 2
+          comment: 2-dimensional binary table
+        - key: NAXIS1
+          value: 177
+          comment: width of table in bytes
+        - key: NAXIS2
+          value: 1196
+          comment: number of rows in table
+        - key: PCOUNT
+          value: 0
+          comment: size of special data area
+        - key: GCOUNT
+          value: 1
+          comment: one data group (required keyword)
+        - key: TFIELDS
+          value: 23
+          comment: number of fields in each row
+        columns:
+          Cluster:
+            name: Cluster
+            type: char[20]
+            unit: '---'
+            description: Open cluster name   1
+          SDSS_ID:
+            name: SDSS_ID
+            type: int64
+            unit: '---'
+            description: Internal SDSS-V source ID   2
+          GaiaDR3_ID:
+            name: GaiaDR3_ID
+            type: int64
+            unit: '---'
+            description: Gaia DR3 source ID   3
+          GaiaDR2_ID:
+            name: GaiaDR2_ID
+            type: int64
+            unit: '---'
+            description: Gaia DR2 source ID   4
+          OBJ_ID:
+            name: OBJ_ID
+            type: char[32]
+            unit: '---'
+            description: DR17 APOGEE ID 5
+          GLON:
+            name: GLON
+            type: float32
+            unit: deg
+            description: Galactic longitude   6
+          GLAT:
+            name: GLAT
+            type: float32
+            unit: deg
+            description: Galactic latitude   7
+          RAdeg:
+            name: RAdeg
+            type: float64
+            unit: deg
+            description: Right ascencion   8
+          DEdeg:
+            name: DEdeg
+            type: float64
+            unit: deg
+            description: Declination   9
+          V_RAD:
+            name: V_RAD
+            type: float32
+            unit: km/s
+            description: Average radial velocity  10
+          E_V_RAD:
+            name: E_V_RAD
+            type: float32
+            unit: km/s
+            description: Standard error in radial velocity measurements 11
+          STD_V_RAD:
+            name: STD_V_RAD
+            type: float32
+            unit: km/s
+            description: 1-sigma radial velocity scatter  12
+          PMRA:
+            name: PMRA
+            type: float32
+            unit: mas/yr
+            description: Proper motion in RA  13
+          E_PMRA:
+            name: E_PMRA
+            type: float32
+            unit: mas/yr
+            description: Standard error of proper motion in RA  14
+          PMDE:
+            name: PMDE
+            type: float32
+            unit: mas/yr
+            description: Proper motion in declination 15
+          E_PMDE:
+            name: E_PMDE
+            type: float32
+            unit: mas/yr
+            description: Standard error of proper motion in declination  16
+          FeH_ASPCAP:
+            name: FeH_ASPCAP
+            type: float64
+            unit: dex
+            description: '[Fe/H] from the ASPCAP pipeline  17
+
+              '
+          E_FeH_ASPCAP:
+            name: E_FeH_ASPCAP
+            type: float64
+            unit: dex
+            description: 1-sigma [Fe/H] dispersion  18
+          CG_Prob:
+            name: CG_Prob
+            type: float64
+            unit: '---'
+            description: Membership probability from Cantat-Gaudin et. al 2020  19
+          RV_Prob:
+            name: RV_Prob
+            type: float64
+            unit: '---'
+            description: OCCAM RV membership probability  20
+          FeH_Prob_ASPCAP:
+            name: FeH_Prob_ASPCAP
+            type: float64
+            unit: '---'
+            description: OCCAM ASPCAP [Fe/H] membership probability 21
+          EH_Prob:
+            name: EH_Prob
+            type: float64
+            unit: '---'
+            description: Membership probability from Hunt & Reffert 2023 22
+          XMatch:
+            name: XMatch
+            type: uint8
+            unit: '---'
+            description: An unsigned integer to indicate whether a individual star
+              has been observed by Galah, GaiaESO or OCCASO. The first bit corresponds
+              to Galah, second to GaiaESO, and the third to OCCASO.  23
+notes: |-
+  None
+regrets: |-
+  I  have no regrets!
