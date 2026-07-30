@@ -19,7 +19,7 @@ The allStar-VERS-TELESCOPE.fits file contains all final data product and summary
 <code>allStar-VERS-TELESCOPE.fits</code>
 
 ### Releases
-DR10, DR12, DR13, DR14, DR15, DR16, DR17, DR19
+DR10, DR12, DR13, DR14, DR15, DR16, DR17, DR19, DR20
 
 ### Enviroments
 APOGEE_REDUX, APOGEE_ASPCAP
@@ -39,7 +39,7 @@ False
 ### Data Level
 2.2.0
 
-### HDUS List for release DR19
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: APOGEE reduction star-level summary table](#hdu1-apogee reduction star-level summary table)
 
@@ -47,6 +47,10 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - primary_delta_nkeys: 1
+   - removed_primary_header_kwargs: ['VERSION']
  - DR19
    - from: DR17
    - added_hdus: ['APOGEE reduction star-level summary table']
@@ -57,7 +61,7 @@ Describes changes to the datamodel product and/or file structure from one releas
  - DR16
    - from: DR15
    - primary_delta_nkeys: 10
-   - removed_primary_header_kwargs: ['DATE', 'HISTORY']
+   - removed_primary_header_kwargs: ['HISTORY', 'DATE']
  - DR15
    - from: DR14
    - note: No changes
@@ -84,10 +88,9 @@ Describes changes to the datamodel product and/or file structure from one releas
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | SIMPLE | True | conforms to FITS standard |
-| BITPIX | 16 | array data type |
+| BITPIX | 8 | array data type |
 | NAXIS | 0 | number of array dimensions |
 | EXTEND | True |  |
-| VERSION | 1.0 | Code version |
 
 
 
