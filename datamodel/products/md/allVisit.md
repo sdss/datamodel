@@ -19,7 +19,7 @@ The allVisit_RESULTS-VERS.fits file contains summary information for every visit
 allVisit-RESULTS_VERS.fits
 
 ### Releases
-DR16, DR17, DR19
+DR16, DR17, DR19, DR20
 
 ### Enviroments
 APOGEE_ASPCAP, APOGEE_REDUX
@@ -36,7 +36,10 @@ idlwrap (aspcap_allstar)
 ### Is a VAC
 False
 
-### HDUS List for release DR19
+### Data Level
+2.2.0
+
+### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
   - [HDU1: APOGEE reduction visit-level summary table](#hdu1-apogee reduction visit-level summary table)
 
@@ -44,13 +47,16 @@ False
 
 ## Changelog
 Describes changes to the datamodel product and/or file structure from one release to another
+ - DR20
+   - from: DR19
+   - note: No changes
  - DR19
    - from: DR17
    - added_hdus: ['APOGEE reduction visit-level summary table']
  - DR17
    - from: DR16
    - primary_delta_nkeys: 9
-   - removed_primary_header_kwargs: ['HISTORY', 'DATE', 'COMMENT']
+   - removed_primary_header_kwargs: ['COMMENT', 'DATE', 'HISTORY']
 
 ---
 ## Example HDUS List
