@@ -25,7 +25,7 @@ DR20
 SPIDERS_AGN
 
 ### Approximate Size
-159 MB
+152 MB
 
 ### File Type
 FITS
@@ -41,14 +41,13 @@ True
 
 ### HDUS List for release DR20
   - [HDU0: PRIMARY](#hdu0-primary)
-  - [HDU1: PYQSOFIT_LINE_PROPERTIES](#hdu1-pyqsofit_line_properties)
-  - [HDU2: PPXF_HOST_DECOMPOSITION_RESULTS](#hdu2-ppxf_host_decomposition_results)
-  - [HDU3: CLASSIFICATION_AND_DERIVED_PROPERTIES](#hdu3-classification_and_derived_properties)
-  - [HDU4: PYQSOFIT_FIT_PARAMETERS](#hdu4-pyqsofit_fit_parameters)
-  - [HDU5: MAIN_X_RAY_CATALOGUE_BRUNNER2022](#hdu5-main_x_ray_catalogue_brunner2022)
-  - [HDU6: HARD_X_RAY_CATALOGUE_BRUNNER2022](#hdu6-hard_x_ray_catalogue_brunner2022)
-  - [HDU7: X_RAY_SPECTRAL_PROPERTIES_LIU2022](#hdu7-x_ray_spectral_properties_liu2022)
-  - [HDU8: CTP_SALVATO2022](#hdu8-ctp_salvato2022)
+  - [HDU1: PyQSOFit_line_properties](#hdu1-pyqsofit_line_properties)
+  - [HDU2: pPXF_host_decomposition_results](#hdu2-ppxf_host_decomposition_results)
+  - [HDU3: PyQSOFit_fit_parameters](#hdu3-pyqsofit_fit_parameters)
+  - [HDU4: Main_X_ray_Catalogue_Brunner2022](#hdu4-main_x_ray_catalogue_brunner2022)
+  - [HDU5: Hard_X_ray_Catalogue_Brunner2022](#hdu5-hard_x_ray_catalogue_brunner2022)
+  - [HDU6: X_ray_Spectral_Properties_Liu2022](#hdu6-x_ray_spectral_properties_liu2022)
+  - [HDU7: CTP_Salvato2022](#hdu7-ctp_salvato2022)
 
 ---
 
@@ -67,15 +66,16 @@ Header
 ##### Header Table Caption for HDU0
 Key | Value | Comment | |
 | --- | --- | --- | --- |
-| SIMPLE | True | Standard FITS format |
-| BITPIX | 8 | Character data |
-| NAXIS | 0 | No image, just extensions |
-| EXTEND | True | There are standard extensions |
-| COMMENT | Dummy header; see following table extension |  |
+| SIMPLE | True | conforms to FITS standard |
+| BITPIX | 8 | array data type |
+| NAXIS | 0 | number of array dimensions |
+| EXTEND | True |  |
+| COMMENT | eFEDS eROSITA SDSS PyQSOFit VAC |  |
+| COMMENT | Created with astropy |  |
 
 
 
-### HDU1: PYQSOFIT_LINE_PROPERTIES
+### HDU1: PyQSOFit_line_properties
 Measurements of the emission lines
 
 #### HDU Type: BINARY TABLE
@@ -85,1159 +85,1160 @@ Measurements of the emission lines
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | BINTABLE | binary table extension |
-| BITPIX | 8 | 8-bit bytes |
-| NAXIS | 2 | 2-dimensional table |
-| NAXIS1 | 5046 | width of table in bytes |
-| NAXIS2 | 13143 | number of rows in table |
-| PCOUNT | 0 | size of special data area |
-| GCOUNT | 1 | one data group |
-| TFIELDS | 630 | number of columns |
-| EXTNAME | PYQSOFIT_LINE_PROPERTIES | table name |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 5054 | length of dimension 1 |
+| NAXIS2 | 13143 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 632 | number of table fields |
+| EXTNAME | PyQSOFit_line_properties |  |
 | TCOMM1 | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |  |
 | TCOMM2 | eROSITA official source name (Brunner+2022) |  |
-| TNULL3 | -2147483648 | blank value for column 3 |
-| TCOMM3 | ID of Hard sample eROSITA source (Brunner+2022) |  |
-| TNULL4 | -2147483648 | blank value for column 4 |
+| TCOMM3 | Main or Hard sample from eROSITA (Brunner+2022) |  |
 | TCOMM4 | ID of Main sample eROSITA source (Brunner+2022) |  |
-| TCOMM5 | Spectroscopic redshift from visual inspection (Aydar+2025) |  |
-| TCOMM6 | Main or Hard sample from eROSITA (Brunner+2022) |  |
-| TUNIT7 | deg | units for column 7 |
+| TNULL4 | -1 |  |
+| TCOMM5 | ID of Hard sample eROSITA source (Brunner+2022) |  |
+| TNULL5 | -1 |  |
+| TCOMM6 | Spectroscopic redshift from visual inspection (Aydar+2025) |  |
+| TUNIT7 | deg |  |
 | TCOMM7 | SDSS right ascension (J2000) |  |
-| TUNIT8 | deg | units for column 8 |
+| TUNIT8 | deg |  |
 | TCOMM8 | SDSS declination (J2000) |  |
-| TCOMM9 | SDSS Median S/N per pix in spectrum (idlspec2d v6_0_2 reductions) |  |
-| TUNIT10 | A | units for column 10 |
-| TCOMM10 | Line peak wavelength |  |
-| TUNIT11 | A | units for column 11 |
-| TCOMM11 | Line peak wavelength error |  |
-| TUNIT12 | 1e-17 erg/s/cm^2 | units for column 12 |
-| TCOMM12 | Line flux |  |
-| TUNIT13 | 1e-17 erg/s/cm^2 | units for column 13 |
-| TCOMM13 | Line flux error |  |
-| TCOMM14 | Line luminosity (log, erg/s) |  |
-| TCOMM15 | Line luminosity error (log, erg/s) |  |
-| TUNIT16 | km/s | units for column 16 |
-| TCOMM16 | Line full width at half maximum |  |
-| TUNIT17 | km/s | units for column 17 |
-| TCOMM17 | Line full width at half maximum error |  |
-| TUNIT18 | A | units for column 18 |
-| TCOMM18 | Line equivalent width |  |
-| TUNIT19 | A | units for column 19 |
-| TCOMM19 | Line equivalent width error |  |
-| TUNIT20 | A | units for column 20 |
-| TCOMM20 | Line peak wavelength |  |
-| TUNIT21 | A | units for column 21 |
-| TCOMM21 | Line peak wavelength error |  |
-| TUNIT22 | 1e-17 erg/s/cm^2 | units for column 22 |
-| TCOMM22 | Line flux |  |
-| TUNIT23 | 1e-17 erg/s/cm^2 | units for column 23 |
-| TCOMM23 | Line flux error |  |
-| TCOMM24 | Line luminosity (log, erg/s) |  |
-| TCOMM25 | Line luminosity error (log, erg/s) |  |
-| TUNIT26 | km/s | units for column 26 |
-| TCOMM26 | Line full width at half maximum |  |
-| TUNIT27 | km/s | units for column 27 |
-| TCOMM27 | Line full width at half maximum error |  |
-| TUNIT28 | A | units for column 28 |
-| TCOMM28 | Line equivalent width |  |
-| TUNIT29 | A | units for column 29 |
-| TCOMM29 | Line equivalent width error |  |
-| TUNIT30 | A | units for column 30 |
-| TCOMM30 | Line peak wavelength |  |
-| TUNIT31 | A | units for column 31 |
-| TCOMM31 | Line peak wavelength error |  |
-| TUNIT32 | 1e-17 erg/s/cm^2 | units for column 32 |
-| TCOMM32 | Line flux |  |
-| TUNIT33 | 1e-17 erg/s/cm^2 | units for column 33 |
-| TCOMM33 | Line flux error |  |
-| TCOMM34 | Line luminosity (log, erg/s) |  |
-| TCOMM35 | Line luminosity error (log, erg/s) |  |
-| TUNIT36 | km/s | units for column 36 |
-| TCOMM36 | Line full width at half maximum |  |
-| TUNIT37 | km/s | units for column 37 |
-| TCOMM37 | Line full width at half maximum error |  |
-| TUNIT38 | A | units for column 38 |
-| TCOMM38 | Line equivalent width |  |
-| TUNIT39 | A | units for column 39 |
-| TCOMM39 | Line equivalent width error |  |
-| TUNIT40 | A | units for column 40 |
-| TCOMM40 | Line peak wavelength |  |
-| TUNIT41 | A | units for column 41 |
-| TCOMM41 | Line peak wavelength error |  |
-| TUNIT42 | 1e-17 erg/s/cm^2 | units for column 42 |
-| TCOMM42 | Line flux |  |
-| TUNIT43 | 1e-17 erg/s/cm^2 | units for column 43 |
-| TCOMM43 | Line flux error |  |
-| TCOMM44 | Line luminosity (log, erg/s) |  |
-| TCOMM45 | Line luminosity error (log, erg/s) |  |
-| TUNIT46 | km/s | units for column 46 |
-| TCOMM46 | Line full width at half maximum |  |
-| TUNIT47 | km/s | units for column 47 |
-| TCOMM47 | Line full width at half maximum error |  |
-| TUNIT48 | A | units for column 48 |
-| TCOMM48 | Line equivalent width |  |
-| TUNIT49 | A | units for column 49 |
-| TCOMM49 | Line equivalent width error |  |
-| TUNIT50 | A | units for column 50 |
-| TCOMM50 | Line peak wavelength |  |
-| TUNIT51 | A | units for column 51 |
-| TCOMM51 | Line peak wavelength error |  |
-| TUNIT52 | 1e-17 erg/s/cm^2 | units for column 52 |
-| TCOMM52 | Line flux |  |
-| TUNIT53 | 1e-17 erg/s/cm^2 | units for column 53 |
-| TCOMM53 | Line flux error |  |
-| TCOMM54 | Line luminosity (log, erg/s) |  |
-| TCOMM55 | Line luminosity error (log, erg/s) |  |
-| TUNIT56 | km/s | units for column 56 |
-| TCOMM56 | Line full width at half maximum |  |
-| TUNIT57 | km/s | units for column 57 |
-| TCOMM57 | Line full width at half maximum error |  |
-| TUNIT58 | A | units for column 58 |
-| TCOMM58 | Line equivalent width |  |
-| TUNIT59 | A | units for column 59 |
-| TCOMM59 | Line equivalent width error |  |
-| TUNIT60 | A | units for column 60 |
-| TCOMM60 | Line peak wavelength |  |
-| TUNIT61 | A | units for column 61 |
-| TCOMM61 | Line peak wavelength error |  |
-| TUNIT62 | 1e-17 erg/s/cm^2 | units for column 62 |
-| TCOMM62 | Line flux |  |
-| TUNIT63 | 1e-17 erg/s/cm^2 | units for column 63 |
-| TCOMM63 | Line flux error |  |
-| TCOMM64 | Line luminosity (log, erg/s) |  |
-| TCOMM65 | Line luminosity error (log, erg/s) |  |
-| TUNIT66 | km/s | units for column 66 |
-| TCOMM66 | Line full width at half maximum |  |
-| TUNIT67 | km/s | units for column 67 |
-| TCOMM67 | Line full width at half maximum error |  |
-| TUNIT68 | A | units for column 68 |
-| TCOMM68 | Line equivalent width |  |
-| TUNIT69 | A | units for column 69 |
-| TCOMM69 | Line equivalent width error |  |
-| TUNIT70 | A | units for column 70 |
-| TCOMM70 | Line peak wavelength |  |
-| TUNIT71 | A | units for column 71 |
-| TCOMM71 | Line peak wavelength error |  |
-| TUNIT72 | 1e-17 erg/s/cm^2 | units for column 72 |
-| TCOMM72 | Line flux |  |
-| TUNIT73 | 1e-17 erg/s/cm^2 | units for column 73 |
-| TCOMM73 | Line flux error |  |
-| TCOMM74 | Line luminosity (log, erg/s) |  |
-| TCOMM75 | Line luminosity error (log, erg/s) |  |
-| TUNIT76 | km/s | units for column 76 |
-| TCOMM76 | Line full width at half maximum |  |
-| TUNIT77 | km/s | units for column 77 |
-| TCOMM77 | Line full width at half maximum error |  |
-| TUNIT78 | A | units for column 78 |
-| TCOMM78 | Line equivalent width |  |
-| TUNIT79 | A | units for column 79 |
-| TCOMM79 | Line equivalent width error |  |
-| TUNIT80 | A | units for column 80 |
-| TCOMM80 | Line peak wavelength |  |
-| TUNIT81 | A | units for column 81 |
-| TCOMM81 | Line peak wavelength error |  |
-| TUNIT82 | 1e-17 erg/s/cm^2 | units for column 82 |
-| TCOMM82 | Line flux |  |
-| TUNIT83 | 1e-17 erg/s/cm^2 | units for column 83 |
-| TCOMM83 | Line flux error |  |
-| TCOMM84 | Line luminosity (log, erg/s) |  |
-| TCOMM85 | Line luminosity error (log, erg/s) |  |
-| TUNIT86 | km/s | units for column 86 |
-| TCOMM86 | Line full width at half maximum |  |
-| TUNIT87 | km/s | units for column 87 |
-| TCOMM87 | Line full width at half maximum error |  |
-| TUNIT88 | A | units for column 88 |
-| TCOMM88 | Line equivalent width |  |
-| TUNIT89 | A | units for column 89 |
-| TCOMM89 | Line equivalent width error |  |
-| TUNIT90 | A | units for column 90 |
-| TCOMM90 | Line peak wavelength |  |
-| TUNIT91 | A | units for column 91 |
-| TCOMM91 | Line peak wavelength error |  |
-| TUNIT92 | 1e-17 erg/s/cm^2 | units for column 92 |
-| TCOMM92 | Line flux |  |
-| TUNIT93 | 1e-17 erg/s/cm^2 | units for column 93 |
-| TCOMM93 | Line flux error |  |
-| TCOMM94 | Line luminosity (log, erg/s) |  |
-| TCOMM95 | Line luminosity error (log, erg/s) |  |
-| TUNIT96 | km/s | units for column 96 |
-| TCOMM96 | Line full width at half maximum |  |
-| TUNIT97 | km/s | units for column 97 |
-| TCOMM97 | Line full width at half maximum error |  |
-| TUNIT98 | A | units for column 98 |
-| TCOMM98 | Line equivalent width |  |
-| TUNIT99 | A | units for column 99 |
-| TCOMM99 | Line equivalent width error |  |
-| TUNIT100 | A | units for column 100 |
-| TCOMM100 | Line peak wavelength |  |
-| TUNIT101 | A | units for column 101 |
-| TCOMM101 | Line peak wavelength error |  |
-| TUNIT102 | 1e-17 erg/s/cm^2 | units for column 102 |
-| TCOMM102 | Line flux |  |
-| TUNIT103 | 1e-17 erg/s/cm^2 | units for column 103 |
-| TCOMM103 | Line flux error |  |
-| TCOMM104 | Line luminosity (log, erg/s) |  |
-| TCOMM105 | Line luminosity error (log, erg/s) |  |
-| TUNIT106 | km/s | units for column 106 |
-| TCOMM106 | Line full width at half maximum |  |
-| TUNIT107 | km/s | units for column 107 |
-| TCOMM107 | Line full width at half maximum error |  |
-| TUNIT108 | A | units for column 108 |
-| TCOMM108 | Line equivalent width |  |
-| TUNIT109 | A | units for column 109 |
-| TCOMM109 | Line equivalent width error |  |
-| TUNIT110 | A | units for column 110 |
-| TCOMM110 | Line peak wavelength |  |
-| TUNIT111 | A | units for column 111 |
-| TCOMM111 | Line peak wavelength error |  |
-| TUNIT112 | 1e-17 erg/s/cm^2 | units for column 112 |
-| TCOMM112 | Line flux |  |
-| TUNIT113 | 1e-17 erg/s/cm^2 | units for column 113 |
-| TCOMM113 | Line flux error |  |
-| TCOMM114 | Line luminosity (log, erg/s) |  |
-| TCOMM115 | Line luminosity error (log, erg/s) |  |
-| TUNIT116 | km/s | units for column 116 |
-| TCOMM116 | Line full width at half maximum |  |
-| TUNIT117 | km/s | units for column 117 |
-| TCOMM117 | Line full width at half maximum error |  |
-| TUNIT118 | A | units for column 118 |
-| TCOMM118 | Line equivalent width |  |
-| TUNIT119 | A | units for column 119 |
-| TCOMM119 | Line equivalent width error |  |
-| TUNIT120 | A | units for column 120 |
-| TCOMM120 | Line peak wavelength |  |
-| TUNIT121 | A | units for column 121 |
-| TCOMM121 | Line peak wavelength error |  |
-| TUNIT122 | 1e-17 erg/s/cm^2 | units for column 122 |
-| TCOMM122 | Line flux |  |
-| TUNIT123 | 1e-17 erg/s/cm^2 | units for column 123 |
-| TCOMM123 | Line flux error |  |
-| TCOMM124 | Line luminosity (log, erg/s) |  |
-| TCOMM125 | Line luminosity error (log, erg/s) |  |
-| TUNIT126 | km/s | units for column 126 |
-| TCOMM126 | Line full width at half maximum |  |
-| TUNIT127 | km/s | units for column 127 |
-| TCOMM127 | Line full width at half maximum error |  |
-| TUNIT128 | A | units for column 128 |
-| TCOMM128 | Line equivalent width |  |
-| TUNIT129 | A | units for column 129 |
-| TCOMM129 | Line equivalent width error |  |
-| TUNIT130 | A | units for column 130 |
-| TCOMM130 | Line peak wavelength |  |
-| TUNIT131 | A | units for column 131 |
-| TCOMM131 | Line peak wavelength error |  |
-| TUNIT132 | 1e-17 erg/s/cm^2 | units for column 132 |
-| TCOMM132 | Line flux |  |
-| TUNIT133 | 1e-17 erg/s/cm^2 | units for column 133 |
-| TCOMM133 | Line flux error |  |
-| TCOMM134 | Line luminosity (log, erg/s) |  |
-| TCOMM135 | Line luminosity error (log, erg/s) |  |
-| TUNIT136 | km/s | units for column 136 |
-| TCOMM136 | Line full width at half maximum |  |
-| TUNIT137 | km/s | units for column 137 |
-| TCOMM137 | Line full width at half maximum error |  |
-| TUNIT138 | A | units for column 138 |
-| TCOMM138 | Line equivalent width |  |
-| TUNIT139 | A | units for column 139 |
-| TCOMM139 | Line equivalent width error |  |
-| TUNIT140 | A | units for column 140 |
-| TCOMM140 | Line peak wavelength |  |
-| TUNIT141 | A | units for column 141 |
-| TCOMM141 | Line peak wavelength error |  |
-| TUNIT142 | 1e-17 erg/s/cm^2 | units for column 142 |
-| TCOMM142 | Line flux |  |
-| TUNIT143 | 1e-17 erg/s/cm^2 | units for column 143 |
-| TCOMM143 | Line flux error |  |
-| TCOMM144 | Line luminosity (log, erg/s) |  |
-| TCOMM145 | Line luminosity error (log, erg/s) |  |
-| TUNIT146 | km/s | units for column 146 |
-| TCOMM146 | Line full width at half maximum |  |
-| TUNIT147 | km/s | units for column 147 |
-| TCOMM147 | Line full width at half maximum error |  |
-| TUNIT148 | A | units for column 148 |
-| TCOMM148 | Line equivalent width |  |
-| TUNIT149 | A | units for column 149 |
-| TCOMM149 | Line equivalent width error |  |
-| TUNIT150 | A | units for column 150 |
-| TCOMM150 | Line peak wavelength |  |
-| TUNIT151 | A | units for column 151 |
-| TCOMM151 | Line peak wavelength error |  |
-| TUNIT152 | 1e-17 erg/s/cm^2 | units for column 152 |
-| TCOMM152 | Line flux |  |
-| TUNIT153 | 1e-17 erg/s/cm^2 | units for column 153 |
-| TCOMM153 | Line flux error |  |
-| TCOMM154 | Line luminosity (log, erg/s) |  |
-| TCOMM155 | Line luminosity error (log, erg/s) |  |
-| TUNIT156 | km/s | units for column 156 |
-| TCOMM156 | Line full width at half maximum |  |
-| TUNIT157 | km/s | units for column 157 |
-| TCOMM157 | Line full width at half maximum error |  |
-| TUNIT158 | A | units for column 158 |
-| TCOMM158 | Line equivalent width |  |
-| TUNIT159 | A | units for column 159 |
-| TCOMM159 | Line equivalent width error |  |
-| TUNIT160 | A | units for column 160 |
-| TCOMM160 | Line peak wavelength |  |
-| TUNIT161 | A | units for column 161 |
-| TCOMM161 | Line peak wavelength error |  |
-| TUNIT162 | 1e-17 erg/s/cm^2 | units for column 162 |
-| TCOMM162 | Line flux |  |
-| TUNIT163 | 1e-17 erg/s/cm^2 | units for column 163 |
-| TCOMM163 | Line flux error |  |
-| TCOMM164 | Line luminosity (log, erg/s) |  |
-| TCOMM165 | Line luminosity error (log, erg/s) |  |
-| TUNIT166 | km/s | units for column 166 |
-| TCOMM166 | Line full width at half maximum |  |
-| TUNIT167 | km/s | units for column 167 |
-| TCOMM167 | Line full width at half maximum error |  |
-| TUNIT168 | A | units for column 168 |
-| TCOMM168 | Line equivalent width |  |
-| TUNIT169 | A | units for column 169 |
-| TCOMM169 | Line equivalent width error |  |
-| TUNIT170 | A | units for column 170 |
-| TCOMM170 | Line peak wavelength |  |
-| TUNIT171 | A | units for column 171 |
-| TCOMM171 | Line peak wavelength error |  |
-| TUNIT172 | 1e-17 erg/s/cm^2 | units for column 172 |
-| TCOMM172 | Line flux |  |
-| TUNIT173 | 1e-17 erg/s/cm^2 | units for column 173 |
-| TCOMM173 | Line flux error |  |
-| TCOMM174 | Line luminosity (log, erg/s) |  |
-| TCOMM175 | Line luminosity error (log, erg/s) |  |
-| TUNIT176 | km/s | units for column 176 |
-| TCOMM176 | Line full width at half maximum |  |
-| TUNIT177 | km/s | units for column 177 |
-| TCOMM177 | Line full width at half maximum error |  |
-| TUNIT178 | A | units for column 178 |
-| TCOMM178 | Line equivalent width |  |
-| TUNIT179 | A | units for column 179 |
-| TCOMM179 | Line equivalent width error |  |
-| TUNIT180 | A | units for column 180 |
-| TCOMM180 | Line peak wavelength |  |
-| TUNIT181 | A | units for column 181 |
-| TCOMM181 | Line peak wavelength error |  |
-| TUNIT182 | 1e-17 erg/s/cm^2 | units for column 182 |
-| TCOMM182 | Line flux |  |
-| TUNIT183 | 1e-17 erg/s/cm^2 | units for column 183 |
-| TCOMM183 | Line flux error |  |
-| TCOMM184 | Line luminosity (log, erg/s) |  |
-| TCOMM185 | Line luminosity error (log, erg/s) |  |
-| TUNIT186 | km/s | units for column 186 |
-| TCOMM186 | Line full width at half maximum |  |
-| TUNIT187 | km/s | units for column 187 |
-| TCOMM187 | Line full width at half maximum error |  |
-| TUNIT188 | A | units for column 188 |
-| TCOMM188 | Line equivalent width |  |
-| TUNIT189 | A | units for column 189 |
-| TCOMM189 | Line equivalent width error |  |
-| TUNIT190 | A | units for column 190 |
-| TCOMM190 | Line peak wavelength |  |
-| TUNIT191 | A | units for column 191 |
-| TCOMM191 | Line peak wavelength error |  |
-| TUNIT192 | 1e-17 erg/s/cm^2 | units for column 192 |
-| TCOMM192 | Line flux |  |
-| TUNIT193 | 1e-17 erg/s/cm^2 | units for column 193 |
-| TCOMM193 | Line flux error |  |
-| TCOMM194 | Line luminosity (log, erg/s) |  |
-| TCOMM195 | Line luminosity error (log, erg/s) |  |
-| TUNIT196 | km/s | units for column 196 |
-| TCOMM196 | Line full width at half maximum |  |
-| TUNIT197 | km/s | units for column 197 |
-| TCOMM197 | Line full width at half maximum error |  |
-| TUNIT198 | A | units for column 198 |
-| TCOMM198 | Line equivalent width |  |
-| TUNIT199 | A | units for column 199 |
-| TCOMM199 | Line equivalent width error |  |
-| TUNIT200 | A | units for column 200 |
-| TCOMM200 | Line peak wavelength |  |
-| TUNIT201 | A | units for column 201 |
-| TCOMM201 | Line peak wavelength error |  |
-| TUNIT202 | 1e-17 erg/s/cm^2 | units for column 202 |
-| TCOMM202 | Line flux |  |
-| TUNIT203 | 1e-17 erg/s/cm^2 | units for column 203 |
-| TCOMM203 | Line flux error |  |
-| TCOMM204 | Line luminosity (log, erg/s) |  |
-| TCOMM205 | Line luminosity error (log, erg/s) |  |
-| TUNIT206 | km/s | units for column 206 |
-| TCOMM206 | Line full width at half maximum |  |
-| TUNIT207 | km/s | units for column 207 |
-| TCOMM207 | Line full width at half maximum error |  |
-| TUNIT208 | A | units for column 208 |
-| TCOMM208 | Line equivalent width |  |
-| TUNIT209 | A | units for column 209 |
-| TCOMM209 | Line equivalent width error |  |
-| TUNIT210 | A | units for column 210 |
-| TCOMM210 | Line peak wavelength |  |
-| TUNIT211 | A | units for column 211 |
-| TCOMM211 | Line peak wavelength error |  |
-| TUNIT212 | 1e-17 erg/s/cm^2 | units for column 212 |
-| TCOMM212 | Line flux |  |
-| TUNIT213 | 1e-17 erg/s/cm^2 | units for column 213 |
-| TCOMM213 | Line flux error |  |
-| TCOMM214 | Line luminosity (log, erg/s) |  |
-| TCOMM215 | Line luminosity error (log, erg/s) |  |
-| TUNIT216 | km/s | units for column 216 |
-| TCOMM216 | Line full width at half maximum |  |
-| TUNIT217 | km/s | units for column 217 |
-| TCOMM217 | Line full width at half maximum error |  |
-| TUNIT218 | A | units for column 218 |
-| TCOMM218 | Line equivalent width |  |
-| TUNIT219 | A | units for column 219 |
-| TCOMM219 | Line equivalent width error |  |
-| TUNIT220 | A | units for column 220 |
-| TCOMM220 | Line peak wavelength |  |
-| TUNIT221 | A | units for column 221 |
-| TCOMM221 | Line peak wavelength error |  |
-| TUNIT222 | 1e-17 erg/s/cm^2 | units for column 222 |
-| TCOMM222 | Line flux |  |
-| TUNIT223 | 1e-17 erg/s/cm^2 | units for column 223 |
-| TCOMM223 | Line flux error |  |
-| TCOMM224 | Line luminosity (log, erg/s) |  |
-| TCOMM225 | Line luminosity error (log, erg/s) |  |
-| TUNIT226 | km/s | units for column 226 |
-| TCOMM226 | Line full width at half maximum |  |
-| TUNIT227 | km/s | units for column 227 |
-| TCOMM227 | Line full width at half maximum error |  |
-| TUNIT228 | A | units for column 228 |
-| TCOMM228 | Line equivalent width |  |
-| TUNIT229 | A | units for column 229 |
-| TCOMM229 | Line equivalent width error |  |
-| TUNIT230 | A | units for column 230 |
-| TCOMM230 | Line peak wavelength |  |
-| TUNIT231 | A | units for column 231 |
-| TCOMM231 | Line peak wavelength error |  |
-| TUNIT232 | 1e-17 erg/s/cm^2 | units for column 232 |
-| TCOMM232 | Line flux |  |
-| TUNIT233 | 1e-17 erg/s/cm^2 | units for column 233 |
-| TCOMM233 | Line flux error |  |
-| TCOMM234 | Line luminosity (log, erg/s) |  |
-| TCOMM235 | Line luminosity error (log, erg/s) |  |
-| TUNIT236 | km/s | units for column 236 |
-| TCOMM236 | Line full width at half maximum |  |
-| TUNIT237 | km/s | units for column 237 |
-| TCOMM237 | Line full width at half maximum error |  |
-| TUNIT238 | A | units for column 238 |
-| TCOMM238 | Line equivalent width |  |
-| TUNIT239 | A | units for column 239 |
-| TCOMM239 | Line equivalent width error |  |
-| TUNIT240 | A | units for column 240 |
-| TCOMM240 | Line peak wavelength |  |
-| TUNIT241 | A | units for column 241 |
-| TCOMM241 | Line peak wavelength error |  |
-| TUNIT242 | 1e-17 erg/s/cm^2 | units for column 242 |
-| TCOMM242 | Line flux |  |
-| TUNIT243 | 1e-17 erg/s/cm^2 | units for column 243 |
-| TCOMM243 | Line flux error |  |
-| TCOMM244 | Line luminosity (log, erg/s) |  |
-| TCOMM245 | Line luminosity error (log, erg/s) |  |
-| TUNIT246 | km/s | units for column 246 |
-| TCOMM246 | Line full width at half maximum |  |
-| TUNIT247 | km/s | units for column 247 |
-| TCOMM247 | Line full width at half maximum error |  |
-| TUNIT248 | A | units for column 248 |
-| TCOMM248 | Line equivalent width |  |
-| TUNIT249 | A | units for column 249 |
-| TCOMM249 | Line equivalent width error |  |
-| TUNIT250 | A | units for column 250 |
-| TCOMM250 | Line peak wavelength |  |
-| TUNIT251 | A | units for column 251 |
-| TCOMM251 | Line peak wavelength error |  |
-| TUNIT252 | 1e-17 erg/s/cm^2 | units for column 252 |
-| TCOMM252 | Line flux |  |
-| TUNIT253 | 1e-17 erg/s/cm^2 | units for column 253 |
-| TCOMM253 | Line flux error |  |
-| TCOMM254 | Line luminosity (log, erg/s) |  |
-| TCOMM255 | Line luminosity error (log, erg/s) |  |
-| TUNIT256 | km/s | units for column 256 |
-| TCOMM256 | Line full width at half maximum |  |
-| TUNIT257 | km/s | units for column 257 |
-| TCOMM257 | Line full width at half maximum error |  |
-| TUNIT258 | A | units for column 258 |
-| TCOMM258 | Line equivalent width |  |
-| TUNIT259 | A | units for column 259 |
-| TCOMM259 | Line equivalent width error |  |
-| TUNIT260 | A | units for column 260 |
-| TCOMM260 | Line peak wavelength |  |
-| TUNIT261 | A | units for column 261 |
-| TCOMM261 | Line peak wavelength error |  |
-| TUNIT262 | 1e-17 erg/s/cm^2 | units for column 262 |
-| TCOMM262 | Line flux |  |
-| TUNIT263 | 1e-17 erg/s/cm^2 | units for column 263 |
-| TCOMM263 | Line flux error |  |
-| TCOMM264 | Line luminosity (log, erg/s) |  |
-| TCOMM265 | Line luminosity error (log, erg/s) |  |
-| TUNIT266 | km/s | units for column 266 |
-| TCOMM266 | Line full width at half maximum |  |
-| TUNIT267 | km/s | units for column 267 |
-| TCOMM267 | Line full width at half maximum error |  |
-| TUNIT268 | A | units for column 268 |
-| TCOMM268 | Line equivalent width |  |
-| TUNIT269 | A | units for column 269 |
-| TCOMM269 | Line equivalent width error |  |
-| TUNIT270 | A | units for column 270 |
-| TCOMM270 | Line peak wavelength |  |
-| TUNIT271 | A | units for column 271 |
-| TCOMM271 | Line peak wavelength error |  |
-| TUNIT272 | 1e-17 erg/s/cm^2 | units for column 272 |
-| TCOMM272 | Line flux |  |
-| TUNIT273 | 1e-17 erg/s/cm^2 | units for column 273 |
-| TCOMM273 | Line flux error |  |
-| TCOMM274 | Line luminosity (log, erg/s) |  |
-| TCOMM275 | Line luminosity error (log, erg/s) |  |
-| TUNIT276 | km/s | units for column 276 |
-| TCOMM276 | Line full width at half maximum |  |
-| TUNIT277 | km/s | units for column 277 |
-| TCOMM277 | Line full width at half maximum error |  |
-| TUNIT278 | A | units for column 278 |
-| TCOMM278 | Line equivalent width |  |
-| TUNIT279 | A | units for column 279 |
-| TCOMM279 | Line equivalent width error |  |
-| TUNIT280 | A | units for column 280 |
-| TCOMM280 | Line peak wavelength |  |
-| TUNIT281 | A | units for column 281 |
-| TCOMM281 | Line peak wavelength error |  |
-| TUNIT282 | 1e-17 erg/s/cm^2 | units for column 282 |
-| TCOMM282 | Line flux |  |
-| TUNIT283 | 1e-17 erg/s/cm^2 | units for column 283 |
-| TCOMM283 | Line flux error |  |
-| TCOMM284 | Line luminosity (log, erg/s) |  |
-| TCOMM285 | Line luminosity error (log, erg/s) |  |
-| TUNIT286 | km/s | units for column 286 |
-| TCOMM286 | Line full width at half maximum |  |
-| TUNIT287 | km/s | units for column 287 |
-| TCOMM287 | Line full width at half maximum error |  |
-| TUNIT288 | A | units for column 288 |
-| TCOMM288 | Line equivalent width |  |
-| TUNIT289 | A | units for column 289 |
-| TCOMM289 | Line equivalent width error |  |
-| TUNIT290 | A | units for column 290 |
-| TCOMM290 | Line peak wavelength |  |
-| TUNIT291 | A | units for column 291 |
-| TCOMM291 | Line peak wavelength error |  |
-| TUNIT292 | 1e-17 erg/s/cm^2 | units for column 292 |
-| TCOMM292 | Line flux |  |
-| TUNIT293 | 1e-17 erg/s/cm^2 | units for column 293 |
-| TCOMM293 | Line flux error |  |
-| TCOMM294 | Line luminosity (log, erg/s) |  |
-| TCOMM295 | Line luminosity error (log, erg/s) |  |
-| TUNIT296 | km/s | units for column 296 |
-| TCOMM296 | Line full width at half maximum |  |
-| TUNIT297 | km/s | units for column 297 |
-| TCOMM297 | Line full width at half maximum error |  |
-| TUNIT298 | A | units for column 298 |
-| TCOMM298 | Line equivalent width |  |
-| TUNIT299 | A | units for column 299 |
-| TCOMM299 | Line equivalent width error |  |
-| TUNIT300 | A | units for column 300 |
-| TCOMM300 | Line peak wavelength |  |
-| TUNIT301 | A | units for column 301 |
-| TCOMM301 | Line peak wavelength error |  |
-| TUNIT302 | 1e-17 erg/s/cm^2 | units for column 302 |
-| TCOMM302 | Line flux |  |
-| TUNIT303 | 1e-17 erg/s/cm^2 | units for column 303 |
-| TCOMM303 | Line flux error |  |
-| TCOMM304 | Line luminosity (log, erg/s) |  |
-| TCOMM305 | Line luminosity error (log, erg/s) |  |
-| TUNIT306 | km/s | units for column 306 |
-| TCOMM306 | Line full width at half maximum |  |
-| TUNIT307 | km/s | units for column 307 |
-| TCOMM307 | Line full width at half maximum error |  |
-| TUNIT308 | A | units for column 308 |
-| TCOMM308 | Line equivalent width |  |
-| TUNIT309 | A | units for column 309 |
-| TCOMM309 | Line equivalent width error |  |
-| TUNIT310 | A | units for column 310 |
-| TCOMM310 | Line peak wavelength |  |
-| TUNIT311 | A | units for column 311 |
-| TCOMM311 | Line peak wavelength error |  |
-| TUNIT312 | 1e-17 erg/s/cm^2 | units for column 312 |
-| TCOMM312 | Line flux |  |
-| TUNIT313 | 1e-17 erg/s/cm^2 | units for column 313 |
-| TCOMM313 | Line flux error |  |
-| TCOMM314 | Line luminosity (log, erg/s) |  |
-| TCOMM315 | Line luminosity error (log, erg/s) |  |
-| TUNIT316 | km/s | units for column 316 |
-| TCOMM316 | Line full width at half maximum |  |
-| TUNIT317 | km/s | units for column 317 |
-| TCOMM317 | Line full width at half maximum error |  |
-| TUNIT318 | A | units for column 318 |
-| TCOMM318 | Line equivalent width |  |
-| TUNIT319 | A | units for column 319 |
-| TCOMM319 | Line equivalent width error |  |
-| TUNIT320 | A | units for column 320 |
-| TCOMM320 | Line peak wavelength |  |
-| TUNIT321 | A | units for column 321 |
-| TCOMM321 | Line peak wavelength error |  |
-| TUNIT322 | 1e-17 erg/s/cm^2 | units for column 322 |
-| TCOMM322 | Line flux |  |
-| TUNIT323 | 1e-17 erg/s/cm^2 | units for column 323 |
-| TCOMM323 | Line flux error |  |
-| TCOMM324 | Line luminosity (log, erg/s) |  |
-| TCOMM325 | Line luminosity error (log, erg/s) |  |
-| TUNIT326 | km/s | units for column 326 |
-| TCOMM326 | Line full width at half maximum |  |
-| TUNIT327 | km/s | units for column 327 |
-| TCOMM327 | Line full width at half maximum error |  |
-| TUNIT328 | A | units for column 328 |
-| TCOMM328 | Line equivalent width |  |
-| TUNIT329 | A | units for column 329 |
-| TCOMM329 | Line equivalent width error |  |
-| TUNIT330 | A | units for column 330 |
-| TCOMM330 | Line peak wavelength |  |
-| TUNIT331 | A | units for column 331 |
-| TCOMM331 | Line peak wavelength error |  |
-| TUNIT332 | 1e-17 erg/s/cm^2 | units for column 332 |
-| TCOMM332 | Line flux |  |
-| TUNIT333 | 1e-17 erg/s/cm^2 | units for column 333 |
-| TCOMM333 | Line flux error |  |
-| TCOMM334 | Line luminosity (log, erg/s) |  |
-| TCOMM335 | Line luminosity error (log, erg/s) |  |
-| TUNIT336 | km/s | units for column 336 |
-| TCOMM336 | Line full width at half maximum |  |
-| TUNIT337 | km/s | units for column 337 |
-| TCOMM337 | Line full width at half maximum error |  |
-| TUNIT338 | A | units for column 338 |
-| TCOMM338 | Line equivalent width |  |
-| TUNIT339 | A | units for column 339 |
-| TCOMM339 | Line equivalent width error |  |
-| TUNIT340 | A | units for column 340 |
-| TCOMM340 | Line peak wavelength |  |
-| TUNIT341 | A | units for column 341 |
-| TCOMM341 | Line peak wavelength error |  |
-| TUNIT342 | 1e-17 erg/s/cm^2 | units for column 342 |
-| TCOMM342 | Line flux |  |
-| TUNIT343 | 1e-17 erg/s/cm^2 | units for column 343 |
-| TCOMM343 | Line flux error |  |
-| TCOMM344 | Line luminosity (log, erg/s) |  |
-| TCOMM345 | Line luminosity error (log, erg/s) |  |
-| TUNIT346 | km/s | units for column 346 |
-| TCOMM346 | Line full width at half maximum |  |
-| TUNIT347 | km/s | units for column 347 |
-| TCOMM347 | Line full width at half maximum error |  |
-| TUNIT348 | A | units for column 348 |
-| TCOMM348 | Line equivalent width |  |
-| TUNIT349 | A | units for column 349 |
-| TCOMM349 | Line equivalent width error |  |
-| TUNIT350 | A | units for column 350 |
-| TCOMM350 | Line peak wavelength |  |
-| TUNIT351 | A | units for column 351 |
-| TCOMM351 | Line peak wavelength error |  |
-| TUNIT352 | 1e-17 erg/s/cm^2 | units for column 352 |
-| TCOMM352 | Line flux |  |
-| TUNIT353 | 1e-17 erg/s/cm^2 | units for column 353 |
-| TCOMM353 | Line flux error |  |
-| TCOMM354 | Line luminosity (log, erg/s) |  |
-| TCOMM355 | Line luminosity error (log, erg/s) |  |
-| TUNIT356 | km/s | units for column 356 |
-| TCOMM356 | Line full width at half maximum |  |
-| TUNIT357 | km/s | units for column 357 |
-| TCOMM357 | Line full width at half maximum error |  |
-| TUNIT358 | A | units for column 358 |
-| TCOMM358 | Line equivalent width |  |
-| TUNIT359 | A | units for column 359 |
-| TCOMM359 | Line equivalent width error |  |
-| TUNIT360 | A | units for column 360 |
-| TCOMM360 | Line peak wavelength |  |
-| TUNIT361 | A | units for column 361 |
-| TCOMM361 | Line peak wavelength error |  |
-| TUNIT362 | 1e-17 erg/s/cm^2 | units for column 362 |
-| TCOMM362 | Line flux |  |
-| TUNIT363 | 1e-17 erg/s/cm^2 | units for column 363 |
-| TCOMM363 | Line flux error |  |
-| TCOMM364 | Line luminosity (log, erg/s) |  |
-| TCOMM365 | Line luminosity error (log, erg/s) |  |
-| TUNIT366 | km/s | units for column 366 |
-| TCOMM366 | Line full width at half maximum |  |
-| TUNIT367 | km/s | units for column 367 |
-| TCOMM367 | Line full width at half maximum error |  |
-| TUNIT368 | A | units for column 368 |
-| TCOMM368 | Line equivalent width |  |
-| TUNIT369 | A | units for column 369 |
-| TCOMM369 | Line equivalent width error |  |
-| TUNIT370 | A | units for column 370 |
-| TCOMM370 | Line peak wavelength |  |
-| TUNIT371 | A | units for column 371 |
-| TCOMM371 | Line peak wavelength error |  |
-| TUNIT372 | 1e-17 erg/s/cm^2 | units for column 372 |
-| TCOMM372 | Line flux |  |
-| TUNIT373 | 1e-17 erg/s/cm^2 | units for column 373 |
-| TCOMM373 | Line flux error |  |
-| TCOMM374 | Line luminosity (log, erg/s) |  |
-| TCOMM375 | Line luminosity error (log, erg/s) |  |
-| TUNIT376 | km/s | units for column 376 |
-| TCOMM376 | Line full width at half maximum |  |
-| TUNIT377 | km/s | units for column 377 |
-| TCOMM377 | Line full width at half maximum error |  |
-| TUNIT378 | A | units for column 378 |
-| TCOMM378 | Line equivalent width |  |
-| TUNIT379 | A | units for column 379 |
-| TCOMM379 | Line equivalent width error |  |
-| TUNIT380 | A | units for column 380 |
-| TCOMM380 | Line peak wavelength |  |
-| TUNIT381 | A | units for column 381 |
-| TCOMM381 | Line peak wavelength error |  |
-| TUNIT382 | 1e-17 erg/s/cm^2 | units for column 382 |
-| TCOMM382 | Line flux |  |
-| TUNIT383 | 1e-17 erg/s/cm^2 | units for column 383 |
-| TCOMM383 | Line flux error |  |
-| TCOMM384 | Line luminosity (log, erg/s) |  |
-| TCOMM385 | Line luminosity error (log, erg/s) |  |
-| TUNIT386 | km/s | units for column 386 |
-| TCOMM386 | Line full width at half maximum |  |
-| TUNIT387 | km/s | units for column 387 |
-| TCOMM387 | Line full width at half maximum error |  |
-| TUNIT388 | A | units for column 388 |
-| TCOMM388 | Line equivalent width |  |
-| TUNIT389 | A | units for column 389 |
-| TCOMM389 | Line equivalent width error |  |
-| TUNIT390 | A | units for column 390 |
-| TCOMM390 | Line peak wavelength |  |
-| TUNIT391 | A | units for column 391 |
-| TCOMM391 | Line peak wavelength error |  |
-| TUNIT392 | 1e-17 erg/s/cm^2 | units for column 392 |
-| TCOMM392 | Line flux |  |
-| TUNIT393 | 1e-17 erg/s/cm^2 | units for column 393 |
-| TCOMM393 | Line flux error |  |
-| TCOMM394 | Line luminosity (log, erg/s) |  |
-| TCOMM395 | Line luminosity error (log, erg/s) |  |
-| TUNIT396 | km/s | units for column 396 |
-| TCOMM396 | Line full width at half maximum |  |
-| TUNIT397 | km/s | units for column 397 |
-| TCOMM397 | Line full width at half maximum error |  |
-| TUNIT398 | A | units for column 398 |
-| TCOMM398 | Line equivalent width |  |
-| TUNIT399 | A | units for column 399 |
-| TCOMM399 | Line equivalent width error |  |
-| TUNIT400 | A | units for column 400 |
-| TCOMM400 | Line peak wavelength |  |
-| TUNIT401 | A | units for column 401 |
-| TCOMM401 | Line peak wavelength error |  |
-| TUNIT402 | 1e-17 erg/s/cm^2 | units for column 402 |
-| TCOMM402 | Line flux |  |
-| TUNIT403 | 1e-17 erg/s/cm^2 | units for column 403 |
-| TCOMM403 | Line flux error |  |
-| TCOMM404 | Line luminosity (log, erg/s) |  |
-| TCOMM405 | Line luminosity error (log, erg/s) |  |
-| TUNIT406 | km/s | units for column 406 |
-| TCOMM406 | Line full width at half maximum |  |
-| TUNIT407 | km/s | units for column 407 |
-| TCOMM407 | Line full width at half maximum error |  |
-| TUNIT408 | A | units for column 408 |
-| TCOMM408 | Line equivalent width |  |
-| TUNIT409 | A | units for column 409 |
-| TCOMM409 | Line equivalent width error |  |
-| TUNIT410 | A | units for column 410 |
-| TCOMM410 | Line peak wavelength |  |
-| TUNIT411 | A | units for column 411 |
-| TCOMM411 | Line peak wavelength error |  |
-| TUNIT412 | 1e-17 erg/s/cm^2 | units for column 412 |
-| TCOMM412 | Line flux |  |
-| TUNIT413 | 1e-17 erg/s/cm^2 | units for column 413 |
-| TCOMM413 | Line flux error |  |
-| TCOMM414 | Line luminosity (log, erg/s) |  |
-| TCOMM415 | Line luminosity error (log, erg/s) |  |
-| TUNIT416 | km/s | units for column 416 |
-| TCOMM416 | Line full width at half maximum |  |
-| TUNIT417 | km/s | units for column 417 |
-| TCOMM417 | Line full width at half maximum error |  |
-| TUNIT418 | A | units for column 418 |
-| TCOMM418 | Line equivalent width |  |
-| TUNIT419 | A | units for column 419 |
-| TCOMM419 | Line equivalent width error |  |
-| TUNIT420 | A | units for column 420 |
-| TCOMM420 | Line peak wavelength |  |
-| TUNIT421 | A | units for column 421 |
-| TCOMM421 | Line peak wavelength error |  |
-| TUNIT422 | 1e-17 erg/s/cm^2 | units for column 422 |
-| TCOMM422 | Line flux |  |
-| TUNIT423 | 1e-17 erg/s/cm^2 | units for column 423 |
-| TCOMM423 | Line flux error |  |
-| TCOMM424 | Line luminosity (log, erg/s) |  |
-| TCOMM425 | Line luminosity error (log, erg/s) |  |
-| TUNIT426 | km/s | units for column 426 |
-| TCOMM426 | Line full width at half maximum |  |
-| TUNIT427 | km/s | units for column 427 |
-| TCOMM427 | Line full width at half maximum error |  |
-| TUNIT428 | A | units for column 428 |
-| TCOMM428 | Line equivalent width |  |
-| TUNIT429 | A | units for column 429 |
-| TCOMM429 | Line equivalent width error |  |
-| TUNIT430 | A | units for column 430 |
-| TCOMM430 | Line peak wavelength |  |
-| TUNIT431 | A | units for column 431 |
-| TCOMM431 | Line peak wavelength error |  |
-| TUNIT432 | 1e-17 erg/s/cm^2 | units for column 432 |
-| TCOMM432 | Line flux |  |
-| TUNIT433 | 1e-17 erg/s/cm^2 | units for column 433 |
-| TCOMM433 | Line flux error |  |
-| TCOMM434 | Line luminosity (log, erg/s) |  |
-| TCOMM435 | Line luminosity error (log, erg/s) |  |
-| TUNIT436 | km/s | units for column 436 |
-| TCOMM436 | Line full width at half maximum |  |
-| TUNIT437 | km/s | units for column 437 |
-| TCOMM437 | Line full width at half maximum error |  |
-| TUNIT438 | A | units for column 438 |
-| TCOMM438 | Line equivalent width |  |
-| TUNIT439 | A | units for column 439 |
-| TCOMM439 | Line equivalent width error |  |
-| TUNIT440 | A | units for column 440 |
-| TCOMM440 | Line peak wavelength |  |
-| TUNIT441 | A | units for column 441 |
-| TCOMM441 | Line peak wavelength error |  |
-| TUNIT442 | 1e-17 erg/s/cm^2 | units for column 442 |
-| TCOMM442 | Line flux |  |
-| TUNIT443 | 1e-17 erg/s/cm^2 | units for column 443 |
-| TCOMM443 | Line flux error |  |
-| TCOMM444 | Line luminosity (log, erg/s) |  |
-| TCOMM445 | Line luminosity error (log, erg/s) |  |
-| TUNIT446 | km/s | units for column 446 |
-| TCOMM446 | Line full width at half maximum |  |
-| TUNIT447 | km/s | units for column 447 |
-| TCOMM447 | Line full width at half maximum error |  |
-| TUNIT448 | A | units for column 448 |
-| TCOMM448 | Line equivalent width |  |
-| TUNIT449 | A | units for column 449 |
-| TCOMM449 | Line equivalent width error |  |
-| TUNIT450 | A | units for column 450 |
-| TCOMM450 | Line peak wavelength |  |
-| TUNIT451 | A | units for column 451 |
-| TCOMM451 | Line peak wavelength error |  |
-| TUNIT452 | 1e-17 erg/s/cm^2 | units for column 452 |
-| TCOMM452 | Line flux |  |
-| TUNIT453 | 1e-17 erg/s/cm^2 | units for column 453 |
-| TCOMM453 | Line flux error |  |
-| TCOMM454 | Line luminosity (log, erg/s) |  |
-| TCOMM455 | Line luminosity error (log, erg/s) |  |
-| TUNIT456 | km/s | units for column 456 |
-| TCOMM456 | Line full width at half maximum |  |
-| TUNIT457 | km/s | units for column 457 |
-| TCOMM457 | Line full width at half maximum error |  |
-| TUNIT458 | A | units for column 458 |
-| TCOMM458 | Line equivalent width |  |
-| TUNIT459 | A | units for column 459 |
-| TCOMM459 | Line equivalent width error |  |
-| TUNIT460 | A | units for column 460 |
-| TCOMM460 | Line peak wavelength |  |
-| TUNIT461 | A | units for column 461 |
-| TCOMM461 | Line peak wavelength error |  |
-| TUNIT462 | 1e-17 erg/s/cm^2 | units for column 462 |
-| TCOMM462 | Line flux |  |
-| TUNIT463 | 1e-17 erg/s/cm^2 | units for column 463 |
-| TCOMM463 | Line flux error |  |
-| TCOMM464 | Line luminosity (log, erg/s) |  |
-| TCOMM465 | Line luminosity error (log, erg/s) |  |
-| TUNIT466 | km/s | units for column 466 |
-| TCOMM466 | Line full width at half maximum |  |
-| TUNIT467 | km/s | units for column 467 |
-| TCOMM467 | Line full width at half maximum error |  |
-| TUNIT468 | A | units for column 468 |
-| TCOMM468 | Line equivalent width |  |
-| TUNIT469 | A | units for column 469 |
-| TCOMM469 | Line equivalent width error |  |
-| TUNIT470 | A | units for column 470 |
-| TCOMM470 | Line peak wavelength |  |
-| TUNIT471 | A | units for column 471 |
-| TCOMM471 | Line peak wavelength error |  |
-| TUNIT472 | 1e-17 erg/s/cm^2 | units for column 472 |
-| TCOMM472 | Line flux |  |
-| TUNIT473 | 1e-17 erg/s/cm^2 | units for column 473 |
-| TCOMM473 | Line flux error |  |
-| TCOMM474 | Line luminosity (log, erg/s) |  |
-| TCOMM475 | Line luminosity error (log, erg/s) |  |
-| TUNIT476 | km/s | units for column 476 |
-| TCOMM476 | Line full width at half maximum |  |
-| TUNIT477 | km/s | units for column 477 |
-| TCOMM477 | Line full width at half maximum error |  |
-| TUNIT478 | A | units for column 478 |
-| TCOMM478 | Line equivalent width |  |
-| TUNIT479 | A | units for column 479 |
-| TCOMM479 | Line equivalent width error |  |
-| TUNIT480 | A | units for column 480 |
-| TCOMM480 | Line peak wavelength |  |
-| TUNIT481 | A | units for column 481 |
-| TCOMM481 | Line peak wavelength error |  |
-| TUNIT482 | 1e-17 erg/s/cm^2 | units for column 482 |
-| TCOMM482 | Line flux |  |
-| TUNIT483 | 1e-17 erg/s/cm^2 | units for column 483 |
-| TCOMM483 | Line flux error |  |
-| TCOMM484 | Line luminosity (log, erg/s) |  |
-| TCOMM485 | Line luminosity error (log, erg/s) |  |
-| TUNIT486 | km/s | units for column 486 |
-| TCOMM486 | Line full width at half maximum |  |
-| TUNIT487 | km/s | units for column 487 |
-| TCOMM487 | Line full width at half maximum error |  |
-| TUNIT488 | A | units for column 488 |
-| TCOMM488 | Line equivalent width |  |
-| TUNIT489 | A | units for column 489 |
-| TCOMM489 | Line equivalent width error |  |
-| TUNIT490 | A | units for column 490 |
-| TCOMM490 | Line peak wavelength |  |
-| TUNIT491 | A | units for column 491 |
-| TCOMM491 | Line peak wavelength error |  |
-| TUNIT492 | 1e-17 erg/s/cm^2 | units for column 492 |
-| TCOMM492 | Line flux |  |
-| TUNIT493 | 1e-17 erg/s/cm^2 | units for column 493 |
-| TCOMM493 | Line flux error |  |
-| TCOMM494 | Line luminosity (log, erg/s) |  |
-| TCOMM495 | Line luminosity error (log, erg/s) |  |
-| TUNIT496 | km/s | units for column 496 |
-| TCOMM496 | Line full width at half maximum |  |
-| TUNIT497 | km/s | units for column 497 |
-| TCOMM497 | Line full width at half maximum error |  |
-| TUNIT498 | A | units for column 498 |
-| TCOMM498 | Line equivalent width |  |
-| TUNIT499 | A | units for column 499 |
-| TCOMM499 | Line equivalent width error |  |
-| TUNIT500 | A | units for column 500 |
-| TCOMM500 | Line peak wavelength |  |
-| TUNIT501 | A | units for column 501 |
-| TCOMM501 | Line peak wavelength error |  |
-| TUNIT502 | 1e-17 erg/s/cm^2 | units for column 502 |
-| TCOMM502 | Line flux |  |
-| TUNIT503 | 1e-17 erg/s/cm^2 | units for column 503 |
-| TCOMM503 | Line flux error |  |
-| TCOMM504 | Line luminosity (log, erg/s) |  |
-| TCOMM505 | Line luminosity error (log, erg/s) |  |
-| TUNIT506 | km/s | units for column 506 |
-| TCOMM506 | Line full width at half maximum |  |
-| TUNIT507 | km/s | units for column 507 |
-| TCOMM507 | Line full width at half maximum error |  |
-| TUNIT508 | A | units for column 508 |
-| TCOMM508 | Line equivalent width |  |
-| TUNIT509 | A | units for column 509 |
-| TCOMM509 | Line equivalent width error |  |
-| TUNIT510 | A | units for column 510 |
-| TCOMM510 | Line peak wavelength |  |
-| TUNIT511 | A | units for column 511 |
-| TCOMM511 | Line peak wavelength error |  |
-| TUNIT512 | 1e-17 erg/s/cm^2 | units for column 512 |
-| TCOMM512 | Line flux |  |
-| TUNIT513 | 1e-17 erg/s/cm^2 | units for column 513 |
-| TCOMM513 | Line flux error |  |
-| TCOMM514 | Line luminosity (log, erg/s) |  |
-| TCOMM515 | Line luminosity error (log, erg/s) |  |
-| TUNIT516 | km/s | units for column 516 |
-| TCOMM516 | Line full width at half maximum |  |
-| TUNIT517 | km/s | units for column 517 |
-| TCOMM517 | Line full width at half maximum error |  |
-| TUNIT518 | A | units for column 518 |
-| TCOMM518 | Line equivalent width |  |
-| TUNIT519 | A | units for column 519 |
-| TCOMM519 | Line equivalent width error |  |
-| TUNIT520 | A | units for column 520 |
-| TCOMM520 | Line peak wavelength |  |
-| TUNIT521 | A | units for column 521 |
-| TCOMM521 | Line peak wavelength error |  |
-| TUNIT522 | 1e-17 erg/s/cm^2 | units for column 522 |
-| TCOMM522 | Line flux |  |
-| TUNIT523 | 1e-17 erg/s/cm^2 | units for column 523 |
-| TCOMM523 | Line flux error |  |
-| TCOMM524 | Line luminosity (log, erg/s) |  |
-| TCOMM525 | Line luminosity error (log, erg/s) |  |
-| TUNIT526 | km/s | units for column 526 |
-| TCOMM526 | Line full width at half maximum |  |
-| TUNIT527 | km/s | units for column 527 |
-| TCOMM527 | Line full width at half maximum error |  |
-| TUNIT528 | A | units for column 528 |
-| TCOMM528 | Line equivalent width |  |
-| TUNIT529 | A | units for column 529 |
-| TCOMM529 | Line equivalent width error |  |
-| TUNIT530 | A | units for column 530 |
-| TCOMM530 | Line peak wavelength |  |
-| TUNIT531 | A | units for column 531 |
-| TCOMM531 | Line peak wavelength error |  |
-| TUNIT532 | 1e-17 erg/s/cm^2 | units for column 532 |
-| TCOMM532 | Line flux |  |
-| TUNIT533 | 1e-17 erg/s/cm^2 | units for column 533 |
-| TCOMM533 | Line flux error |  |
-| TCOMM534 | Line luminosity (log, erg/s) |  |
-| TCOMM535 | Line luminosity error (log, erg/s) |  |
-| TUNIT536 | km/s | units for column 536 |
-| TCOMM536 | Line full width at half maximum |  |
-| TUNIT537 | km/s | units for column 537 |
-| TCOMM537 | Line full width at half maximum error |  |
-| TUNIT538 | A | units for column 538 |
-| TCOMM538 | Line equivalent width |  |
-| TUNIT539 | A | units for column 539 |
-| TCOMM539 | Line equivalent width error |  |
-| TUNIT540 | A | units for column 540 |
-| TCOMM540 | Line peak wavelength |  |
-| TUNIT541 | A | units for column 541 |
-| TCOMM541 | Line peak wavelength error |  |
-| TUNIT542 | 1e-17 erg/s/cm^2 | units for column 542 |
-| TCOMM542 | Line flux |  |
-| TUNIT543 | 1e-17 erg/s/cm^2 | units for column 543 |
-| TCOMM543 | Line flux error |  |
-| TCOMM544 | Line luminosity (log, erg/s) |  |
-| TCOMM545 | Line luminosity error (log, erg/s) |  |
-| TUNIT546 | km/s | units for column 546 |
-| TCOMM546 | Line full width at half maximum |  |
-| TUNIT547 | km/s | units for column 547 |
-| TCOMM547 | Line full width at half maximum error |  |
-| TUNIT548 | A | units for column 548 |
-| TCOMM548 | Line equivalent width |  |
-| TUNIT549 | A | units for column 549 |
-| TCOMM549 | Line equivalent width error |  |
-| TUNIT550 | A | units for column 550 |
-| TCOMM550 | Line peak wavelength |  |
-| TUNIT551 | A | units for column 551 |
-| TCOMM551 | Line peak wavelength error |  |
-| TUNIT552 | 1e-17 erg/s/cm^2 | units for column 552 |
-| TCOMM552 | Line flux |  |
-| TUNIT553 | 1e-17 erg/s/cm^2 | units for column 553 |
-| TCOMM553 | Line flux error |  |
-| TCOMM554 | Line luminosity (log, erg/s) |  |
-| TCOMM555 | Line luminosity error (log, erg/s) |  |
-| TUNIT556 | km/s | units for column 556 |
-| TCOMM556 | Line full width at half maximum |  |
-| TUNIT557 | km/s | units for column 557 |
-| TCOMM557 | Line full width at half maximum error |  |
-| TUNIT558 | A | units for column 558 |
-| TCOMM558 | Line equivalent width |  |
-| TUNIT559 | A | units for column 559 |
-| TCOMM559 | Line equivalent width error |  |
-| TUNIT560 | A | units for column 560 |
-| TCOMM560 | Line peak wavelength |  |
-| TUNIT561 | A | units for column 561 |
-| TCOMM561 | Line peak wavelength error |  |
-| TUNIT562 | 1e-17 erg/s/cm^2 | units for column 562 |
-| TCOMM562 | Line flux |  |
-| TUNIT563 | 1e-17 erg/s/cm^2 | units for column 563 |
-| TCOMM563 | Line flux error |  |
-| TCOMM564 | Line luminosity (log, erg/s) |  |
-| TCOMM565 | Line luminosity error (log, erg/s) |  |
-| TUNIT566 | km/s | units for column 566 |
-| TCOMM566 | Line full width at half maximum |  |
-| TUNIT567 | km/s | units for column 567 |
-| TCOMM567 | Line full width at half maximum error |  |
-| TUNIT568 | A | units for column 568 |
-| TCOMM568 | Line equivalent width |  |
-| TUNIT569 | A | units for column 569 |
-| TCOMM569 | Line equivalent width error |  |
-| TUNIT570 | A | units for column 570 |
-| TCOMM570 | Line peak wavelength |  |
-| TUNIT571 | A | units for column 571 |
-| TCOMM571 | Line peak wavelength error |  |
-| TUNIT572 | 1e-17 erg/s/cm^2 | units for column 572 |
-| TCOMM572 | Line flux |  |
-| TUNIT573 | 1e-17 erg/s/cm^2 | units for column 573 |
-| TCOMM573 | Line flux error |  |
-| TCOMM574 | Line luminosity (log, erg/s) |  |
-| TCOMM575 | Line luminosity error (log, erg/s) |  |
-| TUNIT576 | km/s | units for column 576 |
-| TCOMM576 | Line full width at half maximum |  |
-| TUNIT577 | km/s | units for column 577 |
-| TCOMM577 | Line full width at half maximum error |  |
-| TUNIT578 | A | units for column 578 |
-| TCOMM578 | Line equivalent width |  |
-| TUNIT579 | A | units for column 579 |
-| TCOMM579 | Line equivalent width error |  |
-| TUNIT580 | A | units for column 580 |
-| TCOMM580 | Line peak wavelength |  |
-| TUNIT581 | A | units for column 581 |
-| TCOMM581 | Line peak wavelength error |  |
-| TUNIT582 | 1e-17 erg/s/cm^2 | units for column 582 |
-| TCOMM582 | Line flux |  |
-| TUNIT583 | 1e-17 erg/s/cm^2 | units for column 583 |
-| TCOMM583 | Line flux error |  |
-| TCOMM584 | Line luminosity (log, erg/s) |  |
-| TCOMM585 | Line luminosity error (log, erg/s) |  |
-| TUNIT586 | km/s | units for column 586 |
-| TCOMM586 | Line full width at half maximum |  |
-| TUNIT587 | km/s | units for column 587 |
-| TCOMM587 | Line full width at half maximum error |  |
-| TUNIT588 | A | units for column 588 |
-| TCOMM588 | Line equivalent width |  |
-| TUNIT589 | A | units for column 589 |
-| TCOMM589 | Line equivalent width error |  |
-| TUNIT590 | A | units for column 590 |
-| TCOMM590 | Line peak wavelength |  |
-| TUNIT591 | A | units for column 591 |
-| TCOMM591 | Line peak wavelength error |  |
-| TUNIT592 | 1e-17 erg/s/cm^2 | units for column 592 |
-| TCOMM592 | Line flux |  |
-| TUNIT593 | 1e-17 erg/s/cm^2 | units for column 593 |
-| TCOMM593 | Line flux error |  |
-| TCOMM594 | Line luminosity (log, erg/s) |  |
-| TCOMM595 | Line luminosity error (log, erg/s) |  |
-| TUNIT596 | km/s | units for column 596 |
-| TCOMM596 | Line full width at half maximum |  |
-| TUNIT597 | km/s | units for column 597 |
-| TCOMM597 | Line full width at half maximum error |  |
-| TUNIT598 | A | units for column 598 |
-| TCOMM598 | Line equivalent width |  |
-| TUNIT599 | A | units for column 599 |
-| TCOMM599 | Line equivalent width error |  |
-| TUNIT600 | A | units for column 600 |
-| TCOMM600 | Line peak wavelength |  |
-| TUNIT601 | A | units for column 601 |
-| TCOMM601 | Line peak wavelength error |  |
-| TUNIT602 | 1e-17 erg/s/cm^2 | units for column 602 |
-| TCOMM602 | Line flux |  |
-| TUNIT603 | 1e-17 erg/s/cm^2 | units for column 603 |
-| TCOMM603 | Line flux error |  |
-| TCOMM604 | Line luminosity (log, erg/s) |  |
-| TCOMM605 | Line luminosity error (log, erg/s) |  |
-| TUNIT606 | km/s | units for column 606 |
-| TCOMM606 | Line full width at half maximum |  |
-| TUNIT607 | km/s | units for column 607 |
-| TCOMM607 | Line full width at half maximum error |  |
-| TUNIT608 | A | units for column 608 |
-| TCOMM608 | Line equivalent width |  |
-| TUNIT609 | A | units for column 609 |
-| TCOMM609 | Line equivalent width error |  |
-| TUNIT610 | A | units for column 610 |
-| TCOMM610 | Line peak wavelength |  |
-| TUNIT611 | A | units for column 611 |
-| TCOMM611 | Line peak wavelength error |  |
-| TUNIT612 | 1e-17 erg/s/cm^2 | units for column 612 |
-| TCOMM612 | Line flux |  |
-| TUNIT613 | 1e-17 erg/s/cm^2 | units for column 613 |
-| TCOMM613 | Line flux error |  |
-| TCOMM614 | Line luminosity (log, erg/s) |  |
-| TCOMM615 | Line luminosity error (log, erg/s) |  |
-| TUNIT616 | km/s | units for column 616 |
-| TCOMM616 | Line full width at half maximum |  |
-| TUNIT617 | km/s | units for column 617 |
-| TCOMM617 | Line full width at half maximum error |  |
-| TUNIT618 | A | units for column 618 |
-| TCOMM618 | Line equivalent width |  |
-| TUNIT619 | A | units for column 619 |
-| TCOMM619 | Line equivalent width error |  |
-| TUNIT620 | A | units for column 620 |
-| TCOMM620 | Line peak wavelength |  |
-| TUNIT621 | A | units for column 621 |
-| TCOMM621 | Line peak wavelength error |  |
-| TUNIT622 | 1e-17 erg/s/cm^2 | units for column 622 |
-| TCOMM622 | Line flux |  |
-| TUNIT623 | 1e-17 erg/s/cm^2 | units for column 623 |
-| TCOMM623 | Line flux error |  |
-| TCOMM624 | Line luminosity (log, erg/s) |  |
-| TCOMM625 | Line luminosity error (log, erg/s) |  |
-| TUNIT626 | km/s | units for column 626 |
-| TCOMM626 | Line full width at half maximum |  |
-| TUNIT627 | km/s | units for column 627 |
-| TCOMM627 | Line full width at half maximum error |  |
-| TUNIT628 | A | units for column 628 |
-| TCOMM628 | Line equivalent width |  |
-| TUNIT629 | A | units for column 629 |
-| TCOMM629 | Line equivalent width error |  |
-| TCOMM630 | True: host-galaxy emission subtracted; False: quasar-dominated |  |
-| DATE-HDU | 2026-06-11T09:50:04 | Date of HDU creation (UTC) |
-| STILVERS | 4.3-5 | Version of STIL software |
-| STILCLAS | uk.ac.starlink.votable.UnifiedFitsTableWriter | STIL Author class |
+| TCOMM9 | SDSS modified Julian date of observation |  |
+| TNULL9 | -2147483648 |  |
+| TCOMM10 | SDSS Median S/N per pix in spectrum (idlspec2d v6_0_2 reductions) |  |
+| TUNIT11 | A |  |
+| TCOMM11 | Line peak wavelength |  |
+| TUNIT12 | A |  |
+| TCOMM12 | Line peak wavelength error |  |
+| TUNIT13 | 1e-17 erg/s/cm^2 |  |
+| TCOMM13 | Line flux |  |
+| TUNIT14 | 1e-17 erg/s/cm^2 |  |
+| TCOMM14 | Line flux error |  |
+| TCOMM15 | Line luminosity (log, erg/s) |  |
+| TCOMM16 | Line luminosity error (log, erg/s) |  |
+| TUNIT17 | km/s |  |
+| TCOMM17 | Line full width at half maximum |  |
+| TUNIT18 | km/s |  |
+| TCOMM18 | Line full width at half maximum error |  |
+| TUNIT19 | A |  |
+| TCOMM19 | Line equivalent width |  |
+| TUNIT20 | A |  |
+| TCOMM20 | Line equivalent width error |  |
+| TUNIT21 | A |  |
+| TCOMM21 | Line peak wavelength |  |
+| TUNIT22 | A |  |
+| TCOMM22 | Line peak wavelength error |  |
+| TUNIT23 | 1e-17 erg/s/cm^2 |  |
+| TCOMM23 | Line flux |  |
+| TUNIT24 | 1e-17 erg/s/cm^2 |  |
+| TCOMM24 | Line flux error |  |
+| TCOMM25 | Line luminosity (log, erg/s) |  |
+| TCOMM26 | Line luminosity error (log, erg/s) |  |
+| TUNIT27 | km/s |  |
+| TCOMM27 | Line full width at half maximum |  |
+| TUNIT28 | km/s |  |
+| TCOMM28 | Line full width at half maximum error |  |
+| TUNIT29 | A |  |
+| TCOMM29 | Line equivalent width |  |
+| TUNIT30 | A |  |
+| TCOMM30 | Line equivalent width error |  |
+| TUNIT31 | A |  |
+| TCOMM31 | Line peak wavelength |  |
+| TUNIT32 | A |  |
+| TCOMM32 | Line peak wavelength error |  |
+| TUNIT33 | 1e-17 erg/s/cm^2 |  |
+| TCOMM33 | Line flux |  |
+| TUNIT34 | 1e-17 erg/s/cm^2 |  |
+| TCOMM34 | Line flux error |  |
+| TCOMM35 | Line luminosity (log, erg/s) |  |
+| TCOMM36 | Line luminosity error (log, erg/s) |  |
+| TUNIT37 | km/s |  |
+| TCOMM37 | Line full width at half maximum |  |
+| TUNIT38 | km/s |  |
+| TCOMM38 | Line full width at half maximum error |  |
+| TUNIT39 | A |  |
+| TCOMM39 | Line equivalent width |  |
+| TUNIT40 | A |  |
+| TCOMM40 | Line equivalent width error |  |
+| TUNIT41 | A |  |
+| TCOMM41 | Line peak wavelength |  |
+| TUNIT42 | A |  |
+| TCOMM42 | Line peak wavelength error |  |
+| TUNIT43 | 1e-17 erg/s/cm^2 |  |
+| TCOMM43 | Line flux |  |
+| TUNIT44 | 1e-17 erg/s/cm^2 |  |
+| TCOMM44 | Line flux error |  |
+| TCOMM45 | Line luminosity (log, erg/s) |  |
+| TCOMM46 | Line luminosity error (log, erg/s) |  |
+| TUNIT47 | km/s |  |
+| TCOMM47 | Line full width at half maximum |  |
+| TUNIT48 | km/s |  |
+| TCOMM48 | Line full width at half maximum error |  |
+| TUNIT49 | A |  |
+| TCOMM49 | Line equivalent width |  |
+| TUNIT50 | A |  |
+| TCOMM50 | Line equivalent width error |  |
+| TUNIT51 | A |  |
+| TCOMM51 | Line peak wavelength |  |
+| TUNIT52 | A |  |
+| TCOMM52 | Line peak wavelength error |  |
+| TUNIT53 | 1e-17 erg/s/cm^2 |  |
+| TCOMM53 | Line flux |  |
+| TUNIT54 | 1e-17 erg/s/cm^2 |  |
+| TCOMM54 | Line flux error |  |
+| TCOMM55 | Line luminosity (log, erg/s) |  |
+| TCOMM56 | Line luminosity error (log, erg/s) |  |
+| TUNIT57 | km/s |  |
+| TCOMM57 | Line full width at half maximum |  |
+| TUNIT58 | km/s |  |
+| TCOMM58 | Line full width at half maximum error |  |
+| TUNIT59 | A |  |
+| TCOMM59 | Line equivalent width |  |
+| TUNIT60 | A |  |
+| TCOMM60 | Line equivalent width error |  |
+| TUNIT61 | A |  |
+| TCOMM61 | Line peak wavelength |  |
+| TUNIT62 | A |  |
+| TCOMM62 | Line peak wavelength error |  |
+| TUNIT63 | 1e-17 erg/s/cm^2 |  |
+| TCOMM63 | Line flux |  |
+| TUNIT64 | 1e-17 erg/s/cm^2 |  |
+| TCOMM64 | Line flux error |  |
+| TCOMM65 | Line luminosity (log, erg/s) |  |
+| TCOMM66 | Line luminosity error (log, erg/s) |  |
+| TUNIT67 | km/s |  |
+| TCOMM67 | Line full width at half maximum |  |
+| TUNIT68 | km/s |  |
+| TCOMM68 | Line full width at half maximum error |  |
+| TUNIT69 | A |  |
+| TCOMM69 | Line equivalent width |  |
+| TUNIT70 | A |  |
+| TCOMM70 | Line equivalent width error |  |
+| TUNIT71 | A |  |
+| TCOMM71 | Line peak wavelength |  |
+| TUNIT72 | A |  |
+| TCOMM72 | Line peak wavelength error |  |
+| TUNIT73 | 1e-17 erg/s/cm^2 |  |
+| TCOMM73 | Line flux |  |
+| TUNIT74 | 1e-17 erg/s/cm^2 |  |
+| TCOMM74 | Line flux error |  |
+| TCOMM75 | Line luminosity (log, erg/s) |  |
+| TCOMM76 | Line luminosity error (log, erg/s) |  |
+| TUNIT77 | km/s |  |
+| TCOMM77 | Line full width at half maximum |  |
+| TUNIT78 | km/s |  |
+| TCOMM78 | Line full width at half maximum error |  |
+| TUNIT79 | A |  |
+| TCOMM79 | Line equivalent width |  |
+| TUNIT80 | A |  |
+| TCOMM80 | Line equivalent width error |  |
+| TUNIT81 | A |  |
+| TCOMM81 | Line peak wavelength |  |
+| TUNIT82 | A |  |
+| TCOMM82 | Line peak wavelength error |  |
+| TUNIT83 | 1e-17 erg/s/cm^2 |  |
+| TCOMM83 | Line flux |  |
+| TUNIT84 | 1e-17 erg/s/cm^2 |  |
+| TCOMM84 | Line flux error |  |
+| TCOMM85 | Line luminosity (log, erg/s) |  |
+| TCOMM86 | Line luminosity error (log, erg/s) |  |
+| TUNIT87 | km/s |  |
+| TCOMM87 | Line full width at half maximum |  |
+| TUNIT88 | km/s |  |
+| TCOMM88 | Line full width at half maximum error |  |
+| TUNIT89 | A |  |
+| TCOMM89 | Line equivalent width |  |
+| TUNIT90 | A |  |
+| TCOMM90 | Line equivalent width error |  |
+| TUNIT91 | A |  |
+| TCOMM91 | Line peak wavelength |  |
+| TUNIT92 | A |  |
+| TCOMM92 | Line peak wavelength error |  |
+| TUNIT93 | 1e-17 erg/s/cm^2 |  |
+| TCOMM93 | Line flux |  |
+| TUNIT94 | 1e-17 erg/s/cm^2 |  |
+| TCOMM94 | Line flux error |  |
+| TCOMM95 | Line luminosity (log, erg/s) |  |
+| TCOMM96 | Line luminosity error (log, erg/s) |  |
+| TUNIT97 | km/s |  |
+| TCOMM97 | Line full width at half maximum |  |
+| TUNIT98 | km/s |  |
+| TCOMM98 | Line full width at half maximum error |  |
+| TUNIT99 | A |  |
+| TCOMM99 | Line equivalent width |  |
+| TUNIT100 | A |  |
+| TCOMM100 | Line equivalent width error |  |
+| TUNIT101 | A |  |
+| TCOMM101 | Line peak wavelength |  |
+| TUNIT102 | A |  |
+| TCOMM102 | Line peak wavelength error |  |
+| TUNIT103 | 1e-17 erg/s/cm^2 |  |
+| TCOMM103 | Line flux |  |
+| TUNIT104 | 1e-17 erg/s/cm^2 |  |
+| TCOMM104 | Line flux error |  |
+| TCOMM105 | Line luminosity (log, erg/s) |  |
+| TCOMM106 | Line luminosity error (log, erg/s) |  |
+| TUNIT107 | km/s |  |
+| TCOMM107 | Line full width at half maximum |  |
+| TUNIT108 | km/s |  |
+| TCOMM108 | Line full width at half maximum error |  |
+| TUNIT109 | A |  |
+| TCOMM109 | Line equivalent width |  |
+| TUNIT110 | A |  |
+| TCOMM110 | Line equivalent width error |  |
+| TUNIT111 | A |  |
+| TCOMM111 | Line peak wavelength |  |
+| TUNIT112 | A |  |
+| TCOMM112 | Line peak wavelength error |  |
+| TUNIT113 | 1e-17 erg/s/cm^2 |  |
+| TCOMM113 | Line flux |  |
+| TUNIT114 | 1e-17 erg/s/cm^2 |  |
+| TCOMM114 | Line flux error |  |
+| TCOMM115 | Line luminosity (log, erg/s) |  |
+| TCOMM116 | Line luminosity error (log, erg/s) |  |
+| TUNIT117 | km/s |  |
+| TCOMM117 | Line full width at half maximum |  |
+| TUNIT118 | km/s |  |
+| TCOMM118 | Line full width at half maximum error |  |
+| TUNIT119 | A |  |
+| TCOMM119 | Line equivalent width |  |
+| TUNIT120 | A |  |
+| TCOMM120 | Line equivalent width error |  |
+| TUNIT121 | A |  |
+| TCOMM121 | Line peak wavelength |  |
+| TUNIT122 | A |  |
+| TCOMM122 | Line peak wavelength error |  |
+| TUNIT123 | 1e-17 erg/s/cm^2 |  |
+| TCOMM123 | Line flux |  |
+| TUNIT124 | 1e-17 erg/s/cm^2 |  |
+| TCOMM124 | Line flux error |  |
+| TCOMM125 | Line luminosity (log, erg/s) |  |
+| TCOMM126 | Line luminosity error (log, erg/s) |  |
+| TUNIT127 | km/s |  |
+| TCOMM127 | Line full width at half maximum |  |
+| TUNIT128 | km/s |  |
+| TCOMM128 | Line full width at half maximum error |  |
+| TUNIT129 | A |  |
+| TCOMM129 | Line equivalent width |  |
+| TUNIT130 | A |  |
+| TCOMM130 | Line equivalent width error |  |
+| TUNIT131 | A |  |
+| TCOMM131 | Line peak wavelength |  |
+| TUNIT132 | A |  |
+| TCOMM132 | Line peak wavelength error |  |
+| TUNIT133 | 1e-17 erg/s/cm^2 |  |
+| TCOMM133 | Line flux |  |
+| TUNIT134 | 1e-17 erg/s/cm^2 |  |
+| TCOMM134 | Line flux error |  |
+| TCOMM135 | Line luminosity (log, erg/s) |  |
+| TCOMM136 | Line luminosity error (log, erg/s) |  |
+| TUNIT137 | km/s |  |
+| TCOMM137 | Line full width at half maximum |  |
+| TUNIT138 | km/s |  |
+| TCOMM138 | Line full width at half maximum error |  |
+| TUNIT139 | A |  |
+| TCOMM139 | Line equivalent width |  |
+| TUNIT140 | A |  |
+| TCOMM140 | Line equivalent width error |  |
+| TUNIT141 | A |  |
+| TCOMM141 | Line peak wavelength |  |
+| TUNIT142 | A |  |
+| TCOMM142 | Line peak wavelength error |  |
+| TUNIT143 | 1e-17 erg/s/cm^2 |  |
+| TCOMM143 | Line flux |  |
+| TUNIT144 | 1e-17 erg/s/cm^2 |  |
+| TCOMM144 | Line flux error |  |
+| TCOMM145 | Line luminosity (log, erg/s) |  |
+| TCOMM146 | Line luminosity error (log, erg/s) |  |
+| TUNIT147 | km/s |  |
+| TCOMM147 | Line full width at half maximum |  |
+| TUNIT148 | km/s |  |
+| TCOMM148 | Line full width at half maximum error |  |
+| TUNIT149 | A |  |
+| TCOMM149 | Line equivalent width |  |
+| TUNIT150 | A |  |
+| TCOMM150 | Line equivalent width error |  |
+| TUNIT151 | A |  |
+| TCOMM151 | Line peak wavelength |  |
+| TUNIT152 | A |  |
+| TCOMM152 | Line peak wavelength error |  |
+| TUNIT153 | 1e-17 erg/s/cm^2 |  |
+| TCOMM153 | Line flux |  |
+| TUNIT154 | 1e-17 erg/s/cm^2 |  |
+| TCOMM154 | Line flux error |  |
+| TCOMM155 | Line luminosity (log, erg/s) |  |
+| TCOMM156 | Line luminosity error (log, erg/s) |  |
+| TUNIT157 | km/s |  |
+| TCOMM157 | Line full width at half maximum |  |
+| TUNIT158 | km/s |  |
+| TCOMM158 | Line full width at half maximum error |  |
+| TUNIT159 | A |  |
+| TCOMM159 | Line equivalent width |  |
+| TUNIT160 | A |  |
+| TCOMM160 | Line equivalent width error |  |
+| TUNIT161 | A |  |
+| TCOMM161 | Line peak wavelength |  |
+| TUNIT162 | A |  |
+| TCOMM162 | Line peak wavelength error |  |
+| TUNIT163 | 1e-17 erg/s/cm^2 |  |
+| TCOMM163 | Line flux |  |
+| TUNIT164 | 1e-17 erg/s/cm^2 |  |
+| TCOMM164 | Line flux error |  |
+| TCOMM165 | Line luminosity (log, erg/s) |  |
+| TCOMM166 | Line luminosity error (log, erg/s) |  |
+| TUNIT167 | km/s |  |
+| TCOMM167 | Line full width at half maximum |  |
+| TUNIT168 | km/s |  |
+| TCOMM168 | Line full width at half maximum error |  |
+| TUNIT169 | A |  |
+| TCOMM169 | Line equivalent width |  |
+| TUNIT170 | A |  |
+| TCOMM170 | Line equivalent width error |  |
+| TUNIT171 | A |  |
+| TCOMM171 | Line peak wavelength |  |
+| TUNIT172 | A |  |
+| TCOMM172 | Line peak wavelength error |  |
+| TUNIT173 | 1e-17 erg/s/cm^2 |  |
+| TCOMM173 | Line flux |  |
+| TUNIT174 | 1e-17 erg/s/cm^2 |  |
+| TCOMM174 | Line flux error |  |
+| TCOMM175 | Line luminosity (log, erg/s) |  |
+| TCOMM176 | Line luminosity error (log, erg/s) |  |
+| TUNIT177 | km/s |  |
+| TCOMM177 | Line full width at half maximum |  |
+| TUNIT178 | km/s |  |
+| TCOMM178 | Line full width at half maximum error |  |
+| TUNIT179 | A |  |
+| TCOMM179 | Line equivalent width |  |
+| TUNIT180 | A |  |
+| TCOMM180 | Line equivalent width error |  |
+| TUNIT181 | A |  |
+| TCOMM181 | Line peak wavelength |  |
+| TUNIT182 | A |  |
+| TCOMM182 | Line peak wavelength error |  |
+| TUNIT183 | 1e-17 erg/s/cm^2 |  |
+| TCOMM183 | Line flux |  |
+| TUNIT184 | 1e-17 erg/s/cm^2 |  |
+| TCOMM184 | Line flux error |  |
+| TCOMM185 | Line luminosity (log, erg/s) |  |
+| TCOMM186 | Line luminosity error (log, erg/s) |  |
+| TUNIT187 | km/s |  |
+| TCOMM187 | Line full width at half maximum |  |
+| TUNIT188 | km/s |  |
+| TCOMM188 | Line full width at half maximum error |  |
+| TUNIT189 | A |  |
+| TCOMM189 | Line equivalent width |  |
+| TUNIT190 | A |  |
+| TCOMM190 | Line equivalent width error |  |
+| TUNIT191 | A |  |
+| TCOMM191 | Line peak wavelength |  |
+| TUNIT192 | A |  |
+| TCOMM192 | Line peak wavelength error |  |
+| TUNIT193 | 1e-17 erg/s/cm^2 |  |
+| TCOMM193 | Line flux |  |
+| TUNIT194 | 1e-17 erg/s/cm^2 |  |
+| TCOMM194 | Line flux error |  |
+| TCOMM195 | Line luminosity (log, erg/s) |  |
+| TCOMM196 | Line luminosity error (log, erg/s) |  |
+| TUNIT197 | km/s |  |
+| TCOMM197 | Line full width at half maximum |  |
+| TUNIT198 | km/s |  |
+| TCOMM198 | Line full width at half maximum error |  |
+| TUNIT199 | A |  |
+| TCOMM199 | Line equivalent width |  |
+| TUNIT200 | A |  |
+| TCOMM200 | Line equivalent width error |  |
+| TUNIT201 | A |  |
+| TCOMM201 | Line peak wavelength |  |
+| TUNIT202 | A |  |
+| TCOMM202 | Line peak wavelength error |  |
+| TUNIT203 | 1e-17 erg/s/cm^2 |  |
+| TCOMM203 | Line flux |  |
+| TUNIT204 | 1e-17 erg/s/cm^2 |  |
+| TCOMM204 | Line flux error |  |
+| TCOMM205 | Line luminosity (log, erg/s) |  |
+| TCOMM206 | Line luminosity error (log, erg/s) |  |
+| TUNIT207 | km/s |  |
+| TCOMM207 | Line full width at half maximum |  |
+| TUNIT208 | km/s |  |
+| TCOMM208 | Line full width at half maximum error |  |
+| TUNIT209 | A |  |
+| TCOMM209 | Line equivalent width |  |
+| TUNIT210 | A |  |
+| TCOMM210 | Line equivalent width error |  |
+| TUNIT211 | A |  |
+| TCOMM211 | Line peak wavelength |  |
+| TUNIT212 | A |  |
+| TCOMM212 | Line peak wavelength error |  |
+| TUNIT213 | 1e-17 erg/s/cm^2 |  |
+| TCOMM213 | Line flux |  |
+| TUNIT214 | 1e-17 erg/s/cm^2 |  |
+| TCOMM214 | Line flux error |  |
+| TCOMM215 | Line luminosity (log, erg/s) |  |
+| TCOMM216 | Line luminosity error (log, erg/s) |  |
+| TUNIT217 | km/s |  |
+| TCOMM217 | Line full width at half maximum |  |
+| TUNIT218 | km/s |  |
+| TCOMM218 | Line full width at half maximum error |  |
+| TUNIT219 | A |  |
+| TCOMM219 | Line equivalent width |  |
+| TUNIT220 | A |  |
+| TCOMM220 | Line equivalent width error |  |
+| TUNIT221 | A |  |
+| TCOMM221 | Line peak wavelength |  |
+| TUNIT222 | A |  |
+| TCOMM222 | Line peak wavelength error |  |
+| TUNIT223 | 1e-17 erg/s/cm^2 |  |
+| TCOMM223 | Line flux |  |
+| TUNIT224 | 1e-17 erg/s/cm^2 |  |
+| TCOMM224 | Line flux error |  |
+| TCOMM225 | Line luminosity (log, erg/s) |  |
+| TCOMM226 | Line luminosity error (log, erg/s) |  |
+| TUNIT227 | km/s |  |
+| TCOMM227 | Line full width at half maximum |  |
+| TUNIT228 | km/s |  |
+| TCOMM228 | Line full width at half maximum error |  |
+| TUNIT229 | A |  |
+| TCOMM229 | Line equivalent width |  |
+| TUNIT230 | A |  |
+| TCOMM230 | Line equivalent width error |  |
+| TUNIT231 | A |  |
+| TCOMM231 | Line peak wavelength |  |
+| TUNIT232 | A |  |
+| TCOMM232 | Line peak wavelength error |  |
+| TUNIT233 | 1e-17 erg/s/cm^2 |  |
+| TCOMM233 | Line flux |  |
+| TUNIT234 | 1e-17 erg/s/cm^2 |  |
+| TCOMM234 | Line flux error |  |
+| TCOMM235 | Line luminosity (log, erg/s) |  |
+| TCOMM236 | Line luminosity error (log, erg/s) |  |
+| TUNIT237 | km/s |  |
+| TCOMM237 | Line full width at half maximum |  |
+| TUNIT238 | km/s |  |
+| TCOMM238 | Line full width at half maximum error |  |
+| TUNIT239 | A |  |
+| TCOMM239 | Line equivalent width |  |
+| TUNIT240 | A |  |
+| TCOMM240 | Line equivalent width error |  |
+| TUNIT241 | A |  |
+| TCOMM241 | Line peak wavelength |  |
+| TUNIT242 | A |  |
+| TCOMM242 | Line peak wavelength error |  |
+| TUNIT243 | 1e-17 erg/s/cm^2 |  |
+| TCOMM243 | Line flux |  |
+| TUNIT244 | 1e-17 erg/s/cm^2 |  |
+| TCOMM244 | Line flux error |  |
+| TCOMM245 | Line luminosity (log, erg/s) |  |
+| TCOMM246 | Line luminosity error (log, erg/s) |  |
+| TUNIT247 | km/s |  |
+| TCOMM247 | Line full width at half maximum |  |
+| TUNIT248 | km/s |  |
+| TCOMM248 | Line full width at half maximum error |  |
+| TUNIT249 | A |  |
+| TCOMM249 | Line equivalent width |  |
+| TUNIT250 | A |  |
+| TCOMM250 | Line equivalent width error |  |
+| TUNIT251 | A |  |
+| TCOMM251 | Line peak wavelength |  |
+| TUNIT252 | A |  |
+| TCOMM252 | Line peak wavelength error |  |
+| TUNIT253 | 1e-17 erg/s/cm^2 |  |
+| TCOMM253 | Line flux |  |
+| TUNIT254 | 1e-17 erg/s/cm^2 |  |
+| TCOMM254 | Line flux error |  |
+| TCOMM255 | Line luminosity (log, erg/s) |  |
+| TCOMM256 | Line luminosity error (log, erg/s) |  |
+| TUNIT257 | km/s |  |
+| TCOMM257 | Line full width at half maximum |  |
+| TUNIT258 | km/s |  |
+| TCOMM258 | Line full width at half maximum error |  |
+| TUNIT259 | A |  |
+| TCOMM259 | Line equivalent width |  |
+| TUNIT260 | A |  |
+| TCOMM260 | Line equivalent width error |  |
+| TUNIT261 | A |  |
+| TCOMM261 | Line peak wavelength |  |
+| TUNIT262 | A |  |
+| TCOMM262 | Line peak wavelength error |  |
+| TUNIT263 | 1e-17 erg/s/cm^2 |  |
+| TCOMM263 | Line flux |  |
+| TUNIT264 | 1e-17 erg/s/cm^2 |  |
+| TCOMM264 | Line flux error |  |
+| TCOMM265 | Line luminosity (log, erg/s) |  |
+| TCOMM266 | Line luminosity error (log, erg/s) |  |
+| TUNIT267 | km/s |  |
+| TCOMM267 | Line full width at half maximum |  |
+| TUNIT268 | km/s |  |
+| TCOMM268 | Line full width at half maximum error |  |
+| TUNIT269 | A |  |
+| TCOMM269 | Line equivalent width |  |
+| TUNIT270 | A |  |
+| TCOMM270 | Line equivalent width error |  |
+| TUNIT271 | A |  |
+| TCOMM271 | Line peak wavelength |  |
+| TUNIT272 | A |  |
+| TCOMM272 | Line peak wavelength error |  |
+| TUNIT273 | 1e-17 erg/s/cm^2 |  |
+| TCOMM273 | Line flux |  |
+| TUNIT274 | 1e-17 erg/s/cm^2 |  |
+| TCOMM274 | Line flux error |  |
+| TCOMM275 | Line luminosity (log, erg/s) |  |
+| TCOMM276 | Line luminosity error (log, erg/s) |  |
+| TUNIT277 | km/s |  |
+| TCOMM277 | Line full width at half maximum |  |
+| TUNIT278 | km/s |  |
+| TCOMM278 | Line full width at half maximum error |  |
+| TUNIT279 | A |  |
+| TCOMM279 | Line equivalent width |  |
+| TUNIT280 | A |  |
+| TCOMM280 | Line equivalent width error |  |
+| TUNIT281 | A |  |
+| TCOMM281 | Line peak wavelength |  |
+| TUNIT282 | A |  |
+| TCOMM282 | Line peak wavelength error |  |
+| TUNIT283 | 1e-17 erg/s/cm^2 |  |
+| TCOMM283 | Line flux |  |
+| TUNIT284 | 1e-17 erg/s/cm^2 |  |
+| TCOMM284 | Line flux error |  |
+| TCOMM285 | Line luminosity (log, erg/s) |  |
+| TCOMM286 | Line luminosity error (log, erg/s) |  |
+| TUNIT287 | km/s |  |
+| TCOMM287 | Line full width at half maximum |  |
+| TUNIT288 | km/s |  |
+| TCOMM288 | Line full width at half maximum error |  |
+| TUNIT289 | A |  |
+| TCOMM289 | Line equivalent width |  |
+| TUNIT290 | A |  |
+| TCOMM290 | Line equivalent width error |  |
+| TUNIT291 | A |  |
+| TCOMM291 | Line peak wavelength |  |
+| TUNIT292 | A |  |
+| TCOMM292 | Line peak wavelength error |  |
+| TUNIT293 | 1e-17 erg/s/cm^2 |  |
+| TCOMM293 | Line flux |  |
+| TUNIT294 | 1e-17 erg/s/cm^2 |  |
+| TCOMM294 | Line flux error |  |
+| TCOMM295 | Line luminosity (log, erg/s) |  |
+| TCOMM296 | Line luminosity error (log, erg/s) |  |
+| TUNIT297 | km/s |  |
+| TCOMM297 | Line full width at half maximum |  |
+| TUNIT298 | km/s |  |
+| TCOMM298 | Line full width at half maximum error |  |
+| TUNIT299 | A |  |
+| TCOMM299 | Line equivalent width |  |
+| TUNIT300 | A |  |
+| TCOMM300 | Line equivalent width error |  |
+| TUNIT301 | A |  |
+| TCOMM301 | Line peak wavelength |  |
+| TUNIT302 | A |  |
+| TCOMM302 | Line peak wavelength error |  |
+| TUNIT303 | 1e-17 erg/s/cm^2 |  |
+| TCOMM303 | Line flux |  |
+| TUNIT304 | 1e-17 erg/s/cm^2 |  |
+| TCOMM304 | Line flux error |  |
+| TCOMM305 | Line luminosity (log, erg/s) |  |
+| TCOMM306 | Line luminosity error (log, erg/s) |  |
+| TUNIT307 | km/s |  |
+| TCOMM307 | Line full width at half maximum |  |
+| TUNIT308 | km/s |  |
+| TCOMM308 | Line full width at half maximum error |  |
+| TUNIT309 | A |  |
+| TCOMM309 | Line equivalent width |  |
+| TUNIT310 | A |  |
+| TCOMM310 | Line equivalent width error |  |
+| TUNIT311 | A |  |
+| TCOMM311 | Line peak wavelength |  |
+| TUNIT312 | A |  |
+| TCOMM312 | Line peak wavelength error |  |
+| TUNIT313 | 1e-17 erg/s/cm^2 |  |
+| TCOMM313 | Line flux |  |
+| TUNIT314 | 1e-17 erg/s/cm^2 |  |
+| TCOMM314 | Line flux error |  |
+| TCOMM315 | Line luminosity (log, erg/s) |  |
+| TCOMM316 | Line luminosity error (log, erg/s) |  |
+| TUNIT317 | km/s |  |
+| TCOMM317 | Line full width at half maximum |  |
+| TUNIT318 | km/s |  |
+| TCOMM318 | Line full width at half maximum error |  |
+| TUNIT319 | A |  |
+| TCOMM319 | Line equivalent width |  |
+| TUNIT320 | A |  |
+| TCOMM320 | Line equivalent width error |  |
+| TUNIT321 | A |  |
+| TCOMM321 | Line peak wavelength |  |
+| TUNIT322 | A |  |
+| TCOMM322 | Line peak wavelength error |  |
+| TUNIT323 | 1e-17 erg/s/cm^2 |  |
+| TCOMM323 | Line flux |  |
+| TUNIT324 | 1e-17 erg/s/cm^2 |  |
+| TCOMM324 | Line flux error |  |
+| TCOMM325 | Line luminosity (log, erg/s) |  |
+| TCOMM326 | Line luminosity error (log, erg/s) |  |
+| TUNIT327 | km/s |  |
+| TCOMM327 | Line full width at half maximum |  |
+| TUNIT328 | km/s |  |
+| TCOMM328 | Line full width at half maximum error |  |
+| TUNIT329 | A |  |
+| TCOMM329 | Line equivalent width |  |
+| TUNIT330 | A |  |
+| TCOMM330 | Line equivalent width error |  |
+| TUNIT331 | A |  |
+| TCOMM331 | Line peak wavelength |  |
+| TUNIT332 | A |  |
+| TCOMM332 | Line peak wavelength error |  |
+| TUNIT333 | 1e-17 erg/s/cm^2 |  |
+| TCOMM333 | Line flux |  |
+| TUNIT334 | 1e-17 erg/s/cm^2 |  |
+| TCOMM334 | Line flux error |  |
+| TCOMM335 | Line luminosity (log, erg/s) |  |
+| TCOMM336 | Line luminosity error (log, erg/s) |  |
+| TUNIT337 | km/s |  |
+| TCOMM337 | Line full width at half maximum |  |
+| TUNIT338 | km/s |  |
+| TCOMM338 | Line full width at half maximum error |  |
+| TUNIT339 | A |  |
+| TCOMM339 | Line equivalent width |  |
+| TUNIT340 | A |  |
+| TCOMM340 | Line equivalent width error |  |
+| TUNIT341 | A |  |
+| TCOMM341 | Line peak wavelength |  |
+| TUNIT342 | A |  |
+| TCOMM342 | Line peak wavelength error |  |
+| TUNIT343 | 1e-17 erg/s/cm^2 |  |
+| TCOMM343 | Line flux |  |
+| TUNIT344 | 1e-17 erg/s/cm^2 |  |
+| TCOMM344 | Line flux error |  |
+| TCOMM345 | Line luminosity (log, erg/s) |  |
+| TCOMM346 | Line luminosity error (log, erg/s) |  |
+| TUNIT347 | km/s |  |
+| TCOMM347 | Line full width at half maximum |  |
+| TUNIT348 | km/s |  |
+| TCOMM348 | Line full width at half maximum error |  |
+| TUNIT349 | A |  |
+| TCOMM349 | Line equivalent width |  |
+| TUNIT350 | A |  |
+| TCOMM350 | Line equivalent width error |  |
+| TUNIT351 | A |  |
+| TCOMM351 | Line peak wavelength |  |
+| TUNIT352 | A |  |
+| TCOMM352 | Line peak wavelength error |  |
+| TUNIT353 | 1e-17 erg/s/cm^2 |  |
+| TCOMM353 | Line flux |  |
+| TUNIT354 | 1e-17 erg/s/cm^2 |  |
+| TCOMM354 | Line flux error |  |
+| TCOMM355 | Line luminosity (log, erg/s) |  |
+| TCOMM356 | Line luminosity error (log, erg/s) |  |
+| TUNIT357 | km/s |  |
+| TCOMM357 | Line full width at half maximum |  |
+| TUNIT358 | km/s |  |
+| TCOMM358 | Line full width at half maximum error |  |
+| TUNIT359 | A |  |
+| TCOMM359 | Line equivalent width |  |
+| TUNIT360 | A |  |
+| TCOMM360 | Line equivalent width error |  |
+| TUNIT361 | A |  |
+| TCOMM361 | Line peak wavelength |  |
+| TUNIT362 | A |  |
+| TCOMM362 | Line peak wavelength error |  |
+| TUNIT363 | 1e-17 erg/s/cm^2 |  |
+| TCOMM363 | Line flux |  |
+| TUNIT364 | 1e-17 erg/s/cm^2 |  |
+| TCOMM364 | Line flux error |  |
+| TCOMM365 | Line luminosity (log, erg/s) |  |
+| TCOMM366 | Line luminosity error (log, erg/s) |  |
+| TUNIT367 | km/s |  |
+| TCOMM367 | Line full width at half maximum |  |
+| TUNIT368 | km/s |  |
+| TCOMM368 | Line full width at half maximum error |  |
+| TUNIT369 | A |  |
+| TCOMM369 | Line equivalent width |  |
+| TUNIT370 | A |  |
+| TCOMM370 | Line equivalent width error |  |
+| TUNIT371 | A |  |
+| TCOMM371 | Line peak wavelength |  |
+| TUNIT372 | A |  |
+| TCOMM372 | Line peak wavelength error |  |
+| TUNIT373 | 1e-17 erg/s/cm^2 |  |
+| TCOMM373 | Line flux |  |
+| TUNIT374 | 1e-17 erg/s/cm^2 |  |
+| TCOMM374 | Line flux error |  |
+| TCOMM375 | Line luminosity (log, erg/s) |  |
+| TCOMM376 | Line luminosity error (log, erg/s) |  |
+| TUNIT377 | km/s |  |
+| TCOMM377 | Line full width at half maximum |  |
+| TUNIT378 | km/s |  |
+| TCOMM378 | Line full width at half maximum error |  |
+| TUNIT379 | A |  |
+| TCOMM379 | Line equivalent width |  |
+| TUNIT380 | A |  |
+| TCOMM380 | Line equivalent width error |  |
+| TUNIT381 | A |  |
+| TCOMM381 | Line peak wavelength |  |
+| TUNIT382 | A |  |
+| TCOMM382 | Line peak wavelength error |  |
+| TUNIT383 | 1e-17 erg/s/cm^2 |  |
+| TCOMM383 | Line flux |  |
+| TUNIT384 | 1e-17 erg/s/cm^2 |  |
+| TCOMM384 | Line flux error |  |
+| TCOMM385 | Line luminosity (log, erg/s) |  |
+| TCOMM386 | Line luminosity error (log, erg/s) |  |
+| TUNIT387 | km/s |  |
+| TCOMM387 | Line full width at half maximum |  |
+| TUNIT388 | km/s |  |
+| TCOMM388 | Line full width at half maximum error |  |
+| TUNIT389 | A |  |
+| TCOMM389 | Line equivalent width |  |
+| TUNIT390 | A |  |
+| TCOMM390 | Line equivalent width error |  |
+| TUNIT391 | A |  |
+| TCOMM391 | Line peak wavelength |  |
+| TUNIT392 | A |  |
+| TCOMM392 | Line peak wavelength error |  |
+| TUNIT393 | 1e-17 erg/s/cm^2 |  |
+| TCOMM393 | Line flux |  |
+| TUNIT394 | 1e-17 erg/s/cm^2 |  |
+| TCOMM394 | Line flux error |  |
+| TCOMM395 | Line luminosity (log, erg/s) |  |
+| TCOMM396 | Line luminosity error (log, erg/s) |  |
+| TUNIT397 | km/s |  |
+| TCOMM397 | Line full width at half maximum |  |
+| TUNIT398 | km/s |  |
+| TCOMM398 | Line full width at half maximum error |  |
+| TUNIT399 | A |  |
+| TCOMM399 | Line equivalent width |  |
+| TUNIT400 | A |  |
+| TCOMM400 | Line equivalent width error |  |
+| TUNIT401 | A |  |
+| TCOMM401 | Line peak wavelength |  |
+| TUNIT402 | A |  |
+| TCOMM402 | Line peak wavelength error |  |
+| TUNIT403 | 1e-17 erg/s/cm^2 |  |
+| TCOMM403 | Line flux |  |
+| TUNIT404 | 1e-17 erg/s/cm^2 |  |
+| TCOMM404 | Line flux error |  |
+| TCOMM405 | Line luminosity (log, erg/s) |  |
+| TCOMM406 | Line luminosity error (log, erg/s) |  |
+| TUNIT407 | km/s |  |
+| TCOMM407 | Line full width at half maximum |  |
+| TUNIT408 | km/s |  |
+| TCOMM408 | Line full width at half maximum error |  |
+| TUNIT409 | A |  |
+| TCOMM409 | Line equivalent width |  |
+| TUNIT410 | A |  |
+| TCOMM410 | Line equivalent width error |  |
+| TUNIT411 | A |  |
+| TCOMM411 | Line peak wavelength |  |
+| TUNIT412 | A |  |
+| TCOMM412 | Line peak wavelength error |  |
+| TUNIT413 | 1e-17 erg/s/cm^2 |  |
+| TCOMM413 | Line flux |  |
+| TUNIT414 | 1e-17 erg/s/cm^2 |  |
+| TCOMM414 | Line flux error |  |
+| TCOMM415 | Line luminosity (log, erg/s) |  |
+| TCOMM416 | Line luminosity error (log, erg/s) |  |
+| TUNIT417 | km/s |  |
+| TCOMM417 | Line full width at half maximum |  |
+| TUNIT418 | km/s |  |
+| TCOMM418 | Line full width at half maximum error |  |
+| TUNIT419 | A |  |
+| TCOMM419 | Line equivalent width |  |
+| TUNIT420 | A |  |
+| TCOMM420 | Line equivalent width error |  |
+| TUNIT421 | A |  |
+| TCOMM421 | Line peak wavelength |  |
+| TUNIT422 | A |  |
+| TCOMM422 | Line peak wavelength error |  |
+| TUNIT423 | 1e-17 erg/s/cm^2 |  |
+| TCOMM423 | Line flux |  |
+| TUNIT424 | 1e-17 erg/s/cm^2 |  |
+| TCOMM424 | Line flux error |  |
+| TCOMM425 | Line luminosity (log, erg/s) |  |
+| TCOMM426 | Line luminosity error (log, erg/s) |  |
+| TUNIT427 | km/s |  |
+| TCOMM427 | Line full width at half maximum |  |
+| TUNIT428 | km/s |  |
+| TCOMM428 | Line full width at half maximum error |  |
+| TUNIT429 | A |  |
+| TCOMM429 | Line equivalent width |  |
+| TUNIT430 | A |  |
+| TCOMM430 | Line equivalent width error |  |
+| TUNIT431 | A |  |
+| TCOMM431 | Line peak wavelength |  |
+| TUNIT432 | A |  |
+| TCOMM432 | Line peak wavelength error |  |
+| TUNIT433 | 1e-17 erg/s/cm^2 |  |
+| TCOMM433 | Line flux |  |
+| TUNIT434 | 1e-17 erg/s/cm^2 |  |
+| TCOMM434 | Line flux error |  |
+| TCOMM435 | Line luminosity (log, erg/s) |  |
+| TCOMM436 | Line luminosity error (log, erg/s) |  |
+| TUNIT437 | km/s |  |
+| TCOMM437 | Line full width at half maximum |  |
+| TUNIT438 | km/s |  |
+| TCOMM438 | Line full width at half maximum error |  |
+| TUNIT439 | A |  |
+| TCOMM439 | Line equivalent width |  |
+| TUNIT440 | A |  |
+| TCOMM440 | Line equivalent width error |  |
+| TUNIT441 | A |  |
+| TCOMM441 | Line peak wavelength |  |
+| TUNIT442 | A |  |
+| TCOMM442 | Line peak wavelength error |  |
+| TUNIT443 | 1e-17 erg/s/cm^2 |  |
+| TCOMM443 | Line flux |  |
+| TUNIT444 | 1e-17 erg/s/cm^2 |  |
+| TCOMM444 | Line flux error |  |
+| TCOMM445 | Line luminosity (log, erg/s) |  |
+| TCOMM446 | Line luminosity error (log, erg/s) |  |
+| TUNIT447 | km/s |  |
+| TCOMM447 | Line full width at half maximum |  |
+| TUNIT448 | km/s |  |
+| TCOMM448 | Line full width at half maximum error |  |
+| TUNIT449 | A |  |
+| TCOMM449 | Line equivalent width |  |
+| TUNIT450 | A |  |
+| TCOMM450 | Line equivalent width error |  |
+| TUNIT451 | A |  |
+| TCOMM451 | Line peak wavelength |  |
+| TUNIT452 | A |  |
+| TCOMM452 | Line peak wavelength error |  |
+| TUNIT453 | 1e-17 erg/s/cm^2 |  |
+| TCOMM453 | Line flux |  |
+| TUNIT454 | 1e-17 erg/s/cm^2 |  |
+| TCOMM454 | Line flux error |  |
+| TCOMM455 | Line luminosity (log, erg/s) |  |
+| TCOMM456 | Line luminosity error (log, erg/s) |  |
+| TUNIT457 | km/s |  |
+| TCOMM457 | Line full width at half maximum |  |
+| TUNIT458 | km/s |  |
+| TCOMM458 | Line full width at half maximum error |  |
+| TUNIT459 | A |  |
+| TCOMM459 | Line equivalent width |  |
+| TUNIT460 | A |  |
+| TCOMM460 | Line equivalent width error |  |
+| TUNIT461 | A |  |
+| TCOMM461 | Line peak wavelength |  |
+| TUNIT462 | A |  |
+| TCOMM462 | Line peak wavelength error |  |
+| TUNIT463 | 1e-17 erg/s/cm^2 |  |
+| TCOMM463 | Line flux |  |
+| TUNIT464 | 1e-17 erg/s/cm^2 |  |
+| TCOMM464 | Line flux error |  |
+| TCOMM465 | Line luminosity (log, erg/s) |  |
+| TCOMM466 | Line luminosity error (log, erg/s) |  |
+| TUNIT467 | km/s |  |
+| TCOMM467 | Line full width at half maximum |  |
+| TUNIT468 | km/s |  |
+| TCOMM468 | Line full width at half maximum error |  |
+| TUNIT469 | A |  |
+| TCOMM469 | Line equivalent width |  |
+| TUNIT470 | A |  |
+| TCOMM470 | Line equivalent width error |  |
+| TUNIT471 | A |  |
+| TCOMM471 | Line peak wavelength |  |
+| TUNIT472 | A |  |
+| TCOMM472 | Line peak wavelength error |  |
+| TUNIT473 | 1e-17 erg/s/cm^2 |  |
+| TCOMM473 | Line flux |  |
+| TUNIT474 | 1e-17 erg/s/cm^2 |  |
+| TCOMM474 | Line flux error |  |
+| TCOMM475 | Line luminosity (log, erg/s) |  |
+| TCOMM476 | Line luminosity error (log, erg/s) |  |
+| TUNIT477 | km/s |  |
+| TCOMM477 | Line full width at half maximum |  |
+| TUNIT478 | km/s |  |
+| TCOMM478 | Line full width at half maximum error |  |
+| TUNIT479 | A |  |
+| TCOMM479 | Line equivalent width |  |
+| TUNIT480 | A |  |
+| TCOMM480 | Line equivalent width error |  |
+| TUNIT481 | A |  |
+| TCOMM481 | Line peak wavelength |  |
+| TUNIT482 | A |  |
+| TCOMM482 | Line peak wavelength error |  |
+| TUNIT483 | 1e-17 erg/s/cm^2 |  |
+| TCOMM483 | Line flux |  |
+| TUNIT484 | 1e-17 erg/s/cm^2 |  |
+| TCOMM484 | Line flux error |  |
+| TCOMM485 | Line luminosity (log, erg/s) |  |
+| TCOMM486 | Line luminosity error (log, erg/s) |  |
+| TUNIT487 | km/s |  |
+| TCOMM487 | Line full width at half maximum |  |
+| TUNIT488 | km/s |  |
+| TCOMM488 | Line full width at half maximum error |  |
+| TUNIT489 | A |  |
+| TCOMM489 | Line equivalent width |  |
+| TUNIT490 | A |  |
+| TCOMM490 | Line equivalent width error |  |
+| TUNIT491 | A |  |
+| TCOMM491 | Line peak wavelength |  |
+| TUNIT492 | A |  |
+| TCOMM492 | Line peak wavelength error |  |
+| TUNIT493 | 1e-17 erg/s/cm^2 |  |
+| TCOMM493 | Line flux |  |
+| TUNIT494 | 1e-17 erg/s/cm^2 |  |
+| TCOMM494 | Line flux error |  |
+| TCOMM495 | Line luminosity (log, erg/s) |  |
+| TCOMM496 | Line luminosity error (log, erg/s) |  |
+| TUNIT497 | km/s |  |
+| TCOMM497 | Line full width at half maximum |  |
+| TUNIT498 | km/s |  |
+| TCOMM498 | Line full width at half maximum error |  |
+| TUNIT499 | A |  |
+| TCOMM499 | Line equivalent width |  |
+| TUNIT500 | A |  |
+| TCOMM500 | Line equivalent width error |  |
+| TUNIT501 | A |  |
+| TCOMM501 | Line peak wavelength |  |
+| TUNIT502 | A |  |
+| TCOMM502 | Line peak wavelength error |  |
+| TUNIT503 | 1e-17 erg/s/cm^2 |  |
+| TCOMM503 | Line flux |  |
+| TUNIT504 | 1e-17 erg/s/cm^2 |  |
+| TCOMM504 | Line flux error |  |
+| TCOMM505 | Line luminosity (log, erg/s) |  |
+| TCOMM506 | Line luminosity error (log, erg/s) |  |
+| TUNIT507 | km/s |  |
+| TCOMM507 | Line full width at half maximum |  |
+| TUNIT508 | km/s |  |
+| TCOMM508 | Line full width at half maximum error |  |
+| TUNIT509 | A |  |
+| TCOMM509 | Line equivalent width |  |
+| TUNIT510 | A |  |
+| TCOMM510 | Line equivalent width error |  |
+| TUNIT511 | A |  |
+| TCOMM511 | Line peak wavelength |  |
+| TUNIT512 | A |  |
+| TCOMM512 | Line peak wavelength error |  |
+| TUNIT513 | 1e-17 erg/s/cm^2 |  |
+| TCOMM513 | Line flux |  |
+| TUNIT514 | 1e-17 erg/s/cm^2 |  |
+| TCOMM514 | Line flux error |  |
+| TCOMM515 | Line luminosity (log, erg/s) |  |
+| TCOMM516 | Line luminosity error (log, erg/s) |  |
+| TUNIT517 | km/s |  |
+| TCOMM517 | Line full width at half maximum |  |
+| TUNIT518 | km/s |  |
+| TCOMM518 | Line full width at half maximum error |  |
+| TUNIT519 | A |  |
+| TCOMM519 | Line equivalent width |  |
+| TUNIT520 | A |  |
+| TCOMM520 | Line equivalent width error |  |
+| TUNIT521 | A |  |
+| TCOMM521 | Line peak wavelength |  |
+| TUNIT522 | A |  |
+| TCOMM522 | Line peak wavelength error |  |
+| TUNIT523 | 1e-17 erg/s/cm^2 |  |
+| TCOMM523 | Line flux |  |
+| TUNIT524 | 1e-17 erg/s/cm^2 |  |
+| TCOMM524 | Line flux error |  |
+| TCOMM525 | Line luminosity (log, erg/s) |  |
+| TCOMM526 | Line luminosity error (log, erg/s) |  |
+| TUNIT527 | km/s |  |
+| TCOMM527 | Line full width at half maximum |  |
+| TUNIT528 | km/s |  |
+| TCOMM528 | Line full width at half maximum error |  |
+| TUNIT529 | A |  |
+| TCOMM529 | Line equivalent width |  |
+| TUNIT530 | A |  |
+| TCOMM530 | Line equivalent width error |  |
+| TUNIT531 | A |  |
+| TCOMM531 | Line peak wavelength |  |
+| TUNIT532 | A |  |
+| TCOMM532 | Line peak wavelength error |  |
+| TUNIT533 | 1e-17 erg/s/cm^2 |  |
+| TCOMM533 | Line flux |  |
+| TUNIT534 | 1e-17 erg/s/cm^2 |  |
+| TCOMM534 | Line flux error |  |
+| TCOMM535 | Line luminosity (log, erg/s) |  |
+| TCOMM536 | Line luminosity error (log, erg/s) |  |
+| TUNIT537 | km/s |  |
+| TCOMM537 | Line full width at half maximum |  |
+| TUNIT538 | km/s |  |
+| TCOMM538 | Line full width at half maximum error |  |
+| TUNIT539 | A |  |
+| TCOMM539 | Line equivalent width |  |
+| TUNIT540 | A |  |
+| TCOMM540 | Line equivalent width error |  |
+| TUNIT541 | A |  |
+| TCOMM541 | Line peak wavelength |  |
+| TUNIT542 | A |  |
+| TCOMM542 | Line peak wavelength error |  |
+| TUNIT543 | 1e-17 erg/s/cm^2 |  |
+| TCOMM543 | Line flux |  |
+| TUNIT544 | 1e-17 erg/s/cm^2 |  |
+| TCOMM544 | Line flux error |  |
+| TCOMM545 | Line luminosity (log, erg/s) |  |
+| TCOMM546 | Line luminosity error (log, erg/s) |  |
+| TUNIT547 | km/s |  |
+| TCOMM547 | Line full width at half maximum |  |
+| TUNIT548 | km/s |  |
+| TCOMM548 | Line full width at half maximum error |  |
+| TUNIT549 | A |  |
+| TCOMM549 | Line equivalent width |  |
+| TUNIT550 | A |  |
+| TCOMM550 | Line equivalent width error |  |
+| TUNIT551 | A |  |
+| TCOMM551 | Line peak wavelength |  |
+| TUNIT552 | A |  |
+| TCOMM552 | Line peak wavelength error |  |
+| TUNIT553 | 1e-17 erg/s/cm^2 |  |
+| TCOMM553 | Line flux |  |
+| TUNIT554 | 1e-17 erg/s/cm^2 |  |
+| TCOMM554 | Line flux error |  |
+| TCOMM555 | Line luminosity (log, erg/s) |  |
+| TCOMM556 | Line luminosity error (log, erg/s) |  |
+| TUNIT557 | km/s |  |
+| TCOMM557 | Line full width at half maximum |  |
+| TUNIT558 | km/s |  |
+| TCOMM558 | Line full width at half maximum error |  |
+| TUNIT559 | A |  |
+| TCOMM559 | Line equivalent width |  |
+| TUNIT560 | A |  |
+| TCOMM560 | Line equivalent width error |  |
+| TUNIT561 | A |  |
+| TCOMM561 | Line peak wavelength |  |
+| TUNIT562 | A |  |
+| TCOMM562 | Line peak wavelength error |  |
+| TUNIT563 | 1e-17 erg/s/cm^2 |  |
+| TCOMM563 | Line flux |  |
+| TUNIT564 | 1e-17 erg/s/cm^2 |  |
+| TCOMM564 | Line flux error |  |
+| TCOMM565 | Line luminosity (log, erg/s) |  |
+| TCOMM566 | Line luminosity error (log, erg/s) |  |
+| TUNIT567 | km/s |  |
+| TCOMM567 | Line full width at half maximum |  |
+| TUNIT568 | km/s |  |
+| TCOMM568 | Line full width at half maximum error |  |
+| TUNIT569 | A |  |
+| TCOMM569 | Line equivalent width |  |
+| TUNIT570 | A |  |
+| TCOMM570 | Line equivalent width error |  |
+| TUNIT571 | A |  |
+| TCOMM571 | Line peak wavelength |  |
+| TUNIT572 | A |  |
+| TCOMM572 | Line peak wavelength error |  |
+| TUNIT573 | 1e-17 erg/s/cm^2 |  |
+| TCOMM573 | Line flux |  |
+| TUNIT574 | 1e-17 erg/s/cm^2 |  |
+| TCOMM574 | Line flux error |  |
+| TCOMM575 | Line luminosity (log, erg/s) |  |
+| TCOMM576 | Line luminosity error (log, erg/s) |  |
+| TUNIT577 | km/s |  |
+| TCOMM577 | Line full width at half maximum |  |
+| TUNIT578 | km/s |  |
+| TCOMM578 | Line full width at half maximum error |  |
+| TUNIT579 | A |  |
+| TCOMM579 | Line equivalent width |  |
+| TUNIT580 | A |  |
+| TCOMM580 | Line equivalent width error |  |
+| TUNIT581 | A |  |
+| TCOMM581 | Line peak wavelength |  |
+| TUNIT582 | A |  |
+| TCOMM582 | Line peak wavelength error |  |
+| TUNIT583 | 1e-17 erg/s/cm^2 |  |
+| TCOMM583 | Line flux |  |
+| TUNIT584 | 1e-17 erg/s/cm^2 |  |
+| TCOMM584 | Line flux error |  |
+| TCOMM585 | Line luminosity (log, erg/s) |  |
+| TCOMM586 | Line luminosity error (log, erg/s) |  |
+| TUNIT587 | km/s |  |
+| TCOMM587 | Line full width at half maximum |  |
+| TUNIT588 | km/s |  |
+| TCOMM588 | Line full width at half maximum error |  |
+| TUNIT589 | A |  |
+| TCOMM589 | Line equivalent width |  |
+| TUNIT590 | A |  |
+| TCOMM590 | Line equivalent width error |  |
+| TUNIT591 | A |  |
+| TCOMM591 | Line peak wavelength |  |
+| TUNIT592 | A |  |
+| TCOMM592 | Line peak wavelength error |  |
+| TUNIT593 | 1e-17 erg/s/cm^2 |  |
+| TCOMM593 | Line flux |  |
+| TUNIT594 | 1e-17 erg/s/cm^2 |  |
+| TCOMM594 | Line flux error |  |
+| TCOMM595 | Line luminosity (log, erg/s) |  |
+| TCOMM596 | Line luminosity error (log, erg/s) |  |
+| TUNIT597 | km/s |  |
+| TCOMM597 | Line full width at half maximum |  |
+| TUNIT598 | km/s |  |
+| TCOMM598 | Line full width at half maximum error |  |
+| TUNIT599 | A |  |
+| TCOMM599 | Line equivalent width |  |
+| TUNIT600 | A |  |
+| TCOMM600 | Line equivalent width error |  |
+| TUNIT601 | A |  |
+| TCOMM601 | Line peak wavelength |  |
+| TUNIT602 | A |  |
+| TCOMM602 | Line peak wavelength error |  |
+| TUNIT603 | 1e-17 erg/s/cm^2 |  |
+| TCOMM603 | Line flux |  |
+| TUNIT604 | 1e-17 erg/s/cm^2 |  |
+| TCOMM604 | Line flux error |  |
+| TCOMM605 | Line luminosity (log, erg/s) |  |
+| TCOMM606 | Line luminosity error (log, erg/s) |  |
+| TUNIT607 | km/s |  |
+| TCOMM607 | Line full width at half maximum |  |
+| TUNIT608 | km/s |  |
+| TCOMM608 | Line full width at half maximum error |  |
+| TUNIT609 | A |  |
+| TCOMM609 | Line equivalent width |  |
+| TUNIT610 | A |  |
+| TCOMM610 | Line equivalent width error |  |
+| TUNIT611 | A |  |
+| TCOMM611 | Line peak wavelength |  |
+| TUNIT612 | A |  |
+| TCOMM612 | Line peak wavelength error |  |
+| TUNIT613 | 1e-17 erg/s/cm^2 |  |
+| TCOMM613 | Line flux |  |
+| TUNIT614 | 1e-17 erg/s/cm^2 |  |
+| TCOMM614 | Line flux error |  |
+| TCOMM615 | Line luminosity (log, erg/s) |  |
+| TCOMM616 | Line luminosity error (log, erg/s) |  |
+| TUNIT617 | km/s |  |
+| TCOMM617 | Line full width at half maximum |  |
+| TUNIT618 | km/s |  |
+| TCOMM618 | Line full width at half maximum error |  |
+| TUNIT619 | A |  |
+| TCOMM619 | Line equivalent width |  |
+| TUNIT620 | A |  |
+| TCOMM620 | Line equivalent width error |  |
+| TUNIT621 | A |  |
+| TCOMM621 | Line peak wavelength |  |
+| TUNIT622 | A |  |
+| TCOMM622 | Line peak wavelength error |  |
+| TUNIT623 | 1e-17 erg/s/cm^2 |  |
+| TCOMM623 | Line flux |  |
+| TUNIT624 | 1e-17 erg/s/cm^2 |  |
+| TCOMM624 | Line flux error |  |
+| TCOMM625 | Line luminosity (log, erg/s) |  |
+| TCOMM626 | Line luminosity error (log, erg/s) |  |
+| TUNIT627 | km/s |  |
+| TCOMM627 | Line full width at half maximum |  |
+| TUNIT628 | km/s |  |
+| TCOMM628 | Line full width at half maximum error |  |
+| TUNIT629 | A |  |
+| TCOMM629 | Line equivalent width |  |
+| TUNIT630 | A |  |
+| TCOMM630 | Line equivalent width error |  |
+| TCOMM631 | True: host-galaxy emission subtracted; False: quasar-dominated |  |
+| TCOMM632 | Primary key index to associate the HDUs |  |
 
 ##### Binary Table Caption for HDU1
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | ObjID | char[23] |  | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |
  | ERO_Name | char[22] |  | eROSITA official source name (Brunner+2022) |
- | ERO_ID_HARD | int32 |  | ID of Hard sample eROSITA source (Brunner+2022) |
- | ERO_ID_MAIN | int32 |  | ID of Main sample eROSITA source (Brunner+2022) |
- | SPECZ_REDSHIFT | float32 |  | Spectroscopic redshift from visual inspection (Aydar+2025) |
  | SAMPLE | char[4] |  | Main or Hard sample from eROSITA (Brunner+2022) |
- | RA | float64 | deg | SDSS right ascension (J2000) |
- | DEC | float64 | deg | SDSS declination (J2000) |
+ | ERO_ID_MAIN | int32 |  | ID of Main sample eROSITA source (Brunner+2022) |
+ | ERO_ID_HARD | int32 |  | ID of Hard sample eROSITA source (Brunner+2022) |
+ | SPECZ_REDSHIFT | float32 |  | Spectroscopic redshift from visual inspection (Aydar+2025) |
+ | RA_SDSS | float64 | deg | SDSS right ascension (J2000) |
+ | DEC_SDSS | float64 | deg | SDSS declination (J2000) |
+ | MJD | int32 |  | SDSS modified Julian date of observation |
  | SN_MEDIAN_ALL | float64 |  | SDSS Median S/N per pix in spectrum (idlspec2d v6_0_2 reductions) |
  | SII6732_Peak_wavelength | float64 | A | Line peak wavelength |
  | SII6732_Peak_wavelength_error | float64 | A | Line peak wavelength error |
@@ -1860,10 +1861,11 @@ Name | Type | Unit | Description |
  | OIV1035_EW | float64 | A | Line equivalent width |
  | OIV1035_EW_error | float64 | A | Line equivalent width error |
  | HG_subtraction | bool |  | True: host-galaxy emission subtracted; False: quasar-dominated |
+ | PK_index | int32 |  | Primary key index to associate the HDUs |
 
 
 
-### HDU2: PPXF_HOST_DECOMPOSITION_RESULTS
+### HDU2: pPXF_host_decomposition_results
 Stellar population and host-galaxy properties
 
 #### HDU Type: BINARY TABLE
@@ -1873,70 +1875,70 @@ Stellar population and host-galaxy properties
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | BINTABLE | binary table extension |
-| BITPIX | 8 | 8-bit bytes |
-| NAXIS | 2 | 2-dimensional table |
-| NAXIS1 | 459 | width of table in bytes |
-| NAXIS2 | 13143 | number of rows in table |
-| PCOUNT | 0 | size of special data area |
-| GCOUNT | 1 | one data group |
-| TFIELDS | 59 | number of columns |
-| EXTNAME | PPXF_HOST_DECOMPOSITION_RESULTS | table name |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 463 | length of dimension 1 |
+| NAXIS2 | 13143 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 60 | number of table fields |
+| EXTNAME | pPXF_host_decomposition_results |  |
 | TCOMM1 | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |  |
 | TCOMM2 | eROSITA official source name (Brunner+2022) |  |
-| TNULL3 | -2147483648 | blank value for column 3 |
-| TCOMM3 | ID of Hard sample eROSITA source (Brunner+2022) |  |
-| TNULL4 | -2147483648 | blank value for column 4 |
+| TCOMM3 | Main or Hard sample from eROSITA (Brunner+2022) |  |
 | TCOMM4 | ID of Main sample eROSITA source (Brunner+2022) |  |
-| TCOMM5 | Spectroscopic redshift from visual inspection (Aydar+2025) |  |
-| TCOMM6 | Main or Hard sample from eROSITA (Brunner+2022) |  |
-| TCOMM7 | True: host-galaxy emission subtracted; False: quasar-dominated |  |
-| TCOMM8 | Reduced chi2 from pPXF fit |  |
-| TCOMM9 | AGN continuum (PL+Fe II+Balmer) weight to continuum fit |  |
-| TCOMM10 | Host galaxy continuum (SSP) weight to continuum fit |  |
-| TUNIT11 | Msun | units for column 11 |
-| TCOMM11 | Stellar mass within aperture from the spectral flux in DECam r |  |
-| TCOMM12 | Aperture correction factor (Aydar+2026a) |  |
-| TUNIT13 | Msun | units for column 13 |
-| TCOMM13 | Aperture corrected stellar mass from the spectral flux in DECam r |  |
-| TUNIT14 | Msun | units for column 14 |
-| TCOMM14 | Stellar mass within aperture from the spectral flux in DECam g |  |
-| TUNIT15 | km/s | units for column 15 |
-| TCOMM15 | Stellar velocity dispersion (second term of kinematic fit) |  |
-| TUNIT16 | km/s | units for column 16 |
-| TCOMM16 | Stellar velocity dispersion error |  |
-| TUNIT17 | km/s | units for column 17 |
-| TCOMM17 | Stellar velocity (first term of kinematic fit) |  |
-| TUNIT18 | km/s | units for column 18 |
-| TCOMM18 | Stellar velocity error |  |
-| TCOMM19 | Final normalised classification (Aydar+2025) |  |
-| TNULL20 | -2147483648 | blank value for column 20 |
-| TCOMM20 | SDSS PLATE |  |
-| TNULL21 | -2147483648 | blank value for column 21 |
-| TCOMM21 | SDSS modified Julian date of observation |  |
-| TNULL22 | -2147483648 | blank value for column 22 |
-| TCOMM22 | SDSS FIBER ID |  |
-| TNULL23 | -9223372036854775808 | blank value for column 23 |
-| TCOMM23 | SDSS CATALOGID |  |
-| TCOMM24 | Tagged version of idlspec2d used to reduce the SDSS BOSS spectra |  |
-| TCOMM25 | SDSS Median S/N per pix in spectrum (idlspec2d v6_0_2 reductions) |  |
-| TUNIT26 | deg | units for column 26 |
-| TCOMM26 | SDSS right ascension (J2000) |  |
-| TUNIT27 | deg | units for column 27 |
-| TCOMM27 | SDSS declination (J2000) |  |
+| TNULL4 | -1 |  |
+| TCOMM5 | ID of Hard sample eROSITA source (Brunner+2022) |  |
+| TNULL5 | -1 |  |
+| TCOMM6 | Spectroscopic redshift from visual inspection (Aydar+2025) |  |
+| TUNIT7 | deg |  |
+| TCOMM7 | SDSS right ascension (J2000) |  |
+| TUNIT8 | deg |  |
+| TCOMM8 | SDSS declination (J2000) |  |
+| TCOMM9 | SDSS modified Julian date of observation |  |
+| TNULL9 | -2147483648 |  |
+| TCOMM10 | True: host-galaxy emission subtracted; False: quasar-dominated |  |
+| TCOMM11 | Reduced chi2 from pPXF fit |  |
+| TCOMM12 | AGN continuum (PL+Fe II+Balmer) weight to continuum fit |  |
+| TCOMM13 | Host galaxy continuum (SSP) weight to continuum fit |  |
+| TUNIT14 | Msun |  |
+| TCOMM14 | Stellar mass within aperture from the spectral flux in DECam r |  |
+| TCOMM15 | Aperture correction factor (Aydar+2026a) |  |
+| TUNIT16 | Msun |  |
+| TCOMM16 | Aperture corrected stellar mass from the spectral flux in DECam r |  |
+| TUNIT17 | Msun |  |
+| TCOMM17 | Stellar mass within aperture from the spectral flux in DECam g |  |
+| TUNIT18 | km/s |  |
+| TCOMM18 | Stellar velocity dispersion (second term of kinematic fit) |  |
+| TUNIT19 | km/s |  |
+| TCOMM19 | Stellar velocity dispersion error |  |
+| TUNIT20 | km/s |  |
+| TCOMM20 | Stellar velocity (first term of kinematic fit) |  |
+| TUNIT21 | km/s |  |
+| TCOMM21 | Stellar velocity error |  |
+| TCOMM22 | Final normalised classification (Aydar+2025) |  |
+| TCOMM23 | SDSS PLATE |  |
+| TNULL23 | -2147483648 |  |
+| TCOMM24 | SDSS FIBER ID |  |
+| TNULL24 | -2147483648 |  |
+| TCOMM25 | SDSS CATALOGID |  |
+| TNULL25 | -9223372036854775808 |  |
+| TCOMM26 | Tagged version of idlspec2d used to reduce the SDSS BOSS spectra |  |
+| TCOMM27 | SDSS Median S/N per pix in spectrum (idlspec2d v6_0_2 reductions) |  |
 | TCOMM28 | Morphological model from LS8 |  |
-| TUNIT29 | mag | units for column 29 |
+| TUNIT29 | mag |  |
 | TCOMM29 | LS8 g-band magnitude (AB) |  |
-| TUNIT30 | mag | units for column 30 |
+| TUNIT30 | mag |  |
 | TCOMM30 | LS8 r-band magnitude (AB) |  |
-| TUNIT31 | erg/s/cm2 | units for column 31 |
+| TUNIT31 | erg/s/cm2 |  |
 | TCOMM31 | Spectral flux integrated in the DECam r band coverage |  |
 | TCOMM32 | D4000 break measurement from observed spectrum |  |
 | TCOMM33 | D4000 break measurement from observed spectrum error |  |
 | TCOMM34 | Mean light-weighted age from SSP fits (log, yr) |  |
-| TUNIT35 | Zsun | units for column 35 |
+| TUNIT35 | Zsun |  |
 | TCOMM35 | Mean light-weighted metallicity from SSP fits |  |
 | TCOMM36 | Mean mass-weighted age from SSP fits (log, yr) |  |
-| TUNIT37 | Zsun | units for column 37 |
+| TUNIT37 | Zsun |  |
 | TCOMM37 | Mean mass-weighted metallicity from SSP fits |  |
 | TCOMM38 | Mass to light ratio from the spectral flux in DECam r |  |
 | TCOMM39 | SSP luminosity from the spectral flux in DECam r (log, erg/s) |  |
@@ -1952,30 +1954,31 @@ Key | Value | Comment | |
 | TCOMM49 | Power-law templates weight to total fit |  |
 | TCOMM50 | Balmer continuum and high-order templates weight to total fit |  |
 | TCOMM51 | Age of SSP with highest weight (log, yr) |  |
-| TUNIT52 | Zsun | units for column 52 |
+| TUNIT52 | Zsun |  |
 | TCOMM52 | Metallicity of SSP with highest weight |  |
 | TCOMM53 | Weight of SSP with highest weight |  |
 | TCOMM54 | Age of SSP with second highest weight (log, yr) |  |
-| TUNIT55 | Zsun | units for column 55 |
+| TUNIT55 | Zsun |  |
 | TCOMM55 | Metallicity of SSP with second highest weight |  |
 | TCOMM56 | Weight of SSP with second highest weight |  |
 | TCOMM57 | Age of SSP with third highest weight (log, yr) |  |
-| TUNIT58 | Zsun | units for column 58 |
+| TUNIT58 | Zsun |  |
 | TCOMM58 | Metallicity of SSP with third highest weight |  |
 | TCOMM59 | Weight of SSP with third highest weight |  |
-| DATE-HDU | 2026-06-11T09:50:04 | Date of HDU creation (UTC) |
-| STILVERS | 4.3-5 | Version of STIL software |
-| STILCLAS | uk.ac.starlink.votable.UnifiedFitsTableWriter | STIL Author class |
+| TCOMM60 | Primary key index to associate the HDUs |  |
 
 ##### Binary Table Caption for HDU2
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | ObjID | char[23] |  | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |
  | ERO_Name | char[22] |  | eROSITA official source name (Brunner+2022) |
- | ERO_ID_HARD | int32 |  | ID of Hard sample eROSITA source (Brunner+2022) |
- | ERO_ID_MAIN | int32 |  | ID of Main sample eROSITA source (Brunner+2022) |
- | SPECZ_REDSHIFT | float32 |  | Spectroscopic redshift from visual inspection (Aydar+2025) |
  | SAMPLE | char[4] |  | Main or Hard sample from eROSITA (Brunner+2022) |
+ | ERO_ID_MAIN | int32 |  | ID of Main sample eROSITA source (Brunner+2022) |
+ | ERO_ID_HARD | int32 |  | ID of Hard sample eROSITA source (Brunner+2022) |
+ | SPECZ_REDSHIFT | float32 |  | Spectroscopic redshift from visual inspection (Aydar+2025) |
+ | RA_SDSS | float64 | deg | SDSS right ascension (J2000) |
+ | DEC_SDSS | float64 | deg | SDSS declination (J2000) |
+ | MJD | int32 |  | SDSS modified Julian date of observation |
  | HG_subtraction | bool |  | True: host-galaxy emission subtracted; False: quasar-dominated |
  | Reduced_Chi2 | float64 |  | Reduced chi2 from pPXF fit |
  | f_AGN | float64 |  | AGN continuum (PL+Fe II+Balmer) weight to continuum fit |
@@ -1990,13 +1993,10 @@ Name | Type | Unit | Description |
  | velocity_stars_error | float64 | km/s | Stellar velocity error |
  | SPECZ_NORMC_specz | char[6] |  | Final normalised classification (Aydar+2025) |
  | PLATE | int32 |  | SDSS PLATE |
- | MJD | int32 |  | SDSS modified Julian date of observation |
  | FIBERID | int32 |  | SDSS FIBER ID |
  | CATALOGID | int64 |  | SDSS CATALOGID |
  | RUN2D | char[7] |  | Tagged version of idlspec2d used to reduce the SDSS BOSS spectra |
  | SN_MEDIAN_ALL | float64 |  | SDSS Median S/N per pix in spectrum (idlspec2d v6_0_2 reductions) |
- | RA | float64 | deg | SDSS right ascension (J2000) |
- | DEC | float64 | deg | SDSS declination (J2000) |
  | CTP_LS8_TYPE | char[4] |  | Morphological model from LS8 |
  | LS8_g | float64 | mag | LS8 g-band magnitude (AB) |
  | LS8_r | float64 | mag | LS8 r-band magnitude (AB) |
@@ -2029,361 +2029,43 @@ Name | Type | Unit | Description |
  | log_Age_yr_3 | float64 |  | Age of SSP with third highest weight (log, yr) |
  | Metallicity_Zsun_3 | float64 | Zsun | Metallicity of SSP with third highest weight |
  | Weight_3 | float64 |  | Weight of SSP with third highest weight |
+ | PK_index | int32 |  | Primary key index to associate the HDUs |
 
 
 
-### HDU3: CLASSIFICATION_AND_DERIVED_PROPERTIES
-AGN classification, emission line detection flags, and derived physical properties
-
-#### HDU Type: BINARY TABLE
-#### HDU Size:  7 MB
-
-##### Header Table Caption for HDU3
-Key | Value | Comment | |
-| --- | --- | --- | --- |
-| XTENSION | BINTABLE | binary table extension |
-| BITPIX | 8 | 8-bit bytes |
-| NAXIS | 2 | 2-dimensional table |
-| NAXIS1 | 613 | width of table in bytes |
-| NAXIS2 | 13143 | number of rows in table |
-| PCOUNT | 0 | size of special data area |
-| GCOUNT | 1 | one data group |
-| TFIELDS | 141 | number of columns |
-| EXTNAME | CLASSIFICATION_AND_DERIVED_PROPERTIES | table name |
-| TCOMM1 | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |  |
-| TCOMM2 | eROSITA official source Name (Brunner+2022) |  |
-| TNULL3 | -2147483648 | blank value for column 3 |
-| TCOMM3 | ID of Hard sample eROSITA source (Brunner+2022) |  |
-| TNULL4 | -2147483648 | blank value for column 4 |
-| TCOMM4 | ID of Main sample eROSITA source (Brunner+2022) |  |
-| TCOMM5 | Main or Hard sample from eROSITA (Brunner+2022) |  |
-| TUNIT6 | deg | units for column 6 |
-| TCOMM6 | SDSS right ascension (J2000) |  |
-| TUNIT7 | deg | units for column 7 |
-| TCOMM7 | SDSS declination (J2000) |  |
-| TCOMM8 | True: host-galaxy emission subtracted; False: quasar-dominated |  |
-| TCOMM9 | Spectroscopic redshift from visual inspection (Aydar+2025) |  |
-| TCOMM10 | SDSS Median S/N per pix in spectrum (idlspec2d v6_0_2 reductions) |  |
-| TCOMM11 | Classification onto Broad, Narrow or No (emission) lines |  |
-| TCOMM12 | AGN continuum (PL+Fe II+Balmer) weight to continuum fit |  |
-| TCOMM13 | Types 1-2; c for candidates; SF from BPT or WHAN |  |
-| TCOMM14 | Narrow Line Seyfert 1; for Type 1.9, if Mg II or Ha are broad |  |
-| TCOMM15 | Obscuration according to nH=21.5; c for candidates |  |
-| TCOMM16 | Candidates of having an outflow in [O III], red- or blueshifted |  |
-| TCOMM17 | Candidates of having a coronal line ([Ne V], [Fe VII], or [Fe X]) |  |
-| TCOMM18 | Ratio between UV and X-ray luminosities, Tananbaum+1979 |  |
-| TCOMM19 | Ratio between UV and X-ray luminosities error, Tananbaum+1979 |  |
-| TCOMM20 | Black hole mass (log, Msun): Hb or Ha z<0.7; Mg II 0.7<z<2; C IV z>2 |  |
-| TCOMM21 | Black hole mass error (log, Msun): line as LogBHmass |  |
-| TCOMM22 | Bolometric luminosity (log, erg/s): 5100 z<0.7; 3000 0.7<z<2; 1350 z |  |
-| TCOMM23 | Bolometric luminosity error (log, erg/s): luminosities as LogLbol |  |
-| TCOMM24 | Eddington ratio: Hb,Ha,5100 z<0.7; MgII,3000 0.7<z<2; CIV,1350 z>2 |  |
-| TCOMM25 | Eddington ratio error: lines and luminosities as LogEdd_ratio |  |
-| TCOMM26 | Continuum luminosity at 2500 A (log, erg/s) |  |
-| TCOMM27 | Uncertainty of the continuum luminosity at 2500 A (log, erg/s) |  |
-| TCOMM28 | Balmer decrement from the total lines (Ha/Hb) |  |
-| TCOMM29 | Balmer decrement from the total lines error |  |
-| TCOMM30 | Balmer decrement from the narrow lines (Ha_na/Hb_na) |  |
-| TCOMM31 | Balmer decrement from the narrow lines error |  |
-| TCOMM32 | Balmer decrement from the broad lines (Ha_br/Hb_br) |  |
-| TCOMM33 | Balmer decrement from the broad lines error |  |
-| TUNIT34 | K | units for column 34 |
-| TCOMM34 | Electron temperature from [O III], Dors+2020 |  |
-| TUNIT35 | K | units for column 35 |
-| TCOMM35 | Electron temperature from [O II], Dors+2020 |  |
-| TUNIT36 | cm-3 | units for column 36 |
-| TCOMM36 | Electron density from [S II], Dors+2020 |  |
-| TCOMM37 | 12+log(O/H) from the direct method, Dors+2020 |  |
-| TUNIT38 | Zsun | units for column 38 |
-| TCOMM38 | Z in solar metallicity from [N II]/Ha, Carvalho+2020 |  |
-| TCOMM39 | Ionization parameter, Morisset+2016 |  |
-| TUNIT40 | kpc | units for column 40 |
-| TCOMM40 | Physical size within the fiber |  |
-| TCOMM41 | Black hole mass estimated from Ha, Shen+2011 (log, Msun) |  |
-| TCOMM42 | Black hole mass error estimated from Ha, Shen+2011 (log, Msun) |  |
-| TCOMM43 | Black hole mass estimated from Hb, Shen+2011 (log, Msun) |  |
-| TCOMM44 | Black hole mass error estimated from Hb, Shen+2011 (log, Msun) |  |
-| TCOMM45 | Black hole mass estimated from Mg II, Shen+2011 (log, Msun) |  |
-| TCOMM46 | Black hole mass error estimated from Mg II, Shen+2011 (log, Msun) |  |
-| TCOMM47 | Black hole mass estimated from C IV, Shen+2011 (log, Msun) |  |
-| TCOMM48 | Black hole mass error estimated from C IV, Shen+2011 (log, Msun) |  |
-| TCOMM49 | Bolometric luminosity estimated from 5100A, Runnoe+2012 (log, erg/s) |  |
-| TCOMM50 | Bolometric luminosity error from 5100A, Runnoe+2012 (log, erg/s) |  |
-| TCOMM51 | Bolometric luminosity estimated from 3000A, Runnoe+2012 (log, erg/s) |  |
-| TCOMM52 | Bolometric luminosity error from 3000A, Runnoe+2012 (log, erg/s) |  |
-| TCOMM53 | Bolometric luminosity estimated from 1350A, Runnoe+2012 (log, erg/s) |  |
-| TCOMM54 | Bolometric luminosity error from 1350A, Runnoe+2012 (log, erg/s) |  |
-| TCOMM55 | Bolometric luminosity estimated from Lx, Duras+2020 (log, erg/s) |  |
-| TCOMM56 | Bolometric luminosity error from Lx, Duras+2020 (log, erg/s) |  |
-| TCOMM57 | Eddington ratio estimated from Ha and Lbol_5100 |  |
-| TCOMM58 | Eddington ratio error estimated from Ha and Lbol_5100 |  |
-| TCOMM59 | Eddington ratio estimated from Hb and Lbol_5100 |  |
-| TCOMM60 | Eddington ratio error estimated from Hb and Lbol_5100 |  |
-| TCOMM61 | Eddington ratio estimated from Mg II and Lbol_3000 |  |
-| TCOMM62 | Eddington ratio error estimated from Mg II and Lbol_3000 |  |
-| TCOMM63 | Eddington ratio estimated from C IV and Lbol_1350 |  |
-| TCOMM64 | Eddington ratio error estimated from C IV and Lbol_1350 |  |
-| TCOMM65 | Flag for considering a reliable detection of the line |  |
-| TCOMM66 | Flag for considering a reliable detection of the line |  |
-| TCOMM67 | Flag for considering a reliable detection of the line |  |
-| TCOMM68 | Flag for considering a reliable detection of the line |  |
-| TCOMM69 | Flag for considering a reliable detection of the line |  |
-| TCOMM70 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM71 | Flag for considering a reliable detection of the line |  |
-| TCOMM72 | Flag for considering a reliable detection of the line |  |
-| TCOMM73 | Flag for considering a reliable detection of the line |  |
-| TCOMM74 | Flag for considering a reliable detection of the line |  |
-| TCOMM75 | Flag for considering a reliable detection of the line |  |
-| TCOMM76 | Flag for considering a reliable detection of the line |  |
-| TCOMM77 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM78 | Flag for considering a reliable detection of the line |  |
-| TCOMM79 | Flag for considering a reliable detection of the line |  |
-| TCOMM80 | Flag for considering a reliable detection of the line |  |
-| TCOMM81 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM82 | Flag for considering a reliable detection of the line |  |
-| TCOMM83 | Flag for considering a reliable detection of the line |  |
-| TCOMM84 | Flag for considering a reliable detection of the line |  |
-| TCOMM85 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM86 | Flag for considering a reliable detection of the line |  |
-| TCOMM87 | Flag for considering a reliable detection of the line |  |
-| TCOMM88 | Flag for considering a reliable detection of the line |  |
-| TCOMM89 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM90 | Flag for considering a reliable detection of the line |  |
-| TCOMM91 | Flag for considering a reliable detection of the line |  |
-| TCOMM92 | Flag for considering a reliable detection of the line |  |
-| TCOMM93 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM94 | Flag for considering a reliable detection of the line |  |
-| TCOMM95 | Flag for considering a reliable detection of the line |  |
-| TCOMM96 | Flag for considering a reliable detection of the line |  |
-| TCOMM97 | Flag for considering a reliable detection of the line |  |
-| TCOMM98 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM99 | Flag for considering a reliable detection of the line |  |
-| TCOMM100 | Flag for considering a reliable detection of the line |  |
-| TCOMM101 | Flag for considering a reliable detection of the line |  |
-| TCOMM102 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM103 | Flag for considering a reliable detection of the line |  |
-| TCOMM104 | Flag for considering a reliable detection of the line |  |
-| TCOMM105 | Flag for considering a reliable detection of the line |  |
-| TCOMM106 | Flag for considering a reliable detection of the line |  |
-| TCOMM107 | Flag for considering a reliable detection of the line |  |
-| TCOMM108 | Flag for considering a reliable detection of the line |  |
-| TCOMM109 | Flag for considering a reliable detection of the line |  |
-| TCOMM110 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM111 | Flag for considering a reliable detection of the line |  |
-| TCOMM112 | Flag for considering a reliable detection of the line |  |
-| TCOMM113 | Flag for considering a reliable detection of the line |  |
-| TCOMM114 | Flag for considering a reliable detection of the line |  |
-| TCOMM115 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM116 | Flag for considering a reliable detection of the line |  |
-| TCOMM117 | Flag for considering a reliable detection of the line |  |
-| TCOMM118 | Flag for considering a reliable detection of the line |  |
-| TCOMM119 | Flag for considering a reliable detection of the line |  |
-| TCOMM120 | Flag for considering a reliable detection of the line |  |
-| TCOMM121 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM122 | Flag for considering a reliable detection of the line |  |
-| TCOMM123 | Flag for considering a reliable detection of the line |  |
-| TCOMM124 | Flag for considering a reliable detection of the line |  |
-| TCOMM125 | Flag for considering a reliable detection of the line |  |
-| TCOMM126 | Flag for considering a reliable detection of the line |  |
-| TCOMM127 | Flag for considering a reliable detection of the line |  |
-| TCOMM128 | Flag for considering a reliable detection of the line |  |
-| TCOMM129 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM130 | Flag for considering a reliable detection of the line |  |
-| TCOMM131 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM132 | Flag for considering a reliable detection of the line |  |
-| TCOMM133 | Flag for considering a reliable detection of the line |  |
-| TCOMM134 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM135 | Flag for considering a reliable detection of the line |  |
-| TCOMM136 | Flag for considering a reliable detection of the line |  |
-| TCOMM137 | Flag for considering a reliable detection of the line |  |
-| TCOMM138 | Flag for considering a reliable detection of the line |  |
-| TCOMM139 | Flag for considering a reliable detection of the broad component |  |
-| TCOMM140 | Flag for considering a reliable detection of the line |  |
-| TCOMM141 | Flag for considering a reliable detection of the line |  |
-| DATE-HDU | 2026-06-11T09:50:04 | Date of HDU creation (UTC) |
-| STILVERS | 4.3-5 | Version of STIL software |
-| STILCLAS | uk.ac.starlink.votable.UnifiedFitsTableWriter | STIL Author class |
-
-##### Binary Table Caption for HDU3
-Name | Type | Unit | Description |
-| --- | --- | --- | --- |
- | ObjID | char[23] |  | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |
- | ERO_Name | char[22] |  | eROSITA official source Name (Brunner+2022) |
- | ERO_ID_HARD | int32 |  | ID of Hard sample eROSITA source (Brunner+2022) |
- | ERO_ID_MAIN | int32 |  | ID of Main sample eROSITA source (Brunner+2022) |
- | SAMPLE | char[4] |  | Main or Hard sample from eROSITA (Brunner+2022) |
- | RA | float64 | deg | SDSS right ascension (J2000) |
- | DEC | float64 | deg | SDSS declination (J2000) |
- | HG_subtraction | bool |  | True: host-galaxy emission subtracted; False: quasar-dominated |
- | SPECZ_REDSHIFT | float32 |  | Spectroscopic redshift from visual inspection (Aydar+2025) |
- | SN_MEDIAN_ALL | float64 |  | SDSS Median S/N per pix in spectrum (idlspec2d v6_0_2 reductions) |
- | class_line | char[10] |  | Classification onto Broad, Narrow or No (emission) lines |
- | f_AGN | float64 |  | AGN continuum (PL+Fe II+Balmer) weight to continuum fit |
- | type | char[15] |  | Types 1-2; c for candidates; SF from BPT or WHAN |
- | subtype | char[15] |  | Narrow Line Seyfert 1; for Type 1.9, if Mg II or Ha are broad |
- | Xray_obscuration | char[20] |  | Obscuration according to nH=21.5; c for candidates |
- | OIII_outflow | char[5] |  | Candidates of having an outflow in [O III], red- or blueshifted |
- | Coronal_line | bool |  | Candidates of having a coronal line ([Ne V], [Fe VII], or [Fe X]) |
- | a_ox | float64 |  | Ratio between UV and X-ray luminosities, Tananbaum+1979 |
- | a_ox_error | float64 |  | Ratio between UV and X-ray luminosities error, Tananbaum+1979 |
- | LogBHmass | float64 |  | Black hole mass (log, Msun): Hb or Ha z<0.7; Mg II 0.7<z<2; C IV z>2 |
- | LogBHmass_error | float64 |  | Black hole mass error (log, Msun): line as LogBHmass |
- | LogLbol | float64 |  | Bolometric luminosity (log, erg/s): 5100 z<0.7; 3000 0.7<z<2; 1350 z |
- | LogLbol_error | float64 |  | Bolometric luminosity error (log, erg/s): luminosities as LogLbol |
- | LogEdd_ratio | float64 |  | Eddington ratio: Hb,Ha,5100 z<0.7; MgII,3000 0.7<z<2; CIV,1350 z>2 |
- | LogEdd_ratio_error | float64 |  | Eddington ratio error: lines and luminosities as LogEdd_ratio |
- | LogL2500 | float64 |  | Continuum luminosity at 2500 A (log, erg/s) |
- | LogL2500_error | float64 |  | Uncertainty of the continuum luminosity at 2500 A (log, erg/s) |
- | BalmDec | float64 |  | Balmer decrement from the total lines (Ha/Hb) |
- | BalmDec_error | float64 |  | Balmer decrement from the total lines error |
- | BalmDec_na | float64 |  | Balmer decrement from the narrow lines (Ha_na/Hb_na) |
- | BalmDec_na_error | float64 |  | Balmer decrement from the narrow lines error |
- | BalmDec_br | float64 |  | Balmer decrement from the broad lines (Ha_br/Hb_br) |
- | BalmDec_br_error | float64 |  | Balmer decrement from the broad lines error |
- | T_e_OIII | float64 | K | Electron temperature from [O III], Dors+2020 |
- | T_e_OII | float64 | K | Electron temperature from [O II], Dors+2020 |
- | n_e_SII | float64 | cm-3 | Electron density from [S II], Dors+2020 |
- | metallicity_OH_direct | float64 |  | 12+log(O/H) from the direct method, Dors+2020 |
- | metallicity_Zsun_N2 | float64 | Zsun | Z in solar metallicity from [N II]/Ha, Carvalho+2020 |
- | ionization_U | float64 |  | Ionization parameter, Morisset+2016 |
- | aperture_physical_size_kpc | float64 | kpc | Physical size within the fiber |
- | LogBHmass_Ha | float64 |  | Black hole mass estimated from Ha, Shen+2011 (log, Msun) |
- | LogBHmass_Ha_error | float64 |  | Black hole mass error estimated from Ha, Shen+2011 (log, Msun) |
- | LogBHmass_Hb | float64 |  | Black hole mass estimated from Hb, Shen+2011 (log, Msun) |
- | LogBHmass_Hb_error | float64 |  | Black hole mass error estimated from Hb, Shen+2011 (log, Msun) |
- | LogBHmass_Mg | float64 |  | Black hole mass estimated from Mg II, Shen+2011 (log, Msun) |
- | LogBHmass_Mg_error | float64 |  | Black hole mass error estimated from Mg II, Shen+2011 (log, Msun) |
- | LogBHmass_CIV | float64 |  | Black hole mass estimated from C IV, Shen+2011 (log, Msun) |
- | LogBHmass_CIV_error | float64 |  | Black hole mass error estimated from C IV, Shen+2011 (log, Msun) |
- | LogLbol_5100 | float64 |  | Bolometric luminosity estimated from 5100A, Runnoe+2012 (log, erg/s) |
- | LogLbol_5100_error | float64 |  | Bolometric luminosity error from 5100A, Runnoe+2012 (log, erg/s) |
- | LogLbol_3000 | float64 |  | Bolometric luminosity estimated from 3000A, Runnoe+2012 (log, erg/s) |
- | LogLbol_3000_error | float64 |  | Bolometric luminosity error from 3000A, Runnoe+2012 (log, erg/s) |
- | LogLbol_1350 | float64 |  | Bolometric luminosity estimated from 1350A, Runnoe+2012 (log, erg/s) |
- | LogLbol_1350_error | float64 |  | Bolometric luminosity error from 1350A, Runnoe+2012 (log, erg/s) |
- | Lbol_x | float64 |  | Bolometric luminosity estimated from Lx, Duras+2020 (log, erg/s) |
- | Lbol_x_error | float64 |  | Bolometric luminosity error from Lx, Duras+2020 (log, erg/s) |
- | LogEdd_ratio_Ha | float64 |  | Eddington ratio estimated from Ha and Lbol_5100 |
- | LogEdd_ratio_Ha_error | float64 |  | Eddington ratio error estimated from Ha and Lbol_5100 |
- | LogEdd_ratio_Hb | float64 |  | Eddington ratio estimated from Hb and Lbol_5100 |
- | LogEdd_ratio_Hb_error | float64 |  | Eddington ratio error estimated from Hb and Lbol_5100 |
- | LogEdd_ratio_Mg | float64 |  | Eddington ratio estimated from Mg II and Lbol_3000 |
- | LogEdd_ratio_Mg_error | float64 |  | Eddington ratio error estimated from Mg II and Lbol_3000 |
- | LogEdd_ratio_CIV | float64 |  | Eddington ratio estimated from C IV and Lbol_1350 |
- | LogEdd_ratio_CIV_error | float64 |  | Eddington ratio error estimated from C IV and Lbol_1350 |
- | SII6732_detected | bool |  | Flag for considering a reliable detection of the line |
- | SII6718_detected | bool |  | Flag for considering a reliable detection of the line |
- | NII6585_detected | bool |  | Flag for considering a reliable detection of the line |
- | NII6549_detected | bool |  | Flag for considering a reliable detection of the line |
- | HALPHA_detected | bool |  | Flag for considering a reliable detection of the line |
- | HALPHA_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | HALPHA_BR_detected | bool |  | Flag for considering a reliable detection of the line |
- | HALPHA_NA_detected | bool |  | Flag for considering a reliable detection of the line |
- | FeX6376_detected | bool |  | Flag for considering a reliable detection of the line |
- | OI6300_detected | bool |  | Flag for considering a reliable detection of the line |
- | FeVII6088_detected | bool |  | Flag for considering a reliable detection of the line |
- | HeI5877_detected | bool |  | Flag for considering a reliable detection of the line |
- | HeI5877_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | HeI5877_BR_detected | bool |  | Flag for considering a reliable detection of the line |
- | HeI5877_NA_detected | bool |  | Flag for considering a reliable detection of the line |
- | HeII4685_detected | bool |  | Flag for considering a reliable detection of the line |
- | HeII4685_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | HeII4685_BR_detected | bool |  | Flag for considering a reliable detection of the line |
- | HeII4685_NA_detected | bool |  | Flag for considering a reliable detection of the line |
- | OIII5007_detected | bool |  | Flag for considering a reliable detection of the line |
- | OIII5007_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | OIII5007C_detected | bool |  | Flag for considering a reliable detection of the line |
- | OIII5007W_detected | bool |  | Flag for considering a reliable detection of the line |
- | OIII4959_detected | bool |  | Flag for considering a reliable detection of the line |
- | OIII4959_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | OIII4959C_detected | bool |  | Flag for considering a reliable detection of the line |
- | OIII4959W_detected | bool |  | Flag for considering a reliable detection of the line |
- | HBETA_detected | bool |  | Flag for considering a reliable detection of the line |
- | HBETA_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | HBETA_BR_detected | bool |  | Flag for considering a reliable detection of the line |
- | HBETA_NA_detected | bool |  | Flag for considering a reliable detection of the line |
- | OIII4363_detected | bool |  | Flag for considering a reliable detection of the line |
- | HGAMMA_detected | bool |  | Flag for considering a reliable detection of the line |
- | HGAMMA_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | HGAMMA_BR_detected | bool |  | Flag for considering a reliable detection of the line |
- | HGAMMA_NA_detected | bool |  | Flag for considering a reliable detection of the line |
- | HDELTA_detected | bool |  | Flag for considering a reliable detection of the line |
- | HDELTA_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | HDELTA_BR_detected | bool |  | Flag for considering a reliable detection of the line |
- | HDELTA_NA_detected | bool |  | Flag for considering a reliable detection of the line |
- | NeIII3967_detected | bool |  | Flag for considering a reliable detection of the line |
- | NeIII3869_detected | bool |  | Flag for considering a reliable detection of the line |
- | FeVII3759_detected | bool |  | Flag for considering a reliable detection of the line |
- | OII3728_detected | bool |  | Flag for considering a reliable detection of the line |
- | NeV3426_detected | bool |  | Flag for considering a reliable detection of the line |
- | NeV3426_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | NeV3426_BR_detected | bool |  | Flag for considering a reliable detection of the line |
- | NeV3426_NA_detected | bool |  | Flag for considering a reliable detection of the line |
- | NeV3346_detected | bool |  | Flag for considering a reliable detection of the line |
- | MgII_detected | bool |  | Flag for considering a reliable detection of the line |
- | MgII_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | MgII_BR_detected | bool |  | Flag for considering a reliable detection of the line |
- | MgII_NA_detected | bool |  | Flag for considering a reliable detection of the line |
- | NeIV2422_detected | bool |  | Flag for considering a reliable detection of the line |
- | CII2326_detected | bool |  | Flag for considering a reliable detection of the line |
- | CIII_ALL_detected | bool |  | Flag for considering a reliable detection of the line |
- | CIII_ALL_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | CIII_BR_detected | bool |  | Flag for considering a reliable detection of the line |
- | SiIII1892_detected | bool |  | Flag for considering a reliable detection of the line |
- | AlIII1857_detected | bool |  | Flag for considering a reliable detection of the line |
- | SiII1816_detected | bool |  | Flag for considering a reliable detection of the line |
- | NIII1750_detected | bool |  | Flag for considering a reliable detection of the line |
- | NIV1718_detected | bool |  | Flag for considering a reliable detection of the line |
- | OIII1663_detected | bool |  | Flag for considering a reliable detection of the line |
- | OIII1663_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | HeII1640_detected | bool |  | Flag for considering a reliable detection of the line |
- | HeII1640_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | HeII1640_BR_detected | bool |  | Flag for considering a reliable detection of the line |
- | CIV_detected | bool |  | Flag for considering a reliable detection of the line |
- | CIV_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | SiIV_OIV_detected | bool |  | Flag for considering a reliable detection of the line |
- | CII1335_detected | bool |  | Flag for considering a reliable detection of the line |
- | OI1304_detected | bool |  | Flag for considering a reliable detection of the line |
- | LyA_detected | bool |  | Flag for considering a reliable detection of the line |
- | LyA_broad | bool |  | Flag for considering a reliable detection of the broad component |
- | NV1240_detected | bool |  | Flag for considering a reliable detection of the line |
- | OIV1035_detected | bool |  | Flag for considering a reliable detection of the line |
-
-
-
-### HDU4: PYQSOFIT_FIT_PARAMETERS
+### HDU3: PyQSOFit_fit_parameters
 PyQSOFit continuum and emission line Gaussian fit parametersn
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  45 MB
 
-##### Header Table Caption for HDU4
+##### Header Table Caption for HDU3
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | BINTABLE | binary table extension |
-| BITPIX | 8 | 8-bit bytes |
-| NAXIS | 2 | 2-dimensional table |
-| NAXIS1 | 3626 | width of table in bytes |
-| NAXIS2 | 13143 | number of rows in table |
-| PCOUNT | 0 | size of special data area |
-| GCOUNT | 1 | one data group |
-| TFIELDS | 452 | number of columns |
-| EXTNAME | PYQSOFIT_FIT_PARAMETERS | table name |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 3630 | length of dimension 1 |
+| NAXIS2 | 13143 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 453 | number of table fields |
+| EXTNAME | PyQSOFit_fit_parameters |  |
 | TCOMM1 | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |  |
 | TCOMM2 | eROSITA official source name (Brunner+2022) |  |
-| TNULL3 | -2147483648 | blank value for column 3 |
-| TCOMM3 | ID of Hard sample eROSITA source (Brunner+2022) |  |
-| TNULL4 | -2147483648 | blank value for column 4 |
+| TCOMM3 | Main or Hard sample from eROSITA (Brunner+2022) |  |
 | TCOMM4 | ID of Main sample eROSITA source (Brunner+2022) |  |
-| TCOMM5 | Main or Hard sample from eROSITA (Brunner+2022) |  |
-| TUNIT6 | deg | units for column 6 |
-| TCOMM6 | SDSS right ascension (J2000) |  |
-| TUNIT7 | deg | units for column 7 |
-| TCOMM7 | SDSS declination (J2000) |  |
-| TCOMM8 | SDSS PLATE |  |
+| TNULL4 | -1 |  |
+| TCOMM5 | ID of Hard sample eROSITA source (Brunner+2022) |  |
+| TNULL5 | -1 |  |
+| TCOMM6 | Spectroscopic redshift from visual inspection (Aydar+2025) |  |
+| TUNIT7 | deg |  |
+| TCOMM7 | SDSS right ascension (J2000) |  |
+| TUNIT8 | deg |  |
+| TCOMM8 | SDSS declination (J2000) |  |
 | TCOMM9 | SDSS modified Julian date of observation |  |
-| TCOMM10 | SDSS FIBER ID |  |
-| TCOMM11 | Spectroscopic redshift from visual inspection (Aydar+2025) |  |
+| TCOMM10 | SDSS PLATE |  |
+| TCOMM11 | SDSS FIBER ID |  |
 | TCOMM12 | Signal-to-noise ratio of the continuum |  |
 | TCOMM13 | Milky Way extinction E(B-V) |  |
 | TCOMM14 | Continuum chi2 |  |
@@ -2392,31 +2074,31 @@ Key | Value | Comment | |
 | TCOMM17 | Continuum number of pixels |  |
 | TCOMM18 | Fe II UV normalization |  |
 | TCOMM19 | Fe II UV normalization error |  |
-| TUNIT20 | km/s | units for column 20 |
+| TUNIT20 | km/s |  |
 | TCOMM20 | Fe II UV FWHM |  |
-| TUNIT21 | km/s | units for column 21 |
+| TUNIT21 | km/s |  |
 | TCOMM21 | Fe II UV FWHM error |  |
-| TUNIT22 | A | units for column 22 |
+| TUNIT22 | A |  |
 | TCOMM22 | Fe II UV shift (offset) |  |
-| TUNIT23 | A | units for column 23 |
+| TUNIT23 | A |  |
 | TCOMM23 | Fe II UV shift (offset) error |  |
 | TCOMM24 | Fe II optical normalization |  |
 | TCOMM25 | Fe II optical normalization error |  |
-| TUNIT26 | km/s | units for column 26 |
+| TUNIT26 | km/s |  |
 | TCOMM26 | Fe II optical FWHM |  |
-| TUNIT27 | km/s | units for column 27 |
+| TUNIT27 | km/s |  |
 | TCOMM27 | Fe II optical FWHM error |  |
-| TUNIT28 | A | units for column 28 |
+| TUNIT28 | A |  |
 | TCOMM28 | Fe II optical shift (offset) |  |
-| TUNIT29 | A | units for column 29 |
+| TUNIT29 | A |  |
 | TCOMM29 | Fe II optical shift (offset) error |  |
-| TUNIT30 | A | units for column 30 |
+| TUNIT30 | A |  |
 | TCOMM30 | Fe II UV equivalent width |  |
-| TUNIT31 | A | units for column 31 |
+| TUNIT31 | A |  |
 | TCOMM31 | Fe II optical equivalent width |  |
-| TUNIT32 | A | units for column 32 |
+| TUNIT32 | A |  |
 | TCOMM32 | Fe II UV equivalent width error |  |
-| TUNIT33 | A | units for column 33 |
+| TUNIT33 | A |  |
 | TCOMM33 | Fe II optical equivalent width error |  |
 | TCOMM34 | Power-law normalization |  |
 | TCOMM35 | Power-law normalization error |  |
@@ -2837,24 +2519,22 @@ Key | Value | Comment | |
 | TCOMM450 | Fifth local line complex number of pixels |  |
 | TCOMM451 | Fifth local line complex number of degrees of freedom |  |
 | TCOMM452 | True: host-galaxy emission subtracted; False: quasar-dominated |  |
-| DATE-HDU | 2026-06-11T09:50:04 | Date of HDU creation (UTC) |
-| STILVERS | 4.3-5 | Version of STIL software |
-| STILCLAS | uk.ac.starlink.votable.UnifiedFitsTableWriter | STIL Author class |
+| TCOMM453 | Primary key index to associate the HDUs |  |
 
-##### Binary Table Caption for HDU4
+##### Binary Table Caption for HDU3
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | ObjID | char[23] |  | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |
  | ERO_Name | char[22] |  | eROSITA official source name (Brunner+2022) |
- | ERO_ID_HARD | int32 |  | ID of Hard sample eROSITA source (Brunner+2022) |
- | ERO_ID_MAIN | int32 |  | ID of Main sample eROSITA source (Brunner+2022) |
  | SAMPLE | char[4] |  | Main or Hard sample from eROSITA (Brunner+2022) |
- | RA | float64 | deg | SDSS right ascension (J2000) |
- | DEC | float64 | deg | SDSS declination (J2000) |
- | PLATE | int64 |  | SDSS PLATE |
+ | ERO_ID_MAIN | int32 |  | ID of Main sample eROSITA source (Brunner+2022) |
+ | ERO_ID_HARD | int32 |  | ID of Hard sample eROSITA source (Brunner+2022) |
+ | SPECZ_REDSHIFT | float64 |  | Spectroscopic redshift from visual inspection (Aydar+2025) |
+ | RA_SDSS | float64 | deg | SDSS right ascension (J2000) |
+ | DEC_SDSS | float64 | deg | SDSS declination (J2000) |
  | MJD | int64 |  | SDSS modified Julian date of observation |
+ | PLATE | int64 |  | SDSS PLATE |
  | FIBERID | int64 |  | SDSS FIBER ID |
- | Z_FIT | float64 |  | Spectroscopic redshift from visual inspection (Aydar+2025) |
  | SNR_conti | float64 |  | Signal-to-noise ratio of the continuum |
  | EBV | float64 |  | Milky Way extinction E(B-V) |
  | conti_chi2 | float64 |  | Continuum chi2 |
@@ -3296,355 +2976,359 @@ Name | Type | Unit | Description |
  | 5_local_ndof | float64 |  | Fifth local line complex number of pixels |
  | 5_local_npix | float64 |  | Fifth local line complex number of degrees of freedom |
  | HG_subtraction | bool |  | True: host-galaxy emission subtracted; False: quasar-dominated |
+ | PK_index | int32 |  | Primary key index to associate the HDUs |
 
 
 
-### HDU5: MAIN_X_RAY_CATALOGUE_BRUNNER2022
+### HDU4: Main_X_ray_Catalogue_Brunner2022
 eROSITA Main Sample X-ray catalogue from Brunner et al. (2022)
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  15 MB
 
-##### Header Table Caption for HDU5
+##### Header Table Caption for HDU4
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | BINTABLE | binary table extension |
-| BITPIX | 8 | 8-bit bytes |
-| NAXIS | 2 | 2-dimensional table |
-| NAXIS1 | 1262 | width of table in bytes |
-| NAXIS2 | 12866 | number of rows in table |
-| PCOUNT | 0 | size of special data area |
-| GCOUNT | 1 | one data group |
-| TFIELDS | 167 | number of columns |
-| EXTNAME | MAIN_X_RAY_CATALOGUE_BRUNNER2022 | table name |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 1270 | length of dimension 1 |
+| NAXIS2 | 12866 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 169 | number of table fields |
+| EXTNAME | Main_X_ray_Catalogue_Brunner2022 |  |
 | TCOMM1 | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |  |
 | TCOMM2 | eROSITA official source Name |  |
-| TCOMM3 | Spectroscopic redshift from visual inspection (Aydar+2025) |  |
-| TCOMM4 | Main or Hard sample from eROSITA (Brunner+2022) |  |
-| TUNIT5 | deg | units for column 5 |
-| TCOMM5 | SDSS right ascension (J2000) |  |
-| TUNIT6 | deg | units for column 6 |
-| TCOMM6 | SDSS declination (J2000) |  |
-| TCOMM7 | ID of eROSITA source in the Main Sample |  |
-| TCOMM8 | ID of eROSITA source in the Hard Sample |  |
-| TUNIT9 | deg | units for column 9 |
-| TCOMM9 | eROSITA uncorrected RA (ICRS) |  |
-| TUNIT10 | deg | units for column 10 |
-| TCOMM10 | eROSITA uncorrected Dec (ICRS) |  |
-| TUNIT11 | arcsec | units for column 11 |
-| TCOMM11 | Combined positional uncertainty, uncorrected |  |
-| TUNIT12 | deg | units for column 12 |
-| TCOMM12 | J2000 Right Ascension of the eROSITA source (corrected) |  |
-| TUNIT13 | deg | units for column 13 |
-| TCOMM13 | J2000 Declination of the eROSITA source (corrected) |  |
-| TUNIT14 | arcsec | units for column 14 |
-| TCOMM14 | eROSITA positional uncertainty (corrected) |  |
-| TUNIT15 | arcsec | units for column 15 |
-| TCOMM15 | Source extent |  |
-| TUNIT16 | arcsec | units for column 16 |
-| TCOMM16 | Extent error |  |
-| TCOMM17 | Extent likelihood |  |
-| TCOMM18 | Detection likelihood measured by PSF-fitting, combining 3 bands |  |
-| TUNIT19 | count/s | units for column 19 |
-| TCOMM19 | Source count rate, combining 3 bands |  |
-| TUNIT20 | count/s | units for column 20 |
-| TCOMM20 | 1 sigma count rate error |  |
-| TUNIT21 | count | units for column 21 |
-| TCOMM21 | Source net counts, combining 3 bands |  |
-| TUNIT22 | count | units for column 22 |
-| TCOMM22 | 1 sigma counts error |  |
-| TUNIT23 | erg / (cm2 s) | units for column 23 |
-| TCOMM23 | Source flux, combining 3 bands |  |
-| TUNIT24 | erg / (cm2 s) | units for column 24 |
-| TCOMM24 | 1 sigma flux error |  |
-| TUNIT25 | s | units for column 25 |
-| TCOMM25 | Vignetted exposure value |  |
-| TUNIT26 | count/arcmin^2 | units for column 26 |
-| TCOMM26 | Background flux at the source position |  |
-| TCOMM27 | True if in the 0.2-2.3keV exp>500s region, which comprises 90% area |  |
-| TCOMM28 | Detection likelihood measured by forced PSF-fitting; 0.2-0.5 keV |  |
-| TCOMM29 | Detection likelihood measured by forced PSF-fitting; 0.5-1 keV |  |
-| TCOMM30 | Detection likelihood measured by forced PSF-fitting; 1-2 keV |  |
-| TCOMM31 | Detection likelihood measured by forced PSF-fitting; 2-4.5 keV |  |
-| TCOMM32 | Detection likelihood measured by forced PSF-fitting; 0.5-2 keV |  |
-| TCOMM33 | Detection likelihood measured by forced PSF-fitting; 2.3-5 keV |  |
-| TCOMM34 | Detection likelihood measured by forced PSF-fitting; 5-8 keV |  |
-| TUNIT35 | count/s | units for column 35 |
-| TCOMM35 | Source count rate measured by forced PSF-fitting; 0.2-0.5 keV |  |
-| TUNIT36 | count/s | units for column 36 |
-| TCOMM36 | Source count rate measured by forced PSF-fitting; 0.5-1 keV |  |
-| TUNIT37 | count/s | units for column 37 |
-| TCOMM37 | Source count rate measured by forced PSF-fitting; 1-2 keV |  |
-| TUNIT38 | count/s | units for column 38 |
-| TCOMM38 | Source count rate measured by forced PSF-fitting; 2-4.5 keV |  |
-| TUNIT39 | count/s | units for column 39 |
-| TCOMM39 | Source count rate measured by forced PSF-fitting; 0.5-2 keV |  |
-| TUNIT40 | count/s | units for column 40 |
-| TCOMM40 | Source count rate measured by forced PSF-fitting; 2.3-5 keV |  |
-| TUNIT41 | count/s | units for column 41 |
-| TCOMM41 | Source count rate measured by forced PSF-fitting; 5-8 keV |  |
-| TUNIT42 | count/s | units for column 42 |
-| TCOMM42 | 1 sigma count rate error; 0.2-0.5 keV |  |
-| TUNIT43 | count/s | units for column 43 |
-| TCOMM43 | 1 sigma count rate error; 0.5-1 keV |  |
-| TUNIT44 | count/s | units for column 44 |
-| TCOMM44 | 1 sigma count rate error; 1-2 keV |  |
-| TUNIT45 | count/s | units for column 45 |
-| TCOMM45 | 1 sigma count rate error; 2-4.5 keV |  |
-| TUNIT46 | count/s | units for column 46 |
-| TCOMM46 | 1 sigma count rate error; 0.5-2 keV |  |
-| TUNIT47 | count/s | units for column 47 |
-| TCOMM47 | 1 sigma count rate error; 2.3-5 keV |  |
-| TUNIT48 | count/s | units for column 48 |
-| TCOMM48 | 1 sigma count rate error; 5-8 keV |  |
-| TUNIT49 | count/s | units for column 49 |
-| TCOMM49 | 1 sigma lower error of count rate; 0.2-0.5 keV |  |
-| TUNIT50 | count/s | units for column 50 |
-| TCOMM50 | 1 sigma lower error of count rate; 0.5-1 keV |  |
-| TUNIT51 | count/s | units for column 51 |
-| TCOMM51 | 1 sigma lower error of count rate; 1-2 keV |  |
-| TUNIT52 | count/s | units for column 52 |
-| TCOMM52 | 1 sigma lower error of count rate; 2-4.5 keV |  |
-| TUNIT53 | count/s | units for column 53 |
-| TCOMM53 | 1 sigma lower error of count rate; 0.5-2 keV |  |
-| TUNIT54 | count/s | units for column 54 |
-| TCOMM54 | 1 sigma lower error of count rate; 2.3-5 keV |  |
-| TUNIT55 | count/s | units for column 55 |
-| TCOMM55 | 1 sigma lower error of count rate; 5-8 keV |  |
-| TUNIT56 | count/s | units for column 56 |
-| TCOMM56 | 1 sigma upper error of count rate; 0.2-0.5 keV |  |
-| TUNIT57 | count/s | units for column 57 |
-| TCOMM57 | 1 sigma upper error of count rate; 0.5-1 keV |  |
-| TUNIT58 | count/s | units for column 58 |
-| TCOMM58 | 1 sigma upper error of count rate; 1-2 keV |  |
-| TUNIT59 | count/s | units for column 59 |
-| TCOMM59 | 1 sigma upper error of count rate; 2-4.5 keV |  |
-| TUNIT60 | count/s | units for column 60 |
-| TCOMM60 | 1 sigma upper error of count rate; 0.5-2 keV |  |
-| TUNIT61 | count/s | units for column 61 |
-| TCOMM61 | 1 sigma upper error of count rate; 2.3-5 keV |  |
-| TUNIT62 | count/s | units for column 62 |
-| TCOMM62 | 1 sigma upper error of count rate; 5-8 keV |  |
-| TUNIT63 | count | units for column 63 |
-| TCOMM63 | Source net counts measured from count rate; 0.2-0.5 keV |  |
-| TUNIT64 | count | units for column 64 |
-| TCOMM64 | Source net counts measured from count rate; 0.5-1 keV |  |
-| TUNIT65 | count | units for column 65 |
-| TCOMM65 | Source net counts measured from count rate; 1-2 keV |  |
-| TUNIT66 | count | units for column 66 |
-| TCOMM66 | Source net counts measured from count rate; 2-4.5 keV |  |
-| TUNIT67 | count | units for column 67 |
-| TCOMM67 | Source net counts measured from count rate; 0.5-2 keV |  |
-| TUNIT68 | count | units for column 68 |
-| TCOMM68 | Source net counts measured from count rate; 2.3-5 keV |  |
-| TUNIT69 | count | units for column 69 |
-| TCOMM69 | Source net counts measured from count rate; 5-8 keV |  |
-| TUNIT70 | count | units for column 70 |
-| TCOMM70 | 1 sigma counts error; 0.2-0.5 keV |  |
-| TUNIT71 | count | units for column 71 |
-| TCOMM71 | 1 sigma counts error; 0.5-1 keV |  |
-| TUNIT72 | count | units for column 72 |
-| TCOMM72 | 1 sigma counts error; 1-2 keV |  |
-| TUNIT73 | count | units for column 73 |
-| TCOMM73 | 1 sigma counts error; 2-4.5 keV |  |
-| TUNIT74 | count | units for column 74 |
-| TCOMM74 | 1 sigma counts error; 0.5-2 keV |  |
-| TUNIT75 | count | units for column 75 |
-| TCOMM75 | 1 sigma counts error; 2.3-5 keV |  |
-| TUNIT76 | count | units for column 76 |
-| TCOMM76 | 1 sigma counts error; 5-8 keV |  |
-| TUNIT77 | count | units for column 77 |
-| TCOMM77 | 1 sigma lower error of counts; 0.2-0.5 keV |  |
-| TUNIT78 | count | units for column 78 |
-| TCOMM78 | 1 sigma lower error of counts; 0.5-1 keV |  |
-| TUNIT79 | count | units for column 79 |
-| TCOMM79 | 1 sigma lower error of counts; 1-2 keV |  |
-| TUNIT80 | count | units for column 80 |
-| TCOMM80 | 1 sigma lower error of counts; 2-4.5 keV |  |
-| TUNIT81 | count | units for column 81 |
-| TCOMM81 | 1 sigma lower error of counts; 0.5-2 keV |  |
-| TUNIT82 | count | units for column 82 |
-| TCOMM82 | 1 sigma lower error of counts; 2.3-5 keV |  |
-| TUNIT83 | count | units for column 83 |
-| TCOMM83 | 1 sigma lower error of counts; 5-8 keV |  |
-| TUNIT84 | count | units for column 84 |
-| TCOMM84 | 1 sigma upper error of counts; 0.2-0.5 keV |  |
-| TUNIT85 | count | units for column 85 |
-| TCOMM85 | 1 sigma upper error of counts; 0.5-1 keV |  |
-| TUNIT86 | count | units for column 86 |
-| TCOMM86 | 1 sigma upper error of counts; 1-2 keV |  |
-| TUNIT87 | count | units for column 87 |
-| TCOMM87 | 1 sigma upper error of counts; 2-4.5 keV |  |
-| TUNIT88 | count | units for column 88 |
-| TCOMM88 | 1 sigma upper error of counts; 0.5-2 keV |  |
-| TUNIT89 | count | units for column 89 |
-| TCOMM89 | 1 sigma upper error of counts; 2.3-5 keV |  |
-| TUNIT90 | count | units for column 90 |
-| TCOMM90 | 1 sigma upper error of counts; 5-8 keV |  |
-| TUNIT91 | erg / (cm2 s) | units for column 91 |
-| TCOMM91 | Source flux converted from count rate; 0.2-0.5 keV |  |
-| TUNIT92 | erg / (cm2 s) | units for column 92 |
-| TCOMM92 | Source flux converted from count rate; 0.5-1 keV |  |
-| TUNIT93 | erg / (cm2 s) | units for column 93 |
-| TCOMM93 | Source flux converted from count rate; 1-2 keV |  |
-| TUNIT94 | erg / (cm2 s) | units for column 94 |
-| TCOMM94 | Source flux converted from count rate; 2-4.5 keV |  |
-| TUNIT95 | erg / (cm2 s) | units for column 95 |
-| TCOMM95 | Source flux converted from count rate; 0.5-2 keV |  |
-| TUNIT96 | erg / (cm2 s) | units for column 96 |
-| TCOMM96 | Source flux converted from count rate; 2.3-5 keV |  |
-| TUNIT97 | erg / (cm2 s) | units for column 97 |
-| TCOMM97 | Source flux converted from count rate; 5-8 keV |  |
-| TUNIT98 | erg / (cm2 s) | units for column 98 |
-| TCOMM98 | 1 sigma flux error; 0.2-0.5 keV |  |
-| TUNIT99 | erg / (cm2 s) | units for column 99 |
-| TCOMM99 | 1 sigma flux error; 0.5-1 keV |  |
-| TUNIT100 | erg / (cm2 s) | units for column 100 |
-| TCOMM100 | 1 sigma flux error; 1-2 keV |  |
-| TUNIT101 | erg / (cm2 s) | units for column 101 |
-| TCOMM101 | 1 sigma flux error; 2-4.5 keV |  |
-| TUNIT102 | erg / (cm2 s) | units for column 102 |
-| TCOMM102 | 1 sigma flux error; 0.5-2 keV |  |
-| TUNIT103 | erg / (cm2 s) | units for column 103 |
-| TCOMM103 | 1 sigma flux error; 2.3-5 keV |  |
-| TUNIT104 | erg / (cm2 s) | units for column 104 |
-| TCOMM104 | 1 sigma flux error; 5-8 keV |  |
-| TUNIT105 | erg / (cm2 s) | units for column 105 |
-| TCOMM105 | 1 sigma lower error of flux; 0.2-0.5 keV |  |
-| TUNIT106 | erg / (cm2 s) | units for column 106 |
-| TCOMM106 | 1 sigma lower error of flux; 0.5-1 keV |  |
-| TUNIT107 | erg / (cm2 s) | units for column 107 |
-| TCOMM107 | 1 sigma lower error of flux; 1-2 keV |  |
-| TUNIT108 | erg / (cm2 s) | units for column 108 |
-| TCOMM108 | 1 sigma lower error of flux; 2-4.5 keV |  |
-| TUNIT109 | erg / (cm2 s) | units for column 109 |
-| TCOMM109 | 1 sigma lower error of flux; 0.5-2 keV |  |
-| TUNIT110 | erg / (cm2 s) | units for column 110 |
-| TCOMM110 | 1 sigma lower error of flux; 2.3-5 keV |  |
-| TUNIT111 | erg / (cm2 s) | units for column 111 |
-| TCOMM111 | 1 sigma lower error of flux; 5-8 keV |  |
-| TUNIT112 | erg / (cm2 s) | units for column 112 |
-| TCOMM112 | 1 sigma upper error of flux; 0.2-0.5 keV |  |
-| TUNIT113 | erg / (cm2 s) | units for column 113 |
-| TCOMM113 | 1 sigma upper error of flux; 0.5-1 keV |  |
-| TUNIT114 | erg / (cm2 s) | units for column 114 |
-| TCOMM114 | 1 sigma upper error of flux; 1-2 keV |  |
-| TUNIT115 | erg / (cm2 s) | units for column 115 |
-| TCOMM115 | 1 sigma upper error of flux; 2-4.5 keV |  |
-| TUNIT116 | erg / (cm2 s) | units for column 116 |
-| TCOMM116 | 1 sigma upper error of flux; 0.5-2 keV |  |
-| TUNIT117 | erg / (cm2 s) | units for column 117 |
-| TCOMM117 | 1 sigma upper error of flux; 2.3-5 keV |  |
-| TUNIT118 | erg / (cm2 s) | units for column 118 |
-| TCOMM118 | 1 sigma upper error of flux; 5-8 keV |  |
-| TUNIT119 | s | units for column 119 |
-| TCOMM119 | Vignetted exposure value; 0.2-0.5 keV |  |
-| TUNIT120 | s | units for column 120 |
-| TCOMM120 | Vignetted exposure value; 0.5-1 keV |  |
-| TUNIT121 | s | units for column 121 |
-| TCOMM121 | Vignetted exposure value; 1-2 keV |  |
-| TUNIT122 | s | units for column 122 |
-| TCOMM122 | Vignetted exposure value; 2-4.5 keV |  |
-| TUNIT123 | s | units for column 123 |
-| TCOMM123 | Vignetted exposure value; 0.5-2 keV |  |
-| TUNIT124 | s | units for column 124 |
-| TCOMM124 | Vignetted exposure value; 2.3-5 keV |  |
-| TUNIT125 | s | units for column 125 |
-| TCOMM125 | Vignetted exposure value; 5-8 keV |  |
-| TUNIT126 | count/arcmin^2 | units for column 126 |
-| TCOMM126 | Background flux at the source position; 0.2-0.5 keV |  |
-| TUNIT127 | count/arcmin^2 | units for column 127 |
-| TCOMM127 | Background flux at the source position; 0.5-1 keV |  |
-| TUNIT128 | count/arcmin^2 | units for column 128 |
-| TCOMM128 | Background flux at the source position; 1-2 keV |  |
-| TUNIT129 | count/arcmin^2 | units for column 129 |
-| TCOMM129 | Background flux at the source position; 2-4.5 keV |  |
-| TUNIT130 | count/arcmin^2 | units for column 130 |
-| TCOMM130 | Background flux at the source position; 0.5-2 keV |  |
-| TUNIT131 | count/arcmin^2 | units for column 131 |
-| TCOMM131 | Background flux at the source position; 2.3-5 keV |  |
-| TUNIT132 | count/arcmin^2 | units for column 132 |
-| TCOMM132 | Background flux at the source position; 5-8 keV |  |
-| TUNIT133 | count | units for column 133 |
-| TCOMM133 | Total counts extracted in the aperture; 0.2-0.5 keV |  |
-| TUNIT134 | count | units for column 134 |
-| TCOMM134 | Total counts extracted in the aperture; 0.5-1 keV |  |
-| TUNIT135 | count | units for column 135 |
-| TCOMM135 | Total counts extracted in the aperture; 1-2 keV |  |
-| TUNIT136 | count | units for column 136 |
-| TCOMM136 | Total counts extracted in the aperture; 2-4.5 keV |  |
-| TUNIT137 | count | units for column 137 |
-| TCOMM137 | Total counts extracted in the aperture; 0.5-2 keV |  |
-| TUNIT138 | count | units for column 138 |
-| TCOMM138 | Total counts extracted in the aperture; 2.3-5 keV |  |
-| TUNIT139 | count | units for column 139 |
-| TCOMM139 | Total counts extracted in the aperture; 5-8 keV |  |
-| TUNIT140 | s | units for column 140 |
-| TCOMM140 | Vignetted exposure value; 0.2-0.5 keV |  |
-| TUNIT141 | s | units for column 141 |
-| TCOMM141 | Vignetted exposure value; 0.5-1 keV |  |
-| TUNIT142 | s | units for column 142 |
-| TCOMM142 | Vignetted exposure value; 1-2 keV |  |
-| TUNIT143 | s | units for column 143 |
-| TCOMM143 | Vignetted exposure value; 2-4.5 keV |  |
-| TUNIT144 | s | units for column 144 |
-| TCOMM144 | Vignetted exposure value; 0.5-2 keV |  |
-| TUNIT145 | s | units for column 145 |
-| TCOMM145 | Vignetted exposure value; 2.3-5 keV |  |
-| TUNIT146 | s | units for column 146 |
-| TCOMM146 | Vignetted exposure value; 5-8 keV |  |
-| TUNIT147 | count | units for column 147 |
-| TCOMM147 | Background counts in aperture, excluding nearby sources; 0.2-0.5 keV |  |
-| TUNIT148 | count | units for column 148 |
-| TCOMM148 | Background counts in aperture, excluding nearby sources; 0.5-1 keV |  |
-| TUNIT149 | count | units for column 149 |
-| TCOMM149 | Background counts in aperture, excluding nearby sources; 1-2 keV |  |
-| TUNIT150 | count | units for column 150 |
-| TCOMM150 | Background counts in aperture, excluding nearby sources; 2-4.5 keV |  |
-| TUNIT151 | count | units for column 151 |
-| TCOMM151 | Background counts in aperture, excluding nearby sources; 0.5-2 keV |  |
-| TUNIT152 | count | units for column 152 |
-| TCOMM152 | Background counts in aperture, excluding nearby sources; 2.3-5 keV |  |
-| TUNIT153 | count | units for column 153 |
-| TCOMM153 | Background counts in aperture, excluding nearby sources; 5-8 keV |  |
-| TUNIT154 | pixel | units for column 154 |
-| TCOMM154 | Aperture radius; 0.2-0.5 keV |  |
-| TUNIT155 | pixel | units for column 155 |
-| TCOMM155 | Aperture radius; 0.5-1 keV |  |
-| TUNIT156 | pixel | units for column 156 |
-| TCOMM156 | Aperture radius; 1-2 keV |  |
-| TUNIT157 | pixel | units for column 157 |
-| TCOMM157 | Aperture radius; 2-4.5 keV |  |
-| TUNIT158 | pixel | units for column 158 |
-| TCOMM158 | Aperture radius; 0.5-2 keV |  |
-| TUNIT159 | pixel | units for column 159 |
-| TCOMM159 | Aperture radius; 2.3-5 keV |  |
-| TUNIT160 | pixel | units for column 160 |
-| TCOMM160 | Aperture radius; 5-8 keV |  |
-| TCOMM161 | Poisson probability of being background fluctuation; 0.2-0.5 keV |  |
-| TCOMM162 | Poisson probability of being background fluctuation; 0.5-1 keV |  |
-| TCOMM163 | Poisson probability of being background fluctuation; 1-2 keV |  |
-| TCOMM164 | Poisson probability of being background fluctuation; 2-4.5 keV |  |
-| TCOMM165 | Poisson probability of being background fluctuation; 0.5-2 keV |  |
-| TCOMM166 | Poisson probability of being background fluctuation; 2.3-5 keV |  |
-| TCOMM167 | Poisson probability of being background fluctuation; 5-8 keV |  |
-| DATE-HDU | 2026-06-11T09:50:04 | Date of HDU creation (UTC) |
-| STILVERS | 4.3-5 | Version of STIL software |
-| STILCLAS | uk.ac.starlink.votable.UnifiedFitsTableWriter | STIL Author class |
+| TCOMM3 | Main or Hard sample from eROSITA (Brunner+2022) |  |
+| TCOMM4 | ID of eROSITA source in the Main Sample |  |
+| TNULL4 | -1 |  |
+| TCOMM5 | ID of eROSITA source in the Hard Sample |  |
+| TNULL5 | -1 |  |
+| TCOMM6 | Spectroscopic redshift from visual inspection (Aydar+2025) |  |
+| TUNIT7 | deg |  |
+| TCOMM7 | SDSS right ascension (J2000) |  |
+| TUNIT8 | deg |  |
+| TCOMM8 | SDSS declination (J2000) |  |
+| TCOMM9 | SDSS modified Julian date of observation |  |
+| TNULL9 | -2147483648 |  |
+| TUNIT10 | deg |  |
+| TCOMM10 | eROSITA uncorrected RA (ICRS) |  |
+| TUNIT11 | deg |  |
+| TCOMM11 | eROSITA uncorrected Dec (ICRS) |  |
+| TUNIT12 | arcsec |  |
+| TCOMM12 | Combined positional uncertainty, uncorrected |  |
+| TUNIT13 | deg |  |
+| TCOMM13 | J2000 Right Ascension of the eROSITA source (corrected) |  |
+| TUNIT14 | deg |  |
+| TCOMM14 | J2000 Declination of the eROSITA source (corrected) |  |
+| TUNIT15 | arcsec |  |
+| TCOMM15 | eROSITA positional uncertainty (corrected) |  |
+| TUNIT16 | arcsec |  |
+| TCOMM16 | Source extent |  |
+| TUNIT17 | arcsec |  |
+| TCOMM17 | Extent error |  |
+| TCOMM18 | Extent likelihood |  |
+| TCOMM19 | Detection likelihood measured by PSF-fitting, combining 3 bands |  |
+| TUNIT20 | count/s |  |
+| TCOMM20 | Source count rate, combining 3 bands |  |
+| TUNIT21 | count/s |  |
+| TCOMM21 | 1 sigma count rate error |  |
+| TUNIT22 | count |  |
+| TCOMM22 | Source net counts, combining 3 bands |  |
+| TUNIT23 | count |  |
+| TCOMM23 | 1 sigma counts error |  |
+| TUNIT24 | erg / (cm2 s) |  |
+| TCOMM24 | Source flux, combining 3 bands |  |
+| TUNIT25 | erg / (cm2 s) |  |
+| TCOMM25 | 1 sigma flux error |  |
+| TUNIT26 | s |  |
+| TCOMM26 | Vignetted exposure value |  |
+| TUNIT27 | count/arcmin^2 |  |
+| TCOMM27 | Background flux at the source position |  |
+| TCOMM28 | True if in the 0.2-2.3keV exp>500s region, which comprises 90% area |  |
+| TCOMM29 | Detection likelihood measured by forced PSF-fitting; 0.2-0.5 keV |  |
+| TCOMM30 | Detection likelihood measured by forced PSF-fitting; 0.5-1 keV |  |
+| TCOMM31 | Detection likelihood measured by forced PSF-fitting; 1-2 keV |  |
+| TCOMM32 | Detection likelihood measured by forced PSF-fitting; 2-4.5 keV |  |
+| TCOMM33 | Detection likelihood measured by forced PSF-fitting; 0.5-2 keV |  |
+| TCOMM34 | Detection likelihood measured by forced PSF-fitting; 2.3-5 keV |  |
+| TCOMM35 | Detection likelihood measured by forced PSF-fitting; 5-8 keV |  |
+| TUNIT36 | count/s |  |
+| TCOMM36 | Source count rate measured by forced PSF-fitting; 0.2-0.5 keV |  |
+| TUNIT37 | count/s |  |
+| TCOMM37 | Source count rate measured by forced PSF-fitting; 0.5-1 keV |  |
+| TUNIT38 | count/s |  |
+| TCOMM38 | Source count rate measured by forced PSF-fitting; 1-2 keV |  |
+| TUNIT39 | count/s |  |
+| TCOMM39 | Source count rate measured by forced PSF-fitting; 2-4.5 keV |  |
+| TUNIT40 | count/s |  |
+| TCOMM40 | Source count rate measured by forced PSF-fitting; 0.5-2 keV |  |
+| TUNIT41 | count/s |  |
+| TCOMM41 | Source count rate measured by forced PSF-fitting; 2.3-5 keV |  |
+| TUNIT42 | count/s |  |
+| TCOMM42 | Source count rate measured by forced PSF-fitting; 5-8 keV |  |
+| TUNIT43 | count/s |  |
+| TCOMM43 | 1 sigma count rate error; 0.2-0.5 keV |  |
+| TUNIT44 | count/s |  |
+| TCOMM44 | 1 sigma count rate error; 0.5-1 keV |  |
+| TUNIT45 | count/s |  |
+| TCOMM45 | 1 sigma count rate error; 1-2 keV |  |
+| TUNIT46 | count/s |  |
+| TCOMM46 | 1 sigma count rate error; 2-4.5 keV |  |
+| TUNIT47 | count/s |  |
+| TCOMM47 | 1 sigma count rate error; 0.5-2 keV |  |
+| TUNIT48 | count/s |  |
+| TCOMM48 | 1 sigma count rate error; 2.3-5 keV |  |
+| TUNIT49 | count/s |  |
+| TCOMM49 | 1 sigma count rate error; 5-8 keV |  |
+| TUNIT50 | count/s |  |
+| TCOMM50 | 1 sigma lower error of count rate; 0.2-0.5 keV |  |
+| TUNIT51 | count/s |  |
+| TCOMM51 | 1 sigma lower error of count rate; 0.5-1 keV |  |
+| TUNIT52 | count/s |  |
+| TCOMM52 | 1 sigma lower error of count rate; 1-2 keV |  |
+| TUNIT53 | count/s |  |
+| TCOMM53 | 1 sigma lower error of count rate; 2-4.5 keV |  |
+| TUNIT54 | count/s |  |
+| TCOMM54 | 1 sigma lower error of count rate; 0.5-2 keV |  |
+| TUNIT55 | count/s |  |
+| TCOMM55 | 1 sigma lower error of count rate; 2.3-5 keV |  |
+| TUNIT56 | count/s |  |
+| TCOMM56 | 1 sigma lower error of count rate; 5-8 keV |  |
+| TUNIT57 | count/s |  |
+| TCOMM57 | 1 sigma upper error of count rate; 0.2-0.5 keV |  |
+| TUNIT58 | count/s |  |
+| TCOMM58 | 1 sigma upper error of count rate; 0.5-1 keV |  |
+| TUNIT59 | count/s |  |
+| TCOMM59 | 1 sigma upper error of count rate; 1-2 keV |  |
+| TUNIT60 | count/s |  |
+| TCOMM60 | 1 sigma upper error of count rate; 2-4.5 keV |  |
+| TUNIT61 | count/s |  |
+| TCOMM61 | 1 sigma upper error of count rate; 0.5-2 keV |  |
+| TUNIT62 | count/s |  |
+| TCOMM62 | 1 sigma upper error of count rate; 2.3-5 keV |  |
+| TUNIT63 | count/s |  |
+| TCOMM63 | 1 sigma upper error of count rate; 5-8 keV |  |
+| TUNIT64 | count |  |
+| TCOMM64 | Source net counts measured from count rate; 0.2-0.5 keV |  |
+| TUNIT65 | count |  |
+| TCOMM65 | Source net counts measured from count rate; 0.5-1 keV |  |
+| TUNIT66 | count |  |
+| TCOMM66 | Source net counts measured from count rate; 1-2 keV |  |
+| TUNIT67 | count |  |
+| TCOMM67 | Source net counts measured from count rate; 2-4.5 keV |  |
+| TUNIT68 | count |  |
+| TCOMM68 | Source net counts measured from count rate; 0.5-2 keV |  |
+| TUNIT69 | count |  |
+| TCOMM69 | Source net counts measured from count rate; 2.3-5 keV |  |
+| TUNIT70 | count |  |
+| TCOMM70 | Source net counts measured from count rate; 5-8 keV |  |
+| TUNIT71 | count |  |
+| TCOMM71 | 1 sigma counts error; 0.2-0.5 keV |  |
+| TUNIT72 | count |  |
+| TCOMM72 | 1 sigma counts error; 0.5-1 keV |  |
+| TUNIT73 | count |  |
+| TCOMM73 | 1 sigma counts error; 1-2 keV |  |
+| TUNIT74 | count |  |
+| TCOMM74 | 1 sigma counts error; 2-4.5 keV |  |
+| TUNIT75 | count |  |
+| TCOMM75 | 1 sigma counts error; 0.5-2 keV |  |
+| TUNIT76 | count |  |
+| TCOMM76 | 1 sigma counts error; 2.3-5 keV |  |
+| TUNIT77 | count |  |
+| TCOMM77 | 1 sigma counts error; 5-8 keV |  |
+| TUNIT78 | count |  |
+| TCOMM78 | 1 sigma lower error of counts; 0.2-0.5 keV |  |
+| TUNIT79 | count |  |
+| TCOMM79 | 1 sigma lower error of counts; 0.5-1 keV |  |
+| TUNIT80 | count |  |
+| TCOMM80 | 1 sigma lower error of counts; 1-2 keV |  |
+| TUNIT81 | count |  |
+| TCOMM81 | 1 sigma lower error of counts; 2-4.5 keV |  |
+| TUNIT82 | count |  |
+| TCOMM82 | 1 sigma lower error of counts; 0.5-2 keV |  |
+| TUNIT83 | count |  |
+| TCOMM83 | 1 sigma lower error of counts; 2.3-5 keV |  |
+| TUNIT84 | count |  |
+| TCOMM84 | 1 sigma lower error of counts; 5-8 keV |  |
+| TUNIT85 | count |  |
+| TCOMM85 | 1 sigma upper error of counts; 0.2-0.5 keV |  |
+| TUNIT86 | count |  |
+| TCOMM86 | 1 sigma upper error of counts; 0.5-1 keV |  |
+| TUNIT87 | count |  |
+| TCOMM87 | 1 sigma upper error of counts; 1-2 keV |  |
+| TUNIT88 | count |  |
+| TCOMM88 | 1 sigma upper error of counts; 2-4.5 keV |  |
+| TUNIT89 | count |  |
+| TCOMM89 | 1 sigma upper error of counts; 0.5-2 keV |  |
+| TUNIT90 | count |  |
+| TCOMM90 | 1 sigma upper error of counts; 2.3-5 keV |  |
+| TUNIT91 | count |  |
+| TCOMM91 | 1 sigma upper error of counts; 5-8 keV |  |
+| TUNIT92 | erg / (cm2 s) |  |
+| TCOMM92 | Source flux converted from count rate; 0.2-0.5 keV |  |
+| TUNIT93 | erg / (cm2 s) |  |
+| TCOMM93 | Source flux converted from count rate; 0.5-1 keV |  |
+| TUNIT94 | erg / (cm2 s) |  |
+| TCOMM94 | Source flux converted from count rate; 1-2 keV |  |
+| TUNIT95 | erg / (cm2 s) |  |
+| TCOMM95 | Source flux converted from count rate; 2-4.5 keV |  |
+| TUNIT96 | erg / (cm2 s) |  |
+| TCOMM96 | Source flux converted from count rate; 0.5-2 keV |  |
+| TUNIT97 | erg / (cm2 s) |  |
+| TCOMM97 | Source flux converted from count rate; 2.3-5 keV |  |
+| TUNIT98 | erg / (cm2 s) |  |
+| TCOMM98 | Source flux converted from count rate; 5-8 keV |  |
+| TUNIT99 | erg / (cm2 s) |  |
+| TCOMM99 | 1 sigma flux error; 0.2-0.5 keV |  |
+| TUNIT100 | erg / (cm2 s) |  |
+| TCOMM100 | 1 sigma flux error; 0.5-1 keV |  |
+| TUNIT101 | erg / (cm2 s) |  |
+| TCOMM101 | 1 sigma flux error; 1-2 keV |  |
+| TUNIT102 | erg / (cm2 s) |  |
+| TCOMM102 | 1 sigma flux error; 2-4.5 keV |  |
+| TUNIT103 | erg / (cm2 s) |  |
+| TCOMM103 | 1 sigma flux error; 0.5-2 keV |  |
+| TUNIT104 | erg / (cm2 s) |  |
+| TCOMM104 | 1 sigma flux error; 2.3-5 keV |  |
+| TUNIT105 | erg / (cm2 s) |  |
+| TCOMM105 | 1 sigma flux error; 5-8 keV |  |
+| TUNIT106 | erg / (cm2 s) |  |
+| TCOMM106 | 1 sigma lower error of flux; 0.2-0.5 keV |  |
+| TUNIT107 | erg / (cm2 s) |  |
+| TCOMM107 | 1 sigma lower error of flux; 0.5-1 keV |  |
+| TUNIT108 | erg / (cm2 s) |  |
+| TCOMM108 | 1 sigma lower error of flux; 1-2 keV |  |
+| TUNIT109 | erg / (cm2 s) |  |
+| TCOMM109 | 1 sigma lower error of flux; 2-4.5 keV |  |
+| TUNIT110 | erg / (cm2 s) |  |
+| TCOMM110 | 1 sigma lower error of flux; 0.5-2 keV |  |
+| TUNIT111 | erg / (cm2 s) |  |
+| TCOMM111 | 1 sigma lower error of flux; 2.3-5 keV |  |
+| TUNIT112 | erg / (cm2 s) |  |
+| TCOMM112 | 1 sigma lower error of flux; 5-8 keV |  |
+| TUNIT113 | erg / (cm2 s) |  |
+| TCOMM113 | 1 sigma upper error of flux; 0.2-0.5 keV |  |
+| TUNIT114 | erg / (cm2 s) |  |
+| TCOMM114 | 1 sigma upper error of flux; 0.5-1 keV |  |
+| TUNIT115 | erg / (cm2 s) |  |
+| TCOMM115 | 1 sigma upper error of flux; 1-2 keV |  |
+| TUNIT116 | erg / (cm2 s) |  |
+| TCOMM116 | 1 sigma upper error of flux; 2-4.5 keV |  |
+| TUNIT117 | erg / (cm2 s) |  |
+| TCOMM117 | 1 sigma upper error of flux; 0.5-2 keV |  |
+| TUNIT118 | erg / (cm2 s) |  |
+| TCOMM118 | 1 sigma upper error of flux; 2.3-5 keV |  |
+| TUNIT119 | erg / (cm2 s) |  |
+| TCOMM119 | 1 sigma upper error of flux; 5-8 keV |  |
+| TUNIT120 | s |  |
+| TCOMM120 | Vignetted exposure value; 0.2-0.5 keV |  |
+| TUNIT121 | s |  |
+| TCOMM121 | Vignetted exposure value; 0.5-1 keV |  |
+| TUNIT122 | s |  |
+| TCOMM122 | Vignetted exposure value; 1-2 keV |  |
+| TUNIT123 | s |  |
+| TCOMM123 | Vignetted exposure value; 2-4.5 keV |  |
+| TUNIT124 | s |  |
+| TCOMM124 | Vignetted exposure value; 0.5-2 keV |  |
+| TUNIT125 | s |  |
+| TCOMM125 | Vignetted exposure value; 2.3-5 keV |  |
+| TUNIT126 | s |  |
+| TCOMM126 | Vignetted exposure value; 5-8 keV |  |
+| TUNIT127 | count/arcmin^2 |  |
+| TCOMM127 | Background flux at the source position; 0.2-0.5 keV |  |
+| TUNIT128 | count/arcmin^2 |  |
+| TCOMM128 | Background flux at the source position; 0.5-1 keV |  |
+| TUNIT129 | count/arcmin^2 |  |
+| TCOMM129 | Background flux at the source position; 1-2 keV |  |
+| TUNIT130 | count/arcmin^2 |  |
+| TCOMM130 | Background flux at the source position; 2-4.5 keV |  |
+| TUNIT131 | count/arcmin^2 |  |
+| TCOMM131 | Background flux at the source position; 0.5-2 keV |  |
+| TUNIT132 | count/arcmin^2 |  |
+| TCOMM132 | Background flux at the source position; 2.3-5 keV |  |
+| TUNIT133 | count/arcmin^2 |  |
+| TCOMM133 | Background flux at the source position; 5-8 keV |  |
+| TUNIT134 | count |  |
+| TCOMM134 | Total counts extracted in the aperture; 0.2-0.5 keV |  |
+| TUNIT135 | count |  |
+| TCOMM135 | Total counts extracted in the aperture; 0.5-1 keV |  |
+| TUNIT136 | count |  |
+| TCOMM136 | Total counts extracted in the aperture; 1-2 keV |  |
+| TUNIT137 | count |  |
+| TCOMM137 | Total counts extracted in the aperture; 2-4.5 keV |  |
+| TUNIT138 | count |  |
+| TCOMM138 | Total counts extracted in the aperture; 0.5-2 keV |  |
+| TUNIT139 | count |  |
+| TCOMM139 | Total counts extracted in the aperture; 2.3-5 keV |  |
+| TUNIT140 | count |  |
+| TCOMM140 | Total counts extracted in the aperture; 5-8 keV |  |
+| TUNIT141 | s |  |
+| TCOMM141 | Vignetted exposure value; 0.2-0.5 keV |  |
+| TUNIT142 | s |  |
+| TCOMM142 | Vignetted exposure value; 0.5-1 keV |  |
+| TUNIT143 | s |  |
+| TCOMM143 | Vignetted exposure value; 1-2 keV |  |
+| TUNIT144 | s |  |
+| TCOMM144 | Vignetted exposure value; 2-4.5 keV |  |
+| TUNIT145 | s |  |
+| TCOMM145 | Vignetted exposure value; 0.5-2 keV |  |
+| TUNIT146 | s |  |
+| TCOMM146 | Vignetted exposure value; 2.3-5 keV |  |
+| TUNIT147 | s |  |
+| TCOMM147 | Vignetted exposure value; 5-8 keV |  |
+| TUNIT148 | count |  |
+| TCOMM148 | Background counts in aperture, excluding nearby sources; 0.2-0.5 keV |  |
+| TUNIT149 | count |  |
+| TCOMM149 | Background counts in aperture, excluding nearby sources; 0.5-1 keV |  |
+| TUNIT150 | count |  |
+| TCOMM150 | Background counts in aperture, excluding nearby sources; 1-2 keV |  |
+| TUNIT151 | count |  |
+| TCOMM151 | Background counts in aperture, excluding nearby sources; 2-4.5 keV |  |
+| TUNIT152 | count |  |
+| TCOMM152 | Background counts in aperture, excluding nearby sources; 0.5-2 keV |  |
+| TUNIT153 | count |  |
+| TCOMM153 | Background counts in aperture, excluding nearby sources; 2.3-5 keV |  |
+| TUNIT154 | count |  |
+| TCOMM154 | Background counts in aperture, excluding nearby sources; 5-8 keV |  |
+| TUNIT155 | pixel |  |
+| TCOMM155 | Aperture radius; 0.2-0.5 keV |  |
+| TUNIT156 | pixel |  |
+| TCOMM156 | Aperture radius; 0.5-1 keV |  |
+| TUNIT157 | pixel |  |
+| TCOMM157 | Aperture radius; 1-2 keV |  |
+| TUNIT158 | pixel |  |
+| TCOMM158 | Aperture radius; 2-4.5 keV |  |
+| TUNIT159 | pixel |  |
+| TCOMM159 | Aperture radius; 0.5-2 keV |  |
+| TUNIT160 | pixel |  |
+| TCOMM160 | Aperture radius; 2.3-5 keV |  |
+| TUNIT161 | pixel |  |
+| TCOMM161 | Aperture radius; 5-8 keV |  |
+| TCOMM162 | Poisson probability of being background fluctuation; 0.2-0.5 keV |  |
+| TCOMM163 | Poisson probability of being background fluctuation; 0.5-1 keV |  |
+| TCOMM164 | Poisson probability of being background fluctuation; 1-2 keV |  |
+| TCOMM165 | Poisson probability of being background fluctuation; 2-4.5 keV |  |
+| TCOMM166 | Poisson probability of being background fluctuation; 0.5-2 keV |  |
+| TCOMM167 | Poisson probability of being background fluctuation; 2.3-5 keV |  |
+| TCOMM168 | Poisson probability of being background fluctuation; 5-8 keV |  |
+| TCOMM169 | Primary key index to associate the HDUs |  |
 
-##### Binary Table Caption for HDU5
+##### Binary Table Caption for HDU4
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | ObjID | char[23] |  | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |
  | ERO_Name | char[22] |  | eROSITA official source Name |
- | SPECZ_REDSHIFT | float32 |  | Spectroscopic redshift from visual inspection (Aydar+2025) |
  | SAMPLE | char[4] |  | Main or Hard sample from eROSITA (Brunner+2022) |
- | PLUG_RA | float64 | deg | SDSS right ascension sky coordinate of spectroscopic fibre |
- | PLUG_DEC | float64 | deg | SDSS declination sky coordinate of spectroscopic fibre |
- | ID_SRC | int32 |  | ID of eROSITA source in the Main Sample |
+ | ERO_ID_MAIN | int32 |  | ID of eROSITA source in the Main Sample |
  | ERO_ID_HARD | int32 |  | ID of eROSITA source in the Hard Sample |
- | RA | float64 | deg | Uncorrected RA (ICRS) |
- | DEC | float64 | deg | Uncorrected Dec (ICRS) |
+ | SPECZ_REDSHIFT | float32 |  | Spectroscopic redshift from visual inspection (Aydar+2025) |
+ | RA_SDSS | float64 | deg | SDSS right ascension (J2000) |
+ | DEC_SDSS | float64 | deg | SDSS declination (J2000) |
+ | MJD | int32 |  | SDSS modified Julian date of observation |
+ | RA | float64 | deg | eROSITA uncorrected RA (ICRS) |
+ | DEC | float64 | deg | eROSITA uncorrected Dec (ICRS) |
  | RADEC_ERR | float32 | arcsec | Combined positional uncertainty, uncorrected |
  | RA_CORR | float64 | deg | J2000 Right Ascension of the eROSITA source (corrected) |
  | DEC_CORR | float64 | deg | J2000 Declination of the eROSITA source (corrected) |
@@ -3802,404 +3486,408 @@ Name | Type | Unit | Description |
  | APE_POIS_s | float64 |  | Poisson probability of being background fluctuation; 0.5-2 keV |
  | APE_POIS_h | float64 |  | Poisson probability of being background fluctuation; 2.3-5 keV |
  | APE_POIS_u | float64 |  | Poisson probability of being background fluctuation; 5-8 keV |
+ | PK_index | int32 |  | Primary key index to associate the HDUs |
 
 
 
-### HDU6: HARD_X_RAY_CATALOGUE_BRUNNER2022
+### HDU5: Hard_X_ray_Catalogue_Brunner2022
 eROSITA Hard Sample X-ray catalogue from Brunner et al. (2022)
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  369 KB
+#### HDU Size:  371 KB
 
-##### Header Table Caption for HDU6
+##### Header Table Caption for HDU5
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | BINTABLE | binary table extension |
-| BITPIX | 8 | 8-bit bytes |
-| NAXIS | 2 | 2-dimensional table |
-| NAXIS1 | 1366 | width of table in bytes |
-| NAXIS2 | 277 | number of rows in table |
-| PCOUNT | 0 | size of special data area |
-| GCOUNT | 1 | one data group |
-| TFIELDS | 193 | number of columns |
-| EXTNAME | HARD_X_RAY_CATALOGUE_BRUNNER2022 | table name |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 1374 | length of dimension 1 |
+| NAXIS2 | 277 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 195 | number of table fields |
+| EXTNAME | Hard_X_ray_Catalogue_Brunner2022 |  |
 | TCOMM1 | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |  |
 | TCOMM2 | eROSITA official source Name |  |
-| TCOMM3 | ID of eROSITA source in the Hard Sample |  |
-| TCOMM4 | Spectroscopic redshift from visual inspection (Aydar+2025) |  |
-| TCOMM5 | Main or Hard sample from eROSITA (Brunner+2022) |  |
-| TUNIT6 | deg | units for column 6 |
-| TCOMM6 | SDSS right ascension (J2000) |  |
-| TUNIT7 | deg | units for column 7 |
-| TCOMM7 | SDSS declination (J2000) |  |
-| TCOMM8 | ID of eROSITA source in the Main Sample |  |
-| TUNIT9 | deg | units for column 9 |
-| TCOMM9 | eROSITA uncorrected RA (ICRS) |  |
-| TUNIT10 | deg | units for column 10 |
-| TCOMM10 | eROSITA uncorrected Dec (ICRS) |  |
-| TUNIT11 | arcsec | units for column 11 |
-| TCOMM11 | Combined positional uncertainty, uncorrected |  |
-| TUNIT12 | deg | units for column 12 |
-| TCOMM12 | J2000 Right Ascension of the eROSITA source (corrected) |  |
-| TUNIT13 | deg | units for column 13 |
-| TCOMM13 | J2000 Declination of the eROSITA source (corrected) |  |
-| TUNIT14 | arcsec | units for column 14 |
-| TCOMM14 | eROSITA positional uncertainty (corrected) |  |
-| TUNIT15 | arcsec | units for column 15 |
-| TCOMM15 | Source extent |  |
-| TUNIT16 | arcsec | units for column 16 |
-| TCOMM16 | Extent error |  |
-| TCOMM17 | Extent likelihood |  |
-| TCOMM18 | Detection likelihood measured by PSF-fitting, combining 3 bands |  |
-| TUNIT19 | count/s | units for column 19 |
-| TCOMM19 | Source count rate, combining 3 bands |  |
-| TUNIT20 | count/s | units for column 20 |
-| TCOMM20 | 1 sigma count rate error |  |
-| TUNIT21 | count | units for column 21 |
-| TCOMM21 | Source net counts, combining 3 bands |  |
-| TUNIT22 | count | units for column 22 |
-| TCOMM22 | 1 sigma counts error |  |
-| TUNIT23 | erg / (cm2 s) | units for column 23 |
-| TCOMM23 | Source flux, combining 3 bands |  |
-| TUNIT24 | erg / (cm2 s) | units for column 24 |
-| TCOMM24 | 1 sigma flux error |  |
-| TUNIT25 | count/arcmin^2 | units for column 25 |
-| TCOMM25 | Background flux at the source position |  |
-| TCOMM26 | True if in the 0.2-2.3keV exp>500s region, which comprises 90% area |  |
-| TCOMM27 | 0.2-0.6 keV detection likelihood |  |
-| TCOMM28 | 0.6-2.3 keV detection likelihood |  |
-| TCOMM29 | 2.3-5 keV detection likelihood |  |
-| TUNIT30 | count/s | units for column 30 |
-| TCOMM30 | 0.2-0.6 keV count rate |  |
-| TUNIT31 | count/s | units for column 31 |
-| TCOMM31 | 0.6-2.3 keV count rate |  |
-| TUNIT32 | count/s | units for column 32 |
-| TCOMM32 | 2.3-5 keV count rate |  |
-| TUNIT33 | count/s | units for column 33 |
-| TCOMM33 | 1 sigma count rate error; 0.2-0.6 keV |  |
-| TUNIT34 | count/s | units for column 34 |
-| TCOMM34 | 1 sigma count rate error; 0.6-2.3 keV |  |
-| TUNIT35 | count/s | units for column 35 |
-| TCOMM35 | 1 sigma count rate error; 2.3-5 keV |  |
-| TUNIT36 | count | units for column 36 |
-| TCOMM36 | 0.2-0.6 keV net counts |  |
-| TUNIT37 | count | units for column 37 |
-| TCOMM37 | 0.6-2.3 keV net counts |  |
-| TUNIT38 | count | units for column 38 |
-| TCOMM38 | 2.3-5 keV net counts |  |
-| TUNIT39 | count | units for column 39 |
-| TCOMM39 | 1 sigma counts error; 0.2-0.6 keV |  |
-| TUNIT40 | count | units for column 40 |
-| TCOMM40 | 1 sigma counts error; 0.6-2.3 keV |  |
-| TUNIT41 | count | units for column 41 |
-| TCOMM41 | 1 sigma counts error; 2.3-5 keV |  |
-| TUNIT42 | erg / (cm2 s) | units for column 42 |
-| TCOMM42 | 0.2-0.6 keV flux |  |
-| TUNIT43 | erg / (cm2 s) | units for column 43 |
-| TCOMM43 | 0.6-2.3 keV flux |  |
-| TUNIT44 | erg / (cm2 s) | units for column 44 |
-| TCOMM44 | 2.3-5 keV flux |  |
-| TUNIT45 | erg / (cm2 s) | units for column 45 |
-| TCOMM45 | 1 sigma flux error; 0.2-0.6 keV |  |
-| TUNIT46 | erg / (cm2 s) | units for column 46 |
-| TCOMM46 | 1 sigma flux error; 0.6-2.3 keV |  |
-| TUNIT47 | erg / (cm2 s) | units for column 47 |
-| TCOMM47 | 1 sigma flux error; 2.3-5 keV |  |
-| TUNIT48 | s | units for column 48 |
-| TCOMM48 | Vignetted exposure value; 0.2-0.6 keV |  |
-| TUNIT49 | s | units for column 49 |
-| TCOMM49 | Vignetted exposure value; 0.6-2.3 keV |  |
-| TUNIT50 | s | units for column 50 |
-| TCOMM50 | Vignetted exposure value; 2.3-5 keV |  |
-| TUNIT51 | count/arcmin^2 | units for column 51 |
-| TCOMM51 | Background flux at the source position; 0.2-0.6 keV |  |
-| TUNIT52 | count/arcmin^2 | units for column 52 |
-| TCOMM52 | Background flux at the source position; 0.6-2.3 keV |  |
-| TUNIT53 | count/arcmin^2 | units for column 53 |
-| TCOMM53 | Background flux at the source position; 2.3-5 keV |  |
-| TCOMM54 | Detection likelihood measured by forced PSF-fitting; 0.2-0.5 keV |  |
-| TCOMM55 | Detection likelihood measured by forced PSF-fitting; 0.5-1 keV |  |
-| TCOMM56 | Detection likelihood measured by forced PSF-fitting; 1-2 keV |  |
-| TCOMM57 | Detection likelihood measured by forced PSF-fitting; 2-4.5 keV |  |
-| TCOMM58 | Detection likelihood measured by forced PSF-fitting; 0.5-2 keV |  |
-| TCOMM59 | Detection likelihood measured by forced PSF-fitting; 2.3-5 keV |  |
-| TCOMM60 | Detection likelihood measured by forced PSF-fitting; 5-8 keV |  |
-| TUNIT61 | count/s | units for column 61 |
-| TCOMM61 | Source count rate measured by forced PSF-fitting; 0.2-0.5 keV |  |
-| TUNIT62 | count/s | units for column 62 |
-| TCOMM62 | Source count rate measured by forced PSF-fitting; 0.5-1 keV |  |
-| TUNIT63 | count/s | units for column 63 |
-| TCOMM63 | Source count rate measured by forced PSF-fitting; 1-2 keV |  |
-| TUNIT64 | count/s | units for column 64 |
-| TCOMM64 | Source count rate measured by forced PSF-fitting; 2-4.5 keV |  |
-| TUNIT65 | count/s | units for column 65 |
-| TCOMM65 | Source count rate measured by forced PSF-fitting; 0.5-2 keV |  |
-| TUNIT66 | count/s | units for column 66 |
-| TCOMM66 | Source count rate measured by forced PSF-fitting; 2.3-5 keV |  |
-| TUNIT67 | count/s | units for column 67 |
-| TCOMM67 | Source count rate measured by forced PSF-fitting; 5-8 keV |  |
-| TUNIT68 | count/s | units for column 68 |
-| TCOMM68 | 1 sigma count rate error; 0.2-0.5 keV |  |
-| TUNIT69 | count/s | units for column 69 |
-| TCOMM69 | 1 sigma count rate error; 0.5-1 keV |  |
-| TUNIT70 | count/s | units for column 70 |
-| TCOMM70 | 1 sigma count rate error; 1-2 keV |  |
-| TUNIT71 | count/s | units for column 71 |
-| TCOMM71 | 1 sigma count rate error; 2-4.5 keV |  |
-| TUNIT72 | count/s | units for column 72 |
-| TCOMM72 | 1 sigma count rate error; 0.5-2 keV |  |
-| TUNIT73 | count/s | units for column 73 |
-| TCOMM73 | 1 sigma count rate error; 2.3-5 keV |  |
-| TUNIT74 | count/s | units for column 74 |
-| TCOMM74 | 1 sigma count rate error; 5-8 keV |  |
-| TUNIT75 | count/s | units for column 75 |
-| TCOMM75 | 1 sigma lower error of count rate; 0.2-0.5 keV |  |
-| TUNIT76 | count/s | units for column 76 |
-| TCOMM76 | 1 sigma lower error of count rate; 0.5-1 keV |  |
-| TUNIT77 | count/s | units for column 77 |
-| TCOMM77 | 1 sigma lower error of count rate; 1-2 keV |  |
-| TUNIT78 | count/s | units for column 78 |
-| TCOMM78 | 1 sigma lower error of count rate; 2-4.5 keV |  |
-| TUNIT79 | count/s | units for column 79 |
-| TCOMM79 | 1 sigma lower error of count rate; 0.5-2 keV |  |
-| TUNIT80 | count/s | units for column 80 |
-| TCOMM80 | 1 sigma lower error of count rate; 2.3-5 keV |  |
-| TUNIT81 | count/s | units for column 81 |
-| TCOMM81 | 1 sigma lower error of count rate; 5-8 keV |  |
-| TUNIT82 | count/s | units for column 82 |
-| TCOMM82 | 1 sigma upper error of count rate; 0.2-0.5 keV |  |
-| TUNIT83 | count/s | units for column 83 |
-| TCOMM83 | 1 sigma upper error of count rate; 0.5-1 keV |  |
-| TUNIT84 | count/s | units for column 84 |
-| TCOMM84 | 1 sigma upper error of count rate; 1-2 keV |  |
-| TUNIT85 | count/s | units for column 85 |
-| TCOMM85 | 1 sigma upper error of count rate; 2-4.5 keV |  |
-| TUNIT86 | count/s | units for column 86 |
-| TCOMM86 | 1 sigma upper error of count rate; 0.5-2 keV |  |
-| TUNIT87 | count/s | units for column 87 |
-| TCOMM87 | 1 sigma upper error of count rate; 2.3-5 keV |  |
-| TUNIT88 | count/s | units for column 88 |
-| TCOMM88 | 1 sigma upper error of count rate; 5-8 keV |  |
-| TUNIT89 | count | units for column 89 |
-| TCOMM89 | Source net counts measured from count rate; 0.2-0.5 keV |  |
-| TUNIT90 | count | units for column 90 |
-| TCOMM90 | Source net counts measured from count rate; 0.5-1 keV |  |
-| TUNIT91 | count | units for column 91 |
-| TCOMM91 | Source net counts measured from count rate; 1-2 keV |  |
-| TUNIT92 | count | units for column 92 |
-| TCOMM92 | Source net counts measured from count rate; 2-4.5 keV |  |
-| TUNIT93 | count | units for column 93 |
-| TCOMM93 | Source net counts measured from count rate; 0.5-2 keV |  |
-| TUNIT94 | count | units for column 94 |
-| TCOMM94 | Source net counts measured from count rate; 2.3-5 keV |  |
-| TUNIT95 | count | units for column 95 |
-| TCOMM95 | Source net counts measured from count rate; 5-8 keV |  |
-| TUNIT96 | count | units for column 96 |
-| TCOMM96 | 1 sigma counts error; 0.2-0.5 keV |  |
-| TUNIT97 | count | units for column 97 |
-| TCOMM97 | 1 sigma counts error; 0.5-1 keV |  |
-| TUNIT98 | count | units for column 98 |
-| TCOMM98 | 1 sigma counts error; 1-2 keV |  |
-| TUNIT99 | count | units for column 99 |
-| TCOMM99 | 1 sigma counts error; 2-4.5 keV |  |
-| TUNIT100 | count | units for column 100 |
-| TCOMM100 | 1 sigma counts error; 0.5-2 keV |  |
-| TUNIT101 | count | units for column 101 |
-| TCOMM101 | 1 sigma counts error; 2.3-5 keV |  |
-| TUNIT102 | count | units for column 102 |
-| TCOMM102 | 1 sigma counts error; 5-8 keV |  |
-| TUNIT103 | count | units for column 103 |
-| TCOMM103 | 1 sigma lower error of counts; 0.2-0.5 keV |  |
-| TUNIT104 | count | units for column 104 |
-| TCOMM104 | 1 sigma lower error of counts; 0.5-1 keV |  |
-| TUNIT105 | count | units for column 105 |
-| TCOMM105 | 1 sigma lower error of counts; 1-2 keV |  |
-| TUNIT106 | count | units for column 106 |
-| TCOMM106 | 1 sigma lower error of counts; 2-4.5 keV |  |
-| TUNIT107 | count | units for column 107 |
-| TCOMM107 | 1 sigma lower error of counts; 0.5-2 keV |  |
-| TUNIT108 | count | units for column 108 |
-| TCOMM108 | 1 sigma lower error of counts; 2.3-5 keV |  |
-| TUNIT109 | count | units for column 109 |
-| TCOMM109 | 1 sigma lower error of counts; 5-8 keV |  |
-| TUNIT110 | count | units for column 110 |
-| TCOMM110 | 1 sigma upper error of counts; 0.2-0.5 keV |  |
-| TUNIT111 | count | units for column 111 |
-| TCOMM111 | 1 sigma upper error of counts; 0.5-1 keV |  |
-| TUNIT112 | count | units for column 112 |
-| TCOMM112 | 1 sigma upper error of counts; 1-2 keV |  |
-| TUNIT113 | count | units for column 113 |
-| TCOMM113 | 1 sigma upper error of counts; 2-4.5 keV |  |
-| TUNIT114 | count | units for column 114 |
-| TCOMM114 | 1 sigma upper error of counts; 0.5-2 keV |  |
-| TUNIT115 | count | units for column 115 |
-| TCOMM115 | 1 sigma upper error of counts; 2.3-5 keV |  |
-| TUNIT116 | count | units for column 116 |
-| TCOMM116 | 1 sigma upper error of counts; 5-8 keV |  |
-| TUNIT117 | erg / (cm2 s) | units for column 117 |
-| TCOMM117 | Source flux converted from count rate; 0.2-0.5 keV |  |
-| TUNIT118 | erg / (cm2 s) | units for column 118 |
-| TCOMM118 | Source flux converted from count rate; 0.5-1 keV |  |
-| TUNIT119 | erg / (cm2 s) | units for column 119 |
-| TCOMM119 | Source flux converted from count rate; 1-2 keV |  |
-| TUNIT120 | erg / (cm2 s) | units for column 120 |
-| TCOMM120 | Source flux converted from count rate; 2-4.5 keV |  |
-| TUNIT121 | erg / (cm2 s) | units for column 121 |
-| TCOMM121 | Source flux converted from count rate; 0.5-2 keV |  |
-| TUNIT122 | erg / (cm2 s) | units for column 122 |
-| TCOMM122 | Source flux converted from count rate; 2.3-5 keV |  |
-| TUNIT123 | erg / (cm2 s) | units for column 123 |
-| TCOMM123 | Source flux converted from count rate; 5-8 keV |  |
-| TUNIT124 | erg / (cm2 s) | units for column 124 |
-| TCOMM124 | 1 sigma flux error; 0.2-0.5 keV |  |
-| TUNIT125 | erg / (cm2 s) | units for column 125 |
-| TCOMM125 | 1 sigma flux error; 0.5-1 keV |  |
-| TUNIT126 | erg / (cm2 s) | units for column 126 |
-| TCOMM126 | 1 sigma flux error; 1-2 keV |  |
-| TUNIT127 | erg / (cm2 s) | units for column 127 |
-| TCOMM127 | 1 sigma flux error; 2-4.5 keV |  |
-| TUNIT128 | erg / (cm2 s) | units for column 128 |
-| TCOMM128 | 1 sigma flux error; 0.5-2 keV |  |
-| TUNIT129 | erg / (cm2 s) | units for column 129 |
-| TCOMM129 | 1 sigma flux error; 2.3-5 keV |  |
-| TUNIT130 | erg / (cm2 s) | units for column 130 |
-| TCOMM130 | 1 sigma flux error; 5-8 keV |  |
-| TUNIT131 | erg / (cm2 s) | units for column 131 |
-| TCOMM131 | 1 sigma lower error of flux; 0.2-0.5 keV |  |
-| TUNIT132 | erg / (cm2 s) | units for column 132 |
-| TCOMM132 | 1 sigma lower error of flux; 0.5-1 keV |  |
-| TUNIT133 | erg / (cm2 s) | units for column 133 |
-| TCOMM133 | 1 sigma lower error of flux; 1-2 keV |  |
-| TUNIT134 | erg / (cm2 s) | units for column 134 |
-| TCOMM134 | 1 sigma lower error of flux; 2-4.5 keV |  |
-| TUNIT135 | erg / (cm2 s) | units for column 135 |
-| TCOMM135 | 1 sigma lower error of flux; 0.5-2 keV |  |
-| TUNIT136 | erg / (cm2 s) | units for column 136 |
-| TCOMM136 | 1 sigma lower error of flux; 2.3-5 keV |  |
-| TUNIT137 | erg / (cm2 s) | units for column 137 |
-| TCOMM137 | 1 sigma lower error of flux; 5-8 keV |  |
-| TUNIT138 | erg / (cm2 s) | units for column 138 |
-| TCOMM138 | 1 sigma upper error of flux; 0.2-0.5 keV |  |
-| TUNIT139 | erg / (cm2 s) | units for column 139 |
-| TCOMM139 | 1 sigma upper error of flux; 0.5-1 keV |  |
-| TUNIT140 | erg / (cm2 s) | units for column 140 |
-| TCOMM140 | 1 sigma upper error of flux; 1-2 keV |  |
-| TUNIT141 | erg / (cm2 s) | units for column 141 |
-| TCOMM141 | 1 sigma upper error of flux; 2-4.5 keV |  |
-| TUNIT142 | erg / (cm2 s) | units for column 142 |
-| TCOMM142 | 1 sigma upper error of flux; 0.5-2 keV |  |
-| TUNIT143 | erg / (cm2 s) | units for column 143 |
-| TCOMM143 | 1 sigma upper error of flux; 2.3-5 keV |  |
-| TUNIT144 | erg / (cm2 s) | units for column 144 |
-| TCOMM144 | 1 sigma upper error of flux; 5-8 keV |  |
-| TUNIT145 | s | units for column 145 |
-| TCOMM145 | Vignetted exposure value; 0.2-0.5 keV |  |
-| TUNIT146 | s | units for column 146 |
-| TCOMM146 | Vignetted exposure value; 0.5-1 keV |  |
-| TUNIT147 | s | units for column 147 |
-| TCOMM147 | Vignetted exposure value; 1-2 keV |  |
-| TUNIT148 | s | units for column 148 |
-| TCOMM148 | Vignetted exposure value; 2-4.5 keV |  |
-| TUNIT149 | s | units for column 149 |
-| TCOMM149 | Vignetted exposure value; 0.5-2 keV |  |
-| TUNIT150 | s | units for column 150 |
-| TCOMM150 | Vignetted exposure value; 2.3-5 keV |  |
-| TUNIT151 | s | units for column 151 |
-| TCOMM151 | Vignetted exposure value; 5-8 keV |  |
-| TUNIT152 | count/arcmin^2 | units for column 152 |
-| TCOMM152 | Background flux at the source position; 0.2-0.5 keV |  |
-| TUNIT153 | count/arcmin^2 | units for column 153 |
-| TCOMM153 | Background flux at the source position; 0.5-1 keV |  |
-| TUNIT154 | count/arcmin^2 | units for column 154 |
-| TCOMM154 | Background flux at the source position; 1-2 keV |  |
-| TUNIT155 | count/arcmin^2 | units for column 155 |
-| TCOMM155 | Background flux at the source position; 2-4.5 keV |  |
-| TUNIT156 | count/arcmin^2 | units for column 156 |
-| TCOMM156 | Background flux at the source position; 0.5-2 keV |  |
-| TUNIT157 | count/arcmin^2 | units for column 157 |
-| TCOMM157 | Background flux at the source position; 2.3-5 keV |  |
-| TUNIT158 | count/arcmin^2 | units for column 158 |
-| TCOMM158 | Background flux at the source position; 5-8 keV |  |
-| TUNIT159 | count | units for column 159 |
-| TCOMM159 | Total counts extracted in the aperture; 0.2-0.5 keV |  |
-| TUNIT160 | count | units for column 160 |
-| TCOMM160 | Total counts extracted in the aperture; 0.5-1 keV |  |
-| TUNIT161 | count | units for column 161 |
-| TCOMM161 | Total counts extracted in the aperture; 1-2 keV |  |
-| TUNIT162 | count | units for column 162 |
-| TCOMM162 | Total counts extracted in the aperture; 2-4.5 keV |  |
-| TUNIT163 | count | units for column 163 |
-| TCOMM163 | Total counts extracted in the aperture; 0.5-2 keV |  |
-| TUNIT164 | count | units for column 164 |
-| TCOMM164 | Total counts extracted in the aperture; 2.3-5 keV |  |
-| TUNIT165 | count | units for column 165 |
-| TCOMM165 | Total counts extracted in the aperture; 5-8 keV |  |
-| TUNIT166 | s | units for column 166 |
-| TCOMM166 | Vignetted exposure value; 0.2-0.5 keV |  |
-| TUNIT167 | s | units for column 167 |
-| TCOMM167 | Vignetted exposure value; 0.5-1 keV |  |
-| TUNIT168 | s | units for column 168 |
-| TCOMM168 | Vignetted exposure value; 1-2 keV |  |
-| TUNIT169 | s | units for column 169 |
-| TCOMM169 | Vignetted exposure value; 2-4.5 keV |  |
-| TUNIT170 | s | units for column 170 |
-| TCOMM170 | Vignetted exposure value; 0.5-2 keV |  |
-| TUNIT171 | s | units for column 171 |
-| TCOMM171 | Vignetted exposure value; 2.3-5 keV |  |
-| TUNIT172 | s | units for column 172 |
-| TCOMM172 | Vignetted exposure value; 5-8 keV |  |
-| TUNIT173 | count | units for column 173 |
-| TCOMM173 | Background counts in aperture, excluding nearby sources; 0.2-0.5 keV |  |
-| TUNIT174 | count | units for column 174 |
-| TCOMM174 | Background counts in aperture, excluding nearby sources; 0.5-1 keV |  |
-| TUNIT175 | count | units for column 175 |
-| TCOMM175 | Background counts in aperture, excluding nearby sources; 1-2 keV |  |
-| TUNIT176 | count | units for column 176 |
-| TCOMM176 | Background counts in aperture, excluding nearby sources; 2-4.5 keV |  |
-| TUNIT177 | count | units for column 177 |
-| TCOMM177 | Background counts in aperture, excluding nearby sources; 0.5-2 keV |  |
-| TUNIT178 | count | units for column 178 |
-| TCOMM178 | Background counts in aperture, excluding nearby sources; 2.3-5 keV |  |
-| TUNIT179 | count | units for column 179 |
-| TCOMM179 | Background counts in aperture, excluding nearby sources; 5-8 keV |  |
-| TUNIT180 | pixel | units for column 180 |
-| TCOMM180 | Aperture radius; 0.2-0.5 keV |  |
-| TUNIT181 | pixel | units for column 181 |
-| TCOMM181 | Aperture radius; 0.5-1 keV |  |
-| TUNIT182 | pixel | units for column 182 |
-| TCOMM182 | Aperture radius; 1-2 keV |  |
-| TUNIT183 | pixel | units for column 183 |
-| TCOMM183 | Aperture radius; 2-4.5 keV |  |
-| TUNIT184 | pixel | units for column 184 |
-| TCOMM184 | Aperture radius; 0.5-2 keV |  |
-| TUNIT185 | pixel | units for column 185 |
-| TCOMM185 | Aperture radius; 2.3-5 keV |  |
-| TUNIT186 | pixel | units for column 186 |
-| TCOMM186 | Aperture radius; 5-8 keV |  |
-| TCOMM187 | Poisson probability of being background fluctuation; 0.2-0.5 keV |  |
-| TCOMM188 | Poisson probability of being background fluctuation; 0.5-1 keV |  |
-| TCOMM189 | Poisson probability of being background fluctuation; 1-2 keV |  |
-| TCOMM190 | Poisson probability of being background fluctuation; 2-4.5 keV |  |
-| TCOMM191 | Poisson probability of being background fluctuation; 0.5-2 keV |  |
-| TCOMM192 | Poisson probability of being background fluctuation; 2.3-5 keV |  |
-| TCOMM193 | Poisson probability of being background fluctuation; 5-8 keV |  |
-| DATE-HDU | 2026-06-11T09:50:04 | Date of HDU creation (UTC) |
-| STILVERS | 4.3-5 | Version of STIL software |
-| STILCLAS | uk.ac.starlink.votable.UnifiedFitsTableWriter | STIL Author class |
+| TCOMM3 | Main or Hard sample from eROSITA (Brunner+2022) |  |
+| TCOMM4 | ID of eROSITA source in the Main Sample |  |
+| TNULL4 | -1 |  |
+| TCOMM5 | ID of eROSITA source in the Hard Sample |  |
+| TNULL5 | -1 |  |
+| TCOMM6 | Spectroscopic redshift from visual inspection (Aydar+2025) |  |
+| TUNIT7 | deg |  |
+| TCOMM7 | SDSS right ascension (J2000) |  |
+| TUNIT8 | deg |  |
+| TCOMM8 | SDSS declination (J2000) |  |
+| TCOMM9 | SDSS modified Julian date of observation |  |
+| TNULL9 | -2147483648 |  |
+| TUNIT10 | deg |  |
+| TCOMM10 | eROSITA uncorrected RA (ICRS) |  |
+| TUNIT11 | deg |  |
+| TCOMM11 | eROSITA uncorrected Dec (ICRS) |  |
+| TUNIT12 | arcsec |  |
+| TCOMM12 | Combined positional uncertainty, uncorrected |  |
+| TUNIT13 | deg |  |
+| TCOMM13 | J2000 Right Ascension of the eROSITA source (corrected) |  |
+| TUNIT14 | deg |  |
+| TCOMM14 | J2000 Declination of the eROSITA source (corrected) |  |
+| TUNIT15 | arcsec |  |
+| TCOMM15 | eROSITA positional uncertainty (corrected) |  |
+| TUNIT16 | arcsec |  |
+| TCOMM16 | Source extent |  |
+| TUNIT17 | arcsec |  |
+| TCOMM17 | Extent error |  |
+| TCOMM18 | Extent likelihood |  |
+| TCOMM19 | Detection likelihood measured by PSF-fitting, combining 3 bands |  |
+| TUNIT20 | count/s |  |
+| TCOMM20 | Source count rate, combining 3 bands |  |
+| TUNIT21 | count/s |  |
+| TCOMM21 | 1 sigma count rate error |  |
+| TUNIT22 | count |  |
+| TCOMM22 | Source net counts, combining 3 bands |  |
+| TUNIT23 | count |  |
+| TCOMM23 | 1 sigma counts error |  |
+| TUNIT24 | erg / (cm2 s) |  |
+| TCOMM24 | Source flux, combining 3 bands |  |
+| TUNIT25 | erg / (cm2 s) |  |
+| TCOMM25 | 1 sigma flux error |  |
+| TUNIT26 | count/arcmin^2 |  |
+| TCOMM26 | Background flux at the source position |  |
+| TCOMM27 | True if in the 0.2-2.3keV exp>500s region, which comprises 90% area |  |
+| TCOMM28 | 0.2-0.6 keV detection likelihood |  |
+| TCOMM29 | 0.6-2.3 keV detection likelihood |  |
+| TCOMM30 | 2.3-5 keV detection likelihood |  |
+| TUNIT31 | count/s |  |
+| TCOMM31 | 0.2-0.6 keV count rate |  |
+| TUNIT32 | count/s |  |
+| TCOMM32 | 0.6-2.3 keV count rate |  |
+| TUNIT33 | count/s |  |
+| TCOMM33 | 2.3-5 keV count rate |  |
+| TUNIT34 | count/s |  |
+| TCOMM34 | 1 sigma count rate error; 0.2-0.6 keV |  |
+| TUNIT35 | count/s |  |
+| TCOMM35 | 1 sigma count rate error; 0.6-2.3 keV |  |
+| TUNIT36 | count/s |  |
+| TCOMM36 | 1 sigma count rate error; 2.3-5 keV |  |
+| TUNIT37 | count |  |
+| TCOMM37 | 0.2-0.6 keV net counts |  |
+| TUNIT38 | count |  |
+| TCOMM38 | 0.6-2.3 keV net counts |  |
+| TUNIT39 | count |  |
+| TCOMM39 | 2.3-5 keV net counts |  |
+| TUNIT40 | count |  |
+| TCOMM40 | 1 sigma counts error; 0.2-0.6 keV |  |
+| TUNIT41 | count |  |
+| TCOMM41 | 1 sigma counts error; 0.6-2.3 keV |  |
+| TUNIT42 | count |  |
+| TCOMM42 | 1 sigma counts error; 2.3-5 keV |  |
+| TUNIT43 | erg / (cm2 s) |  |
+| TCOMM43 | 0.2-0.6 keV flux |  |
+| TUNIT44 | erg / (cm2 s) |  |
+| TCOMM44 | 0.6-2.3 keV flux |  |
+| TUNIT45 | erg / (cm2 s) |  |
+| TCOMM45 | 2.3-5 keV flux |  |
+| TUNIT46 | erg / (cm2 s) |  |
+| TCOMM46 | 1 sigma flux error; 0.2-0.6 keV |  |
+| TUNIT47 | erg / (cm2 s) |  |
+| TCOMM47 | 1 sigma flux error; 0.6-2.3 keV |  |
+| TUNIT48 | erg / (cm2 s) |  |
+| TCOMM48 | 1 sigma flux error; 2.3-5 keV |  |
+| TUNIT49 | s |  |
+| TCOMM49 | Vignetted exposure value; 0.2-0.6 keV |  |
+| TUNIT50 | s |  |
+| TCOMM50 | Vignetted exposure value; 0.6-2.3 keV |  |
+| TUNIT51 | s |  |
+| TCOMM51 | Vignetted exposure value; 2.3-5 keV |  |
+| TUNIT52 | count/arcmin^2 |  |
+| TCOMM52 | Background flux at the source position; 0.2-0.6 keV |  |
+| TUNIT53 | count/arcmin^2 |  |
+| TCOMM53 | Background flux at the source position; 0.6-2.3 keV |  |
+| TUNIT54 | count/arcmin^2 |  |
+| TCOMM54 | Background flux at the source position; 2.3-5 keV |  |
+| TCOMM55 | Detection likelihood measured by forced PSF-fitting; 0.2-0.5 keV |  |
+| TCOMM56 | Detection likelihood measured by forced PSF-fitting; 0.5-1 keV |  |
+| TCOMM57 | Detection likelihood measured by forced PSF-fitting; 1-2 keV |  |
+| TCOMM58 | Detection likelihood measured by forced PSF-fitting; 2-4.5 keV |  |
+| TCOMM59 | Detection likelihood measured by forced PSF-fitting; 0.5-2 keV |  |
+| TCOMM60 | Detection likelihood measured by forced PSF-fitting; 2.3-5 keV |  |
+| TCOMM61 | Detection likelihood measured by forced PSF-fitting; 5-8 keV |  |
+| TUNIT62 | count/s |  |
+| TCOMM62 | Source count rate measured by forced PSF-fitting; 0.2-0.5 keV |  |
+| TUNIT63 | count/s |  |
+| TCOMM63 | Source count rate measured by forced PSF-fitting; 0.5-1 keV |  |
+| TUNIT64 | count/s |  |
+| TCOMM64 | Source count rate measured by forced PSF-fitting; 1-2 keV |  |
+| TUNIT65 | count/s |  |
+| TCOMM65 | Source count rate measured by forced PSF-fitting; 2-4.5 keV |  |
+| TUNIT66 | count/s |  |
+| TCOMM66 | Source count rate measured by forced PSF-fitting; 0.5-2 keV |  |
+| TUNIT67 | count/s |  |
+| TCOMM67 | Source count rate measured by forced PSF-fitting; 2.3-5 keV |  |
+| TUNIT68 | count/s |  |
+| TCOMM68 | Source count rate measured by forced PSF-fitting; 5-8 keV |  |
+| TUNIT69 | count/s |  |
+| TCOMM69 | 1 sigma count rate error; 0.2-0.5 keV |  |
+| TUNIT70 | count/s |  |
+| TCOMM70 | 1 sigma count rate error; 0.5-1 keV |  |
+| TUNIT71 | count/s |  |
+| TCOMM71 | 1 sigma count rate error; 1-2 keV |  |
+| TUNIT72 | count/s |  |
+| TCOMM72 | 1 sigma count rate error; 2-4.5 keV |  |
+| TUNIT73 | count/s |  |
+| TCOMM73 | 1 sigma count rate error; 0.5-2 keV |  |
+| TUNIT74 | count/s |  |
+| TCOMM74 | 1 sigma count rate error; 2.3-5 keV |  |
+| TUNIT75 | count/s |  |
+| TCOMM75 | 1 sigma count rate error; 5-8 keV |  |
+| TUNIT76 | count/s |  |
+| TCOMM76 | 1 sigma lower error of count rate; 0.2-0.5 keV |  |
+| TUNIT77 | count/s |  |
+| TCOMM77 | 1 sigma lower error of count rate; 0.5-1 keV |  |
+| TUNIT78 | count/s |  |
+| TCOMM78 | 1 sigma lower error of count rate; 1-2 keV |  |
+| TUNIT79 | count/s |  |
+| TCOMM79 | 1 sigma lower error of count rate; 2-4.5 keV |  |
+| TUNIT80 | count/s |  |
+| TCOMM80 | 1 sigma lower error of count rate; 0.5-2 keV |  |
+| TUNIT81 | count/s |  |
+| TCOMM81 | 1 sigma lower error of count rate; 2.3-5 keV |  |
+| TUNIT82 | count/s |  |
+| TCOMM82 | 1 sigma lower error of count rate; 5-8 keV |  |
+| TUNIT83 | count/s |  |
+| TCOMM83 | 1 sigma upper error of count rate; 0.2-0.5 keV |  |
+| TUNIT84 | count/s |  |
+| TCOMM84 | 1 sigma upper error of count rate; 0.5-1 keV |  |
+| TUNIT85 | count/s |  |
+| TCOMM85 | 1 sigma upper error of count rate; 1-2 keV |  |
+| TUNIT86 | count/s |  |
+| TCOMM86 | 1 sigma upper error of count rate; 2-4.5 keV |  |
+| TUNIT87 | count/s |  |
+| TCOMM87 | 1 sigma upper error of count rate; 0.5-2 keV |  |
+| TUNIT88 | count/s |  |
+| TCOMM88 | 1 sigma upper error of count rate; 2.3-5 keV |  |
+| TUNIT89 | count/s |  |
+| TCOMM89 | 1 sigma upper error of count rate; 5-8 keV |  |
+| TUNIT90 | count |  |
+| TCOMM90 | Source net counts measured from count rate; 0.2-0.5 keV |  |
+| TUNIT91 | count |  |
+| TCOMM91 | Source net counts measured from count rate; 0.5-1 keV |  |
+| TUNIT92 | count |  |
+| TCOMM92 | Source net counts measured from count rate; 1-2 keV |  |
+| TUNIT93 | count |  |
+| TCOMM93 | Source net counts measured from count rate; 2-4.5 keV |  |
+| TUNIT94 | count |  |
+| TCOMM94 | Source net counts measured from count rate; 0.5-2 keV |  |
+| TUNIT95 | count |  |
+| TCOMM95 | Source net counts measured from count rate; 2.3-5 keV |  |
+| TUNIT96 | count |  |
+| TCOMM96 | Source net counts measured from count rate; 5-8 keV |  |
+| TUNIT97 | count |  |
+| TCOMM97 | 1 sigma counts error; 0.2-0.5 keV |  |
+| TUNIT98 | count |  |
+| TCOMM98 | 1 sigma counts error; 0.5-1 keV |  |
+| TUNIT99 | count |  |
+| TCOMM99 | 1 sigma counts error; 1-2 keV |  |
+| TUNIT100 | count |  |
+| TCOMM100 | 1 sigma counts error; 2-4.5 keV |  |
+| TUNIT101 | count |  |
+| TCOMM101 | 1 sigma counts error; 0.5-2 keV |  |
+| TUNIT102 | count |  |
+| TCOMM102 | 1 sigma counts error; 2.3-5 keV |  |
+| TUNIT103 | count |  |
+| TCOMM103 | 1 sigma counts error; 5-8 keV |  |
+| TUNIT104 | count |  |
+| TCOMM104 | 1 sigma lower error of counts; 0.2-0.5 keV |  |
+| TUNIT105 | count |  |
+| TCOMM105 | 1 sigma lower error of counts; 0.5-1 keV |  |
+| TUNIT106 | count |  |
+| TCOMM106 | 1 sigma lower error of counts; 1-2 keV |  |
+| TUNIT107 | count |  |
+| TCOMM107 | 1 sigma lower error of counts; 2-4.5 keV |  |
+| TUNIT108 | count |  |
+| TCOMM108 | 1 sigma lower error of counts; 0.5-2 keV |  |
+| TUNIT109 | count |  |
+| TCOMM109 | 1 sigma lower error of counts; 2.3-5 keV |  |
+| TUNIT110 | count |  |
+| TCOMM110 | 1 sigma lower error of counts; 5-8 keV |  |
+| TUNIT111 | count |  |
+| TCOMM111 | 1 sigma upper error of counts; 0.2-0.5 keV |  |
+| TUNIT112 | count |  |
+| TCOMM112 | 1 sigma upper error of counts; 0.5-1 keV |  |
+| TUNIT113 | count |  |
+| TCOMM113 | 1 sigma upper error of counts; 1-2 keV |  |
+| TUNIT114 | count |  |
+| TCOMM114 | 1 sigma upper error of counts; 2-4.5 keV |  |
+| TUNIT115 | count |  |
+| TCOMM115 | 1 sigma upper error of counts; 0.5-2 keV |  |
+| TUNIT116 | count |  |
+| TCOMM116 | 1 sigma upper error of counts; 2.3-5 keV |  |
+| TUNIT117 | count |  |
+| TCOMM117 | 1 sigma upper error of counts; 5-8 keV |  |
+| TUNIT118 | erg / (cm2 s) |  |
+| TCOMM118 | Source flux converted from count rate; 0.2-0.5 keV |  |
+| TUNIT119 | erg / (cm2 s) |  |
+| TCOMM119 | Source flux converted from count rate; 0.5-1 keV |  |
+| TUNIT120 | erg / (cm2 s) |  |
+| TCOMM120 | Source flux converted from count rate; 1-2 keV |  |
+| TUNIT121 | erg / (cm2 s) |  |
+| TCOMM121 | Source flux converted from count rate; 2-4.5 keV |  |
+| TUNIT122 | erg / (cm2 s) |  |
+| TCOMM122 | Source flux converted from count rate; 0.5-2 keV |  |
+| TUNIT123 | erg / (cm2 s) |  |
+| TCOMM123 | Source flux converted from count rate; 2.3-5 keV |  |
+| TUNIT124 | erg / (cm2 s) |  |
+| TCOMM124 | Source flux converted from count rate; 5-8 keV |  |
+| TUNIT125 | erg / (cm2 s) |  |
+| TCOMM125 | 1 sigma flux error; 0.2-0.5 keV |  |
+| TUNIT126 | erg / (cm2 s) |  |
+| TCOMM126 | 1 sigma flux error; 0.5-1 keV |  |
+| TUNIT127 | erg / (cm2 s) |  |
+| TCOMM127 | 1 sigma flux error; 1-2 keV |  |
+| TUNIT128 | erg / (cm2 s) |  |
+| TCOMM128 | 1 sigma flux error; 2-4.5 keV |  |
+| TUNIT129 | erg / (cm2 s) |  |
+| TCOMM129 | 1 sigma flux error; 0.5-2 keV |  |
+| TUNIT130 | erg / (cm2 s) |  |
+| TCOMM130 | 1 sigma flux error; 2.3-5 keV |  |
+| TUNIT131 | erg / (cm2 s) |  |
+| TCOMM131 | 1 sigma flux error; 5-8 keV |  |
+| TUNIT132 | erg / (cm2 s) |  |
+| TCOMM132 | 1 sigma lower error of flux; 0.2-0.5 keV |  |
+| TUNIT133 | erg / (cm2 s) |  |
+| TCOMM133 | 1 sigma lower error of flux; 0.5-1 keV |  |
+| TUNIT134 | erg / (cm2 s) |  |
+| TCOMM134 | 1 sigma lower error of flux; 1-2 keV |  |
+| TUNIT135 | erg / (cm2 s) |  |
+| TCOMM135 | 1 sigma lower error of flux; 2-4.5 keV |  |
+| TUNIT136 | erg / (cm2 s) |  |
+| TCOMM136 | 1 sigma lower error of flux; 0.5-2 keV |  |
+| TUNIT137 | erg / (cm2 s) |  |
+| TCOMM137 | 1 sigma lower error of flux; 2.3-5 keV |  |
+| TUNIT138 | erg / (cm2 s) |  |
+| TCOMM138 | 1 sigma lower error of flux; 5-8 keV |  |
+| TUNIT139 | erg / (cm2 s) |  |
+| TCOMM139 | 1 sigma upper error of flux; 0.2-0.5 keV |  |
+| TUNIT140 | erg / (cm2 s) |  |
+| TCOMM140 | 1 sigma upper error of flux; 0.5-1 keV |  |
+| TUNIT141 | erg / (cm2 s) |  |
+| TCOMM141 | 1 sigma upper error of flux; 1-2 keV |  |
+| TUNIT142 | erg / (cm2 s) |  |
+| TCOMM142 | 1 sigma upper error of flux; 2-4.5 keV |  |
+| TUNIT143 | erg / (cm2 s) |  |
+| TCOMM143 | 1 sigma upper error of flux; 0.5-2 keV |  |
+| TUNIT144 | erg / (cm2 s) |  |
+| TCOMM144 | 1 sigma upper error of flux; 2.3-5 keV |  |
+| TUNIT145 | erg / (cm2 s) |  |
+| TCOMM145 | 1 sigma upper error of flux; 5-8 keV |  |
+| TUNIT146 | s |  |
+| TCOMM146 | Vignetted exposure value; 0.2-0.5 keV |  |
+| TUNIT147 | s |  |
+| TCOMM147 | Vignetted exposure value; 0.5-1 keV |  |
+| TUNIT148 | s |  |
+| TCOMM148 | Vignetted exposure value; 1-2 keV |  |
+| TUNIT149 | s |  |
+| TCOMM149 | Vignetted exposure value; 2-4.5 keV |  |
+| TUNIT150 | s |  |
+| TCOMM150 | Vignetted exposure value; 0.5-2 keV |  |
+| TUNIT151 | s |  |
+| TCOMM151 | Vignetted exposure value; 2.3-5 keV |  |
+| TUNIT152 | s |  |
+| TCOMM152 | Vignetted exposure value; 5-8 keV |  |
+| TUNIT153 | count/arcmin^2 |  |
+| TCOMM153 | Background flux at the source position; 0.2-0.5 keV |  |
+| TUNIT154 | count/arcmin^2 |  |
+| TCOMM154 | Background flux at the source position; 0.5-1 keV |  |
+| TUNIT155 | count/arcmin^2 |  |
+| TCOMM155 | Background flux at the source position; 1-2 keV |  |
+| TUNIT156 | count/arcmin^2 |  |
+| TCOMM156 | Background flux at the source position; 2-4.5 keV |  |
+| TUNIT157 | count/arcmin^2 |  |
+| TCOMM157 | Background flux at the source position; 0.5-2 keV |  |
+| TUNIT158 | count/arcmin^2 |  |
+| TCOMM158 | Background flux at the source position; 2.3-5 keV |  |
+| TUNIT159 | count/arcmin^2 |  |
+| TCOMM159 | Background flux at the source position; 5-8 keV |  |
+| TUNIT160 | count |  |
+| TCOMM160 | Total counts extracted in the aperture; 0.2-0.5 keV |  |
+| TUNIT161 | count |  |
+| TCOMM161 | Total counts extracted in the aperture; 0.5-1 keV |  |
+| TUNIT162 | count |  |
+| TCOMM162 | Total counts extracted in the aperture; 1-2 keV |  |
+| TUNIT163 | count |  |
+| TCOMM163 | Total counts extracted in the aperture; 2-4.5 keV |  |
+| TUNIT164 | count |  |
+| TCOMM164 | Total counts extracted in the aperture; 0.5-2 keV |  |
+| TUNIT165 | count |  |
+| TCOMM165 | Total counts extracted in the aperture; 2.3-5 keV |  |
+| TUNIT166 | count |  |
+| TCOMM166 | Total counts extracted in the aperture; 5-8 keV |  |
+| TUNIT167 | s |  |
+| TCOMM167 | Vignetted exposure value; 0.2-0.5 keV |  |
+| TUNIT168 | s |  |
+| TCOMM168 | Vignetted exposure value; 0.5-1 keV |  |
+| TUNIT169 | s |  |
+| TCOMM169 | Vignetted exposure value; 1-2 keV |  |
+| TUNIT170 | s |  |
+| TCOMM170 | Vignetted exposure value; 2-4.5 keV |  |
+| TUNIT171 | s |  |
+| TCOMM171 | Vignetted exposure value; 0.5-2 keV |  |
+| TUNIT172 | s |  |
+| TCOMM172 | Vignetted exposure value; 2.3-5 keV |  |
+| TUNIT173 | s |  |
+| TCOMM173 | Vignetted exposure value; 5-8 keV |  |
+| TUNIT174 | count |  |
+| TCOMM174 | Background counts in aperture, excluding nearby sources; 0.2-0.5 keV |  |
+| TUNIT175 | count |  |
+| TCOMM175 | Background counts in aperture, excluding nearby sources; 0.5-1 keV |  |
+| TUNIT176 | count |  |
+| TCOMM176 | Background counts in aperture, excluding nearby sources; 1-2 keV |  |
+| TUNIT177 | count |  |
+| TCOMM177 | Background counts in aperture, excluding nearby sources; 2-4.5 keV |  |
+| TUNIT178 | count |  |
+| TCOMM178 | Background counts in aperture, excluding nearby sources; 0.5-2 keV |  |
+| TUNIT179 | count |  |
+| TCOMM179 | Background counts in aperture, excluding nearby sources; 2.3-5 keV |  |
+| TUNIT180 | count |  |
+| TCOMM180 | Background counts in aperture, excluding nearby sources; 5-8 keV |  |
+| TUNIT181 | pixel |  |
+| TCOMM181 | Aperture radius; 0.2-0.5 keV |  |
+| TUNIT182 | pixel |  |
+| TCOMM182 | Aperture radius; 0.5-1 keV |  |
+| TUNIT183 | pixel |  |
+| TCOMM183 | Aperture radius; 1-2 keV |  |
+| TUNIT184 | pixel |  |
+| TCOMM184 | Aperture radius; 2-4.5 keV |  |
+| TUNIT185 | pixel |  |
+| TCOMM185 | Aperture radius; 0.5-2 keV |  |
+| TUNIT186 | pixel |  |
+| TCOMM186 | Aperture radius; 2.3-5 keV |  |
+| TUNIT187 | pixel |  |
+| TCOMM187 | Aperture radius; 5-8 keV |  |
+| TCOMM188 | Poisson probability of being background fluctuation; 0.2-0.5 keV |  |
+| TCOMM189 | Poisson probability of being background fluctuation; 0.5-1 keV |  |
+| TCOMM190 | Poisson probability of being background fluctuation; 1-2 keV |  |
+| TCOMM191 | Poisson probability of being background fluctuation; 2-4.5 keV |  |
+| TCOMM192 | Poisson probability of being background fluctuation; 0.5-2 keV |  |
+| TCOMM193 | Poisson probability of being background fluctuation; 2.3-5 keV |  |
+| TCOMM194 | Poisson probability of being background fluctuation; 5-8 keV |  |
+| TCOMM195 | Primary key index to associate the HDUs |  |
 
-##### Binary Table Caption for HDU6
+##### Binary Table Caption for HDU5
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | ObjID | char[23] |  | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |
  | ERO_Name | char[22] |  | eROSITA official source Name |
+ | SAMPLE | char[4] |  | Main or Hard sample from eROSITA (Brunner+2022) |
+ | ERO_ID_MAIN | int32 |  | ID of eROSITA source in the Main Sample |
  | ERO_ID_HARD | int32 |  | ID of eROSITA source in the Hard Sample |
  | SPECZ_REDSHIFT | float32 |  | Spectroscopic redshift from visual inspection (Aydar+2025) |
- | SAMPLE | char[4] |  | Main or Hard sample from eROSITA (Brunner+2022) |
- | PLUG_RA | float64 | deg | SDSS right ascension sky coordinate of spectroscopic fibre |
- | PLUG_DEC | float64 | deg | SDSS declination sky coordinate of spectroscopic fibre |
- | ERO_ID_MAIN | int32 |  | ID of eROSITA source in the Main Sample |
- | RA | float64 | deg | Uncorrected RA (ICRS) |
- | DEC | float64 | deg | Uncorrected Dec (ICRS) |
+ | RA_SDSS | float64 | deg | SDSS right ascension (J2000) |
+ | DEC_SDSS | float64 | deg | SDSS declination (J2000) |
+ | MJD | int32 |  | SDSS modified Julian date of observation |
+ | RA | float64 | deg | eROSITA uncorrected RA (ICRS) |
+ | DEC | float64 | deg | eROSITA uncorrected Dec (ICRS) |
  | RADEC_ERR | float32 | arcsec | Combined positional uncertainty, uncorrected |
  | RA_CORR | float64 | deg | J2000 Right Ascension of the eROSITA source (corrected) |
  | DEC_CORR | float64 | deg | J2000 Declination of the eROSITA source (corrected) |
@@ -4383,157 +4071,157 @@ Name | Type | Unit | Description |
  | APE_POIS_s | float64 |  | Poisson probability of being background fluctuation; 0.5-2 keV |
  | APE_POIS_h | float64 |  | Poisson probability of being background fluctuation; 2.3-5 keV |
  | APE_POIS_u | float64 |  | Poisson probability of being background fluctuation; 5-8 keV |
+ | PK_index | int32 |  | Primary key index to associate the HDUs |
 
 
 
-### HDU7: X_RAY_SPECTRAL_PROPERTIES_LIU2022
+### HDU6: X_ray_Spectral_Properties_Liu2022
 AGN X-ray spectral properties from Liu et al. (2022)
 
 #### HDU Type: BINARY TABLE
-#### HDU Size:  3 MB
+#### HDU Size:  4 MB
 
-##### Header Table Caption for HDU7
+##### Header Table Caption for HDU6
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | BINTABLE | binary table extension |
-| BITPIX | 8 | 8-bit bytes |
-| NAXIS | 2 | 2-dimensional table |
-| NAXIS1 | 314 | width of table in bytes |
-| NAXIS2 | 13143 | number of rows in table |
-| PCOUNT | 0 | size of special data area |
-| GCOUNT | 1 | one data group |
-| TFIELDS | 64 | number of columns |
-| EXTNAME | X_RAY_SPECTRAL_PROPERTIES_LIU2022 | table name |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 322 | length of dimension 1 |
+| NAXIS2 | 13143 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 65 | number of table fields |
+| EXTNAME | X_ray_Spectral_Properties_Liu2022 |  |
 | TCOMM1 | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |  |
 | TCOMM2 | eROSITA official source Name (Brunner+2022) |  |
-| TNULL3 | -2147483648 | blank value for column 3 |
-| TCOMM3 | ID of Hard sample eROSITA source (Brunner+2022) |  |
-| TNULL4 | -2147483648 | blank value for column 4 |
+| TCOMM3 | Main or Hard sample from eROSITA (Brunner+2022) |  |
 | TCOMM4 | ID of Main sample eROSITA source (Brunner+2022) |  |
-| TCOMM5 | Spectroscopic redshift from visual inspection (Aydar+2025) |  |
-| TCOMM6 | Main or Hard sample from eROSITA (Brunner+2022) |  |
-| TNULL7 | -2147483648 | blank value for column 7 |
-| TCOMM7 | ID of the sources in the eFEDS main X-ray catalog (Paper I) |  |
-| TCOMM8 | Redshift of the optical counterpart (Paper II) |  |
-| TNULL9 | -2147483648 | blank value for column 9 |
-| TCOMM9 | Updated classification of the optical counterpart |  |
-| TNULL10 | -2147483648 | blank value for column 10 |
-| TCOMM10 | Updated counterpart quality |  |
-| TUNIT11 | deg | units for column 11 |
-| TCOMM11 | eROSITA right ascension (J2000), astrometric corrected (Paper I) |  |
-| TUNIT12 | deg | units for column 12 |
-| TCOMM12 | eROSITA declination (J2000), astrometric corrected (Paper I) |  |
-| TCOMM13 | 0.2-2.3 keV source detection likelihood (Paper I) |  |
-| TCOMM14 | Whether located inside the inner 90%-area region of eFEDS (Paper I) |  |
-| TNULL15 | -32768 | blank value for column 15 |
-| TCOMM15 | Counterpart quality (Paper II). A value >=2 is recommended. |  |
-| TNULL16 | -32768 | blank value for column 16 |
-| TCOMM16 | Classification of the optical counterpart (Paper II). 0:likely Galac |  |
-| TCOMM17 | Redshift of the optical counterpart (Paper II) |  |
-| TNULL18 | -2147483648 | blank value for column 18 |
-| TCOMM18 | Index of selected model for luminosity measurement. 1:single-powerla |  |
-| TNULL19 | -2147483648 | blank value for column 19 |
-| TCOMM19 | Class of AGN NH measurement with model 1 (single-powerlaw). 1: uninf |  |
-| TNULL20 | -2147483648 | blank value for column 20 |
-| TCOMM20 | Index of selected model for 0.5-2keV flux. 5: counts-based measureme |  |
-| TNULL21 | -2147483648 | blank value for column 21 |
-| TCOMM21 | Index of selected model for 2.3-5keV flux. 5: counts-based measureme |  |
-| TUNIT22 | cm-2 | units for column 22 |
-| TCOMM22 | Total column density of Galactic absorption |  |
-| TUNIT23 | cm-2 | units for column 23 |
-| TCOMM23 | HI column density from HI4PI |  |
-| TUNIT24 | count | units for column 24 |
-| TCOMM24 | Source net counts in the 0.2-5 keV band |  |
-| TUNIT25 | erg / (cm2 s) | units for column 25 |
-| TCOMM25 | Absorption corrected flux in observed 0.5-2 keV, posterior median |  |
-| TUNIT26 | erg / (cm2 s) | units for column 26 |
-| TCOMM26 | Absorption corrected flux in observed 0.5-2 keV, 1sigma lower limit |  |
-| TUNIT27 | erg / (cm2 s) | units for column 27 |
-| TCOMM27 | Absorption corrected flux in observed 0.5-2 keV, 1sigma upper limit |  |
-| TUNIT28 | erg / (cm2 s) | units for column 28 |
-| TCOMM28 | Absorption corrected flux in observed 2.3-5 keV, posterior median |  |
-| TUNIT29 | erg / (cm2 s) | units for column 29 |
-| TCOMM29 | Absorption corrected flux in observed 2.3-5 keV, 1sigma lower limit |  |
-| TUNIT30 | erg / (cm2 s) | units for column 30 |
-| TCOMM30 | Absorption corrected flux in observed 2.3-5 keV, 1sigma upper limit |  |
-| TUNIT31 | erg / (cm2 s) | units for column 31 |
-| TCOMM31 | Absorption corrected flux in rest-frame 0.5-2 keV, posterior median |  |
-| TUNIT32 | erg / (cm2 s) | units for column 32 |
-| TCOMM32 | Absorption corrected flux in rest-frame 0.5-2keV, 1sigma lower limit |  |
-| TUNIT33 | erg / (cm2 s) | units for column 33 |
-| TCOMM33 | Absorption corrected flux in rest-frame 0.5-2keV, 1sigma upper limit |  |
-| TUNIT34 | erg / (cm2 eV s) | units for column 34 |
-| TCOMM34 | Absorption corrected flux at rest-frame 2keV, median |  |
-| TUNIT35 | erg / (cm2 eV s) | units for column 35 |
-| TCOMM35 | Absorption corrected flux at rest-frame 2keV, 1sigma lower limit |  |
-| TUNIT36 | erg / (cm2 eV s) | units for column 36 |
-| TCOMM36 | Absorption corrected flux at rest-frame 2keV, 1sigma upper limit |  |
-| TUNIT37 | erg / s | units for column 37 |
-| TCOMM37 | Intrinsic luminosity in rest-frame 0.5-2 keV, posterior median |  |
-| TUNIT38 | erg / s | units for column 38 |
-| TCOMM38 | Intrinsic luminosity in rest-frame 0.5-2 keV, 1sigma lower limit |  |
-| TUNIT39 | erg / s | units for column 39 |
-| TCOMM39 | Intrinsic luminosity in rest-frame 0.5-2 keV, 1sigma upper limit |  |
-| TUNIT40 | erg / (eV s) | units for column 40 |
-| TCOMM40 | Intrinsic luminosity at rest-frame 2keV, posterior median |  |
-| TUNIT41 | erg / (eV s) | units for column 41 |
-| TCOMM41 | Intrinsic luminosity at rest-frame 2keV, 1sigma lower limit |  |
-| TUNIT42 | erg / (eV s) | units for column 42 |
-| TCOMM42 | Intrinsic luminosity at rest-frame 2keV, 1sigma upper limit |  |
-| TUNIT43 | erg / (cm2 s) | units for column 43 |
-| TCOMM43 | Observed flux in observed 0.5-2 keV, posterior median |  |
-| TUNIT44 | erg / (cm2 s) | units for column 44 |
-| TCOMM44 | Observed flux in observed 0.5-2 keV, 1sigma lower limit |  |
-| TUNIT45 | erg / (cm2 s) | units for column 45 |
-| TCOMM45 | Observed flux in observed 0.5-2 keV, 1sigma upper limit |  |
-| TUNIT46 | erg / (cm2 s) | units for column 46 |
-| TCOMM46 | Observed flux in observed 2.3-5 keV, posterior median |  |
-| TUNIT47 | erg / (cm2 s) | units for column 47 |
-| TCOMM47 | Observed flux in observed 2.3-5 keV, 1sigma lower limit |  |
-| TUNIT48 | erg / (cm2 s) | units for column 48 |
-| TCOMM48 | Observed flux in observed 2.3-5 keV, 1sigma upper limit |  |
-| TUNIT49 | nats | units for column 49 |
-| TCOMM49 | log AGN column density, KL divergence |  |
-| TUNIT50 | cm-2 | units for column 50 |
-| TCOMM50 | log AGN column density, HDI lower limit |  |
-| TUNIT51 | cm-2 | units for column 51 |
-| TCOMM51 | log AGN column density, HDI upper limit |  |
-| TUNIT52 | cm-2 | units for column 52 |
-| TCOMM52 | log AGN column density, posterior median |  |
-| TUNIT53 | nats | units for column 53 |
-| TCOMM53 | primary power-law slope in model 3, KL divergence |  |
-| TCOMM54 | primary power-law slope in model 3, HDI lower limit |  |
-| TCOMM55 | primary power-law slope in model 3, HDI upper limit |  |
-| TCOMM56 | primary power-law slope in model 3, posterior median |  |
-| TCOMM57 | log Bayesian evidence with model 0: APEC |  |
-| TCOMM58 | log Bayesian evidence with model 1: single powerlaw |  |
-| TCOMM59 | log Bayesian evidence with model 2: double powerlaw |  |
-| TCOMM60 | log Bayesian evidence with model 3: powerlaw + blackbody |  |
-| TCOMM61 | log Bayesian evidence with model 4: powerlaw with Gamma fixed at 2.0 |  |
-| TCOMM62 | log Bayesian evidence with model 5: shape-fixed powerlaw |  |
-| TUNIT63 | deg | units for column 63 |
-| TCOMM63 | SDSS right ascension (J2000) |  |
-| TUNIT64 | deg | units for column 64 |
-| TCOMM64 | SDSS declination (J2000) |  |
-| DATE-HDU | 2026-06-11T09:50:04 | Date of HDU creation (UTC) |
-| STILVERS | 4.3-5 | Version of STIL software |
-| STILCLAS | uk.ac.starlink.votable.UnifiedFitsTableWriter | STIL Author class |
+| TNULL4 | -1 |  |
+| TCOMM5 | ID of Hard sample eROSITA source (Brunner+2022) |  |
+| TNULL5 | -1 |  |
+| TCOMM6 | Spectroscopic redshift from visual inspection (Aydar+2025) |  |
+| TUNIT7 | deg |  |
+| TCOMM7 | SDSS right ascension (J2000) |  |
+| TUNIT8 | deg |  |
+| TCOMM8 | SDSS declination (J2000) |  |
+| TCOMM9 | SDSS modified Julian date of observation |  |
+| TCOMM10 | Redshift of the optical counterpart (Paper II) |  |
+| TCOMM11 | Updated classification of the optical counterpart |  |
+| TNULL11 | -2147483648 |  |
+| TCOMM12 | Updated counterpart quality |  |
+| TNULL12 | -2147483648 |  |
+| TUNIT13 | deg |  |
+| TCOMM13 | eROSITA right ascension (J2000), astrometric corrected (Paper I) |  |
+| TUNIT14 | deg |  |
+| TCOMM14 | eROSITA declination (J2000), astrometric corrected (Paper I) |  |
+| TCOMM15 | 0.2-2.3 keV source detection likelihood (Paper I) |  |
+| TCOMM16 | Whether located inside the inner 90%-area region of eFEDS (Paper I) |  |
+| TCOMM17 | Counterpart quality (Paper II). A value >=2 is recommended. |  |
+| TNULL17 | -32768 |  |
+| TCOMM18 | Classification of the optical counterpart (Paper II). 0:likely Galac |  |
+| TNULL18 | -32768 |  |
+| TCOMM19 | Redshift of the optical counterpart (Paper II) |  |
+| TCOMM20 | Index of selected model for luminosity measurement. 1:single-powerla |  |
+| TNULL20 | -2147483648 |  |
+| TCOMM21 | Class of AGN NH measurement with model 1 (single-powerlaw). 1: uninf |  |
+| TNULL21 | -2147483648 |  |
+| TCOMM22 | Index of selected model for 0.5-2keV flux. 5: counts-based measureme |  |
+| TNULL22 | -2147483648 |  |
+| TCOMM23 | Index of selected model for 2.3-5keV flux. 5: counts-based measureme |  |
+| TNULL23 | -2147483648 |  |
+| TUNIT24 | cm-2 |  |
+| TCOMM24 | Total column density of Galactic absorption |  |
+| TUNIT25 | cm-2 |  |
+| TCOMM25 | HI column density from HI4PI |  |
+| TUNIT26 | count |  |
+| TCOMM26 | Source net counts in the 0.2-5 keV band |  |
+| TUNIT27 | erg / (cm2 s) |  |
+| TCOMM27 | Absorption corrected flux in observed 0.5-2 keV, posterior median |  |
+| TUNIT28 | erg / (cm2 s) |  |
+| TCOMM28 | Absorption corrected flux in observed 0.5-2 keV, 1sigma lower limit |  |
+| TUNIT29 | erg / (cm2 s) |  |
+| TCOMM29 | Absorption corrected flux in observed 0.5-2 keV, 1sigma upper limit |  |
+| TUNIT30 | erg / (cm2 s) |  |
+| TCOMM30 | Absorption corrected flux in observed 2.3-5 keV, posterior median |  |
+| TUNIT31 | erg / (cm2 s) |  |
+| TCOMM31 | Absorption corrected flux in observed 2.3-5 keV, 1sigma lower limit |  |
+| TUNIT32 | erg / (cm2 s) |  |
+| TCOMM32 | Absorption corrected flux in observed 2.3-5 keV, 1sigma upper limit |  |
+| TUNIT33 | erg / (cm2 s) |  |
+| TCOMM33 | Absorption corrected flux in rest-frame 0.5-2 keV, posterior median |  |
+| TUNIT34 | erg / (cm2 s) |  |
+| TCOMM34 | Absorption corrected flux in rest-frame 0.5-2keV, 1sigma lower limit |  |
+| TUNIT35 | erg / (cm2 s) |  |
+| TCOMM35 | Absorption corrected flux in rest-frame 0.5-2keV, 1sigma upper limit |  |
+| TUNIT36 | erg / (cm2 eV s) |  |
+| TCOMM36 | Absorption corrected flux at rest-frame 2keV, median |  |
+| TUNIT37 | erg / (cm2 eV s) |  |
+| TCOMM37 | Absorption corrected flux at rest-frame 2keV, 1sigma lower limit |  |
+| TUNIT38 | erg / (cm2 eV s) |  |
+| TCOMM38 | Absorption corrected flux at rest-frame 2keV, 1sigma upper limit |  |
+| TUNIT39 | erg / s |  |
+| TCOMM39 | Intrinsic luminosity in rest-frame 0.5-2 keV, posterior median |  |
+| TUNIT40 | erg / s |  |
+| TCOMM40 | Intrinsic luminosity in rest-frame 0.5-2 keV, 1sigma lower limit |  |
+| TUNIT41 | erg / s |  |
+| TCOMM41 | Intrinsic luminosity in rest-frame 0.5-2 keV, 1sigma upper limit |  |
+| TUNIT42 | erg / (eV s) |  |
+| TCOMM42 | Intrinsic luminosity at rest-frame 2keV, posterior median |  |
+| TUNIT43 | erg / (eV s) |  |
+| TCOMM43 | Intrinsic luminosity at rest-frame 2keV, 1sigma lower limit |  |
+| TUNIT44 | erg / (eV s) |  |
+| TCOMM44 | Intrinsic luminosity at rest-frame 2keV, 1sigma upper limit |  |
+| TUNIT45 | erg / (cm2 s) |  |
+| TCOMM45 | Observed flux in observed 0.5-2 keV, posterior median |  |
+| TUNIT46 | erg / (cm2 s) |  |
+| TCOMM46 | Observed flux in observed 0.5-2 keV, 1sigma lower limit |  |
+| TUNIT47 | erg / (cm2 s) |  |
+| TCOMM47 | Observed flux in observed 0.5-2 keV, 1sigma upper limit |  |
+| TUNIT48 | erg / (cm2 s) |  |
+| TCOMM48 | Observed flux in observed 2.3-5 keV, posterior median |  |
+| TUNIT49 | erg / (cm2 s) |  |
+| TCOMM49 | Observed flux in observed 2.3-5 keV, 1sigma lower limit |  |
+| TUNIT50 | erg / (cm2 s) |  |
+| TCOMM50 | Observed flux in observed 2.3-5 keV, 1sigma upper limit |  |
+| TUNIT51 | nats |  |
+| TCOMM51 | log AGN column density, KL divergence |  |
+| TUNIT52 | cm-2 |  |
+| TCOMM52 | log AGN column density, HDI lower limit |  |
+| TUNIT53 | cm-2 |  |
+| TCOMM53 | log AGN column density, HDI upper limit |  |
+| TUNIT54 | cm-2 |  |
+| TCOMM54 | log AGN column density, posterior median |  |
+| TUNIT55 | nats |  |
+| TCOMM55 | primary power-law slope in model 3, KL divergence |  |
+| TCOMM56 | primary power-law slope in model 3, HDI lower limit |  |
+| TCOMM57 | primary power-law slope in model 3, HDI upper limit |  |
+| TCOMM58 | primary power-law slope in model 3, posterior median |  |
+| TCOMM59 | log Bayesian evidence with model 0: APEC |  |
+| TCOMM60 | log Bayesian evidence with model 1: single powerlaw |  |
+| TCOMM61 | log Bayesian evidence with model 2: double powerlaw |  |
+| TCOMM62 | log Bayesian evidence with model 3: powerlaw + blackbody |  |
+| TCOMM63 | log Bayesian evidence with model 4: powerlaw with Gamma fixed at 2.0 |  |
+| TCOMM64 | log Bayesian evidence with model 5: shape-fixed powerlaw |  |
+| TCOMM65 | Primary key index to associate the HDUs |  |
 
-##### Binary Table Caption for HDU7
+##### Binary Table Caption for HDU6
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | ObjID | char[23] |  | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |
  | ERO_Name | char[22] |  | eROSITA official source Name (Brunner+2022) |
- | ERO_ID_HARD | int32 |  | ID of Hard sample eROSITA source (Brunner+2022) |
- | ERO_ID_MAIN | int32 |  | ID of Main sample eROSITA source (Brunner+2022) |
- | SPECZ_REDSHIFT | float32 |  | Spectroscopic redshift from visual inspection (Aydar+2025) |
  | SAMPLE | char[4] |  | Main or Hard sample from eROSITA (Brunner+2022) |
- | ID_SRC | int32 |  | ID of the sources in the eFEDS main X-ray catalog (Paper I) |
+ | ERO_ID_MAIN | int32 |  | ID of Main sample eROSITA source (Brunner+2022) |
+ | ERO_ID_HARD | int32 |  | ID of Hard sample eROSITA source (Brunner+2022) |
+ | SPECZ_REDSHIFT | float32 |  | Spectroscopic redshift from visual inspection (Aydar+2025) |
+ | RA_SDSS | float64 | deg | SDSS right ascension (J2000) |
+ | DEC_SDSS | float64 | deg | SDSS declination (J2000) |
+ | MJD | int64 |  | SDSS modified Julian date of observation |
  | Redshift | float32 |  | Redshift of the optical counterpart (Paper II) |
  | New_Class | int32 |  | Updated classification of the optical counterpart |
  | New_quality | int32 |  | Updated counterpart quality |
- | RA_CORR | float64 | deg | Right ascension (J2000), astrometric corrected (Paper I) |
- | DEC_CORR | float64 | deg | Declination (J2000), astrometric corrected (Paper I) |
+ | RA_CORR | float64 | deg | eROSITA right ascension (J2000), astrometric corrected (Paper I) |
+ | DEC_CORR | float64 | deg | eROSITA declination (J2000), astrometric corrected (Paper I) |
  | DET_LIKE | float32 |  | 0.2-2.3 keV source detection likelihood (Paper I) |
  | inArea90 | bool |  | Whether located inside the inner 90%-area region of eFEDS (Paper I) |
  | EDR_QUALITY | int16 |  | Counterpart quality (Paper II). A value >=2 is recommended. |
@@ -4584,367 +4272,347 @@ Name | Type | Unit | Description |
  | logZ_m3 | float32 |  | log Bayesian evidence with model 3: powerlaw + blackbody |
  | logZ_m4 | float32 |  | log Bayesian evidence with model 4: powerlaw with Gamma fixed at 2.0 |
  | logZ_m5 | float32 |  | log Bayesian evidence with model 5: shape-fixed powerlaw |
- | PLUG_RA | float64 | deg | SDSS right ascension sky coordinate of spectroscopic fibre |
- | PLUG_DEC | float64 | deg | SDSS declination sky coordinate of spectroscopic fibre |
+ | PK_index | int32 |  | Primary key index to associate the HDUs |
 
 
 
-### HDU8: CTP_SALVATO2022
-Photometric counterpart catalogue and multi-wavelength photometry from Salvato et al. (2022)
+### HDU7: CTP_Salvato2022
+Photometric counterpart catalogue and multi-wavelength photometry
 
 #### HDU Type: BINARY TABLE
 #### HDU Size:  16 MB
 
-##### Header Table Caption for HDU8
+##### Header Table Caption for HDU7
 Key | Value | Comment | |
 | --- | --- | --- | --- |
 | XTENSION | BINTABLE | binary table extension |
-| BITPIX | 8 | 8-bit bytes |
-| NAXIS | 2 | 2-dimensional table |
-| NAXIS1 | 1355 | width of table in bytes |
-| NAXIS2 | 13143 | number of rows in table |
-| PCOUNT | 0 | size of special data area |
-| GCOUNT | 1 | one data group |
-| TFIELDS | 178 | number of columns |
-| EXTNAME | CTP_SALVATO2022 | table name |
+| BITPIX | 8 | array data type |
+| NAXIS | 2 | number of array dimensions |
+| NAXIS1 | 1351 | length of dimension 1 |
+| NAXIS2 | 13143 | length of dimension 2 |
+| PCOUNT | 0 | number of group parameters |
+| GCOUNT | 1 | number of groups |
+| TFIELDS | 178 | number of table fields |
+| EXTNAME | CTP_Salvato2022 |  |
 | TCOMM1 | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |  |
 | TCOMM2 | eROSITA official source Name (Brunner+2022) |  |
-| TNULL3 | -2147483648 | blank value for column 3 |
-| TCOMM3 | ID of eROSITA source in the Hard Sample |  |
-| TNULL4 | -2147483648 | blank value for column 4 |
+| TCOMM3 | Main or Hard sample from eROSITA (Brunner+2022) |  |
 | TCOMM4 | ID of Main sample eROSITA source (Brunner+2022) |  |
-| TCOMM5 | Main or Hard sample from eROSITA (Brunner+2022) |  |
-| TCOMM6 | LS8 unique identifier for the counterpart to the eROSITA source (Exp |  |
-| TUNIT7 | deg | units for column 7 |
-| TCOMM7 | J2000 Right Ascension of the LS8 counterpart |  |
-| TUNIT8 | deg | units for column 8 |
-| TCOMM8 | J2000 Declination of the LS8 counterpart |  |
-| TNULL9 | 999999 | blank value for column 9 |
-| TCOMM9 | Total number of spec_z associated with this Legacy Survey DR9 object |  |
-| TCOMM10 | Spectroscopic redshift from Visual Inspection (Aydar+2025) |  |
-| TNULL11 | 999999 | blank value for column 11 |
-| TCOMM11 | Normalised quality of spectroscopic redshift: 3=secure, 2=not secure |  |
-| TCOMM12 | Final normalised classification determined for this object |  |
-| TCOMM13 | True if best spec-z for this object has a visual inspection |  |
-| TCOMM14 | Catalogue code of best spec-z for this object |  |
-| TNULL15 | 999999 | blank value for column 15 |
-| TCOMM15 | Bitmask encoding catalogues containing spec-z for this object. Bit e |  |
-| TUNIT16 | deg | units for column 16 |
-| TCOMM16 | SDSS right ascension sky coordinate of spectroscopic fibre |  |
-| TUNIT17 | deg | units for column 17 |
-| TCOMM17 | SDSS declination sky coordinate of spectroscopic fibre |  |
-| TNULL18 | 999999 | blank value for column 18 |
-| TCOMM18 | SDSS plate |  |
-| TNULL19 | 999999 | blank value for column 19 |
-| TCOMM19 | SDSS modified Julian date of observation |  |
-| TNULL20 | 999999 | blank value for column 20 |
+| TNULL4 | -1 |  |
+| TCOMM5 | ID of eROSITA source in the Hard Sample |  |
+| TNULL5 | -1 |  |
+| TCOMM6 | Spectroscopic redshift from the original catalogue |  |
+| TUNIT7 | deg |  |
+| TCOMM7 | SDSS right ascension sky coordinate of spectroscopic fibre |  |
+| TUNIT8 | deg |  |
+| TCOMM8 | SDSS declination sky coordinate of spectroscopic fibre |  |
+| TCOMM9 | SDSS modified Julian date of observation |  |
+| TNULL9 | -2147483648 |  |
+| TCOMM10 | LS8 unique identifier for the counterpart to the eROSITA source (Exp |  |
+| TUNIT11 | deg |  |
+| TCOMM11 | J2000 Right Ascension of the LS8 counterpart |  |
+| TUNIT12 | deg |  |
+| TCOMM12 | J2000 Declination of the LS8 counterpart |  |
+| TCOMM13 | Total number of spec_z associated with this Legacy Survey DR9 object |  |
+| TNULL13 | -2147483648 |  |
+| TCOMM14 | Normalised quality of spectroscopic redshift: 3=secure, 2=not secure |  |
+| TNULL14 | -2147483648 |  |
+| TCOMM15 | Final normalised classification determined for this object |  |
+| TCOMM16 | True if best spec-z for this object has a visual inspection |  |
+| TCOMM17 | Catalogue code of best spec-z for this object |  |
+| TCOMM18 | Bitmask encoding catalogues containing spec-z for this object. Bit e |  |
+| TNULL18 | -9223372036854775808 |  |
+| TCOMM19 | SDSS plate |  |
+| TNULL19 | -2147483648 |  |
 | TCOMM20 | SDSS FIBER ID |  |
-| TNULL21 | 999999 | blank value for column 21 |
+| TNULL20 | -2147483648 |  |
 | TCOMM21 | SDSS field sequence number |  |
-| TUTYP21 | Integer | VO Utype for column 21 |
-| TNULL22 | 999999 | blank value for column 22 |
+| TNULL21 | -2147483648 |  |
 | TCOMM22 | SDSS CATALOGID (used before the unification with SDSS_ID) |  |
-| TUTYP22 | Long | VO Utype for column 22 |
+| TNULL22 | -9223372036854775808 |  |
 | TCOMM23 | Tagged version of idlspec2d used to reduce the SDSS BOSS spectra |  |
 | TCOMM24 | SDSS Data Release version |  |
 | TCOMM25 | SDSS url to (internal) access observed spectrum |  |
-| TUNIT26 | arcsec | units for column 26 |
+| TUNIT26 | arcsec |  |
 | TCOMM26 | Distance between matched objects along a great circle |  |
-| TUCD26 | pos.angDistance | VO Unified Content Descriptor for column 26 |
 | TCOMM27 | SDSS Median S/N per pix in spectrum (idlspec2d v6_0_2 reductions) |  |
 | TCOMM28 | SDSS Pipeline redshift in idlspec2d eFEDS v6_0_2 reductions |  |
 | TCOMM29 | SDSS Pipeline redshift uncertainty in idlspec2d eFEDS v6_0_2 reducti |  |
 | TCOMM30 | SDSS Pipeline redshift warning flags in idlspec2d eFEDS v6_0_2 reduc |  |
-| TUNIT31 | deg | units for column 31 |
+| TUNIT31 | deg |  |
 | TCOMM31 | J2000 Right Ascension of the eROSITA source (corrected) |  |
-| TUNIT32 | deg | units for column 32 |
+| TUNIT32 | deg |  |
 | TCOMM32 | J2000 Declination of the eROSITA source (corrected) |  |
-| TUNIT33 | deg | units for column 33 |
+| TUNIT33 | deg |  |
 | TCOMM33 | eROSITA positional uncertainty (corrected) |  |
-| TUNIT34 | erg / (cm2 s) | units for column 34 |
+| TUNIT34 | erg / (cm2 s) |  |
 | TCOMM34 | 0.2-2.3 keV source flux converted from count rate assuming ECF=1.074 |  |
-| TUNIT35 | erg / (cm2 s) | units for column 35 |
+| TUNIT35 | erg / (cm2 s) |  |
 | TCOMM35 | 2.3-5 keV source flux error (1 sigma) |  |
 | TCOMM36 | X-ray detection likelihood measured by PSF-fitting |  |
 | TCOMM37 | True if in the 0.2-2.3keV exp>500s region, which comprises 90% |  |
-| TUNIT38 | arcsec | units for column 38 |
+| TUNIT38 | arcsec |  |
 | TCOMM38 | Separation between selected counterpart and eROSITA (corrected) posi |  |
 | TCOMM39 | Unique OBJECTID of the best LS8 counterpart from NWAY (Expression: t |  |
-| TUNIT40 | deg | units for column 40 |
+| TUNIT40 | deg |  |
 | TCOMM40 | J2000 Right Ascension of the best LS8 counterpart from NWAY |  |
-| TUNIT41 | deg | units for column 41 |
+| TUNIT41 | deg |  |
 | TCOMM41 | J2000 Declination of the best LS8 counterpart from NWAY |  |
 | TCOMM42 | Logarithm of ratio between prior and posterior, from separation, pos |  |
 | TCOMM43 | Distance probability comparing this association vs. no association ( |  |
 | TCOMM44 | Same as dist_post, but weighted by the prior (see Appx. in Salvato e |  |
 | TCOMM45 | For each entry in the X-ray catalogue, the probability that there is |  |
 | TCOMM46 | Relative probability of the eROSITA/LS8 match (see Appx. in Salvato |  |
-| TUNIT47 | arcsec | units for column 47 |
+| TUNIT47 | arcsec |  |
 | TCOMM47 | Separation between the X-ray position and the best LS8 counterparts |  |
 | TCOMM48 | LS8 unique identifier of the LS8 counterpart from Maximum Likelihood |  |
-| TUNIT49 | deg | units for column 49 |
+| TUNIT49 | deg |  |
 | TCOMM49 | J2000 Right Ascension of the LS8 counterpart |  |
-| TUNIT50 | deg | units for column 50 |
+| TUNIT50 | deg |  |
 | TCOMM50 | J2000 Declination of the best LS8 counterpart |  |
 | TCOMM51 | Likelihood Ratio value from Maximum Likelihood Ratio technique |  |
 | TCOMM52 | Reliability of the identification from Maximum Likelihood Ratio tech |  |
-| TUNIT53 | arcsec | units for column 53 |
+| TUNIT53 | arcsec |  |
 | TCOMM53 | Separation between the X-ray position and the best LS8 counterparts |  |
-| TNULL54 | -32768 | blank value for column 54 |
 | TCOMM54 | Comparison NWAY/MLR: true if the counterpart selected by the two met |  |
-| TNULL55 | -32768 | blank value for column 55 |
+| TNULL54 | -32768 |  |
 | TCOMM55 | Comparison NWAY/MLR: true if the counterpart from NWAY/MLR has p_any |  |
+| TNULL55 | -32768 |  |
 | TCOMM56 | Match to Hamstar: 1=same counterpart, 0=different counterpart, -99=n |  |
-| TUNIT57 | arcsec | units for column 57 |
+| TUNIT57 | arcsec |  |
 | TCOMM57 | probability of association from Hamstar |  |
-| TUNIT58 | arcsec | units for column 58 |
+| TUNIT58 | arcsec |  |
 | TCOMM58 | Separation between Hamstar ctp and NWAY/MLR ctp |  |
 | TCOMM59 | colour: 1=best, 4=best, 3=good, 2=with secondary, 1/0=unreliable. (s |  |
-| TNULL60 | -9223372036854775808 | blank value for column 60 |
 | TCOMM60 | ID in Gaia EDR3 source catalog |  |
-| TUNIT61 | mas | units for column 61 |
+| TNULL60 | -9223372036854775808 |  |
+| TUNIT61 | mas |  |
 | TCOMM61 | Parallax from Gaia EDR3 |  |
-| TUCD61 | pos.parallax.trig | VO Unified Content Descriptor for column 61 |
-| TUNIT62 | mas | units for column 62 |
+| TUNIT62 | mas |  |
 | TCOMM62 | Parallax error from Gaia EDR3 |  |
-| TUCD62 | stat.error;pos.parallax.trig | VO Unified Content Descriptor for col |
 | TCOMM63 | Parallax/Parallax error, ratio >5 SECURE GALACTIC |  |
-| TUCD63 | arith.ratio | VO Unified Content Descriptor for column 63 |
-| TUNIT64 | mas / yr | units for column 64 |
+| TUNIT64 | mas / yr |  |
 | TCOMM64 | Proper motion in RA from Gaia EDR3 |  |
-| TUCD64 | pos.pm;pos.eq.ra | VO Unified Content Descriptor for column 64 |
-| TUNIT65 | mas / yr | units for column 65 |
+| TUNIT65 | mas / yr |  |
 | TCOMM65 | Proper motion error in RA from Gaia EDR3 |  |
-| TUCD65 | stat.error;pos.pm;pos.eq.ra | VO Unified Content Descriptor for colu |
-| TUNIT66 | mas / yr | units for column 66 |
+| TUNIT66 | mas / yr |  |
 | TCOMM66 | Proper motion in Dec from Gaia EDR3 |  |
-| TUCD66 | pos.pm;pos.eq.dec | VO Unified Content Descriptor for column 66 |
-| TUNIT67 | mas / yr | units for column 67 |
+| TUNIT67 | mas / yr |  |
 | TCOMM67 | Proper motion error in Dec from Gaia EDR3 |  |
-| TUCD67 | stat.error;pos.pm;pos.eq.dec | VO Unified Content Descriptor for col |
-| TUNIT68 | mag | units for column 68 |
+| TUNIT68 | mag |  |
 | TCOMM68 | g band magnitude (VEGA) from Gaia EDR3 |  |
-| TUCD68 | phot.mag;em.opt | VO Unified Content Descriptor for column 68 |
-| TUNIT69 | mag | units for column 69 |
+| TUNIT69 | mag |  |
 | TCOMM69 | Error g band magnitude from Gaia EDR3 |  |
-| TUCD69 | stat.error;phot.mag;stat.mean;em.opt | VO Unified Content Descriptor |
-| TUNIT70 | mag | units for column 70 |
+| TUNIT70 | mag |  |
 | TCOMM70 | bp band magnitude from Gaia EDR3 |  |
-| TUCD70 | phot.mag;em.opt.B | VO Unified Content Descriptor for column 70 |
-| TUNIT71 | mag | units for column 71 |
+| TUNIT71 | mag |  |
 | TCOMM71 | Error bp band magnitude from Gaia EDR3 |  |
-| TUCD71 | stat.error;phot.mag;stat.mean;em.opt.B | VO Unified Content Descript |
-| TUNIT72 | mag | units for column 72 |
+| TUNIT72 | mag |  |
 | TCOMM72 | rp band magnitude (VEGA) from Gaia EDR3 |  |
-| TUCD72 | phot.mag;em.opt.R | VO Unified Content Descriptor for column 72 |
-| TUNIT73 | mag | units for column 73 |
+| TUNIT73 | mag |  |
 | TCOMM73 | Error rp band magnitude from Gaia EDR3 |  |
-| TUCD73 | stat.error;phot.mag;stat.mean;em.opt.R | VO Unified Content Descript |
-| TUNIT74 | mag | units for column 74 |
+| TUNIT74 | mag |  |
 | TCOMM74 | Galex Far UV magnitude (AB) |  |
-| TUNIT75 | mag | units for column 75 |
+| TUNIT75 | mag |  |
 | TCOMM75 | Galex Far UV magnitude error (AB) |  |
-| TUNIT76 | mag | units for column 76 |
+| TUNIT76 | mag |  |
 | TCOMM76 | Galex Near UV magnitude (AB) |  |
-| TUNIT77 | mag | units for column 77 |
+| TUNIT77 | mag |  |
 | TCOMM77 | Galex Near UV magnitude error (AB) |  |
-| TUNIT78 | mag | units for column 78 |
+| TUNIT78 | mag |  |
 | TCOMM78 | KIDS u-band magnitude |  |
-| TUNIT79 | mag | units for column 79 |
+| TUNIT79 | mag |  |
 | TCOMM79 | KIDS u-band magnitude error |  |
-| TUNIT80 | mag | units for column 80 |
+| TUNIT80 | mag |  |
 | TCOMM80 | KIDS g-band magnitude |  |
-| TUNIT81 | mag | units for column 81 |
+| TUNIT81 | mag |  |
 | TCOMM81 | KIDS g-band magnitude error |  |
-| TUNIT82 | mag | units for column 82 |
+| TUNIT82 | mag |  |
 | TCOMM82 | KIDS r-band magnitude |  |
-| TUNIT83 | mag | units for column 83 |
+| TUNIT83 | mag |  |
 | TCOMM83 | KIDS r-band magnitude error |  |
-| TUNIT84 | mag | units for column 84 |
+| TUNIT84 | mag |  |
 | TCOMM84 | KIDS i-band magnitude |  |
-| TUNIT85 | mag | units for column 85 |
+| TUNIT85 | mag |  |
 | TCOMM85 | KIDS i-band magnitude error |  |
-| TUNIT86 | mag | units for column 86 |
-| TNULL86 | -32768 | blank value for column 86 |
+| TUNIT86 | mag |  |
 | TCOMM86 | OmegaCAM z-band magnitude (AB) |  |
-| TUNIT87 | mag | units for column 87 |
+| TNULL86 | -32768 |  |
+| TUNIT87 | mag |  |
 | TCOMM87 | OmegaCAM z-band magnitude error |  |
-| TUNIT88 | mag | units for column 88 |
+| TUNIT88 | mag |  |
 | TCOMM88 | HSC g-band magnitude (AB) |  |
-| TUNIT89 | mag | units for column 89 |
+| TUNIT89 | mag |  |
 | TCOMM89 | HSC g-band magnitude error |  |
-| TUNIT90 | mag | units for column 90 |
+| TUNIT90 | mag |  |
 | TCOMM90 | HSC r-band magnitude (AB) when images are mostly from r-filter (see |  |
-| TUNIT91 | mag | units for column 91 |
+| TUNIT91 | mag |  |
 | TCOMM91 | HSC r-band magnitude error |  |
-| TUNIT92 | mag | units for column 92 |
+| TUNIT92 | mag |  |
 | TCOMM92 | HSC r2-band magnitude (AB) when images are mostly from r2-filter (se |  |
-| TUNIT93 | mag | units for column 93 |
+| TUNIT93 | mag |  |
 | TCOMM93 | HSC r2-band magnitude error |  |
-| TUNIT94 | mag | units for column 94 |
+| TUNIT94 | mag |  |
 | TCOMM94 | HSC i-band magnitude (AB) when images are mostly from i-filter (see |  |
-| TUNIT95 | mag | units for column 95 |
+| TUNIT95 | mag |  |
 | TCOMM95 | HSC i-band magnitude error |  |
-| TUNIT96 | mag | units for column 96 |
+| TUNIT96 | mag |  |
 | TCOMM96 | HSC i2-band magnitude (AB) when images are mostly from i2-filter (se |  |
-| TUNIT97 | mag | units for column 97 |
+| TUNIT97 | mag |  |
 | TCOMM97 | HSC i2-band magnitude error |  |
-| TUNIT98 | mag | units for column 98 |
+| TUNIT98 | mag |  |
 | TCOMM98 | HSC z-band magnitude (AB) |  |
-| TUNIT99 | mag | units for column 99 |
+| TUNIT99 | mag |  |
 | TCOMM99 | HSC z-band magnitude error |  |
-| TUNIT100 | mag | units for column 100 |
+| TUNIT100 | mag |  |
 | TCOMM100 | HSC Y-band magnitude (AB) |  |
-| TUNIT101 | mag | units for column 101 |
+| TUNIT101 | mag |  |
 | TCOMM101 | HSC Y-band magnitude error |  |
-| TUNIT102 | mag | units for column 102 |
+| TUNIT102 | mag |  |
 | TCOMM102 | VISTA/VIKING z-band magnitude (AB) |  |
-| TUNIT103 | mag | units for column 103 |
+| TUNIT103 | mag |  |
 | TCOMM103 | VISTA/VIKING z-band magnitude error |  |
-| TUNIT104 | mag | units for column 104 |
+| TUNIT104 | mag |  |
 | TCOMM104 | VISTA/VIKING Y-band magnitude (AB) |  |
-| TUNIT105 | mag | units for column 105 |
+| TUNIT105 | mag |  |
 | TCOMM105 | VISTA/VIKING Y-band magnitude error |  |
-| TUNIT106 | mag | units for column 106 |
+| TUNIT106 | mag |  |
 | TCOMM106 | VISTA/VIKING J-band magnitude (AB) |  |
-| TUNIT107 | mag | units for column 107 |
+| TUNIT107 | mag |  |
 | TCOMM107 | VISTA/VIKING J-band magnitude error |  |
-| TUNIT108 | mag | units for column 108 |
+| TUNIT108 | mag |  |
 | TCOMM108 | VISTA/VIKING H-band magnitude (AB) |  |
-| TUNIT109 | mag | units for column 109 |
+| TUNIT109 | mag |  |
 | TCOMM109 | VISTA/VIKING H-band magnitude error |  |
-| TUNIT110 | mag | units for column 110 |
+| TUNIT110 | mag |  |
 | TCOMM110 | VISTA/VIKING Ks-band magnitude (AB) |  |
-| TUNIT111 | mag | units for column 111 |
+| TUNIT111 | mag |  |
 | TCOMM111 | VISTA/VIKING Ks-band magnitude error |  |
-| TUNIT112 | mag | units for column 112 |
+| TUNIT112 | mag |  |
 | TCOMM112 | LS8/Wise W1 magnitude (AB) |  |
-| TUNIT113 | mag | units for column 113 |
+| TUNIT113 | mag |  |
 | TCOMM113 | LS8/Wise W1 magnitude error |  |
-| TUNIT114 | mag | units for column 114 |
+| TUNIT114 | mag |  |
 | TCOMM114 | LS8/Wise W2 magnitude (AB) |  |
-| TUNIT115 | mag | units for column 115 |
+| TUNIT115 | mag |  |
 | TCOMM115 | LS8/Wise W2 magnitude error |  |
-| TUNIT116 | mag | units for column 116 |
+| TUNIT116 | mag |  |
 | TCOMM116 | LS8/Wise W3 magnitude (AB) |  |
-| TUNIT117 | mag | units for column 117 |
+| TUNIT117 | mag |  |
 | TCOMM117 | LS8/Wise W3 magnitude error |  |
-| TUNIT118 | mag | units for column 118 |
+| TUNIT118 | mag |  |
 | TCOMM118 | LS8/Wise W4 magnitude (AB) |  |
-| TUNIT119 | mag | units for column 119 |
+| TUNIT119 | mag |  |
 | TCOMM119 | LS8/Wise W4 magnitude error |  |
-| TUNIT120 | mag | units for column 120 |
+| TUNIT120 | mag |  |
 | TCOMM120 | LS8 g-band magnitude (AB) |  |
-| TUNIT121 | mag | units for column 121 |
+| TUNIT121 | mag |  |
 | TCOMM121 | LS8 g-band magnitude error |  |
-| TUNIT122 | mag | units for column 122 |
+| TUNIT122 | mag |  |
 | TCOMM122 | LS8 r-band magnitude (AB) |  |
-| TUNIT123 | mag | units for column 123 |
+| TUNIT123 | mag |  |
 | TCOMM123 | LS8 r-band magnitude error |  |
-| TUNIT124 | mag | units for column 124 |
+| TUNIT124 | mag |  |
 | TCOMM124 | LS8 z-band magnitude (AB) |  |
-| TUNIT125 | mag | units for column 125 |
+| TUNIT125 | mag |  |
 | TCOMM125 | LS8 z-band magnitude error |  |
-| TUNIT126 | mag | units for column 126 |
+| TUNIT126 | mag |  |
 | TCOMM126 | VISTA/VHS Y-band magnitude (AB) |  |
-| TUNIT127 | mag | units for column 127 |
+| TUNIT127 | mag |  |
 | TCOMM127 | VISTA/VHS Y-band magnitude error |  |
-| TUNIT128 | mag | units for column 128 |
+| TUNIT128 | mag |  |
 | TCOMM128 | VISTA/VHS H-band magnitude (AB) |  |
-| TUNIT129 | mag | units for column 129 |
+| TUNIT129 | mag |  |
 | TCOMM129 | VISTA/VHS H-band magnitude error |  |
-| TUNIT130 | mag | units for column 130 |
+| TUNIT130 | mag |  |
 | TCOMM130 | VISTA/VHS Ks-band magnitude (AB) |  |
-| TUNIT131 | mag | units for column 131 |
+| TUNIT131 | mag |  |
 | TCOMM131 | VISTA/VHS Ks-band magnitude error |  |
-| TUNIT132 | mag | units for column 132 |
+| TUNIT132 | mag |  |
 | TCOMM132 | Difference between psf and Kron magnitude in HSC g-band |  |
-| TUNIT133 | mag | units for column 133 |
+| TUNIT133 | mag |  |
 | TCOMM133 | Distance between pfron and Kron magnitude in HSC r-band |  |
-| TUNIT134 | mag | units for column 134 |
+| TUNIT134 | mag |  |
 | TCOMM134 | Distance between pfron and Kron magnitude in HSC i-band |  |
-| TUNIT135 | mag | units for column 135 |
+| TUNIT135 | mag |  |
 | TCOMM135 | Distance between pfron and Kron magnitude in HSC z-band |  |
 | TCOMM136 | Extension in HSC griz bands. 1=extended; -99=data missing; 0=other f |  |
 | TCOMM137 | Flag for LS8 photometry: true when the source has simultaneously g,r |  |
 | TCOMM138 | Morphological model from LS8 |  |
-| TNULL139 | -32768 | blank value for column 139 |
 | TCOMM139 | Source is in KIDS area |  |
-| TNULL140 | -32768 | blank value for column 140 |
+| TNULL139 | -32768 |  |
 | TCOMM140 | Source is in HSC area |  |
-| TUNIT141 | deg | units for column 141 |
+| TNULL140 | -32768 |  |
+| TUNIT141 | deg |  |
 | TCOMM141 | J2000 Right Ascension of the spectroscopic redshift entry in the ori |  |
-| TUNIT142 | deg | units for column 142 |
+| TUNIT142 | deg |  |
 | TCOMM142 | J2000 Declination of the spectroscopic redshift entry in the origina |  |
-| TCOMM143 | Spectroscopic redshift from the original catalogue |  |
-| TNULL144 | -2147483648 | blank value for column 144 |
-| TCOMM144 | Normalised quality of spectroscopic redshift: 3=secure, 2=not secure |  |
-| TCOMM145 | Catalogue which provided this spectroscopic redshift |  |
-| TCOMM146 | Original ID of this spec-z in ORIGIN catalogue |  |
-| TCOMM147 | True when the CTP has a reliable redshift above 0.002 |  |
-| TCOMM148 | True when the CTP has a reliable redshift below 0.002 |  |
-| TCOMM149 | SECURE/LIKELY GALACTIC/EXTRAGALACTIC, as from flowchart (Salvato+202 |  |
-| TCOMM150 | Photoz from Le PHARE, but set to 0 for GALACTIC sources |  |
-| TCOMM151 | Le PHARE zphot min at 1 sigma |  |
-| TCOMM152 | Le PHARE zphot max at 1 sigma |  |
-| TCOMM153 | Le PHARE zphot min at 2 sigma |  |
-| TCOMM154 | Le PHARE zphot max at 2 sigma |  |
-| TCOMM155 | Le PHARE zphot min at 3 sigma |  |
-| TCOMM156 | Le PHARE zphot max at 3 sigma |  |
-| TCOMM157 | Le PHARE chi2 value for best fitting galaxy/AGN template |  |
-| TNULL158 | -32768 | blank value for column 158 |
-| TCOMM158 | Le PHARE model number for best template fitting the data (for PLIKE |  |
-| TNULL159 | -32768 | blank value for column 159 |
-| TCOMM159 | Le PHARE Extinction Law applied to the template: Prevot (1) or none |  |
-| TCOMM160 | Le PHARE E(B-V) applied to the template |  |
-| TCOMM161 | Le Phare probability distribution: Photoz more reliable when value i |  |
-| TNULL162 | -32768 | blank value for column 162 |
-| TCOMM162 | Le Phare number of bands used for the computation of photoz |  |
-| TCOMM163 | Le Phare best photoz from LePhare, if existing |  |
-| TCOMM164 | Le Phare chi2 value for second best fitting template, if existing |  |
-| TCOMM165 | Le Phare second best template fitting the data, if existing |  |
-| TCOMM166 | Le Phare distribution of photoz for secondary solution, if existing |  |
-| TCOMM167 | Photoz from DNNZ (from Nishizawa et al.), but set to 0 for GALACTIC |  |
-| TCOMM168 | DNNZ zphot min at 1 sigma |  |
-| TCOMM169 | DNNZ zphot max at 1 sigma |  |
-| TCOMM170 | DNNZ zphot min at 2 sigma |  |
-| TCOMM171 | DNNZ zphot max at 2 sigma |  |
-| TCOMM172 | Final redshift: zspec when available, else photo-z from Le PHARE; 0 |  |
-| TNULL173 | -32768 | blank value for column 173 |
-| TCOMM173 | In a range from 5 (spectroscopy) to 0 (unreliable photo-z) |  |
-| TNULL174 | -32768 | blank value for column 174 |
-| TCOMM174 | Range from 5 (most likely a cluster) to 1 (not a cluster) (see Salva |  |
-| TCOMM175 | same as CTP_classification, but with numbers: 3: SECURE EXTRAGALACTI |  |
-| TNULL176 | -2147483648 | blank value for column 176 |
-| TCOMM176 | Number of spectra for the same eROSITA source |  |
-| TCOMM177 | SDSS class (STAR, GALAXY, QSO) in idlspec2d eFEDS v6_0_2 reductions |  |
-| TCOMM178 | SDSS subclass in idlspec2d eFEDS v6_0_2 reductions |  |
-| DATE-HDU | 2026-06-11T09:50:04 | Date of HDU creation (UTC) |
-| STILVERS | 4.3-5 | Version of STIL software |
-| STILCLAS | uk.ac.starlink.votable.UnifiedFitsTableWriter | STIL Author class |
+| TCOMM143 | Normalised quality of spectroscopic redshift: 3=secure, 2=not secure |  |
+| TNULL143 | -2147483648 |  |
+| TCOMM144 | Catalogue which provided this spectroscopic redshift |  |
+| TCOMM145 | Original ID of this spec-z in ORIGIN catalogue |  |
+| TCOMM146 | True when the CTP has a reliable redshift above 0.002 |  |
+| TCOMM147 | True when the CTP has a reliable redshift below 0.002 |  |
+| TCOMM148 | SECURE/LIKELY GALACTIC/EXTRAGALACTIC, as from flowchart (Salvato+202 |  |
+| TCOMM149 | Photoz from Le PHARE, but set to 0 for GALACTIC sources |  |
+| TCOMM150 | Le PHARE zphot min at 1 sigma |  |
+| TCOMM151 | Le PHARE zphot max at 1 sigma |  |
+| TCOMM152 | Le PHARE zphot min at 2 sigma |  |
+| TCOMM153 | Le PHARE zphot max at 2 sigma |  |
+| TCOMM154 | Le PHARE zphot min at 3 sigma |  |
+| TCOMM155 | Le PHARE zphot max at 3 sigma |  |
+| TCOMM156 | Le PHARE chi2 value for best fitting galaxy/AGN template |  |
+| TCOMM157 | Le PHARE model number for best template fitting the data (for PLIKE |  |
+| TNULL157 | -32768 |  |
+| TCOMM158 | Le PHARE Extinction Law applied to the template: Prevot (1) or none |  |
+| TNULL158 | -32768 |  |
+| TCOMM159 | Le PHARE E(B-V) applied to the template |  |
+| TCOMM160 | Le Phare probability distribution: Photoz more reliable when value i |  |
+| TCOMM161 | Le Phare number of bands used for the computation of photoz |  |
+| TNULL161 | -32768 |  |
+| TCOMM162 | Le Phare best photoz from LePhare, if existing |  |
+| TCOMM163 | Le Phare chi2 value for second best fitting template, if existing |  |
+| TCOMM164 | Le Phare second best template fitting the data, if existing |  |
+| TCOMM165 | Le Phare distribution of photoz for secondary solution, if existing |  |
+| TCOMM166 | Photoz from DNNZ (from Nishizawa et al.), but set to 0 for GALACTIC |  |
+| TCOMM167 | DNNZ zphot min at 1 sigma |  |
+| TCOMM168 | DNNZ zphot max at 1 sigma |  |
+| TCOMM169 | DNNZ zphot min at 2 sigma |  |
+| TCOMM170 | DNNZ zphot max at 2 sigma |  |
+| TCOMM171 | Final redshift: zspec when available, else photo-z from Le PHARE; 0 |  |
+| TCOMM172 | In a range from 5 (spectroscopy) to 0 (unreliable photo-z) |  |
+| TNULL172 | -32768 |  |
+| TCOMM173 | Range from 5 (most likely a cluster) to 1 (not a cluster) (see Salva |  |
+| TNULL173 | -32768 |  |
+| TCOMM174 | same as CTP_classification, but with numbers: 3: SECURE EXTRAGALACTI |  |
+| TCOMM175 | Number of spectra for the same eROSITA source |  |
+| TNULL175 | -2147483648 |  |
+| TCOMM176 | SDSS class (STAR, GALAXY, QSO) in idlspec2d eFEDS v6_0_2 reductions |  |
+| TCOMM177 | SDSS subclass in idlspec2d eFEDS v6_0_2 reductions |  |
+| TCOMM178 | Primary key index to associate the HDUs |  |
 
-##### Binary Table Caption for HDU8
+##### Binary Table Caption for HDU7
 Name | Type | Unit | Description |
 | --- | --- | --- | --- |
  | ObjID | char[23] |  | SDSS Object ID, either PLATE-MJD-FIBERID or PLATE-MJD-CATALOGID |
  | ERO_Name | char[22] |  | eROSITA official source Name (Brunner+2022) |
- | ERO_ID_HARD | int32 |  | ID of eROSITA source in the Hard Sample |
- | ERO_ID_MAIN | int32 |  | ID of Main sample eROSITA source (Brunner+2022) |
  | SAMPLE | char[4] |  | Main or Hard sample from eROSITA (Brunner+2022) |
+ | ERO_ID_MAIN | int32 |  | ID of Main sample eROSITA source (Brunner+2022) |
+ | ERO_ID_HARD | int32 |  | ID of eROSITA source in the Hard Sample |
+ | SPECZ_REDSHIFT | float32 |  | Spectroscopic redshift from the original catalogue |
+ | RA_SDSS | float64 | deg | SDSS right ascension sky coordinate of spectroscopic fibre |
+ | DEC_SDSS | float64 | deg | SDSS declination sky coordinate of spectroscopic fibre |
+ | MJD | int32 |  | SDSS modified Julian date of observation |
  | CTP_LS8_UNIQUE_OBJID | char[11] |  | LS8 unique identifier for the counterpart to the eROSITA source (Exp |
  | CTP_LS8_RA | float64 | deg | J2000 Right Ascension of the LS8 counterpart |
  | CTP_LS8_DEC | float64 | deg | J2000 Declination of the LS8 counterpart |
  | SPECZ_N_specz | int32 |  | Total number of spec_z associated with this Legacy Survey DR9 object |
- | SPECZ_REDSHIFT_specz | float32 |  | Spectroscopic redshift from Visual Inspection (Aydar+2025) |
  | SPECZ_NORMQ_specz | int32 |  | Normalised quality of spectroscopic redshift: 3=secure, 2=not secure |
  | SPECZ_NORMC_specz | char[8] |  | Final normalised classification determined for this object |
  | SPECZ_HASVI_specz | bool |  | True if best spec-z for this object has a visual inspection |
  | SPECZ_CATCODE_specz | char[12] |  | Catalogue code of best spec-z for this object |
  | SPECZ_BITMASK_specz | int64 |  | Bitmask encoding catalogues containing spec-z for this object. Bit e |
- | PLUG_RA | float64 | deg | SDSS right ascension sky coordinate of spectroscopic fibre |
- | PLUG_DEC | float64 | deg | SDSS declination sky coordinate of spectroscopic fibre |
  | PLATE | int32 |  | SDSS plate |
- | MJD | int32 |  | SDSS modified Julian date of observation |
  | FIBERID | int32 |  | SDSS FIBER ID |
  | FIELD | int32 |  | SDSS field sequence number |
  | CATALOGID | int64 |  | SDSS CATALOGID (used before the unification with SDSS_ID) |
@@ -5068,7 +4736,6 @@ Name | Type | Unit | Description |
  | in_HSC_flag | int16 |  | Source is in HSC area |
  | SPECZ_RA | float64 | deg | J2000 Right Ascension of the spectroscopic redshift entry in the ori |
  | SPECZ_DEC | float64 | deg | J2000 Declination of the spectroscopic redshift entry in the origina |
- | SPECZ_REDSHIFT | float64 |  | Spectroscopic redshift from the original catalogue |
  | SPECZ_NORMQ | int32 |  | Normalised quality of spectroscopic redshift: 3=secure, 2=not secure |
  | SPECZ_ORIGIN | char[8] |  | Catalogue which provided this spectroscopic redshift |
  | SPECZ_ORIG_ID | char[12] |  | Original ID of this spec-z in ORIGIN catalogue |
@@ -5104,6 +4771,7 @@ Name | Type | Unit | Description |
  | NSPEC | int32 |  | Number of spectra for the same eROSITA source |
  | SDSS_CLASS | char[20] |  | SDSS class (STAR, GALAXY, QSO) in idlspec2d eFEDS v6_0_2 reductions |
  | SDSS_SUBCLASS | char[20] |  | SDSS subclass in idlspec2d eFEDS v6_0_2 reductions |
+ | PK_index | int32 |  | Primary key index to associate the HDUs |
 
 
 

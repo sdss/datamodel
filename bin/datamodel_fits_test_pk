@@ -1,0 +1,21 @@
+; 1. Combine the two columns into a single string identifier
+; (STRING() ensures both columns are treated as text for clean concatenation)
+combined_key = STRING(f.OBJID, FORMAT='(A)') + '_' + STRING(f.SAMPLE, FORMAT='(A)')
+
+; 2. Get the total number of rows in your structure
+total_rows = N_ELEMENTS(f)
+
+; 3. Sort and find the unique combinations
+sorted_indices = SORT(combined_key)
+uniq_indices   = UNIQ(combined_key[sorted_indices])
+num_unique     = N_ELEMENTS(uniq_indices)
+
+; 4. Check for uniqueness
+IF (num_unique EQ total_rows) THEN BEGIN
+    PRINT, 'Success: The combination of OBJID and SAMPLE is UNIQUE.'
+ENDIF ELSE BEGIN
+    PRINT, 'Warning: The combination is NOT unique!'
+    PRINT, 'Total Rows: ', total_rows
+    PRINT, 'Unique Combinations: ', num_unique
+    PRINT, 'Duplicate Count: ', total_rows - num_unique
+ENDELSE

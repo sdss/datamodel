@@ -1,0 +1,46 @@
+import numpy as np
+from astropy.io import fits
+
+def remove_fits_duplicates(input_file, output_file):
+    print(f"Reading {input_file}...")
+
+    # Open the FITS file
+    with fits.open(input_file) as hdul:
+        # FITS tables are typically stored in the first extension (HDU 1).
+        # HDU 0 is usually the Primary HDU containing global headers and no data.
+        table_hdu = hdul[1]
+        
+        # Extract the structured data array
+        data = table_hdu.data
+        
+        print(f"Original number of rows: {len(data)}")
+        
+        # np.unique finds unique rows in a structured array.
+        # return_index=True gives us the indices of the first occurrences of unique rows.
+        _, unique_indices = np.unique(data, return_index=True)
+        
+        # Sort the indices so we preserve the original order of the rows in the file
+        unique_indices.sort()
+        
+        # Filter the data to keep only the unique rows
+        unique_data = data[unique_indices]
+        
+        print(f"Number of rows after removing duplicates: {len(unique_data)}")
+        
+        # Create a new Binary Table HDU with the deduplicated data and original header.
+        # Astropy will automatically update the NAXIS2 (number of rows) header keyword.
+        new_table_hdu = fits.BinTableHDU(data=unique_data, header=table_hdu.header)
+        
+        # Replace the old table HDU with our new deduplicated one
+        hdul[1] = new_table_hdu
+        
+        # Write the entire HDU list (including the untouched Primary HDU) to the new file
+        hdul.writeto(output_file, overwrite=True)
+
+    print(f"Successfully saved deduplicated data to {output_file}.")
+
+if __name__ == "__main__":
+    INPUT_FILENAME = 'DA_DWD_DR19-1.0.0.fits'
+    OUTPUT_FILENAME = 'DA_DWD_DR19-1.0.1.fits'
+    
+    remove_fits_duplicates(INPUT_FILENAME, OUTPUT_FILENAME)

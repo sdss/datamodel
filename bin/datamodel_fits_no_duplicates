@@ -1,0 +1,16 @@
+; 1. Compute the histogram of the column to count occurrences of each ID
+h = HISTOGRAM(f.sdss_id, REVERSE_INDICES=ri)
+
+; 2. Find which bins have a count greater than 1 (duplicates)
+dup_bins = WHERE(h GT 1, dup_count)
+
+; 3. Grab the actual sdss_id value from the first row that belongs to this bin
+target_bin = dup_bins[0]
+first_row_idx = ri[ri[target_bin]]
+target_sdss_id = f[first_row_idx].sdss_id
+
+PRINT, 'Investigating sdss_id: ', target_sdss_id
+
+; 4. Use the Reverse Indices array to instantly get all row locations for this ID
+match_indices = ri[ri[target_bin] : ri[target_bin+1]-1]
+PRINT, 'Found ', N_ELEMENTS(match_indices), ' rows for this ID.'
